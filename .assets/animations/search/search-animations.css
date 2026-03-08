@@ -1,0 +1,57 @@
+.reveal {
+  font-size: 28px;
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-weight: 700;
+  text-transform: none;
+  color: #f8fafc;
+}
+
+.reveal .section-title h1 {
+  font-size: 2em;
+  color: #38bdf8;
+  border-bottom: 3px solid #38bdf8;
+  padding-bottom: 0.3em;
+}
+
+.reveal .slide-number {
+  color: #64748b;
+}
+
+.reveal a {
+  color: #38bdf8;
+}
+
+.reveal code {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.reveal table {
+  font-size: 0.7em;
+}
+
+.reveal table th {
+  color: #94a3b8;
+  border-bottom: 2px solid #334155;
+}
+
+.reveal table td {
+  border-bottom: 1px solid #1e293b;
+}
+
+.reveal .callout {
+  font-size: 0.85em;
+}
+
+.reveal .observablehq {
+  margin: 0.5em 0;
+}
+
+.reveal .speaker-notes {
+  font-size: 0.9em;
+  color: #cbd5e1;
+  background: #1e293b;
+}

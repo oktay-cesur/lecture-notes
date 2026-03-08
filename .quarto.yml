@@ -1,0 +1,72 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - .assets/**
+  render:
+    - "**/*.md"
+    - "**/*.qmd"
+    - "!**/*-qmd-fallback.qmd"
+    - "!topics/search/search-algorithms.md"
+    - "!topics/search/search-algorithms-qmd-fallback.qmd"
+    - "!.assets/**"
+    - "!README.md"
+
+profile:
+  group:
+    - [default, local]
+
+website:
+  title: "Ders Notları"
+  navbar:
+    left:
+      - text: "Ana Sayfa"
+        href: index.md
+      - text: "BIM444"
+        href: courses/bim444/crs-bim444.md
+    right:
+      - icon: github
+        href: https://github.com/oktay-cesur/lecture-notes
+  sidebar:
+    - id: bim444
+      title: "BIM444 Yapay Zeka"
+      style: docked
+      contents:
+        - courses/bim444/crs-bim444.md
+        - section: "Temeller"
+          contents:
+            - topics/yapay-zekanin-temelleri.md
+            - topics/akilli-etmenler.md
+            - topics/search/arama-probleminin-anatomisi.md
+            - topics/search/bilgisiz-arama.md
+            - topics/search/sezgisel-arama.md
+        - section: "Makine Öğrenmesi"
+          contents:
+            - topics/denetimli-ogrenme.md
+            - topics/denetimsiz-ogrenme.md
+            - topics/pekistirmeli-ogrenme.md
+        - section: "Derin Öğrenme"
+          contents:
+            - topics/derin-ogrenmeye-giris.md
+            - topics/llms.md
+        - section: "Diğer Yaklaşımlar"
+          contents:
+            - topics/bulanik-mantik.md
+            - topics/genetik-algoritmalar.md
+
+bibliography: references.bib
+
+format:
+  html:
+    from: markdown+wikilinks_title_after_pipe
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    lang: tr
+    code-fold: true
+    code-tools: true
+    filters:
+      - .filters/obsidian-wikilink.lua
+      - .filters/notes-to-text.lua
+      - .filters/slide-link.lua
+      - .filters/animation-assets.lua

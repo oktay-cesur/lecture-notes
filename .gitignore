@@ -1,0 +1,12 @@
+_site/
+.quarto/
+_quarto-local.yml
+.quarto-local.yml
+.proje_notu.txt
+site_libs/
+.DS_Store
+*.quarto_ipynb
+*.html
+
+/.quarto/
+**/*.quarto_ipynb

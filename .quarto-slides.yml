@@ -1,0 +1,14 @@
+format:
+  revealjs:
+    theme: dracula
+    slide-number: true
+    transition: fade
+    incremental: true
+    center: true
+    width: 1280
+    height: 720
+    chalkboard: true
+    filters:
+      - .filters/animation-assets.lua
+
+controls-layout: bottom-right
