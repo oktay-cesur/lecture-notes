@@ -24,8 +24,19 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render
+      - name: Render HTML site
         uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Render slides
+        run: |
+          mkdir -p _site/slides
+          for f in $(grep -rl '^type: presentation' topics/ courses/ 2>/dev/null); do
+            stem="${f%.md}"
+            stem="${stem%.qmd}"
+            outdir="_site/slides/$(dirname "$stem")"
+            mkdir -p "$outdir"
+            quarto render "$f" --profile slides --to revealjs --output-dir "$(realpath "$outdir")"
+          done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
