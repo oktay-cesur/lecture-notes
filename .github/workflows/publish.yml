@@ -30,13 +30,32 @@ jobs:
       - name: Render slides
         run: |
           mkdir -p _site/slides
-          for f in $(grep -rl '^type: presentation' topics/ courses/ 2>/dev/null); do
-            stem="${f%.md}"
-            stem="${stem%.qmd}"
-            outdir="_site/slides/$(dirname "$stem")"
-            mkdir -p "$outdir"
-            quarto render "$f" --profile slides --to revealjs --output-dir "$(realpath "$outdir")"
-          done
+          while IFS= read -r f; do
+            case "$f" in
+              *-qmd-fallback.qmd|topics/search/search-algorithms.md|topics/search/search-algorithms-qmd-fallback.qmd|*/index.md|*/index.qmd)
+                continue
+                ;;
+            esac
+
+            if awk '
+              NR==1 {
+                if ($0 !~ /^---[[:space:]]*$/) exit 1
+                in_yaml=1
+                next
+              }
+              in_yaml && $0 ~ /^---[[:space:]]*$/ {
+                closed=1
+                exit found ? 0 : 1
+              }
+              in_yaml && $0 ~ /^[[:space:]]*type:[[:space:]]*["\047]?presentation["\047]?[[:space:]]*$/ { found=1 }
+              END {
+                if (NR == 0) exit 1
+                if (!closed) exit 1
+              }
+            ' "$f"; then
+              quarto render "$f" --profile local,slides --to revealjs --output-dir _site/slides
+            fi
+          done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
