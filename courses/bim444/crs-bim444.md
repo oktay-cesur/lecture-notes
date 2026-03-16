@@ -37,22 +37,22 @@ Bu ders yapay zekanın temel kavramlarını tarihsel gelişimi üzerinden teorik
 
 | Hafta | Notlar                                                                                                                                    | Açıklama                                                                   |
 |:-----:| ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-|   1   | [[../../topics/yapay-zekanin-temelleri.md\|Yapay Zekaya Giriş]]                                                                             | Yapay zekanın tarihsel süreci ve tanımlama problemi üzerinde durulacaktır. |
-|   2   | [[../../topics/akilli-etmenler.md\|Akıllı Etmenler]]                                                                                        | Akıllı etmen kavramı anlatılacaktır.                                       |
-|   3   | [[../../topics/search/arama-probleminin-anatomisi.md\|Arama Probleminin Anatomisi]] & [[../../topics/search/bilgisiz-arama.md\|Bilgisiz Arama]] | Arama problemine giriş ve bilgisiz arama yaklaşımları ele alınacaktır.     |
-|   4   | [[../../topics/search/sezgisel-arama\|Sezgisel Arama]]  / [[../../topics/search/astar-ve-otesi.md\| A* ve Ötesi]]                                                                                       | Sezgisel fonksiyonlar ve A* yaklaşımı ele alınacaktır.                     |
-|   5   | [[../../topics/search/adversarial.md\|Çekişmeli Arama]]                                                                                     | Minimax ve oyun ağacı tabanlı arama stratejileri işlenecektir.             |
-|   6   | [[../../topics/denetimli-ogrenme.md\|Denetimli Öğrenme]]                                                                                    | Sınıflandırma ve regresyon temelleri ele alınacaktır.                      |
+|   1   | [[tp_yapay-zekanin-temelleri\|Yapay Zekaya Giriş]]                                                                             | Yapay zekanın tarihsel süreci ve tanımlama problemi üzerinde durulacaktır. |
+|   2   | [[tp_akilli-etmenler\|Akıllı Etmenler]]                                                                                        | Akıllı etmen kavramı anlatılacaktır.                                       |
+|   3   | [[tp_arama-probleminin-anatomisi\|Arama Probleminin Anatomisi]] & [[tp_bilgisiz-arama\|Bilgisiz Arama]] | Arama problemine giriş ve bilgisiz arama yaklaşımları ele alınacaktır.     |
+|   4   | [[tp_sezgisel-arama\|Sezgisel Arama]]  / [[tp_astar-ve-otesi\| A* ve Ötesi]]                                                                                       | Sezgisel fonksiyonlar ve A* yaklaşımı ele alınacaktır.                     |
+|   5   | [[tp_yerel-arama\|Yerel Arama]] / [[tp_minimax\|Minimax]] / [[tp_alpha-beta\|Alpha-Beta]]                                       | Yerel arama, oyun problemleri ve alpha-beta budama işlenecektir.           |
+|   6   | [[tp_denetimli-ogrenme\|Denetimli Öğrenme]]                                                                                    | Sınıflandırma ve regresyon temelleri ele alınacaktır.                      |
 |   7   | **Arasınav**                                                                                                                              | -                                                                          |
-|   8   | [[../../topics/denetimli-ogrenme.md\|Denetimli Öğrenme]]                                                                                    | Denetimli öğrenme yöntemlerine devam edilecektir.                          |
-|   9   | [[../../topics/denetimsiz-ogrenme.md\|Denetimsiz Öğrenme]]                                                                                  | Kümeleme ve boyut indirgeme yöntemleri işlenecektir.                       |
-|  10   | [[../../topics/pekistirmeli-ogrenme.md\|Pekiştirmeli Öğrenme]]                                                                              | Etmen-çevre etkileşimi ve ödül tabanlı öğrenme ele alınacaktır.            |
-|  11   | [[../../topics/derin-ogrenmeye-giris.md\|Derin Öğrenme]]                                                                                    | Sinir ağları ve derin öğrenmenin temel kavramları ele alınacaktır.         |
-|  12   | [[../../topics/llms.md\|LLM'ler]]                                                                                                           | Büyük dil modelleri üzerinde durulacaktır.                                 |
-|  13   | [[../../topics/bulanik-mantik.md\|Bulanık Mantık]]                                                                                          | Belirsizlik altında karar verme için bulanık mantık işlenecektir.          |
-|  14   | [[../../topics/genetik-algoritmalar.md\|Genetik Algoritmalar]]                                                                              | Evrimsel optimizasyon yaklaşımı ele alınacaktır.                           |
+|   8   | [[tp_denetimli-ogrenme\|Denetimli Öğrenme]]                                                                                    | Denetimli öğrenme yöntemlerine devam edilecektir.                          |
+|   9   | [[tp_denetimsiz-ogrenme\|Denetimsiz Öğrenme]]                                                                                  | Kümeleme ve boyut indirgeme yöntemleri işlenecektir.                       |
+|  10   | [[tp_pekistirmeli-ogrenme\|Pekiştirmeli Öğrenme]]                                                                              | Etmen-çevre etkileşimi ve ödül tabanlı öğrenme ele alınacaktır.            |
+|  11   | [[tp_derin-ogrenmeye-giris\|Derin Öğrenme]]                                                                                    | Sinir ağları ve derin öğrenmenin temel kavramları ele alınacaktır.         |
+|  12   | [[tp_llms\|LLM'ler]]                                                                                                           | Büyük dil modelleri üzerinde durulacaktır.                                 |
+|  13   | [[tp_bulanik-mantik\|Bulanık Mantık]]                                                                                          | Belirsizlik altında karar verme için bulanık mantık işlenecektir.          |
+|  14   | [[tp_genetik-algoritmalar\|Genetik Algoritmalar]]                                                                              | Evrimsel optimizasyon yaklaşımı ele alınacaktır.                           |
 
 
 notlar:
 
-[[arama-probleminin-anatomisi]]
+[[tp_arama-probleminin-anatomisi]]

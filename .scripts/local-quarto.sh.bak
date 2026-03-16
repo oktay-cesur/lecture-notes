@@ -7,8 +7,6 @@ OUTPUT_DIR_REL="../../_dolap/lecture_notes"
 SLIDES_OUTPUT_DIR_REL="$OUTPUT_DIR_REL/slides"
 CREATED_CONFIG_LINKS=()
 CLEAN_SOURCE_ON_EXIT=0
-SLIDE_WATCHER_PID=""
-SLIDE_POLL_INTERVAL="${SLIDE_POLL_INTERVAL:-2}"
 
 cd "$ROOT_DIR"
 
@@ -52,16 +50,7 @@ cleanup_quarto_config_links() {
   done
 }
 
-stop_slide_watcher() {
-  if [[ -n "$SLIDE_WATCHER_PID" ]] && kill -0 "$SLIDE_WATCHER_PID" 2>/dev/null; then
-    kill "$SLIDE_WATCHER_PID" 2>/dev/null || true
-    wait "$SLIDE_WATCHER_PID" 2>/dev/null || true
-    SLIDE_WATCHER_PID=""
-  fi
-}
-
 on_exit() {
-  stop_slide_watcher
   if [[ "$CLEAN_SOURCE_ON_EXIT" == "1" ]]; then
     clean_source_artifacts
   fi
@@ -146,41 +135,6 @@ render_slide_file() {
   quarto render "$rel_file" --profile local,slides --to revealjs --output-dir "$SLIDES_OUTPUT_DIR_REL"
 }
 
-slide_watcher_loop() {
-  local stamp_file="$ROOT_DIR/.quarto/.slide-watcher-stamp"
-  touch "$stamp_file"
-
-  while true; do
-    sleep "$SLIDE_POLL_INTERVAL"
-
-    local changed=0
-    while IFS= read -r rel_file; do
-      if is_fallback_qmd_file "$rel_file"; then continue; fi
-      if is_render_all_excluded_file "$rel_file"; then continue; fi
-      if is_index_file "$rel_file"; then continue; fi
-      if ! is_presentation_file "$rel_file"; then continue; fi
-
-      if [[ "$rel_file" -nt "$stamp_file" ]]; then
-        echo "SLIDE-WATCHER: change detected → $rel_file"
-        render_slide_file "$rel_file" 2>&1 && \
-          echo "SLIDE-WATCHER: slide rendered ✓ $rel_file" || \
-          echo "SLIDE-WATCHER: slide render FAILED ✗ $rel_file" >&2
-        changed=1
-      fi
-    done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sed 's|^\./||')
-
-    if [[ "$changed" == "1" ]]; then
-      touch "$stamp_file"
-    fi
-  done
-}
-
-start_slide_watcher() {
-  slide_watcher_loop &
-  SLIDE_WATCHER_PID=$!
-  echo "INFO: slide watcher started (pid=$SLIDE_WATCHER_PID, poll=${SLIDE_POLL_INTERVAL}s)"
-}
-
 remove_slide_output() {
   local rel_file="$1"
   local slide_rel="${rel_file%.*}.html"
@@ -262,7 +216,6 @@ case "$command" in
     prepare_output_dirs
     ensure_preview_runtime_dirs
     CLEAN_SOURCE_ON_EXIT=1
-    start_slide_watcher
     quarto preview --profile local --render none
     ;;
   render-all)
@@ -272,7 +225,6 @@ case "$command" in
     render_all_html_files
     CLEAN_SOURCE_ON_EXIT=1
     ensure_preview_runtime_dirs
-    start_slide_watcher
     quarto preview --profile local --render none
     ;;
   render-file)
@@ -298,7 +250,6 @@ case "$command" in
     rel_file="$(resolve_file "$file_arg")"
     render_file_outputs "$rel_file"
     CLEAN_SOURCE_ON_EXIT=1
-    start_slide_watcher
     quarto preview --profile local --render none
     ;;
   render-slide)

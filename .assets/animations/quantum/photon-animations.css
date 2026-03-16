@@ -1,0 +1,155 @@
+.pq-container {
+  background: #0f172a;
+  border-radius: 10px;
+  padding: 0.75rem 1rem 0.9rem;
+  font-family: system-ui, sans-serif;
+  max-width: 640px;
+  margin: 0.4em auto;
+}
+
+.pq-svg {
+  width: 100%;
+  max-width: 600px;
+  background: #0f172a;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.pq-btn-row {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.3rem;
+  justify-content: center;
+}
+
+.pq-btn {
+  background: #1e3a5f;
+  color: #e2e8f0;
+  border: 1px solid #60a5fa;
+  border-radius: 6px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.pq-btn:hover:not(:disabled) { background: #2d4f8a; }
+.pq-btn:disabled { opacity: 0.4; cursor: default; }
+
+.pq-btn-secondary {
+  border-color: #475569;
+  background: #1e293b;
+  color: #94a3b8;
+}
+
+.pq-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.pq-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.pq-bar-label {
+  width: 5.5rem;
+  text-align: right;
+  color: #94a3b8;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+}
+
+.pq-bar-track {
+  flex: 1;
+  background: #1e293b;
+  border-radius: 4px;
+  height: 13px;
+  overflow: hidden;
+}
+
+.pq-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.35s ease;
+  min-width: 0;
+}
+
+.pq-bar-pct {
+  width: 3rem;
+  text-align: left;
+  color: #94a3b8;
+  font-size: 0.78rem;
+}
+
+/* Amplitude chart */
+.pq-amp-section {
+  margin-top: 0.5rem;
+}
+
+.pq-amp-title {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.pq-amp-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr 5rem;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  margin-bottom: 0.3rem;
+}
+
+.pq-amp-label { text-align: right; color: #94a3b8; font-size: 0.78rem; }
+
+.pq-amp-track {
+  position: relative;
+  height: 18px;
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+.pq-amp-zero {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #475569;
+  transform: translateX(-50%);
+}
+
+.pq-amp-fill {
+  position: absolute;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease, left 0.6s ease;
+}
+
+.pq-amp-value {
+  color: #f8fafc;
+  font-size: 0.82rem;
+  font-weight: bold;
+}
+
+.pq-shock {
+  text-align: center;
+  color: #f87171;
+  font-weight: bold;
+  font-size: 0.88rem;
+  margin-top: 0.4rem;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.pq-shock.visible { opacity: 1; }

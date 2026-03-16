@@ -24,6 +24,8 @@ website:
         href: index.md
       - text: "BIM444"
         href: courses/bim444/crs-bim444.md
+      - text: "QBronze"
+        href: courses/qtea26/crs-qbronze.md
     right:
       - icon: github
         href: https://github.com/oktay-cesur/lecture-notes
@@ -35,24 +37,45 @@ website:
         - courses/bim444/crs-bim444.md
         - section: "Temeller"
           contents:
-            - topics/yapay-zekanin-temelleri.md
-            - topics/akilli-etmenler.md
-            - topics/search/arama-probleminin-anatomisi.md
-            - topics/search/bilgisiz-arama.md
-            - topics/search/sezgisel-arama.md
+            - topics/temel-ai/tp_yapay-zekanin-temelleri.md
+            - topics/temel-ai/tp_akilli-etmenler.md
+        - section: "Arama"
+          contents:
+            - topics/search/tp_arama-probleminin-anatomisi.md
+            - topics/search/tp_bilgisiz-arama.md
+            - topics/search/tp_arama-baglamlandirma.md
+            - topics/search/tp_sezgisel-arama.md
+            - topics/search/tp_astar-ve-otesi.md
+            - topics/search/tp_yerel-arama.md
+            - topics/search/tp_minimax.md
+            - topics/search/tp_alpha-beta.md
+            - topics/search/tp_arama-algoritmalari-animasyon.md
         - section: "Makine Öğrenmesi"
           contents:
-            - topics/denetimli-ogrenme.md
-            - topics/denetimsiz-ogrenme.md
-            - topics/pekistirmeli-ogrenme.md
+            - topics/temel-ai/tp_denetimli-ogrenme.md
+            - topics/temel-ai/tp_denetimsiz-ogrenme.md
+            - topics/temel-ai/tp_pekistirmeli-ogrenme.md
         - section: "Derin Öğrenme"
           contents:
-            - topics/derin-ogrenmeye-giris.md
-            - topics/llms.md
+            - topics/temel-ai/tp_derin-ogrenmeye-giris.md
+            - topics/temel-ai/tp_llms.md
         - section: "Diğer Yaklaşımlar"
           contents:
-            - topics/bulanik-mantik.md
-            - topics/genetik-algoritmalar.md
+            - topics/temel-ai/tp_bulanik-mantik.md
+            - topics/temel-ai/tp_genetik-algoritmalar.md
+    - id: qbronze
+      title: "QBronze"
+      style: docked
+      contents:
+        - courses/qtea26/crs-qbronze.md
+        - section: "Kuantum Temelleri"
+          contents:
+            - topics/quantum/fotonlar-kuantum-yazi-tura.md
+            - topics/quantum/ilk-kuantum-programlar.md
+            - topics/quantum/hadamard.md
+        - section: "Dolanıklık ve Protokoller"
+          contents:
+            - topics/quantum/dolaniklik-superdense-coding.md
 
 bibliography: references.bib
 

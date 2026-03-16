@@ -4,6 +4,26 @@ local ANIMATION_MAP = {
     js  = ".assets/animations/search/browser-runtime.js",
     mount = "mountSearchAnimations"
   },
+  quantum = {
+    css = ".assets/animations/quantum/photon-animations.css",
+    js  = ".assets/animations/quantum/photon-experiments.js",
+    mount = "mountQuantumAnimations"
+  },
+  gate = {
+    css = ".assets/animations/quantum/photon-animations.css",
+    js  = ".assets/animations/quantum/gate-animations.js",
+    mount = "mountGateAnimations"
+  },
+  gate3 = {
+    css = ".assets/animations/quantum/photon-animations.css",
+    js  = ".assets/animations/quantum/3gate-animations.js",
+    mount = "mountGate3Animations"
+  },
+  superdense = {
+    css = ".assets/animations/quantum/photon-animations.css",
+    js  = ".assets/animations/quantum/superdense-anim.js",
+    mount = "mountSuperdenseAnimations"
+  },
   custom = {
     js  = ".assets/animations/custom-loader.js",
     mount = "mountCustomAnimations"

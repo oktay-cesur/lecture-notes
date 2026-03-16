@@ -10,3 +10,8 @@ site_libs/
 
 /.quarto/
 **/*.quarto_ipynb
+
+
+# QTurkey notları tamamlanan kadar bu klasörleri ignore ediyoruz
+courses/qtea26/
+topics/quantum/
