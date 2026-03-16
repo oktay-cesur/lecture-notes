@@ -47,10 +47,11 @@ Alpha-beta budaması minimax kararını değiştirmiyor. Hangi hamlenin seçilec
 
 ## Budama Örneği
 
-> **[Görsel: Geçen dersin oyun ağacının budamalı versiyonu]**
-> Aynı ağaç: kök MAX, 3 MIN çocuğu, yapraklar sol [3,5] · orta [6,9] · sağ [1,7]
-> DFS sırası: sol → orta → sağ
-> Gösterim: α değeri sol=3 → orta=6 güncellenişi okla; sağ dalın ikinci yaprağı (7) gri/çizili, "kesildi" etiketli.
+<div
+  data-anim="custom"
+  data-src="alpha-beta-prune.js"
+  data-css="alpha-beta-prune.css"
+></div>
 
 **Adım adım:**
 
