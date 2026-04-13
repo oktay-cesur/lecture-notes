@@ -52,6 +52,7 @@ website:
             - topics/search/tp_arama-algoritmalari-animasyon.md
         - section: "Makine Öğrenmesi"
           contents:
+            - topics/temel-ai/tp_makine-ogrenmesi-giris.md
             - topics/temel-ai/tp_denetimli-ogrenme.md
             - topics/temel-ai/tp_denetimsiz-ogrenme.md
             - topics/temel-ai/tp_pekistirmeli-ogrenme.md

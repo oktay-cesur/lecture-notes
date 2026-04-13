@@ -39,10 +39,10 @@ Bu ders yapay zekanın temel kavramlarını tarihsel gelişimi üzerinden teorik
 |:-----:| ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 |   1   | [[tp_yapay-zekanin-temelleri\|Yapay Zekaya Giriş]]                                                                             | Yapay zekanın tarihsel süreci ve tanımlama problemi üzerinde durulacaktır. |
 |   2   | [[tp_akilli-etmenler\|Akıllı Etmenler]]                                                                                        | Akıllı etmen kavramı anlatılacaktır.                                       |
-|   3   | [[tp_arama-probleminin-anatomisi\|Arama Probleminin Anatomisi]] & [[tp_bilgisiz-arama\|Bilgisiz Arama]] | Arama problemine giriş ve bilgisiz arama yaklaşımları ele alınacaktır.     |
-|   4   | [[tp_sezgisel-arama\|Sezgisel Arama]]  / [[tp_astar-ve-otesi\| A* ve Ötesi]]                                                                                       | Sezgisel fonksiyonlar ve A* yaklaşımı ele alınacaktır.                     |
-|   5   | [[tp_yerel-arama\|Yerel Arama]] / [[tp_minimax\|Minimax]] / [[tp_alpha-beta\|Alpha-Beta]]                                       | Yerel arama, oyun problemleri ve alpha-beta budama işlenecektir.           |
-|   6   | [[tp_denetimli-ogrenme\|Denetimli Öğrenme]]                                                                                    | Sınıflandırma ve regresyon temelleri ele alınacaktır.                      |
+|   3   | [[00-sistem/_ekler/yazi-ornekleri/tp_arama-probleminin-anatomisi\|Arama Probleminin Anatomisi]] & [[00-sistem/_ekler/yazi-ornekleri/tp_bilgisiz-arama\|Bilgisiz Arama]] | Arama problemine giriş ve bilgisiz arama yaklaşımları ele alınacaktır.     |
+|   4   | [[00-sistem/_ekler/yazi-ornekleri/tp_sezgisel-arama\|Sezgisel Arama]]  / [[00-sistem/_ekler/yazi-ornekleri/tp_astar-ve-otesi\| A* ve Ötesi]]                                                                                       | Sezgisel fonksiyonlar ve A* yaklaşımı ele alınacaktır.                     |
+|   5   | [[00-sistem/_ekler/yazi-ornekleri/tp_yerel-arama\|Yerel Arama]] / [[00-sistem/_ekler/yazi-ornekleri/tp_minimax\|Minimax]] / [[00-sistem/_ekler/yazi-ornekleri/tp_alpha-beta\|Alpha-Beta]]                                       | Yerel arama, oyun problemleri ve alpha-beta budama işlenecektir.           |
+|   6   | [[tp_makine-ogrenmesi-giris\| Makine Öğrenmesine Giriş]]                                                                                    | Makine öğrenmesi temel kavramları işlenecektir.                      |
 |   7   | **Arasınav**                                                                                                                              | -                                                                          |
 |   8   | [[tp_denetimli-ogrenme\|Denetimli Öğrenme]]                                                                                    | Denetimli öğrenme yöntemlerine devam edilecektir.                          |
 |   9   | [[tp_denetimsiz-ogrenme\|Denetimsiz Öğrenme]]                                                                                  | Kümeleme ve boyut indirgeme yöntemleri işlenecektir.                       |
@@ -51,8 +51,3 @@ Bu ders yapay zekanın temel kavramlarını tarihsel gelişimi üzerinden teorik
 |  12   | [[tp_llms\|LLM'ler]]                                                                                                           | Büyük dil modelleri üzerinde durulacaktır.                                 |
 |  13   | [[tp_bulanik-mantik\|Bulanık Mantık]]                                                                                          | Belirsizlik altında karar verme için bulanık mantık işlenecektir.          |
 |  14   | [[tp_genetik-algoritmalar\|Genetik Algoritmalar]]                                                                              | Evrimsel optimizasyon yaklaşımı ele alınacaktır.                           |
-
-
-notlar:
-
-[[tp_arama-probleminin-anatomisi]]
