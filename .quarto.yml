@@ -12,6 +12,7 @@ project:
     - "!.assets/**"
     - "!README.md"
 
+
 profile:
   group:
     - [default, local]
@@ -60,6 +61,9 @@ website:
           contents:
             - topics/temel-ai/tp_derin-ogrenmeye-giris.md
             - topics/temel-ai/tp_llms.md
+            - topics/temel-ai/tp_llms-part2.md
+            - topics/temel-ai/tp_llms-part3.md
+            - topics/temel-ai/tp_llms-part4.md
         - section: "Diğer Yaklaşımlar"
           contents:
             - topics/temel-ai/tp_bulanik-mantik.md

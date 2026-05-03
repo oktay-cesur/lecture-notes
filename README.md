@@ -17,10 +17,16 @@ topics/           ← Ders bağımsız konu modülleri
 
 ```bash
 # Lokal önizleme
-quarto preview --profile local
+make preview
 
-# Render (CI/CD)
-quarto render
+# Tüm çıktıları üret ve lokal önizlemeyi başlat
+make render-all
+
+# Tek dosya render
+make render-file FILE=topics/foundations/intro.md
+
+# Tek dosya render + önizleme
+make preview-file FILE=topics/foundations/intro.md
 ```
 
 ## Lisans

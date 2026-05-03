@@ -48,6 +48,6 @@ Bu ders yapay zekanın temel kavramlarını tarihsel gelişimi üzerinden teorik
 |   9   | [[tp_denetimsiz-ogrenme\|Denetimsiz Öğrenme]]                                                                                  | Kümeleme ve boyut indirgeme yöntemleri işlenecektir.                       |
 |  10   | [[tp_pekistirmeli-ogrenme\|Pekiştirmeli Öğrenme]]                                                                              | Etmen-çevre etkileşimi ve ödül tabanlı öğrenme ele alınacaktır.            |
 |  11   | [[tp_derin-ogrenmeye-giris\|Derin Öğrenme]]                                                                                    | Sinir ağları ve derin öğrenmenin temel kavramları ele alınacaktır.         |
-|  12   | [[tp_llms\|LLM'ler]]                                                                                                           | Büyük dil modelleri üzerinde durulacaktır.                                 |
+|  12   | [[tp_llms\|İlk yıllar]] · [[tp_llms-part2\|Modern dönem]]                         | Büyük dil modelleri üzerinde durulacaktır.                                 |
 |  13   | [[tp_bulanik-mantik\|Bulanık Mantık]]                                                                                          | Belirsizlik altında karar verme için bulanık mantık işlenecektir.          |
 |  14   | [[tp_genetik-algoritmalar\|Genetik Algoritmalar]]                                                                              | Evrimsel optimizasyon yaklaşımı ele alınacaktır.                           |
