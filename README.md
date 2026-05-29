@@ -19,14 +19,14 @@ topics/           ← Ders bağımsız konu modülleri
 # Lokal önizleme
 make preview
 
-# Tüm çıktıları üret ve lokal önizlemeyi başlat
+# Tüm çıktıları üret
 make render-all
 
 # Tek dosya render
-make render-file FILE=topics/foundations/intro.md
+make render-file FILE=topics/temel-ai/tp_yapay-zekanin-temelleri.md
 
 # Tek dosya render + önizleme
-make preview-file FILE=topics/foundations/intro.md
+make preview-file FILE=topics/temel-ai/tp_yapay-zekanin-temelleri.md
 ```
 
 ## Lisans

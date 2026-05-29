@@ -1,3 +1,8 @@
+---
+title: "Lecture Notes"
+tags: [index]
+---
+
 # Lecture Notes
 
 Lecture notes written in Quarto. Topic-organized materials covering computer science, mathematics, and practical technical tools, designed for teaching and independent learning.

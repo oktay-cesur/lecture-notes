@@ -10,13 +10,13 @@ render-all:
 	./.scripts/local-quarto.sh render-all
 
 render-file:
-	@test -n "$(FILE)" || (echo "ERROR: FILE is required. Example: make render-file FILE=topics/foundations/intro.md or FILE=topics/search/arama-algoritmalari-animasyon.qmd" >&2; exit 1)
+	@test -n "$(FILE)" || (echo "ERROR: FILE is required. Example: make render-file FILE=topics/temel-ai/tp_yapay-zekanin-temelleri.md or FILE=topics/search/tp_arama-algoritmalari-animasyon.md" >&2; exit 1)
 	./.scripts/local-quarto.sh render-file "$(FILE)"
 
 preview-file:
-	@test -n "$(FILE)" || (echo "ERROR: FILE is required. Example: make preview-file FILE=topics/foundations/intro.md or FILE=topics/search/arama-algoritmalari-animasyon.qmd" >&2; exit 1)
+	@test -n "$(FILE)" || (echo "ERROR: FILE is required. Example: make preview-file FILE=topics/temel-ai/tp_yapay-zekanin-temelleri.md or FILE=topics/search/tp_arama-algoritmalari-animasyon.md" >&2; exit 1)
 	./.scripts/local-quarto.sh preview-file "$(FILE)"
 
 render-slide:
-	@test -n "$(FILE)" || (echo "ERROR: FILE is required. Example: make render-slide FILE=topics/foundations/intro.md or FILE=topics/search/arama-algoritmalari-animasyon.qmd" >&2; exit 1)
+	@test -n "$(FILE)" || (echo "ERROR: FILE is required. Example: make render-slide FILE=topics/temel-ai/tp_yapay-zekanin-temelleri.md or FILE=topics/search/tp_arama-algoritmalari-animasyon.md" >&2; exit 1)
 	./.scripts/local-quarto.sh render-slide "$(FILE)"

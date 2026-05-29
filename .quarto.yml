@@ -9,6 +9,7 @@ project:
     - "!**/*-qmd-fallback.qmd"
     - "!topics/search/search-algorithms.md"
     - "!topics/search/search-algorithms-qmd-fallback.qmd"
+    - "!topics/quantum/_backup/**"
     - "!.assets/**"
     - "!README.md"
 
@@ -18,7 +19,7 @@ profile:
     - [default, local]
 
 website:
-  title: "Ders Notları"
+  title: "Oktay Cesur"
   navbar:
     left:
       - text: "Ana Sayfa"
@@ -27,6 +28,10 @@ website:
         href: courses/bim444/crs-bim444.md
       - text: "QBronze"
         href: courses/qtea26/crs-qbronze.md
+      - text: "LLM"
+        href: courses/llm-teori-ve-uygulamalar/crs-llm-teori-ve-uygulamalar.md
+      - text: "Yazılar"
+        href: yazilar/index.md
     right:
       - icon: github
         href: https://github.com/oktay-cesur/lecture-notes
@@ -68,31 +73,78 @@ website:
           contents:
             - topics/temel-ai/tp_bulanik-mantik.md
             - topics/temel-ai/tp_genetik-algoritmalar.md
+    - id: llm
+      title: "LLM Teori ve Uygulamaları"
+      style: docked
+      contents:
+        - courses/llm-teori-ve-uygulamalar/crs-llm-teori-ve-uygulamalar.md
+        - section: "Notlar"
+          contents:
+            - topics/llm-uygulamalari/art-llm-orkestrasyonu.md
+            - topics/llm-uygulamalari/art-akis-icinde-llm.md
     - id: qbronze
       title: "QBronze"
       style: docked
       contents:
         - courses/qtea26/crs-qbronze.md
-        - section: "Kuantum Temelleri"
+        - section: "Klasik Sistemler"
+          contents:
+            - topics/quantum/tp_klasik-bit.md
+            - topics/quantum/tp_olasiliksal-durum.md
+            - topics/quantum/tp_olasiliksal-operator.md
+            - topics/quantum/tp_bilesik-klasik-sistemler.md
+        - section: "Foton ve Qiskit"
           contents:
             - topics/quantum/fotonlar-kuantum-yazi-tura.md
             - topics/quantum/ilk-kuantum-programlar.md
-            - topics/quantum/hadamard.md
-        - section: "Dolanıklık ve Protokoller"
+        - section: "Tek Qubit"
           contents:
+            - topics/quantum/hadamard.md
+            - topics/quantum/tp_tek-qubit.md
+            - topics/quantum/tp_kuantum-durum-gorsellestirme.md
+            - topics/quantum/tp_superposition-olcum.md
+        - section: "Tek Qubit Operatörleri"
+          contents:
+            - topics/quantum/tp_tek-qubit-operatorler-a.md
+            - topics/quantum/tp_tek-qubit-operatorler-b.md
+        - section: "İki Qubit ve Protokoller"
+          contents:
+            - topics/quantum/tp_iki-qubit.md
             - topics/quantum/dolaniklik-superdense-coding.md
+            - topics/quantum/tp_kuantum-protokolleri.md
+        - section: "Grover"
+          contents:
+            - topics/quantum/tp_grover.md
+    - id: yazilar
+      title: "Yazılar"
+      style: docked
+      contents:
+        - yazilar/index.md
+        - yazilar/serbest-yazilar/index.md
+        - section: "Yeşil Hıyarlar Ülkesinde"
+          contents:
+            - yazilar/yhu/yhu-index.md
+            - yazilar/yhu/art-iceriden-bildiriyorum.md
+            - yazilar/yhu/art-biraz-ciddiyet.md
+            - yazilar/yhu/art-milli-evrak-bakanligi.md
 
 bibliography: references.bib
 
 format:
   html:
     from: markdown+wikilinks_title_after_pipe
-    theme: cosmo
+    theme: 
+      light: flatly
+      dark: darkly
     toc: true
-    toc-depth: 3
+    toc-depth: 4
     lang: tr
     code-fold: true
     code-tools: true
+    code-copy: true
+    code-overflow: wrap
+    css: styles.css
+
     filters:
       - .filters/obsidian-wikilink.lua
       - .filters/notes-to-text.lua

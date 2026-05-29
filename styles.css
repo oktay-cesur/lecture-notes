@@ -1,0 +1,28 @@
+/* Yazı serisi başlık bandı */
+.yazi-seri-bilgi {
+  font-size: 0.85rem;
+  color: var(--bs-secondary);
+  border-left: 3px solid var(--bs-primary);
+  padding: 0.25em 0.75em;
+  margin-bottom: 1.75rem;
+}
+
+.yazi-seri-bilgi a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.yazi-seri-bilgi a:hover {
+  text-decoration: underline;
+}
+
+pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+pre.prompt code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}

@@ -24,6 +24,11 @@ local ANIMATION_MAP = {
     js  = ".assets/animations/quantum/superdense-anim.js",
     mount = "mountSuperdenseAnimations"
   },
+  switch = {
+    css = ".assets/animations/quantum/photon-animations.css",
+    js  = ".assets/animations/quantum/switch-animations.js",
+    mount = "mountSwitchAnimations"
+  },
   custom = {
     js  = ".assets/animations/custom-loader.js",
     mount = "mountCustomAnimations"

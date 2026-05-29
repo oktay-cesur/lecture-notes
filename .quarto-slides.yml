@@ -1,12 +1,12 @@
 format:
   revealjs:
-    theme: dracula
+    theme: sky
     slide-number: true
     transition: fade
-    incremental: true
+    incremental: false
     center: true
-    width: 1280
-    height: 720
+    width: 1920
+    height: 960
     chalkboard: true
     filters:
       - .filters/animation-assets.lua

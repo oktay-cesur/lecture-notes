@@ -6,6 +6,9 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUTPUT_DIR_REL="../../_dolap/lecture_notes"
 SLIDES_OUTPUT_DIR_REL="$OUTPUT_DIR_REL/slides"
 CREATED_CONFIG_LINKS=()
+CREATED_RUNTIME_LINKS=()
+HIDDEN_PROFILE_CONFIGS=()
+TEMP_RENDER_DIR=""
 CLEAN_SOURCE_ON_EXIT=0
 SLIDE_WATCHER_PID=""
 SLIDE_POLL_INTERVAL="${SLIDE_POLL_INTERVAL:-2}"
@@ -25,9 +28,58 @@ USAGE
 }
 
 clean_source_artifacts() {
-  rm -rf .quarto/ _site/ 2>/dev/null || true
+  local path attempt
+  for path in .quarto _site site_libs README_files; do
+    for attempt in 1 2 3; do
+      if [[ ! -e "$path" && ! -L "$path" ]]; then
+        break
+      fi
+      rm -rf "$path" 2>/dev/null || true
+      if [[ ! -e "$path" && ! -L "$path" ]]; then
+        break
+      fi
+      sleep 0.1
+    done
+  done
   find . -type f -name '*.html' -delete 2>/dev/null || true
-  find . -type d -name '*_files' -exec rm -rf {} + 2>/dev/null || true
+  find . -type d -name '*_files' -prune -exec rm -rf {} + 2>/dev/null || true
+}
+
+source_artifacts_exist() {
+  [[ -e .quarto || -e _site || -e site_libs || -e README_files ]] && return 0
+  find . -type f -name '*.html' -print -quit 2>/dev/null | grep -q .
+}
+
+settle_source_artifacts() {
+  local attempt
+  for attempt in 1 2 3 4 5 6 7 8 9 10; do
+    clean_source_artifacts
+    if ! source_artifacts_exist; then
+      sleep 0.5
+      clean_source_artifacts
+      if ! source_artifacts_exist; then
+        return 0
+      fi
+    fi
+    sleep 0.5
+  done
+  sleep 8
+  clean_source_artifacts
+}
+
+reset_output_dir() {
+  local abs_output
+  abs_output="$(cd "$(dirname "$OUTPUT_DIR_REL")" && pwd)/$(basename "$OUTPUT_DIR_REL")"
+  case "$abs_output" in
+    */_dolap/lecture_notes) ;;
+    *)
+      echo "ERROR: refusing to reset unexpected output dir: $abs_output" >&2
+      exit 1
+      ;;
+  esac
+
+  rm -rf "$OUTPUT_DIR_REL"
+  mkdir -p "$OUTPUT_DIR_REL" "$SLIDES_OUTPUT_DIR_REL"
 }
 
 ensure_quarto_config_links() {
@@ -52,6 +104,46 @@ cleanup_quarto_config_links() {
   done
 }
 
+hide_profile_configs() {
+  local visible backup
+  for visible in _quarto-local.yml _quarto-slides.yml; do
+    if [[ -e "$visible" || -L "$visible" ]]; then
+      backup=".$visible.render-all-hidden"
+      rm -f "$backup"
+      mv "$visible" "$backup"
+      HIDDEN_PROFILE_CONFIGS+=("$visible:$backup")
+    fi
+  done
+}
+
+restore_profile_configs() {
+  local pair visible backup
+  for pair in "${HIDDEN_PROFILE_CONFIGS[@]}"; do
+    visible="${pair%%:*}"
+    backup="${pair##*:}"
+    if [[ -e "$backup" || -L "$backup" ]]; then
+      mv "$backup" "$visible"
+    fi
+  done
+  HIDDEN_PROFILE_CONFIGS=()
+}
+
+cleanup_runtime_links() {
+  local visible
+  for visible in "${CREATED_RUNTIME_LINKS[@]}"; do
+    rm -f "$visible" 2>/dev/null || true
+  done
+}
+
+cleanup_temp_render_dir() {
+  if [[ -n "$TEMP_RENDER_DIR" ]]; then
+    case "$TEMP_RENDER_DIR" in
+      /tmp/ders-render.*) rm -rf "$TEMP_RENDER_DIR" 2>/dev/null || true ;;
+    esac
+    TEMP_RENDER_DIR=""
+  fi
+}
+
 stop_slide_watcher() {
   if [[ -n "$SLIDE_WATCHER_PID" ]] && kill -0 "$SLIDE_WATCHER_PID" 2>/dev/null; then
     kill "$SLIDE_WATCHER_PID" 2>/dev/null || true
@@ -62,14 +154,25 @@ stop_slide_watcher() {
 
 on_exit() {
   stop_slide_watcher
+  restore_profile_configs
+  cleanup_temp_render_dir
   if [[ "$CLEAN_SOURCE_ON_EXIT" == "1" ]]; then
     clean_source_artifacts
   fi
+  cleanup_runtime_links
   cleanup_quarto_config_links
 }
 
 prepare_output_dirs() {
   mkdir -p "$OUTPUT_DIR_REL" "$SLIDES_OUTPUT_DIR_REL"
+}
+
+ensure_source_site_libs_link() {
+  local output_site_libs="$OUTPUT_DIR_REL/site_libs"
+  if [[ -d "$output_site_libs" && ! -e site_libs ]]; then
+    ln -s "$output_site_libs" site_libs
+    CREATED_RUNTIME_LINKS+=("site_libs")
+  fi
 }
 
 ensure_preview_runtime_dirs() {
@@ -113,7 +216,7 @@ is_fallback_qmd_file() {
 
 is_render_all_excluded_file() {
   local rel_file="$1"
-  [[ "$rel_file" == "topics/search/search-algorithms.md" || "$rel_file" == "topics/search/search-algorithms-qmd-fallback.qmd" ]]
+  [[ "$rel_file" == "README.md" || "$rel_file" == */_backup/* || "$rel_file" == "topics/search/search-algorithms.md" || "$rel_file" == "topics/search/search-algorithms-qmd-fallback.qmd" ]]
 }
 
 is_presentation_file() {
@@ -143,6 +246,7 @@ render_html_file() {
 
 render_slide_file() {
   local rel_file="$1"
+  rm -rf .quarto 2>/dev/null || true
   quarto render "$rel_file" --profile local,slides --to revealjs --output-dir "$SLIDES_OUTPUT_DIR_REL"
 }
 
@@ -154,6 +258,7 @@ slide_watcher_loop() {
     sleep "$SLIDE_POLL_INTERVAL"
 
     local changed=0
+    local failed=0
     while IFS= read -r rel_file; do
       if is_fallback_qmd_file "$rel_file"; then continue; fi
       if is_render_all_excluded_file "$rel_file"; then continue; fi
@@ -162,14 +267,17 @@ slide_watcher_loop() {
 
       if [[ "$rel_file" -nt "$stamp_file" ]]; then
         echo "SLIDE-WATCHER: change detected → $rel_file"
-        render_slide_file "$rel_file" 2>&1 && \
-          echo "SLIDE-WATCHER: slide rendered ✓ $rel_file" || \
+        if render_slide_file "$rel_file" 2>&1; then
+          echo "SLIDE-WATCHER: slide rendered ✓ $rel_file"
+          changed=1
+        else
           echo "SLIDE-WATCHER: slide render FAILED ✗ $rel_file" >&2
-        changed=1
+          failed=1
+        fi
       fi
     done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sed 's|^\./||')
 
-    if [[ "$changed" == "1" ]]; then
+    if [[ "$changed" == "1" && "$failed" == "0" ]]; then
       touch "$stamp_file"
     fi
   done
@@ -184,7 +292,9 @@ start_slide_watcher() {
 remove_slide_output() {
   local rel_file="$1"
   local slide_rel="${rel_file%.*}.html"
+  local slide_files_rel="${rel_file%.*}_files"
   rm -f "$SLIDES_OUTPUT_DIR_REL/$slide_rel"
+  rm -rf "$SLIDES_OUTPUT_DIR_REL/$slide_files_rel"
 }
 
 render_all_slides() {
@@ -217,6 +327,8 @@ render_all_html_files() {
   local rel_file
   local rendered_count=0
 
+  hide_profile_configs
+  mkdir -p _site
   while IFS= read -r rel_file; do
     if is_fallback_qmd_file "$rel_file"; then
       continue
@@ -224,11 +336,64 @@ render_all_html_files() {
     if is_render_all_excluded_file "$rel_file"; then
       continue
     fi
-    render_html_file "$rel_file"
+
+    rm -rf .quarto site_libs 2>/dev/null || true
+    quarto render "$rel_file" --to html --output-dir "$ROOT_DIR/_site"
     rendered_count=$((rendered_count + 1))
   done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
 
-  echo "INFO: rendered html file count: $rendered_count"
+  cp -a _site/. "$OUTPUT_DIR_REL/"
+  restore_profile_configs
+  echo "INFO: rendered html page count: $rendered_count"
+}
+
+render_all_outputs_in_temp_workspace() {
+  local temp_dir
+  local rel_file
+  local rendered_slide_count=0
+
+  temp_dir="$(mktemp -d /tmp/ders-render.XXXXXX)"
+  TEMP_RENDER_DIR="$temp_dir"
+
+  rsync -a \
+    --exclude='.git' \
+    --exclude='.quarto' \
+    --exclude='_site' \
+    --exclude='site_libs' \
+    --exclude='*_files' \
+    --exclude='*.html' \
+    ./ "$temp_dir/"
+
+  rm -f "$temp_dir/_quarto-local.yml"
+
+  (
+    cd "$temp_dir"
+    quarto render --to html
+
+    rm -rf _site/slides
+    mkdir -p _site/slides
+    while IFS= read -r rel_file; do
+      if is_fallback_qmd_file "$rel_file"; then
+        continue
+      fi
+      if is_render_all_excluded_file "$rel_file"; then
+        continue
+      fi
+      if is_index_file "$rel_file"; then
+        continue
+      fi
+      if is_presentation_file "$rel_file"; then
+        quarto render "$rel_file" --profile slides --to revealjs --output-dir "$temp_dir/_site/slides"
+        rendered_slide_count=$((rendered_slide_count + 1))
+      fi
+    done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
+    echo "INFO: rendered slide deck count: $rendered_slide_count"
+  )
+
+  reset_output_dir
+  cp -a "$temp_dir/_site/." "$OUTPUT_DIR_REL/"
+  settle_source_artifacts
+  echo "INFO: rendered site copied from temp workspace"
 }
 
 render_file_outputs() {
@@ -266,14 +431,9 @@ case "$command" in
     quarto preview --profile local --render none
     ;;
   render-all)
-    clean_source_artifacts
-    prepare_output_dirs
-    render_all_slides
-    render_all_html_files
     CLEAN_SOURCE_ON_EXIT=1
-    ensure_preview_runtime_dirs
-    start_slide_watcher
-    quarto preview --profile local --render none
+    clean_source_artifacts
+    render_all_outputs_in_temp_workspace
     ;;
   render-file)
     file_arg="${2:-}"
