@@ -10,4 +10,4 @@ Bu bölüm ders notu olmayan ama yayınlanabilir nitelikteki serbest yazılar, d
 ## Bölümler
 
 - [[yazilar/serbest-yazilar/index|Serbest Yazılar]]
-- [[yhu-index|YHÜ]]
+- [[yazilar/yhu/index|YHÜ]]

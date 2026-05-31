@@ -8,7 +8,7 @@ tags:
 ---
 
 ::: {.yazi-seri-bilgi}
-[Yeşil Hıyarlar Ülkesinde](yhu-index.md) · Bölüm 1
+[Yeşil Hıyarlar Ülkesinde](index.md) · Bölüm 1
 :::
 
 *-Aşağıda anlatılanlar hayal ürünüdür-*

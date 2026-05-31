@@ -8,7 +8,7 @@ tags:
 ---
 
 ::: {.yazi-seri-bilgi}
-[Yeşil Hıyarlar Ülkesinde](yhu-index.md) · Giriş
+[Yeşil Hıyarlar Ülkesinde](index.md) · Giriş
 :::
 
 Kendimi tanıtma ve giriş yapma kısmında belirttiğim üzere oldukça bireysel bir yaklaşım sundum. Zira eğitim dediğimiz şey özünde oldukça bireysel ve herkesin farklı anılarının olduğu bir alan. Eminim ki burayı okuyan herkesin kendince bir hikâyesi vardır, iyi ya da kötü bu sistemden etkilenmiştir. Haklı olarak da hepiniz eğitim hakkında konuşabilirsiniz. Fakat olay bu noktadan sonra biraz sarpa sarmakta çünkü eğitim hakkında konuşan insanların çoğu (eğitimci olsun veya olmasın) bir çıkmaza girmekte. Girilen çoğu tartışma ve yapılan çoğu yorum bir yerden sonra basma kalıp cümlelere dönüp, sınır varmış gibi 140 karakter girdabına girmekte. [^1]

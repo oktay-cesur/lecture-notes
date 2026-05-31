@@ -8,7 +8,7 @@ tags:
 ---
 
 ::: {.yazi-seri-bilgi}
-[Yeşil Hıyarlar Ülkesinde](yhu-index.md) · Giriş
+[Yeşil Hıyarlar Ülkesinde](index.md) · Giriş
 :::
 
 Böyle bir yazın işine başlamadan evvel bir miktar kendimi tanıtmakta fayda görüyorum, ki böylece giriştiğim işin motivasyonu anlaşılabilsin. Bunun için bir miktar gaz ve toz bulutlarına inmem gerekecek.
