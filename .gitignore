@@ -1,10 +1,14 @@
 _site/
+README_files/
 .quarto/
 _quarto-local.yml
 .quarto-local.yml
 .proje_notu.txt
 site_libs/
 .DS_Store
+texput.log
+*.log
+*.bak
 *.quarto_ipynb
 *.html
 
@@ -12,3 +16,4 @@ site_libs/
 **/*.quarto_ipynb
 
 topics/quantum/_backup/
+.claude/

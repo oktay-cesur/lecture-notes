@@ -5,6 +5,7 @@ type: syllabus
 description: QBronze müfredatına dayalı kuantum hesaplama ders notları.
 tags:
   - output
+sidebar: quantum
 ---
 
 ## Hakkında

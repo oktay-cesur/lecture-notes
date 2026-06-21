@@ -70,3 +70,4 @@ Bu sayfada notlar derslerden bağımsız olarak konu alanlarına göre listelenm
 - [Dolanıklık ve Superdense Coding](topics/quantum/dolaniklik-superdense-coding.md)
 - [Kuantum Protokolleri](topics/quantum/tp_kuantum-protokolleri.md)
 - [Grover Arama Algoritması](topics/quantum/tp_grover.md)
+- [Kuantum Veri Kodlama](topics/quantum/art-quantum-data-encoding.md)

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" role="img" aria-labelledby="title desc">
+  <title id="title">2x2 sembolik piksel gösterimi</title>
+  <desc id="desc">Dört kareden oluşan 2x2 piksel ızgarası: p11, p12, p21, p22.</desc>
+  <rect width="140" height="140" fill="#ffffff"/>
+  <rect x="1" y="1" width="68" height="68" fill="#f8f9fa" stroke="#111111" stroke-width="2"/>
+  <rect x="71" y="1" width="68" height="68" fill="#f8f9fa" stroke="#111111" stroke-width="2"/>
+  <rect x="1" y="71" width="68" height="68" fill="#f8f9fa" stroke="#111111" stroke-width="2"/>
+  <rect x="71" y="71" width="68" height="68" fill="#f8f9fa" stroke="#111111" stroke-width="2"/>
+  <text x="35" y="42" text-anchor="middle" font-family="monospace" font-size="16" fill="#111111">p11</text>
+  <text x="105" y="42" text-anchor="middle" font-family="monospace" font-size="16" fill="#111111">p12</text>
+  <text x="35" y="112" text-anchor="middle" font-family="monospace" font-size="16" fill="#111111">p21</text>
+  <text x="105" y="112" text-anchor="middle" font-family="monospace" font-size="16" fill="#111111">p22</text>
+</svg>

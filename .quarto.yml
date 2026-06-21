@@ -10,6 +10,7 @@ project:
     - "!topics/search/search-algorithms.md"
     - "!topics/search/search-algorithms-qmd-fallback.qmd"
     - "!topics/quantum/_backup/**"
+    - "!topics/quantum/art-frqi.md"
     - "!.assets/**"
     - "!README.md"
 
@@ -26,8 +27,8 @@ website:
         href: index.md
       - text: "BIM444"
         href: courses/bim444/crs-bim444.md
-      - text: "QBronze"
-        href: courses/qtea26/crs-qbronze.md
+      - text: "Kuantum Hesaplama"
+        href: courses/quantum/index.md
       - text: "LLM"
         href: courses/llm-teori-ve-uygulamalar/crs-llm-teori-ve-uygulamalar.md
       - text: "Yazılar"
@@ -82,39 +83,45 @@ website:
           contents:
             - topics/llm-uygulamalari/art-llm-orkestrasyonu.md
             - topics/llm-uygulamalari/art-akis-icinde-llm.md
-    - id: qbronze
-      title: "QBronze"
+    - id: quantum
+      title: "Kuantum Hesaplama"
       style: docked
       contents:
-        - courses/qtea26/crs-qbronze.md
-        - section: "Klasik Sistemler"
+        - courses/quantum/index.md
+        - section: "QBronze"
           contents:
-            - topics/quantum/tp_klasik-bit.md
-            - topics/quantum/tp_olasiliksal-durum.md
-            - topics/quantum/tp_olasiliksal-operator.md
-            - topics/quantum/tp_bilesik-klasik-sistemler.md
-        - section: "Foton ve Qiskit"
+            - courses/qtea26/crs-qbronze.md
+            - section: "Klasik Sistemler"
+              contents:
+                - topics/quantum/tp_klasik-bit.md
+                - topics/quantum/tp_olasiliksal-durum.md
+                - topics/quantum/tp_olasiliksal-operator.md
+                - topics/quantum/tp_bilesik-klasik-sistemler.md
+            - section: "Foton ve Qiskit"
+              contents:
+                - topics/quantum/fotonlar-kuantum-yazi-tura.md
+                - topics/quantum/ilk-kuantum-programlar.md
+            - section: "Tek Qubit"
+              contents:
+                - topics/quantum/hadamard.md
+                - topics/quantum/tp_tek-qubit.md
+                - topics/quantum/tp_kuantum-durum-gorsellestirme.md
+                - topics/quantum/tp_superposition-olcum.md
+            - section: "Tek Qubit Operatörleri"
+              contents:
+                - topics/quantum/tp_tek-qubit-operatorler-a.md
+                - topics/quantum/tp_tek-qubit-operatorler-b.md
+            - section: "İki Qubit ve Protokoller"
+              contents:
+                - topics/quantum/tp_iki-qubit.md
+                - topics/quantum/dolaniklik-superdense-coding.md
+                - topics/quantum/tp_kuantum-protokolleri.md
+            - section: "Grover"
+              contents:
+                - topics/quantum/tp_grover.md
+        - section: "Notlar ve Yazılar"
           contents:
-            - topics/quantum/fotonlar-kuantum-yazi-tura.md
-            - topics/quantum/ilk-kuantum-programlar.md
-        - section: "Tek Qubit"
-          contents:
-            - topics/quantum/hadamard.md
-            - topics/quantum/tp_tek-qubit.md
-            - topics/quantum/tp_kuantum-durum-gorsellestirme.md
-            - topics/quantum/tp_superposition-olcum.md
-        - section: "Tek Qubit Operatörleri"
-          contents:
-            - topics/quantum/tp_tek-qubit-operatorler-a.md
-            - topics/quantum/tp_tek-qubit-operatorler-b.md
-        - section: "İki Qubit ve Protokoller"
-          contents:
-            - topics/quantum/tp_iki-qubit.md
-            - topics/quantum/dolaniklik-superdense-coding.md
-            - topics/quantum/tp_kuantum-protokolleri.md
-        - section: "Grover"
-          contents:
-            - topics/quantum/tp_grover.md
+            - topics/quantum/art-quantum-data-encoding.md
     - id: yazilar
       title: "Yazılar"
       style: docked
