@@ -26,6 +26,8 @@ jobs:
 
       - name: Render HTML site
         uses: quarto-dev/quarto-actions/render@v2
+        with:
+          profile: publish
 
       - name: Render slides
         run: |
