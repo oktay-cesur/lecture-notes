@@ -214,7 +214,7 @@ En doğru yorum "yer değiştirme"dir: vektör bir konumu değil, bir konumdan d
 
 
 ::: {style="auto; text-align: center;"}
-![Vektör Göstermi](../../images/vektor-3.2.png){#vektor-tanim width=900px}
+![Vektör Göstermi](../../../../images/vektor-3.2.png){#vektor-tanim width=900px}
 :::
 
 
@@ -342,7 +342,7 @@ Grup örneğindeki $4$ boyutlu vektörler için böyle bir ok çizmek mümkün d
 
 
 ::: {style="auto; text-align: center;"}
-![Vektör Toplamı](../../images/vektör-toplam.png){#vektor-tanim width=900px}
+![Vektör Toplamı](../../../../images/vektör-toplam.png){#vektor-tanim width=900px}
 :::
 
 
@@ -563,7 +563,7 @@ Geometrik olarak bu işlem vektörün yönünü değiştirmez, yalnızca uzunlu�
 ---
 
 ::: {style="auto; text-align: center;"}
-![Sklaer ile çarpma](../../images/skalerle-carpim.png){#vektor-tanim width=900px}
+![Sklaer ile çarpma](../../../../images/skalerle-carpim.png){#vektor-tanim width=900px}
 :::
 
 
@@ -681,7 +681,7 @@ Norm sembolü $\|u\|$ okunur: "u'nun normu" veya "u'nun uzunluğu". Genel formü
 ---
 
 ::: {style="auto; text-align: center;"}
-![Vektör Normu](../../images/vektor-norm.png){#vektor-norm width=900px}
+![Vektör Normu](../../../../images/vektor-norm.png){#vektor-norm width=900px}
 :::
 
 
