@@ -1,19 +1,37 @@
+# Quarto ve Pandoc çıktıları
 _site/
-README_files/
 .quarto/
+site_libs/
+**/*_files/
+*.quarto_ipynb
+*.html
+
+# Yerel Quarto yapılandırması ve çalışma notları
 _quarto-local.yml
 .quarto-local.yml
 .proje_notu.txt
-site_libs/
+
+# Yerel ajan ve editör yapılandırmaları
+.agents/
+.claude/
+.codex/
+AGENTS.md
+courses/_ortak/tez/
+
+# Yayın deposuna girmeyen çalışma alanları
+**/_arsiv/
+**/_draft/
+**/_private/
+**/_backup/
+
+# İşletim sistemi ve geçici dosyalar
 .DS_Store
 texput.log
 *.log
 *.bak
-*.quarto_ipynb
-*.html
+*.tmp
+*.swp
+*~
 
 /.quarto/
 **/*.quarto_ipynb
-
-topics/quantum/_backup/
-.claude/

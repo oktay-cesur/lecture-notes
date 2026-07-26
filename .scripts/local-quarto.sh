@@ -13,7 +13,12 @@ CLEAN_SOURCE_ON_EXIT=0
 SLIDE_WATCHER_PID=""
 SLIDE_POLL_INTERVAL="${SLIDE_POLL_INTERVAL:-2}"
 
+export QUARTO_DENO_DIR="${QUARTO_DENO_DIR:-/tmp/quarto-deno-cache}"
+export DENO_DIR="${DENO_DIR:-/tmp/quarto-deno-cache}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-/tmp/quarto-xdg-cache}"
+
 cd "$ROOT_DIR"
+mkdir -p "$QUARTO_DENO_DIR" "$DENO_DIR" "$XDG_CACHE_HOME"
 
 usage() {
   cat <<'USAGE'
@@ -216,7 +221,7 @@ is_fallback_qmd_file() {
 
 is_render_all_excluded_file() {
   local rel_file="$1"
-  [[ "$rel_file" == "README.md" || "$rel_file" == */_backup/* || "$rel_file" == "topics/search/search-algorithms.md" || "$rel_file" == "topics/search/search-algorithms-qmd-fallback.qmd" ]]
+  [[ "$rel_file" == "README.md" || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
 }
 
 is_presentation_file() {
@@ -241,13 +246,102 @@ is_presentation_file() {
 
 render_html_file() {
   local rel_file="$1"
+  local rel_dir base_name html_name source_dir output_dir source_html source_files target_html target_files
+
   quarto render "$rel_file" --profile local --to html
+
+  rel_dir="$(dirname "$rel_file")"
+  base_name="$(basename "${rel_file%.*}")"
+  html_name="${base_name}.html"
+
+  if [[ "$rel_dir" == "." ]]; then
+    source_dir="."
+    output_dir="$OUTPUT_DIR_REL"
+  else
+    source_dir="$rel_dir"
+    output_dir="$OUTPUT_DIR_REL/$rel_dir"
+  fi
+
+  source_html="$source_dir/$html_name"
+  source_files="$source_dir/${base_name}_files"
+  target_html="$output_dir/$html_name"
+  target_files="$output_dir/${base_name}_files"
+
+  mkdir -p "$output_dir"
+
+  if [[ -f "$source_html" ]]; then
+    cp -f "$source_html" "$target_html"
+  fi
+
+  if [[ -d "$source_files" ]]; then
+    rm -rf "$target_files"
+    cp -a "$source_files" "$target_files"
+  fi
+
+  if [[ -d site_libs ]]; then
+    rm -rf "$OUTPUT_DIR_REL/site_libs"
+    cp -a site_libs "$OUTPUT_DIR_REL/site_libs"
+  fi
 }
 
 render_slide_file() {
   local rel_file="$1"
-  rm -rf .quarto 2>/dev/null || true
-  quarto render "$rel_file" --profile local,slides --to revealjs --output-dir "$SLIDES_OUTPUT_DIR_REL"
+  local temp_dir rel_dir base_name html_name source_dir output_dir source_html source_files target_html target_files
+
+  temp_dir="$(mktemp -d /tmp/ders-slide-render.XXXXXX)"
+  rsync -a \
+    --exclude='.git' \
+    --exclude='.quarto' \
+    --exclude='_site' \
+    --exclude='site_libs' \
+    --exclude='*_files' \
+    --exclude='*.html' \
+    ./ "$temp_dir/"
+
+  if ! (
+    cd "$temp_dir"
+    QUARTO_DENO_DIR="$temp_dir/.quarto-deno-cache" \
+    DENO_DIR="$temp_dir/.quarto-deno-cache" \
+    XDG_CACHE_HOME="$temp_dir/.quarto-xdg-cache" \
+      quarto render "$rel_file" --profile slides --to revealjs
+  ); then
+    rm -rf "$temp_dir" 2>/dev/null || true
+    return 1
+  fi
+
+  rel_dir="$(dirname "$rel_file")"
+  base_name="$(basename "${rel_file%.*}")"
+  html_name="${base_name}.html"
+
+  if [[ "$rel_dir" == "." ]]; then
+    source_dir="$temp_dir"
+    output_dir="$SLIDES_OUTPUT_DIR_REL"
+  else
+    source_dir="$temp_dir/$rel_dir"
+    output_dir="$SLIDES_OUTPUT_DIR_REL/$rel_dir"
+  fi
+
+  source_html="$source_dir/$html_name"
+  source_files="$source_dir/${base_name}_files"
+  if [[ ! -f "$source_html" && -f "$temp_dir/_site/$rel_dir/$html_name" ]]; then
+    source_html="$temp_dir/_site/$rel_dir/$html_name"
+    source_files="$temp_dir/_site/$rel_dir/${base_name}_files"
+  fi
+  target_html="$output_dir/$html_name"
+  target_files="$output_dir/${base_name}_files"
+
+  mkdir -p "$output_dir"
+
+  if [[ -f "$source_html" ]]; then
+    cp -f "$source_html" "$target_html"
+  fi
+
+  if [[ -d "$source_files" ]]; then
+    rm -rf "$target_files"
+    cp -a "$source_files" "$target_files"
+  fi
+
+  rm -rf "$temp_dir" 2>/dev/null || true
 }
 
 slide_watcher_loop() {
@@ -327,7 +421,6 @@ render_all_html_files() {
   local rel_file
   local rendered_count=0
 
-  hide_profile_configs
   mkdir -p _site
   while IFS= read -r rel_file; do
     if is_fallback_qmd_file "$rel_file"; then
@@ -338,12 +431,11 @@ render_all_html_files() {
     fi
 
     rm -rf .quarto site_libs 2>/dev/null || true
-    quarto render "$rel_file" --to html --output-dir "$ROOT_DIR/_site"
+    quarto render "$rel_file" --profile local --to html --output-dir "$ROOT_DIR/_site"
     rendered_count=$((rendered_count + 1))
   done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
 
   cp -a _site/. "$OUTPUT_DIR_REL/"
-  restore_profile_configs
   echo "INFO: rendered html page count: $rendered_count"
 }
 
@@ -368,7 +460,7 @@ render_all_outputs_in_temp_workspace() {
 
   (
     cd "$temp_dir"
-    quarto render --to html
+    quarto render --profile local --to html --output-dir _site
 
     rm -rf _site/slides
     mkdir -p _site/slides
@@ -383,7 +475,35 @@ render_all_outputs_in_temp_workspace() {
         continue
       fi
       if is_presentation_file "$rel_file"; then
-        quarto render "$rel_file" --profile slides --to revealjs --output-dir "$temp_dir/_site/slides"
+        quarto render "$rel_file" --profile slides --to revealjs
+
+        rel_dir="$(dirname "$rel_file")"
+        base_name="$(basename "${rel_file%.*}")"
+        html_name="${base_name}.html"
+        if [[ "$rel_dir" == "." ]]; then
+          source_dir="."
+          output_dir="_site/slides"
+        else
+          source_dir="$rel_dir"
+          output_dir="_site/slides/$rel_dir"
+        fi
+
+        source_html="$source_dir/$html_name"
+        source_files="$source_dir/${base_name}_files"
+        if [[ ! -f "$source_html" && -f "_site/$source_dir/$html_name" ]]; then
+          source_html="_site/$source_dir/$html_name"
+          source_files="_site/$source_dir/${base_name}_files"
+        fi
+
+        mkdir -p "$output_dir"
+        if [[ -f "$source_html" ]]; then
+          cp -f "$source_html" "$output_dir/$html_name"
+        fi
+        if [[ -d "$source_files" ]]; then
+          rm -rf "$output_dir/${base_name}_files"
+          cp -a "$source_files" "$output_dir/${base_name}_files"
+        fi
+
         rendered_slide_count=$((rendered_slide_count + 1))
       fi
     done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')

@@ -7,12 +7,13 @@ project:
     - "**/*.md"
     - "**/*.qmd"
     - "!**/*-qmd-fallback.qmd"
-    - "!topics/search/search-algorithms.md"
-    - "!topics/search/search-algorithms-qmd-fallback.qmd"
-    - "!topics/quantum/_backup/**"
+    - "!**/_private/**"
+    - "!**/_backup/**"
+    - "!**/_arsiv/**"
+    - "!_arsiv/**"
+    - "!courses/qturkey/qbronze/crs-qbronze/**"
     - "!.assets/**"
     - "!README.md"
-
 
 profile:
   group:
@@ -24,129 +25,40 @@ website:
     left:
       - text: "Ana Sayfa"
         href: index.md
-      - text: "BIM444"
-        href: courses/bim444/crs-bim444.md
-      - text: "Kuantum Hesaplama"
-        href: courses/quantum/index.md
-      - text: "LLM"
-        href: courses/llm-teori-ve-uygulamalar/crs-llm-teori-ve-uygulamalar.md
-      - text: "Yazılar"
+      - text: "Dersler ve İzlenceler"
+        menu:
+          - text: "Tüm Dersler ve İzlenceler"
+            href: izlence-index.md
+          - text: "BİM444 — Yapay Zeka"
+            href: courses/bim444/crs-bim444.md
+          - text: "MATE 213 — Lineer Cebir"
+            href: courses/lineer-cebir/crs-lineer-cebir.md
+          - text: "MATE 214 — Diferansiyel Denklemler"
+            href: courses/diferansiyel-denklemler/crs-diferansiyel-denklemler.md
+          - text: "QTurkey Eğitimleri — QPrep ve QBronze"
+            href: courses/qturkey/index.md
+      - text: "Konular"
+        menu:
+          - text: "Tüm Konu Yazıları"
+            href: konu-yazilari.md
+          - text: "Yapay Zeka ve LLM Uygulamaları"
+            href: topics/llm-uygulamalari/index.md
+          - text: "Kuantum Hesaplama"
+            href: topics/quantum/index.md
+          - text: "Lineer Cebir"
+            href: topics/lineer-cebir/index.md
+      - text: "Serbest Yazılar"
         href: yazilar/index.md
     right:
       - icon: github
         href: https://github.com/oktay-cesur/lecture-notes
-  sidebar:
-    - id: bim444
-      title: "BIM444 Yapay Zeka"
-      style: docked
-      contents:
-        - courses/bim444/crs-bim444.md
-        - section: "Temeller"
-          contents:
-            - topics/temel-ai/tp_yapay-zekanin-temelleri.md
-            - topics/temel-ai/tp_akilli-etmenler.md
-        - section: "Arama"
-          contents:
-            - topics/search/tp_arama-probleminin-anatomisi.md
-            - topics/search/tp_bilgisiz-arama.md
-            - topics/search/tp_arama-baglamlandirma.md
-            - topics/search/tp_sezgisel-arama.md
-            - topics/search/tp_astar-ve-otesi.md
-            - topics/search/tp_yerel-arama.md
-            - topics/search/tp_minimax.md
-            - topics/search/tp_alpha-beta.md
-            - topics/search/tp_arama-algoritmalari-animasyon.md
-        - section: "Makine Öğrenmesi"
-          contents:
-            - topics/temel-ai/tp_makine-ogrenmesi-giris.md
-            - topics/temel-ai/tp_denetimli-ogrenme.md
-            - topics/temel-ai/tp_denetimsiz-ogrenme.md
-            - topics/temel-ai/tp_pekistirmeli-ogrenme.md
-        - section: "Derin Öğrenme"
-          contents:
-            - topics/temel-ai/tp_derin-ogrenmeye-giris.md
-            - topics/temel-ai/tp_llms.md
-            - topics/temel-ai/tp_llms-part2.md
-            - topics/temel-ai/tp_llms-part3.md
-            - topics/temel-ai/tp_llms-part4.md
-        - section: "Diğer Yaklaşımlar"
-          contents:
-            - topics/temel-ai/tp_bulanik-mantik.md
-            - topics/temel-ai/tp_genetik-algoritmalar.md
-    - id: llm
-      title: "LLM Teori ve Uygulamaları"
-      style: docked
-      contents:
-        - courses/llm-teori-ve-uygulamalar/crs-llm-teori-ve-uygulamalar.md
-        - section: "Notlar"
-          contents:
-            - topics/llm-uygulamalari/art-llm-orkestrasyonu.md
-            - topics/llm-uygulamalari/art-akis-icinde-llm.md
-    - id: quantum
-      title: "Kuantum Hesaplama"
-      style: docked
-      contents:
-        - courses/quantum/index.md
-        - section: "QPrep"
-          contents:
-            - topics/quantum/preq_lineer-cebir-1-vektorler.md
-            - topics/quantum/preq_lineer-cebir-2-ic-carpim.md
-            - topics/quantum/preq_lineer-cebir-3-matrisler.md
-            - topics/quantum/preq_lineer-cebir-4-tensor-carpimi.md
-        - section: "QBronze"
-          contents:
-            - courses/qtea26/crs-qbronze.md
-            - section: "Klasik Sistemler"
-              contents:
-                - topics/quantum/tp_klasik-bit.md
-                - topics/quantum/tp_olasiliksal-durum.md
-                - topics/quantum/tp_olasiliksal-operator.md
-                - topics/quantum/tp_bilesik-klasik-sistemler.md
-            - section: "Foton ve Qiskit"
-              contents:
-                - topics/quantum/fotonlar-kuantum-yazi-tura.md
-                - topics/quantum/ilk-kuantum-programlar.md
-            - section: "Tek Qubit"
-              contents:
-                - topics/quantum/hadamard.md
-                - topics/quantum/tp_tek-qubit.md
-                - topics/quantum/tp_kuantum-durum-gorsellestirme.md
-                - topics/quantum/tp_superposition-olcum.md
-            - section: "Tek Qubit Operatörleri"
-              contents:
-                - topics/quantum/tp_tek-qubit-operatorler-a.md
-                - topics/quantum/tp_tek-qubit-operatorler-b.md
-            - section: "İki Qubit ve Protokoller"
-              contents:
-                - topics/quantum/tp_iki-qubit.md
-                - topics/quantum/dolaniklik-superdense-coding.md
-                - topics/quantum/tp_kuantum-protokolleri.md
-            - section: "Grover"
-              contents:
-                - topics/quantum/tp_grover.md
-        - section: "Notlar ve Yazılar"
-          contents:
-            - topics/quantum/art-quantum-data-encoding.md
-            - topics/quantum/art-frqi.md
-    - id: yazilar
-      title: "Yazılar"
-      style: docked
-      contents:
-        - yazilar/index.md
-        - yazilar/serbest-yazilar/index.md
-        - section: "Yeşil Hıyarlar Ülkesinde"
-          contents:
-            - yazilar/yhu/index.md
-            - yazilar/yhu/art-iceriden-bildiriyorum.md
-            - yazilar/yhu/art-biraz-ciddiyet.md
-            - yazilar/yhu/art-milli-evrak-bakanligi.md
 
 bibliography: references.bib
 
 format:
   html:
     from: markdown+wikilinks_title_after_pipe
-    theme: 
+    theme:
       light: flatly
       dark: darkly
     toc: true
@@ -157,7 +69,6 @@ format:
     code-copy: true
     code-overflow: wrap
     css: styles.css
-
     filters:
       - .filters/obsidian-wikilink.lua
       - .filters/notes-to-text.lua

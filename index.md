@@ -34,12 +34,12 @@ Verdiğim derslere ait izlenceler, ders akışları ve öğretim notları:
 - [İzlenceler](izlence-index.md)
 
 
-## Konu Alanları
+## Konu Yazıları
 
 
-Konulara göre ayrışmış notlar:
+Ders akışından bağımsız, düz metin formatındaki konu yazıları:
 
-- [Konular](konu-alan.md)
+- [Konu Yazıları](konu-yazilari.md)
 
 ## Yazılar
 

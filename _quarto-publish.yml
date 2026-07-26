@@ -1,3 +1,73 @@
+# Publish profil: GitHub Pages gorunumu. Web'e hazir olmayan _draft,
+# _private, _backup ve _arsiv icerikler yayin render'ina girmez.
+
+project:
+  output-dir: _site
+  render:
+    - index.md
+    - ENGLISH.md
+    - izlence-index.md
+    - konu-yazilari.md
+    - "courses/bim444/**"
+    - "courses/lineer-cebir/**"
+    - "courses/diferansiyel-denklemler/**"
+    - "courses/qturkey/**"
+    - "courses/_ortak/lineer-cebir/notes/ex_cozum-durumlari-ve-rank.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_denklem-sistemi-matris-gosterimi.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_determinant-cramer.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_elementer-matrisler.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_gauss-eliminasyonu.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_homojen-lineer-bagimsizlik.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_matris-cebiri.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_matris-matris-carpimi.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_matris-vektor-carpimi.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_matris-yapisi-ve-temel-islemler.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_ters-matris.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_vektor-islemleri.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_ayrilabilir-denklemler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_baslangic-deger-problemleri-ve-cozum-araligi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_bernoulli-denklemi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_birinci-mertebe-yontem-secimi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_birinci-mertebeden-lineer-denklemler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_denge-cozumleri-ve-kararlilik.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_denklemi-okuma-ve-cozumu-dogrulama.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_dogrudan-integralle-cozum.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_homojen-tip-denklemler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_integrasyon-carpani.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_karakteristik-denklem-ve-reel-kokler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_katli-karakteristik-kokler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_kompleks-karakteristik-kokler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_lineer-bagimsizlik-ve-wronskian.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_lineer-denklemlerde-genel-cozum-yapisi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_mertebe-indirme.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_ortogonal-yorungeler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_tam-diferansiyel-denklemler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_yon-alani-ve-nitel-cozum.md"
+    - "courses/_ortak/temel-ai/notes/tp_akilli-etmenler.md"
+    - "courses/_ortak/temel-ai/notes/tp_bulanik-mantik.md"
+    - "courses/_ortak/temel-ai/notes/tp_denetimli-ogrenme.md"
+    - "courses/_ortak/temel-ai/notes/tp_denetimsiz-ogrenme.md"
+    - "courses/_ortak/temel-ai/notes/tp_derin-ogrenmeye-giris.md"
+    - "courses/_ortak/temel-ai/notes/tp_genetik-algoritmalar.md"
+    - "courses/_ortak/temel-ai/notes/tp_llms-part2.md"
+    - "courses/_ortak/temel-ai/notes/tp_llms-part3.md"
+    - "courses/_ortak/temel-ai/notes/tp_llms-part4.md"
+    - "courses/_ortak/temel-ai/notes/tp_llms.md"
+    - "courses/_ortak/temel-ai/notes/tp_makine-ogrenmesi-giris.md"
+    - "courses/_ortak/temel-ai/notes/tp_pekistirmeli-ogrenme.md"
+    - "courses/_ortak/temel-ai/notes/tp_yapay-zekanin-temelleri.md"
+    - "topics/**/index.md"
+    - "topics/**/art-*.md"
+    - "yazilar/**"
+    - "!**/*-qmd-fallback.qmd"
+    - "!**/_draft/**"
+    - "!**/_private/**"
+    - "!**/_backup/**"
+    - "!**/_arsiv/**"
+    - "!_arsiv/**"
+    - "!courses/qturkey/qbronze/crs-qbronze/**"
+    - "!README.md"
+
 website:
   sidebar:
     - id: bim444
@@ -7,97 +77,189 @@ website:
         - courses/bim444/crs-bim444.md
         - section: "Temeller"
           contents:
-            - topics/temel-ai/tp_yapay-zekanin-temelleri.md
-            - topics/temel-ai/tp_akilli-etmenler.md
+            - courses/_ortak/temel-ai/notes/tp_yapay-zekanin-temelleri.md
+            - courses/_ortak/temel-ai/notes/tp_akilli-etmenler.md
         - section: "Arama"
           contents:
-            - topics/search/tp_arama-probleminin-anatomisi.md
-            - topics/search/tp_bilgisiz-arama.md
-            - topics/search/tp_arama-baglamlandirma.md
-            - topics/search/tp_sezgisel-arama.md
-            - topics/search/tp_astar-ve-otesi.md
-            - topics/search/tp_yerel-arama.md
-            - topics/search/tp_minimax.md
-            - topics/search/tp_alpha-beta.md
-            - topics/search/tp_arama-algoritmalari-animasyon.md
+            - courses/bim444/notes/tp_arama-probleminin-anatomisi.md
+            - courses/bim444/notes/tp_bilgisiz-arama.md
+            - courses/bim444/notes/tp_arama-baglamlandirma.md
+            - courses/bim444/notes/tp_sezgisel-arama.md
+            - courses/bim444/notes/tp_astar-ve-otesi.md
+            - courses/bim444/notes/tp_yerel-arama.md
+            - courses/bim444/notes/tp_minimax.md
+            - courses/bim444/notes/tp_alpha-beta.md
+            - courses/bim444/notes/tp_arama-algoritmalari-animasyon.md
         - section: "Makine Öğrenmesi"
           contents:
-            - topics/temel-ai/tp_makine-ogrenmesi-giris.md
-            - topics/temel-ai/tp_denetimli-ogrenme.md
-            - topics/temel-ai/tp_denetimsiz-ogrenme.md
-            - topics/temel-ai/tp_pekistirmeli-ogrenme.md
-        - section: "Derin Öğrenme"
+            - courses/_ortak/temel-ai/notes/tp_makine-ogrenmesi-giris.md
+            - courses/_ortak/temel-ai/notes/tp_denetimli-ogrenme.md
+            - courses/_ortak/temel-ai/notes/tp_denetimsiz-ogrenme.md
+            - courses/_ortak/temel-ai/notes/tp_pekistirmeli-ogrenme.md
+        - section: "Derin Öğrenme ve LLM"
           contents:
-            - topics/temel-ai/tp_derin-ogrenmeye-giris.md
-            - topics/temel-ai/tp_llms.md
-            - topics/temel-ai/tp_llms-part2.md
-            - topics/temel-ai/tp_llms-part3.md
-            - topics/temel-ai/tp_llms-part4.md
+            - courses/_ortak/temel-ai/notes/tp_derin-ogrenmeye-giris.md
+            - courses/_ortak/temel-ai/notes/tp_llms.md
+            - courses/_ortak/temel-ai/notes/tp_llms-part2.md
+            - courses/_ortak/temel-ai/notes/tp_llms-part3.md
+            - courses/_ortak/temel-ai/notes/tp_llms-part4.md
         - section: "Diğer Yaklaşımlar"
           contents:
-            - topics/temel-ai/tp_bulanik-mantik.md
-            - topics/temel-ai/tp_genetik-algoritmalar.md
-    - id: llm
-      title: "LLM Teori ve Uygulamaları"
+            - courses/_ortak/temel-ai/notes/tp_bulanik-mantik.md
+            - courses/_ortak/temel-ai/notes/tp_genetik-algoritmalar.md
+    - id: ai-llm
+      title: "Yapay Zeka ve LLM"
       style: docked
       contents:
-        - courses/llm-teori-ve-uygulamalar/crs-llm-teori-ve-uygulamalar.md
-        - section: "Notlar"
+        - topics/llm-uygulamalari/index.md
+        - section: "LLM Uygulamaları"
           contents:
             - topics/llm-uygulamalari/art-llm-orkestrasyonu.md
             - topics/llm-uygulamalari/art-akis-icinde-llm.md
+    - id: lineer-cebir
+      title: "Lineer Cebir"
+      style: docked
+      contents:
+        - courses/lineer-cebir/crs-lineer-cebir.md
+        - section: "Başvuru"
+          contents:
+            - courses/lineer-cebir/notes/notasyon-rehberi.md
+        - section: "Temel Nesneler"
+          contents:
+            - courses/lineer-cebir/notes/tp_skaler-ve-vektor-kavrami.md
+            - courses/lineer-cebir/notes/tp_vektor-islemleri-ve-lineer-birlesim.md
+            - courses/lineer-cebir/notes/tp_matrisin-yapisi-ve-okumalari.md
+            - courses/lineer-cebir/notes/tp_ozel-matrisler-ve-transpoz.md
+            - courses/lineer-cebir/notes/tp_matris-islemlerinin-dogusu.md
+            - courses/lineer-cebir/notes/tp_matrislerde-temel-islemler.md
+            - courses/lineer-cebir/notes/tp_matris-carpimlari.md
+            - courses/lineer-cebir/notes/tp_matris-islemlerinin-ozellikleri.md
+        - section: "Lineer Denklem Sistemleri"
+          contents:
+            - courses/lineer-cebir/notes/tp_denklem-sistemleri-ve-matris-gosterimi.md
+            - courses/lineer-cebir/notes/tp_gauss-eliminasyonu-ve-basamak-bicimleri.md
+            - courses/lineer-cebir/notes/tp_cozum-durumlari-ve-serbest-degiskenler.md
+            - courses/lineer-cebir/notes/tp_matrisin-ranki.md
+        - section: "Tersinirlik ve Determinant"
+          contents:
+            - courses/lineer-cebir/notes/tp_elementer-matrisler.md
+            - courses/lineer-cebir/notes/tp_elementer-esdegerligi.md
+            - courses/lineer-cebir/notes/tp_ters-matris-ve-tersinirlik.md
+            - courses/lineer-cebir/notes/tp_homojen-sistemlerden-lineer-bagimsizliga.md
+            - courses/lineer-cebir/notes/tp_determinant-ve-cramer-kurali.md
+    - id: diferansiyel-denklemler
+      title: "Diferansiyel Denklemler"
+      style: docked
+      contents:
+        - courses/diferansiyel-denklemler/crs-diferansiyel-denklemler.md
+        - section: "Başvuru"
+          contents:
+            - courses/diferansiyel-denklemler/notes/notasyon-rehberi.md
+        - section: "Giriş ve Temel Kavramlar"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_degisimi-okumak.md
+            - courses/diferansiyel-denklemler/notes/tp_lineerlik-ve-otonomluk.md
+            - courses/diferansiyel-denklemler/notes/tp_cozum-nedir.md
+            - courses/diferansiyel-denklemler/notes/tp_dogrudan-integral-ayrilabilir-denklemler.md
+        - section: "Birinci Mertebe Denklemler"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_ayrilabilir-denklemler.md
+            - courses/diferansiyel-denklemler/notes/tp_degisim-yasasini-yorumlamak.md
+            - courses/diferansiyel-denklemler/notes/tp_homojen-tip-denklemler.md
+            - courses/diferansiyel-denklemler/notes/tp_birinci-mertebeden-lineer-denklemler.md
+            - courses/diferansiyel-denklemler/notes/tp_bernoulli-denklemi.md
+            - courses/diferansiyel-denklemler/notes/tp_yontem-secme-haritasi.md
+        - section: "Tam Denklemler ve Uygulamalar"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_tam-diferansiyel-denklemler.md
+            - courses/diferansiyel-denklemler/notes/tp_integrasyon-carpani-tam-olmayan.md
+            - courses/diferansiyel-denklemler/notes/tp_ortogonal-yorungeler.md
+        - section: "Lineer Teori"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_ninci-mertebe-lineer-genel-teori.md
+            - courses/diferansiyel-denklemler/notes/tp_lineer-bagimsizlik-wronskian.md
+            - courses/diferansiyel-denklemler/notes/tp_temel-cozum-kumesi.md
     - id: quantum
       title: "Kuantum Hesaplama"
       style: docked
       contents:
-        - courses/quantum/index.md
+        - topics/quantum/index.md
+        - section: "Veri Kodlama ve Temsil"
+          contents:
+            - topics/quantum/art-quantum-data-encoding.md
+        - section: "Kuantum Görüntü İşleme"
+          contents:
+            - topics/quantum/art-frqi.md
+    - id: qturkey
+      title: "QTurkey Eğitimleri"
+      style: docked
+      contents:
+        - courses/qturkey/index.md
         - section: "QPrep"
           contents:
-            - topics/quantum/preq_lineer-cebir-1-vektorler.md
-            - topics/quantum/preq_lineer-cebir-2-ic-carpim.md
-            - topics/quantum/preq_lineer-cebir-3-matrisler.md
-            - topics/quantum/preq_lineer-cebir-4-tensor-carpimi.md
+            - courses/qturkey/qprep/crs-qprep.md
+            - courses/qturkey/qprep/notes/preq_lineer-cebir-1-vektorler.md
+            - courses/qturkey/qprep/notes/preq_lineer-cebir-2-ic-carpim.md
+            - courses/qturkey/qprep/notes/preq_lineer-cebir-3-matrisler.md
+            - courses/qturkey/qprep/notes/preq_lineer-cebir-4-tensor-carpimi.md
         - section: "QBronze"
           contents:
-            - courses/qtea26/crs-qbronze.md
+            - courses/qturkey/qbronze/crs-qbronze.md
             - section: "Klasik Sistemler"
               contents:
-                - topics/quantum/tp_klasik-bit.md
-                - topics/quantum/tp_olasiliksal-durum.md
-                - topics/quantum/tp_olasiliksal-operator.md
-                - topics/quantum/tp_bilesik-klasik-sistemler.md
+                - courses/qturkey/qbronze/notes/tp_klasik-bit.md
+                - courses/qturkey/qbronze/notes/tp_olasiliksal-durum.md
+                - courses/qturkey/qbronze/notes/tp_olasiliksal-operator.md
+                - courses/qturkey/qbronze/notes/tp_bilesik-klasik-sistemler.md
             - section: "Foton ve Qiskit"
               contents:
-                - topics/quantum/fotonlar-kuantum-yazi-tura.md
-                - topics/quantum/ilk-kuantum-programlar.md
+                - courses/qturkey/qbronze/notes/fotonlar-kuantum-yazi-tura.md
+                - courses/qturkey/qbronze/notes/ilk-kuantum-programlar.md
             - section: "Tek Qubit"
               contents:
-                - topics/quantum/hadamard.md
-                - topics/quantum/tp_tek-qubit.md
-                - topics/quantum/tp_kuantum-durum-gorsellestirme.md
-                - topics/quantum/tp_superposition-olcum.md
+                - courses/qturkey/qbronze/notes/hadamard.md
+                - courses/qturkey/qbronze/notes/tp_tek-qubit.md
+                - courses/qturkey/qbronze/notes/tp_kuantum-durum-gorsellestirme.md
+                - courses/qturkey/qbronze/notes/tp_superposition-olcum.md
             - section: "Tek Qubit Operatörleri"
               contents:
-                - topics/quantum/tp_tek-qubit-operatorler-a.md
-                - topics/quantum/tp_tek-qubit-operatorler-b.md
+                - courses/qturkey/qbronze/notes/tp_tek-qubit-operatorler-a.md
+                - courses/qturkey/qbronze/notes/tp_tek-qubit-operatorler-b.md
             - section: "İki Qubit ve Protokoller"
               contents:
-                - topics/quantum/tp_iki-qubit.md
-                - topics/quantum/dolaniklik-superdense-coding.md
-                - topics/quantum/tp_kuantum-protokolleri.md
+                - courses/qturkey/qbronze/notes/tp_iki-qubit.md
+                - courses/qturkey/qbronze/notes/dolaniklik-superdense-coding.md
+                - courses/qturkey/qbronze/notes/tp_kuantum-protokolleri.md
             - section: "Grover"
               contents:
-                - topics/quantum/tp_grover.md
-        - section: "Notlar ve Yazılar"
+                - courses/qturkey/qbronze/notes/tp_grover.md
+    - id: konu-yazilari
+      title: "Konu Yazıları"
+      style: docked
+      contents:
+        - konu-yazilari.md
+        - section: "Yapay Zeka ve LLM Uygulamaları"
+          contents:
+            - topics/llm-uygulamalari/index.md
+            - topics/llm-uygulamalari/art-llm-orkestrasyonu.md
+            - topics/llm-uygulamalari/art-akis-icinde-llm.md
+        - section: "Kuantum Hesaplama"
           contents:
             - topics/quantum/art-quantum-data-encoding.md
             - topics/quantum/art-frqi.md
+        - section: "Lineer Cebir"
+          contents:
+            - topics/lineer-cebir/index.md
+    - id: topic-lineer-cebir
+      title: "Lineer Cebir"
+      style: docked
+      contents:
+        - topics/lineer-cebir/index.md
     - id: yazilar
-      title: "Yazılar"
+      title: "Yazilar"
       style: docked
       contents:
         - yazilar/index.md
-        - yazilar/serbest-yazilar/index.md
         - section: "Yeşil Hıyarlar Ülkesinde"
           contents:
             - yazilar/yhu/index.md

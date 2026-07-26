@@ -34,7 +34,7 @@ jobs:
           mkdir -p _site/slides
           while IFS= read -r f; do
             case "$f" in
-              *-qmd-fallback.qmd|topics/search/search-algorithms.md|topics/search/search-algorithms-qmd-fallback.qmd|*/index.md|*/index.qmd)
+              *-qmd-fallback.qmd|courses/bim444/notes/search-algorithms.md|courses/bim444/notes/search-algorithms-qmd-fallback.qmd|*/_draft/*|*/_private/*|*/_backup/*|*/_arsiv/*|_arsiv/*|*/index.md|*/index.qmd)
                 continue
                 ;;
             esac

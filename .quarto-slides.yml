@@ -1,6 +1,6 @@
 format:
   revealjs:
-    theme: sky
+    theme: dracula
     slide-number: true
     transition: fade
     incremental: false
