@@ -1,0 +1,874 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  a4paper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage[margin=35mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Skaler ve Vektör Kavramı},
+  pdfauthor={Öğr. Gör. Oktay Cesur},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Skaler ve Vektör Kavramı}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{MATE 213 --- İlk Öğretim Bloğu}
+\author{Öğr. Gör. Oktay Cesur}
+\date{2026-07-23}
+\begin{document}
+\maketitle
+
+
+\subsection{Bugünün Sorusu}\label{buguxfcnuxfcn-sorusu}
+
+\begin{quote}
+Birbiriyle ilişkili birden fazla sayıyı, sırasını ve anlamını
+kaybetmeden nasıl tek bir nesne olarak ifade ederiz?
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Tek bir sayı her durumda yeterli mi?\\
+\item
+  İlişkili sayılar beraber tutulabilir mi?
+\item
+  Beraber tuttuk diyelim, ölçekleyebilecek miyiz?
+\end{itemize}
+
+Bazen tek bir sayı bir durumu anlatmaya yetmez. Bir noktanın düzlemdeki
+konumu iki sayı ister. Bir ürünün birkaç farklı özelliği olabilir. Bir
+sistem de sıcaklık, basınç ve debi gibi birden fazla ölçümle
+tanımlanabilir.
+
+Bu tür durumlarda elimizde birbirinden kopuk sayılar değil, birlikte
+anlam taşıyan bir sayı grubu vardır. Üstelik bu sayıların sırası da
+önemlidir. Amacımız, bu bilgileri sırasını ve anlamını koruyarak tek bir
+nesne halinde yazabilmek. Bunu önce koordinat vektörleriyle yapacağız.
+Daha sonra bu nesneyi oluşturan sayılar ile onun tamamını büyütüp
+küçültmek için kullandığımız sayıları birbirinden ayıracağız.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{İlk Örnek: Birlikte Anlamlı
+Sayılar}\label{ilk-uxf6rnek-birlikte-anlamlux131-sayux131lar}
+
+Bir ürünün üç özelliği:
+
+\[
+\text{fiyat: }40,\qquad
+\text{ağırlık: }2,\qquad
+\text{stok: }15
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Değerler birbiriyle ilişkili,
+\item
+  sıra bozulursa anlam bozulur,
+\item
+  tek nesne olarak tutmak istiyoruz.
+\end{itemize}
+
+\[
+v=\begin{bmatrix}40\\2\\15\end{bmatrix}
+\]
+
+Bu örnek, vektöre neden ihtiyaç duyduğumuzu geometrik ok çizmeden
+gösterir. Başlangıçta elimizde vektör yok; yalnızca birbirine bağlı üç
+sayı var. Bu değerler ayrı ayrı \(40\), \(2\), \(15\) biçiminde
+tutulabilir; fakat o zaman hangi sayının neyi gösterdiği ve bunların bir
+arada tek bir nesne oluşturduğu ayrıca belirtilmelidir.
+
+Koordinat vektörü bu üç değeri sabit bir sırayla tek bir matematiksel
+nesnede toplar. Burada önemli olan yalnız üç sayının alt alta yazılması
+değildir; bu sayıların sabit bir sırayla ve tek nesne olarak ele
+alınmasıdır. Böylece tüm gruba tek işlemle davranabiliriz: bütün
+miktarları iki katına çıkarmak istersek tek tek üç işlem yerine \(2v\)
+yazmak yeterlidir.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Koordinat Vektörü ve
+Bileşenler}\label{koordinat-vektuxf6ruxfc-ve-bileux15fenler}
+
+\[
+v=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}\in\mathbb{R}^n
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  \(v\): bütün vektör
+\item
+  \(v_i\): \(i\). bileşen, bir \textbf{skaler}
+\item
+  \(n\): bileşen sayısı
+\item
+  İndis konumu belirtir
+\end{itemize}
+
+\(n\) bileşenli bir koordinat vektörü bileşenleriyle gösterilir. \(v_i\)
+ifadesi ``\(v\) vektörünün \(i\). bileşeni'' demektir; buradaki indis
+yalnız bir etiket değil, konum bilgisidir. Örneğin ürün örneğinde
+\(v_1\) fiyatı, \(v_2\) ağırlığı, \(v_3\) stok miktarını temsil eder.
+
+Bir koordinat vektörünün bileşenleri skalerdir: \(v\in\mathbb{R}^n\) ise
+her \(v_i\) gerçek bir sayıdır. Bu derste ``vektör'' dediğimizde
+şimdilik \(\mathbb{R}^n\) içindeki koordinat vektörlerini kastediyoruz.
+Bu sınırlama bilinçli bir başlangıçtır; vektörün daha genel tanımı
+ileride vektör uzaylarında gelecek ve orada polinomların,
+fonksiyonların, hatta matrislerin de vektör rolü üstlenebildiğini
+göreceğiz.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Bileşenlerin Sırası Yapının
+Parçasıdır}\label{bileux15fenlerin-sux131rasux131-yapux131nux131n-paruxe7asux131dux131r}
+
+\[
+\begin{bmatrix}2\\-1\\4\end{bmatrix}
+\neq
+\begin{bmatrix}-1\\2\\4\end{bmatrix}
+\]
+
+Sıcaklık--basınç--debi okuması:
+
+\[
+\begin{bmatrix}80\\25\\120\end{bmatrix}
+\neq
+\begin{bmatrix}25\\80\\120\end{bmatrix}
+\]
+
+Bir vektörde yalnızca hangi değerlerin bulunduğu değil, bu değerlerin
+hangi sırada bulunduğu da önemlidir. Yukarıdaki iki vektör aynı üç
+sayıyı içerir; fakat birinci ve ikinci konumlar değiştiği için aynı
+vektör değildir.
+
+Bileşenler belirli özellikleri temsil ettiğinde bu fark daha açık
+görülür. Bileşenleri sırasıyla sıcaklık, basınç ve debi olan bir
+vektörde ilk iki değer yer değiştirirse, sayılar aynı kalsa bile artık
+aynı fiziksel bilgi temsil edilmez: \(80\) derece ve \(25\) bar yerine
+\(25\) derece ve \(80\) bar okunur. Sensör sırası, ürün sırası veya
+bilinmeyen sırası değişirse problem de değişir.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Vektörlerle Temsil Edilen
+Nicelikler}\label{vektuxf6rlerle-temsil-edilen-nicelikler}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Bağlam & Vektör \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Konum & \((x,y,z)^T\) \\
+Hız & \((v_x,v_y,v_z)^T\) \\
+Sistem ölçümü & (sıcaklık, basınç, debi)\(^T\) \\
+Sınav puanları & \((p_1,\ldots,p_k)^T\) \\
+Veri örneği & özellik vektörü \((x_1,\ldots,x_n)^T\) \\
+\end{longtable}
+
+Vektörün bileşenlerinin mutlaka fiziksel koordinatlar olması gerekmez.
+Bir cismin uzaydaki konumu, üç yöndeki hız bileşenleri, bir sistemin
+sıcaklık-basınç-debi ölçümleri, bir öğrencinin farklı sınavlardan aldığı
+puanlar veya bir veri örneğinin farklı özellikleri aynı biçimde vektörle
+temsil edilebilir.
+
+Bir görüntünün renk değerleri, bir ekonomik sistemin göstergeleri, bir
+sensör grubundan alınan ölçümler ya da bir optimizasyon probleminin
+değişkenleri de uygun bir sırayla vektöre yerleştirilebilir. Bu
+örneklerin ortak noktası, birbiriyle ilişkili birden fazla skaler
+değerin anlamlı ve sabit bir sıra içinde tek bir nesne olarak ele
+alınmasıdır. Vektörün bileşenleri aynı fiziksel birimde olmak zorunda da
+değildir; fiyat, ağırlık ve stok birlikte taşınabilir. Ancak böyle bir
+durumda yapılacak işlemin problem bağlamında anlamlı olup olmadığı
+ayrıca kontrol edilmelidir.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Vektörün Ait Olduğu
+Uzay}\label{vektuxf6ruxfcn-ait-olduux11fu-uzay}
+
+\[
+v\in\mathbb{R}^n
+\quad\Longleftrightarrow\quad
+v\ \text{'nin } n \text{ gerçek bileşeni var}
+\]
+
+\[
+u=\begin{bmatrix}3\\-2\end{bmatrix}\in\mathbb{R}^2,
+\qquad
+w=\begin{bmatrix}1\\0\\4\\-3\end{bmatrix}\in\mathbb{R}^4
+\]
+
+Bir vektörün kaç bileşenden oluştuğunu ve bileşenlerinin hangi skaler
+cisminden geldiğini belirtmek için ait olduğu uzay yazılır.
+\(v\in\mathbb{R}^3\) ifadesi, \(v\)'nin üç gerçek sayı bileşeninden
+oluştuğunu söyler.
+
+Günlük matematik dilinde \(w\) için ``dört boyutlu vektör'' ifadesi de
+yaygındır. Daha dikkatli bir ifadeyle \(w\), dört bileşenli bir vektör
+ve dört boyutlu \(\mathbb{R}^4\) uzayının bir elemanıdır. Koordinat
+uzaylarında bileşen sayısı ile uzayın boyutu aynı sayı olduğu için bu
+iki kullanım çoğu zaman karışmaz; daha genel vektör uzaylarında ise
+boyut, uzayın ayrıca tanımlanan bir özelliği olarak ele alınacaktır.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Satır mı, Sütun mu?}\label{satux131r-mux131-suxfctun-mu}
+
+\[
+v=\begin{bmatrix}2\\-1\\4\end{bmatrix}\ (3\times1),
+\qquad
+v^T=\begin{bmatrix}2&-1&4\end{bmatrix}\ (1\times3)
+\]
+
+Bu derste aksi belirtilmedikçe vektörler \textbf{sütun vektörü}dür.
+
+Aynı bileşenler iki yazımda da bulunur; fakat şekil değişir. Sütun
+vektörü \(3\times1\), satır vektörü \(1\times3\) boyutundadır ve matris
+işlemlerinde bu iki şekil aynı davranmaz.
+
+Sütun tercihi keyfî değildir. İleride \(Ax\) yazdığımızda \(A\) bir
+matris, \(x\) bir sütun vektörü olacak; \(A\in\mathbb{R}^{m\times n}\)
+ve \(x\in\mathbb{R}^n\) ise \(Ax\) çarpımı \(m\) bileşenli bir sütun
+vektörü verir. Vektörleri sütun olarak yazmak, \(Ax=b\) denklem sistemi
+notasyonunu tutarlı kılar. Satır ve sütun vektörleri arasındaki ilişkiyi
+transpoz işlemiyle daha sonra açıkça kuracağız.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Vektör Eşitliği}\label{vektuxf6r-eux15fitliux11fi}
+
+İki koordinat vektörü ancak
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  aynı sayıda bileşene sahipse,
+\item
+  karşılık gelen bütün bileşenleri eşitse
+\end{enumerate}
+
+eşittir.
+
+\[
+\begin{bmatrix}2a-1\\b+3\end{bmatrix}
+=
+\begin{bmatrix}5\\7\end{bmatrix}
+\Longrightarrow
+a=3,\quad b=4
+\]
+
+Vektör eşitliği, tek bir yazımı bileşen düzeyindeki skaler eşitliklere
+açar. Örnekteki eşitlik aslında \(2a-1=5\) ve \(b+3=7\) denklemlerini
+aynı anda söylemektir; buradan \(a=3\) ve \(b=4\) bulunur.
+
+Bu mekanizma, ileride \(Ax=b\) ifadesinin birden fazla lineer denklemi
+tek bir matris yazımı içinde nasıl taşıdığını anlamaya hazırlık sağlar.
+Aynı bileşenleri farklı sırada taşıyan iki vektör eşit değildir; konum
+bilgisi eşitliğin parçasıdır ve bileşenlerin küme olarak aynı olması
+yeterli olmaz.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Skaler Neden Ayrı Bir
+Ad?}\label{skaler-neden-ayrux131-bir-ad}
+
+Vektörleri ölçeklemek için kullanılan sayılara \textbf{skaler} denir.
+
+\[
+3
+\begin{bmatrix}
+2\\
+-1
+\end{bmatrix}
+\]
+
+Buradaki \(3\), ilk bakışta yalnızca bir \textbf{katsayı} gibi görünür.
+
+\begin{quote}
+Peki neden ayrıca \textbf{skaler} diyoruz?
+\end{quote}
+
+Skaler kavramıyla ilk kez karşılaştığımızda ayrı bir ad kullanmak
+gereksiz görünebilir. Çünkü şu ana kadar gördüğümüz örneklerde skalerler
+\(2\), \(-3\) veya \(\frac12\) gibi bildiğimiz sayılardır. Bir vektörün
+önündeki \(3\) için yalnızca ``katsayı'' demek de hesabı yapmak için
+yeterlidir.
+
+Bu aşamada gerçekten de skaleri basit bir katsayı gibi düşünebiliriz.
+Ancak ileride vektör uzaylarını ele aldığımızda, bir vektörü hangi
+elemanlarla çarpabileceğimiz yapının tanımının bir parçası olacaktır.
+Yani her durumda kullanılabilecek katsayılar gelişigüzel seçilmez.
+
+Bu nedenle ``skaler'' adını baştan kullanıyoruz. Şimdilik basit bir
+katsayı gibi görünse de kavramın arkasında ileride önemli hale gelecek
+teknik bir ayrım vardır. Bunun ilk işaretini, skalerlerin hangi sayı
+sisteminden seçildiğine bakarak görebiliriz.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Skaler Cismi}\label{skaler-cismi}
+
+\textbf{Meraklısına not:} Skalerler belirli bir \textbf{cisimden}
+seçilir:
+
+\[
+\mathbb{R}
+\qquad\text{veya}\qquad
+\mathbb{C}
+\]
+
+\[
+2-3i:
+\quad
+\mathbb{R}\text{ üzerinde skaler değil},
+\qquad
+\mathbb{C}\text{ üzerinde geçerli skaler}
+\]
+
+Peki:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Cisim nedir?}
+\item
+  \textbf{Bunu bilmek neden gerekli?}
+\end{itemize}
+
+Bir önceki slaytta, skalerin şimdilik sıradan bir katsayı gibi
+göründüğünü söyledik. Buradaki teknik ayrım, hangi elemanların bu
+katsayı rolünü üstlenebileceğiyle ilgilidir.
+
+Skalerler belirli bir cisimden seçilir. Bir cisim, kabaca toplama,
+çıkarma, çarpma ve sıfıra bölme dışında bölme işlemlerinin alıştığımız
+kurallarla yapılabildiği bir sayı sistemidir. Gerçek sayılar
+\(\mathbb{R}\) ve karmaşık sayılar \(\mathbb{C}\) en sık
+karşılaşacağımız örneklerdir. Ayrıntılı tanımına burada ihtiyacımız
+olmayacak.
+
+Örneğin gerçek sayılar üzerinde çalışıyorsak \(2-3i\) bir skaler olarak
+kullanılamaz. Karmaşık sayılar üzerinde çalışıyorsak kullanılabilir.
+Başlangıçta bu ayrım çok önemli görünmeyebilir; çünkü çoğunlukla gerçek
+sayılarla çalışacağız. Ancak vektör uzaylarına geçtiğimizde hangi cismin
+kullanıldığı, o uzayın tanımının doğrudan bir parçası olacaktır.
+
+Dolayısıyla burada amaç cisim kavramını ayrıntılı olarak öğrenmek değil,
+``skaler'' sözcüğünün neden yalnızca ``katsayı'' yerine kullanıldığını
+görmek: bugün basit görünen bu ayrım, ileride matematiksel yapının
+kendisini belirleyecektir.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sıfır, Bir ve Negatif
+Skalerler}\label{sux131fux131r-bir-ve-negatif-skalerler}
+
+\[
+1v=v
+\qquad\text{(etkisiz skaler)}
+\]
+
+\[
+0v=0
+\qquad\text{(sıfır vektörüne götürür)}
+\]
+
+\[
+(-1)v=-v
+\qquad\text{(yönü ters çevirir)}
+\]
+
+Bazı skalerlerin ölçekleme açısından özel rolleri vardır. \(1\) etkisiz
+skalerdir: bir vektörü \(1\) ile çarpmak onu değiştirmez. Bu,
+sayılardaki \(1\cdot a=a\) kuralının vektör karşılığıdır.
+
+\(0\) skaleri her vektörü ilgili uzayın sıfır vektörüne götürür; dikkat
+edilmesi gereken nokta, soldaki \(0\)'ın bir skaler, sağdaki \(0\)'ın
+ise bir vektör olmasıdır. Negatif bir skaler, gerçek vektörlerin
+geometrik yorumunda ölçeklemenin yanında yönün tersine dönmesine neden
+olur; özel olarak \((-1)v\) çarpımı \(v\)'nin toplamsal tersi olan
+\(-v\) vektörünü verir. Bu üç sonuç, birazdan göreceğimiz cebirsel
+özelliklerden de türetilebilir.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Hangileri Skalerdir?}\label{hangileri-skalerdir}
+
+\(\mathbb{R}\) üzerinde çalışan bir uzayda:
+
+\[
+-3,\qquad
+\sqrt{2},\qquad
+2+i,\qquad
+\begin{bmatrix}4\\1\end{bmatrix},\qquad
+\begin{bmatrix}5\end{bmatrix}
+\]
+
+İlk ikisi, \(-3\) ve \(\sqrt2\), gerçek sayı oldukları için bu uzayda
+skalerdir. Üçüncüsü, \(2+i\), bir karmaşık sayıdır; \(\mathbb{R}\)
+üzerinde çalışan bu uzayın skaleri değildir. Aynı sayı, \(\mathbb{C}\)
+üzerinde tanımlı bir uzayda geçerli bir skaler olurdu --- yani ``skaler
+olmak'' nesnenin kendisine değil, çalışılan uzaya bağlıdır.
+
+Dördüncü nesne iki bileşenli bir vektördür, skaler değildir. Beşinci
+nesne tek bileşenli olsa da vektör olarak yazılmıştır; bu nedenle skaler
+\(5\) ile aynı matematiksel nesne değildir. Bu son ayrım özellikle
+önemlidir ve bir sonraki slaytta ayrıntılandırılacaktır.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Aynı Sayı, Farklı
+Nesne}\label{aynux131-sayux131-farklux131-nesne}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Yazım & Bu dersteki okuma \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(5\) & skaler \\
+\(\begin{bmatrix}5\end{bmatrix}\) & tek bileşenli sütun vektörü \\
+\([5]\) & bağlama göre \(1\times1\) matris \\
+\end{longtable}
+
+\begin{quote}
+İçerilen sayı aynı olabilir; matematiksel rol aynı olmak zorunda
+değildir.
+\end{quote}
+
+\(5\) ile \(\begin{bmatrix}5\end{bmatrix}\) aynı değeri içeriyor gibi
+görünür; fakat işlemde aynı tür nesne olarak davranmazlar. \(5\) bir
+katsayı olabilir, \(\begin{bmatrix}5\end{bmatrix}\) ise tek bileşenli
+bir sütun vektörüdür ve bir şekli vardır.
+
+Bu ayrım ileride boyut kontrollerinde önem kazanır. \(5v\) ifadesinde
+\(5\) vektörü ölçekler; buna karşılık \(\begin{bmatrix}5\end{bmatrix}v\)
+aynı şey değildir, çünkü soldaki nesne bir sayı değil şekli olan başka
+bir nesnedir. Dolayısıyla ``içinde tek sayı bulunan her şey skalerdir''
+düşüncesi matris çarpımında ve denklem sistemlerinde tür hatalarına yol
+açar. Bir işlemi doğru yorumlamak için önce nesnenin türüne bakılır:
+skaler mi, vektör mü, matris mi?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Skalerin İki Rolü}\label{skalerin-iki-roluxfc}
+
+\textbf{1. Bileşen olarak:}
+
+\[
+v=\begin{bmatrix}2\\-3\\5\end{bmatrix},
+\qquad
+A=\begin{bmatrix}1&4\\-2&3\end{bmatrix}
+\]
+
+\textbf{2. Katsayı olarak:}
+
+\[
+\alpha v,\qquad \alpha A
+\]
+
+Skalerler lineer cebirde iki temel biçimde karşımıza çıkar. Birincisi
+bileşen rolüdür: bir vektörün bileşenleri ve bir matrisin girdileri
+skalerdir. Örnekteki \(2\), \(-3\), \(5\) değerleri ile \(1\), \(4\),
+\(-2\), \(3\) değerlerinin her biri birer skalerdir.
+
+İkincisi katsayı rolüdür: bir skaler, bir vektör veya matrisin önünde
+onu ölçekleyen çarpan olarak kullanılır. \(3v\) ifadesindeki \(3\) ve
+\(-2A\) ifadesindeki \(-2\) bu roldedir. Aynı sayı iki rolde de
+görünebilir; önemli olan, hangi rolde kullanıldığını takip etmektir.
+Vektör ve matrisler skalerlerden oluşsalar bile kendi başlarına farklı
+türde matematiksel nesnelerdir.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Cebirsel Nesne, Geometrik
+Temsil}\label{cebirsel-nesne-geometrik-temsil}
+
+\[
+v=\begin{bmatrix}3\\2\end{bmatrix}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Cebirsel: iki bileşenli koordinat vektörü
+\item
+  Geometrik: yatayda \(3\), düşeyde \(2\) birim yer değiştirme
+\end{itemize}
+
+\begin{quote}
+Ok, vektörün bir \textbf{temsilidir} --- genel tanımı değil.
+\end{quote}
+
+Bir koordinat vektörü cebirsel olarak bileşenleriyle ifade edilir. Aynı
+vektör geometrik olarak yatayda \(3\), düşeyde \(2\) birimlik yer
+değiştirmeyi gösteren yönlü bir doğru parçasıyla, yani bir okla temsil
+edilebilir. Bu iki okuma birbirini tamamlar: cebirsel gösterim vektörü
+bileşenleriyle ifade eder, geometrik gösterim uzaydaki etkisini
+görselleştirir.
+
+Ancak geometrik ok, vektör kavramının genel tanımı değildir; yalnızca
+\(\mathbb{R}^2\) ve \(\mathbb{R}^3\) gibi görselleştirilebilen uzaylarda
+kullanılan bir temsil biçimidir. Bu ayrımı erken yapmak önemlidir:
+ileride fonksiyonlar veya matrisler vektör olarak ele alındığında onlara
+ok çizmek mümkün olmayabilir; bu, onların vektör olmadığı anlamına
+gelmez.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Nokta ve Vektör Aynı Şey
+Değildir}\label{nokta-ve-vektuxf6r-aynux131-ux15fey-deux11fildir}
+
+\[
+P=(3,2)
+\quad\text{nokta: bir \textbf{konum}}
+\]
+
+\[
+v=\begin{bmatrix}3\\2\end{bmatrix}
+\quad\text{vektör: bir \textbf{yer değiştirme}}
+\]
+
+\[
+\overrightarrow{OP}=\begin{bmatrix}3\\2\end{bmatrix}
+\quad (O=(0,0)\ \text{konum vektörü})
+\]
+
+Düzlemde \(P=(3,2)\) ifadesi bir noktayı gösterir ve bu noktanın belirli
+bir konumu vardır. Buna karşılık aynı sayıları taşıyan \(v\) bir
+vektördür ve geometrik bağlamda bir yönlü yer değiştirmeyi temsil eder.
+İki gösterimde aynı sayılar kullanılsa da matematiksel rolleri
+farklıdır.
+
+Orijin \(O=(0,0)\) olmak üzere \(P\) noktasına karşılık gelen
+\(\overrightarrow{OP}\) vektörüne \(P\) noktasının konum vektörü denir.
+Bu özel durumda noktanın koordinatları ile konum vektörünün bileşenleri
+aynı sayılardır; bu, iki kavramın karıştırılmasının başlıca nedenidir.
+Ancak sayısal örtüşme rol özdeşliği anlamına gelmez: nokta nerede
+olunduğunu, vektör ne kadar ve hangi yönde gidildiğini söyler.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Serbest Vektör}\label{serbest-vektuxf6r}
+
+\[
+A=(1,1),\ B=(4,3)
+\ \Rightarrow\
+\overrightarrow{AB}=\begin{bmatrix}3\\2\end{bmatrix}
+\]
+
+\[
+C=(-2,4),\ D=(1,6)
+\ \Rightarrow\
+\overrightarrow{CD}=\begin{bmatrix}3\\2\end{bmatrix}
+\]
+
+\[
+\boxed{\overrightarrow{AB}=\overrightarrow{CD}}
+\]
+
+Bir vektör geometrik olarak bir okla gösterildiğinde, okun başlangıç
+noktası vektörün kendisinin bir parçası değildir. \(A=(1,1)\) ile
+\(B=(4,3)\) arasındaki yer değiştirme \((3,2)^T\)'dir. Tamamen farklı
+bir bölgedeki \(C=(-2,4)\) ile \(D=(1,6)\) noktaları arasındaki yer
+değiştirme de aynı vektördür.
+
+İki ok düzlemin farklı yerlerinde çizilmiş olsa da aynı yönlü yer
+değiştirmeyi temsil eder; yönleri ve uzunlukları aynıdır. Başlangıç
+noktasından bağımsız düşünülen bu vektörlere serbest vektör denir. Bu
+nedenle bir vektörü orijinden başlatarak çizmek yalnızca standart ve
+kullanışlı bir gösterim tercihidir. Serbest vektör yorumu, ileride
+vektör toplamada ikinci vektörü birincinin ucuna paralel
+taşıyabilmemizin de dayanağıdır.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Vektör--Skaler Ayrımı Daha
+Geneldir}\label{vektuxf6rskaler-ayrux131mux131-daha-geneldir}
+
+Şimdilik çoğunlukla
+
+\[
+v=
+\begin{bmatrix}
+v_1\\
+\vdots\\
+v_n
+\end{bmatrix},
+\qquad
+\alpha\in\mathbb{R}
+\]
+
+biçiminde çalışacağız.
+
+Ancak genel olarak:
+
+\begin{quote}
+\textbf{Vektör}, üzerinde çalışılan vektör uzayının bir elemanıdır.\\
+\textbf{Skaler}, bu uzayın skaler cisminden gelir.
+\end{quote}
+
+Bu nedenle uygun bir vektör uzayında
+
+\[
+p(x)=x^2+1
+\]
+
+de bir vektör olabilir ve
+
+\[
+3p(x)
+\]
+
+ifadesindeki \(3\) yine skalerdir.
+
+Başlangıçta vektörleri birden fazla sayıyı bir arada tutan nesneler,
+skalerleri ise tek sayılar olarak gördük. Şu an çalışacağımız koordinat
+vektörleri için bu oldukça kullanışlı bir ayrımdır. Ancak bunu vektör ve
+skalerin genel tanımı olarak düşünmemek gerekir.
+
+İleride vektör uzaylarına geçtiğimizde vektör kavramının sayı
+sütunlarından daha genel olduğunu göreceğiz. Örneğin uygun bir vektör
+uzayında bir polinom veya matris de vektör olabilir. Bu durumda onu
+çarpan elemanlar yine skalerlerdir.
+
+Burada bu yapıyı ayrıntılı olarak incelemiyoruz. Bu noktayı yalnızca
+başlangıçta kurduğumuz ``vektör çok sayıdır, skaler tek sayıdır''
+sezgisinin çalışma kolaylığı sağlayan geçici bir ayrım olduğunu
+belirtmek için söylüyoruz. Genel ayrımı vektör uzayları konusunda
+kuracağız.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sık Yapılan Hatalar}\label{sux131k-yapux131lan-hatalar}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ``İçinde tek sayı bulunan her şey skalerdir'' sanmak:
+  \(\begin{bmatrix}5\end{bmatrix}\neq5\).
+\item
+  Skaler olmayı nesnenin kendisine bağlamak --- çalışılan uzaya bağlıdır
+  (\(2+i\)).
+\item
+  Bileşenlerin sırasını önemsiz saymak.
+\item
+  Noktayı vektörle özdeşleştirmek (konum ≠ yer değiştirme).
+\item
+  Geometrik oku vektörün \textbf{tanımı} sanmak.
+\end{enumerate}
+
+Birinci hata nesne türü ile içerdiği sayıyı karıştırır; tek bileşenli
+bir sütun vektörünün şekli vardır ve skalerle aynı nesne değildir. Bu
+hata matris çarpımında ve denklem sistemlerinde boyut hatalarına yol
+açar. İkinci hata skaler olmayı mutlak bir özellik sanmaktır; \(2+i\)
+gerçek bir uzayda skaler değilken karmaşık bir uzayda geçerli skalerdir.
+
+Üçüncü hata bileşen sırasını gözden kaçırmaktır; sıra yapının parçasıdır
+ve değiştiğinde vektör de değişir. Dördüncü hata nokta ile vektörü
+özdeşleştirmektir; konum vektörü durumunda sayılar örtüşse de roller
+farklıdır. Beşinci hata oku tanım sanmaktır; ok yalnız \(\mathbb{R}^2\)
+ve \(\mathbb{R}^3\) için bir temsildir ve polinom ya da matris
+vektörlerine çizilemez --- bu onların vektör olmadığı anlamına gelmez.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sonraki Adım: İki Temel
+İşlem}\label{sonraki-adux131m-iki-temel-iux15flem}
+
+Nesneleri ayırdık: \textbf{skaler} ve \textbf{koordinat vektörü}.
+
+\[
+u+v
+\qquad\text{ve}\qquad
+\alpha v
+\]
+
+\begin{quote}
+Sırada: bu iki işlemi kurmak ve \textbf{lineer birleşim} içinde
+birleştirmek.
+\end{quote}
+
+Bu derste iki nesne türünü ayırdık: vektör uzayının elemanı olan
+koordinat vektörleri ve bu uzayın skaler cisminden gelen, vektörleri
+ölçekleyen skalerler. Bileşenlerin sırasının yapının parçası olduğunu,
+eşitliğin bileşen düzeyinde tanımlandığını ve geometrik okun yalnız bir
+temsil olduğunu gördük.
+
+Bir sonraki adımda bu nesneler üzerinde iki temel işlem kurulacak:
+vektör toplama ve skalerle çarpma. Çıkarma ayrı bir temel işlem değil,
+bu ikisinin birlikte kullanılmasıyla elde edilecek. Sonunda aynı iki
+işlem lineer birleşim kalıbında birleşecek; bu kalıp, dersin geri
+kalanının ana dili olacaktır.
+
+
+
+
+\end{document}

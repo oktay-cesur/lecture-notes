@@ -1,0 +1,765 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Matris İşlemlerinin Özellikleri},
+  pdfauthor={Öğr. Gör. Oktay Cesur},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Matris İşlemlerinin Özellikleri}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{MATE 213 --- İlk Öğretim Bloğu}
+\author{Öğr. Gör. Oktay Cesur}
+\date{2026-07-24}
+\begin{document}
+\maketitle
+
+
+\subsection{Kapsam ve Kabuller}\label{kapsam-ve-kabuller}
+
+\[
+A=[a_{ij}],\quad B=[b_{ij}],\quad C=[c_{ij}],
+\qquad
+\alpha,\beta\in\mathbb{R}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Bütün eşitlikler boyut uyumu varsayımı altında
+\item
+  \(0\): uygun şekilli sıfır matrisi
+\item
+  \(I_n\): \(n\times n\) birim matris
+\end{itemize}
+
+Bu not, önceki notlarda tanımlanan dört işlemin cebirsel kurallarını bir
+arada topluyor: toplama, skalerle çarpma, matris--vektör çarpımı ve
+matris--matris çarpımı. Her kural önce genel biçimde yazılıyor, sonra
+küçük matrislerle sayısal olarak doğrulanıyor. Geçersiz kurallar için
+karşı örnek veriliyor.
+
+Aşağıdaki bütün eşitliklerde boyutların işlemi tanımlı kılacak biçimde
+seçildiği varsayılıyor. Örneğin \(A(B+C)=AB+AC\) eşitliğinde \(B\) ile
+\(C\) aynı şekilde olmalı, \(A\) matrisinin sütun sayısı da bu şeklin
+satır sayısına eşit olmalıdır. \(0\) ve \(I\) sembolleri de her
+kullanımda ilgili işlemi tanımlı kılan şekilde okunur; \(I_mA=AI_n=A\)
+eşitliğinde iki birim matrisin boyutu farklıdır.
+
+Matris--vektör çarpımı ayrı bir başlık altında ele alınmıyor. Bir sütun
+vektörü \(n\times1\) şekilli matris olduğundan, aşağıdaki kuralların
+hepsi \(p=1\) durumunda doğrudan \(Ax\) ifadesine uygulanır.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{İşlemlerin Özeti}\label{iux15flemlerin-uxf6zeti}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+İşlem & Eşleşen yapı & Sonuç \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(A+B\) & aynı konumlar & aynı şekilli matris \\
+\(\alpha A\) & tek skaler--bütün elemanlar & aynı şekilli matris \\
+\(Ax\) & satırlar--tek katsayı sütunu & tek çıktı sütunu \\
+\(AB\) & satırlar--çoklu katsayı sütunları & çoklu çıktı matrisi \\
+\end{longtable}
+
+Dört işlemin tanımlılık koşulu aynı soruyla bulunur: hangi bileşenler ya
+da eksenler eşleşiyor? Toplamada bütün konumlar bire bir eşleşir, bu
+nedenle şekiller tamamen aynı olmalıdır. Skalerle çarpmada eşleşme
+koşulu yoktur; tek sayı bütün elemanlara uygulanır. Çarpımda ise yalnız
+\(A\) matrisinin sütun ekseni ile \(B\) matrisinin satır ekseni eşleşir.
+
+Koşulların farklı olmasının doğrudan bir sonucu var: \(2\times3\) ve
+\(3\times2\) şekilli iki matris toplanamaz, fakat uygun sırada
+çarpılabilir. Tersine, aynı şekilli iki dikdörtgen matris toplanabilir
+ama çarpılamaz.
+
+Bu ayrım, aşağıdaki özellik listelerinin neden ayrı ayrı yazıldığını da
+açıklıyor. Toplamanın özellikleri eleman bazlı işlemlerden, çarpımın
+özellikleri ise çarp-topla yapısından geliyor.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Toplama ve Skalerle
+Çarpma}\label{toplama-ve-skalerle-uxe7arpma}
+
+\[
+A+B=B+A,
+\qquad
+(A+B)+C=A+(B+C)
+\]
+
+\[
+A+0=A,
+\qquad
+A+(-A)=0
+\]
+
+\[
+\alpha(A+B)=\alpha A+\alpha B,
+\qquad
+(\alpha+\beta)A=\alpha A+\beta A,
+\qquad
+\alpha(\beta A)=(\alpha\beta)A
+\]
+
+Bu eşitliklerin tümü eleman düzeyinde doğrudan doğrulanır. Örneğin
+değişme özelliği için
+\((A+B)_{ij}=a_{ij}+b_{ij}=b_{ij}+a_{ij}=(B+A)_{ij}\) yazmak yeterlidir;
+matrisler için geçerli olan şey, gerçek sayılarda toplamanın değişme
+özelliğinden geliyor. Aynı gerekçe birleşme ve dağılma eşitlikleri için
+de geçerlidir.
+
+\(0\) matrisi toplamanın etkisiz elemanı, \(-A\) ise \(A\) matrisinin
+toplamsal tersidir. Bu iki nesnenin varlığı, \(\mathbb{R}^{m\times n}\)
+kümesinin toplama ve skalerle çarpma altında kapalı bir yapı
+oluşturmasını sağlar. Vektör uzayı tanımını gördüğümüzde bu listenin tam
+olarak aksiyomlarla örtüştüğünü fark edeceksiniz.
+
+Çarpımda durum farklıdır. Aşağıdaki listede değişme özelliği yer almıyor
+ve sadeleştirme kuralı da geçerli değil. Farkın kaynağı, çarpımın eleman
+bazlı bir işlem olmamasıdır.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Çarpımın Cebirsel
+Özellikleri}\label{uxe7arpux131mux131n-cebirsel-uxf6zellikleri}
+
+\[
+(AB)C=A(BC)
+\]
+
+\[
+A(B+C)=AB+AC,
+\qquad
+(A+B)C=AC+BC
+\]
+
+\[
+\alpha(AB)=(\alpha A)B=A(\alpha B)
+\]
+
+\[
+A0=0,
+\qquad
+0A=0
+\]
+
+Bu liste, matris çarpımının gerçek sayılardaki çarpımdan hangi yönlerden
+ayrıldığını belirler. Birleşme, dağılma ve skalerle uyum korunur.
+Korunmayan iki temel özellik değişme ve sadeleştirmedir; ikisini de
+ayrıca ele alacağız.
+
+Dağılma iki ayrı eşitlik olarak yazılıyor. \(A(B+C)\) ile \((B+C)A\)
+farklı ifadelerdir ve soldan dağıtmakla sağdan dağıtmak birbirinin
+yerine kullanılamaz. Sayılarda tek bir dağılma kuralı yazmak yeterliyken
+burada iki kural gerekiyor, çünkü çarpanların sırası serbest değil.
+
+Sıfır matrisiyle çarpım kuralı da göründüğünden dardır. \(A0=0\)
+eşitliği doğrudur, fakat tersi yönde bir çıkarım yapılamaz: \(AB=0\)
+olması \(A=0\) ya da \(B=0\) olmasını gerektirmez. Bu duruma birazdan
+sayısal bir karşı örnekle geleceğiz.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Birleşme Özelliğinin
+Doğrulaması}\label{birleux15fme-uxf6zelliux11finin-doux11frulamasux131}
+
+\[
+\bigl((AB)C\bigr)_{ij}
+=\sum_{k}\Bigl(\sum_{\ell}a_{i\ell}b_{\ell k}\Bigr)c_{kj}
+\]
+
+\[
+=\sum_{\ell}a_{i\ell}\Bigl(\sum_{k}b_{\ell k}c_{kj}\Bigr)
+=\bigl(A(BC)\bigr)_{ij}
+\]
+
+Birleşme özelliği tek satırlık bir kabul değil, indis hesabıyla
+gösterilebilen bir sonuçtur. Sol taraftaki \((i,j)\) elemanı yazılırken
+önce \(AB\) çarpımının \((i,k)\) elemanı
+\(\sum_\ell a_{i\ell}b_{\ell k}\) olarak açılır, sonra \(C\) matrisiyle
+çarpım için \(k\) üzerinden toplanır.
+
+İkinci adımda iki sonlu toplamın sırası değiştirilir. Bu adım geçerlidir
+çünkü toplanan terim sayısı sonludur ve her terim
+\(a_{i\ell}b_{\ell k}c_{kj}\) biçiminde üç skalerin çarpımıdır. Sıra
+değiştikten sonra parantez içinde kalan ifade \((BC)_{\ell j}\)
+elemanıdır; dolayısıyla sağ taraf \(A(BC)\) çarpımının \((i,j)\)
+elemanına eşittir.
+
+Bütün \((i,j)\) çiftleri için eşitlik sağlandığından iki matris eşittir.
+Aynı yöntem dağılma eşitlikleri için de kullanılır; orada toplamı
+ayırmak yeterli olduğundan hesap daha kısadır.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sayısal Doğrulama:
+Birleşme}\label{sayux131sal-doux11frulama-birleux15fme}
+
+\[
+A=\begin{bmatrix}1&2\\0&3\end{bmatrix},
+\quad
+B=\begin{bmatrix}2&1\\1&0\end{bmatrix},
+\quad
+C=\begin{bmatrix}1&0\\2&1\end{bmatrix}
+\]
+
+\[
+AB=\begin{bmatrix}4&1\\3&0\end{bmatrix}
+\ \Longrightarrow\
+(AB)C=\begin{bmatrix}6&1\\3&0\end{bmatrix}
+\]
+
+\[
+BC=\begin{bmatrix}4&1\\1&0\end{bmatrix}
+\ \Longrightarrow\
+A(BC)=\begin{bmatrix}6&1\\3&0\end{bmatrix}
+\]
+
+Soldan hesapta önce \(AB\) bulunur: birinci satır \((1,2)\) ile birinci
+sütun \((2,1)\) çarpılıp toplandığında \(1(2)+2(1)=4\), ikinci sütun
+\((1,0)\) ile \(1(1)+2(0)=1\) elde edilir. İkinci satır \((0,3)\) için
+değerler \(3\) ve \(0\) çıkar. Bulunan \(AB\) matrisi \(C\) ile
+çarpıldığında \((1,1)\) elemanı \(4(1)+1(2)=6\) olur.
+
+Sağdan hesapta önce \(BC\) bulunur ve \(A\) ile çarpılır: \((1,1)\)
+elemanı \(1(4)+2(1)=6\) çıkar. İki yol da aynı matrisi veriyor, ama ara
+sonuçlar farklıdır. \(AB\) ile \(BC\) matrisleri birbirine eşit değil;
+eşit olan yalnız üçlü çarpımın sonucudur.
+
+Ara sonuçların farklı olması hesap yükü açısından işe yarar. Boyutlar
+eşit olmadığında iki yoldan biri belirgin biçimde daha az çarpma
+gerektirebilir; örneğin \(A\) matrisi \(100\times2\), \(B\) matrisi
+\(2\times100\) ve \(C\) matrisi \(100\times1\) ise \(A(BC)\) hesabı
+\((AB)C\) hesabından çok daha kısadır.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sayısal Doğrulama:
+Dağılma}\label{sayux131sal-doux11frulama-daux11fux131lma}
+
+\[
+B+C=\begin{bmatrix}3&1\\3&1\end{bmatrix}
+\ \Longrightarrow\
+A(B+C)=\begin{bmatrix}9&3\\9&3\end{bmatrix}
+\]
+
+\[
+AB=\begin{bmatrix}4&1\\3&0\end{bmatrix},
+\qquad
+AC=\begin{bmatrix}5&2\\6&3\end{bmatrix}
+\]
+
+\[
+AB+AC=\begin{bmatrix}9&3\\9&3\end{bmatrix}
+\]
+
+Aynı üç matrisle dağılma eşitliğini doğruluyoruz. Soldan hesapta önce
+\(B+C\) toplamı alınır; toplama eleman bazlı olduğu için \((1,1)\)
+elemanı \(2+1=3\) olur. Bulunan matris \(A\) ile çarpıldığında \((1,1)\)
+elemanı \(1(3)+2(3)=9\) çıkar.
+
+Sağdan hesapta iki çarpım ayrı ayrı yapılır. \(AC\) matrisinin \((1,1)\)
+elemanı \(1(1)+2(2)=5\), \(AB\) matrisininki \(4\)'tür; toplamları \(9\)
+eder. Bütün konumlarda aynı eşleşme sağlandığı için iki taraf eşittir.
+
+Bu eşitliğin sağdan biçimi ayrıca kontrol edilmelidir. \((B+C)A\) hesabı
+\(A(B+C)\) hesabına eşit değildir; burada \(B+C\) ile \(A\)
+matrislerinin çarpım sırası değiştiğinden sonuç da değişir. Dağılma
+kuralı sırayı serbest bırakmaz, yalnız parantezi açar.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Birim ve Sıfır
+Matrisi}\label{birim-ve-sux131fux131r-matrisi}
+
+\[
+I_mA=AI_n=A
+\qquad (A:m\times n)
+\]
+
+\[
+\begin{bmatrix}1&0\\0&1\end{bmatrix}
+\begin{bmatrix}1&2\\0&3\end{bmatrix}
+=\begin{bmatrix}1&2\\0&3\end{bmatrix}
+\]
+
+\[
+A0=0,
+\qquad
+0A=0
+\]
+
+Birim matris çarpımın etkisiz elemanıdır, fakat toplamadaki \(0\)
+matrisinden farklı olarak sağdan ve soldan farklı boyutlarda kullanılır.
+\(A\) matrisi \(m\times n\) şekilliyse soldan çarpan \(I_m\), sağdan
+çarpan \(I_n\) olmalıdır. Kare olmayan bir matris için bu iki birim
+matris aynı nesne değildir.
+
+\(I_mA=A\) eşitliği tanımdan çıkar. \(I_m\) matrisinin \(i\). satırında
+yalnız \(i\). konumda \(1\), diğer konumlarda \(0\) vardır; çarp-topla
+hesabında bu satır \(A\) matrisinin yalnız \(i\). satırını seçer, kalan
+terimler sıfırla çarpıldığı için düşer.
+
+Sıfır matrisi çarpımı yutar. Ancak bu kuralın tersi geçerli değildir;
+\(AB=0\) eşitliğinden çarpanlar hakkında sonuç çıkarılamaz. Sıradaki
+karşı örnek bunu gösteriyor.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{Sıfır Bölen: \(AB=0\) Ne Demek
+Değildir?}{Sıfır Bölen: AB=0 Ne Demek Değildir?}}\label{sux131fux131r-buxf6len-ab0-ne-demek-deux11fildir}
+
+\[
+A=\begin{bmatrix}1&1\\1&1\end{bmatrix},
+\qquad
+B=\begin{bmatrix}1&1\\-1&-1\end{bmatrix}
+\]
+
+\[
+AB=\begin{bmatrix}0&0\\0&0\end{bmatrix},
+\qquad
+A\ne0,\quad B\ne0
+\]
+
+Çarpımın \((1,1)\) elemanı \(1(1)+1(-1)=0\), \((1,2)\) elemanı
+\(1(1)+1(-1)=0\) olur; ikinci satır da aynı değerleri verir çünkü \(A\)
+matrisinin iki satırı aynıdır. Sonuç sıfır matrisidir, oysa çarpanların
+hiçbiri sıfır değildir.
+
+Gerçek sayılarda \(ab=0\) eşitliği çarpanlardan birinin sıfır olmasını
+gerektirir; bu, denklem çözerken sürekli kullandığımız bir çıkarımdır.
+Matrislerde aynı çıkarımı yapmak hatalıdır. Örneğin \(A^2=A\)
+denkleminden \(A(A-I)=0\) elde edilir, fakat buradan \(A=0\) ya da
+\(A=I\) sonucu çıkmaz.
+
+Karşı örnekteki iki matrisin ortak yanı sütunlarının birbirinin katı
+olmasıdır. Bu durumun ne anlama geldiğini lineer bağımsızlık ve rank
+konularında göreceğiz; şimdilik kuralın geçersiz olduğunu bilmek
+yeterli.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sadeleştirme Kuralı
+Geçersizdir}\label{sadeleux15ftirme-kuralux131-geuxe7ersizdir}
+
+\[
+A=\begin{bmatrix}1&1\\1&1\end{bmatrix},
+\qquad
+B=\begin{bmatrix}1&0\\0&1\end{bmatrix},
+\qquad
+C=\begin{bmatrix}0&1\\1&0\end{bmatrix}
+\]
+
+\[
+AB=AC=\begin{bmatrix}1&1\\1&1\end{bmatrix},
+\qquad
+B\ne C
+\]
+
+\(B\) birim matris olduğu için \(AB=A\) olur. \(AC\) hesabında ise \(C\)
+matrisi \(A\) matrisinin sütunlarının yerini değiştirir; \(A\)
+matrisinin iki sütunu aynı olduğundan sonuç yine \(A\) çıkar. İki çarpım
+eşit, fakat \(B\) ile \(C\) farklı matrislerdir.
+
+Sayılarda \(ab=ac\) ve \(a\ne0\) ise \(b=c\) sonucunu çıkarırız.
+Matrislerde \(A\ne0\) koşulu bu çıkarım için yeterli değildir. Eşitliğin
+iki tarafını \(A\) ile ``sadeleştirmek'', ancak \(A\) matrisinin tersi
+varsa yapılabilir; tersinirlik konusunda bu koşulu tam olarak
+belirleyeceğiz.
+
+İki karşı örnekteki \(A\) matrisi aynıdır ve bu tesadüf değildir. Sıfır
+bölen olma ile sadeleştirilememe aynı olgunun iki yüzüdür: \(AB=AC\)
+eşitliği \(A(B-C)=0\) demektir, yani \(A\) sıfır olmayan bir matrisi
+sıfıra götürüyor.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Transpoz ve Çarpım}\label{transpoz-ve-uxe7arpux131m}
+
+\[
+(A+B)^T=A^T+B^T,
+\qquad
+(\alpha A)^T=\alpha A^T,
+\qquad
+(A^T)^T=A
+\]
+
+\[
+\boxed{(AB)^T=B^TA^T}
+\]
+
+\begin{quote}
+Transpoz alındığında çarpanların sırası ters döner.
+\end{quote}
+
+İlk üç eşitlik eleman bazlı işlemlerle uyumludur ve doğrudan tanımdan
+çıkar. Dördüncü eşitlik ise sırayı ters çevirir. Nedeni boyutlarda
+görünür: \(A\) matrisi \(m\times n\), \(B\) matrisi \(n\times p\) ise
+\(AB\) çarpımı \(m\times p\), transpozu \(p\times m\) şekillidir. Sağ
+tarafta \(B^T\) matrisi \(p\times n\), \(A^T\) matrisi \(n\times m\)
+olduğundan çarpım \(p\times m\) çıkar ve şekiller uyar.
+
+Sırayı korumaya çalışmak çoğu zaman tanımsız bir ifade üretir.
+\(A^TB^T\) çarpımı \((n\times m)(p\times n)\) biçiminde olur ve \(m=p\)
+değilse hesaplanamaz bile. Hesaplanabildiği durumlarda da genel olarak
+\((AB)^T\) matrisine eşit değildir.
+
+Eleman düzeyinde gerekçe kısadır:
+\(\bigl((AB)^T\bigr)_{ij}=(AB)_{ji}=\sum_k a_{jk}b_{ki}\) olur. Sağ
+tarafta ise
+\((B^TA^T)_{ij}=\sum_k (B^T)_{ik}(A^T)_{kj}=\sum_k b_{ki}a_{jk}\) elde
+edilir; iki toplam aynı terimlerden oluşur.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sayısal Doğrulama:
+Transpoz}\label{sayux131sal-doux11frulama-transpoz}
+
+\[
+AB=\begin{bmatrix}4&1\\3&0\end{bmatrix}
+\ \Longrightarrow\
+(AB)^T=\begin{bmatrix}4&3\\1&0\end{bmatrix}
+\]
+
+\[
+B^TA^T=
+\begin{bmatrix}2&1\\1&0\end{bmatrix}
+\begin{bmatrix}1&0\\2&3\end{bmatrix}
+=\begin{bmatrix}4&3\\1&0\end{bmatrix}
+\]
+
+\[
+A^TB^T=\begin{bmatrix}2&1\\7&2\end{bmatrix}
+\]
+
+Aynı \(A\) ve \(B\) matrisleriyle devam ediyoruz. \(B^T\) matrisi \(B\)
+simetrik olduğu için kendisine eşittir; \(A^T\) matrisi ise
+\(\begin{bmatrix}1&0\\2&3\end{bmatrix}\) olur. Çarpımın \((1,1)\)
+elemanı \(2(1)+1(2)=4\), \((1,2)\) elemanı \(2(0)+1(3)=3\) çıkar ve
+sonuç \((AB)^T\) matrisine eşittir.
+
+Ters sırada yazıldığında sonuç değişir. \(A^TB^T\) çarpımının \((2,1)\)
+elemanı \(2(2)+3(1)=7\) olur, oysa \((AB)^T\) matrisinin aynı
+konumundaki değer \(1\)'dir. Burada iki matris de \(2\times2\) olduğu
+için çarpım tanımlıdır; eşit olmamaları boyut sorunundan değil, sıranın
+kendisinden kaynaklanıyor.
+
+Kare olmayan matrislerde hata daha erken yakalanır. \(A\) matrisi
+\(2\times3\), \(B\) matrisi \(3\times2\) ise \(A^TB^T\) çarpımı
+\((3\times2)(2\times3)\) biçiminde olur ve \(3\times3\) bir matris
+verir; \((AB)^T\) ise \(2\times2\) şekillidir. Boyut kontrolü bu durumda
+yanlış sırayı doğrudan gösterir.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Matrisin Kuvvetleri}\label{matrisin-kuvvetleri}
+
+\[
+A^0=I,
+\qquad
+A^k=\underbrace{AA\cdots A}_{k\ \text{çarpan}}
+\qquad (A\ \text{kare})
+\]
+
+\[
+A=\begin{bmatrix}1&1\\0&1\end{bmatrix}
+\ \Longrightarrow\
+A^2=\begin{bmatrix}1&2\\0&1\end{bmatrix},
+\quad
+A^3=\begin{bmatrix}1&3\\0&1\end{bmatrix}
+\]
+
+\[
+N=\begin{bmatrix}0&1\\0&0\end{bmatrix}
+\ \Longrightarrow\
+N^2=0
+\]
+
+Kuvvet yalnız kare matrisler için tanımlıdır; \(A\) matrisi kare değilse
+\(AA\) çarpımının iç boyutları uyuşmaz. Birleşme özelliği sayesinde
+çarpanların hangi sırayla gruplandığı önemsizdir, bu yüzden
+\(A^{k+\ell}=A^kA^\ell\) eşitliği geçerlidir.
+
+İlk örnekte üst köşedeki eleman her adımda \(1\) artıyor; tümevarımla
+\(A^k=\begin{bmatrix}1&k\\0&1\end{bmatrix}\) olduğu gösterilebilir.
+İkinci örnekte ise sıfırdan farklı bir matrisin karesi sıfır çıkıyor.
+Sayılarda \(x^2=0\) denklemi yalnız \(x=0\) çözümünü verirken
+matrislerde durum farklıdır; bu, sıfır bölen örneğinin kuvvet
+biçimindeki karşılığıdır.
+
+Değişme özelliğinin olmaması kuvvet hesaplarında da görünür.
+\((AB)^2=ABAB\) ifadesi ancak \(AB=BA\) olduğunda \(A^2B^2\) biçiminde
+toplanabilir. Aynı nedenle \((A+B)^2=A^2+AB+BA+B^2\) olur; orta terimler
+genel olarak \(2AB\) vermez.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sık Yapılan Hatalar}\label{sux131k-yapux131lan-hatalar}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(AB=0\) eşitliğinden bir çarpanı sıfır saymak.
+\item
+  \(AB=AC\) eşitliğinde \(A\) ile sadeleştirmek.
+\item
+  \((AB)^T\) yerine \(A^TB^T\) yazmak.
+\item
+  \((A+B)^2\) açılımında \(2AB\) yazmak.
+\item
+  Dağılmayı sıra değiştirmek için kullanmak.
+\end{enumerate}
+
+Birinci ve ikinci hatalar aynı kaynaktan gelir: gerçek sayılardaki
+çarpımın tersinir olmasına dayanan çıkarımlar matrislere taşınıyor.
+İkisi de ancak ilgili matrisin tersi varsa geçerlidir ve bu koşul genel
+olarak sağlanmaz.
+
+Üçüncü hata sıra değişimini atlar. Boyutlar farklıysa yanlış ifade zaten
+tanımsız çıkar ve hata hemen görünür; kare matrislerde ise hesap
+tamamlanır ve yanlış sonuç fark edilmeyebilir. Dördüncü hata da
+benzerdir: \(AB\) ile \(BA\) genel olarak eşit olmadığı için orta
+terimler birleştirilemez.
+
+Beşinci hata dağılma kuralının ne söylediğini genişletir.
+\(A(B+C)=AB+AC\) eşitliği parantezi açar, çarpanların sırasını serbest
+bırakmaz. \((B+C)A\) ifadesi açıldığında \(BA+CA\) elde edilir ve bu
+genel olarak \(AB+AC\) toplamına eşit değildir.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Karar Soruları}\label{karar-sorularux131}
+
+Hesap yapmadan karar verin:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(A:3\times4\) için \(A^2\) tanımlı mı?
+\item
+  \(AB=BA\) her zaman yanlış mı?
+\item
+  \(A\ne0\), \(AB=0\) ise \(B=0\) mı?
+\item
+  \((ABC)^T\) nasıl yazılır?
+\end{enumerate}
+
+Birinci soruda \(A^2=AA\) çarpımı \((3\times4)(3\times4)\) biçiminde
+olur; iç boyutlar \(4\) ve \(3\) uyuşmadığı için tanımsızdır. Kuvvet
+yalnız kare matrislerde tanımlıdır.
+
+İkinci soruda cevap hayırdır. Değişme özelliği genel olarak geçerli
+değildir, fakat özel çiftlerde sağlanabilir: \(A\) ile \(I\), \(A\) ile
+\(A^k\), ya da iki köşegen matris her zaman yer değiştirebilir. ``Genel
+olarak geçerli değil'' ile ``hiçbir zaman geçerli değil'' farklı
+ifadelerdir.
+
+Üçüncü soruda cevap yine hayırdır; karşı örneği bu notta gördük.
+Dördüncü soruda kural iki kez uygulanır:
+\((ABC)^T=\bigl((AB)C\bigr)^T=C^T(AB)^T=C^TB^TA^T\). Sıra baştan sona
+tersine döner.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Sonraki Adım: Kural Olarak
+Matris}\label{sonraki-adux131m-kural-olarak-matris}
+
+Elimizde:
+
+\[
+\text{tanım}+\text{mekanizma}+\text{cebirsel kurallar}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Açık kalan: \(x\mapsto Ax\) neyi temsil ediyor?
+\item
+  Sonraki not: dönüşüm okuması
+\end{itemize}
+
+Bu notta matris işlemlerinin cebirsel yapısını tamamladık. Toplama ve
+skalerle çarpma sayılardaki karşılıklarıyla aynı kuralları izliyor;
+çarpım ise birleşme, dağılma ve skalerle uyumu koruyup değişme ile
+sadeleştirmeyi kaybediyor. Kaybedilen iki kuralın karşı örneklerini
+sayısal olarak gördük.
+
+Bundan sonra \(A\) matrisini bir hesap düzeni olarak değil, \(x\)
+vektörünü \(Ax\) vektörüne götüren bir kural olarak okuyacağız. Buradaki
+cebirsel özellikler o okumada yeniden karşımıza çıkacak:
+\(A(u+v)=Au+Av\) eşitliği kuralın toplamayı koruduğunu, \((AB)x=A(Bx)\)
+eşitliği ise çarpımın ardışık uygulamaya karşılık geldiğini söyleyecek.
+
+
+
+
+\end{document}
