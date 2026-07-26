@@ -1,7 +1,7 @@
 ---
 title: "Biraz Ciddiyet"
 type: article
-status: draft
+status: published
 tags:
   - yhu
   - article

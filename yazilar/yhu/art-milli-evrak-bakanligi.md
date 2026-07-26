@@ -1,7 +1,7 @@
 ---
 title: "Milli Evrak Bakanlığı"
 type: article
-status: draft
+status: published
 tags:
   - yhu
   - article

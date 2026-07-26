@@ -3,6 +3,7 @@ title: "Sözüm Meclisten Dışarı Dostlar..."
 subtitle: "Bir Cacık Tarifi"
 author: Oktay CESUR (Aşçı yamağı)
 tags: [index]
+sidebar: yazilar
 ---
 
 ::: {.text-center}

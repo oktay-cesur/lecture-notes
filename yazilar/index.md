@@ -1,13 +1,11 @@
 ---
 title: "Yazılar"
 tags: [index]
+sidebar: yazilar
 ---
-
-# Yazılar
 
 Bu bölüm ders notu olmayan ama yayınlanabilir nitelikteki serbest yazılar, denemeler ve yazı dizileri için ayrıldı.
 
-## Bölümler
+## Yazı Dizileri
 
-- [[yazilar/serbest-yazilar/index|Serbest Yazılar]]
-- [[yazilar/yhu/index|YHÜ]]
+- [Sözüm Meclisten Dışarı Dostlar...](yhu/index.md) — Eğitim sistemi üzerine deneme ve hiciv yazıları
