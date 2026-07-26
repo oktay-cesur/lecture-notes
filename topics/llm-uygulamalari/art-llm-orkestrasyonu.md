@@ -1,11 +1,12 @@
 ---
 title: "LLM Orkestrasyonu"
 type: article
-status: draft
+status: published
 source: "03-calismalar/llmapp_llm-uygulama-mimarileri/task/t01_langchain-temelleri/llm-orkestrasyonu.md"
 tags:
   - llm
   - article
+sidebar: ai-llm
 ---
 
 

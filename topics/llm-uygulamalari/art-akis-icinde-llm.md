@@ -1,11 +1,12 @@
 ---
 title: "Dil Modellerini Programlamak"
 type: article
-status: draft
+status: published
 source: "03-calismalar/llmapp_llm-uygulama-mimarileri/task/t01_langchain-temelleri/akis-icinde-llm.md"
 tags:
   - llm
   - article
+sidebar: ai-llm
 ---
 
 
