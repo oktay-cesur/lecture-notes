@@ -303,7 +303,7 @@ render_slide_file() {
     QUARTO_DENO_DIR="$temp_dir/.quarto-deno-cache" \
     DENO_DIR="$temp_dir/.quarto-deno-cache" \
     XDG_CACHE_HOME="$temp_dir/.quarto-xdg-cache" \
-      quarto render "$rel_file" --profile slides --to revealjs
+      quarto render "$rel_file" --profile slides,publish --to revealjs
   ); then
     rm -rf "$temp_dir" 2>/dev/null || true
     return 1
@@ -314,19 +314,15 @@ render_slide_file() {
   html_name="${base_name}.html"
 
   if [[ "$rel_dir" == "." ]]; then
-    source_dir="$temp_dir"
+    source_dir="$temp_dir/_site/slides"
     output_dir="$SLIDES_OUTPUT_DIR_REL"
   else
-    source_dir="$temp_dir/$rel_dir"
+    source_dir="$temp_dir/_site/slides/$rel_dir"
     output_dir="$SLIDES_OUTPUT_DIR_REL/$rel_dir"
   fi
 
   source_html="$source_dir/$html_name"
   source_files="$source_dir/${base_name}_files"
-  if [[ ! -f "$source_html" && -f "$temp_dir/_site/$rel_dir/$html_name" ]]; then
-    source_html="$temp_dir/_site/$rel_dir/$html_name"
-    source_files="$temp_dir/_site/$rel_dir/${base_name}_files"
-  fi
   target_html="$output_dir/$html_name"
   target_files="$output_dir/${base_name}_files"
 
@@ -460,10 +456,9 @@ render_all_outputs_in_temp_workspace() {
 
   (
     cd "$temp_dir"
-    quarto render --profile local --to html --output-dir _site
+    quarto render --profile publish --to html
 
     rm -rf _site/slides
-    mkdir -p _site/slides
     while IFS= read -r rel_file; do
       if is_fallback_qmd_file "$rel_file"; then
         continue
@@ -475,33 +470,10 @@ render_all_outputs_in_temp_workspace() {
         continue
       fi
       if is_presentation_file "$rel_file"; then
-        quarto render "$rel_file" --profile slides --to revealjs
-
-        rel_dir="$(dirname "$rel_file")"
-        base_name="$(basename "${rel_file%.*}")"
-        html_name="${base_name}.html"
-        if [[ "$rel_dir" == "." ]]; then
-          source_dir="."
-          output_dir="_site/slides"
-        else
-          source_dir="$rel_dir"
-          output_dir="_site/slides/$rel_dir"
-        fi
-
-        source_html="$source_dir/$html_name"
-        source_files="$source_dir/${base_name}_files"
-        if [[ ! -f "$source_html" && -f "_site/$source_dir/$html_name" ]]; then
-          source_html="_site/$source_dir/$html_name"
-          source_files="_site/$source_dir/${base_name}_files"
-        fi
-
-        mkdir -p "$output_dir"
-        if [[ -f "$source_html" ]]; then
-          cp -f "$source_html" "$output_dir/$html_name"
-        fi
-        if [[ -d "$source_files" ]]; then
-          rm -rf "$output_dir/${base_name}_files"
-          cp -a "$source_files" "$output_dir/${base_name}_files"
+        quarto render "$rel_file" --profile slides,publish --to revealjs
+        if [[ ! -f "_site/slides/${rel_file%.*}.html" ]]; then
+          echo "ERROR: slide output not created: $rel_file" >&2
+          exit 1
         fi
 
         rendered_slide_count=$((rendered_slide_count + 1))

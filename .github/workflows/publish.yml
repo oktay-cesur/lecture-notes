@@ -25,13 +25,10 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render HTML site
-        uses: quarto-dev/quarto-actions/render@v2
-        with:
-          profile: publish
+        run: quarto render --profile publish
 
       - name: Render slides
         run: |
-          mkdir -p _site/slides
           while IFS= read -r f; do
             case "$f" in
               *-qmd-fallback.qmd|courses/bim444/notes/search-algorithms.md|courses/bim444/notes/search-algorithms-qmd-fallback.qmd|*/_draft/*|*/_private/*|*/_backup/*|*/_arsiv/*|_arsiv/*|*/index.md|*/index.qmd)
@@ -55,7 +52,8 @@ jobs:
                 if (!closed) exit 1
               }
             ' "$f"; then
-              quarto render "$f" --profile local,slides --to revealjs --output-dir _site/slides
+              quarto render "$f" --profile slides,publish --to revealjs
+              test -f "_site/slides/${f%.*}.html"
             fi
           done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
 

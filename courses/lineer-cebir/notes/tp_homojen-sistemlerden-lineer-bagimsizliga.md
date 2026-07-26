@@ -1,6 +1,6 @@
 ---
 title: "Homojen Sistemlerden Lineer Bağımsızlığa"
-subtitle: "MATE 213 — İlk Öğretim Bloğu"
+subtitle: "MATE 213 — Lineer Cebir"
 type: presentation
 author: "Öğr. Gör. Oktay Cesur"
 date: 2026-07-21

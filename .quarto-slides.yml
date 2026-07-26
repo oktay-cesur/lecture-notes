@@ -1,3 +1,6 @@
+project:
+  output-dir: _site/slides
+
 format:
   revealjs:
     theme: dracula
