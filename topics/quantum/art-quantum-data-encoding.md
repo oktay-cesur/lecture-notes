@@ -2,19 +2,20 @@
 title: "Kuantum Veri Kodlama"
 subtitle: "Quantum Data Encoding"
 type: article
-status: draft
+status: published
 source: "01-bilgi-katmani/kavramlar/quantum-data-encoding.md"
 tags:
   - quantum
   - qml
   - qip
   - data-encoding
+sidebar: quantum
 ---
 
 
 Kuantum bilgisayarların günümüzde bu kadar revaçta olmasının başlıca nedenlerinden biri, elbette RSA gibi şifreleme yöntemlerini teorik olarak saf dışı bırakabilme potansiyelidir. Teoride, klasik bilgisayarlarla milyonlarca yıl sürebilecek bir işlemi[^1] çok daha kısa sürede yapabilme ihtimali[^2], bu teknolojinin neden bu kadar ilgi gördüğünü açıklamak için tek başına bile yeterlidir.[^3]
 
-Fakat tarihsel açıdan bakıldığında kuantum bilgisayarlar yüksek hız sebebiyle ortaya atılmamıştır. $n$ kübitlik bir kuantum sistemin [durum uzayı](tp_kuantum-durum-gorsellestirme.md) $2^n$ boyutludur ve bu bizi bilgisayar bilimlerinde çok iyi bilinen ve çoğunlukla kaçmak istediğimiz üstel artış problemine götürür. Bu cihazların ilk önerilme amacı, belleğin bu üstel büyümeye yakalanmadan durum temsili yapabilen bir bilgisayara duyulan ihtiyaçtı ve bunu en iyi problemi oluşturan dünyanın araçlarıyla çözebileceğimiz fikri ile kuantum hesaplamanın temelleri atılmıştır. [@feynman1982simulating; @manin1980vychislimoe]
+Fakat tarihsel açıdan bakıldığında kuantum bilgisayarlar yüksek hız sebebiyle ortaya atılmamıştır. $n$ kübitlik bir kuantum sistemin [durum uzayı](../../courses/qturkey/qbronze/notes/tp_kuantum-durum-gorsellestirme.md) $2^n$ boyutludur ve bu bizi bilgisayar bilimlerinde çok iyi bilinen ve çoğunlukla kaçmak istediğimiz üstel artış problemine götürür. Bu cihazların ilk önerilme amacı, belleğin bu üstel büyümeye yakalanmadan durum temsili yapabilen bir bilgisayara duyulan ihtiyaçtı ve bunu en iyi problemi oluşturan dünyanın araçlarıyla çözebileceğimiz fikri ile kuantum hesaplamanın temelleri atılmıştır. [@feynman1982simulating; @manin1980vychislimoe]
 
 ::: {.qde-history-portraits}
 <figure class="qde-history-portrait">
@@ -27,11 +28,11 @@ Fakat tarihsel açıdan bakıldığında kuantum bilgisayarlar yüksek hız sebe
 </figure>
 :::
 
-Shor algoritması ise bu durumu başka bir boyuta taşıdı. Klasik bilgisayarlarda temsil edilen bir problemi[^4] kuantum bilgisayara aktarabilirsek üstel zamandan polinomsal zamana düşebilme olasılığını gösterdi. Bunun için de ihtiyacımız olan şey öncelikli olarak kuantum veri kodlamadır. Feynman ve Manin’in işaret ettiği sorun, kuantum durumların klasik bilgisayarlarda temsil edilmesinin bellek kısmında zorlaşmasıydı. Kuantum veri kodlamada ise soru ters yönden sorulur: Klasik veriyi, kuantum durum uzayının sunduğu genlik, faz ve [süperpozisyon](tp_superposition-olcum.md) yapısına nasıl yerleştireceğiz? Bu yüzden encoding yalnızca teknik bir veri aktarma adımı değil, kuantum hesaplamanın temsil gücünden ne ölçüde yararlanacağımızı belirleyen temel bir tasarım kararıdır.
+Shor algoritması ise bu durumu başka bir boyuta taşıdı. Klasik bilgisayarlarda temsil edilen bir problemi[^4] kuantum bilgisayara aktarabilirsek üstel zamandan polinomsal zamana düşebilme olasılığını gösterdi. Bunun için de ihtiyacımız olan şey öncelikli olarak kuantum veri kodlamadır. Feynman ve Manin’in işaret ettiği sorun, kuantum durumların klasik bilgisayarlarda temsil edilmesinin bellek kısmında zorlaşmasıydı. Kuantum veri kodlamada ise soru ters yönden sorulur: Klasik veriyi, kuantum durum uzayının sunduğu genlik, faz ve [süperpozisyon](../../courses/qturkey/qbronze/notes/tp_superposition-olcum.md) yapısına nasıl yerleştireceğiz? Bu yüzden encoding yalnızca teknik bir veri aktarma adımı değil, kuantum hesaplamanın temsil gücünden ne ölçüde yararlanacağımızı belirleyen temel bir tasarım kararıdır.
 
-[Klasik bilgisayarlarda veriyi bit dizileri ile temsil ederiz](tp_klasik-bit.md) ve işlemleri bu gösterim üzerinde yürütürüz. Kuantum bilgisayarları da ilk bakışta yalnızca $0$ ve $1$ değerleriyle çalışan sistemler gibi düşünmek mümkündür; çünkü bir [Kübit](tp_tek-qubit.md) ölçüldüğünde sonuç yine klasik olarak $0$ ya da $1$ biçiminde okunur. Bu açıdan bakıldığında, klasik bit dizilerini doğrudan kuantum durumlarına eşlemek doğal bir başlangıç gibi görünür. Nitekim bu yaklaşım [Basis encoding](#basis-encoding) bölümünde ele alınacaktır.
+[Klasik bilgisayarlarda veriyi bit dizileri ile temsil ederiz](../../courses/qturkey/qbronze/notes/tp_klasik-bit.md) ve işlemleri bu gösterim üzerinde yürütürüz. Kuantum bilgisayarları da ilk bakışta yalnızca $0$ ve $1$ değerleriyle çalışan sistemler gibi düşünmek mümkündür; çünkü bir [Kübit](../../courses/qturkey/qbronze/notes/tp_tek-qubit.md) ölçüldüğünde sonuç yine klasik olarak $0$ ya da $1$ biçiminde okunur. Bu açıdan bakıldığında, klasik bit dizilerini doğrudan kuantum durumlarına eşlemek doğal bir başlangıç gibi görünür. Nitekim bu yaklaşım [Basis encoding](#basis-encoding) bölümünde ele alınacaktır.
 
-Fakat bu yorum yalnızca [ölçüm sonucunu](tp_superposition-olcum.md) dikkate alır. Ölçümden önce kübit, $0$ ve $1$ sonuçlarına ait olasılık genlikleri ve faz ilişkileriyle tanımlanan bir kuantum durumundadır ve bu kuantum durum ölçüm sonucu okunacak $0$ ve $1$ olasılıklarını etkiler. Bu nedenle bilgi yalnızca ölçümde elde edilen klasik sonuçta değil, ölçüm öncesindeki durumun yapısında da taşınır. Kuantum hesaplamanın ayırt edici tarafı da bu ölçüm öncesi yapının kontrollü biçimde hazırlanması, dönüştürülmesi ve başka kübitlerle ilişkilendirilmesidir. Dolayısıyla kuantum bilgisayarı yalnızca “ölçüldüğünde $0$ veya $1$ veren birimler” olarak kullanmak, kuantum dünyasını klasik dünyadan ayıran [dolanıklık](dolaniklik-superdense-coding.md), durum uzayı, [girişim](hadamard.md) gibi özellikleri tam olarak —hatta çoğu durumda hiç— kullanmamıza izin vermez.
+Fakat bu yorum yalnızca [ölçüm sonucunu](../../courses/qturkey/qbronze/notes/tp_superposition-olcum.md) dikkate alır. Ölçümden önce kübit, $0$ ve $1$ sonuçlarına ait olasılık genlikleri ve faz ilişkileriyle tanımlanan bir kuantum durumundadır ve bu kuantum durum ölçüm sonucu okunacak $0$ ve $1$ olasılıklarını etkiler. Bu nedenle bilgi yalnızca ölçümde elde edilen klasik sonuçta değil, ölçüm öncesindeki durumun yapısında da taşınır. Kuantum hesaplamanın ayırt edici tarafı da bu ölçüm öncesi yapının kontrollü biçimde hazırlanması, dönüştürülmesi ve başka kübitlerle ilişkilendirilmesidir. Dolayısıyla kuantum bilgisayarı yalnızca “ölçüldüğünde $0$ veya $1$ veren birimler” olarak kullanmak, kuantum dünyasını klasik dünyadan ayıran [dolanıklık](../../courses/qturkey/qbronze/notes/dolaniklik-superdense-coding.md), durum uzayı, [girişim](../../courses/qturkey/qbronze/notes/hadamard.md) gibi özellikleri tam olarak —hatta çoğu durumda hiç— kullanmamıza izin vermez.
 
 Gelgelelim bu özellikleri kullanmak istediğimizde ise önümüze başka bir temsil problemi çıkar. Klasik bilgisayar mimarisinde bitler; transistörler, manyetik diskler, optik diskler ve benzeri fiziksel sistemler üzerinde oldukça kararlı biçimde tutulur. Örneğin bir transistörün girişine belirli bir elektriksel sinyal uygulandığında, devrenin hangi lojik çıktıyı (yani $0-1$ değeri) üreteceği çok çok düşük hata paylarıyla öngörülebilir. Bu nedenle klasik bilgisayarda bir bitin $0$ mı yoksa $1$ mi olduğu çoğu zaman -hatta hemen hemen her zaman- doğrudan okunabilir, kopyalanabilir ve uzun süre korunabilir bir bilgi parçası gibi davranır. Bir sabit disk içerisindeki bilgiler yıllarca sağlam kalabilir.
 
@@ -59,7 +60,7 @@ Gelgelelim bu özellikleri kullanmak istediğimizde ise önümüze başka bir te
 ::::
 :::
 
-Kuantum dünyasında ise bu kararlılık ve doğrudan okunabilirlik varsayımı geçerli değildir. Amacımız kuantum dünyasının garip özelliklerini kullanmak ise ölçüm öncesindeki genlik, faz ve kübitler arası ilişki yapısını da hesaba katmak gerekir. Bu yapı daha zengin bir temsil alanı açar; fakat aynı zamanda [durum hazırlama](art-state-preparation.md), gürültüye duyarlılık ve ölçümden sonra bilginin nasıl yorumlanacağı gibi yeni zorluklar üretir. Bu zorluklar, özellikle günümüzün hata düzeltmesiz ve gürültülü kuantum cihazlarını ifade eden [NISQ döneminde](art-nisq.md) belirginleşir. 
+Kuantum dünyasında ise bu kararlılık ve doğrudan okunabilirlik varsayımı geçerli değildir. Amacımız kuantum dünyasının garip özelliklerini kullanmak ise ölçüm öncesindeki genlik, faz ve kübitler arası ilişki yapısını da hesaba katmak gerekir. Bu yapı daha zengin bir temsil alanı açar; fakat aynı zamanda durum hazırlama, gürültüye duyarlılık ve ölçümden sonra bilginin nasıl yorumlanacağı gibi yeni zorluklar üretir. Bu zorluklar, özellikle günümüzün hata düzeltmesiz ve gürültülü kuantum cihazlarını ifade eden NISQ döneminde belirginleşir. 
 
 Bu nedenle klasik verinin kuantum bilgisayarda nasıl temsil edileceği, yalnızca teknik bir veri aktarma adımı değil; kullanılacak algoritmayı, gerekli kübit sayısını, devre derinliğini ve ölçümden elde edilecek bilginin anlamını belirleyen temel bir tasarım problemidir.
 
@@ -72,7 +73,7 @@ Bu noktadan sonra, kuantum veri kodlama için temel sayılabilecek yöntemleri a
 
 Kuantum hesaplamada kübitler ölçüm yapılmadan önce süperpozisyon durumlarında bulunabilir. Ancak ölçüm yapıldığında sadece ölçülen özelliğe bağlı olarak iki temel sonuçtan biri elde edilir. Bu sonuçları fiziksel bağlama göre yukarı-aşağı, pozitif-negatif ya da kuzey-güney gibi farklı biçimlerde adlandırırız. Kuantum devrelerinde ise bu ikili yapı genellikle hesaplama tabanındaki $|0\rangle$ ve $|1\rangle$ durumlarıyla temsil edilir.
 
-Basis encoding bu temel gösterimi doğrudan kullanır: her klasik bit, hesaplama başlamadan önce ilgili $|0\rangle$ veya $|1\rangle$ durumuna yazılır. Kavramsal olarak en basit encoding yöntemlerinden biridir ve klasik veri ile kuantum durumları arasında doğrudan bir eşleme kurar. Bu nedenle basis encoding, özellikle kesin bit değerleriyle çalışılan kuantum algoritmalarında kullanışlıdır. Örneğin [Grover algoritmasında](tp_grover.md) aranan durum çoğu zaman belirli bir bit dizisi olarak işaretlenir. Shor algoritmasında da aritmetik işlemler belirli sayıların ikili gösterimleri üzerinden yürütülür. Bu tür durumlarda klasik bilginin doğrudan $|0\rangle$ ve $|1\rangle$ durumlarına yazılması doğal bir tercihtir.
+Basis encoding bu temel gösterimi doğrudan kullanır: her klasik bit, hesaplama başlamadan önce ilgili $|0\rangle$ veya $|1\rangle$ durumuna yazılır. Kavramsal olarak en basit encoding yöntemlerinden biridir ve klasik veri ile kuantum durumları arasında doğrudan bir eşleme kurar. Bu nedenle basis encoding, özellikle kesin bit değerleriyle çalışılan kuantum algoritmalarında kullanışlıdır. Örneğin [Grover algoritmasında](../../courses/qturkey/qbronze/notes/tp_grover.md) aranan durum çoğu zaman belirli bir bit dizisi olarak işaretlenir. Shor algoritmasında da aritmetik işlemler belirli sayıların ikili gösterimleri üzerinden yürütülür. Bu tür durumlarda klasik bilginin doğrudan $|0\rangle$ ve $|1\rangle$ durumlarına yazılması doğal bir tercihtir.
 
 
 
@@ -86,9 +87,9 @@ Ancak bu yaklaşımda kübitler büyük ölçüde dijital yazmaçlar gibi kullan
 
 Basis encoding’in bir sınırı vardır: gerçek dünyadaki çoğu veri yalnızca 0 ya da 1 değildir; belirli bir aralıkta değişir. Bir piksel parlaklığı, bir sensör ölçümü, sıcaklık değeri ya da makine öğrenmesinde kullanılan sayısal bir özellik buna örnek verilebilir. Bu tür veriyi doğrudan $|0\rangle$ veya $|1\rangle$ durumuna sıkıştırmak, aradaki “ne kadar” bilgisini kaybetmek anlamına gelir.
 
-Güncel bilgisayarlarda bu sorun, veriyi birden fazla bit ile temsil ederek aşılır. Örneğin 8 bit birlikte okunarak 0 ile 255 arasındaki tam sayılar gösterilebilir. Daha fazla hassasiyet gerektiğinde daha fazla bit kullanılır. [Kuantum devrelerinde](ilk-kuantum-programlar.md) de benzer biçimde daha fazla kübit kullanmak mümkündür; ancak her ek kübit devreyi büyütür, kapı sayısını artırır ve özellikle günümüzün gürültülü kuantum cihazlarında hatalara daha açık bir yapı ortaya çıkarır.
+Güncel bilgisayarlarda bu sorun, veriyi birden fazla bit ile temsil ederek aşılır. Örneğin 8 bit birlikte okunarak 0 ile 255 arasındaki tam sayılar gösterilebilir. Daha fazla hassasiyet gerektiğinde daha fazla bit kullanılır. [Kuantum devrelerinde](../../courses/qturkey/qbronze/notes/ilk-kuantum-programlar.md) de benzer biçimde daha fazla kübit kullanmak mümkündür; ancak her ek kübit devreyi büyütür, kapı sayısını artırır ve özellikle günümüzün gürültülü kuantum cihazlarında hatalara daha açık bir yapı ortaya çıkarır.
 
-Angle encoding bu noktada farklı bir yol önerir. Sayısal değeri çok sayıda kübite yaymak yerine, değeri bir açıya dönüştürür ve bir kübiti bu açı kadar döndürür. Böylece veri, doğrudan $|0\rangle$ veya $|1\rangle$ durumuna yazılmak yerine, bu iki durum arasındaki olasılık dengesini belirleyen bir kuantum durumunda temsil edilir. Örneğin [$R_y$ dönüşü](tp_tek-qubit-operatorler-a.md) şu şekilde yazılabilir:
+Angle encoding bu noktada farklı bir yol önerir. Sayısal değeri çok sayıda kübite yaymak yerine, değeri bir açıya dönüştürür ve bir kübiti bu açı kadar döndürür. Böylece veri, doğrudan $|0\rangle$ veya $|1\rangle$ durumuna yazılmak yerine, bu iki durum arasındaki olasılık dengesini belirleyen bir kuantum durumunda temsil edilir. Örneğin [$R_y$ dönüşü](../../courses/qturkey/qbronze/notes/tp_tek-qubit-operatorler-a.md) şu şekilde yazılabilir:
 
 $$  
 R_y(\theta)|0\rangle =  
@@ -107,7 +108,7 @@ Burada $\theta$, veriden hesaplanan açıdır. Örneğin $x \in [0,1]$ aralığ�
 
 Bu durumda $x$ değeri büyüdükçe kübitin ölçümde $|1\rangle$ sonucunu verme olasılığı artar. Ancak burada dikkat edilmesi gereken nokta şudur: kübit ölçüldüğünde yine yalnızca iki sonuçtan biri elde edilir. Sürekli değişen şey, ölçümden önceki kuantum durumu ve bu iki sonucun ortaya çıkma olasılıklarıdır.
 
-Yöntemin avantajı sadeliğidir. Çoğu temel kullanımda her sayısal özellik bir döndürme açısıyla temsil edilebilir; bu nedenle devre yapısı görece basit kalır. Ayrıca angle encoding, [parametrik kuantum devreleriyle](art-parametrik-kuantum-devre.md) doğal biçimde uyumludur; çünkü bu devrelerde de işlemler çoğunlukla ayarlanabilir açı değerleri üzerinden yürütülür.
+Yöntemin avantajı sadeliğidir. Çoğu temel kullanımda her sayısal özellik bir döndürme açısıyla temsil edilebilir; bu nedenle devre yapısı görece basit kalır. Ayrıca angle encoding, parametrik kuantum devreleriyle doğal biçimde uyumludur; çünkü bu devrelerde de işlemler çoğunlukla ayarlanabilir açı değerleri üzerinden yürütülür.
 
 Bununla birlikte yöntemin bir bedeli vardır: açılar periyodiktir. $R_y$ dönüşünde ölçüm olasılıkları $2\pi$ sonra tekrar eder; durum vektörünü işaret farkı olmadan birebir aynı yazmak istersek $4\pi$ periyodu dikkate alınır. Örneğin
 
@@ -118,7 +119,7 @@ R_y\left(\frac{\pi}{4}+2\pi\right)\lvert0\rangle
 R_y\left(\frac{\pi}{4}\right)\lvert0\rangle  
 $$
 
-olur. Bu iki durum işaret bakımından farklı görünse de [Born kuralı](art-born-kurali.md) gereği aynı ölçüm olasılıklarını verir.
+olur. Bu iki durum işaret bakımından farklı görünse de Born kuralı gereği aynı ölçüm olasılıklarını verir.
 
 Buna karşılık $4\pi$ eklediğimizde durum vektörü işaret farkı olmadan aynı hâle gelir:
 
@@ -176,7 +177,7 @@ $$
 P(0)=P(1)=\frac{1}{2}  
 $$
 
-olur. Fakat bu iki duruma [Hadamard kapısı](hadamard.md) uygulanırsa faz farkı görünür hâle gelir:
+olur. Fakat bu iki duruma [Hadamard kapısı](../../courses/qturkey/qbronze/notes/hadamard.md) uygulanırsa faz farkı görünür hâle gelir:
 
 
 $$  
@@ -292,7 +293,7 @@ Kısacası amplitude encoding, az sayıda kübitle büyük veri vektörlerini te
 
 ## Feature map / quantum embedding
 
-Önceki başlıklarda veriyi kuantum duruma aktarmanın farklı yollarını gördük: basis encoding veriyi doğrudan bit değerleriyle, angle encoding dönüş açılarıyla, phase encoding faz bilgisiyle, amplitude encoding ise genliklerle temsil eder. [Feature map](art-feature-map.md) ya da [quantum embedding](art-quantum-embedding.md) ise bu yöntemlerden biraz daha genel bir fikri ifade eder. Burada amaç yalnızca veriyi kuantum bilgisayara yüklemek değil, veriyi kuantum devresinin işleyebileceği anlamlı bir temsil uzayına taşımaktır.
+Önceki başlıklarda veriyi kuantum duruma aktarmanın farklı yollarını gördük: basis encoding veriyi doğrudan bit değerleriyle, angle encoding dönüş açılarıyla, phase encoding faz bilgisiyle, amplitude encoding ise genliklerle temsil eder. Feature map ya da quantum embedding ise bu yöntemlerden biraz daha genel bir fikri ifade eder. Burada amaç yalnızca veriyi kuantum bilgisayara yüklemek değil, veriyi kuantum devresinin işleyebileceği anlamlı bir temsil uzayına taşımaktır.
 
 
 $$ x \longmapsto |\phi(x)\rangle $$
@@ -309,12 +310,12 @@ Kısacası encoding "veriyi nasıl yazarım" sorusuna, feature map "hangi ilişk
 
 ## Application-specific encodings  
   
-Bazı encoding yöntemleri belirli veri türleri için geliştirilmiştir. Özellikle [kuantum görüntü işleme](art-kuantum-goruntu-isleme.md) bağlamında FRQI ve NEQR gibi temsiller bu gruba girer. Bunlar genel amaçlı encoding yöntemleri değil, belirli veri yapıları için geliştirilmiş özel temsil şemalarıdır.  
+Bazı encoding yöntemleri belirli veri türleri için geliştirilmiştir. Özellikle kuantum görüntü işleme bağlamında FRQI ve NEQR gibi temsiller bu gruba girer. Bunlar genel amaçlı encoding yöntemleri değil, belirli veri yapıları için geliştirilmiş özel temsil şemalarıdır.  
 
 ### [FRQI](art-frqi.md)
 FRQI (Flexible Representation of Quantum Images), görüntüdeki piksel konumlarını kübit dizileriyle, piksel yoğunluğunu ise bir açı/rotasyon parametresiyle temsil eden bir kuantum görüntü gösterimidir. Kavramsal olarak sade ve küçük ölçekli örneklerde elverişlidir; ancak state preparation maliyeti ve kontrollü dönüşümler nedeniyle devre derinliği hızla artabildiği için NISQ donanımda gürültüye duyarlıdır. 
 
-### [NEQR](art-neqr.md)
+### NEQR
 
 NEQR (Novel Enhanced Quantum Representation), piksel değerlerini doğrudan kübit register’larında, konum bilgisini ise ayrı bir register’da tutan bir kuantum görüntü temsilidir. FRQI’ye göre piksel değerlerini daha açık ve deterministik biçimde ifade eder; buna karşılık kübit ihtiyacı ve devre maliyeti daha hızlı büyüdüğü için küçük görüntüler dışında NISQ bağlamında daha zorlayıcı hale gelir. 
 

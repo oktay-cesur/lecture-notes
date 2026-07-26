@@ -2,13 +2,14 @@
 title: "FRQI"
 subtitle: "Flexible Representation of Quantum Images"
 type: article
-status: draft
+status: published
 source: "01-bilgi-katmani/kavramlar/frqi.md"
 tags:
   - quantum
   - article
   - qip
   - frqi
+sidebar: quantum
 ---
 
 FRQI (Flexible Representation of Quantum Images), klasik piksel tabanlı görüntüleri kuantum durumlarına kodlamak için geliştirilmiş uygulama-özgü bir [kuantum veri kodlama](art-quantum-data-encoding.md) yöntemidir. Kübitlerin süperpozisyon durumlarını kullanarak $2^n \times 2^n$ boyutundaki bir görüntüyü $2n + 1$ kübit ile temsil etmeye çalışır. $2n$ kübit konum bilgisini, $1$ kübit renk/yoğunluk bilgisini taşır.
