@@ -14,7 +14,7 @@ QPrep, QTurkey eğitimlerinde QBronze akışına başlamadan önce gerekli temel
 
 | # | Konu | Sunum | Durum |
 |---|------|-------|-------|
-| QP01 | Vektörler | [[notes/preq_lineer-cebir-1-vektorler|Temel Lineer Cebir: Vektörler]] | taslak |
-| QP02 | İç Çarpım | [[notes/preq_lineer-cebir-2-ic-carpim|Temel Lineer Cebir: İç Çarpım]] | taslak |
-| QP03 | Matrisler | [[notes/preq_lineer-cebir-3-matrisler|Temel Lineer Cebir: Matrisler]] | taslak |
-| QP04 | Tensör Çarpımı | [[notes/preq_lineer-cebir-4-tensor-carpimi|Temel Lineer Cebir: Tensör Çarpımı]] | taslak |
+| QP01 | Vektörler | [Temel Lineer Cebir: Vektörler](notes/preq_lineer-cebir-1-vektorler.md) | taslak |
+| QP02 | İç Çarpım | [Temel Lineer Cebir: İç Çarpım](notes/preq_lineer-cebir-2-ic-carpim.md) | taslak |
+| QP03 | Matrisler | [Temel Lineer Cebir: Matrisler](notes/preq_lineer-cebir-3-matrisler.md) | taslak |
+| QP04 | Tensör Çarpımı | [Temel Lineer Cebir: Tensör Çarpımı](notes/preq_lineer-cebir-4-tensor-carpimi.md) | taslak |
