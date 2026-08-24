@@ -3,7 +3,7 @@ title: "Lineer Bağımlılık, Bağımsızlık ve Wronskian"
 subtitle: "Diferansiyel Denklemler"
 type: presentation
 author: Öğr. Gör. Oktay Cesur
-date: 2026-07-26
+date: 2026-08-22
 execute:
   echo: false
 ---
@@ -26,27 +26,50 @@ Süperpozisyonla kurulan $c_1y_1+\cdots+c_ny_n$ ailesinin gereksiz tekrar içerm
 
 ---
 
-## İki Basit Örnek
+## Üç Fonksiyon, İki Yön
 
 $$
-f_1(x)=x,\ f_2(x)=2x
-\quad\Longrightarrow\quad
-2f_1(x)-f_2(x)=0 \ \text{(her $x$'te)}.
+y_1=2x+1,
+\qquad
+y_2=x+2,
+\qquad
+y_3=x+1
 $$
 
-Trivial olmayan katsayılarla ($2,-1$) sıfır elde edildi — **bağımlı**.
-
 $$
-f_1(x)=x,\ f_2(x)=x^2
-\quad\Longrightarrow\quad
-c_1x+c_2x^2=0 \ \text{her $x$'te ancak } c_1=c_2=0 \text{ ile.}
+y_1+y_2=3y_3
 $$
 
-**Bağımsız**.
+$y_3$ yeni bir bağımsız yön eklemez.
 
 ::: {.notes}
 
-İlk örnekte $f_2$ doğrudan $f_1$'in bir katıdır ($f_2=2f_1$), bu yüzden $2f_1-f_2=0$ ilişkisi her $x$ için geçerlidir ve katsayılar ($2,-1$) trivial değildir; fonksiyonlar bağımlıdır. İkinci örnekte $c_1x+c_2x^2=0$ eşitliğinin *her* $x$ için geçerli olması istenir. Bu bir polinom özdeşliğidir ve yalnız $c_1=c_2=0$ ile mümkündür; örneğin $x=1$ ve $x=2$ değerleri iki katsayıyı da sıfıra zorlar. Dolayısıyla $x$ ve $x^2$ bağımsızdır. Eşitlik tek bir $x$ değerinde değil, aralığın tamamında sağlanmalıdır.
+El yazısı nottaki ilişki $y_3=x+1$ seçimiyle doğrudur: $y_1+y_2=(2x+1)+(x+2)=3x+3=3(x+1)=3y_3$. Dolayısıyla $y_1+y_2-3y_3=0$ eşitliği trivial olmayan $(1,1,-3)$ katsayılarıyla bütün $x$ değerlerinde sağlanır. Üç fonksiyon verilmiş olsa da bunlardan biri diğer ikisinin lineer birleşimidir; küme lineer bağımlıdır.
+
+Karşılaştırmak için $x$, $x^2$ ve $x^3$ fonksiyonlarını düşünelim. $c_1x+c_2x^2+c_3x^3=0$ eşitliği bir aralıkta her $x$ için sağlanıyorsa bu bir polinom özdeşliğidir ve bütün katsayılar sıfır olmak zorundadır. Bu üç fonksiyon lineer bağımsızdır. Bağımsızlık, fonksiyon sayısından değil, aralarında bütün aralıkta geçerli sabit katsayılı bir ilişki bulunup bulunmamasından gelir.
+
+:::
+
+---
+
+## Bağımlılık Wronskian'da Görünüyor
+
+$$
+W(y_1,y_2,y_3)=
+\det
+\begin{bmatrix}
+2x+1 & x+2 & x+1\\
+2 & 1 & 1\\
+0 & 0 & 0
+\end{bmatrix}
+=0
+$$
+
+::: {.notes}
+
+Üç fonksiyonun ikinci türevleri sıfır olduğu için Wronskian matrisinin son satırı tamamen sıfırdır ve determinant özdeş olarak sıfır çıkar. Bu sonuç, daha önce bulunan $y_1+y_2-3y_3=0$ bağımlılık ilişkisiyle uyumludur.
+
+Burada Wronskian yalnız bağımlılığı görünür kılan bir hesap aracıdır; fonksiyonların herhangi bir diferansiyel denklemin çözümü olduğunu söylemez. Genel fonksiyonlarda sıfır Wronskian her zaman bağımlılık kanıtı değildir. Denkliği kullanmak için fonksiyonların süreklilik koşullarını sağlayan aynı homojen lineer denklemin çözümleri olması gerekir.
 
 :::
 
@@ -90,6 +113,23 @@ $$
 Bu teorem yalnızca standart biçimdeki katsayıları $I$ üzerinde sürekli olan **aynı homojen denklemin çözümleri** için geçerlidir — genel, rastgele fonksiyonlar için değil. Eğer $y_1,\ldots,y_n$ böyle bir denklemin çözümleriyse, bir noktada Wronskian'ın sıfırdan farklı olması, çözümlerin $I$ üzerinde lineer bağımsız olduğuyla tam olarak denktir.
 
 Bağımlılık yönü doğrudan görülebilir: $c_1y_1+\cdots+c_ny_n=0$ eşitliği ve türevleri, Wronskian matrisinin her noktada trivial olmayan bir katsayı vektörünü sıfıra götürdüğünü gösterir; dolayısıyla $W\equiv0$ olur. Ters yönde ise Wronskian bir noktada sıfırsa o noktadaki başlangıç verileri arasında trivial olmayan bir ilişki kurulur. Bu lineer birleşim homojen denklemi sağlar ve ilk $n$ başlangıç değeri sıfırdır; varlık–teklik teoremi birleşimin $I$ üzerinde özdeş sıfır olmasını zorlar. Böylece çözümler bağımlıdır.
+
+:::
+
+---
+
+## Testin Uygulama Sırası
+
+1. Her fonksiyon çözüm mü?
+2. Aynı homojen denklem mi?
+3. Katsayılar aralıkta sürekli mi?
+4. Uygun bir noktada $W\neq0$ mı?
+
+::: {.notes}
+
+Wronskian hesabı ilk adım değildir. Önce fonksiyonların verilen diferansiyel denklemi gerçekten sağladığı kontrol edilir. Ardından aynı homojen denkleme ait oldukları ve denklemin standart biçimdeki katsayılarının incelenen aralıkta sürekli olduğu doğrulanır.
+
+Bu koşullar sağlanınca determinantı hesabı kolaylaştıran tek bir noktada değerlendirmek yeterlidir. Sıfırdan farklı bir değer bağımsızlığı kanıtlar. Değer sıfır çıkarsa aynı çözüm sınıfında teorem bağımlılık sonucunu verir; rastgele fonksiyonlarda ise ayrıca inceleme gerekir.
 
 :::
 
@@ -158,6 +198,22 @@ veya $W(x)\equiv0$ olur. Bu sonuç, katsayıların $I$ üzerindeki sürekliliği
 Wronskian testinde bütün noktaları ayrı ayrı taramak gerekmez. $W(x_0)\neq0$ bulunan tek bir nokta, çözümlerin lineer bağımsız olduğunu gösterir. Bağımsız çözümlerin Wronskian'ı aynı aralıkta başka bir noktada sıfır olsaydı, teoremin ters yönü onları bağımlı sayardı; bu bir çelişki olurdu.
 
 Bu “ya hiçbir yerde sıfır değil ya da özdeş sıfır” ayrımı rastgele türevlenebilir fonksiyonlar için geçerli değildir. Sonucu kullanmadan önce fonksiyonların aynı homojen lineer denklemi sağladığı ve standart biçimdeki katsayıların incelenen aralıkta sürekli olduğu kontrol edilmelidir.
+
+:::
+
+---
+
+## Karar Soruları
+
+1. $W(x_0)\neq0$ ne kanıtlar?
+2. $W\equiv0$ her zaman bağımlılık mı?
+3. Wronskian çözüm olmayı gösterir mi?
+
+::: {.notes}
+
+Aynı homojen lineer denklemin çözümleri ve sürekli katsayılar için $W(x_0)\neq0$, fonksiyonların bütün $I$ aralığında lineer bağımsız olduğunu kanıtlar. Tek bir nokta yeterlidir.
+
+$W\equiv0$ sonucu rastgele fonksiyonlarda tek başına bağımlılık kanıtı değildir; $x^2$ ve $x|x|$ karşı örneği bunu gösterir. Wronskian ayrıca fonksiyonların diferansiyel denklemi sağladığını test etmez. Önce yerine koyma yapılır, sonra bağımsızlık için determinant kullanılır.
 
 :::
 

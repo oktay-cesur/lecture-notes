@@ -57,9 +57,7 @@ Aynı sözcük, ilgisiz iki kavram.
 
 ::: {.notes}
 
-Bu iki kavramın tek ortak yanı adlarıdır. Homojen tip, sağ tarafın oran cinsinden yazılabilmesiyle ilgilidir; homojen lineer denklem ise standart biçime getirilmiş bir lineer denklemde sağ tarafın sıfır olmasıdır. Testleri bile farklı yerde çalışır: birincisinde sağ tarafı $y/x$ cinsinden yazmayı deneriz, ikincisinde denklemi $y'+p(x)y=q(x)$ biçimine getirip $q(x)$'in sıfır olup olmadığına bakarız.
-
-Bir denklem ikisinden birine, ikisine birden ya da hiçbirine ait olabilir. Örneğin $y'=y/x$ hem homojen tiptir ($F(v)=v$) hem de homojen lineerdir ($y'-y/x=0$). Buna karşılık $y'=(x^2+y^2)/(xy)$ homojen tiptir ama lineer bile değildir. İkinci kavramın kendi teorisi lineer denklemlerin genel teorisinde kurulacak; burada yalnız adlandırma çakışması not ediliyor.
+Bu iki kavramın tek ortak yanı adlarıdır. Homojen tip, sağ tarafın oran cinsinden yazılabilmesiyle ilgilidir; homojen lineer denklem ise standart biçime getirilmiş bir lineer denklemde sağ tarafın sıfır olmasıdır. Testleri bile farklı yerde çalışır: birincisinde sağ tarafı $y/x$ cinsinden yazmayı deneriz, ikincisinde denklemi $y'+p(x)y=q(x)$ biçimine getirip $q(x)$'in sıfır olup olmadığına bakarız. Bir denklem ikisinden birine, ikisine birden ya da hiçbirine ait olabilir; Karar Soruları bölümünde buna bir örnek üzerinden dönülecek.
 
 :::
 
@@ -135,9 +133,13 @@ $$
 y'=v+xv'.
 $$
 
+::: {.callout-note title="Hatırlatma: çarpım kuralı"}
+$$(vx)'=v'x+v$$
+:::
+
 ::: {.notes}
 
-Bilinmeyeni değiştiriyoruz: aranan fonksiyon artık $y$ değil, $v(x)=y(x)/x$ oranı. Denklemde $y$ yerine $vx$ yazabilmek için $y$'nin türevine ihtiyaç var; $y=vx$ iki $x$-bağımlı çarpanın çarpımı olduğundan çarpım kuralı uygulanır ve $y'=v'x+v$ elde edilir.
+Bilinmeyeni değiştiriyoruz: aranan fonksiyon artık $y$ değil, $v(x)=y(x)/x$ oranı. Denklemde $y$ yerine $vx$ yazabilmek için $y$'nin türevine ihtiyaç var; $y=vx$ çarpımının türevi çarpım kuralıyla alınır ve $y'=v'x+v$ elde edilir.
 
 Bu satır yöntemin en kritik yeridir. En yaygın hata, $v$'yi sabit bir sayı gibi görüp $y'=v$ ya da $y'=xv'$ yazmaktır. $v$ bir sayı değil, $x$'in bir fonksiyonudur — $y$'nin bilinmeyen olması gibi $v$ de bilinmeyendir. İki terimden biri düşerse denklem baştan yanlış kurulur ve sonraki bütün adımlar boşa gider.
 
@@ -273,32 +275,14 @@ $$
 y'=\frac{y^2-x^2}{2xy}
 \quad\Longrightarrow\quad
 F(v)=\frac{v^2-1}{2v}
+\quad\Longrightarrow\quad
+xv'=-\frac{v^2+1}{2v}
 $$
-
-$$
-xv'=\frac{v^2-1}{2v}-v=-\frac{v^2+1}{2v}
-$$
-
-::: {.notes}
-
-Pay ve payda yine ikinci dereceden, bu yüzden $x^2$'ye bölünür: pay $(y/x)^2-1$, payda $2(y/x)$ olur ve $F(v)=(v^2-1)/(2v)$ çıkar. İlk örnekte pay toplam, burada farktı; yöntem bu ayrımdan etkilenmez.
-
-Fark alma adımı burada işaret açısından dikkat ister: $(v^2-1)/(2v)-v=(v^2-1-2v^2)/(2v)=-(v^2+1)/(2v)$. Paydayı eşitlerken $v$'nin $2v^2/(2v)$ olarak yazılması gerekir; bu terim unutulursa sonuç işaretiyle birlikte yanlış çıkar. Sağ tarafın işareti negatif olduğu için ayırma sonrasında $dx/x$ tarafında bir eksi bekliyoruz.
-
-:::
-
----
-
-## İkinci örnek: çözüm
 
 $$
 \frac{2v}{v^2+1}\,dv=-\frac{dx}{x}
 \quad\Longrightarrow\quad
 \ln(v^2+1)=-\ln|x|+C_1
-$$
-
-$$
-x(v^2+1)=C
 \quad\Longrightarrow\quad
 \boxed{x^2+y^2=Cx}
 $$
@@ -307,13 +291,11 @@ $$
 
 ::: {.notes}
 
-Ayırınca $\frac{2v}{v^2+1}dv=-\frac{dx}{x}$ elde edilir. Sol taraftaki integral doğrudan tanınır: pay, paydanın türevidir, yani sonuç $\ln(v^2+1)$'dir. Mutlak değere gerek yok, çünkü $v^2+1$ her zaman pozitiftir. İki logaritma tek tarafta toplanıp üstel alınırsa $x(v^2+1)=C$ kalır. Geri dönüşte $v=y/x$ konur: $x\bigl(y^2/x^2+1\bigr)=y^2/x+x=C$, iki taraf $x$ ile çarpılırsa $x^2+y^2=Cx$ bulunur.
+Pay ve payda yine ikinci dereceden, bu yüzden $x^2$'ye bölünür: pay $(y/x)^2-1$, payda $2(y/x)$ olur ve $F(v)=(v^2-1)/(2v)$ çıkar. Fark alma adımı işaret açısından dikkat ister: $(v^2-1)/(2v)-v=(v^2-1-2v^2)/(2v)=-(v^2+1)/(2v)$; $v$'nin $2v^2/(2v)$ olarak paydaya eşitlenmesi unutulursa sonuç işaretiyle birlikte yanlış çıkar.
 
-Doğrulama örtük biçimde yapılır. $x^2+y^2=Cx$ ifadesinin $x$'e göre türevi $2x+2yy'=C$'dir; buradan $C$'yi denklemin kendisinden gelen $(x^2+y^2)/x$ değeriyle değiştirirsek $2yy'=(x^2+y^2)/x-2x=(y^2-x^2)/x$, yani $y'=(y^2-x^2)/(2xy)$ — orijinal denklem.
+Ayrılan denklemde sol taraftaki integral doğrudan tanınır: pay, paydanın türevidir, yani sonuç $\ln(v^2+1)$'dir ($v^2+1$ her zaman pozitif olduğundan mutlak değere gerek yoktur). İki logaritma tek tarafta toplanıp üstel alınırsa $x(v^2+1)=C$ kalır; $v=y/x$ geri konursa $x^2+y^2=Cx$ bulunur.
 
-Sonucu tamamlayarak kareye tamamlarsak $(x-C/2)^2+y^2=(C/2)^2$ çıkar: merkezi $x$ ekseni üzerinde olan ve orijinden geçen çemberler ailesi. İlk örnek logaritmik ve örtük bir çözüm vermişti, bu örnek geometrik olarak okunabilen bir aile veriyor.
-
-Özgün denklem $xy$ paydasını içerdiği için çemberlerin $x=0$ veya $y=0$ olan noktaları çözüme dahil değildir. Her çözüm, bu noktalarla ayrılan bağlantılı bir çember yayı üzerinde ele alınır. Özellikle $C=0$ yalnız $(0,0)$ noktasını verir ve geçerli bir çözüm eğrisi oluşturmaz.
+Özgün denklem $xy$ paydasını içerdiği için bu çemberlerin $x=0$ veya $y=0$ olan noktaları çözüme dahil değildir; her çözüm bu noktalarla ayrılan bağlantılı bir yay üzerinde ele alınır ($C=0$ yalnız orijini verir ve geçerli bir çözüm eğrisi oluşturmaz). Bu ailenin geometrik okunuşu — orijinden geçen çemberler — ilk örnekle birlikte "Neden oran işe yarıyor?" başlığı altında, dönüşümün taşıdığı ölçekleme simetrisi üzerinden ele alınacaktır.
 
 :::
 

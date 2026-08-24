@@ -84,7 +84,7 @@ $$
 
 ::: {.notes}
 
-Homojen olmayan bir denklemde ($g\not\equiv0$) genel çözüm iki parçadan oluşur: $g=0$ alınarak bulunan homojen kısım $y_h$ ve orijinal denklemi sağlayan herhangi bir özel çözüm $y_p$. Belirsiz katsayılar ve sabitlerin değişimi gibi yöntemler daha sonra $y_p$'yi bulmak için kullanılacaktır. Yapının neden çalıştığını $L$ operatörüyle görebiliriz: $L[y-y_p]=L[y]-L[y_p]=g-g=0$. Böylece $y-y_p$ homojen denklemi sağlar ve $y_h$ biçiminde yazılır. Buradan $y=y_h+y_p$ elde edilir.
+Homojen olmayan bir denklemde ($g\not\equiv0$) genel çözüm iki parçadan oluşur: $g=0$ alınarak bulunan homojen kısım $y_h$ ve orijinal denklemi sağlayan herhangi bir özel çözüm $y_p$. Belirsiz katsayılar ve sabitlerin değişimi gibi yöntemler $y_p$'yi bulmak için kullanılır. Yapının neden çalıştığını $L$ operatörüyle görebiliriz: $L[y-y_p]=L[y]-L[y_p]=g-g=0$. Böylece $y-y_p$ homojen denklemi sağlar ve $y_h$ biçiminde yazılır. Buradan $y=y_h+y_p$ elde edilir.
 
 :::
 
@@ -134,7 +134,7 @@ Bkz. [[../../_ortak/diferansiyel-denklemler/notes/ex_lineer-denklemlerde-genel-c
 
 ::: {.notes}
 
-Genel teori hattı, $n$'inci mertebe lineer denklemlerin standart biçimi ve varlık-teklik teoremiyle başlar; lineer bağımsızlık ve Wronskian üzerinden temel çözüm kümesine ulaşır. Pratik seti bu kavramları tek bir soru grubunda birleştirir. Sabit katsayılı denklemlerin sistematik çözüm yöntemleri bir sonraki konu hattında ele alınacaktır.
+Genel teori hattı, $n$'inci mertebe lineer denklemlerin standart biçimi ve varlık-teklik teoremiyle başlar; lineer bağımsızlık ve Wronskian üzerinden temel çözüm kümesine ulaşır. Pratik seti bu kavramları tek bir soru grubunda birleştirir. Sabit katsayılı denklemlerin sistematik çözüm yöntemleri ayrıca ele alınır.
 
 :::
 

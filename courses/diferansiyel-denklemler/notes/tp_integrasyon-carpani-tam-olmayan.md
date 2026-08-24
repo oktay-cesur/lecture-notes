@@ -24,7 +24,7 @@ $M_y\neq N_x$ — denklem tam değil. Peki denklem çözümsüz mü?
 
 ::: {.notes}
 
-Önceki notta gördüğümüz test koşulu burada sağlanmıyor: $M_y=3x+2y$ ve $N_x=2x+y$ genel olarak birbirine eşit değildir, dolayısıyla bu denklem tam değildir. Ancak bu, denklemin çözülemeyeceği anlamına gelmez. Fikir şudur: denklemi uygun bir $\mu(x,y)$ fonksiyonuyla çarpıp *yeni* bir denklem elde edebiliriz; eğer bu yeni denklem tamsa, önceki notun yöntemiyle çözülebilir. Böyle bir $\mu$'ye **integrasyon çarpanı** denir. Genel bir $\mu(x,y)$ aramak zor bir problemdir; bu notta yalnızca $\mu$'nün tek bir değişkene bağlı olduğu iki özel durumu ele alacağız.
+Tam denklemler için kullanılan test koşulu burada sağlanmıyor: $M_y=3x+2y$ ve $N_x=2x+y$ genel olarak birbirine eşit değildir, dolayısıyla bu denklem tam değildir. Ancak bu, denklemin çözülemeyeceği anlamına gelmez. Fikir şudur: denklemi uygun bir $\mu(x,y)$ fonksiyonuyla çarpıp *yeni* bir denklem elde edebiliriz; eğer bu yeni denklem tamsa, önceki notun yöntemiyle çözülebilir. Böyle bir $\mu$'ye **integrasyon çarpanı** denir. Genel bir $\mu(x,y)$ aramak zor bir problemdir; bu notta yalnızca $\mu$'nün tek bir değişkene bağlı olduğu iki özel durumu ele alacağız.
 
 :::
 
@@ -130,7 +130,7 @@ $$
 
 ::: {.notes}
 
-$\mu=x$ ile orijinal denklemi çarparsak $M^*=3x^2y+xy^2$, $N^*=x^3+x^2y$ elde edilir; kontrol edersek $M^*_y=3x^2+2xy$ ve $N^*_x=3x^2+2xy$ — eşit, dolayısıyla yeni denklem tam. Artık önceki nottaki mekanizma doğrudan uygulanır: $F_x=M^*$'den $F=x^3y+\frac{x^2y^2}{2}+g(y)$, ardından $F_y=N^*$ ile $g'(y)=0$ bulunur. Sonuç $x^3y+\frac{x^2y^2}{2}=C$'dir. Bu eşdeğerlik $\mu\neq0$ olan bölgelerde geçerlidir; örnekte $x>0$ bölgesi seçildiği için çarpma çözüm eğrilerini değiştirmez.
+$\mu=x$ ile orijinal denklemi çarparsak $M^*=3x^2y+xy^2$, $N^*=x^3+x^2y$ elde edilir; kontrol edersek $M^*_y=3x^2+2xy$ ve $N^*_x=3x^2+2xy$ — eşit, dolayısıyla yeni denklem tam. Artık tam denklemler için kurulan mekanizma doğrudan uygulanır: $F_x=M^*$'den $F=x^3y+\frac{x^2y^2}{2}+g(y)$, ardından $F_y=N^*$ ile $g'(y)=0$ bulunur. Sonuç $x^3y+\frac{x^2y^2}{2}=C$'dir. Bu eşdeğerlik $\mu\neq0$ olan bölgelerde geçerlidir; örnekte $x>0$ bölgesi seçildiği için çarpma çözüm eğrilerini değiştirmez.
 
 :::
 

@@ -3,9 +3,33 @@ title: "n'inci Mertebe Lineer Denklemler: Standart Biçim ve Varlık-Teklik"
 subtitle: "Diferansiyel Denklemler"
 type: presentation
 author: Öğr. Gör. Oktay Cesur
-date: 2026-07-26
+date: 2026-08-22
 execute:
   echo: false
+---
+
+## Neden Daha Yüksek Türev?
+
+Konum $x(t)$ ise:
+
+$$
+v(t)=x'(t),
+\qquad
+a(t)=x''(t)
+$$
+
+$$
+F(t)=m\,x''(t)
+$$
+
+::: {.notes}
+
+Birinci mertebeden denklemler, büyüme ve bozunma gibi birçok değişim yasasını doğrudan ifade eder. Bazı modellerde ise değişimi belirleyen nicelik durumun kendisi veya değişim hızı değil, değişim hızının değişimidir. Hareket modeli bunun en yalın örneğidir: konumun birinci türevi hız, ikinci türevi ivmedir.
+
+Newton'un ikinci yasası kuvveti ivmeyle ilişkilendirir. Bu nedenle yay, sönüm veya dış kuvvet içeren bir hareket modeli doğal olarak $x''(t)$ terimini taşır. Yüksek mertebe burada modelde hangi büyüklüğün değişim yasasına girdiğinin sonucu olarak ortaya çıkar.
+
+:::
+
 ---
 
 ## Standart Biçim
@@ -63,6 +87,30 @@ $$
 ::: {.notes}
 
 Süperpozisyonun neden çalıştığını görmek için sol tarafı bir operatör olarak yazmak faydalıdır: $L[y]=y^{(n)}+p_{n-1}(x)y^{(n-1)}+\cdots+p_0(x)y$. Türev alma işlemi lineer olduğundan ($ (c_1y_1+c_2y_2)'=c_1y_1'+c_2y_2'$ gibi), $L$ operatörü de lineerdir: $L[c_1y_1+c_2y_2]=c_1L[y_1]+c_2L[y_2]$. $y_1$ ve $y_2$ homojen denklemin çözümleriyse $L[y_1]=0$ ve $L[y_2]=0$'dır; bu iki sıfırın $c_1,c_2$ katsayılarıyla toplamı yine sıfırdır. Dolayısıyla $c_1y_1+c_2y_2$ de $L[y]=0$'ı sağlar — süperpozisyon ilkesi, türevin lineerliğinin doğrudan bir sonucudur.
+
+:::
+
+---
+
+## Homojen Olmayanda Toplam
+
+$$
+y''+y=1
+$$
+
+$$
+y_1=1,
+\qquad
+y_2=1+\cos x
+$$
+
+İkisi de çözüm; fakat $L[y_1+y_2]=2\neq1$.
+
+::: {.notes}
+
+Süperpozisyonun homojenlik koşulu bu örnekte görünür olur. $y_1=1$ için $y_1''+y_1=1$, $y_2=1+\cos x$ için $y_2''+y_2=-\cos x+1+\cos x=1$ elde edilir. Yani iki fonksiyon da aynı homojen olmayan denklemi sağlar.
+
+Toplamları $y_1+y_2=2+\cos x$ olduğunda lineerlik $L[y_1+y_2]=L[y_1]+L[y_2]=1+1=2$ verir. Sağ taraf $1$ olması gerekirken $2$ çıktığı için toplam çözüm değildir. Genel olarak $L[y_1]=L[y_2]=g$ ise $L[y_1+y_2]=2g$ olur; toplam ancak $g\equiv0$ olduğunda aynı denkleme geri döner.
 
 :::
 
@@ -142,6 +190,22 @@ Bir başlangıç değer probleminde garanti vermeden önce:
 Varlık–teklik teoremi yalnız denklemin görünüşüne bakılarak uygulanmaz. Standart biçime geçerken en yüksek türevin katsayısına bölmek gerekir; bu katsayının sıfır olduğu noktalar seçilecek aralığın dışında kalabilir. Ardından bütün normalize edilmiş katsayıların ve sağ tarafın aynı $I$ aralığında sürekli olması kontrol edilir.
 
 Teorem koşulları sağlandığında verilen $n$ başlangıç değeri $I$ üzerinde tek bir çözüm belirler. Koşullardan biri sağlanmıyorsa bundan “çözüm yoktur” veya “çözüm tek değildir” sonucu çıkmaz; yalnızca bu teoremin garanti vermediği söylenebilir. Böyle bir durumda problem ayrıca incelenmelidir.
+
+:::
+
+---
+
+## Karar Soruları
+
+1. $g\neq0$ iken toplam çözüm mü?
+2. Süreklilik bozulursa çözüm yok mu?
+3. Dördüncü mertebede kaç veri gerekir?
+
+::: {.notes}
+
+Homojen olmayan aynı denklemin iki çözümünü toplamak genel olarak çözüm vermez; sağ taraf iki katına çıkar. Buna karşılık iki çözümün farkı homojen denklemi sağlar, çünkü $L[y_1-y_2]=g-g=0$ olur.
+
+Katsayılardan biri başlangıç noktasında sürekli değilse varlık–teklik teoremi garanti vermez. Buradan çözümün olmadığı veya birden fazla olduğu sonucu çıkmaz; problem ayrıca incelenmelidir. Dördüncü mertebeden bir başlangıç değer problemi için $y(x_0)$, $y'(x_0)$, $y''(x_0)$ ve $y'''(x_0)$ olmak üzere dört başlangıç değeri gerekir.
 
 :::
 

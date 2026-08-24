@@ -666,63 +666,16 @@ y'-y=x,
 $$
 
 $$
-e^{-x}y'-e^{-x}y=xe^{-x}
-\quad\Longrightarrow\quad
-(e^{-x}y)'=xe^{-x}.
-$$
-
-::: {.notes}
-
-Standart biçimde $p(x)=-1$ olduğundan integrasyon çarpanı $\mu=e^{-x}$ olur. Denklem bu çarpanla çarpıldığında
-
-$$
 (e^{-x}y)'=xe^{-x}
-$$
-
-eşitliği elde edilir. Sol taraftaki dönüşüm doğrudan çarpım kuralıyla kontrol edilebilir:
-
-$$
-\frac{d}{dx}(e^{-x}y)
-=e^{-x}y'-e^{-x}y.
-$$
-
-Böylece diferansiyel denklemin sol tarafı tek bir türeve dönüşmüştür. Çözümün kalan adımı, sağ taraftaki $\int xe^{-x}\,dx$ integralinin hesaplanmasıdır. Bu integral iki fonksiyonun çarpımını içerdiği için kısmi integrasyonla ele alınır.
-
-:::
-
----
-
-## Çözüm: Kısmi İntegrasyon
-
-$$
-u=x,\quad dv=e^{-x}\,dx,
-\qquad
-du=dx,\quad v=-e^{-x}.
-$$
-
-$$
-\int xe^{-x}\,dx
-=-xe^{-x}+\int e^{-x}\,dx
-=-xe^{-x}-e^{-x}+C.
-$$
-
-$$
-e^{-x}y=-xe^{-x}-e^{-x}+C
 \quad\Longrightarrow\quad
 \boxed{y=-x-1+Ce^x}.
 $$
 
 ::: {.notes}
 
-Kısmi integrasyon formülü $\int u\,dv=uv-\int v\,du$ biçimindedir. $u=x$ ve $dv=e^{-x}\,dx$ seçildiğinde $du=dx$ ve $v=-e^{-x}$ olur. Bu değerler formülde yerine yazılırsa
+Standart biçimde $p(x)=-1$ olduğundan integrasyon çarpanı $\mu=e^{-x}$ olur. Denklem bu çarpanla çarpıldığında $(e^{-x}y)'=xe^{-x}$ eşitliği elde edilir — bu adım önceki işlemsel örneklerle aynı mekanizmayı izler.
 
-$$
-\int xe^{-x}\,dx
-=x(-e^{-x})-\int(-e^{-x})\,dx
-=-xe^{-x}-e^{-x}+C
-$$
-
-elde edilir. Bu sonuç $(e^{-x}y)$ ifadesine eşitlenir. Ardından her iki taraf $e^{-x}$ ile bölündüğünde $y=-x-1+Ce^x$ çözüm ailesine ulaşılır.
+Sağ taraftaki $\int xe^{-x}\,dx$ integrali iki fonksiyonun çarpımını içerdiği için kısmi integrasyon gerektirir ($u=x$, $dv=e^{-x}dx$ seçimiyle $\int xe^{-x}\,dx=-xe^{-x}-e^{-x}+C$). Bu işlem lineer denklem yönteminin kendisi değil, ayrı bir integral tekniğidir ve burada yalnız sonucu kullanılır. Odaklanılması gereken, $\mu y=\int \mu q(x)\,dx+C$ mekanizmasının doğru kurulmasıdır: $e^{-x}y=-xe^{-x}-e^{-x}+C$ eşitliğinden $y=-x-1+Ce^x$ elde edilir.
 
 Çözüm, orijinal denklemde yerine konularak kontrol edilebilir. $y'=-1+Ce^x$ olduğundan
 
@@ -730,9 +683,9 @@ $$
 y'-y=(-1+Ce^x)-(-x-1+Ce^x)=x
 $$
 
-ve denklem sağlanır. Bu doğrulamada sabit içeren terimlerin birbirini götürmesi, çözüm ailesinin tamamının denklemi sağladığını gösterir.
+ve denklem sağlanır.
 
-Karşılaştırma amacıyla verilen $y'=x-y$ denklemi $y'+y=x$ biçimine getirildiğinde integrasyon çarpanı $\mu=e^x$ olur. Çözüm, burada tamamlanan örnekteki aynı adımlar izlenerek bağımsız çalışma olarak sürdürülebilir.
+Karşılaştırma amacıyla verilen $y'=x-y$ denklemi $y'+y=x$ biçimine getirildiğinde integrasyon çarpanı $\mu=e^x$ olur; çözüm burada tamamlanan örnekteki aynı adımlar izlenerek bağımsız çalışma olarak sürdürülebilir.
 
 :::
 

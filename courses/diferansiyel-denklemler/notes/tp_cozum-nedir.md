@@ -16,9 +16,9 @@ execute:
 
 ::: {.notes}
 
-Diferansiyel denklemin bir fonksiyon ile türevi arasındaki ilişki olduğunu kurduk ve sınıflandırma ölçütlerini tanımladık. Bu noktaya kadar "denklemi sağlayan fonksiyon" ifadesini serbestçe kullandık; bu notun konusu, o ifadenin ne anlama geldiğini kesinleştirmek.
+Diferansiyel denklemin bir fonksiyon ile türevi arasındaki ilişki olduğunu kurduk ve sınıflandırma ölçütlerini tanımladık. Bu noktaya kadar "denklemi sağlayan fonksiyon" ifadesini serbestçe kullandık; burada amaç, o ifadenin ne anlama geldiğini kesinleştirmektir.
 
-Burada henüz çözüm bulma yöntemi öğrenmiyoruz. Sorumuz daha geride: elimize bir aday geldiğinde onun çözüm olup olmadığını nasıl anlarız, birden fazla fonksiyon aynı denklemi sağlayabilir mi, sağlıyorsa aralarında bir yapı var mı, ve bulunan bir çözüm hangi aralıkta geçerlidir? Bu sorular cevaplanmadan yöntem tartışmasına geçmenin bir anlamı yok.
+Bu aşamadaki amaç çözüm bulma yöntemini öğrenmek değil, çözüm kavramının kendisini netleştirmektir. Sorumuz daha geride: elimize bir aday geldiğinde onun çözüm olup olmadığını nasıl anlarız, birden fazla fonksiyon aynı denklemi sağlayabilir mi, sağlıyorsa aralarında bir yapı var mı, ve bulunan bir çözüm hangi aralıkta geçerlidir? Bu sorular cevaplanmadan yöntem tartışmasına geçmenin bir anlamı yok.
 
 :::
 
@@ -108,13 +108,13 @@ Doğrulama iki yönde asimetriktir. Bir adayı elemek için tek bir nokta yeter:
 
 ## Soru: ortak yapı
 
-Doğru adaylar: $e^{2x}$, $3e^{2x}$, $0 = 0.2^{2x}$.
+Doğru adaylar: $e^{2x}$, $3e^{2x}$, $0=0\cdot e^{2x}$.
 
 **Soru:** Bunlar ortak bir kalıbın özel durumları olabilir mi?
 
 ::: {.notes}
 
-$y''+y=0$ denkleminde üç fonksiyonun aynı denklemi sağlaması, aralarında bir bağ olduğunu düşündürür. Burda verilen üç denklem de üstel yapıdadır ve üsteki katsayı hepsinde aynıdır; farklılık yalnızca öndeki çarpanda görünür. Sıfır fonksiyonunu da bu gözle okumak mümkün: çarpanı sıfır olan bir üstel.
+$y'=2y$ denkleminde üç fonksiyonun aynı denklemi sağlaması, aralarında bir bağ olduğunu düşündürür. Burda verilen üç fonksiyon da üstel yapıdadır ve üsteki katsayı hepsinde aynıdır; farklılık yalnızca öndeki çarpanda görünür. Sıfır fonksiyonunu da bu gözle okumak mümkün: çarpanı sıfır olan bir üstel.
 
 Böyle bir kalıp bulmak yalnızca derli toplu görünmek için değildir. Kalıp varsa, üç aday yerine tek bir ifadeyle çalışabiliriz ve denklemin çözüm kümesinin nasıl bir nesne olduğunu görebiliriz.
 

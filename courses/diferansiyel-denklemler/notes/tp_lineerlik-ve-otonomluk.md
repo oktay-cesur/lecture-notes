@@ -16,9 +16,9 @@ execute:
 
 ::: {.notes}
 
-Değişimi okurken $y'=x+y^2$ denklemini doğrudan integralle çözmeyi denedik ve tıkandık. Oradaki sonuç şuydu: bir denklemin karşısına oturduğumuzda ilk iş formül aramak değil, denklemin hangi sınıfa ait olduğunu görmektir. Bu notun konusu, o sınıflandırmanın iki ölçütü.
+Değişimi okurken $y'=x+y^2$ denklemini doğrudan integralle çözmeyi denedik ve tıkandık. Oradaki sonuç şuydu: bir denklemin karşısına oturduğumuzda ilk iş formül aramak değil, denklemin hangi sınıfa ait olduğunu görmektir. Bu sınıflandırmanın iki ölçütü burada ele alınır: lineerlik ve otonomluk.
 
-Burada henüz çözüm yöntemi öğrenmiyoruz. Öğrendiğimiz şey, bir denkleme bakıp iki soruya cevap verebilmek. Lineerlik, lineer denklemlerin genel teorisinde kurulacak çözüm yapısının hangi denklemler için geçerli olduğunu belirleyecek. Otonomluk ise denklemi hiç çözmeden davranışını okumaya çalıştığımızda dayanacağımız yapıyı verecek.
+Bu aşamadaki amaç çözümü hesaplamak değil, bir denkleme bakıp iki soruya cevap verebilmektir. Lineerlik, lineer denklemlerin genel teorisinde kurulacak çözüm yapısının hangi denklemler için geçerli olduğunu belirleyecek. Otonomluk ise denklemi hiç çözmeden davranışını okumaya çalıştığımızda dayanacağımız yapıyı verecek.
 
 :::
 
@@ -155,7 +155,7 @@ $$
 
 Otonom bir denklemde eğimi belirleyen tek şey bilinmeyenin o andaki değeridir. Aynı $y$ seviyesindeki bütün noktalarda eğim aynı çıkar; başka bir deyişle çözüm eğrisinin nerede olduğunu bilmek, ne kadar zamandır ilerlediğini bilmeye gerek bırakmaz. $y'=y(1-y)$ denkleminde $y=0{,}5$ nerede yakalanırsa yakalansın eğim $0{,}25$'tir.
 
-Bu özellik nitel analizin dayanağı olacak. Sağ tarafı sıfır yapan $y$ değerleri sabit çözümler verir ve aralarındaki bölgelerde $f(y)$'nin işareti çözümün hangi yöne gittiğini söyler. Denklemi çözmeden davranış okumak burada mümkün hale gelir. Burada yalnızca sınıfı adlandırıyoruz; yöntem denge çözümleri konusuna ait.
+Bu özellik nitel analizin dayanağı olacak. Sağ tarafı sıfır yapan $y$ değerleri sabit çözümler verir ve aralarındaki bölgelerde $f(y)$'nin işareti çözümün hangi yöne gittiğini söyler. Denklemi çözmeden davranış okumak burada mümkün hale gelir. Otonomluk burada bir sınıflandırma ölçütü olarak kullanılır; aynı yapı denge çözümleri ve kararlılık analizinin temelini oluşturur.
 
 :::
 

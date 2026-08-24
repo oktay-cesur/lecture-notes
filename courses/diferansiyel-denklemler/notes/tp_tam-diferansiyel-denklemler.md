@@ -162,7 +162,7 @@ $$
 
 koşulu elde edilir. Böylece test koşulu ezberlenmiş bağımsız bir kural değil, ortak bir potansiyel fonksiyonun var olması gerektiği düşüncesinin zorunlu sonucudur.
 
-Eşitlik tek bir noktada değil, denklemin ele alındığı açık bir bölgenin tamamında kontrol edilmelidir. $M_y$ ile $N_x$'in yalnız bir noktada veya tek bir eğri üzerinde eşit olması, bölgede ortak bir potansiyelin varlığını göstermez. Standart uygulamalarda $M$ ve $N$'nin sürekli birinci kısmi türevlere sahip olduğu ve bölgenin basit bağlantılı olduğu kabul edilir. Burada **basit bağlantılı**, bölgenin potansiyel fonksiyonun küresel olarak kurulmasını engelleyen bir delik içermemesi anlamında kullanılır. Bu koşullar altında $M_y=N_x$ eşitliği yalnız gerekli değil, aynı zamanda tamlık için yeterlidir. Aşağıdaki uygulamalarda denklemler, test koşulunun yeterli olduğu bu tür uygun bölgelerde ele alınır.
+Eşitlik tek bir noktada değil, denklemin ele alındığı açık bir bölgenin tamamında kontrol edilmelidir. $M_y$ ile $N_x$'in yalnız bir noktada veya tek bir eğri üzerinde eşit olması, bölgede ortak bir potansiyelin varlığını göstermez. Standart uygulamalarda $M$ ve $N$'nin sürekli birinci kısmi türevlere sahip olduğu ve bölgenin basit bağlantılı olduğu kabul edilir. Burada **basit bağlantılı**, bölgenin potansiyel fonksiyonun küresel olarak kurulmasını engelleyen bir delik içermemesi anlamında kullanılır. Bu koşullar altında $M_y=N_x$ eşitliği yalnız gerekli değil, aynı zamanda tamlık için yeterlidir. Bundan sonraki örneklerde denklemler, test koşulunun yeterli olduğu bu tür uygun bölgelerde ele alınır.
 
 :::
 
@@ -397,9 +397,9 @@ ifadesini tam hâle getirebilir. Sonraki kavram, bu **integrasyon çarpanını**
 
 ::: {.notes}
 
-Bu notta izlenen karar sırası şudur: denklem $M\,dx+N\,dy=0$ biçimine getirilir, uygun bir bölgede $M_y=N_x$ testi yapılır ve test geçerse ortak potansiyel $F$ kurulur. Testin başarısız olması yalnızca doğrudan potansiyel yönteminin kullanılamadığını gösterir; denklemin hiçbir yöntemle çözülemeyeceği anlamına gelmez.
+Tam diferansiyel denklemlerde izlenen karar sırası şudur: denklem $M\,dx+N\,dy=0$ biçimine getirilir, uygun bir bölgede $M_y=N_x$ testi yapılır ve test geçerse ortak potansiyel $F$ kurulur. Testin başarısız olması yalnızca doğrudan potansiyel yönteminin kullanılamadığını gösterir; denklemin hiçbir yöntemle çözülemeyeceği anlamına gelmez.
 
-Önemli bir sonraki durum, denklemin sıfır olmayan bir $\mu$ fonksiyonuyla çarpıldıktan sonra tam olmasıdır. İntegrasyon çarpanı notunda önce $\mu=\mu(x)$ ve $\mu=\mu(y)$ özel durumları incelenecek; bulunan çarpandan sonra burada kurulan tamlık testi ve potansiyel oluşturma adımları aynen yeniden kullanılacaktır.
+Önemli bir başka durum, denklemin sıfır olmayan bir $\mu$ fonksiyonuyla çarpıldıktan sonra tam olmasıdır. İntegrasyon çarpanı yönteminde önce $\mu=\mu(x)$ ve $\mu=\mu(y)$ özel durumları incelenir; bulunan çarpandan sonra burada kurulan tamlık testi ve potansiyel oluşturma adımları aynen yeniden kullanılır.
 
 :::
 

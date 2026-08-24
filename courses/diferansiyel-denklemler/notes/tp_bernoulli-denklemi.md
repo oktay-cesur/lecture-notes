@@ -289,26 +289,7 @@ $$
 
 ::: {.notes}
 
-Lineer denklem $v'-2v=-2x$ için integrasyon çarpanı $\mu=e^{-2x}$'tir. Denklem bu çarpanla çarpıldığında
-
-$$
-(e^{-2x}v)'=-2xe^{-2x}
-$$
-
-elde edilir. Sağ tarafın integrali
-
-$$
-\int -2xe^{-2x}\,dx
-=e^{-2x}\left(x+\frac12\right)
-$$
-
-olduğundan
-
-$$
-e^{-2x}v=e^{-2x}\left(x+\frac12\right)+C
-$$
-
-ve buradan $v=x+\frac12+Ce^{2x}$ bulunur. Ancak $v$ için bulunan bu ifade orijinal problemin nihai çözümü değildir; çünkü başlangıçtaki bağımlı değişken $y$'dir.
+Bulunan $v=x+\frac12+Ce^{2x}$ ifadesi orijinal problemin nihai çözümü değildir; çünkü başlangıçtaki bağımlı değişken $y$'dir, $v$ yalnız Bernoulli dönüşümünün ara değişkenidir.
 
 $v=y^{-2}$ ilişkisi geri kullanıldığında
 
@@ -336,127 +317,30 @@ Dönüşüm sırasında $y\neq0$ kabul edildiği için $y=0$ çözümü bu aile 
 
 ---
 
-## İkinci Örnek ($n=2$)
-
-$$
-y'-y=xy^2.
-$$
-
-$y^{-2}$ ile çarpalım:
-
-$$
-y^{-2}y'-y^{-1}=x.
-$$
-
-$$
-v=y^{-1}\quad\Longrightarrow\quad v'=-y^{-2}y'.
-$$
-
-::: {.notes}
-
-Bu denklemde Bernoulli üssü $n=2$'dir. İlk örnekte dönüşümün neden çalıştığı ayrıntılı biçimde kurulduğu için burada aynı mekanizma daha hızlı uygulanabilir. Genel formülden
-
-$$
-v=y^{1-n}=y^{-1}
-$$
-
-doğrudan okunur. Zincir kuralı da
-
-$$
-v'=-y^{-2}y'
-$$
-
-eşitliğini verir.
-
-Denklemi $y^{-2}$ ile çarpmadan önce $y=0$ çözümü kontrol edilmelidir. $y=0$ ve $y'=0$ orijinal
+## İkinci Örnek: Hızlı Uygulama ($n=2$)
 
 $$
 y'-y=xy^2
-$$
-
-denkleminde yerine yazıldığında eşitlik sağlanır. Dolayısıyla $y=0$ ayrı bir çözümdür. Sıfırdan farklı çözümleri bulmak için $y\neq0$ kabulüyle denklem $y^{-2}$ ile çarpılır ve $y^{-2}y'-y^{-1}=x$ elde edilir.
-
-Bu örnekte dönüşüm özellikle doğrudandır: $y^{-1}$ terimi $v$, $y^{-2}y'$ terimi ise $-v'$ olur. İlk örnekteki $-2$ katsayısı burada bulunmadığı için indirgeme daha az cebirsel işlem gerektirir. Örneğin pedagojik amacı dönüşümün gerekçesini yeniden kurmak değil, tanınan yapıyı daha hızlı uygulamaktır.
-
-:::
-
----
-
-## İkinci Örnek: Lineer Çözüm
-
-$$
--v'-v=x
 \quad\Longrightarrow\quad
-v'+v=-x.
+v=y^{-1},\qquad v'=-y^{-2}y'.
 $$
 
 $$
-\mu=e^{x}.
+v'+v=-x,
+\qquad \mu=e^{x},
 \qquad
-(e^xv)'=-xe^x.
+\boxed{y=\frac{1}{1-x+Ce^{-x}}}.
 $$
 
-$$
-e^xv=-xe^x+e^x+C
-\quad\Longrightarrow\quad
-v=-x+1+Ce^{-x}.
-$$
+$y=0$ da orijinal denklemi sağladığı için ayrı bir çözüm olarak korunur.
 
 ::: {.notes}
 
-$y^{-2}y'=-v'$ ve $y^{-1}=v$ eşitlikleri dönüştürülmüş denklemde yerine yazıldığında $v'+v=-x$ lineer denklemi elde edilir. İntegrasyon çarpanı $\mu=e^x$ olduğundan sol taraf $(e^xv)'$ biçimine dönüşür.
+Aynı dört adım burada daha hızlı uygulanıyor. $n=2$ olduğundan $y=0$ kontrolüyle başlanır: $y=0$ ve $y'=0$ denklemi sağladığı için bu, ayrıca kaydedilecek bir çözümdür. Sıfırdan farklı çözümler için denklem $y^{-2}$ ile çarpılır ve genel formülden $v=y^{1-n}=y^{-1}$, zincir kuralından $v'=-y^{-2}y'$ okunur; ilk örnekteki $-2$ katsayısı burada bulunmadığı için indirgeme daha az cebirsel işlem gerektirir.
 
-$\int -xe^x\,dx=-xe^x+e^x$ hesabı sonucunda $v=1-x+Ce^{-x}$ bulunur. Çözümün $y$ cinsinden tamamlanması ve paydanın sıfır olduğu noktaların incelenmesi ayrı geri dönüş adımıdır.
+Yerine yazıldığında $-v'-v=x$, yani standart biçimde $v'+v=-x$ elde edilir. İntegrasyon çarpanı $\mu=e^x$ ile $(e^xv)'=-xe^x$ olur; $\int -xe^x\,dx=-xe^x+e^x$ hesabından $v=1-x+Ce^{-x}$ bulunur.
 
-:::
-
----
-
-## İkinci Örnek: Geri Dönüş
-
-$$
-y^{-1}=1-x+Ce^{-x}
-\quad\Longrightarrow\quad
-y=\frac{1}{1-x+Ce^{-x}}.
-$$
-
-::: {.notes}
-
-$y^{-2}y'=-v'$ ve $y^{-1}=v$ eşitlikleri dönüştürülmüş denklemde yerine yazıldığında
-
-$$
--v'-v=x
-$$
-
-elde edilir. Her iki taraf $-1$ ile çarpılarak $v'+v=-x$ standart lineer denklemine ulaşılır. İntegrasyon çarpanı $\mu=e^x$ olduğundan
-
-$$
-(e^xv)'=-xe^x
-$$
-
-olur. Sağ tarafın integrali $\int -xe^x\,dx=-xe^x+e^x$ biçimindedir. Böylece
-
-$$
-v=1-x+Ce^{-x}
-$$
-
-bulunur.
-
-Bu örnekte geri dönüş ilk örneğe göre daha kolaydır. $v=y^{-1}$ olduğundan doğrudan
-
-$$
-y=\frac{1}{1-x+Ce^{-x}}
-$$
-
-yazılır. Bununla birlikte bu açık formül bütün gerçek sayılarda tanımlı olmak zorunda değildir. Payda
-
-$$
-1-x+Ce^{-x}
-$$
-
-hangi noktalarda sıfır oluyorsa çözüm o noktalarda tanımsızdır. Bu nedenle her çözüm, paydanın sıfır olmadığı bağlantılı bir aralık üzerinde ele alınmalı ve çözüm aralığı paydanın bir sıfırını geçmemelidir.
-
-Dönüşüm $y\neq0$ kabulü altında yapıldığı için bu kesirli çözüm ailesi $y=0$ çözümünü içermez. Ancak $y=0$ orijinal denklemi sağladığından ayrıca çözüm olarak kaydedilir. Böylece ikinci örnek, geri dönüşün kolay olduğu bir durumu gösterirken aynı zamanda kaybolan çözümün ve çözüm aralığının ayrıca incelenmesi gerektiğini ortaya koyar.
+$v=y^{-1}$ ilişkisiyle geri dönüş burada ilk örneğe göre daha basittir: doğrudan $y=1/(1-x+Ce^{-x})$ yazılır. Payda hangi noktada sıfır oluyorsa çözüm o noktada tanımsızdır; çözüm aralığı paydanın bir sıfırını geçemez. Dönüşüm $y\neq0$ kabulü altında yapıldığından bu kesirli aile $y=0$'ı içermez — başta ayrıca kaydedilen sıfır çözümü bu yüzden korunmalıdır.
 
 :::
 

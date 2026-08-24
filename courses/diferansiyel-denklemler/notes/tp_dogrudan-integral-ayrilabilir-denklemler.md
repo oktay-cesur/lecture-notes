@@ -223,11 +223,11 @@ Yön alanı denge çözümünün varlığından fazlasını gösterir. $y=1$ do�
 
 - Görsel ve **nitel** bir araçtır
 - Sayısal çözüm **üretmez**
-- Alanı küçük adımlarla takip etmek ayrı bir yöntemdir: **Euler yöntemi** (kapsam dışı)
+- Alanı küçük adımlarla takip etmek ayrı bir yöntemdir: **Euler yöntemi** — sayısal çözüm konusunda ele alınacaktır
 
 ::: {.notes}
 
-Yön alanı çözümün biçimi hakkında bilgi verir: nerede artar, nerede azalır, hangi değere yaklaşır. Ama bir noktadan başlayıp "şu $x$ değerinde $y$ kaçtır" sorusuna sayı olarak cevap vermez; elde edilen şey bir eskizdir. Sayısal bir cevap istiyorsak, eğim parçalarını küçük adımlarla takip ederek yaklaşık bir eğri hesaplamak gerekir. Bunun adı Euler yöntemidir ve bu dersin kapsamı dışındadır.
+Yön alanı çözümün biçimi hakkında bilgi verir: nerede artar, nerede azalır, hangi değere yaklaşır. Ama bir noktadan başlayıp "şu $x$ değerinde $y$ kaçtır" sorusuna sayı olarak cevap vermez; elde edilen şey bir eskizdir. Sayısal bir cevap istiyorsak, eğim parçalarını küçük adımlarla takip ederek yaklaşık bir eğri hesaplamak gerekir. Bunun adı Euler yöntemidir ve sayısal çözüm konusunda ayrıca ele alınır.
 
 Yön alanının asıl değeri, analitik çözüm bulunamadığında da elde kalmasıdır. Bu dersteki denklemlerin çoğunu kapalı biçimde çözeceğiz, ama uygulamada karşılaşılan denklemlerin büyük kısmı elemanter fonksiyonlarla çözülmez. O durumda nitel okuma ve sayısal yöntemler tek yol olur.
 
@@ -264,7 +264,7 @@ Son üç hata yön alanının okunmasıyla ilgilidir. Eğim parçaları çözüm
 
 ::: {.notes}
 
-Birincisinde cevap hayırdır. Sağ tarafta $y$ bulunduğu için $\int (x/y)\,dx$ hesaplanamaz; $y$'nin $x$'e bağlılığı bilinmeden integral alınamaz. Bu denklem çözülemez değildir, yalnız doğrudan integral onun sınıfına ait bir araç değildir — sağ taraf $x\cdot(1/y)$ biçiminde çarpanlara ayrıldığı için sıradaki konunun kapsamına girer.
+Birincisinde cevap hayırdır. Sağ tarafta $y$ bulunduğu için $\int (x/y)\,dx$ hesaplanamaz; $y$'nin $x$'e bağlılığı bilinmeden integral alınamaz. Bu denklem çözülemez değildir, yalnız doğrudan integral onun sınıfına ait bir araç değildir — sağ taraf $x\cdot(1/y)$ biçiminde çarpanlara ayrıldığı için ayrılabilir denklemler yönteminin kapsamına girer.
 
 İkincisinde cevap yine hayırdır ve gerekçesi cebirseldir: kesişme $x^3+C_1=x^3+C_2$ demektir, bu da ancak $C_1=C_2$ iken, yani aynı üye söz konusuyken olur. Geometrik karşılığı, düzlemin her noktasından ailenin tam bir üyesinin geçmesidir.
 

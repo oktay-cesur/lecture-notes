@@ -26,24 +26,40 @@ project:
     - "courses/_ortak/lineer-cebir/notes/ex_vektor-islemleri.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_ayrilabilir-denklemler.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_baslangic-deger-problemleri-ve-cozum-araligi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_belirsiz-katsayilar.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_bernoulli-denklemi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_birim-basamak-ve-parcali-girdiler.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_birinci-mertebe-yontem-secimi.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_birinci-mertebeden-lineer-denklemler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_cauchy-euler-denklemi.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_denge-cozumleri-ve-kararlilik.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_denklemi-okuma-ve-cozumu-dogrulama.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_dogrudan-integralle-cozum.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_euler-yontemi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_faz-portresi-ve-kararlilik.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_homojen-olmayan-sistemler.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_homojen-tip-denklemler.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_integrasyon-carpani.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_karakteristik-denklem-ve-reel-kokler.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_katli-karakteristik-kokler.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_kompleks-karakteristik-kokler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_konvolusyon.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_laplace-ile-integral-denklemler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_laplace-temel-donusumler-ve-kurallar.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_lineer-bagimsizlik-ve-wronskian.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_lineer-denklemlerde-genel-cozum-yapisi.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_mertebe-indirme.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_ortogonal-yorungeler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_ozdegerlerle-homojen-sistemler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_ozel-cozum-yontem-secimi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_sabitlerin-degisimi.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_sistemlere-gecis-ve-lineer-sistem-yapisi.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_tam-diferansiyel-denklemler.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_ters-laplace-ve-baslangic-deger-problemleri.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_transfer-fonksiyonu-ve-durtu-cevabi.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_tum-donem-soru-havuzu.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_yon-alani-ve-nitel-cozum.md"
+    - "courses/_ortak/diferansiyel-denklemler/notes/ex_yuksek-mertebeli-sabit-katsayili-denklemler.md"
     - "courses/_ortak/temel-ai/notes/tp_akilli-etmenler.md"
     - "courses/_ortak/temel-ai/notes/tp_bulanik-mantik.md"
     - "courses/_ortak/temel-ai/notes/tp_denetimli-ogrenme.md"
@@ -180,6 +196,39 @@ website:
             - courses/diferansiyel-denklemler/notes/tp_ninci-mertebe-lineer-genel-teori.md
             - courses/diferansiyel-denklemler/notes/tp_lineer-bagimsizlik-wronskian.md
             - courses/diferansiyel-denklemler/notes/tp_temel-cozum-kumesi.md
+        - section: "Sabit Katsayılı Homojen Denklemler"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_sabit-katsayili-homojen-denklemler.md
+            - courses/diferansiyel-denklemler/notes/tp_kompleks-karakteristik-kokler.md
+            - courses/diferansiyel-denklemler/notes/tp_katli-karakteristik-kokler.md
+        - section: "Homojen Olmayan Denklemler"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_belirsiz-katsayilar.md
+            - courses/diferansiyel-denklemler/notes/tp_ozel-cozum-yontem-secimi.md
+        - section: "Yüksek Mertebe ve Cauchy–Euler"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_yuksek-mertebeli-denklemler.md
+            - courses/diferansiyel-denklemler/notes/tp_cauchy-euler-denklemi.md
+        - section: "Laplace Dönüşümü"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_laplace-donusumu-tanim.md
+            - courses/diferansiyel-denklemler/notes/tp_laplace-donusum-kurallari.md
+            - courses/diferansiyel-denklemler/notes/tp_ters-laplace-ve-baslangic-deger-problemleri.md
+        - section: "Süreksiz Girdiler ve Konvolüsyon"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_birim-basamak-ve-parcali-girdiler.md
+            - courses/diferansiyel-denklemler/notes/tp_konvolusyon-teoremi.md
+            - courses/diferansiyel-denklemler/notes/tp_transfer-fonksiyonu-ve-durtu-cevabi.md
+        - section: "Lineer Sistemler"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_sistemlere-gecis-ve-durum-vektoru.md
+            - courses/diferansiyel-denklemler/notes/tp_lineer-sistemler-genel-teori.md
+            - courses/diferansiyel-denklemler/notes/tp_ozdegerlerle-homojen-sistemler.md
+            - courses/diferansiyel-denklemler/notes/tp_faz-portresi-ve-kararlilik.md
+            - courses/diferansiyel-denklemler/notes/tp_homojen-olmayan-sistemler.md
+        - section: "Sayısal Çözümler"
+          contents:
+            - courses/diferansiyel-denklemler/notes/tp_sayisal-cozum-euler-yontemi.md
     - id: quantum
       title: "Kuantum Hesaplama"
       style: docked
