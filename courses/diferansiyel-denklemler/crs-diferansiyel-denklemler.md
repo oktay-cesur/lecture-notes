@@ -70,6 +70,7 @@ Haftalık plan resmî izlencenin konu kapsamını temel alır. Konu yoğunluğun
 
 Aşağıdaki çalışma notları çözümlü örnekler, hata avı, işlem pratiği, karma sorular ve yapay zekâ ile kendi kendine kontrol bölümleri içerir. Her notu ilgili konuyu tamamladıktan sonra bağımsız olarak kullanabilirsiniz; listedeki sıra zorunlu bir çalışma sırası değildir. Çözümünüzde yalnız sonucu değil, denklem sınıfını, seçtiğiniz yöntemi, ara adımları ve çözüm aralığını da yazın.
 
+- [[../../courses/_ortak/diferansiyel-denklemler/notes/ex_tum-donem-soru-havuzu\|Dönem Sonu Soru Havuzu ve Konu Takip Yönergesi]]
 - [[../../courses/_ortak/diferansiyel-denklemler/notes/ex_denklemi-okuma-ve-cozumu-dogrulama\|Denklemi Okuma ve Çözümü Doğrulama]]
 - [[../../courses/_ortak/diferansiyel-denklemler/notes/ex_baslangic-deger-problemleri-ve-cozum-araligi\|Başlangıç Değer Problemleri ve Çözüm Aralığı]]
 - [[../../courses/_ortak/diferansiyel-denklemler/notes/ex_dogrudan-integralle-cozum\|Doğrudan İntegralle Çözüm]]
