@@ -16,14 +16,24 @@ project:
     - "courses/_ortak/lineer-cebir/notes/ex_denklem-sistemi-matris-gosterimi.md"
     - "courses/_ortak/lineer-cebir/notes/ex_determinant-cramer.md"
     - "courses/_ortak/lineer-cebir/notes/ex_elementer-matrisler.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_en-kucuk-kareler.md"
     - "courses/_ortak/lineer-cebir/notes/ex_gauss-eliminasyonu.md"
     - "courses/_ortak/lineer-cebir/notes/ex_homojen-lineer-bagimsizlik.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_ic-carpim-norm-ortogonallik.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_koordinatlar-ve-taban-degisimi.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_kosegenlestirme.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_lineer-donusumler-ve-matrisleri.md"
     - "courses/_ortak/lineer-cebir/notes/ex_matris-cebiri.md"
     - "courses/_ortak/lineer-cebir/notes/ex_matris-matris-carpimi.md"
     - "courses/_ortak/lineer-cebir/notes/ex_matris-vektor-carpimi.md"
     - "courses/_ortak/lineer-cebir/notes/ex_matris-yapisi-ve-temel-islemler.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_ortogonal-izdusum-ve-gram-schmidt.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_oz-deger-ve-oz-vektor.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_taban-ve-boyut.md"
     - "courses/_ortak/lineer-cebir/notes/ex_ters-matris.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_tum-donem-soru-havuzu.md"
     - "courses/_ortak/lineer-cebir/notes/ex_vektor-islemleri.md"
+    - "courses/_ortak/lineer-cebir/notes/ex_vektor-uzaylari-ve-alt-uzaylar.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_ayrilabilir-denklemler.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_baslangic-deger-problemleri-ve-cozum-araligi.md"
     - "courses/_ortak/diferansiyel-denklemler/notes/ex_belirsiz-katsayilar.md"
@@ -164,6 +174,60 @@ website:
             - courses/lineer-cebir/notes/tp_ters-matris-ve-tersinirlik.md
             - courses/lineer-cebir/notes/tp_homojen-sistemlerden-lineer-bagimsizliga.md
             - courses/lineer-cebir/notes/tp_determinant-ve-cramer-kurali.md
+        - section: "Vektör Uzayları ve Koordinatlar"
+          contents:
+            - courses/lineer-cebir/notes/tp_lineer-birlesimden-vektor-uzayina.md
+            - courses/lineer-cebir/notes/tp_alt-uzay-testi.md
+            - courses/lineer-cebir/notes/tp_lineer-bagimsizlik-taban-boyut.md
+            - courses/lineer-cebir/notes/tp_koordinatlar-ve-taban-degisimi.md
+        - section: "İç Çarpım ve Yaklaşım"
+          contents:
+            - courses/lineer-cebir/notes/tp_ic-carpim-norm-ortogonallik.md
+            - courses/lineer-cebir/notes/tp_ortogonal-izdusum-gram-schmidt.md
+            - courses/lineer-cebir/notes/tp_en-kucuk-kareler.md
+        - section: "Özdeğerler ve Köşegenleştirme"
+          contents:
+            - courses/lineer-cebir/notes/tp_oz-deger-oz-vektor.md
+            - courses/lineer-cebir/notes/tp_oz-deger-ornekleri.md
+            - courses/lineer-cebir/notes/tp_kosegenlestirme.md
+        - section: "Lineer Dönüşümler"
+          contents:
+            - courses/lineer-cebir/notes/tp_lineer-donusumler-ve-matrisleri.md
+        - section: "Çalışma Notları"
+          contents:
+            - section: "Temel İşlemler"
+              contents:
+                - courses/_ortak/lineer-cebir/notes/ex_vektor-islemleri.md
+                - courses/_ortak/lineer-cebir/notes/ex_matris-yapisi-ve-temel-islemler.md
+                - courses/_ortak/lineer-cebir/notes/ex_matris-vektor-carpimi.md
+                - courses/_ortak/lineer-cebir/notes/ex_matris-matris-carpimi.md
+                - courses/_ortak/lineer-cebir/notes/ex_matris-cebiri.md
+            - section: "Lineer Sistemler"
+              contents:
+                - courses/_ortak/lineer-cebir/notes/ex_denklem-sistemi-matris-gosterimi.md
+                - courses/_ortak/lineer-cebir/notes/ex_gauss-eliminasyonu.md
+                - courses/_ortak/lineer-cebir/notes/ex_elementer-matrisler.md
+                - courses/_ortak/lineer-cebir/notes/ex_ters-matris.md
+                - courses/_ortak/lineer-cebir/notes/ex_cozum-durumlari-ve-rank.md
+                - courses/_ortak/lineer-cebir/notes/ex_homojen-lineer-bagimsizlik.md
+                - courses/_ortak/lineer-cebir/notes/ex_determinant-cramer.md
+            - section: "Uzay, Taban ve Koordinat"
+              contents:
+                - courses/_ortak/lineer-cebir/notes/ex_vektor-uzaylari-ve-alt-uzaylar.md
+                - courses/_ortak/lineer-cebir/notes/ex_taban-ve-boyut.md
+                - courses/_ortak/lineer-cebir/notes/ex_koordinatlar-ve-taban-degisimi.md
+            - section: "Ortogonal Yaklaşım"
+              contents:
+                - courses/_ortak/lineer-cebir/notes/ex_ic-carpim-norm-ortogonallik.md
+                - courses/_ortak/lineer-cebir/notes/ex_ortogonal-izdusum-ve-gram-schmidt.md
+                - courses/_ortak/lineer-cebir/notes/ex_en-kucuk-kareler.md
+            - section: "Özdeğer ve Dönüşüm"
+              contents:
+                - courses/_ortak/lineer-cebir/notes/ex_oz-deger-ve-oz-vektor.md
+                - courses/_ortak/lineer-cebir/notes/ex_kosegenlestirme.md
+                - courses/_ortak/lineer-cebir/notes/ex_lineer-donusumler-ve-matrisleri.md
+            - courses/_ortak/lineer-cebir/notes/ex_tum-donem-soru-havuzu.md
+
     - id: diferansiyel-denklemler
       title: "Diferansiyel Denklemler"
       style: docked

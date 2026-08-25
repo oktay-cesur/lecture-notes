@@ -84,7 +84,7 @@ $$
 ::: {.notes}
 Vektör toplama, karşılık gelen bileşenlerin toplanmasıyla tanımlanır. Birinci bileşen birinci bileşenle, ikinci bileşen ikinci bileşenle eşleşir ve bu şekilde devam eder. İndis gösterimiyle bu kural tek satırda ifade edilir.
 
-Toplam sonucunda yine aynı sayıda bileşene sahip bir vektör elde edilir: $u,v\in\mathbb{R}^n$ ise $u+v\in\mathbb{R}^n$ olur. İşlem, koordinat uzayının dışına çıkmaz. Bu kapalılık özelliği ileride vektör uzayı tanımının temel taşlarından biri olacaktır.
+Toplam sonucunda yine aynı sayıda bileşene sahip bir vektör elde edilir: $u,v\in\mathbb{R}^n$ ise $u+v\in\mathbb{R}^n$ olur. İşlem, koordinat uzayının dışına çıkmaz. Bu kapalılık, vektör uzayı tanımındaki temel koşullardan biridir.
 :::
 
 ---
@@ -162,7 +162,7 @@ $$
 ::: {.notes}
 İki çizim aynı cebirsel işlemi temsil eder. Uç uca eklemede önce $u$ çizilir, sonra $v$ yönü ve büyüklüğü değiştirilmeden $u$'nun uç noktasından başlatılır; ilk başlangıçtan son noktaya çizilen vektör toplamdır. Bu yöntemin dayanağı serbest vektör yorumudur: bir vektör paralel taşındığında değişmez.
 
-Paralelkenar kuralı aynı toplamı ortak başlangıçtan görmeyi sağlar. İki vektör aynı noktadan başlatılırsa oluşan paralelkenarın köşegeni toplam vektörünü verir. İki yöntem de aynı sonucu verir. Geometrik çizim yalnız iki ve üç boyutta görünür; bileşen tanımı ise her $n$ için çalışır. Bu nedenle şekil bir kanıt değil, mekanizmayı destekleyen sezgidir.
+Paralelkenar kuralı aynı toplamı ortak başlangıçtan görmeyi sağlar. İki vektör aynı noktadan başlatılırsa oluşan paralelkenarın köşegeni toplam vektörünü verir. İki yöntem de aynı sonucu verir. Geometrik çizim yalnız iki ve üç boyutta görünür; bileşen tanımı ise her $n$ için çalışır. Bu nedenle şekil bir kanıt değil, işlemi destekleyen sezgidir.
 :::
 
 ---
@@ -267,7 +267,7 @@ $$
 ::: {.notes}
 Vektör toplaması, sayılardaki toplamanın temel özelliklerini taşır. Değişme ve birleşme özellikleri, toplamanın bileşen düzeyinde sayı toplamına indirgenmesinden gelir: her konumda sayılar toplanır ve sayılarda bu özellikler geçerlidir.
 
-Sıfır vektörü etkisiz eleman rolündedir; bileşenlerinin tamamı sıfır olan ve ilgili uzaya ait olan vektördür. Toplamsal ters ise her vektörün negatifidir. Bu dört özellik pratik hesapta parantezleme ve sıralama özgürlüğü sağlar: birden fazla vektör hangi sırayla toplanırsa toplansın sonuç aynıdır. Kuramsal düzeyde ise bu dört özellik, ileride vektör uzayı aksiyomlarının toplama tarafını oluşturacaktır.
+Sıfır vektörü etkisiz eleman rolündedir; bileşenlerinin tamamı sıfır olan ve ilgili uzaya ait olan vektördür. Toplamsal ters ise her vektörün negatifidir. Bu dört özellik pratik hesapta parantezleme ve sıralama özgürlüğü sağlar: birden fazla vektör hangi sırayla toplanırsa toplansın sonuç aynıdır. Kuramsal düzeyde ise vektör uzayı aksiyomlarının toplama tarafını oluşturur.
 :::
 
 ---
@@ -286,7 +286,7 @@ $$
 ::: {.notes}
 Skalerle çarpma da dört temel özellik taşır: iki yönde dağılma, skaler çarpmanın birleşmesi ve birim skalerin etkisizliği. Bu özellikler bileşen düzeyinde doğrudan doğrulanabilir; her konumda sayı cebirinin bilinen kuralları çalışır.
 
-Bu özelliklerden başka sonuçlar da türetilir. Örneğin $0u=0$ ve $(-1)u=-u$ eşitlikleri bu listeden çıkarılabilir; önceki derste bu sonuçları ayrı ayrı görmüştük, şimdi bunların bağımsız kurallar değil cebirsel yapının sonuçları olduğunu görüyoruz. Toplamanın dört özelliğiyle birlikte bu sekiz özellik, vektör uzayı kavramının tam listesini oluşturacaktır. Aynı liste matrislerde de birebir geçerlidir; bu tekrar rastlantı değildir.
+Bu özelliklerden başka sonuçlar da türetilir. Örneğin $0u=0$ ve $(-1)u=-u$ eşitlikleri bağımsız kurallar değil, cebirsel yapının sonuçlarıdır. Toplamanın dört özelliğiyle birlikte bu sekiz özellik, vektör uzayı kavramının tam listesini oluşturur. Aynı liste matrislerde de birebir geçerlidir; bu tekrar rastlantı değildir.
 :::
 
 ---
@@ -333,7 +333,7 @@ Sütun vektörü = $n\times1$ matris.
 > Vektör işlemleri, matris işlemlerinin özel durumudur.
 
 ::: {.notes}
-Bir sütun vektörü matris gösterimi açısından $n\times1$ boyutlu, bir satır vektörü ise $1\times n$ boyutlu bir yapıdır. Bu nedenle burada kurduğumuz işlem kuralları matrislerde de benzer biçimde karşımıza çıkacaktır.
+Bir sütun vektörü matris gösterimi açısından $n\times1$ boyutlu, bir satır vektörü ise $1\times n$ boyutlu bir yapıdır. Burada kurulan işlem kuralları matrislerde de benzer biçimde geçerlidir.
 
 Vektörlerde toplama karşılık gelen bileşenlerin toplanmasıyla yapılırken matrislerde karşılık gelen girdiler toplanır. Skalerle çarpmada da skaler, vektörün bütün bileşenlerine ya da matrisin bütün girdilerine uygulanır. Bu açıdan vektörlerdeki toplama ve skalerle çarpma, matrislerde karşılaşılacak işlemlerin özel durumları olarak görülebilir. Ancak bu benzerlik bütün işlemlerin aynı olduğu anlamına gelmez; özellikle çarpma işlemlerinde başka tanımlar ve boyut koşulları ortaya çıkacaktır.
 :::
@@ -365,7 +365,7 @@ $$
 ::: {.notes}
 Bu karar sırası ders boyunca korunacaktır. Hesaba başlamadan önce ifadenin anlamlı olup olmadığı kontrol edilir. Örneğin $\alpha u+\beta v$ ifadesinde önce $\alpha$ ve $\beta$ izin verilen skalerler mi diye bakılır, sonra $u$ ile $v$ aynı koordinat uzayında mı diye kontrol edilir.
 
-$u,v\in\mathbb{R}^n$ ve $\alpha,\beta\in\mathbb{R}$ ise sonuç yine $\mathbb{R}^n$ içindedir. Ama $u\in\mathbb{R}^3$ ve $v\in\mathbb{R}^2$ ise ifade tanımlı değildir; ölçekleme boyutu değiştirmediği için skalerle çarpma sonrası bile vektörler farklı uzaylarda kalır. Bağlamsal anlam ise ikinci kontrol katmanıdır: matematiksel olarak tanımlı bir işlem, veri bağlamında anlamsız olabilir.
+$u,v\in\mathbb{R}^n$ ve $\alpha,\beta\in\mathbb{R}$ ise sonuç yine $\mathbb{R}^n$ içindedir. Ama $u\in\mathbb{R}^3$ ve $v\in\mathbb{R}^2$ ise ifade tanımlı değildir; ölçekleme boyutu değiştirmediği için skalerle çarpma sonrası bile vektörler farklı uzaylarda kalır. Ardından bileşenlerin problemde neyi temsil ettiğine bakılır: matematiksel olarak tanımlı bir işlem, veri bağlamında anlamsız olabilir.
 :::
 
 ---
@@ -437,5 +437,5 @@ Tek bir ürün için vektör yeterliydi. Dört etkinliğin sandviç miktarların
 
 Her ürün için ayrı bir vektör yazabiliriz; fakat bu vektörler birbirinden bağımsız değildir. Hepsinin birinci bileşeni aynı etkinliğe, ikinci bileşeni yine aynı etkinliğe karşılık gelir. Yani aralarında korunması gereken ortak bir düzen vardır.
 
-Şimdi ihtiyaç şu: Bu ilişkili vektörleri, hem kendi içlerindeki sıralamayı hem de aralarındaki ilişkiyi kaybetmeden tek bir yapıda nasıl bir araya getirebiliriz? Bir sonraki kısımda bu soruya bakacağız.
+İhtiyaç şudur: Bu ilişkili vektörleri, hem kendi içlerindeki sıralamayı hem de aralarındaki ilişkiyi kaybetmeden tek bir yapıda nasıl bir araya getirebiliriz? Matris yapısı bu soruya cevap verir.
 :::

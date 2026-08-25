@@ -21,7 +21,7 @@ $$
 > Bilinmeyenleri hangi sırayla, nasıl eleyeceğiz?
 
 ::: {.notes}
-Önceki derste elementer satır işlemlerinin bir sistemi çözüm kümesini değiştirmeden eşdeğer bir sisteme dönüştürdüğünü gördük. Ancak bu işlemleri rastgele uygulamak tek başına çözüme götürmez. Güvenli olmak, verimli olmakla aynı şey değildir; aynı sistem üzerinde sonsuz sayıda geçerli işlem dizisi kurulabilir, çoğu bizi çözüme yaklaştırmaz.
+Elementer satır işlemleri bir sistemi çözüm kümesini değiştirmeden eşdeğer bir sisteme dönüştürür. Ancak bu işlemleri rastgele uygulamak tek başına çözüme götürmez. Güvenli olmak, verimli olmakla aynı şey değildir; aynı sistem üzerinde sonsuz sayıda geçerli işlem dizisi kurulabilir, çoğu bizi çözüme yaklaştırmaz.
 
 İhtiyaç duyduğumuz şey, bilinmeyenleri birbirinden adım adım ayıran sistematik bir stratejidir. Gauss eliminasyonunun temel fikri budur: bilinmeyenleri aşağıdaki denklemlerden sırayla eleyerek sistemi, çözümün kolayca okunabildiği eşdeğer bir biçime dönüştürmek. Her adımda elementer satır işlemleri kullanıldığı için görünüş değişir, çözüm kümesi değişmez.
 :::
@@ -271,7 +271,7 @@ $$
 ::: {.notes}
 Eliminasyon sırasında pivot olarak kullanmak istediğimiz konumda sıfır bulunabilir. Bu, yöntemin durduğu anlamına gelmez. Örnekteki matrisin ilk konumundaki eleman sıfırdır; ancak aynı sütunda altta sıfır olmayan bir eleman ($3$) vardır. Satır değiştirme işlemi çözüm kümesini koruduğu için iki satırı yer değiştirerek sıfır olmayan elemanı pivot konumuna getirebiliriz.
 
-Eğer pivot sütununda aşağıdaki bütün elemanlar da sıfırsa, o sütunda pivot kurulamaz ve bir sonraki sütuna geçilir. Bu ikinci durum, ilerleyen konularda serbest değişkenlerin ortaya çıkmasına yol açacaktır. Şimdilik önemli olan, sıfır bir aday karşısında önce alt satırlara bakıp uygun bir satır varsa yer değiştirmektir.
+Eğer pivot sütununda aşağıdaki bütün elemanlar da sıfırsa, o sütunda pivot kurulamaz ve bir sonraki sütuna geçilir. Pivotsuz kalan bir bilinmeyen sütunu serbest değişken ortaya çıkarır. Sıfır bir pivot adayı karşısında önce alt satırlara bakılmalı, uygun bir satır varsa yer değiştirilmelidir.
 :::
 
 ---
@@ -339,7 +339,7 @@ Bu ek işlemler, geriye doğru yerine koymayı matris işlemlerinin içine taş�
 ::: {.notes}
 İki yöntem aynı elementer satır işlemlerini kullanır ve her ikisi de çözüm kümesini korur. Ayrıldıkları tek nokta, işlemlerin nerede durdurulduğudur. Gauss yöntemi satır basamak biçiminde durur ve çözümü geriye doğru yerine koymayla bulur; Gauss–Jordan pivot sütunlarını tamamen temizleyerek RREF'e ulaşır ve çözümü doğrudan okur.
 
-Tek bir sayısal sistemi elde çözmek için Gauss çoğu zaman daha ekonomiktir, çünkü daha az işlem gerektirir. RREF ise çözüm yapısını, serbest değişkenleri ve ileride tanımlanacak temel çözüm sistemlerini incelemek için daha açıklayıcıdır. Hangisinin seçileceği amaca bağlıdır: hızlı sayısal çözüm mü, yapısal analiz mi?
+Tek bir sayısal sistemi elde çözmek için Gauss çoğu zaman daha ekonomiktir, çünkü daha az işlem gerektirir. RREF ise çözüm yapısını, serbest değişkenleri ve temel çözüm sistemlerini incelemek için daha açıklayıcıdır. Hangisinin seçileceği amaca bağlıdır: hızlı sayısal çözüm mü, yapısal analiz mi?
 :::
 
 ---
@@ -365,7 +365,7 @@ $$
 ::: {.notes}
 Bazen bir denklem, diğerlerinin taşıdığı bilginin dışında yeni bir kısıt getirmez. Örnekte ikinci denklem birinci denklemin iki katıdır. $R_2\leftarrow R_2-2R_1$ işlemi uygulandığında ikinci satır tamamen sıfırlanır ve $0=0$ satırı ortaya çıkar. Bu satır bütün $(x,y)$ değerleri için doğrudur; yani hiçbir kısıt getirmez.
 
-Eliminasyon böylece sistemde hangi denklemlerin gerçekten yeni bilgi taşıdığını görünür hâle getirir. Ortaya çıkan sıfır satırı, denklemler arasında bir lineer ilişki bulunduğunu gösterir. Bu yapı ileride, denklemlerin veya vektörlerin birbirinden bağımsız bilgi taşıyıp taşımadığını inceleyen lineer bağımsızlık kavramıyla sistematik biçimde ifade edilecektir.
+Eliminasyon böylece sistemde hangi denklemlerin gerçekten yeni bilgi taşıdığını görünür hâle getirir. Ortaya çıkan sıfır satırı, denklemler arasında bir lineer ilişki bulunduğunu gösterir. Bu yapı, denklemlerin veya vektörlerin birbirinden bağımsız bilgi taşıyıp taşımadığını inceleyen lineer bağımsızlık kavramıyla sistematik biçimde ifade edilir.
 :::
 
 ---
@@ -388,10 +388,24 @@ $$
 
 Son satır: $0=3$ → **çözüm yok.**
 
+Birden fazla çelişki satırı da ortaya çıkabilir:
+
+$$
+\left[\begin{array}{ccc|c}
+1&2&-1&3\\
+0&0&0&5\\
+0&0&0&7
+\end{array}\right]
+$$
+
+> Tutarsızlık kararı için tek bir çelişki satırı yeterlidir; ikinci bir çelişki satırının bulunması sonucu değiştirmez.
+
 ::: {.notes}
 $R_2\leftarrow R_2-2R_1$ ve $R_3\leftarrow R_3+R_1$ işlemleri matrisi ara biçime getirir; ikinci ve üçüncü satırlar aynı sütunda pivot adayı taşıdığı için bir satır değişimiyle eliminasyon sürdürülür ve son satır $0\ 0\ 0\mid 3$ biçimine gelir. Bu satır $0x_1+0x_2+0x_3=3$, yani $0=3$ anlamına gelir.
 
 Hiçbir $x$ değeri $0=3$ eşitliğini sağlayamaz; dolayısıyla sistemin çözümü yoktur, çözüm kümesi boştur. Genel olarak $[\,0\ \cdots\ 0\mid c\,]$ biçiminde ve $c\neq0$ olan bir satır çelişki satırıdır ve sistemin tutarsız olduğunu gösterir. Bu örnek, eliminasyonun yalnız değer bulmak için değil, çözümün var olup olmadığını sınamak için de kullanıldığını gösterir.
+
+İkinci örnekte iki satır aynı anda $0\ 0\ 0\mid 5$ ve $0\ 0\ 0\mid 7$ biçimindedir; her ikisi de tek başına sistemi tutarsız yapar. İkinci çelişki satırı ilk karara ek bir bilgi getirmez, yalnız aynı sonucu bir kez daha doğrular. Bu yüzden çelişki satırı arandığında ilk bulunan satır kararı vermeye yeter; eliminasyona devam edip başka çelişki satırı aramak gerekmez.
 :::
 
 ---
@@ -411,7 +425,7 @@ $$
 ::: {.notes}
 Eliminasyonun sonucu yalnız çözüm değerlerini değil, çözüm kümesinin yapısını da gösterir. İlk sorulacak soru, $[\,0\ \cdots\ 0\mid c\,]$ ve $c\neq0$ biçiminde bir çelişki satırının bulunup bulunmadığıdır. Böyle bir satır varsa sistem tutarsızdır ve çözüm kümesi boştur. Çelişki yoksa sistem tutarlıdır ve en az bir çözümü vardır.
 
-Tutarlı bir sistemde pivot sütunları temel değişkenleri, pivotsuz sütunlar ise serbest değişkenleri belirler. Serbest değişken yoksa tek çözüm, varsa sonsuz çözüm bulunur. Bu üç aşamalı karar — önce çelişki, sonra pivot sütunları, sonra serbest değişkenler — bir sonraki konunun, çözüm durumları ve rankın çıkış noktasıdır.
+Tutarlı bir sistemde pivot sütunları temel değişkenleri, pivotsuz sütunlar ise serbest değişkenleri belirler. Serbest değişken yoksa tek çözüm, varsa sonsuz çözüm bulunur. Bu üç aşamalı karar — önce çelişki, sonra pivot sütunları, sonra serbest değişkenler — çözüm durumları ve rank kavramlarının çıkış noktasıdır.
 :::
 
 ---
@@ -434,7 +448,7 @@ $$
 ::: {.notes}
 Bu sistemi adım adım çözelim. İlk pivot birinci satırdaki $1$'dir; yalnız ikinci satırın ilk elemanı sıfır değildir, o yüzden tek işlem gerekir: $R_2\leftarrow R_2-2R_1$. Bu, ikinci satırı $0\ 1\ 3\mid 2$ yapar. Üçüncü satır zaten ilk sütunda sıfır taşıdığı için değişmez.
 
-İkinci pivot ikinci satırdaki $1$'dir; altındaki üçüncü satırın ikinci elemanı da $1$ olduğundan $R_3\leftarrow R_3-R_2$ uygulanır ve üçüncü satır $0\ 0\ 0\mid 3$ biçimine gelir. Bu bir çelişki satırıdır: $0=3$. Dolayısıyla bu sistemin çözümü yoktur. Uygulama, eliminasyonun sonunda her zaman değer bulunmayabileceğini; önce çelişki satırının kontrol edilmesi gerektiğini hatırlatır. Öğrenciler farklı bir sağ taraf değeriyle (örneğin son satır $\mid 0$ olsaydı) sistemin tutarlı hâle geleceğini de tartışabilir.
+İkinci pivot ikinci satırdaki $1$'dir; altındaki üçüncü satırın ikinci elemanı da $1$ olduğundan $R_3\leftarrow R_3-R_2$ uygulanır ve üçüncü satır $0\ 0\ 0\mid 3$ biçimine gelir. Bu bir çelişki satırıdır: $0=3$. Dolayısıyla bu sistemin çözümü yoktur. Eliminasyonun sonunda her zaman değer bulunmayabilir; önce çelişki satırı kontrol edilmelidir. Son satırın sağ tarafı $0$ olsaydı $0=0$ elde edilir ve sistem tutarlı kalırdı.
 :::
 
 ---

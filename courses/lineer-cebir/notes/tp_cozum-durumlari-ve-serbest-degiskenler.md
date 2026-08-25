@@ -171,7 +171,7 @@ $$
 ::: {.notes}
 Serbest değişken kavramı sık yanlış anlaşılır. Serbest değişken, sistemin çözemediği veya önemsediği bir bilinmeyen değildir; çözüm kümesi içinde bağımsız olarak parametre değeri verilebilen bir değişkendir.
 
-Önceki örnekte $x_2$ serbesttir. $x_2=0$ için çözüm $(5,0,3)$, $x_2=1$ için $(3,1,3)$, $x_2=-1$ için $(7,-1,3)$ olur; bu vektörlerin tamamı aynı denklem sistemini sağlar. Serbest değişkene verilen her değer geçerli bir çözüm üretir ve pivot değişkenlerin değerlerini belirler. Gerçek sayılar üzerinde parametre sonsuz sayıda değer alabildiğinden, tutarlı bir sistemde en az bir serbest değişken bulunması sonsuz sayıda çözüm ortaya çıkarır.
+Parametrik çözüm örneğinde $x_2$ serbesttir. $x_2=0$ için çözüm $(5,0,3)$, $x_2=1$ için $(3,1,3)$, $x_2=-1$ için $(7,-1,3)$ olur; bu vektörlerin tamamı aynı denklem sistemini sağlar. Serbest değişkene verilen her değer geçerli bir çözüm üretir ve pivot değişkenlerin değerlerini belirler. Gerçek sayılar üzerinde parametre sonsuz sayıda değer alabildiğinden, tutarlı bir sistemde en az bir serbest değişken bulunması sonsuz sayıda çözüm ortaya çıkarır.
 :::
 
 ---
@@ -252,7 +252,7 @@ $$
 ::: {.notes}
 Parametrik çözüm, bir sabit vektör ile parametreyle çarpılan bir yön vektörünün toplamı olarak ayrıştırılabilir. Sabit vektör ($t=0$ durumu) belirli bir çözümü verir; $t$ ile çarpılan vektör ise çözüm kümesi boyunca hangi yönde ilerlendiğini gösterir.
 
-Bu ayrıştırma yalnız düzenli bir yazım değildir; ileride homojen ve homojen olmayan sistemlerin ilişkisini açıklamada yeniden kullanılacaktır. Yön vektörü aslında ilgili homojen sistemin ($Ax=0$) çözümüdür; sabit vektör ise özel bir çözümdür. Böylece çözüm kümesi "bir özel çözüm artı homojen çözümler" yapısıyla anlaşılır.
+Bu ayrıştırma yalnız düzenli bir yazım değildir; homojen ve homojen olmayan sistemlerin ilişkisini açıklar. Yön vektörü aslında ilgili homojen sistemin ($Ax=0$) çözümüdür; sabit vektör ise özel bir çözümdür. Böylece çözüm kümesi "bir özel çözüm artı homojen çözümler" yapısıyla anlaşılır.
 :::
 
 ---
@@ -277,6 +277,45 @@ $$
 Son satır $0x_1+0x_2+0x_3=5$, yani $0=5$ anlamına gelir; hiçbir değişken değeriyle sağlanamaz. Üst satırlarda serbest bir $x_3$ görünse bile bu seçim çelişkiyi ortadan kaldırmaz. Bu nedenle karar sırasının ilk adımı her zaman çelişki kontrolüdür; çelişki bulunduğunda pivot ve serbest değişken analizine hiç geçilmez.
 
 Geometrik olarak denklemlerin temsil ettiği doğrular ya da düzlemler ortak bir noktada kesişmez. Cebirsel basamak biçimi bu uyumsuzluğu doğrudan görünür kılar: çelişki satırı, sistemin geometrik olarak kesişmeyen kısıtlar içerdiğinin cebirsel işaretidir.
+:::
+
+---
+
+## İki Doğru, Üç Olasılık
+
+$$
+\begin{aligned}
+x+y&=2\\x-y&=0\end{aligned}
+\qquad
+\begin{aligned}
+x+y&=2\\x+y&=5\end{aligned}
+\qquad
+\begin{aligned}
+x+y&=2\\2x+2y&=4\end{aligned}
+$$
+
+$$
+\begin{array}{lcl}
+\text{tek noktada kesişen doğrular} & \to & \text{tek çözüm}\\
+\text{paralel, farklı doğrular} & \to & \text{çözüm yok}\\
+\text{aynı doğru} & \to & \text{sonsuz çözüm}
+\end{array}
+\qquad
+\begin{array}{lcl}
+\text{her sütunda pivot} & \to & \text{tek çözüm}\\
+\text{çelişki satırı} & \to & \text{çözüm yok}\\
+\text{serbest değişken, çelişki yok} & \to & \text{sonsuz çözüm}
+\end{array}
+$$
+
+> Üç bilinmeyende doğruların yerini düzlemler alır. Ortak kesişim yine çözüm kümesidir; ancak geometrik düzenler hızla çeşitlenir. Genel karar bu nedenle eliminasyon üzerinden verilir.
+
+::: {.notes}
+Üç sistem de sol tarafta aynı ilk denklemi taşır, yalnız ikinci denklem değişir. $x+y=2$, $x-y=0$ sisteminde iki doğru tek bir noktada kesişir: $R_2\leftarrow R_2-R_1$ ikinci satırı $-2y=-2$ yapar, her iki sütunda da pivot vardır ve çözüm $(1,1)$'dir.
+
+$x+y=2$, $x+y=5$ sisteminde iki doğru paraleldir; $R_2\leftarrow R_2-R_1$ satırı $0\ 0\mid3$ yapar, bu bir çelişki satırıdır ve çözüm yoktur. $x+y=2$, $2x+2y=4$ sisteminde ikinci denklem birincinin iki katıdır, iki doğru aynıdır; $R_2\leftarrow R_2-2R_1$ satırı $0\ 0\mid0$ yapar, ikinci sütun pivotsuz kalır, $y$ serbest değişkendir ve sonsuz çözüm vardır.
+
+Üç bilinmeyende her denklem bir düzlem temsil eder ve ortak kesişim yine çözüm kümesidir; fakat iki düzlemin kesiştiği bir doğru, üçüncü düzlemin bu doğruya göre konumuna bağlı olarak farklı sonuçlar üretebilir. Geometrik düzenlerin sayısı bilinmeyen sayısıyla hızla arttığı için üç boyuttan sonra sonucu resme bakarak değil, satır indirgemedeki pivot ve çelişki yapısına bakarak vermek gerekir.
 :::
 
 ---
@@ -372,5 +411,5 @@ $$
 ::: {.notes}
 Bu üç denklemin ikincisi ve üçüncüsü birincinin skaler katlarıdır; sisteme yeni satırlar eklenmiş görünse de çözüm kümesi daralmamıştır. Eliminasyon sonunda yalnız bir sıfır olmayan satır ve tek pivot kalır. Çözüm durumu analizinde tekrar tekrar karşımıza çıkan soru budur: bir sistemdeki denklemlerin kaçı gerçekten yeni ve bağımsız bilgi taşır?
 
-Bir sonraki ders bu soruya sayısal bir cevap verir. Rank kavramı, bir matrisin taşıdığı bağımsız bilgi miktarını pivot yapısı üzerinden ölçer ve bu derste kurduğumuz üç dallı karar yapısını tek bir sayı diliyle yeniden ifade eder. Böylece çelişki, pivot ve serbest değişken analizinin tamamı rank karşılaştırmasına indirgenir.
+Rank kavramı, bir matrisin taşıdığı bağımsız bilgi miktarını pivot yapısı üzerinden ölçer. Çelişki, pivot ve serbest değişkenlerden oluşan üç dallı karar yapısı, katsayı ve genişletilmiş matrislerin rankları karşılaştırılarak tek bir sayı diliyle yeniden ifade edilir. Böylece çözüm durumu analizinin tamamı rank karşılaştırmasına indirgenir.
 :::

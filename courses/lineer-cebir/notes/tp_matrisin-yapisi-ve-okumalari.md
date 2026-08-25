@@ -26,7 +26,7 @@ $$
 | 4        |      40 |     30 |    20 |
 
 ::: {.notes}
-Önceki örnekte dört etkinliğin sandviç miktarlarını tek sütun vektöründe tutuyorduk. İçecek ve tatlı miktarları da izlenmek istendiğinde aynı etkinlik sırasını koruyan iki sütun daha ekliyoruz. Böylece dört satır ve üç sütundan oluşan tablo ortaya çıkıyor.
+Dört etkinliğin sandviç miktarları tek sütun vektöründe tutulabilir. İçecek ve tatlı miktarları da izlenmek istendiğinde aynı etkinlik sırasını koruyan iki sütun daha ekliyoruz. Böylece dört satır ve üç sütundan oluşan tablo ortaya çıkıyor.
 
 Tablonun düzeni iki ekseni ayırmasından geliyor. Bir eksende ölçümün kime ait olduğu (hangi etkinlik), diğerinde neyin ölçüldüğü (hangi ürün) duruyor. Bu iki eksenli düzen, "üçüncü etkinliğe kaç içecek gidiyor" ya da "bütün gün kaç tatlı gerekiyor" gibi soruları tabloya bakarak cevaplanabilir hâle getiriyor. Lineer cebirin matris kavramı bu düzenin sayısal iskeletinden çıkıyor.
 :::
@@ -78,7 +78,7 @@ Tek sütun da bir matristir.
 ::: {.notes}
 Başlık satırını ve etkinlik numaralarını çıkarıp geriye kalan sayıları köşeli parantez içine aldığımızda bir matris elde ederiz. Başlıkların düşmesiyle bilgi kaybolmuyor, çünkü bilgiyi zaten konum taşıyordu: üçüncü sütun, adı yazılmasa da tatlı miktarlarının sütunu olarak kalıyor. Kaybolan tek şey bağlamın kendisidir, ve bu kasıtlıdır — aynı $4\times3$ sayı düzeni başka bir problemde bambaşka bir şeyi temsil edebilir.
 
-Sandviç sütununu tek başına alırsak dört bileşenli bir sütun vektörü elde ederiz; vektörleri önceki notlarda bu biçimde yazmıştık. Matris de burada zaten böyle doğuyor: tek sütun yalnız sandviç miktarlarını taşıyordu, içecek ve tatlıyı da kaydetmek isteyince aynı etkinlikleri paylaşan iki sütun daha yan yana geldi. Ters yönden bakıldığında tek sütunlu bir matris ile bir sütun vektörü aynı nesnedir.
+Sandviç sütununu tek başına alırsak dört bileşenli bir sütun vektörü elde ederiz. Matris de burada böyle doğar: tek sütun yalnız sandviç miktarlarını taşırken içecek ve tatlıyı kaydetmek için aynı etkinlikleri paylaşan iki sütun daha yan yana gelir. Ters yönden bakıldığında tek sütunlu bir matris ile bir sütun vektörü aynı nesnedir.
 
 Bundan sonra bu nesneyi etkinliklerden bağımsız olarak inceleyeceğiz. Önce genel tanımını ve gösterimini kuracağız, sonra satır ve sütun okumalarına geri döneceğiz.
 :::
@@ -146,7 +146,7 @@ $$
 Mavi: $i$. satır · Yeşil: $j$. sütun · Kesişim: $a_{ij}$
 
 ::: {.notes}
-Matrisin $m\times n$ biçimi için "boyut" ve "şekil" sözcükleri bu derste eş anlamlı kullanılır; yazında yaygın olan "boyut"tur, bu notta yapı vurgusu için "şekil" öne çıkarılıyor. İleride vektör uzayının boyutu ayrı bir kavram olarak gelecek; orada hangi boyuttan söz edildiği bağlamdan ayırt edilecektir. Sıra her zaman önce satır, sonra sütundur; hem şekil yazımında hem indislerde bu kural geçerlidir.
+Matrisin $m\times n$ biçimi için "boyut" ve "şekil" sözcükleri eş anlamlı kullanılır; yazında "boyut" sözcüğü yaygındır. Vektör uzayının boyutu ise ayrı bir kavramdır ve hangi boyuttan söz edildiği bağlamdan ayırt edilir. Sıra her zaman önce satır, sonra sütundur; hem şekil yazımında hem indislerde bu kural geçerlidir.
 
 $a_{ij}$ notasyonu elemanın değerinin yanında konumunu da taşır. $a_{23}$ elemanını bulmak için önce ikinci satıra, sonra üçüncü sütuna gidilir. İndisler yalnızca konumu adlandırmaz; matrisin şekli hangi indislerin geçerli olduğunu da belirler.
 :::
@@ -226,7 +226,7 @@ $$
 ::: {.notes}
 Satır ve sütun sayıları eşit olan matrislere kare matris denir; farklı olanlar dikdörtgen biçimindedir. Kare olmak burada yalnızca şekille ilgili temel bir sınıflandırmadır.
 
-Bu ayrımın önemi ilerledikçe artacaktır: köşegen, birim ve simetrik gibi özel sınıflar, ters matris ve determinant gibi kavramlar standart biçimde kare matrisler üzerinde tanımlanır. Tek satırlı $1\times n$ yapı bir satır vektörü, tek sütunlu $n\times1$ yapı bir sütun vektörüdür; koordinat vektörleri matris gösterimi açısından bu özel durumlardır.
+Köşegen, birim ve simetrik gibi özel sınıflar ile ters matris ve determinant gibi kavramlar standart biçimde kare matrisler üzerinde tanımlanır. Tek satırlı $1\times n$ yapı bir satır vektörü, tek sütunlu $n\times1$ yapı bir sütun vektörüdür; koordinat vektörleri matris gösterimi açısından bu özel durumlardır.
 :::
 
 ---
@@ -284,9 +284,9 @@ Matrisin bağlamdaki rolü de girdilerin türünden ayrı düşünülür. Bir ma
 - Kenar: doğrudan yol
 
 ::: {.notes}
-Bundan sonraki üç başlıkta matrisin farklı alanlarda nasıl karşımıza çıktığını göreceğiz. Bu örnekler dersin kendi konusu değil; matrisin yalnız denklem sistemlerine ait bir araç olmadığını göstermek için var. Graf teorisi, olasılık ve istatistik başlı başına ayrı ders konularıdır, burada her birinden yalnız matrisle ilişkisi kadarını alıp devam edeceğiz.
+Matrisler graf teorisi, olasılık ve istatistikte de kullanılır; yalnız denklem sistemlerine ait araçlar değildir. Graf teorisi, olasılık ve istatistiğin ayrıntıları yerine bu alanların matrisle ilişkileri ele alınır.
 
-Örneklerde matris çarpımı ve matris kuvvetleri geçecek. Bu işlemleri henüz tanımlamadık; birkaç not sonra, önce matris–vektör sonra matris–matris çarpımıyla kuracağız. Şimdilik amacımız hesap yapmak değil, aynı satır–sütun düzeninin farklı problemlerde nasıl kurulduğunu görmek. Kuvvetlerin ne anlama geldiğini burada söylemekle yetiniyoruz, nasıl hesaplandığını sonra göreceğiz.
+Örneklerde matris çarpımı ve matris kuvvetleri geçer. Bu işlemlerin hesabı burada kullanılmaz; amaç, aynı satır–sütun düzeninin farklı problemlerde nasıl kurulduğunu ve kuvvetlerin bu bağlamlarda neyi temsil ettiğini görmektir.
 
 Graf, nesnelerden ve bu nesneler arasındaki bağlantılardan oluşan bir yapıdır. Nesnelere düğüm, bağlantılara kenar denir. Örnekte dört şehir düğümleri, aralarındaki doğrudan yollar kenarları oluşturuyor: Bursa–İstanbul, İstanbul–Ankara, Ankara–İzmir ve İzmir–Bursa. Bursa ile Ankara arasında doğrudan yol yok; bu iki şehir arasında gitmek için İstanbul ya da İzmir üzerinden geçmek gerekiyor. Yollar çift yönlü olduğu için bu graf yönsüzdür.
 
@@ -323,7 +323,7 @@ Komşuluk matrisinde satırlar da sütunlar da düğümleri temsil eder. Şehirl
 
 Bu matris yalnız bağlantıları saklamaz. Matris çarpımını kurduktan sonra komşuluk matrisinin kuvvetleri graf üzerinde yeni bilgiler taşır: $(A^n)_{ij}$ elemanı $i$. düğümden $j$. düğüme uzunluğu $n$ olan yürüyüşlerin sayısını verir. Örneğimizde Bursa'dan Ankara'ya iki adımda iki ayrı yürüyüş vardır — biri İstanbul, diğeri İzmir üzerinden — ve $(A^2)_{13}$ değeri tam olarak $2$ çıkar.
 
-Bu değeri şimdi hesaplayamayız, çünkü $A^2$ matris çarpımı demektir ve çarpımı henüz kurmadık; iki adımlı yürüyüşleri graf üzerinde tek tek sayarak buluyoruz. Çarpımı tanımladıktan sonra buraya dönüp aynı sayının matris işleminden nasıl çıktığını göreceğiz. $A^2$ lineer cebir açısından sıradan bir matris işlemi olacak; hesabı yaparken şehirleri düşünmeyeceğiz, sonucu okurken graf bağlamına döneceğiz. Matrisin satır–sütun yapısının problemin kendi yapısını kodlaması bu örnekte açıkça görülüyor.
+$A^2$ matris çarpımıyla hesaplanır; aynı değer, iki adımlı yürüyüşler graf üzerinde tek tek sayılarak da bulunabilir. $A^2$ lineer cebir açısından sıradan bir matris işlemidir; hesap soyut matris kurallarıyla yapılır, sonuç graf bağlamında yorumlanır. Matrisin satır–sütun yapısının problemin kendi yapısını kodlaması bu örnekte açıkça görülür.
 :::
 
 ---
@@ -347,7 +347,7 @@ P=
 \end{bmatrix}  
 $$
 
-Bu notta kullanılan yön sözleşmesi:
+Bu örnekte satır ve sütunların anlamı:
 
 - **satır:** bugünkü durum,
 - **sütun:** yarınki durum,
@@ -365,7 +365,7 @@ Hava durumunu iki seçenekle sınırlayalım: güneşli ve yağmurlu. Bugün gü
 
 Bu dört olasılığı ayrı ayrı yazmak yerine tek bir matriste düzenleyebiliriz. Örneğin $p_{12}=0.2$, bugün güneşliyken yarın yağmurlu olma olasılığıdır. Her satırın toplamı $1$ olur; çünkü bugünkü sabit bir durumdan yarınki olası durumlara dağılımı okuyoruz.
 
-Bu yön sözleşmesinde durum dağılımını satır vektörü olarak yazar ve sağdan $P$ ile çarparız. Sütun vektörü kullanan kaynaklar geçiş matrisini ters yönde kurabilir; bu nedenle çarpımdan önce satır ve sütunların neyi temsil ettiğini kontrol etmek gerekir. Birkaç adım sonraki olasılıklar $P$'nin kuvvetleriyle hesaplanır.
+Satırlar bugünkü, sütunlar yarınki durumu gösterdiği için durum dağılımını satır vektörü olarak yazar ve sağdan $P$ ile çarparız. Sütun vektörü kullanan kaynaklar geçiş matrisini ters yönde kurabilir; bu nedenle çarpımdan önce satır ve sütunların neyi temsil ettiğini kontrol etmek gerekir. Birden fazla geçiş sonrasındaki olasılıklar $P$'nin kuvvetleriyle hesaplanır.
 :::
 
 ---
@@ -411,7 +411,7 @@ $$
 $$
 
 ::: {.notes}
-Gerçek bir problemde matris çoğu zaman doğrudan verilmez. Önce problemin hangi yönlerinin satırlarla, hangilerinin sütunlarla ve her elemanın hangi nicelikle temsil edileceğine karar verilir; bu seçim problemin bağlamsal modelidir. Etkinlik örneğinde satırlar etkinlikleri, sütunlar ikram türlerini, elemanlar ürün adetlerini temsil edecek şekilde bir kurulum yapılmıştır.
+Gerçek bir problemde matris çoğu zaman doğrudan verilmez. Önce problemin hangi yönlerinin satırlarla, hangilerinin sütunlarla ve her elemanın hangi nicelikle temsil edileceğine karar verilir. Bu seçim, problemin matrisle nasıl kurulacağını belirler. Etkinlik örneğinde satırlar etkinlikleri, sütunlar ikram türlerini, elemanlar ürün adetlerini temsil edecek şekilde bir kurulum yapılmıştır.
 
 Matris bir kez kurulduktan sonra lineer cebirsel işlemler bağlamdan bağımsız olarak gerçekleştirilir. Son aşamada elde edilen sonuç tekrar problem bağlamında yorumlanır. Yalnızca matris işlemlerini bilmek, "matris nasıl kuruldu?" ve "sonuç problem bağlamında ne anlama geliyor?" sorularını kendiliğinden cevaplamaz; bu iki düzeyin ikisi de ayrıca öğrenilmelidir.
 :::
@@ -431,9 +431,9 @@ olarak okunabilir.
 > Bu okumalar birbirinin yerine geçen tanımlar değil, aynı nesnenin farklı rolleridir.
 
 ::: {.notes}
-Matrisi yalnız "sayı tablosu" diye bırakmak, çarpım ve dönüşüm fikirlerini anlamsız bir kurala dönüştürür. Öte yandan her matrisi hemen geometrik dönüşüm gibi sunmak da veri ve denklem sistemi rollerini örter. Bu nedenle okumalar ayrıştırılır.
+Matrisi yalnız "sayı tablosu" diye bırakmak, çarpım ve dönüşüm fikirlerini anlamsız bir kurala dönüştürür. Öte yandan her matrisi hemen geometrik dönüşüm gibi sunmak da veri ve denklem sistemi rollerini örter. Bu iki kullanım karıştırılmamalıdır.
 
-Önce veri ile satır-sütun yapısı kurulmalıdır. Matris–vektör çarpımının mekanizması ortaya çıktığında aynı matrisin bir dönüşümü nasıl temsil edebildiği de doğal biçimde anlaşılır.
+Önce veri ile satır-sütun yapısı kurulmalıdır. Matris–vektör çarpımı tanımlandığında aynı matrisin bir dönüşümü nasıl temsil edebildiği de doğal biçimde anlaşılır.
 :::
 
 ---
@@ -598,7 +598,7 @@ $$
 ::: {.notes}
 Aynı altı sayı iki okumada farklı biçimde gruplanıyor. Satır okuması iki tane üç bileşenli vektör verir; sütun okuması üç tane iki bileşenli vektör verir. Vektörlerin sayısı da bileşen sayıları da farklıdır — iki okuma aynı bilgiyi taşır ama aynı listeyi üretmez.
 
-Bu ayrım, önceki slayttaki genel kuralın somut örneğidir: $m\times n$ bir matriste $m$ tane $n$ bileşenli satır, $n$ tane $m$ bileşenli sütun bulunur. Bir soruda hangi okumanın kullanılacağı sorunun kendisinden gelir; satırlar üzerinden mi sütunlar üzerinden mi düşünüldüğü baştan belirlenmelidir.
+Bu, genel kuralın somut bir örneğidir: $m\times n$ bir matriste $m$ tane $n$ bileşenli satır, $n$ tane $m$ bileşenli sütun bulunur. Bir soruda hangi okumanın kullanılacağı sorunun kendisinden gelir; satırlar üzerinden mi sütunlar üzerinden mi düşünüldüğü baştan belirlenmelidir.
 :::
 
 ---
@@ -629,7 +629,7 @@ Birinci hata en yaygın olanıdır: $4\times3$ bir matriste üç sütun vardır 
 ::: {.notes}
 Birinci soruda iki sütun vardır ve her sütun beş bileşenlidir; sayı ile bileşen sayısı ayrımı burada sınanır. İkinci soru bağlama bağlıdır: yönsüz grafta bağlantı simetrik olduğu için iki eleman aynı bilgiyi taşır; yönlü grafta $i$'den $j$'ye bağlantı ile $j$'den $i$'ye bağlantı farklıdır.
 
-Üçüncü soruda cevap hayırdır; matrisler aynı dört sayıyı içerse de biri $1\times4$, diğeri $2\times2$ şeklindedir. Dördüncü sorunun cevabı evettir: aynı matematiksel nesne bir problemde ölçüm verisini, başka bir problemde bir dönüşümün katsayılarını temsil edebilir. Rol, matrisin kendisinden değil kurulumdan gelir.
+Üçüncü soruda cevap hayırdır; matrisler aynı dört sayıyı içerse de biri $1\times4$, diğeri $2\times2$ şeklindedir. Dördüncü sorunun cevabı evettir: aynı matematiksel nesne bir problemde ölçüm verisini, başka bir problemde bir dönüşümün katsayılarını temsil edebilir. Matrisin veri mi dönüşüm mü olarak yorumlanacağı, problemin nasıl kurulduğuna bağlıdır.
 :::
 
 ---
@@ -642,9 +642,9 @@ Birinci soruda iki sütun vardır ve her sütun beş bileşenlidir; sayı ile bi
 > Matris işlemleri, bu yapıdan doğan işlemler olarak kurulacak — mekanik kurallar olarak değil.
 
 ::: {.notes}
-Satır ve sütun gösterimleri yalnızca alternatif yazım biçimleri değildir; farklı matris işlemlerini anlamayı kolaylaştıran yapısal bakışlar sağlar. Bir matrisi sütunları üzerinden okumak, matris–vektör çarpımını sütunların belirli katsayılarla birleştirilmesi olarak yorumlamayı sağlayacak; satırlar üzerinden okumak ise aynı çarpımın sonucundaki her bileşenin nasıl oluştuğunu gösterecektir.
+Satır ve sütun gösterimleri farklı matris işlemlerini anlamayı kolaylaştırır. Bir matrisi sütunları üzerinden okumak, matris–vektör çarpımını sütunların belirli katsayılarla birleştirilmesi olarak yorumlamayı sağlar; satırlar üzerinden okumak ise aynı çarpımın sonucundaki her bileşenin nasıl oluştuğunu gösterir.
 
-Bir sonraki adımda önce özel matris sınıfları ve transpoz ile yapı sözlüğü tamamlanır, ardından toplama, çıkarma ve skalerle çarpma işlemleri kurulur. Bu işlemlerin hesap mekanizması ayrı ele alınacaktır; burada önemli olan, matrisin tek tek elemanlardan oluşan bir düzen olmanın ötesinde, belirli boyutlara sahip satır ve sütun vektörlerinden oluşan bir yapı olduğunu görmektir.
+Özel matris sınıfları ve transpoz, matrislerin satır-sütun düzenine göre adlandırılmasını ve yeniden yazılmasını sağlar. Toplama, çıkarma ve skalerle çarpma işlemleri de bu düzen üzerinde kurulur. Matris, tek tek elemanlardan oluşan bir düzen olmanın yanında belirli boyutlara sahip satır ve sütun vektörlerinden oluşan bir yapıdır.
 :::
 
 [^1]: Transpoz konusu ileride işlenecek. Kabaca transpoz işlemi satır sütun değişimi yapar, yatay vektörü dikey hale getirir.

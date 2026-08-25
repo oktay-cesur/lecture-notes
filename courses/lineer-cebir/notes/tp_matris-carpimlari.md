@@ -84,7 +84,7 @@ Bu tekrarı tek bir yazımda toplamak için önce miktarları ve fiyatları iki 
 > Soldaki sütun sırası, sağdaki satır sırasıdır.
 
 ::: {.notes}
-Fiyatları da bir tabloya yazalım ve miktar tablosunun yanına koyalım. Fiyat listesini alt alta yazmamızın nedeni hesabın kendisidir: soldaki tablonun sandviç sütunu ile sağdaki tablonun sandviç satırı aynı ürünü gösteriyor. İçecek ve tatlı için de aynı eşleşme kuruluyor. İki tablonun ortak ekseni ürünlerdir; soldaki tabloda bu eksen sütunlar boyunca, sağdakinde satırlar boyunca ilerliyor.
+Fiyatları da bir tabloya yazalım ve miktar tablosunun yanına koyalım. Fiyat listesini alt alta yazmamızın nedeni hesabın kendisidir: soldaki tablonun sandviç sütunu ile sağdaki tablonun sandviç satırı aynı ürünü gösteriyor. İçecek ve tatlı için de aynı eşleşme kuruluyor. Ürünler soldaki tabloda sütunlarda, sağdaki tabloda satırlarda aynı sırayla yer alıyor.
 
 Soldaki tablonun satırları ise etkinliklerdir ve sağdaki tabloda karşılıkları yoktur. Fiyatlar etkinliğe göre değişmiyor; dört etkinlik de aynı üç birim fiyatı kullanıyor. Bu yüzden fiyat listesi tek sütundan ibaret kalıyor, miktar tablosu ise dört satır taşıyor.
 
@@ -120,7 +120,7 @@ Bir etkinliğin bedelini bulurken o etkinliğin satırındaki her değeri, bulun
 
 Katsayılar satırdan satıra değişmiyor. İkinci etkinliğin bedelini hesaplarken de aynı üç katsayıyı kullanıyoruz, yalnız satırdaki değerler değişiyor: $30(120)+25(40)+12(75)=5500$. Dört satırı sırayla işlediğimizde dört bedel elde ediyoruz ve bunlar alt alta yazılınca dört satırlık yeni bir sütun oluşuyor.
 
-Hesap bittiğinde ürün ekseni ortadan kalkıyor. Üç çarpım toplandığı için sonuçta sandviç, içecek ve tatlı ayrımı görünmüyor; geriye yalnız etkinlik ekseni kalıyor. Şimdi aynı işlemi matris gösterimiyle yazacağız.
+Her satırdaki üç ürün miktarı kendi fiyatıyla çarpılıp toplandığı için sonuçta ürünlere ayrı ayrı yer verilmez. Her etkinlik için tek bedel kaldığından sonuç dört bileşenli bir sütundur. Şimdi aynı işlemi matris gösterimiyle yazacağız.
 :::
 
 ---
@@ -146,9 +146,9 @@ $$
 ::: {.notes}
 İki tablonun başlıklarını düşürüp sayı düzenlerini köşeli parantez içine aldığımızda soldaki tablo $A$ matrisine, sağdaki fiyat listesi $p$ sütun vektörüne dönüşüyor. $p$ vektörünün bileşenleri, az önce sütunlara atadığımız katsayılardır ve sırası $A$ matrisinin sütun sırasını izler.
 
-Boyut yazımı bu eşleşmeyi görünür kılıyor. $A$ matrisi $4\times3$, $p$ vektörü $3\times1$ biçimindedir; ortadaki iki $3$, iki tablonun paylaştığı ürün eksenidir. Bu eksen hesap sırasında toplanarak tükeniyor ve geriye $4\times1$ kalıyor, yani dört etkinliğin bedeli.
+Boyut yazımı bu eşleşmeyi açıkça gösteriyor. $A$ matrisi $4\times3$, $p$ vektörü $3\times1$ biçimindedir; ortadaki iki $3$, iki tabloda da üç ürün bulunduğunu gösterir. Üç ürün üzerinden çarpıp topladığımız için sonuç $4\times1$ olur: dört etkinliğin her biri için bir bedel.
 
-Ortak eksenin yalnız uzunluğu değil, sırası da hesabın parçasıdır. $A$ matrisinin sütunları ile $p$ vektörünün bileşenleri sandviç, içecek ve tatlıyı aynı sırada temsil etmelidir. Bu koşulun bozulduğu durumu ilerideki bir örnekte ayrıca ele alacağız.
+Ürünlerin yalnız sayısı değil, sırası da hesabın parçasıdır. $A$ matrisinin sütunları ile $p$ vektörünün bileşenleri sandviç, içecek ve tatlıyı aynı sırada temsil etmelidir. Sütunların sırası değişirse fiyat vektöründeki sıra da aynı biçimde değiştirilmelidir.
 :::
 
 ---
@@ -202,7 +202,7 @@ Satır okuması, somut örnekteki hesabı genel bir kurala dönüştürür. $A$ 
 
 Her satır tek bir skaler üretir; $m$ satırın çıktıları alt alta yazılınca $m$ bileşenli $Ax$ vektörü oluşur. Toplama işleminden farkı burada görünür: $Ax$ eleman eleman çarpma değildir, her sonuç bileşeni birden fazla çarpımın toplamıdır.
 
-Bu okuma daha sonra $Ax=b$ denklem sisteminde her satırın bir denklem üretmesini de açıklayacaktır. Aynı formül, matris–matris çarpımında bir satır ile bir sütunun nasıl tek sonuç elemanı ürettiğine de temel olur.
+Bu okuma, $Ax=b$ denklem sisteminde her satırın bir denklem üretmesini de açıklar. Aynı formül, matris–matris çarpımında bir satır ile bir sütunun nasıl tek sonuç elemanı ürettiğine de temel olur.
 :::
 
 ---
@@ -222,7 +222,7 @@ $$
 ::: {.notes}
 Etkinlik örneğinde $a_1,a_2,a_3$ sırasıyla bütün etkinliklerdeki sandviç, içecek ve tatlı miktarlarıdır. $Ap=120a_1+40a_2+75a_3$ ifadesi ürün sütunlarını kendi fiyatlarıyla ölçekleyip toplar.
 
-Bu okuma, lineer birleşim konusunu matris diliyle birleştirir ve daha sonra çözüm, homojen sistem ve bağımsızlık sorularının ortak kaynağı olacaktır.
+Bu okuma, lineer birleşim konusunu matris diliyle birleştirir ve çözüm, homojen sistem ve bağımsızlık sorularının ortak kaynağıdır.
 :::
 
 ---
@@ -243,7 +243,7 @@ Satır ve sütun rollerini karıştırmamak, rank ve denklem sistemlerinde de ö
 
 ---
 
-## Mekanizma Örneği
+## Örnek: Satırları Çarpıp Toplamak
 
 $$
 A=\begin{bmatrix}1&2&3\\4&0&-1\end{bmatrix},
@@ -410,12 +410,12 @@ B=\begin{bmatrix}b_1&b_2&b_3&b_4\end{bmatrix}
 AB=\begin{bmatrix}Ab_1&Ab_2&Ab_3&Ab_4\end{bmatrix}.
 $$
 
-Ortak ürün ekseni hesap sırasında tüketilir. $A$'nın etkinlik satırları sonuçta kalır; $B$'nin ölçü sütunları da sonuçta kalır. Bu nedenle $4\times3$ ile $3\times4$ çarpımı $4\times4$ boyutlu etkinlik–ölçü tablosunu üretir.
+Her etkinlik satırındaki üç ürün değeri, $B$'nin her ölçü sütunundaki üç katsayıyla çarpılıp toplanır. Sonuçta $A$'nın dört etkinlik satırı ile $B$'nin dört ölçü sütunu kalır. Bu nedenle $4\times3$ ile $3\times4$ çarpımı $4\times4$ boyutlu etkinlik–ölçü tablosunu üretir.
 :::
 
 ---
 
-## Boyut Uyumu Mekanizmadan Çıkar
+## Boyut Koşulu Nereden Gelir?
 
 $$
 A:m\times n,
@@ -430,9 +430,9 @@ $$
 $$
 
 ::: {.notes}
-İç boyut $n$, soldaki matrisin sütunları ile sağdaki matrisin satırlarının ortak eksenidir. Dış boyutlar sonuçtaki satır nesnelerini ve çıktı türlerini taşır. “İçler eşit, dışlar kalır” kısa yolu ancak bu mekanizma anlaşıldıktan sonra kullanılmalıdır.
+İç boyut $n$, $A$'nın her satırındaki eleman sayısı ile $B$'nin her sütunundaki eleman sayısını eşleştirir. Her sütunla yapılan çarpım $m$ bileşenli bir sonuç verir ve $B$'nin $p$ sütunu olduğu için sonuç $m\times p$ boyutundadır. “İçler eşit, dışlar kalır” kısa yolu bu hesabın özeti olarak kullanılmalıdır.
 
-Uygulamada ortak eksenin yalnız sayısı değil, anlamı ve sırası da uyumlu olmalıdır.
+Uygulamada $A$'nın sütunları ile $B$'nin satırları yalnız sayıca değil, anlam ve sıra bakımından da uyumlu olmalıdır.
 :::
 
 ---
@@ -460,7 +460,7 @@ $$
 ::: {.notes}
 Formal kural, çoklu matris–vektör okumasının eleman düzeyindeki sonucudur. Sağdaki her sütun ayrı vektör gibi işlendiğinde, bu vektörün her sonuç bileşeni soldaki bir satırla çarp-topla hesabından gelir.
 
-Bu formül eleman eleman çarpım olmadığını açıkça gösterir; toplam indisi $k$, ortak iç eksen boyunca ilerler.
+Bu formül eleman eleman çarpım olmadığını açıkça gösterir; toplam indisi $k$, $1$'den $n$'ye kadar ilerler.
 :::
 
 ---
@@ -548,9 +548,9 @@ $$
 ::: {.notes}
 İşlem sırası yalnız sonucun değerini değil, boyutunu da değiştirir. $2\times3$ ve $3\times2$ matrisler için her iki çarpım da tanımlıdır; fakat biri $2\times2$, diğeri $3\times3$ çıkar. Bu iki matris toplanamaz bile — toplama şekillerin tamamen aynı olmasını ister, çarpım ise yalnız iç boyutların eşleşmesini.
 
-Kare matrislerde boyut farkı ortadan kalkar ve karşılaştırma doğrudan elemanlar üzerinden yapılabilir. Yukarıdaki iki matris için $(AB)_{11}=1(1)+1(1)=2$ iken $(BA)_{11}=1(1)+0(1)=1$ olur; tek bir eleman bile farklıysa matrisler farklıdır. Dolayısıyla değişme özelliğinin geçersizliği bir boyut kazası değil, işlemin kendi yapısından gelen bir sonuçtur.
+Kare matrislerde boyut farkı ortadan kalkar ve karşılaştırma doğrudan elemanlar üzerinden yapılabilir. $A$ ve $B$ matrisleri için $(AB)_{11}=1(1)+1(1)=2$ iken $(BA)_{11}=1(1)+0(1)=1$ olur; tek bir eleman bile farklıysa matrisler farklıdır. Dolayısıyla değişme özelliğinin geçersizliği bir boyut kazası değil, işlemin kendi yapısından gelen bir sonuçtur.
 
-Sayılarda $ab=ba$ alışkanlığı burada taşınamaz. $AB$ ile $BA$ ifadelerinin işlem sırasını nasıl taşıdığı, dersin sonundaki lineer dönüşümler konusunda yeniden yorumlanacaktır. Burada cebirsel sonuç yeterlidir: sıra değiştiğinde sonuç da değişebilir.
+Sayılarda $ab=ba$ alışkanlığı matrislere taşınamaz. $AB$ ile $BA$ ifadelerinin işlem sırasını nasıl taşıdığı lineer dönüşümlerin bileşimiyle de yorumlanabilir. Cebirsel sonuç şudur: sıra değiştiğinde sonuç da değişebilir.
 :::
 
 ---
@@ -591,7 +591,7 @@ Bu soru, işlem kararını hesaplamadan önce verme alışkanlığını sınar.
 4. Ortak eksenin anlamını göz ardı etmek.
 
 ::: {.notes}
-Birinci hata $(m\times n)(n\times p)$ çarpımının sonucunu $n$ üzerinden okur. Ortak iç boyut çarpımın yapılabilmesini sağlar ve toplam alınırken tüketilir; sonuçta yalnız dış boyutlar kalır, yani $m\times p$. İkinci hata boyut koşulunun sıraya bağlı olduğunu atlar: $A:2\times3$ ve $B:3\times4$ için $AB$ tanımlıyken $BA$ tanımsızdır.
+Birinci hata $(m\times n)(n\times p)$ çarpımının sonucunu $n$ üzerinden okur. Ortak iç boyut çarpımın yapılabilmesini sağlar; bu $n$ eleman çarpılıp toplandığında sonuçta dış boyutlar kalır, yani $m\times p$. İkinci hata boyut koşulunun sıraya bağlı olduğunu atlar: $A:2\times3$ ve $B:3\times4$ için $AB$ tanımlıyken $BA$ tanımsızdır.
 
 Üçüncü hata $(AB)_{ij}$ elemanını $a_{ij}b_{ij}$ sanır. Doğrusu, $A$'nın $i$. satırı ile $B$'nin $j$. sütunundaki karşılıklı elemanların çarpılıp toplanmasıdır; zaten iki matrisin aynı şekilde olması bile gerekmez. Dördüncü hata ise matematiksel olarak kusursuz bir hesabın uygulama düzeyinde anlamsız olmasına yol açar: $(\text{etkinlik}\times\text{ürün})(\text{ürün}\times\text{özellik})$ yapısında soldaki matrisin sütunları ile sağdakinin satırları aynı ürünleri aynı sırayla temsil etmelidir.
 :::
@@ -600,7 +600,7 @@ Birinci hata $(m\times n)(n\times p)$ çarpımının sonucunu $n$ üzerinden oku
 
 ## Sonraki Adım: Kuralları Yazmak
 
-Mekanizma kuruldu:
+Çarpım kuralı kuruldu:
 
 $$
 (Ax)_i=\sum_{j}a_{ij}x_j,
@@ -612,9 +612,9 @@ $$
 - Açık kalan: hangi cebirsel kurallar geçerli?
 
 ::: {.notes}
-Bu notta matris çarpımının mekanizmasını kurduk. $Ax$ ifadesinde her satırın bir çıktı bileşeni ürettiğini, $x$ bileşenlerinin $A$ sütunlarının katsayısı olduğunu ve $AB$ çarpımının yan yana duran birden fazla $Ax$ hesabından ibaret olduğunu gördük. Boyut koşullarının nereden geldiğini de mekanizmanın kendisinden çıkardık.
+Matris çarpımında $Ax$ ifadesinin her satırı bir sonuç bileşeni üretir; $x$ bileşenleri $A$ sütunlarının katsayılarıdır ve $AB$ çarpımı yan yana duran birden fazla $Ax$ hesabından oluşur. Boyut koşulları da bu hesap kuralından çıkar.
 
-Değişme özelliğinin geçersizliği bu notta ortaya çıktı. Sayılarda alışık olduğumuz başka kuralların ne kadarının matrislerde geçerli kaldığı ise açık kaldı: parantez yerini değiştirebilir miyiz, çarpımı toplama üzerine dağıtabilir miyiz, $AB=0$ eşitliğinden çarpanlardan birinin sıfır olduğu sonucunu çıkarabilir miyiz?
+Değişme özelliği matris çarpımında genel olarak geçersizdir. Sayılarda alışık olduğumuz başka kurallar içinse ayrı kararlar gerekir: parantez yer değiştirebilir mi, çarpım toplama üzerine dağılır mı, $AB=0$ eşitliğinden çarpanlardan birinin sıfır olduğu çıkarılabilir mi?
 
-Bir sonraki not bu soruları tek tek ele alıyor. Her kural önce genel biçimde yazılıyor, sonra küçük matrislerle sayısal olarak doğrulanıyor; geçersiz olanlar için karşı örnek veriliyor.
+Birleşme ve dağılma özellikleri genel biçimde yazılıp küçük matrislerle sayısal olarak doğrulanabilir; geçersiz kurallar ise karşı örneklerle ayırt edilir.
 :::

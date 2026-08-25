@@ -28,11 +28,11 @@ $$
 Satır ve sütun vektörleri, tek satırlı veya tek sütunlu matrislerdir.
 
 ::: {.notes}
-Özel matris adlandırmaları yalnız biçimsel değildir. Bir matrisin belirli bir yapıya sahip olduğunu bilmek, onun üzerinde yapılacak işlemler veya daha sonra incelenecek özellikler hakkında ek bilgi sağlar. Birim matris çarpma tanımlandığında etkisiz eleman rolünü üstlenecek; üçgensel yapı Gauss eliminasyonunun ulaşmaya çalıştığı biçim olacak; köşegen matrisin tersi ve determinantı doğrudan okunabilecektir.
+Özel matris adlandırmaları yalnız biçimsel değildir. Bir matrisin belirli bir yapıya sahip olduğunu bilmek, onun üzerinde yapılacak işlemler ve özellikleri hakkında ek bilgi sağlar. Birim matris çarpmanın etkisiz elemanıdır; üçgensel yapı Gauss eliminasyonunun hedef biçimidir; köşegen matrisin tersi ve determinantı doğrudan okunabilir.
 
 Satır ve sütun vektörleri de matris ailesinin sınır durumlarıdır: satır vektörü $1\times n$, sütun vektörü $m\times1$ biçimindedir. Bu bağlantı, özel matrisleri ayrı nesneler listesi olarak değil aynı şekil dilinin örnekleri olarak okumamızı sağlar.
 
-Bu notta önce ana köşegen, transpoz ve negatif alma ele alınır. Ardından sıfır, köşegen, skaler, birim, üçgensel ve simetrik matrisleri inceleyip bu sınıfların birbirini dışlamadığını göreceğiz.
+Ana köşegen, transpoz ve negatif alma; sıfır, köşegen, skaler, birim, üçgensel ve simetrik matris sınıflarını tanımlamak ve karşılaştırmak için gereken yapı sözlüğünü oluşturur. Bu sınıflar birbirini dışlamaz.
 :::
 
 ---
@@ -119,7 +119,7 @@ $$
 ::: {.notes}
 Bir matrisin bütün elemanlarının işaretleri değiştirilerek elde edilen matrise o matrisin negatifi denir. Negatif alma işlemi matrisin şeklini değiştirmez ve iki kez uygulandığında başlangıçtaki matrise dönülür.
 
-Negatif matris ayrı bir özel matris sınıfı değildir; transpoz gibi, herhangi bir matristen aynı şekle sahip yeni bir matris elde etme işlemidir. Bu işlem birazdan çıkarmanın tanımında kullanılacaktır: $A-B$, $A+(-B)$ olarak kurulacaktır.
+Negatif matris ayrı bir özel matris sınıfı değildir; transpoz gibi, herhangi bir matristen aynı şekle sahip yeni bir matris elde etme işlemidir. Çıkarma bu işlem kullanılarak $A-B$ ifadesinin $A+(-B)$ biçiminde yazılmasıyla tanımlanır.
 :::
 
 ---
@@ -344,9 +344,9 @@ Bu notta kurulanlar:
 Sırada: iki matrisi birleştiren ve tek matrisi ölçekleyen işlemler.
 
 ::: {.notes}
-Bu notta matrisin yapı sözlüğünü tamamladık. Ana köşegeni referans bölge olarak tanımladık, üzerine köşegen, skaler, birim, üçgensel ve simetrik sınıflarını kurduk ve bu sınıfların birbirini dışlamadığını gördük. Transpoz ile negatif almayı da bir matristen yeni matris üreten iki işlem olarak ayrı ayrı ele aldık.
+Ana köşegen referans bölge olarak kullanılarak köşegen, skaler, birim, üçgensel ve simetrik matris sınıfları tanımlanır; bu sınıflar birbirini dışlamaz. Transpoz ile negatif alma ise bir matristen yeni matris üreten iki ayrı işlemdir.
 
-Bu sözlüğün karşılığını ilerleyen konularda alacağız. Üçgensel yapı Gauss eliminasyonunun hedef biçimi olacak, birim matris çarpımın etkisiz elemanı rolünü üstlenecek, köşegen matrisin tersi ve determinantı doğrudan okunabilecek, simetrik matrisler ise öz değer konusunda ayrı bir sınıf oluşturacak.
+Üçgensel yapı Gauss eliminasyonunun hedef biçimidir, birim matris çarpımın etkisiz elemanıdır, köşegen matrisin tersi ve determinantı doğrudan okunabilir, simetrik matrisler ise öz değerler açısından ayrı bir sınıf oluşturur.
 
-Sıradaki iki notta matrisler üzerinde işlem yapmaya başlıyoruz. Önce toplama ve skalerle çarpmayı bir ikram planlama probleminden çıkararak kuracağız, ardından aynı işlemleri teknik tarafından ele alıp cebirsel özelliklerini ve sınırlarını göreceğiz.
+Matris toplama ve skalerle çarpma bir ikram planlama problemindeki eşleşmelerden çıkarılabilir; aynı işlemlerin teknik tanımları cebirsel özelliklerini ve sınırlarını gösterir.
 :::

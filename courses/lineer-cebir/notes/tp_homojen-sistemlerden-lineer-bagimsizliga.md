@@ -72,7 +72,7 @@ $$
 | bazı $x\neq0$ için $Ax=0$ | trivial olmayan çözüm |
 
 ::: {.notes}
-Trivial olmayan bir çözüm, matrisin sıfırdan farklı bir girdi yönünü tamamen yok ettiğini gösterir. Bu durum bilgi kaybı, tersinir olmama ve sütunlar arasında bağımlılık ile aynı yapının farklı ifadeleridir.
+Trivial olmayan bir çözüm, matrisin sıfırdan farklı bir girdi yönünü tamamen yok ettiğini gösterir. Bu durum, bilgi kaybı, tersinir olmama ve sütunlar arasındaki bağımlılığın birbiriyle nasıl bağlantılı olduğunu gösterir.
 
 Sorunun cevabı eliminasyonla bulunur. Homojen sistem tutarlı olduğundan yalnız pivotların bütün bilinmeyen sütunlarını kapsayıp kapsamadığına bakılır.
 :::
@@ -530,7 +530,7 @@ Kare $A$ için bunlara tersinirlik de eklenir.
 ::: {.notes}
 Homojen sistem, rank, sütun pivotları ve lineer bağımsızlık ayrı tanım adaları değildir. Hepsi aynı soruyu farklı dillerde yanıtlar: sütun katsayıları sıfır vektörünü trivial olmayan bir yolla üretebilir mi?
 
-Kare matrislerde sütun tam rankı aynı zamanda tam rank ve tersinirliktir. Determinant bu kare-matris yapısına daha sonra eklenen bir başka eşdeğer ölçü olacaktır.
+Kare matrislerde sütun tam rankı aynı zamanda tam rank ve tersinirliktir. Determinant da bu kare-matris yapısının eşdeğer ölçülerinden biridir.
 :::
 
 ---

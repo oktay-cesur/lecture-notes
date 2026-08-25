@@ -21,7 +21,7 @@ $$
 - $I_n$: $n\times n$ birim matris
 
 ::: {.notes}
-Bu not, önceki notlarda tanımlanan dört işlemin cebirsel kurallarını bir arada topluyor: toplama, skalerle çarpma, matris–vektör çarpımı ve matris–matris çarpımı. Her kural önce genel biçimde yazılıyor, sonra küçük matrislerle sayısal olarak doğrulanıyor. Geçersiz kurallar için karşı örnek veriliyor.
+Toplama, skalerle çarpma, matris–vektör çarpımı ve matris–matris çarpımının cebirsel kuralları birlikte karşılaştırılabilir. Her kural genel biçimde yazılıp küçük matrislerle sayısal olarak doğrulanır; geçersiz kurallar karşı örneklerle ayırt edilir.
 
 Aşağıdaki bütün eşitliklerde boyutların işlemi tanımlı kılacak biçimde seçildiği varsayılıyor. Örneğin $A(B+C)=AB+AC$ eşitliğinde $B$ ile $C$ aynı şekilde olmalı, $A$ matrisinin sütun sayısı da bu şeklin satır sayısına eşit olmalıdır. $0$ ve $I$ sembolleri de her kullanımda ilgili işlemi tanımlı kılan şekilde okunur; $I_mA=AI_n=A$ eşitliğinde iki birim matrisin boyutu farklıdır.
 
@@ -40,7 +40,7 @@ Matris–vektör çarpımı ayrı bir başlık altında ele alınmıyor. Bir sü
 | $AB$ | satırlar–çoklu katsayı sütunları | çoklu çıktı matrisi |
 
 ::: {.notes}
-Dört işlemin tanımlılık koşulu aynı soruyla bulunur: hangi bileşenler ya da eksenler eşleşiyor? Toplamada bütün konumlar bire bir eşleşir, bu nedenle şekiller tamamen aynı olmalıdır. Skalerle çarpmada eşleşme koşulu yoktur; tek sayı bütün elemanlara uygulanır. Çarpımda ise yalnız $A$ matrisinin sütun ekseni ile $B$ matrisinin satır ekseni eşleşir.
+Dört işlemin tanımlılık koşulu aynı soruyla bulunur: hangi bileşenler ya da boyutlar eşleşiyor? Toplamada bütün konumlar bire bir eşleşir, bu nedenle şekiller tamamen aynı olmalıdır. Skalerle çarpmada eşleşme koşulu yoktur; tek sayı bütün elemanlara uygulanır. Çarpımda ise $A$ matrisinin sütun sayısı ile $B$ matrisinin satır sayısı eşleşir.
 
 Koşulların farklı olmasının doğrudan bir sonucu var: $2\times3$ ve $3\times2$ şekilli iki matris toplanamaz, fakat uygun sırada çarpılabilir. Tersine, aynı şekilli iki dikdörtgen matris toplanabilir ama çarpılamaz.
 
@@ -108,7 +108,7 @@ Bu liste, matris çarpımının gerçek sayılardaki çarpımdan hangi yönlerde
 
 Dağılma iki ayrı eşitlik olarak yazılıyor. $A(B+C)$ ile $(B+C)A$ farklı ifadelerdir ve soldan dağıtmakla sağdan dağıtmak birbirinin yerine kullanılamaz. Sayılarda tek bir dağılma kuralı yazmak yeterliyken burada iki kural gerekiyor, çünkü çarpanların sırası serbest değil.
 
-Sıfır matrisiyle çarpım kuralı da göründüğünden dardır. $A0=0$ eşitliği doğrudur, fakat tersi yönde bir çıkarım yapılamaz: $AB=0$ olması $A=0$ ya da $B=0$ olmasını gerektirmez. Bu duruma birazdan sayısal bir karşı örnekle geleceğiz.
+Sıfır matrisiyle çarpım kuralı da göründüğünden dardır. $A0=0$ eşitliği doğrudur, fakat tersi yönde bir çıkarım yapılamaz: $AB=0$ olması $A=0$ ya da $B=0$ olmasını gerektirmez. Sayısal bir karşı örnek bu çıkarımın neden geçersiz olduğunu gösterir.
 :::
 
 ---
@@ -243,7 +243,7 @@ $$
 
 Gerçek sayılarda $ab=0$ eşitliği çarpanlardan birinin sıfır olmasını gerektirir; bu, denklem çözerken sürekli kullandığımız bir çıkarımdır. Matrislerde aynı çıkarımı yapmak hatalıdır. Örneğin $A^2=A$ denkleminden $A(A-I)=0$ elde edilir, fakat buradan $A=0$ ya da $A=I$ sonucu çıkmaz.
 
-Karşı örnekteki iki matrisin ortak yanı sütunlarının birbirinin katı olmasıdır. Bu durumun ne anlama geldiğini lineer bağımsızlık ve rank konularında göreceğiz; şimdilik kuralın geçersiz olduğunu bilmek yeterli.
+Karşı örnekteki iki matrisin ortak yanı sütunlarının birbirinin katı olmasıdır. Bu tür bağımlılık ilişkileri lineer bağımsızlık ve rank kavramlarıyla yapısal olarak ifade edilir; karşı örnek sıfır çarpan kuralının matrislerde geçersiz olduğunu gösterir.
 :::
 
 ---
@@ -283,7 +283,7 @@ Skaler durumda $xa=xb$ eşitliğini $x(a-b)=0$ biçimine getiririz. Skalerlerin 
 
 Matrislerde $A(B-C)=0$ eşitliği, $A\neq0$ ve $B-C\neq0$ iken de gerçekleşebilir; sıfır bölen örneği bunu gösterir. Buradaki $A$, bazı sıfır olmayan girdileri sıfıra götürür. Bu yüzden $AB=AC$ eşitliğinden yalnız $A\neq0$ koşuluyla $B=C$ çıkaramayız.
 
-Sadeleştirmenin ne zaman güvenli olduğu, ileride tanımlayacağımız ters matris kavramına bağlıdır: çarpımı geri alan bir $A^{-1}$ matrisi varsa eşitliğin iki tarafı soldan $A^{-1}$ ile çarpılıp $B=C$ elde edilir. Böyle bir geri alma matrisinin hangi koşullarda var olduğunu ters matris ve tersinirlik notunda kuracağız; şimdilik kaydedilecek olan, sadeleştirmenin genel bir kural olmadığıdır.
+Sadeleştirmenin ne zaman güvenli olduğu ters matris kavramına bağlıdır: çarpımı geri alan bir $A^{-1}$ matrisi varsa eşitliğin iki tarafı soldan $A^{-1}$ ile çarpılıp $B=C$ elde edilir. Böyle bir geri alma matrisi her $A$ için var olmadığından sadeleştirme genel bir kural değildir.
 :::
 
 ---
@@ -363,7 +363,7 @@ A^TB^T=\begin{bmatrix}2&1\\7&2\end{bmatrix}
 $$
 
 ::: {.notes}
-Notun başındaki $A=\begin{bmatrix}1&2\\0&3\end{bmatrix}$ ve $B=\begin{bmatrix}2&1\\1&0\end{bmatrix}$ matrislerine dönüyoruz. $B^T$ matrisi $B$ simetrik olduğu için kendisine eşittir; $A^T$ matrisi ise $\begin{bmatrix}1&0\\2&3\end{bmatrix}$ olur. Çarpımın $(1,1)$ elemanı $2(1)+1(2)=4$, $(1,2)$ elemanı $2(0)+1(3)=3$ çıkar ve sonuç $(AB)^T$ matrisine eşittir.
+$A=\begin{bmatrix}1&2\\0&3\end{bmatrix}$ ve $B=\begin{bmatrix}2&1\\1&0\end{bmatrix}$ matrisleri için $B^T$, $B$ simetrik olduğu için kendisine eşittir; $A^T$ matrisi ise $\begin{bmatrix}1&0\\2&3\end{bmatrix}$ olur. Çarpımın $(1,1)$ elemanı $2(1)+1(2)=4$, $(1,2)$ elemanı $2(0)+1(3)=3$ çıkar ve sonuç $(AB)^T$ matrisine eşittir.
 
 Ters sırada yazıldığında sonuç değişir. $A^TB^T$ çarpımının $(2,1)$ elemanı $2(2)+3(1)=7$ olur, oysa $(AB)^T$ matrisinin aynı konumundaki değer $1$'dir. Burada iki matris de $2\times2$ olduğu için çarpım tanımlıdır; eşit olmamaları boyut sorunundan değil, sıranın kendisinden kaynaklanıyor.
 
@@ -437,7 +437,7 @@ Birinci soruda $A^2=AA$ çarpımı $(3\times4)(3\times4)$ biçiminde olur; iç b
 
 İkinci soruda cevap hayırdır. Değişme özelliği genel olarak geçerli değildir, fakat özel çiftlerde sağlanabilir: $A$ ile $I$, $A$ ile $A^k$, ya da iki köşegen matris her zaman yer değiştirebilir. "Genel olarak geçerli değil" ile "hiçbir zaman geçerli değil" farklı ifadelerdir.
 
-Üçüncü soruda cevap yine hayırdır; karşı örneği bu notta gördük. Dördüncü soruda kural iki kez uygulanır: $(ABC)^T=\bigl((AB)C\bigr)^T=C^T(AB)^T=C^TB^TA^T$. Sıra baştan sona tersine döner.
+Üçüncü soruda cevap yine hayırdır; $AB=0$ iken iki çarpanın da sıfır olmadığı karşı örnek bunu gösterir. Dördüncü soruda kural iki kez uygulanır: $(ABC)^T=\bigl((AB)C\bigr)^T=C^T(AB)^T=C^TB^TA^T$. Sıra baştan sona tersine döner.
 :::
 
 ---
@@ -447,16 +447,16 @@ Birinci soruda $A^2=AA$ çarpımı $(3\times4)(3\times4)$ biçiminde olur; iç b
 Elimizde:
 
 $$
-\text{tanım}+\text{mekanizma}+\text{cebirsel kurallar}
+\text{tanım}+\text{hesap kuralı}+\text{cebirsel kurallar}
 $$
 
 - $Ax$ ile çıktıyı hesaplamayı biliyoruz.
 - Sıradaki soru: çıktı biliniyorsa girdi nasıl bulunur?
 
 ::: {.notes}
-Bu notta matris işlemlerinin cebirsel yapısını tamamladık. Toplama ve skalerle çarpma sayılardaki karşılıklarıyla aynı kuralları izliyor; çarpım ise birleşme, dağılma ve skalerle uyumu koruyup değişme ile sadeleştirmeyi kaybediyor. Kaybedilen iki kuralın karşı örneklerini sayısal olarak gördük.
+Toplama ve skalerle çarpma sayılardaki karşılıklarıyla aynı kuralları izler; matris çarpımı ise birleşme, dağılma ve skalerle uyumu koruyup değişme ile sadeleştirmeyi kaybeder. Geçersiz olan iki kural sayısal karşı örneklerle görülebilir.
 
-Geçerken bir kavramı yalnız adıyla analım: $x\mapsto Ax$ kuralı, bir girdi vektörünü bir çıktı vektörüne götüren bir dönüşüm olarak da okunabilir. Bu okuma dersin son haftasındaki lineer dönüşümler konusunun çıkış noktasıdır; burada ayrıntısına girmiyoruz.
+$x\mapsto Ax$ kuralı, bir girdi vektörünü bir çıktı vektörüne götüren bir dönüşüm olarak da okunabilir. Bu okuma lineer dönüşüm kavramının çıkış noktasıdır.
 
-Bir sonraki notta $Ax=b$ ilişkisini ters yönden okuyacağız: katsayılar ve sonuç biliniyorken bu sonucu üreten girdiyi arayacağız. Lineer denklem sistemleri tam olarak bu sorudan doğuyor ve buradaki cebirsel kurallar o çözümleme boyunca sürekli kullanılacak.
+$Ax=b$ ilişkisi ters yönden de okunabilir: katsayılar ve sonuç biliniyorken bu sonucu üreten girdi aranır. Lineer denklem sistemleri tam olarak bu sorudan doğar ve matris işlemlerinin cebirsel kuralları bu çözümleme boyunca kullanılır.
 :::

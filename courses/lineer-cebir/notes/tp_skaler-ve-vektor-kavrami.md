@@ -64,7 +64,7 @@ $$
 ::: {.notes}
 $n$ bileşenli bir koordinat vektörü bileşenleriyle gösterilir. $v_i$ ifadesi "$v$ vektörünün $i$. bileşeni" demektir; buradaki indis yalnız bir etiket değil, konum bilgisidir. Örneğin ürün örneğinde $v_1$ fiyatı, $v_2$ ağırlığı, $v_3$ stok miktarını temsil eder.
 
-Bir koordinat vektörünün bileşenleri skalerdir: $v\in\mathbb{R}^n$ ise her $v_i$ gerçek bir sayıdır. Bu derste "vektör" dediğimizde şimdilik $\mathbb{R}^n$ içindeki koordinat vektörlerini kastediyoruz. Bu sınırlama bilinçli bir başlangıçtır; vektörün daha genel tanımı ileride vektör uzaylarında gelecek ve orada polinomların, fonksiyonların, hatta matrislerin de vektör rolü üstlenebildiğini göreceğiz.
+Bir koordinat vektörünün bileşenleri skalerdir: $v\in\mathbb{R}^n$ ise her $v_i$ gerçek bir sayıdır. Buradaki "vektör" sözcüğü $\mathbb{R}^n$ içindeki koordinat vektörlerini anlatır. Vektör uzaylarındaki daha genel tanım altında polinomlar, fonksiyonlar ve matrisler de vektör rolü üstlenebilir.
 :::
 
 ---
@@ -146,7 +146,7 @@ Bu derste aksi belirtilmedikçe vektörler **sütun vektörü**dür.
 ::: {.notes}
 Aynı bileşenler iki yazımda da bulunur; fakat şekil değişir. Sütun vektörü $3\times1$, satır vektörü $1\times3$ boyutundadır ve matris işlemlerinde bu iki şekil aynı davranmaz.
 
-Sütun tercihi keyfî değildir. İleride $Ax$ yazdığımızda $A$ bir matris, $x$ bir sütun vektörü olacak; $A\in\mathbb{R}^{m\times n}$ ve $x\in\mathbb{R}^n$ ise $Ax$ çarpımı $m$ bileşenli bir sütun vektörü verir. Vektörleri sütun olarak yazmak, $Ax=b$ denklem sistemi notasyonunu tutarlı kılar. Satır ve sütun vektörleri arasındaki ilişkiyi transpoz işlemiyle daha sonra açıkça kuracağız.
+Sütun tercihi keyfî değildir. $Ax$ yazımında $A$ bir matris, $x$ bir sütun vektörüdür; $A\in\mathbb{R}^{m\times n}$ ve $x\in\mathbb{R}^n$ ise $Ax$ çarpımı $m$ bileşenli bir sütun vektörü verir. Vektörleri sütun olarak yazmak, $Ax=b$ denklem sistemi notasyonunu tutarlı kılar. Satır ve sütun vektörleri arasındaki ilişki transpoz işlemiyle kurulur.
 :::
 
 ---
@@ -171,7 +171,7 @@ $$
 ::: {.notes}
 Vektör eşitliği, tek bir yazımı bileşen düzeyindeki skaler eşitliklere açar. Örnekteki eşitlik aslında $2a-1=5$ ve $b+3=7$ denklemlerini aynı anda söylemektir; buradan $a=3$ ve $b=4$ bulunur.
 
-Bu mekanizma, ileride $Ax=b$ ifadesinin birden fazla lineer denklemi tek bir matris yazımı içinde nasıl taşıdığını anlamaya hazırlık sağlar. Aynı bileşenleri farklı sırada taşıyan iki vektör eşit değildir; konum bilgisi eşitliğin parçasıdır ve bileşenlerin küme olarak aynı olması yeterli olmaz.
+Bu bileşen düzeyindeki okuma, $Ax=b$ ifadesinin birden fazla lineer denklemi tek bir matris yazımı içinde nasıl taşıdığını açıklar. Aynı bileşenleri farklı sırada taşıyan iki vektör eşit değildir; konum bilgisi eşitliğin parçasıdır ve bileşenlerin küme olarak aynı olması yeterli olmaz.
 :::
 
 ---
@@ -195,9 +195,9 @@ Buradaki $3$, ilk bakışta yalnızca bir **katsayı** gibi görünür.
 ::: {.notes}
 Skaler kavramıyla ilk kez karşılaştığımızda ayrı bir ad kullanmak gereksiz görünebilir. Çünkü şu ana kadar gördüğümüz örneklerde skalerler $2$, $-3$ veya $\frac12$ gibi bildiğimiz sayılardır. Bir vektörün önündeki $3$ için yalnızca "katsayı" demek de hesabı yapmak için yeterlidir.
 
-Bu aşamada gerçekten de skaleri basit bir katsayı gibi düşünebiliriz. Ancak ileride vektör uzaylarını ele aldığımızda, bir vektörü hangi elemanlarla çarpabileceğimiz yapının tanımının bir parçası olacaktır. Yani her durumda kullanılabilecek katsayılar gelişigüzel seçilmez.
+Koordinat vektörleri bağlamında skaler basit bir katsayı gibi düşünülebilir. Vektör uzaylarında ise bir vektörün hangi elemanlarla çarpılabileceği yapının tanımının bir parçasıdır; kullanılabilecek katsayılar gelişigüzel seçilmez.
 
-Bu nedenle "skaler" adını baştan kullanıyoruz. Şimdilik basit bir katsayı gibi görünse de kavramın arkasında ileride önemli hale gelecek teknik bir ayrım vardır. Bunun ilk işaretini, skalerlerin hangi sayı sisteminden seçildiğine bakarak görebiliriz.
+"Skaler" adı, katsayıların belirli bir sayı sisteminden seçildiğini belirtir. Basit bir katsayı gibi görünen bu nesnenin teknik rolü, hangi sayı sisteminden geldiğine bakılarak ayırt edilir.
 :::
 
 ---
@@ -228,7 +228,7 @@ $$
 $$
 
 ::: {.notes}
-Bir önceki slaytta, skalerin şimdilik sıradan bir katsayı gibi göründüğünü söyledik. Buradaki teknik ayrım, hangi elemanların bu katsayı rolünü üstlenebileceğiyle ilgilidir. Cisim konusu bu ders ve sınav kapsamında ayrıntılı bir başlık değildir; burada yalnız skaler seçiminin gelişigüzel olmadığını açıklamak için kullanıyoruz.
+Skalerin sıradan bir katsayı gibi görünmesinin ardındaki teknik ayrım, hangi elemanların bu katsayı rolünü üstlenebileceğiyle ilgilidir. Cisim konusu ders ve sınav kapsamında ayrıntılı bir başlık değildir; yalnız skaler seçiminin gelişigüzel olmadığını açıklamak için kullanılır.
 
 Skalerler belirli bir cisimden seçilir. Bir cisim, kabaca toplama, çıkarma, çarpma ve sıfıra bölme dışında bölme işlemlerinin alıştığımız kurallarla yapılabildiği bir sayı sistemidir. Gerçek sayılar $\mathbb{R}$ ve karmaşık sayılar $\mathbb{C}$ en sık karşılaşacağımız örneklerdir. Ayrıntılı tanımına burada ihtiyacımız olmayacak.
 
@@ -259,7 +259,7 @@ $$
 ::: {.notes}
 Bazı skalerlerin ölçekleme açısından özel rolleri vardır. $1$ etkisiz skalerdir: bir vektörü $1$ ile çarpmak onu değiştirmez. Bu, sayılardaki $1\cdot a=a$ kuralının vektör karşılığıdır.
 
-$0$ skaleri her vektörü ilgili uzayın sıfır vektörüne götürür; dikkat edilmesi gereken nokta, soldaki $0$'ın bir skaler, sağdaki $0$'ın ise bir vektör olmasıdır. Negatif bir skaler, gerçek vektörlerin geometrik yorumunda ölçeklemenin yanında yönün tersine dönmesine neden olur; özel olarak $(-1)v$ çarpımı $v$'nin toplamsal tersi olan $-v$ vektörünü verir. Bu üç sonuç, birazdan göreceğimiz cebirsel özelliklerden de türetilebilir.
+$0$ skaleri her vektörü ilgili uzayın sıfır vektörüne götürür; dikkat edilmesi gereken nokta, soldaki $0$'ın bir skaler, sağdaki $0$'ın ise bir vektör olmasıdır. Negatif bir skaler, gerçek vektörlerin geometrik yorumunda ölçeklemenin yanında yönün tersine dönmesine neden olur; özel olarak $(-1)v$ çarpımı $v$'nin toplamsal tersi olan $-v$ vektörünü verir. Bu üç sonuç cebirsel özelliklerden de türetilebilir.
 :::
 
 ---
@@ -279,7 +279,7 @@ $$
 ::: {.notes}
 İlk ikisi, $-3$ ve $\sqrt2$, gerçek sayı oldukları için bu uzayda skalerdir. Üçüncüsü, $2+i$, bir karmaşık sayıdır; $\mathbb{R}$ üzerinde çalışan bu uzayın skaleri değildir. Aynı sayı, $\mathbb{C}$ üzerinde tanımlı bir uzayda geçerli bir skaler olurdu — yani "skaler olmak" nesnenin kendisine değil, çalışılan uzaya bağlıdır.
 
-Dördüncü nesne iki bileşenli bir vektördür, skaler değildir. Beşinci nesne tek bileşenli olsa da vektör olarak yazılmıştır; bu nedenle skaler $5$ ile aynı matematiksel nesne değildir. Bu son ayrım özellikle önemlidir ve bir sonraki slaytta ayrıntılandırılacaktır.
+Dördüncü nesne iki bileşenli bir vektördür, skaler değildir. Beşinci nesne tek bileşenli olsa da vektör olarak yazılmıştır; bu nedenle skaler $5$ ile aynı matematiksel nesne değildir. Tek bileşenli bir vektör ile skaler arasındaki ayrım, nesnenin türüne ve üzerinde tanımlı işlemlere bakılarak yapılır.
 :::
 
 ---
@@ -455,7 +455,7 @@ ifadesindeki $3$ yine skalerdir.
 ::: {.notes}
 Başlangıçta vektörleri birden fazla sayıyı bir arada tutan nesneler, skalerleri ise tek sayılar olarak gördük. Bu ilk sezgi koordinat vektörlerini açıklamayı kolaylaştırır; daha geniş yapılarda ise karışıklığa yol açabilir.
 
-İleride vektör uzaylarına geçtiğimizde vektör kavramının sayı sütunlarından daha genel olduğunu göreceğiz. Örneğin uygun bir vektör uzayında bir polinom veya matris de vektör olabilir. Bu durumda onu çarpan elemanlar yine skalerlerdir.
+Vektör uzaylarında vektör kavramı sayı sütunlarından daha geneldir. Örneğin uygun bir vektör uzayında bir polinom veya matris de vektör olabilir. Bu durumda onu çarpan elemanlar yine skalerlerdir.
 
 Polinom örneği, bileşen sayısının vektörlüğü belirlemediğini gösterir. Genel ayrımı vektör uzayları konusunda, üzerinde toplama ve skalerle çarpma işlemleri tanımlanan elemanlar üzerinden kuracağız.
 :::
@@ -491,7 +491,7 @@ $$
 > Sırada: bu iki işlemi kurmak ve **lineer birleşim** içinde birleştirmek.
 
 ::: {.notes}
-Bu derste iki nesne türünü ayırdık: vektör uzayının elemanı olan koordinat vektörleri ve bu uzayın skaler cisminden gelen, vektörleri ölçekleyen skalerler. Bileşenlerin sırasının yapının parçası olduğunu, eşitliğin bileşen düzeyinde tanımlandığını ve geometrik okun yalnız bir temsil olduğunu gördük.
+Koordinat vektörleri vektör uzayının elemanlarıdır; skalerler ise bu uzayın skaler cisminden gelir ve vektörleri ölçekler. Bileşenlerin sırası yapının parçasıdır, eşitlik bileşen düzeyinde tanımlanır ve geometrik ok vektörün yalnız bir temsilidir.
 
-Bir sonraki adımda bu nesneler üzerinde iki temel işlem kurulacak: vektör toplama ve skalerle çarpma. Çıkarma ayrı bir temel işlem değil, bu ikisinin birlikte kullanılmasıyla elde edilecek. Sonunda aynı iki işlem lineer birleşim kalıbında birleşecek; bu kalıp, dersin geri kalanının ana dili olacaktır.
+Koordinat vektörleri üzerindeki iki temel işlem vektör toplama ve skalerle çarpmadır. Çıkarma ayrı bir temel işlem değildir; bu ikisinin birlikte kullanılmasıyla elde edilir. Aynı iki işlem lineer birleşim kalıbında birleşir ve lineer cebirin temel dilini oluşturur.
 :::

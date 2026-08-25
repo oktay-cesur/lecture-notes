@@ -30,7 +30,7 @@ $$
 ::: {.notes}
 Lineer denklem sistemleriyle ilgili ilk sezgilerden biri, bilinmeyen sayısı kadar denklem gerektiğidir. Bu düşünce birçok temel örnekte işe yarar. İki bilinmeyenli tek bir denklem, örneğin $x+y=3$, tek bir çözüm belirlemeye yetmez; bu denklemi sağlayan sonsuz sayıda çift vardır. İkinci bir denklem eklendiğinde iki bilinmeyen tek tek belirlenebilir.
 
-Buradan "bilinmeyen sayısı kadar denklem varsa yeterli bilgi vardır" düşüncesine geçmek kolaydır. Ancak bu ifade her zaman doğru değildir. Bir sistemde kaç denklem bulunduğu ile bu denklemlerin kaçının gerçekten yeni bilgi taşıdığı ayrı şeylerdir. Bu notta önce bu ayrımı örnekler üzerinde göreceğiz, ardından ayrımı sayıyla ifade eden rank kavramını tanımlayıp denklem sistemlerinin çözüm durumlarını rank diliyle yeniden yazacağız.
+Buradan "bilinmeyen sayısı kadar denklem varsa yeterli bilgi vardır" düşüncesine geçmek kolaydır. Ancak bu ifade her zaman doğru değildir. Bir sistemde kaç denklem bulunduğu ile bu denklemlerin kaçının gerçekten yeni bilgi taşıdığı ayrı şeylerdir. Rank kavramı bu ayrımı sayıyla ifade eder ve denklem sistemlerinin çözüm durumlarını rank diliyle yeniden yazmayı sağlar.
 :::
 
 ---
@@ -77,27 +77,35 @@ Hiçbiri diğerinin katı değil.
 ::: {.notes}
 Bir denklemin yeni bilgi taşımaması için mutlaka başka bir denklemin doğrudan katı olması gerekmez. Bu sistemde ilk iki denklemi toplarsak $(x+y+z)+(x-y+z)=4+2$, yani $2x+2z=6$ elde ederiz; bu tam olarak üçüncü denklemdir. Yani $E_3=E_1+E_2$'dir.
 
-Üçüncü denklem diğer ikisinden üretilebildiği için sisteme yeni bir kısıt eklemez. Bir denklem, başka bir denklemin skaler katı olduğu için değil, diğer denklemlerin bir lineer kombinasyonu olarak elde edilebildiği için de yeni bilgi taşımayabilir. Bu ilişkinin genel yapısını lineer bağımsızlık konusunda ele alacağız; burada gördüğümüz, denklem sayısına bakarak bağımsız bilgi miktarının okunamayacağıdır.
+Üçüncü denklem diğer ikisinden üretilebildiği için sisteme yeni bir kısıt eklemez. Bir denklem, başka bir denklemin skaler katı olduğu için değil, diğer denklemlerin bir lineer kombinasyonu olarak elde edilebildiği için de yeni bilgi taşımayabilir. Bu ilişki lineer bağımsızlık kavramıyla genel biçimde ifade edilir; burada gördüğümüz, denklem sayısına bakarak bağımsız bilgi miktarının okunamayacağıdır.
 :::
 
 ---
 
 ## Fazladan Denklem Üç Rol Oynayabilir
 
-İki bilinmeyene yüz denklem yazılabilir.
+İki bilinmeyene yüz denklem yazılabilir. Başlangıç: $x+y=1$. İkinci denklem üç farklı biçimde gelebilir:
 
-Fazladan bir denklem:
+$$
+\begin{array}{lcl}
+x-y=0 & \to & \text{yeni bağımsız bilgi}\\
+2x+2y=2 & \to & \text{tekrar (yeni bilgi yok)}\\
+2x+2y=3 & \to & \text{çelişki}
+\end{array}
+$$
 
-1. yeni bir kısıt getirebilir,
-2. mevcutlardan üretilebilir,
-3. mevcutlarla çelişebilir.
+$$
+\boxed{\text{yeni pivot}\to\text{bağımsız bilgi}\qquad
+\text{sıfır satırı}\to\text{tekrar}\qquad
+[0\ 0\mid c],\,c\neq0\to\text{çelişki}}
+$$
 
 ::: {.notes}
-Bir sistemde denklem sayısının bilinmeyen sayısına eşit olması gerekmez; iki bilinmeyen için üç, beş ya da yüz denklem yazılabilir. Yüz denklem bulunması yüz bağımsız bilgi bulunduğu anlamına gelmez, çünkü fazladan denklemler üç farklı rol oynayabilir.
+Bir sistemde denklem sayısının bilinmeyen sayısına eşit olması gerekmez; iki bilinmeyen için üç, beş ya da yüz denklem yazılabilir. Yüz denklem bulunması yüz bağımsız bilgi bulunduğu anlamına gelmez, çünkü fazladan denklemler üç farklı rol oynayabilir. Üç durumu da aynı ilk denklem üzerinden görelim: $x+y=1$.
 
-Birincisi yeni bir kısıt getirir: $x+y=3$, $2x+2y=6$, $x-y=1$ sisteminde ikinci denklem gereksizdir ama üçüncüsü yeni bir koşuldur; üç denklemde etkin olarak iki kısıt vardır. İkincisi mevcut denklemlerden üretilir: $x+y=3$, $x-y=1$, $2x=4$ sisteminde üçüncü denklem ilk ikisinin toplamıdır. Üçüncüsü çelişir: aynı sistemde üçüncü denklem $2x=5$ olsaydı, ilk ikisinin verdiği $2x=4$ ile aynı anda sağlanamaz ve çözüm kümesi boşalırdı.
+İkinci denklem $x-y=0$ olursa $R_2\leftarrow R_2-R_1$ ikinci satırı $-2y=-1$ yapar; ikinci sütunda yeni bir pivot doğar, iki denklem birlikte iki bağımsız kısıt taşır ve tek çözüm ortaya çıkar. İkinci denklem $2x+2y=2$ olursa, yani birincinin iki katıysa, $R_2\leftarrow R_2-2R_1$ satırı tamamen sıfırlar; yeni pivot yoktur, ikinci denklem birinciyi tekrar eder ve tek bağımsız kısıt kalır. İkinci denklem $2x+2y=3$ olursa aynı satır işlemi $0\ 0\mid1$ verir; bu bir çelişki satırıdır ve sistem tutarsızdır.
 
-Bu üç rol arasında ayrım yapmak için denklemleri saymak yetmez; her denklemin diğerleriyle nasıl ilişkilendiğini görmek gerekir. Satır indirgeme tam olarak bunu yapan araçtır.
+Bu üç rol arasında ayrım yapmak için denklemleri saymak yetmez; satır indirgeme sonunda pivotun yeni mi, tekrar mı, yoksa bir çelişki satırı mı ürettiğine bakmak gerekir. Rank kavramı tam olarak bu ayrımı, kalan bağımsız pivot sayısı üzerinden sayıya döker.
 :::
 
 ---
@@ -170,7 +178,7 @@ $$
 ::: {.notes}
 Rank satır indirgeme yoluyla pivot sayısı olarak hesaplanır; ama aynı yapı sütunlar açısından da okunabilir. Satır rankı lineer bağımsız satırların, sütun rankı lineer bağımsız sütunların mümkün olan en büyük sayısıdır. Lineer cebirin temel sonuçlarından biri, bu iki sayının her zaman eşit olduğudur.
 
-Bu eşitliğin ispatını burada yapmayacağız; lineer bağımsızlık kavramını kurduktan sonra geri döneceğiz. Şimdilik şunu kaydedin: bir matriste bağımsız satır sayısını ölçseniz de bağımsız sütun sayısını ölçseniz de aynı sayıya varırsınız. Denklem sistemlerinde satırlar bağımsız kısıtları, sütunlar bilinmeyenlerin katsayı örüntülerini temsil eder; eşitlik bu iki nesnenin aynı rolü oynadığını değil, aynı bağımsızlık sayısını paylaştığını söyler.
+Bu eşitliğin ispatı lineer bağımsızlık kavramına, satır ve sütun uzaylarının boyutlarının karşılaştırılmasına dayanır. Şimdilik şunu kaydedin: bir matriste bağımsız satır sayısını ölçseniz de bağımsız sütun sayısını ölçseniz de aynı sayıya varırsınız. Denklem sistemlerinde satırlar bağımsız kısıtları, sütunlar bilinmeyenlerin katsayı örüntülerini temsil eder; eşitlik bu iki nesnenin aynı rolü oynadığını değil, aynı bağımsızlık sayısını paylaştığını söyler.
 :::
 
 ---
@@ -235,7 +243,7 @@ $$
 ::: {.notes}
 Bir matris mümkün olan en büyük ranka, yani $\min(m,n)$ değerine sahipse tam ranklı olarak adlandırılır. Örneğin $3\times5$ bir matris için en büyük rank $3$'tür; rankı $3$ ise tam ranklıdır. $5\times3$ bir matris için de en büyük rank yine $3$'tür — tam rank, kare olmayan matrislerde satır ya da sütunlardan hangisi azsa onunla sınırlanır.
 
-Kare bir $n\times n$ matriste tam rank koşulu $\operatorname{rank}(A)=n$ biçimindedir. Satır ve sütun sayıları eşit olduğu için bu durumda her satırda ve her sütunda bir pivot bulunur. Bu pivot yapısına notun sonunda geri döneceğiz; tersinirlik kavramının çıkış noktası burasıdır.
+Kare bir $n\times n$ matriste tam rank koşulu $\operatorname{rank}(A)=n$ biçimindedir. Satır ve sütun sayıları eşit olduğu için bu durumda her satırda ve her sütunda bir pivot bulunur. Bu pivot yapısı tersinirlik kavramının çıkış noktasıdır.
 :::
 
 ---
@@ -319,12 +327,32 @@ $$
 \operatorname{rank}(A)=\operatorname{rank}([A\mid b])}
 $$
 
-Çelişki satırı → sağ tarafta yeni pivot.
+Tutarlı, bağımlı:
+$$
+\left[\begin{array}{cc|c}1&1&1\\2&2&2\end{array}\right]
+\to
+\left[\begin{array}{cc|c}1&1&1\\0&0&0\end{array}\right]
+\quad\operatorname{rank}(A)=\operatorname{rank}([A\mid b])=1
+$$
+
+Tutarsız:
+$$
+\left[\begin{array}{cc|c}1&1&1\\2&2&3\end{array}\right]
+\to
+\left[\begin{array}{cc|c}1&1&1\\0&0&\boxed{1}\end{array}\right]
+\quad\operatorname{rank}(A)=1,\ \operatorname{rank}([A\mid b])=2
+$$
+
+> Genişletilmiş matrisin son sütununda yeni bir pivot oluşuyorsa, bu $0=c$ biçimindeki çelişki satırının rank dilindeki karşılığıdır.
 
 ::: {.notes}
-Bir lineer denklem sisteminde iki matris vardır: katsayı matrisi $A$ ve genişletilmiş matris $[A\mid b]$. Bu ikisinin ranklarını karşılaştırmak sistemin tutarlılığı hakkında bilgi verir. Satır indirgeme sonunda genişletilmiş matrisin bir satırı $[\,0\ 0\ 0\mid 5\,]$ biçimine gelirse, katsayı kısmında yeni bir pivot yoktur ama sağ taraftaki $5$ genişletilmiş matriste yeni bir pivot oluşturur.
+Bir lineer denklem sisteminde iki matris vardır: katsayı matrisi $A$ ve genişletilmiş matris $[A\mid b]$. Bu ikisinin ranklarını karşılaştırmak sistemin tutarlılığı hakkında bilgi verir.
 
-Bu durumda $\operatorname{rank}(A)<\operatorname{rank}([A\mid b])$ olur ve satırın temsil ettiği $0=5$ denklemi nedeniyle sistem tutarsızdır. Ranklar eşitse sağ taraf yeni bir çelişki üretmez ve sistem tutarlıdır. Çözüm durumları notunda çelişki satırıyla kurduğumuz koşul, burada iki rankın karşılaştırılmasına dönüşmüş oluyor. Bu koşul çözümün tek mi sonsuz mu olduğunu tek başına söylemez; bunun için ortak rankın bilinmeyen sayısıyla da karşılaştırılması gerekir.
+Birinci örnekte $x+y=1$, $2x+2y=2$ sistemi vardır; ikinci denklem birincinin iki katıdır. $R_2\leftarrow R_2-2R_1$ satırı $0\ 0\mid0$ yapar; katsayı kısmında da genişletilmiş kısımda da tek pivot kalır, $\operatorname{rank}(A)=\operatorname{rank}([A\mid b])=1$ olur. $n=2$ bilinmeyen ve ortak rank $1<2$ olduğundan sistem tutarlı ama sonsuz çözümlüdür.
+
+İkinci örnekte $x+y=1$, $2x+2y=3$ sistemi vardır; aynı satır işlemi bu kez $0\ 0\mid1$ verir. Katsayı kısmında yeni bir pivot yoktur, $\operatorname{rank}(A)=1$; ama sağ taraftaki $1$ genişletilmiş matriste ikinci bir pivot oluşturur, $\operatorname{rank}([A\mid b])=2$. Ranklar eşit olmadığından sistem tutarsızdır — bu, satırın temsil ettiği $0=1$ çelişkisinin rank diliyle ifadesidir.
+
+Ranklar eşit olduğunda sağ taraf yeni bir çelişki üretmez ve sistem tutarlıdır; fakat bu koşul çözümün tek mi sonsuz mu olduğunu tek başına söylemez, bunun için ortak rankın bilinmeyen sayısıyla da karşılaştırılması gerekir.
 :::
 
 ---
@@ -397,5 +425,5 @@ Nota, bilinmeyen sayısı kadar denklem varsa yeterli bilgi bulunduğu sezgisiyl
 
 Kare ve tam rank bir matriste her satırda ve her sütunda pivot bulunur. Böyle bir matris bilgi kaybetmez: hiçbir bilinmeyen serbest kalmaz ve hiçbir hedef vektör katsayı sütunlarının erişimi dışında kalmaz. Bu nedenle $Ax=b$ sistemi her sağ taraf $b$ için tek bir çözüm taşır.
 
-Her çıktıdan onu üreten tek girdi bulunabildiği için $x\mapsto Ax$ işlemi tersine çevrilebilir. Geri alma işlemini tek bir matrisle temsil eden nesne ters matristir. Bir sonraki notta ters matrisin tanımını yapacağız, ne zaman var olduğunu göreceğiz ve satır indirgemeyle nasıl hesaplandığını kuracağız; kare bir matrisin tersinir olması ile tam ranklı olmasının eşdeğer olduğunu orada göstereceğiz.
+Her çıktıdan onu üreten tek girdi bulunabildiği için $x\mapsto Ax$ işlemi tersine çevrilebilir. Geri alma işlemini tek bir matrisle temsil eden nesne ters matristir. Kare bir matrisin tersinir olması ile tam ranklı olması eşdeğerdir; ters matris satır indirgemeyle hesaplanabilir.
 :::

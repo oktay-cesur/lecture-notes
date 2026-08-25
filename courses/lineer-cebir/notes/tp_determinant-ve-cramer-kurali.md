@@ -510,7 +510,7 @@ $$
 ::: {.notes}
 $x_1=\det(A_1)/\det(A)=(-6)/(-3)=2$ ve $x_2=\det(A_2)/\det(A)=(-3)/(-3)=1$ bulunur. Değerler başlangıç denklemlerinde $2(2)+1=5$ ve $2-1=1$ eşitliklerini sağlar.
 
-İki bilinmeyenli bu örnek yöntemin mekanizmasını açıkça gösterir. Boyut büyüdükçe her bilinmeyen için ayrı determinant hesabı gerektiğinden işlem yükü hızla artar.
+İki bilinmeyenli bu örnek Cramer kuralının adımlarını açıkça gösterir. Boyut büyüdükçe her bilinmeyen için ayrı determinant hesabı gerektiğinden işlem yükü hızla artar.
 :::
 
 ---

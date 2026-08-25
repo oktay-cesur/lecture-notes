@@ -26,7 +26,7 @@ $$
 ::: {.notes}
 Etkisiz eleman, temel işlemlerden aşina olduğumuz bir kavramdır. Bir işlemin içinde kullanıldığında karşısındaki elemanı değiştirmez. Hangi elemanın etkisiz olduğu, seçtiğimiz işleme bağlıdır. Toplamada $0$, çarpmada $1$ bu görevi üstlenir. Aynı sayılarla çalışsak bile işlem değişince etkisiz eleman da değişir. Yani etkisiz eleman yalnız kullanılan elemanlara değil, tanımlanan işleme de bağlıdır.
 
-Etkisiz eleman için daha matematiksel camiada **birim eleman** adı kullanılır; bu notun devamında bu terimi kullanacağız. Bu özellik yalnız örneklerdeki $8$ ve $-3$ için geçerli değildir. Her $a$ sayısı için $a+0=a$ ve $a\cdot1=a$ eşitlikleri sağlanır. Birim elemanı tanırken bakacağımız ölçüt budur: işlemden önceki ve sonraki değer aynı kalmalıdır.
+Etkisiz eleman için matematiksel dilde **birim eleman** adı kullanılır. Bu özellik yalnız örneklerdeki $8$ ve $-3$ için geçerli değildir. Her $a$ sayısı için $a+0=a$ ve $a\cdot1=a$ eşitlikleri sağlanır. Birim elemanı tanırken bakacağımız ölçüt budur: işlemden önceki ve sonraki değer aynı kalmalıdır.
 :::
 
 ---
@@ -127,7 +127,7 @@ Tersinirlik önce pivot ve rank yapısıyla anlaşılır. Tam rank, matrisin hi�
 
 Rank $n$ ise kare matrisin $n$ sütununun her biri pivot taşır; karelik nedeniyle her satırda da pivot bulunur. Eliminasyon pivotları koruyarak $A$'yı $I_n$ biçimine götürür, yani $\operatorname{RREF}(A)=I_n$ olur. Aynı pivot yapısı $Ax=b$ sisteminde serbest değişken bırakmaz ve hiçbir $b$ için çelişki satırı üretmez; böylece her $b$ için tek çözüm vardır.
 
-Ters yönde, $Ax=b$ her $b$ için tek çözümlüyse özellikle birim matrisin her $e_j$ sütunu için $Ax=e_j$ çözülebilir. Bu çözümleri yan yana koymak $A^{-1}$ matrisini verir. Determinant daha sonra aynı yapıyı tek bir skalerle sınayacaktır; bu aşamada eşdeğerlik pivot, RREF ve çözüm davranışı üzerinden kurulmuştur.
+Ters yönde, $Ax=b$ her $b$ için tek çözümlüyse özellikle birim matrisin her $e_j$ sütunu için $Ax=e_j$ çözülebilir. Bu çözümleri yan yana koymak $A^{-1}$ matrisini verir. Determinant aynı yapıyı tek bir skalerle sınar; eşdeğerlik pivot, RREF ve çözüm davranışı üzerinden de kurulabilir.
 :::
 
 ---

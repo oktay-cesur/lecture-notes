@@ -21,7 +21,7 @@ Yer değiştirme · ölçekleme · satır ekleme
 > Soru: Bu $E$ neden her zaman var?
 
 ::: {.notes}
-Lineer denklem sistemlerini matrislerle gösterirken elementer satır işlemlerini üç tür altında toplamıştık. Aynı notta bu işlemlerin uygun bir elementer matrisle soldan çarpma olarak yazılabileceğini de söyledik. O ifade daha sonraki konuların kullandığı bir araçtı; gerekçesini henüz kurmamıştık.
+Lineer denklem sistemlerinde kullanılan elementer satır işlemleri üç tür altında toplanır. Bu işlemlerin her biri uygun bir elementer matrisle soldan çarpma olarak yazılabilir; bu ilişkinin gerekçesi matris çarpımının satır birleşimi okumasına dayanır.
 
 Buradaki soru işlemlerin nasıl yapıldığı değildir. Aradığımız şey, bir satır işleminin her girdi matrisi üzerindeki etkisini tek bir matris çarpımıyla temsil eden $E$ matrisinin neden var olduğudur. Ardından bu matrisin neden aynı işlemin birim matrise uygulanmasıyla bulunduğunu göstereceğiz.
 
@@ -550,5 +550,5 @@ Kanıtın iki sonucu var. Her elementer satır işlemi, satırları sabit katsay
 
 Lineer denklem sistemleri notundaki kutulu iddianın gerekçesi artık tamamlandı. Gauss eliminasyonu notu birden fazla işlemin çarpım sırasını, ters matris notu elementer matrislerin tersinirliğini ve $[A\mid I]$ yöntemini, rank notu satır işlemlerinin rank üzerindeki etkisini ele alıyor. Determinant notu da satır işlemlerinin determinantı nasıl değiştirdiğini bu temsil üzerinden okuyacak.
 
-Bu bağlantıların her biri burada kanıtlanan eşitliği veri olarak kullanır. Bu notun kurduğu parça, tek bir elementer işlemin matris karşılığıdır: işlem birim matris üzerinde kaydedilir ve aynı $E$, uygun satır sayısına sahip her girdiye soldan uygulanır.
+Bu bağlantıların her biri kanıtlanan eşitliği kullanır. Tek bir elementer işlemin matris karşılığı, işlemin birim matris üzerinde kaydedilmesiyle elde edilir; aynı $E$, uygun satır sayısına sahip her girdiye soldan uygulanır.
 :::

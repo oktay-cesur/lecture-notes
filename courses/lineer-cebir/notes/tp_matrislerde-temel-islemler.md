@@ -21,11 +21,11 @@ $$
 Sonucun her elemanı, girdilerin **aynı konumdaki** elemanlarından.
 
 ::: {.notes}
-Önceki notta toplama ve skalerle çarpmayı etkinlik–ikram problemi üzerinden kurmuştuk. Burada aynı işlemleri teknik tarafından ele alıyoruz: tanımların hangi koşullara bağlı olduğunu, hangi cebirsel özellikleri taşıdığını ve nerede yetersiz kaldıklarını göreceğiz.
+Etkinlik–ikram problemi toplama ve skalerle çarpmayı somut bir ihtiyaç üzerinden kurar. Aynı işlemlerin teknik okuması, tanımların hangi koşullara bağlı olduğunu, hangi cebirsel özellikleri taşıdığını ve nerede yetersiz kaldığını gösterir.
 
-Üç işlemin ortak deseni tanımlarda açıkça görünüyor. Her birinde sonucun $(i,j)$ elemanı, girdilerin $(i,j)$ elemanlarından hesaplanıyor; farklı konumlar birbirine karışmıyor. Bu desene eleman bazlı işlem diyoruz ve notun sonunda bu desenin matris çarpımına genellenmediğini göstereceğiz.
+Üç işlemin ortak deseni tanımlarda açıkça görünüyor. Her birinde sonucun $(i,j)$ elemanı, girdilerin $(i,j)$ elemanlarından hesaplanıyor; farklı konumlar birbirine karışmıyor. Bu desene eleman bazlı işlem denir; aynı desen matris çarpımına genellenmez.
 
-Çıkarma listede yer alıyor, ama birazdan göreceğimiz gibi bağımsız bir temel işlem değil. Toplama ve skalerle çarpma kurulduktan sonra çıkarma bunlardan türetiliyor.
+Çıkarma listede yer alıyor, ama bağımsız bir temel işlem değil. Toplama ve skalerle çarpma kurulduktan sonra çıkarma bunlardan türetiliyor.
 :::
 
 ---
@@ -91,7 +91,7 @@ B+(-B)=0
 $$
 
 ::: {.notes}
-Çıkarma bağımsız yeni bir temel işlem olarak kurulmaz. Tam sayılarda $7-3$ ifadesini $7+(-3)$ olarak okuduğumuz gibi, matrislerde de $A-B$ ifadesi $A$ ile $B$'nin negatifinin toplamıdır. Negatif matris $-B=[-b_{ij}]$ tanımını özel matrisler notunda kurmuştuk; orada söylediğimiz "birazdan çıkarmanın tanımında kullanılacak" cümlesinin karşılığı burasıdır.
+Çıkarma bağımsız yeni bir temel işlem olarak kurulmaz. Tam sayılarda $7-3$ ifadesini $7+(-3)$ olarak okuduğumuz gibi, matrislerde de $A-B$ ifadesi $A$ ile $B$'nin negatifinin toplamıdır. Negatif matris $-B=[-b_{ij}]$ olduğundan çıkarma $A-B=A+(-B)$ biçiminde toplamaya indirgenir.
 
 $B+(-B)=0$ eşitliği negatif matrisin toplamaya göre ters eleman rolünü gösterir. Her matrisin böyle bir tersi vardır ve bu ters yine aynı şekildedir. Çıkarma toplamadan türetildiği için toplamanın şekil koşulunu da devralır: $A-B$ ancak $A$ ve $B$ aynı şekildeyse tanımlıdır.
 
@@ -154,7 +154,7 @@ Skalerle çarpmanın veri işlemedeki yaygın kullanımı normalizasyondur. Gri 
 
 Özgün matris ile normalize edilmiş matris yan yana aynı açık-koyu düzenini taşır. Bütün pikseller aynı katsayıyla ölçeklendiği için aralarındaki oranlar korunur; değişen şey sayıların $[0,255]$ yerine $[0,1]$ aralığında ifade edilmesidir.
 
-Buradaki asıl nokta mekanizmanın bağlamdan bağımsız olması. $\frac{1}{255}A$ ifadesi, matris ister ikram planı ister görüntü olsun, aynı şeyi yapar: her elemana aynı skaleri uygular.
+$\frac{1}{255}A$ ifadesi, matris ister ikram planı ister görüntü olsun, her elemana aynı skaleri uygular. İşlemin kuralı matrisin neyi temsil ettiğine göre değişmez.
 :::
 
 ---
@@ -274,7 +274,7 @@ $$
 Sıfır matrisi bir dönme matrisi değildir.
 
 ::: {.notes}
-Önceki örnekte tamamen ayrı dünyaların matrislerini işleme almanın bir karşılığı olmadığını (yapmanın yanlış olduğunu değil, sonucun bir anlam taşımadığını) gördük. Bazen benzer bir durum aynı dünyanın matrislerinde de ortaya çıkar: aynı bağlamdaki matrisleri toplamak, sonucun aynı özel sınıfta kalacağını garanti etmez. $I$ düzlemde $0^\circ$ dönmeyi, $-I$ ise $180^\circ$ dönmeyi temsil eder. Her ikisi de dönme matrisidir, fakat toplamları sıfır matrisidir.
+Farklı bağlamları temsil eden matrisleri işleme almanın matematiksel olarak tanımlı bir sonucu olabilir, fakat bu sonuç bağlamsal anlam taşımayabilir. Benzer bir durum aynı bağlamdaki matrislerde de ortaya çıkar: iki matrisi toplamak, sonucun aynı özel sınıfta kalacağını garanti etmez. $I$ düzlemde $0^\circ$ dönmeyi, $-I$ ise $180^\circ$ dönmeyi temsil eder. Her ikisi de dönme matrisidir, fakat toplamları sıfır matrisidir.
 
 Bir dönme matrisi uzunlukları korur ve tersinirdir. Sıfır matrisi bütün vektörleri sıfır vektörüne gönderdiği için uzunlukları korumaz ve tersi yoktur. Dolayısıyla dönme matrisleri toplama altında kapalı değildir.
 
@@ -301,7 +301,7 @@ $$
 $$
 
 ::: {.notes}
-Bu notta ele aldığımız üç işlem de eleman bazında tanımlıydı: sonucun her elemanı, girdilerin aynı konumdaki elemanlarından doğrudan hesaplanıyordu. Bu yapı matris–matris çarpımına genellenmez. $AB$ ifadesi karşılıklı elemanların çarpılması anlamına gelmez.
+Toplama, çıkarma ve skalerle çarpma eleman bazında tanımlıdır: sonucun her elemanı, girdilerin aynı konumdaki elemanlarından doğrudan hesaplanır. Bu yapı matris–matris çarpımına genellenmez. $AB$ ifadesi karşılıklı elemanların çarpılması anlamına gelmez.
 
 Ayrımı işlem daha tanımlanmadan yerleştirmek, matris çarpımındaki en yaygın hatayı önler. Toplama karşılık gelen konumları eşleştirir ve iki matrisin aynı şekilde olmasını ister. Matris çarpımı ise bir satırın tamamıyla bir sütunun tamamını çarp-topla kuralıyla birleştirerek tek bir sonuç elemanı üretir ve bambaşka bir boyut uyumu koşuluna sahiptir.
 
@@ -321,7 +321,7 @@ Ayrımı işlem daha tanımlanmadan yerleştirmek, matris çarpımındaki en yay
 ::: {.notes}
 Birinci hata şekil koşulunu eleman sayısına indirger; $2\times3$ ile $3\times2$ matrisler altışar eleman taşısa da toplanamaz, çünkü konum kümeleri farklıdır. İkinci hata çıkarmanın türetilmiş olduğunu gözden kaçırır; $A-B=A+(-B)$ eşitliği çıkarmayı toplamaya indirger ve bu yüzden çıkarma toplamanın bütün koşullarını devralır.
 
-Üçüncü hata iki işlemin yapısını karıştırır: toplamada iki matris eşleştirildiği için şekil koşulu vardır, skalerle çarpmada eşleştirilecek ikinci matris olmadığı için koşul yoktur. Dördüncü hata bir sonraki konunun en kritik uyarısıdır. Beşinci hata matematiksel tanımlılık ile bağlamsal anlamı tek katmana indirger; oysa her işlemden önce iki soru ayrı ayrı sorulmalıdır.
+Üçüncü hata iki işlemin yapısını karıştırır: toplamada iki matris eşleştirildiği için şekil koşulu vardır, skalerle çarpmada eşleştirilecek ikinci matris olmadığı için koşul yoktur. Dördüncü hata, matris çarpımını karşılıklı elemanların çarpımı sanmaktır. Beşinci hatada işlemin tanımlı olması, sonucun problem açısından anlamlı olmasıyla karıştırılır; oysa bu iki soru ayrı ayrı sorulmalıdır.
 :::
 
 ---
@@ -366,5 +366,5 @@ Eleman bazlı işlemlerin yetmediği yeri somut bir soruyla kapatalım. Bir etki
 
 Bu hesap ne toplamadır ne skalerle çarpma. İki farklı nesneden — bir satır ve bir sütundan — tek bir sayı üretiyor, yani konum yapısını koruyan bir işlem değil. Üstelik her etkinlik için tekrarlanıyor: dört etkinlik varsa aynı çarp-topla dört kez yapılıyor ve dört sonuç çıkıyor.
 
-Aynı hesabı bütün satırlara birlikte uygulamanın düzenli yazımı $Ax$ biçimidir. Birden fazla fiyat, maliyet ya da kaynak sütunu aynı anda işlendiğinde aynı fikir $AB$ çarpımına genişler. Bir sonraki notta bu geçişi kuracağız: eleman bazlı işlemlerden çarp-topla mekanizmasına.
+Aynı hesabı bütün satırlara birlikte uygulamanın düzenli yazımı $Ax$ biçimidir. Birden fazla fiyat, maliyet ya da kaynak sütunu aynı anda işlendiğinde aynı hesap $AB$ çarpımına genişler. Böylece eleman bazlı işlemlerden satır ile sütunu çarpıp toplama kuralına geçilir.
 :::

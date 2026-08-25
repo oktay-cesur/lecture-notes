@@ -75,7 +75,7 @@ Dört denklemde tekrar eden yapı:
 > Aynı düzen dört kez tekrarlanıyor; bir kez yazmak istiyoruz.
 
 ::: {.notes}
-Değişken adları şimdiye kadar doğrudan ürünleri hatırlatıyordu. Yalnız bu ikram problemini değil, aynı yapıya sahip herhangi bir lineer denklem sistemini temsil edebilmek için genel bir gösterime geçelim: $x_1=s$, $x_2=i$, $x_3=t$ eşlemesiyle bilinmeyenler artık belirli ürün adlarına bağlı olmaz.
+İkram problemindeki değişken adları doğrudan ürünleri hatırlatıyordu. Yalnız bu problemi değil, aynı yapıya sahip herhangi bir lineer denklem sistemini temsil edebilmek için genel bir gösterime geçelim: $x_1=s$, $x_2=i$, $x_3=t$ eşlemesiyle bilinmeyenler artık belirli ürün adlarına bağlı olmaz.
 
 Bu eşlemeden sonra dört denklem aynı deseni tekrarlar: her denklemde aynı üç bilinmeyen, katsayı olarak etkinliklerin ürün miktarları ve sağ tarafta etkinlik toplamları bulunur. Aynı yapının dört kez yazılması yerine katsayıları bir matriste, bilinmeyenleri bir sütun vektöründe, toplamları başka bir sütun vektöründe toplamak doğaldır. Matris gösterimi, işte bu tekrarlanan düzeni tek bir nesnede sıkıştırma ihtiyacından doğar; yeni bir problem değil, aynı problemin derli toplu yazımıdır.
 :::
@@ -115,7 +115,7 @@ $$
 $$
 
 ::: {.notes}
-Önceki konuda birim fiyatlar $120$, $40$ ve $75$ olarak biliniyordu; matris–vektör çarpımı etkinlik toplamlarını üretiyordu. Şimdi toplamlar biliniyor, fakat fiyatlar bilinmiyor. Aynı üç konuma $x_1$, $x_2$, $x_3$ değişkenlerini koyuyoruz.
+Matris–vektör çarpımıyla kurulan ikram probleminde birim fiyatlar $120$, $40$ ve $75$ olarak biliniyor, etkinlik toplamları bu fiyatlardan üretiliyordu. Denklem sistemi okumasında ise toplamlar biliniyor, fakat fiyatlar bilinmiyor. Aynı üç konuma $x_1$, $x_2$, $x_3$ değişkenlerini koyuyoruz.
 
 Katsayı matrisi $A$ etkinliklerin ürün miktarlarını, bilinmeyenler vektörü $x$ aranan birim fiyatları, sağ taraf vektörü $b$ ise etkinlik toplamlarını taşır. Dört denklem tek bir $Ax=b$ matris eşitliğinde toplanır.
 
@@ -145,7 +145,7 @@ $$
 ::: {.notes}
 Aynı $Ax=b$ ilişkisi iki yönde okunabilir. Matris–vektör çarpımında katsayı matrisi ile girdi vektörü bilinir, çıktı hesaplanır. Denklem sisteminde ise katsayılar ve sonuçlar bilinir, bu sonuçları üreten girdi aranır.
 
-Bu nedenle lineer denklem sistemi, matris–vektör çarpımının ayrı bir yapısı değildir; aynı matematiksel ilişkinin bilinmeyen katsayılar üzerinden okunmuş biçimidir. Ters problem her zaman tek bir cevap üretmez: hiç çözüm bulunmayabilir, tek çözüm bulunabilir ya da birden fazla girdi aynı çıktıyı verebilir. Bu olasılıkları ayırt etmek, konunun ilerleyen kısmının hedefidir.
+Bu nedenle lineer denklem sistemi, matris–vektör çarpımının ayrı bir yapısı değildir; aynı matematiksel ilişkinin bilinmeyen katsayılar üzerinden okunmuş biçimidir. Ters problem her zaman tek bir cevap üretmez: hiç çözüm bulunmayabilir, tek çözüm bulunabilir ya da birden fazla girdi aynı çıktıyı verebilir. Bu olasılıklar sistemin çözüm yapısını sınıflandırır.
 :::
 
 ---
@@ -346,7 +346,7 @@ $$
 ::: {.notes}
 Sağ taraf vektörü sıfır olan sisteme homojen lineer denklem sistemi denir; genel biçimi $Ax=0$'dır. Her homojen sistem için $x=0$ bir çözümdür, çünkü herhangi bir matris sıfır vektörünü sıfır vektörüne götürür. Bu her zaman var olan çözüme trivial (aşikâr) çözüm denir.
 
-İlginç soru, homojen bir sistemin trivial çözüm dışında, sıfırdan farklı çözümlerinin bulunup bulunmadığıdır. Bu, matrisin yapısıyla — daha sonra rank ve lineer bağımsızlık olarak adlandıracağımız kavramlarla — yakından ilişkilidir ve ayrı bir ders notunda ele alınacaktır. Şimdilik homojen sistemin en az bir çözümü (trivial çözüm) olduğu için asla çözümsüz kalamayacağını not etmek yeterlidir.
+İlginç soru, homojen bir sistemin trivial çözüm dışında, sıfırdan farklı çözümlerinin bulunup bulunmadığıdır. Bu soru matrisin rankı ve sütunlarının lineer bağımsızlığıyla yakından ilişkilidir. Homojen sistem en az trivial çözüme sahip olduğu için asla çözümsüz kalamaz.
 :::
 
 ---
@@ -381,6 +381,28 @@ $$
 Bir denklem sistemini çözmek, eşitliği sağlayan bütün vektörleri belirlemektir. Bu vektörlerin oluşturduğu kümeye çözüm kümesi denir ve tek bir vektör, boş küme ya da sonsuz sayıda vektör içerebilir. Üç bilinmeyenli örnekte üç denklemin ortak çözümü $(1,2,3)^T$ vektörüdür; çözüm kümesi bu tek elemanı içerir.
 
 Bir sistemin görünüşünü değiştirirken korunması gereken temel nesne bu kümedir. Bir dönüşüm bazı çözümleri kaybediyor veya yeni çözümler ekliyorsa, elde edilen sistem başlangıç sistemiyle eşdeğer değildir. Bir denklem sistemini yalnız yazılı katsayılarıyla özdeşleştirmemek gerekir; farklı katsayılara sahip farklı sistemler aynı çözüm kümesini temsil edebilir.
+:::
+
+---
+
+## İki Denklem, İki Doğru
+
+$$
+x+y=2,\qquad x-y=0
+$$
+
+İki bilinmeyenli her denklem düzlemde bir **doğru**; sistemin çözümü bu doğruların **kesişimidir**.
+
+$$
+(x,y)=(1,1)
+$$
+
+> Geometrik gösterim çözüm fikrini görmeye yardım eder; ancak bilinmeyen sayısı arttığında aynı resmi çizmek mümkün değildir. Bu nedenle sistemleri genel olarak incelemek için cebirsel bir yönteme ihtiyaç vardır.
+
+::: {.notes}
+$x+y=2$ denklemini sağlayan $(x,y)$ çiftleri düzlemde bir doğru oluşturur; $x-y=0$ denklemini sağlayanlar başka bir doğru oluşturur. İki denklemi aynı anda sağlayan noktalar bu iki doğrunun ortak noktasıdır. Denklemleri toplarsak $2x=2$, yani $x=1$ bulunur; ilk denklemden $y=1$ çıkar. $(1,1)$ noktası her iki doğru üzerindedir ve sistemin tek çözümüdür.
+
+Üç bilinmeyenli tek bir denklem benzer biçimde uzayda bir düzlem temsil eder; bir sistemin çözümü bu düzlemlerin ortak kesişimidir. İki veya üç bilinmeyende bu resmi çizmek mümkündür, fakat bilinmeyen sayısı arttıkça geometrik resim elde tutulamaz. Sistemleri genel bilinmeyen sayısında incelemek, eşdeğer sistemler ve elementer satır işlemleri üzerine kurulu cebirsel bir yöntem gerektirir.
 :::
 
 ---
@@ -572,7 +594,7 @@ Her $E_i$ tersinirdir; tersi, satır işlemini geri alan elementer matristir.
 ::: {.notes}
 Birim matrise tek bir satır işlemi uygulandığında elementer matris elde edilir. Aynı işlemi herhangi bir $A$ matrisine uygulamak, $A$'yı bu elementer matrisle soldan çarpmaya eşittir. Satırları değiştirdiğimiz için çarpan solda bulunur.
 
-Birden fazla satır işlemi sırasıyla $E_1$, $E_2$, …, $E_k$ ile gösterildiğinde sonuç $E_k\cdots E_2E_1A$ olur; en önce uygulanan işlem $A$'ya en yakın çarpandır. Her elementer işlemin geri alınabilir olması, her $E_i$ matrisinin tersinir olmasıyla aynı bilgidir. Ters matris konusunda bu zincirin $A$'yı $I$'ye götürmesini kullanacağız.
+Birden fazla satır işlemi sırasıyla $E_1$, $E_2$, …, $E_k$ ile gösterildiğinde sonuç $E_k\cdots E_2E_1A$ olur; en önce uygulanan işlem $A$'ya en yakın çarpandır. Her elementer işlemin geri alınabilir olması, her $E_i$ matrisinin tersinir olmasıyla aynı bilgidir. Bu zincirin $A$'yı $I$'ye götürmesi, ters matris kavramının satır indirgemeyle nasıl hesaplandığının temelini oluşturur.
 :::
 
 ---
@@ -610,5 +632,5 @@ $$
 ::: {.notes}
 Elementer satır işlemleri hangi değişikliklerin çözümü koruduğunu söyler; hangi işlemin ne zaman seçileceğini söylemez. Rastgele bir işlem dizisi sistemi büyütebilir, gereksiz kesirler üretebilir ya da önceden kurulmuş sıfırları yeniden bozabilir. İhtiyaç duyulan şey, bilinmeyenleri adım adım eleyen sistematik bir stratejidir.
 
-Bir sonraki ders bu stratejiyi kurar: soldan sağa pivotlar seçilerek matris satır basamak biçimine dönüştürülür ve çözüm geriye doğru okunur. Bu yöntem Gauss eliminasyonudur; kullandığı bütün araçlar bu derste tanımlanan üç elementer satır işlemidir ve çözüm kümesi süreç boyunca değişmeden kalır.
+Gauss eliminasyonunda soldan sağa pivotlar seçilerek matris satır basamak biçimine dönüştürülür ve çözüm geriye doğru okunur. Yöntem üç elementer satır işlemini kullanır; çözüm kümesi süreç boyunca değişmeden kalır.
 :::

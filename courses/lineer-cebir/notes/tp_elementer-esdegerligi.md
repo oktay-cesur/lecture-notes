@@ -16,12 +16,12 @@ $$
 \boxed{\text{her elementer satır işlemi, uygun bir }E\text{ ile soldan çarpmadır}}
 $$
 
-Bu kutu o notta **iddia** olarak verildi, kanıtlanmadı.
+Bu eşitlik, matris çarpımının satır birleşimi okumasıyla gerekçelendirilir.
 
 ::: {.notes}
-Bu notun tek işi bu kutuyu kanıtlamak. Tek bir iddiayı ele alıyoruz: her elementer satır işlemi, uygun bir $E$ matrisiyle soldan çarpmadır. Üç işlemin tanımı ve $E_i$ notasyonu daha önce kuruldu; burada yalnız aradaki denkliği gösteriyoruz.
+Her elementer satır işlemi, uygun bir $E$ matrisiyle soldan çarpmaya karşılık gelir. Üç işlemin tanımı ve $E_i$ notasyonu kullanılarak bu denklik doğrudan matris çarpımıyla gösterilebilir.
 
-Üç işlemin tanımını, $\lambda\neq0$ koşulunun gerekçesini, $E$'nin tersinir olduğunu burada tekrar kurmuyoruz — hepsi zaten var. Yalnız denkliğin kendisini gösteriyoruz.
+Denklik, üç işlemin tanımını, $\lambda\neq0$ koşulunu ve $E$'nin tersinirliğini kullanır. Gösterilmesi gereken nokta, elementer işlem ile soldan matris çarpımının aynı sonucu üretmesidir.
 :::
 
 ---
@@ -165,7 +165,7 @@ $$
 Denklik kanıtlandı.
 
 ::: {.notes}
-Tersinirlik, bileşim sırası, $[A\mid I]$ yöntemi, rank ve determinant bağlantıları başka notlarda zaten kurulu — hepsi bu denkliği veri olarak kullanıyor.
+Tersinirlik, bileşim sırası, $[A\mid I]$ yöntemi, rank ve determinant bağlantılarında bu denklik kullanılır.
 
-Bu not tek bir taşı yerine koydu: "elementer işlem" ile "matrisle çarpım" aynı nesne. Diğer notlardaki $E_i$ kullanımı artık tanım gereği değil, bu kanıt gereği geçerli.
+Böylece "elementer işlem" ile "elementer matrisle soldan çarpım" aynı dönüşümü adlandırır. $E_i$ kullanımı yalnız tanıma değil, doğrudan matris çarpımıyla doğrulanan bu denkliğe dayanır.
 :::

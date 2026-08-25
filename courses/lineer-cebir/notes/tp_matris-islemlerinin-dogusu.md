@@ -31,9 +31,9 @@ Birinci ekibin hazırladığı miktarlar:
 ::: {.notes}
 Etkinlik–ikram tablosuna geri dönüyoruz, ama bu kez toplam plan iki hazırlık ekibi arasında paylaşılmış durumda. Her ekip kendi tablosunu tutuyor ve iki tablo da aynı düzende: satırlar aynı dört etkinlik, sütunlar aynı üç ürün.
 
-Sorumuz basit: günün toplam ikram planı nedir? Cevabı bulmak için yeni bir matematik kurmamıza gerek yok, ilkokul toplaması yeterli. Bu notun amacı da zaten bu hesabı öğretmek değil; hesabı yaparken hangi eşleşmeyi kullandığımızı fark etmek ve o eşleşmeye bir ad vermek.
+Sorumuz basit: günün toplam ikram planı nedir? Cevabı bulmak için ilkokul toplaması yeterlidir. Lineer cebir açısından incelenen nokta, hesap sırasında hangi eşleşmenin kullanıldığı ve bu eşleşmenin nasıl adlandırıldığıdır.
 
-Bu notta iki işlem kuracağız: karşılık gelen planları birleştirmek ve bütün planı aynı oranda değiştirmek. Çıkarma ve çarpım biçimlerini sonraki notlara bırakıyoruz.
+Karşılık gelen planları birleştirmek matris toplamını, bütün planı aynı oranda değiştirmek skalerle çarpmayı doğurur. Çıkarma bu iki işlemden türetilir; matris çarpımı ise farklı bir hesap kuralına dayanır.
 :::
 
 ---
@@ -102,7 +102,7 @@ $$
 ::: {.notes}
 Aynı şekle sahip iki matrisin toplamı, karşılık gelen elemanların toplanmasıyla tanımlanır. Tanımı okurken $i$ ve $j$ indislerinin üç yerde de aynı olduğuna dikkat edin: soldaki matrisin $(i,j)$ elemanı, sağdaki matrisin $(i,j)$ elemanı ve sonucun $(i,j)$ elemanı. Konum boyunca hiçbir kayma yok, bu yüzden işlem "eleman bazlı" diye anılır.
 
-Sonuç matrisi, notun başında kurduğumuz toplam ikram tablosunun ta kendisi. Yani $A_1+A_2=A$ eşitliği, iki ekibin planının birleşince günün toplam planını verdiğini söylüyor. Tanımı ezberlemek yerine bu eşleşmeyi hatırlamak yeterli: her konumda o konumun iki değeri toplanır.
+Sonuç matrisi toplam ikram tablosunun ta kendisidir. Yani $A_1+A_2=A$ eşitliği, iki ekibin planının birleşince günün toplam planını verdiğini söylüyor. Tanımı ezberlemek yerine bu eşleşmeyi hatırlamak yeterli: her konumda o konumun iki değeri toplanır.
 
 Matrisin neyi temsil ettiği kuralı değiştirmez. Etkinlik planı yerine sıcaklık ölçümleri ya da graf bağlantıları olsaydı toplama yine aynı konum eşleştirmesiyle çalışırdı. Sıfır matrisiyle toplama da bu tanımın doğrudan sonucudur: her konuma $0$ eklendiğinde matris değişmez, yani $A+0=A$.
 :::
@@ -189,7 +189,7 @@ Bir matrisin bir skalerle çarpımı, her elemanın o skalerle çarpılmasıyla 
 
 İşlem matrisin şeklini değiştirmiyor. $2\times3$ bir matrisi hangi sayıyla çarparsanız çarpın sonuç yine $2\times3$ oluyor; değişen tek şey hücrelerdeki değerler. Ölçekleme bütün hücrelere aynı anda ve aynı oranda uygulandığı için tablonun iç oranları da korunuyor: birinci etkinlikte sandviç sayısı içecek sayısının $\frac{20}{15}$ katıydı, ölçeklemeden sonra da öyle.
 
-Bir noktayı şimdiden ayıralım: skalerle çarpma ile matris çarpımı aynı şey değil. $\alpha A$ ifadesinde $\alpha$ bir sayı ve doğrudan elemanlara uygulanıyor. İki matrisin çarpımı ise bambaşka bir mekanizmayla kurulacak; onu ilerleyen notlarda göreceğiz.
+Skalerle çarpma ile matris çarpımı aynı şey değildir. $\alpha A$ ifadesinde $\alpha$ bir sayıdır ve doğrudan elemanlara uygulanır. İki matrisin çarpımı ise farklı bir hesap kuralına ve farklı boyut koşullarına dayanır.
 :::
 
 ---
@@ -244,7 +244,7 @@ Birinci hata en sinsi olanı, çünkü işlem sayısal olarak yürür ve hata me
 4. Sıfır matrisiyle toplama neden matrisi değiştirmez?
 
 ::: {.notes}
-Birinci soruda cevap hayır. Şekiller uyduğu için işlem tanımlıdır ve bir sonuç üretir, ama o sonuçtaki hiçbir satır gerçek bir etkinliğin toplamı değildir. Matematiksel tanımlılık ile bağlamsal doğruluk ayrı katmanlardır; bu ayrımı bir sonraki notta ayrıntılı ele alacağız.
+Birinci soruda cevap hayır. Şekiller uyduğu için işlem tanımlıdır ve bir sonuç üretir, ama o sonuçtaki hiçbir satır gerçek bir etkinliğin toplamı değildir. İşlemin tanımlı olması sonucu problem açısından doğru yapmaz; satır ve sütunların aynı şeyleri aynı sırada göstermesi de gerekir.
 
 İkinci soruda cevap "hepsiyle" — skalerle çarpmanın şekil koşulu yoktur. Üçüncü soruda şekil değişmez, $3\times5$ matris $3\times5$ kalır. Dördüncü soruda tanıma dönmek yeterli: toplama her konumda o konumun iki değerini topluyor, sıfır matrisinin her konumunda $0$ var, bir sayıya $0$ eklemek onu değiştirmiyor. Bu yüzden $A+0=A$ eşitliği tanımın doğrudan sonucu.
 :::
@@ -264,9 +264,9 @@ Sırada:
 - cebirsel özellikler ve eleman bazlı işlemlerin sınırı.
 
 ::: {.notes}
-Bu notta iki işlemi bir ihtiyaçtan çıkararak kurduk. İki ekibin planını birleştirmek matris toplamasını, bütün planı yeniden ölçeklemek skalerle çarpmayı verdi. Her iki tanım da aynı fikre dayanıyordu: sonucun her elemanı, girdilerin aynı konumdaki elemanlarından hesaplanır.
+İki ekibin planını birleştirmek matris toplamasını, bütün planı yeniden ölçeklemek skalerle çarpmayı verir. Her iki tanım da aynı fikre dayanır: sonucun her elemanı, girdilerin aynı konumdaki elemanlarından hesaplanır.
 
-Bir sonraki notta aynı iki işlemi teknik tarafından ele alacağız. Çıkarmanın neden ayrı bir temel işlem sayılmadığını, toplama ve skalerle çarpmanın hangi cebirsel özellikleri taşıdığını ve bu özelliklerin koordinat vektörlerindeki listeyle neden aynı olduğunu göreceğiz. Ayrıca bir işlemin tanımlı olmasıyla bağlamsal olarak anlamlı olması arasındaki farkı somut örneklerle ayıracağız.
+Çıkarma ayrı bir temel işlem değildir; toplama ve skalerle çarpmadan türetilir. Toplama ve skalerle çarpmanın cebirsel özellikleri koordinat vektörlerindeki özelliklerle aynıdır. Bir işlemin tanımlı olmasıyla bağlamsal olarak anlamlı olması ise ayrı sorulardır.
 
-Bu notu okuduktan sonra iki matrisi toplayabiliyor ve bir matrisi skalerle çarpabiliyor olmalısınız. Sonraki not hesabı değiştirmeyecek; hesabın hangi yapıya oturduğunu gösterecek.
+İki matrisi toplama ve bir matrisi skalerle çarpma hesabı bu eşleşme kuralına dayanır. Cebirsel özellikler hesabı değiştirmez; hesabın hangi yapıya oturduğunu gösterir.
 :::
