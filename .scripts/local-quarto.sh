@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUTPUT_DIR_REL="../../_dolap/lecture_notes"
+OUTPUT_DIR_REL="_site"
 SLIDES_OUTPUT_DIR_REL="$OUTPUT_DIR_REL/slides"
 CREATED_CONFIG_LINKS=()
 CREATED_RUNTIME_LINKS=()
@@ -12,13 +12,14 @@ TEMP_RENDER_DIR=""
 CLEAN_SOURCE_ON_EXIT=0
 SLIDE_WATCHER_PID=""
 SLIDE_POLL_INTERVAL="${SLIDE_POLL_INTERVAL:-2}"
+CACHE_ROOT="${LECTURE_NOTES_CACHE_DIR:-${TMPDIR:-/tmp}/lecture-notes-quarto-${UID}}"
 
-export QUARTO_DENO_DIR="${QUARTO_DENO_DIR:-/tmp/quarto-deno-cache}"
-export DENO_DIR="${DENO_DIR:-/tmp/quarto-deno-cache}"
-export XDG_CACHE_HOME="${XDG_CACHE_HOME:-/tmp/quarto-xdg-cache}"
+export QUARTO_DENO_DIR="$CACHE_ROOT/deno"
+export DENO_DIR="$CACHE_ROOT/deno"
+export XDG_CACHE_HOME="$CACHE_ROOT/xdg"
 
 cd "$ROOT_DIR"
-mkdir -p "$QUARTO_DENO_DIR" "$DENO_DIR" "$XDG_CACHE_HOME"
+mkdir -p "$CACHE_ROOT" "$QUARTO_DENO_DIR" "$DENO_DIR" "$XDG_CACHE_HOME"
 
 usage() {
   cat <<'USAGE'
@@ -34,7 +35,7 @@ USAGE
 
 clean_source_artifacts() {
   local path attempt
-  for path in .quarto _site site_libs README_files; do
+  for path in .quarto site_libs README_files; do
     for attempt in 1 2 3; do
       if [[ ! -e "$path" && ! -L "$path" ]]; then
         break
@@ -46,13 +47,13 @@ clean_source_artifacts() {
       sleep 0.1
     done
   done
-  find . -type f -name '*.html' -delete 2>/dev/null || true
-  find . -type d -name '*_files' -prune -exec rm -rf {} + 2>/dev/null || true
+  find . -path './_site' -prune -o -type f -name '*.html' -delete 2>/dev/null || true
+  find . -path './_site' -prune -o -type d -name '*_files' -prune -exec rm -rf {} + 2>/dev/null || true
 }
 
 source_artifacts_exist() {
-  [[ -e .quarto || -e _site || -e site_libs || -e README_files ]] && return 0
-  find . -type f -name '*.html' -print -quit 2>/dev/null | grep -q .
+  [[ -e .quarto || -e site_libs || -e README_files ]] && return 0
+  find . -path './_site' -prune -o -type f -name '*.html' -print -quit 2>/dev/null | grep -q .
 }
 
 settle_source_artifacts() {
@@ -74,14 +75,11 @@ settle_source_artifacts() {
 
 reset_output_dir() {
   local abs_output
-  abs_output="$(cd "$(dirname "$OUTPUT_DIR_REL")" && pwd)/$(basename "$OUTPUT_DIR_REL")"
-  case "$abs_output" in
-    */_dolap/lecture_notes) ;;
-    *)
-      echo "ERROR: refusing to reset unexpected output dir: $abs_output" >&2
-      exit 1
-      ;;
-  esac
+  abs_output="$ROOT_DIR/$OUTPUT_DIR_REL"
+  if [[ "$abs_output" != "$ROOT_DIR/_site" ]]; then
+    echo "ERROR: refusing to reset unexpected output dir: $abs_output" >&2
+    exit 1
+  fi
 
   rm -rf "$OUTPUT_DIR_REL"
   mkdir -p "$OUTPUT_DIR_REL" "$SLIDES_OUTPUT_DIR_REL"
@@ -246,42 +244,8 @@ is_presentation_file() {
 
 render_html_file() {
   local rel_file="$1"
-  local rel_dir base_name html_name source_dir output_dir source_html source_files target_html target_files
 
-  quarto render "$rel_file" --profile local --to html
-
-  rel_dir="$(dirname "$rel_file")"
-  base_name="$(basename "${rel_file%.*}")"
-  html_name="${base_name}.html"
-
-  if [[ "$rel_dir" == "." ]]; then
-    source_dir="."
-    output_dir="$OUTPUT_DIR_REL"
-  else
-    source_dir="$rel_dir"
-    output_dir="$OUTPUT_DIR_REL/$rel_dir"
-  fi
-
-  source_html="$source_dir/$html_name"
-  source_files="$source_dir/${base_name}_files"
-  target_html="$output_dir/$html_name"
-  target_files="$output_dir/${base_name}_files"
-
-  mkdir -p "$output_dir"
-
-  if [[ -f "$source_html" ]]; then
-    cp -f "$source_html" "$target_html"
-  fi
-
-  if [[ -d "$source_files" ]]; then
-    rm -rf "$target_files"
-    cp -a "$source_files" "$target_files"
-  fi
-
-  if [[ -d site_libs ]]; then
-    rm -rf "$OUTPUT_DIR_REL/site_libs"
-    cp -a site_libs "$OUTPUT_DIR_REL/site_libs"
-  fi
+  quarto render "$rel_file" --profile publish --to html
 }
 
 render_slide_file() {
@@ -427,7 +391,7 @@ render_all_html_files() {
     fi
 
     rm -rf .quarto site_libs 2>/dev/null || true
-    quarto render "$rel_file" --profile local --to html --output-dir "$ROOT_DIR/_site"
+    quarto render "$rel_file" --profile publish --to html --output-dir "$ROOT_DIR/_site"
     rendered_count=$((rendered_count + 1))
   done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
 
@@ -514,17 +478,18 @@ command="${1:-}"
 case "$command" in
   clean)
     clean_source_artifacts
+    rm -rf "$OUTPUT_DIR_REL"
     ;;
   preview)
     prepare_output_dirs
     ensure_preview_runtime_dirs
-    CLEAN_SOURCE_ON_EXIT=1
     start_slide_watcher
-    quarto preview --profile local --render none
+    quarto preview --profile publish
     ;;
   render-all)
     CLEAN_SOURCE_ON_EXIT=1
     clean_source_artifacts
+    rm -rf "$OUTPUT_DIR_REL"
     render_all_outputs_in_temp_workspace
     ;;
   render-file)
@@ -551,7 +516,7 @@ case "$command" in
     render_file_outputs "$rel_file"
     CLEAN_SOURCE_ON_EXIT=1
     start_slide_watcher
-    quarto preview --profile local --render none
+    quarto preview --profile publish --render none
     ;;
   render-slide)
     file_arg="${2:-}"

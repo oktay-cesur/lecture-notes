@@ -293,6 +293,58 @@ website:
         - section: "Sayısal Çözümler"
           contents:
             - courses/diferansiyel-denklemler/notes/tp_sayisal-cozum-euler-yontemi.md
+        - section: "Çalışma Notları"
+          contents:
+            - section: "Giriş ve Nitel Analiz"
+              contents:
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_denklemi-okuma-ve-cozumu-dogrulama.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_baslangic-deger-problemleri-ve-cozum-araligi.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_yon-alani-ve-nitel-cozum.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_denge-cozumleri-ve-kararlilik.md
+            - section: "Birinci Mertebe"
+              contents:
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_dogrudan-integralle-cozum.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_ayrilabilir-denklemler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_homojen-tip-denklemler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_birinci-mertebeden-lineer-denklemler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_bernoulli-denklemi.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_tam-diferansiyel-denklemler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_integrasyon-carpani.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_ortogonal-yorungeler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_birinci-mertebe-yontem-secimi.md
+            - section: "Yüksek Mertebe ve Lineer Teori"
+              contents:
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_lineer-denklemlerde-genel-cozum-yapisi.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_lineer-bagimsizlik-ve-wronskian.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_karakteristik-denklem-ve-reel-kokler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_kompleks-karakteristik-kokler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_katli-karakteristik-kokler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_yuksek-mertebeli-sabit-katsayili-denklemler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_mertebe-indirme.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_cauchy-euler-denklemi.md
+            - section: "Homojen Olmayan Denklemler"
+              contents:
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_belirsiz-katsayilar.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_sabitlerin-degisimi.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_ozel-cozum-yontem-secimi.md
+            - section: "Laplace Dönüşümü"
+              contents:
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_laplace-temel-donusumler-ve-kurallar.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_ters-laplace-ve-baslangic-deger-problemleri.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_birim-basamak-ve-parcali-girdiler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_konvolusyon.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_laplace-ile-integral-denklemler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_transfer-fonksiyonu-ve-durtu-cevabi.md
+            - section: "Diferansiyel Denklem Sistemleri"
+              contents:
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_sistemlere-gecis-ve-lineer-sistem-yapisi.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_ozdegerlerle-homojen-sistemler.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_faz-portresi-ve-kararlilik.md
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_homojen-olmayan-sistemler.md
+            - section: "Sayısal Çözüm"
+              contents:
+                - courses/_ortak/diferansiyel-denklemler/notes/ex_euler-yontemi.md
+            - courses/_ortak/diferansiyel-denklemler/notes/ex_tum-donem-soru-havuzu.md
     - id: quantum
       title: "Kuantum Hesaplama"
       style: docked

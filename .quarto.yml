@@ -16,8 +16,7 @@ project:
     - "!README.md"
 
 profile:
-  group:
-    - [default, local]
+  default: publish
 
 website:
   title: "Oktay Cesur"

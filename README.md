@@ -19,6 +19,8 @@ topics/               ← Ders akışından bağımsız konu yazıları
 
 ## Kullanım
 
+Gereksinimler: Quarto (`1.8.27` ile doğrulandı), `make` ve `rsync`.
+
 ```bash
 # Lokal önizleme
 make preview
@@ -32,6 +34,10 @@ make render-file FILE=courses/_ortak/temel-ai/notes/tp_yapay-zekanin-temelleri.m
 # Tek dosya render + önizleme
 make preview-file FILE=courses/_ortak/temel-ai/notes/tp_yapay-zekanin-temelleri.md
 ```
+
+Tüm yerel çıktılar depo içindeki `_site/` klasörüne yazılır. Böylece proje,
+önceden içinde bulunduğu kişisel vault'tan veya depo dışındaki bir çıktı
+klasöründen bağımsız çalışır.
 
 ## Lisans
 
