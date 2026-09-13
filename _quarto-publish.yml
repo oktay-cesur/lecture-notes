@@ -9,6 +9,7 @@ project:
     - izlence-index.md
     - konu-yazilari.md
     - "courses/bim444/**"
+    - "courses/blp1003/**"
     - "courses/lineer-cebir/**"
     - "courses/diferansiyel-denklemler/**"
     - "courses/qturkey/**"
@@ -134,6 +135,29 @@ website:
           contents:
             - courses/_ortak/temel-ai/notes/tp_bulanik-mantik.md
             - courses/_ortak/temel-ai/notes/tp_genetik-algoritmalar.md
+    - id: blp1003
+      title: "BLP 1003 Bilgisayar Ağları"
+      style: docked
+      contents:
+        - courses/blp1003/crs-blp1003.md
+        - section: "Dönemin İlk Yarısı"
+          contents:
+            - courses/blp1003/notes/tp_bilgisayar-aglarina-giris-ve-veri-iletimi.md
+            - courses/blp1003/notes/tp_ag-turleri-topolojiler-ve-ortamlar.md
+            - courses/blp1003/notes/tp_ag-cihazlari-ethernet-ve-mac.md
+            - courses/blp1003/notes/tp_katmanli-mimari-ve-osi-modeli.md
+            - courses/blp1003/notes/tp_tcpip-kumesi-ve-temel-protokoller.md
+            - courses/blp1003/notes/tp_tasima-ve-uygulama-protokolleri.md
+        - section: "Ara Sınav"
+          contents:
+            - courses/blp1003/notes/tp_ara-sinav-hazirlik-ve-tekrar.md
+        - section: "Dönemin İkinci Yarısı"
+          contents:
+            - courses/blp1003/notes/tp_ipv4-adresleme-temelleri.md
+            - courses/blp1003/notes/tp_subnetting-ve-cidr.md
+            - courses/blp1003/notes/tp_yonlendirme-ve-varsayilan-ag-gecidi.md
+            - courses/blp1003/notes/tp_kablosuz-aglar-ve-guvenlik.md
+            - courses/blp1003/notes/tp_temel-guvenlik-nat-ve-butunlesik-ag.md
     - id: ai-llm
       title: "Yapay Zeka ve LLM"
       style: docked

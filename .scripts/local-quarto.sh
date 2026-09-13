@@ -251,6 +251,7 @@ render_html_file() {
 render_slide_file() {
   local rel_file="$1"
   local temp_dir rel_dir base_name html_name source_dir output_dir source_html source_files target_html target_files
+  local resource_dir source_resource_dir target_resource_dir
 
   temp_dir="$(mktemp -d /tmp/ders-slide-render.XXXXXX)"
   rsync -a \
@@ -300,6 +301,15 @@ render_slide_file() {
     rm -rf "$target_files"
     cp -a "$source_files" "$target_files"
   fi
+
+  for resource_dir in .assets images; do
+    source_resource_dir="$temp_dir/_site/slides/$resource_dir"
+    target_resource_dir="$SLIDES_OUTPUT_DIR_REL/$resource_dir"
+    if [[ -d "$source_resource_dir" ]]; then
+      mkdir -p "$target_resource_dir"
+      cp -a "$source_resource_dir/." "$target_resource_dir/"
+    fi
+  done
 
   rm -rf "$temp_dir" 2>/dev/null || true
 }

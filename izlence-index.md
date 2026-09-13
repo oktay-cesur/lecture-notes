@@ -11,4 +11,5 @@ Bu sayfada verilen derslerin ve ders notu hatlarının izlenceleri yer almaktad�
 - [BİM444 — Yapay Zeka](courses/bim444/crs-bim444.md) — Arama algoritmaları, makine öğrenmesi, derin öğrenme ve yapay zeka temelleri
 - [MATE 213 — Lineer Cebir](courses/lineer-cebir/crs-lineer-cebir.md) — Konu bazlı ders notları ve haftalık plan
 - [MATE 214 — Diferansiyel Denklemler](courses/diferansiyel-denklemler/crs-diferansiyel-denklemler.md) — Konu bazlı ders notları ve haftalık plan
+- [BLP 1003 — Bilgisayar Ağları](courses/blp1003/crs-blp1003.md) — Ağ temelleri, protokoller, IPv4 adresleme, yönlendirme ve temel ağ güvenliği
 - [QTurkey Eğitimleri — QPrep ve QBronze](courses/qturkey/index.md) — QPrep hazırlık notları ve QBronze kuantum hesaplamaya giriş akışı
