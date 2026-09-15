@@ -49,7 +49,7 @@ Haftalık plan dersin resmî izlencesindeki 12 haftalık kapsamı temel alır. K
 
 | Hafta | Notlar | Açıklama |
 |:---:|---|---|
-| 1 | [[notes/tp_veritabani-temel-kavramlari-ve-mimari\|Veritabanı Temel Kavramları ve Mimari]] | Veri ve bilgi, dosya yaklaşımının sınırları, veritabanı–VTYS–istemci ayrımı, ilişkisel yaklaşım ve istemci–sunucu mimarisine giriş. |
+| 1 | [[../../courses/blp1005/notes/tp_veritabani-temel-kavramlari-ve-mimari\|Veritabanı Temel Kavramları ve Mimari]] | Veri ve bilgi, dosya yaklaşımının sınırları, veritabanı–VTYS–istemci ayrımı, ilişkisel yaklaşım ve istemci–sunucu mimarisine giriş. |
 | 2 | **Varlık–İlişki (E-R) Modeli** | Gereksinimlerden varlık, nitelik ve ilişki çıkarma; kardinalite ve katılım kurallarını model üzerinde gösterme. |
 | 3 | **Normalizasyon** | Veri tekrarı, fonksiyonel bağımlılıklar, ekleme–güncelleme–silme anomalileri ve 1NF–2NF–3NF. |
 | 4 | **MySQL Çalışma Ortamı** | MySQL Server ve Workbench ayrımı, bağlantı, şema ve tablo inceleme, SQL betiği çalıştırma ve hata mesajlarını okuma. |
