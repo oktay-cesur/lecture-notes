@@ -2,7 +2,7 @@
 title: "BLP 1005 Veritabanı Yönetim Sistemleri"
 subtitle: "Ders Notları"
 type: syllabus
-description: BLP 1005 Veritabanı Yönetim Sistemleri dersi için resmî izlenceyi temel alan haftalık ders notu ve MySQL uygulama hattı.
+description: BLP 1005 Veritabanı Yönetim Sistemleri dersi için resmî izlenceyi temel alan ders sunumları, çalışma notları ve MySQL uygulamaları.
 tags:
   - output
 sidebar: blp1005
@@ -25,13 +25,16 @@ Bu dersi başarıyla tamamlayan öğrenciler:
 5. MySQL Workbench ortamında SQL Veri İşleme Dili (DML) komutlarıyla kayıt ekleme, silme ve güncelleme işlemleri gerçekleştirir.
 6. Çoklu tabloları birleştiren ve veriyi gruplayan SQL sorgularını yazarak veri setlerini analiz eder.
 
-## Dersin Çalışma Yaklaşımı
+## Ders Notlarının Yapısı
 
-Ders notları mümkün olduğunca şu düşünsel akışı izler:
+Her haftanın konu dosyası iki katmanlı hazırlanır:
 
-**gereksinim / problem → yetersiz yaklaşım → kavramsal ihtiyaç → model veya SQL kararı → uygulama → doğrulama → hata / sınır durumu**
+- **Sunum katmanı:** Derste ekranda görülecek ana fikir, kısa örnek, diyagram, tablo veya SQL parçasını taşır.
+- **Çalışma notu katmanı:** Slaytlardaki `.notes` bölümlerinde yer alır. Bu bölümler sunum yaparken okunacak konuşmacı yönergeleri değildir; öğrencinin ders sonrasında konuyu kendi başına çalışabilmesi için ders kitabı düzeyinde açıklama, gerekçe, örnek, kavramsal ayrım ve sınır durumlarını içerir.
 
-SQL komutlarında yalnız sözdizimi değil, komutun hangi veri veya şema durumunu değiştirdiği ve sonucun nasıl doğrulanacağı önemlidir. Veri değiştiren işlemlerde hedef satırlar önce sorgulanır; hata iletileri gizlenmek yerine teşhis için kullanılır. Örnek veriler kurgu veridir ve çalışmalar yeniden çalıştırılabilir SQL betikleri olarak tutulur.
+Bu nedenle haftalık dosyalar ders planı veya öğretim elemanına yönelik anlatım senaryosu değildir. Her dosya doğrudan **ders sunumu + öğrencinin çalışma metni** olarak kullanılmalıdır.
+
+SQL içeren haftalarda çalıştırılabilir örnek, beklenen sonuç, doğrulama ve hata teşhisi aynı konu dosyasında veya ona bağlı uygulama materyalinde görünür tutulur.
 
 ## Haftalık Plan
 
