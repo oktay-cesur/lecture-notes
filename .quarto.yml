@@ -37,6 +37,8 @@ website:
             href: courses/diferansiyel-denklemler/crs-diferansiyel-denklemler.md
           - text: "BLP 1003 — Bilgisayar Ağları"
             href: courses/blp1003/crs-blp1003.md
+          - text: "BLP 1005 — Veritabanı Yönetim Sistemleri"
+            href: courses/blp1005/crs-blp1005.md
           - text: "QTurkey Eğitimleri — QPrep ve QBronze"
             href: courses/qturkey/index.md
       - text: "Konular"
