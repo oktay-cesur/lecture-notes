@@ -1,155 +1,271 @@
 ---
 title: "Veritabanı Temel Kavramları ve Mimari"
 subtitle: "BLP 1005 — Veritabanı Yönetim Sistemleri"
+type: presentation
 author: "Öğr. Gör. Oktay Cesur"
 date: 2026-09-15
-description: Veritabanı, VTYS, ilişkisel veritabanı ve istemci-sunucu mimarisini veri yönetimi problemi üzerinden kuran birinci hafta ders notu.
+description: Veritabanı, VTYS, ilişkisel veritabanı ve istemci-sunucu mimarisine giriş.
 tags:
   - blp1005
   - veritabani
   - hafta-1
 ---
 
-## Ders içindeki yeri
+## Bir cihaz şu anda kimde?
 
-- **Ders:** BLP 1005 — Veritabanı Yönetim Sistemleri
-- **Hafta:** 1
-- **Resmî konu:** Veritabanı Temel Kavramları ve Mimari
-- **Süre:** 1 saat teori + 2 saat uygulama
-- **Birincil öğrenme çıktısı:** ÖÇ1 — İlişkisel veritabanı sistemlerinin temel kavramlarını ve çalışma mimarisini açıklayabilme
-- **Sonraki haftaya hazırlık:** H2 — Varlık-İlişki (E-R) Modeli
+Bir fakültede öğrencilere kamera, mikrofon ve dizüstü bilgisayar ödünç veriliyor.
 
-## Haftanın temel sorusu
+- Öğrenci bilgileri bir elektronik tabloda
+- Cihaz listesi başka bir dosyada
+- Ödünç alma ve teslim bilgileri mesajlarda
+- Geciken cihazlar elle takip ediliyor
 
-> Veriyi bir dosyada saklayabiliyorsak neden ayrıca veritabanına ve bir veritabanı yönetim sistemine ihtiyaç duyarız?
+> `K-014` numaralı kamera şu anda kimde?
 
-Haftanın amacı tanım ezberletmek değil, veriyi **tutarlı, paylaşılabilir, sorgulanabilir ve yönetilebilir** biçimde saklama ihtiyacını görünür kılmaktır. Öğrenci önce veri problemini görür; ardından veritabanı, VTYS ve ilişkisel yapı kavramları bu probleme verilen teknik yanıtlar olarak konumlandırılır.
+::: {.notes}
+Bir veritabanını anlamaya başlamak için önce “veritabanı nedir?” tanımından değil, veriyi yönetmenin neden ayrı bir problem olduğundan başlamak daha yararlıdır.
 
-## Öğrenme hedefleri
+Bir fakültenin öğrencilerine ekipman ödünç verdiğini düşünelim. Öğrencilerin adları ve numaraları bir elektronik tabloda, cihazların envanter kayıtları başka bir dosyada, ödünç alma ve teslim bilgileri ise mesajlaşma kayıtlarında tutuluyor olsun. İlk bakışta sistem çalışıyor gibi görünür; çünkü veriler bir yerlerde mevcuttur. Fakat “K-014 numaralı kamera şu anda kimde?” gibi basit görünen bir soru sorulduğunda, tek bir güvenilir kaynağa bakarak cevap vermek mümkün olmayabilir.
 
-Hafta sonunda öğrenci:
+Sorun verinin hiç olmaması değildir. Sorun, aynı iş sürecine ait verilerin farklı yerlerde, farklı biçimlerde ve birbirinden bağımsız tutulmasıdır. Bir cihaz listesinde “ödünçte” görünürken mesaj kayıtlarında teslim edildiği yazabilir. Aynı öğrenci bir dosyada tam adıyla, başka bir yerde kısaltılmış biçimde kaydedilmiş olabilir. Böyle bir ortamda veriye sahip olmak ile güvenilir bilgi üretebilmek aynı şey değildir.
 
-1. veri ile bilgi arasındaki farkı örnek üzerinden açıklayabilir,
-2. bağımsız dosya / elektronik tablo yaklaşımının hangi gereksinimlerde yetersiz kalabileceğini tartışabilir,
-3. **veritabanı**, **VTYS** ve **ilişkisel veritabanı** kavramlarını birbirinden ayırabilir,
-4. tablo, sütun, satır ve veri tipi kavramlarını temel düzeyde kullanabilir,
-5. istemci–sunucu–veritabanı ilişkisini basit bir mimari üzerinde açıklayabilir,
-6. MySQL Workbench ile MySQL Server'ın aynı şey olmadığını açıklar,
-7. bir gereksinim metninde hangi bilgilerin ayrı veri nesnelerine ait olabileceğini fark etmeye başlar.
-
-## Anlatı hattı
-
-**gereksinim → dağınık veri → tutarsızlık / belirsizlik → yönetim ihtiyacı → veritabanı + VTYS → ilişkisel yapı → istemci–sunucu mimarisi**
-
-Anahtarlar, yabancı anahtarlar, E-R gösterimi, kardinalite, normalizasyon ve SQL sözdizimi bu hafta sistematik olarak öğretilmez. Gerektiği yerde yalnız sonraki haftalara ihtiyaç oluşturacak kadar sezdirilir.
+Veritabanı sistemlerinin ortaya çıkış nedenlerinden biri tam olarak budur: birbirine bağlı verileri yalnızca saklamak değil, onları tutarlı, sorgulanabilir ve kontrollü biçimde yönetmek.
+:::
 
 ---
 
-## Kurucu vaka — Kampüs ekipman ödünç sistemi
+## Veriyi saklamak başka, veriyi yönetmek başka
 
-Bir fakülte öğrencilerine kamera, mikrofon ve dizüstü bilgisayar ödünç vermektedir.
+Bir veri sistemi yalnızca “nerede saklanıyor?” sorusuna cevap vermez.
 
-Mevcut durumda:
+Ayrıca şunları da çözmelidir:
 
-- öğrenci bilgileri bir elektronik tabloda,
-- cihaz listesi başka bir dosyada,
-- ödünç alma ve teslim bilgileri mesajlaşma kayıtlarında,
-- geciken cihazlar ise elle takip edilmektedir.
+- Aynı veri farklı yerlerde çelişiyor mu?
+- Bir kaydı diğerinden nasıl ayırt ederiz?
+- Birden fazla kullanıcı aynı veriye erişirse ne olur?
+- İstenen bilgi güvenilir biçimde sorgulanabiliyor mu?
+- Hatalı veri girişini hangi kurallar engelliyor?
 
-İlk soru:
+::: {.notes}
+Dosya, elektronik tablo veya düz metin gibi araçlar veriyi saklayabilir. Küçük ve tek kullanıcılı işlerde bunlar yeterli de olabilir. Veritabanı yönetim sistemine geçişi zorunlu kılan şey, dosyanın varlığı veya yokluğu değil; veri üzerindeki gereksinimlerin karmaşıklaşmasıdır.
 
-> K-014 numaralı kameranın şu anda kimde olduğunu güvenilir biçimde nasıl buluruz?
+Örneğin aynı öğrenci bilgisi her ödünç işleminde yeniden yazılıyorsa veri tekrarı oluşur. Öğrencinin telefonu değiştiğinde bazı satırlar güncellenip bazıları güncellenmezse aynı kişi için birden fazla doğruymuş gibi görünen değer ortaya çıkar. Bir cihazın aynı anda iki kişiye verilmesini engelleyen hiçbir kural yoksa, sistem teknik olarak kayıt kabul etse bile gerçek dünyadaki iş kuralını koruyamaz.
 
-Ardından:
+Bir veri yönetim sisteminden beklenen yalnızca “değeri kaydetmesi” değildir. Hangi değerlerin kabul edileceğini, kayıtların birbirinden nasıl ayırt edileceğini, veriler arasındaki bağlantıların nasıl korunacağını ve kullanıcıların hangi işlemleri yapabileceğini de yönetebilmelidir.
 
-- Bir öğrencinin geçmişte aldığı tüm cihazları bulabilir miyiz?
-- Aynı öğrencinin adı iki farklı biçimde yazılmışsa ne olur?
-- Cihazın durumu iki dosyada farklı görünüyorsa hangisine güveniriz?
-- İki kişi aynı veriyi aynı anda güncelliyorsa ne olur?
-- Bir kaydı düzeltirken geçmiş bilgiyi kaybedebilir miyiz?
-
-Bu aşamada çözüm verilmez. Amaç, “veriyi bir yere yazmak” ile “veriyi yönetmek” arasındaki farkı ortaya çıkarmaktır.
+Bu nedenle veritabanı dersinde temel soru sürekli şudur: Sakladığımız veri, gerçek dünyadaki durumu güvenilir biçimde temsil ediyor mu?
+:::
 
 ---
 
-# Ders akışı
+## Veri ve bilgi
 
-## 0–10 dk — Problemle giriş
-
-Kurucu vaka sınıfa verilir. Öğrencilerden teknik terim kullanmadan yalnız şu soruyu cevaplamaları istenir:
-
-> Bu sistemde hangi bilgilerin güvenilir biçimde tutulması gerekir?
-
-Tahtada ham cevaplar toplanır: öğrenci, cihaz, cihaz türü, ödünç alma tarihi, teslim tarihi, durum vb.
-
-**Öğretim amacı:** Kavramdan önce veri gereksinimini oluşturmak.
-
----
-
-## 10–20 dk — Veri ve bilgi
-
-Vaka üzerinden ayrım kurulur:
-
-- `K-014`, `2026-09-10`, `Ayşe Demir` gibi tekil değerler **veridir**.
-- “K-014 şu anda Ayşe Demir'de” veya “teslim süresi geçen 4 cihaz var” gibi bağlamlandırılmış sonuçlar **bilgidir**.
-
-Vurgu:
-
-> Veritabanının amacı yalnız veri biriktirmek değil, güvenilir bilgi üretilebilecek bir veri yapısı kurmaktır.
-
-Uzun teorik veri–enformasyon tartışmasına girilmez.
-
----
-
-## 20–35 dk — Dosya / elektronik tablo neden her durumda yetmez?
-
-Elektronik tablo “yanlış araç” olarak sunulmaz. Küçük, tek kullanıcılı ve sınırlı veri problemlerinde uygun olabilir. Sorun, gereksinim büyüdükçe ortaya çıkar.
-
-Vaka üzerinden dört sınır gösterilir:
-
-1. **Tekrar:** Aynı öğrenci bilgisi her ödünç işleminde yeniden yazılabilir.
-2. **Tutarsızlık:** Aynı öğrenci veya cihaz farklı dosyalarda farklı değerlerle bulunabilir.
-3. **Paylaşımlı erişim:** Birden fazla kullanıcının aynı veriyi güvenli biçimde değiştirmesi gerekir.
-4. **Sorgulama ve bütünlük:** “Şu anda kimde?”, “gecikenler hangileri?” gibi sorular için güvenilir, yapısal veri gerekir.
-
-Burada henüz normalizasyon terminolojisi kullanılmaz. Öğrenci yalnız problemin varlığını görür.
-
----
-
-## 35–50 dk — Veritabanı, VTYS ve ilişkisel veritabanı
-
-### Veritabanı
-
-Belirli bir problem alanına ait verilerin düzenli ve ilişkili biçimde saklandığı yapıdır.
-
-### Veritabanı Yönetim Sistemi (VTYS)
-
-Veritabanını oluşturma, değiştirme, sorgulama, erişim denetimi ve bütünlük gibi işlemleri yöneten yazılımdır.
-
-Bu derste temel VTYS: **MySQL Server**.
-
-### İlişkisel veritabanı
-
-Veriyi tablolar biçiminde düzenleyen ve tablolar arasındaki bağlantıları tanımlayabilen veritabanı yaklaşımıdır.
-
-Kritik ayrım:
+**Veri**, tek başına kaydedilmiş değerlerdir.
 
 ```text
-Veritabanı ≠ VTYS ≠ İlişkisel veritabanı
+K-014
+2026-09-10
+Ayşe Demir
 ```
 
-Veritabanı saklanan yapıdır; VTYS bu yapıyı yöneten yazılımdır; ilişkisel yaklaşım ise verinin nasıl modellenip düzenlendiğine ilişkin modeldir.
+**Bilgi**, verinin bir bağlam içinde anlamlı bir soruya cevap vermesidir.
+
+```text
+K-014 numaralı kamera Ayşe Demir'dedir.
+Teslim süresi geçen 4 cihaz vardır.
+```
+
+::: {.notes}
+Veri ile bilgi arasındaki ayrım, veritabanının neden yalnızca bir “depo” olmadığını anlamaya yardımcı olur.
+
+`K-014`, `2026-09-10` ve `Ayşe Demir` tek tek saklanmış değerlerdir. Bu değerlerin neyi temsil ettiğini bilmeden anlamlı bir sonuca ulaşamayız. Ancak bu değerleri belirli bir yapı ve ilişki içinde yorumladığımızda “K-014 numaralı kamera 10 Eylül 2026 tarihinde Ayşe Demir tarafından ödünç alınmıştır” gibi bir bilgi elde ederiz.
+
+Aynı şekilde “teslim süresi geçen kaç cihaz var?” sorusuna cevap verebilmek için yalnız cihaz adlarını saklamak yetmez. Cihazı, ödünç alan kişiyi, alış tarihini, beklenen veya gerçek teslim tarihini ve gerektiğinde cihazın durumunu birlikte değerlendirmek gerekir.
+
+Veritabanı tasarımı bu yüzden hangi verilerin tutulacağı kadar, bu verilerin hangi yapılar içinde tutulacağını da belirler. İyi bir veri yapısı, daha sonra sorulacak soruların güvenilir biçimde cevaplanmasını mümkün kılar.
+:::
 
 ---
 
-## 50–60 dk — Mimariye giriş
+## Elektronik tablo neden her zaman yeterli değildir?
 
-Tahtada / slaytta tek mimari gösterilir:
+Elektronik tablo yanlış bir araç değildir.
+
+Fakat gereksinim büyüdükçe bazı sınırlar görünür hale gelir:
+
+1. Veri tekrarı
+2. Tutarsız güncellemeler
+3. Çok kullanıcılı erişim
+4. Veri bütünlüğünü koruma
+5. Karmaşık ve tekrarlanabilir sorgular
+6. Yetkilendirme ve erişim kontrolü
+
+::: {.notes}
+Elektronik tablo ile ilişkisel veritabanını karşılaştırırken “Excel kötüdür, veritabanı iyidir” gibi mutlak bir ayrım doğru değildir. Elektronik tablolar küçük veri kümelerinde, kişisel analizlerde, geçici listelerde ve hızlı hesaplamalarda son derece kullanışlıdır. Sorun, aracın tasarlandığı kullanım alanının ötesine geçildiğinde ortaya çıkar.
+
+Bir iş sürecinde aynı veri çok sayıda yerde tekrar ediyorsa, her değişiklikte bütün kopyaların birlikte güncellenmesi gerekir. Birden fazla kullanıcı aynı dosya üzerinde çalışıyorsa eşzamanlı değişiklikleri yönetmek zorlaşır. Belirli alanların boş bırakılamaması, bazı değerlerin benzersiz olması veya bir kaydın başka bir kayda mutlaka bağlı bulunması gibi kuralların sistematik biçimde uygulanması gerekir.
+
+İlişkisel veritabanı yönetim sistemleri bu tür gereksinimleri doğrudan veri katmanında tanımlayabilmemizi sağlar. Veri tipi, anahtar ve kısıt gibi yapılar yalnızca düzen sağlamaz; geçersiz durumların oluşmasını engellemeye de yardımcı olur.
+
+Bu nedenle doğru soru “Neden Excel yerine veritabanı?” değil, “Bu problemin gerektirdiği veri bütünlüğü, paylaşım ve sorgulama düzeyi hangi aracı gerektiriyor?” sorusudur.
+:::
+
+---
+
+## Veritabanı nedir?
+
+Bir **veritabanı**, belirli bir problem alanına ait verilerin düzenli ve birbiriyle anlamlı biçimde ilişkili olarak saklandığı veri bütünüdür.
+
+Örnek problem alanları:
+
+- Öğrenci işleri
+- Hastane randevuları
+- E-ticaret siparişleri
+- Kütüphane ödünç işlemleri
+- Kampüs ekipman takibi
+
+::: {.notes}
+Veritabanı kavramını yalnızca “tabloların bulunduğu yer” diye tanımlamak eksik kalır. Temel fikir, belirli bir problem alanına ait verilerin düzenli bir yapı altında birlikte tutulmasıdır.
+
+Örneğin kampüs ekipman sistemi için öğrenci, cihaz ve ödünç alma işlemi birbirinden bağımsız veri parçaları değildir. Bunlar aynı problem alanının parçalarıdır. Bir öğrencinin hangi cihazları aldığı veya bir cihazın geçmişte kimlere verildiği gibi sorular, bu parçalar arasındaki bağlantıların korunmasına bağlıdır.
+
+Veritabanı burada fiziksel bir dosya formatından daha geniş bir kavramdır. Kullanıcı açısından önemli olan; sistemde hangi veri yapılarının bulunduğu, bu yapıların nasıl ilişkili olduğu ve verinin hangi kurallara göre saklandığıdır.
+
+Bu derste ağırlıklı olarak ilişkisel veritabanları üzerinde çalışacağız. Ancak “veritabanı” ile “ilişkisel veritabanı” aynı kavram değildir. İlişkisel model, veritabanı oluşturmanın belirli bir yaklaşımıdır.
+:::
+
+---
+
+## VTYS nedir?
+
+**Veritabanı Yönetim Sistemi (VTYS)**, veritabanını yöneten yazılımdır.
+
+Başlıca görevleri:
+
+- Veritabanı ve tablo yapıları oluşturmak
+- Veri eklemek, değiştirmek ve silmek
+- Veriyi sorgulamak
+- Kısıtları ve bütünlüğü uygulamak
+- Kullanıcı erişimini yönetmek
+- Birden fazla istemcinin çalışmasını koordine etmek
+
+Bu derste temel VTYS: **MySQL Server**
+
+::: {.notes}
+Veritabanı ile veritabanı yönetim sistemi birbirine çok yakın kavramlar olduğu için sıklıkla karıştırılır. Veritabanı, saklanan veri ve onun yapısıdır. VTYS ise bu yapıyı oluşturmamızı ve yönetmemizi sağlayan yazılımdır.
+
+Bir benzetme yapmak gerekirse, dosyalarınız ile işletim sistemi aynı şey değildir. Dosyalar saklanan içeriktir; işletim sistemi bu dosyalar üzerinde işlem yapabilmenizi sağlayan mekanizmaları sunar. Benzer biçimde MySQL Server, veritabanlarının kendisi değil, onları yöneten sistemdir.
+
+VTYS kullanıcının verdiği SQL komutlarını yorumlar, istenen işlemi yürütür, veri tiplerini ve kısıtları denetler, yetkileri kontrol eder ve sonucu istemciye döndürür. Ayrıca çok sayıda kullanıcının aynı veri üzerinde çalıştığı durumlarda işlemlerin koordinasyonuna ilişkin mekanizmalar sağlar.
+
+Bu ders bir veritabanı yöneticiliği uzmanlık dersi değildir. Ancak MySQL Server'ın yalnızca “SQL çalıştıran bir program” olmadığını, veri yönetiminin merkezindeki yazılım katmanı olduğunu bilmek sonraki konuları anlamak için önemlidir.
+:::
+
+---
+
+## Veritabanı ≠ VTYS ≠ istemci
+
+```text
+Veritabanı        → saklanan veri ve yapı
+MySQL Server      → VTYS
+MySQL Workbench   → istemci / yönetim aracı
+```
+
+Aynı kavramlar değildir.
+
+::: {.notes}
+MySQL öğrenmeye başlayan öğrencilerde en sık görülen karışıklıklardan biri, MySQL Workbench'i veritabanının kendisi sanmaktır. Workbench yalnızca MySQL Server ile iletişim kurmak için kullanılan istemci araçlarından biridir.
+
+MySQL Server arka planda çalışan veritabanı yönetim sistemidir. Veritabanları ve tablolar sunucu tarafından yönetilir. Workbench ise sunucuya bağlanmamızı, SQL komutları göndermemizi, şema yapısını incelememizi ve sonuçları görmemizi sağlayan grafiksel bir istemcidir.
+
+Aynı MySQL Server'a Workbench dışında komut satırı istemcisi, Python programı, Java uygulaması veya bir web uygulaması da bağlanabilir. Bu ayrım önemlidir; çünkü ders boyunca arayüz değişse bile temel mimari değişmez: bir istemci sunucuya istek gönderir, sunucu veritabanı üzerinde işlemi gerçekleştirir ve sonucu döndürür.
+:::
+
+---
+
+## İlişkisel veritabanı yaklaşımı
+
+İlişkisel modelde veri, düzenli satır ve sütun yapılarıyla temsil edilir.
+
+Bir tablo genellikle tek bir tür nesne veya olay hakkında veri tutar.
+
+```text
+OGRENCI
+--------------------------------
+ogrenci_no | ad          | telefon
+--------------------------------
+240101     | Ayşe Demir  | 0532...
+240102     | Can Kaya    | 0533...
+```
+
+::: {.notes}
+İlişkisel veritabanı yaklaşımı, veriyi relation adı verilen matematiksel yapılara dayalı olarak düzenler. Uygulamada bu yapı kullanıcıya tablo biçiminde görünür. Başlangıç düzeyinde tablo benzetmesi yeterlidir; ancak “relation” ile iki tablo arasındaki “relationship” kavramının aynı şey olmadığını akılda tutmak gerekir.
+
+Bir tablo belirli bir tür nesne veya olay hakkında veri toplar. Örneğin öğrenci tablosu öğrenciler hakkında, cihaz tablosu cihazlar hakkında, ödünç işlemi tablosu ise belirli bir ödünç alma olayı hakkında bilgi tutabilir.
+
+Bu ayrımın amacı yalnızca düzenli görünüm sağlamak değildir. Farklı türdeki bilgileri kendi anlamlı yapılarında tutmak; veri tekrarını azaltmayı, bütünlük kuralları tanımlamayı ve daha sonra bu yapıları sorgularla yeniden bir araya getirmeyi kolaylaştırır.
+
+Tablolar arasındaki ilişkilerin nasıl kurulduğu ikinci haftadan itibaren E-R modeliyle, daha sonra birincil ve yabancı anahtarlarla ayrıntılı biçimde ele alınacaktır.
+:::
+
+---
+
+## Tablo, sütun, satır ve veri tipi
+
+| Kavram | Anlamı |
+|---|---|
+| **Tablo** | Aynı türdeki kayıtların yapısı |
+| **Sütun** | Tutulan özelliğin tanımı |
+| **Satır / kayıt** | Belirli bir nesne veya olaya ait değerler |
+| **Veri tipi** | Sütunda hangi tür değerin tutulabileceği |
+
+::: {.notes}
+İlişkisel veritabanının görünen en temel yapısı tablodur. Bir tabloyu elektronik tabloya benzetmek başlangıçta yararlı olabilir, fakat ilişkisel tablonun daha güçlü kurallara sahip olduğunu unutmamak gerekir.
+
+Sütunlar hangi özelliklerin tutulacağını tanımlar. Örneğin `ogrenci_no`, `ad` ve `telefon` sütunları öğrenci tablosunun yapısının parçalarıdır. Satır ise belirli bir öğrenci için bu sütunlara karşılık gelen değerleri içerir.
+
+Veri tipi, bir sütunun kabul edeceği değerlerin türünü belirler. Tarih bilgisini serbest metin olarak tutmak teknik olarak mümkün olsa bile, tarih veri tipi kullanmak sıralama, karşılaştırma ve doğrulama açısından daha anlamlıdır. Benzer biçimde sayısal değerleri metin olarak saklamak, ileride hesaplama ve filtreleme işlemlerini zorlaştırabilir.
+
+İlerleyen haftalarda veri tiplerinin MySQL karşılıklarını ve `NOT NULL`, `UNIQUE`, `PRIMARY KEY` gibi kısıtları ayrıntılı biçimde göreceğiz. Bu aşamada önemli olan, tablonun yalnız hücrelerden oluşmadığını; yapısının da verinin anlamını ve geçerliliğini belirlediğini fark etmektir.
+:::
+
+---
+
+## Yapı ile içerik aynı şey değildir
+
+Bir tablonun **yapısı** şunları tanımlar:
+
+```text
+ogrenci_no
+ad
+telefon
+```
+
+Tablonun **içeriği** ise zaman içinde değişir:
+
+```text
+240101 | Ayşe Demir | 0532...
+240102 | Can Kaya   | 0533...
+```
+
+::: {.notes}
+Veritabanı sistemlerinde önemli ayrımlardan biri, yapının kendisi ile bu yapının içindeki mevcut veridir.
+
+Bir öğrenci tablosunun `ogrenci_no`, `ad` ve `telefon` sütunlarından oluşması tablonun yapısına ilişkin bir bilgidir. Bu yapı bugün de yarın da aynı kalabilir. Buna karşılık tabloya yeni öğrenciler eklenebilir, telefon numaraları değişebilir veya bazı kayıtlar silinebilir. Bunlar tablonun mevcut içeriğini değiştirir.
+
+Veritabanı terminolojisinde yapının tanımı çoğu zaman şema kavramıyla ilişkilendirilir. Bir veritabanı şeması hangi tabloların, sütunların, anahtarların ve kısıtların bulunduğunu tarif eder. Belirli bir anda bu yapılarda bulunan kayıtlar ise veritabanının o andaki durumunu oluşturur.
+
+Bu ayrım daha sonra DDL ve DML komutlarını anlamada temel olacaktır. `CREATE TABLE` gibi komutlar yapıyı tanımlarken, `INSERT` veya `UPDATE` gibi komutlar yapının içindeki veriyi değiştirir.
+:::
+
+---
+
+## İstemci–sunucu mimarisi
 
 ```text
 Kullanıcı
    ↓
-Uygulama / MySQL Workbench
+İstemci / Uygulama
    ↓
 MySQL Server (VTYS)
    ↓
@@ -158,278 +274,143 @@ Veritabanı
 Tablolar ve kayıtlar
 ```
 
-Vurgular:
+İstemci isteği gönderir; VTYS işlemi yürütür ve sonucu döndürür.
 
-- Kullanıcı doğrudan veri dosyasını düzenlemek zorunda değildir.
-- İstemci, VTYS'ye bir istek gönderir.
-- VTYS veritabanı üzerinde işlemi gerçekleştirir ve sonucu döndürür.
-- **MySQL Workbench bir istemci aracıdır; MySQL Server değildir.**
+::: {.notes}
+MySQL tipik olarak istemci–sunucu mimarisiyle çalışır. Kullanıcı veritabanı dosyasını doğrudan açıp değiştirmez. Bunun yerine bir istemci uygulaması üzerinden MySQL Server'a bağlanır.
 
-Bu hafta ayrıntılı Workbench arayüz eğitimi yapılmaz.
+İstemci bir SQL sorgusu gönderdiğinde MySQL Server bu isteği alır, gerekli denetimleri yapar, veritabanındaki ilgili tablolara erişir ve sonucu geri döndürür. Bu istemci MySQL Workbench olabilir; ancak aynı görev bir programlama dili içindeki veritabanı sürücüsü tarafından da gerçekleştirilebilir.
+
+Bu mimari, kullanıcı arayüzü ile veri yönetimi işlevlerini birbirinden ayırır. Bir web uygulamasının ekranı değişse bile veritabanı aynı sunucu üzerinde çalışmaya devam edebilir. Birden fazla uygulama aynı veritabanına kontrollü biçimde erişebilir.
+
+İleride web programlama veya masaüstü uygulama geliştirme derslerinde görülen “uygulama veritabanına bağlanıyor” ifadesi tam olarak bu mimariyi anlatır. Uygulama veritabanı dosyasını elle düzenlemez; VTYS'ye belirli işlemleri yaptırır.
+:::
 
 ---
 
-# Uygulama bölümü
-
-## 60–85 dk — Uygulama 1: “Bu tabloda ne sorun var?”
-
-Öğrencilere aşağıdaki örnek verilir:
+## MySQL ekosisteminde hangi parça ne yapar?
 
 ```text
-ogrenci        telefon       cihaz     cihaz_turu   alis_tarihi   teslim_tarihi
-Ayşe Demir     0532...       K-014     Kamera       2026-09-10   -
-Ayşe Demir     0532...       M-008     Mikrofon     2026-09-11   2026-09-13
-Ayşe D.        0532...       K-014     Kamera       2026-09-14   -
+MySQL Workbench
+      │
+      │ bağlantı
+      ▼
+MySQL Server
+      │
+      ├── okul_db
+      ├── kutuphane_db
+      └── ekipman_db
+```
+
+Bir sunucu birden fazla veritabanını yönetebilir.
+
+::: {.notes}
+MySQL Workbench'te bir bağlantı tanımlarken aslında bir veritabanına değil, bir MySQL Server örneğine bağlanırız. Sunucu üzerinde birden fazla veritabanı bulunabilir.
+
+Workbench'in sol tarafında görülen şema veya veritabanı listesi, istemci programının kendi içinde tuttuğu dosyalar değildir. Bunlar bağlandığımız MySQL Server tarafından yönetilen yapılardır. Workbench bu yapıları görüntüler ve sunucuya komut göndermemizi sağlar.
+
+Bu ayrım hata teşhisinde de önemlidir. Workbench açılıyor olabilir ama MySQL Server çalışmıyorsa bağlantı kurulamaz. Sunucu çalışıyor olabilir fakat yanlış kullanıcı, yanlış parola veya yanlış bağlantı noktası nedeniyle erişim başarısız olabilir. Sunucuya bağlanılmış olsa bile yanlış veritabanı seçilmişse sorgu beklenen tabloyu bulamayabilir.
+
+Bu nedenle ilerleyen laboratuvarlarda sorun giderme sırası önce sunucu ve bağlantıyı, ardından doğru şemayı, tabloyu ve sorguyu kontrol etmek üzerine kurulacaktır.
+:::
+
+---
+
+## Tek tabloda her şeyi tutarsak ne olur?
+
+```text
+ogrenci      telefon   cihaz   cihaz_turu   alis_tarihi   teslim_tarihi
+Ayşe Demir   0532...   K-014   Kamera       2026-09-10   -
+Ayşe Demir   0532...   M-008   Mikrofon     2026-09-11   2026-09-13
+Ayşe D.      0532...   K-014   Kamera       2026-09-14   -
 ```
 
 Sorular:
 
-1. Burada hangi gerçek dünya nesneleri var?
-2. Hangi bilgiler tekrar ediyor?
-3. `K-014` şu anda kimde?
-4. `Ayşe Demir` ile `Ayşe D.` aynı kişi mi?
-5. Bir cihaz türü yanlış yazılmışsa kaç kaydı düzeltmemiz gerekebilir?
-6. Aynı cihazın aynı anda iki kişide görünmesini ne engeller?
+- Aynı öğrenci kaç kez tekrar ediyor?
+- `Ayşe Demir` ile `Ayşe D.` aynı kişi mi?
+- `K-014` aynı anda iki kişide görünebilir mi?
+- Cihaz türü yanlış yazılırsa kaç kayıt etkilenir?
 
-**Beklenen sonuç:** Öğrenci henüz çözümü bilmeden veri tekrarı, kimlik belirsizliği ve tutarlılık sorunlarını fark eder.
+::: {.notes}
+Bu tablo ilk bakışta pratik görünebilir; çünkü bütün bilgiler tek yerde durmaktadır. Ancak birkaç kayıt eklendiğinde bile önemli sorunlar ortaya çıkar.
 
-**Bu aşamada yapılmaz:** tablo ayrıştırma, normal form adlandırma, PK/FK tasarımı.
+Öğrenci adı ve telefonu her ödünç alma işleminde tekrar edilmektedir. Öğrencinin telefonu değiştiğinde geçmiş satırların tamamını güncellemek gerekir. Bir satır atlanırsa aynı öğrenci için birden fazla telefon numarası oluşabilir. Benzer biçimde cihaz türü her işlem satırında tekrarlandığı için “Kamera” değerinin bir satırda yanlış yazılması sistemin kendi içinde çelişkili bilgi üretmesine neden olabilir.
 
----
+Daha temel bir sorun kimliktir. “Ayşe Demir” ile “Ayşe D.” aynı kişi midir? İsim tek başına güvenilir bir kimlik tanımlayıcısı değildir. Aynı ada sahip iki farklı kişi de bulunabilir. Bir kaydı diğerinden güvenilir biçimde ayırmak için daha güçlü bir mekanizmaya ihtiyaç vardır.
 
-## 85–110 dk — İlişkisel yapının temel görünen öğeleri
-
-### Tablo
-
-Aynı türden kayıtların belirli sütunlarla yapılandırıldığı veri yapısıdır.
-
-### Sütun
-
-Kayıtların hangi özelliklerinin tutulacağını tanımlar.
-
-### Satır / kayıt
-
-Belirli bir nesne veya olay için tutulan değerler bütünüdür.
-
-### Veri tipi
-
-Bir sütunda hangi tür değerlerin saklanabileceğini sınırlar: metin, sayı, tarih vb.
-
-Elektronik tablo benzetmesi kullanılabilir; ancak sınırı açıkça belirtilir:
-
-> İlişkisel tablo yalnız hücrelerden oluşmaz; veri tipi, anahtar, kısıt ve ilişkilerle daha güçlü yapısal kurallar taşıyabilir.
-
-### Şema fikri
-
-Bu hafta yalnız şu düzeyde:
-
-- yapı / tanım: hangi tablolar ve sütunlar var,
-- veri / örnek: bu yapılarda hangi kayıtlar bulunuyor.
-
-“Şema–instance” terminolojisi zorunlu değildir; ayrım sezdirilir.
+Bu soruların çözümleri birincil anahtar, yabancı anahtar, ilişkiler ve normalizasyon konularına götürür. Bu hafta bu kavramları çözüm olarak ayrıntılı biçimde kullanmıyoruz; yalnızca hangi veri problemlerine cevap verdiklerini görmeye başlıyoruz.
+:::
 
 ---
 
-## 110–130 dk — Uygulama 2: Gereksinimden veri nesnelerine
+## Hangi bilgi neye aittir?
 
-Kısa gereksinim:
+> Sistem öğrencinin adını ve okul numarasını; cihazın envanter numarasını ve türünü; cihazın ne zaman teslim alındığını ve geri getirildiğini saklamalıdır.
 
-> Sistem, öğrencinin adını ve okul numarasını; cihazın envanter numarasını ve türünü; cihazın ne zaman teslim alındığını ve ne zaman geri getirildiğini saklamalıdır.
+**Öğrenci**
 
-Öğrencilerden üç grup oluşturmaları istenir:
-
-```text
-ÖĞRENCİYE AİT
 - okul numarası
 - ad
 
-CİHAZA AİT
+**Cihaz**
+
 - envanter numarası
 - cihaz türü
 
-ÖDÜNÇ ALMA OLAYINA AİT
+**Ödünç alma olayı**
+
 - alış tarihi
 - teslim tarihi
-```
 
-Ardından şu soru sorulur:
+::: {.notes}
+Veritabanı tasarımının önemli zihinsel adımlarından biri, bir gereksinim cümlesindeki her bilginin hangi nesneye veya olaya ait olduğunu belirlemektir.
 
-> Neden “alış tarihi” öğrencinin veya cihazın kalıcı bir özelliği değildir?
+Öğrencinin adı ve okul numarası öğrencinin özellikleridir. Cihazın envanter numarası ve türü cihazın özellikleridir. Buna karşılık alış tarihi öğrencinin kalıcı bir özelliği değildir; çünkü aynı öğrenci farklı tarihlerde birçok cihaz alabilir. Alış tarihi cihazın da kalıcı bir özelliği değildir; aynı cihaz farklı zamanlarda farklı öğrencilere verilebilir. Bu bilgi belirli bir ödünç alma olayına aittir.
 
-**Amaç:** E-R modeline geçmeden önce “hangi bilgi neye aittir?” düşünme alışkanlığı oluşturmak.
+Bu ayrım, ikinci haftada ele alınacak E-R modelinin temel sezgisini oluşturur. E-R modelinde gerçek dünyadaki nesneleri, bu nesnelerin özelliklerini ve aralarındaki ilişkileri sistematik biçimde temsil edeceğiz.
 
----
-
-## 130–150 dk — İstemci–sunucu mini gösterimi
-
-Kurulum hazırsa MySQL Workbench yalnız mimariyi görünür kılmak için açılır.
-
-Gösterilecekler:
-
-1. Workbench'in bir **bağlantı** üzerinden MySQL Server'a eriştiği,
-2. sunucunun bağlantıdan ayrı bir bileşen olduğu,
-3. sunucuda birden fazla veritabanı / şema bulunabileceği,
-4. tabloların sunucu tarafındaki veritabanı yapısının parçaları olduğu.
-
-Menü, ikon veya ayrıntılı kullanım sırası öğretilmez.
-
-Kurulum hazır değilse aynı bölüm yalnız mimari diyagram üzerinden yürütülür; haftanın öğrenme hedefi etkilenmez.
+Burada amaç hemen tablo çizmek değil, gereksinimin içindeki farklı bilgi türlerini ayırabilmektir. İyi bir veritabanı tasarımının başlangıç noktası SQL komutu değil, problem alanını doğru anlamaktır.
+:::
 
 ---
 
-## 150–170 dk — Karşı örnekler ve kavram ayrımları
+## Bu hafta bilerek çözmediğimiz sorular
 
-Sınıfa kısa ifadeler verilir; doğru / yanlış ve gerekçe istenir.
+- Bir öğrenciyi benzersiz olarak nasıl tanımlarız?
+- Öğrenci ile ödünç işlemi arasındaki ilişki nasıl gösterilir?
+- Tekrar eden veriyi nasıl azaltırız?
+- Hangi alanların boş bırakılması yasak olmalıdır?
+- Bir cihazın var olmayan bir öğrenciye atanmasını nasıl engelleriz?
 
-### İfade 1
+Bu sorular sonraki haftaların konusudur.
 
-> MySQL Workbench bir veritabanıdır.
+::: {.notes}
+İlk haftanın amacı veritabanı tasarımının bütün araçlarını bir anda öğretmek değildir. Önce hangi problemlerin çözülmesi gerektiğini netleştirmek gerekir.
 
-**Yanlış.** Workbench istemci / yönetim aracıdır.
+Bir öğrenciyi benzersiz olarak ayırt etme problemi anahtar kavramına götürür. Öğrenci, cihaz ve ödünç alma arasındaki bağlantılar E-R modeli ve ilişkilerle açıklanacaktır. Tekrar ve güncelleme sorunları normalizasyon konusu içinde sistematik biçimde incelenecektir. `NOT NULL`, `UNIQUE`, `PRIMARY KEY` ve `FOREIGN KEY` gibi kısıtlar ise veritabanının geçersiz durumları nasıl engellediğini gösterecektir.
 
-### İfade 2
-
-> MySQL Server ile veritabanı aynı şeydir.
-
-**Yanlış.** Server bir VTYS'dir; bir veya daha fazla veritabanını yönetebilir.
-
-### İfade 3
-
-> Elektronik tablo kullanılıyorsa veritabanına hiçbir zaman ihtiyaç yoktur.
-
-**Yanlış.** Gereksinim çok kullanıcılı erişim, bütünlük, ilişkili veri ve güvenilir sorgulamaya doğru büyüyebilir.
-
-### İfade 4
-
-> Bir tabloda her satır aynı tür özelliklere göre yapılandırılır.
-
-**Temel düzeyde doğru.** Sütunlar kayıtların ortak yapısını tanımlar.
-
-### İfade 5
-
-> Aynı öğrenciyi iki satırda nasıl güvenilir biçimde ayırt edeceğimiz bugün çözülmesi gereken bir sorudur.
-
-**Problem doğrudur; çözüm bu hafta tamamlanmaz.** Bu soru ilerleyen haftalarda anahtar kavramına bağlanacaktır.
+Bu sıralama önemlidir. Anahtar veya normalizasyon kavramını yalnızca tanım olarak ezberlemek yerine, hangi somut veri problemini çözdüğünü bildiğimizde tasarım kararlarının gerekçesi daha açık hale gelir.
+:::
 
 ---
 
-## 170–180 dk — Çıkış kontrolü
-
-Öğrenci dört soruya kısa cevap verir:
+## Kendini kontrol et
 
 1. Veritabanı ile VTYS arasındaki fark nedir?
-2. Elektronik tablo hangi durumda yetersiz kalmaya başlayabilir? Bir örnek verin.
-3. İlişkisel bir tabloda sütun ve satır neyi temsil eder?
-4. MySQL Workbench ile MySQL Server arasındaki ilişki nedir?
+2. MySQL Workbench neden veritabanının kendisi değildir?
+3. Elektronik tablo hangi tür gereksinimlerde yetersiz kalabilir?
+4. Tablo, sütun ve satır hangi rolleri üstlenir?
+5. Veri tipi seçimi neden yalnızca biçimsel bir tercih değildir?
+6. İstemci–sunucu mimarisinde SQL komutunu kim yürütür?
+7. “Alış tarihi” neden öğrencinin kalıcı bir özelliği değildir?
 
-### Hızlı değerlendirme ölçütü
+::: {.notes}
+Bu sorulara yalnız kısa tanımlarla değil, gerekçeleriyle cevap verebilmek gerekir.
 
-- **Tam:** kavramları birbirinden ayırıyor ve nedenini açıklıyor.
-- **Kısmi:** temel tanımı biliyor fakat kavramları birbirine karıştırıyor.
-- **Eksik:** Workbench / Server / veritabanı veya tablo / dosya ayrımını kuramıyor.
+Örneğin “VTYS veritabanını yönetir” demek başlangıç için doğrudur; fakat daha güçlü cevap, VTYS'nin veritabanı yapısını oluşturduğunu, sorguları yürüttüğünü, veri bütünlüğünü ve erişimi yönettiğini açıklamalıdır.
 
----
+Benzer biçimde “Workbench istemcidir” ifadesi, Workbench'in MySQL Server'a bağlantı kurduğunu ve SQL komutlarını sunucuya gönderdiğini açıklayabildiğinizde anlam kazanır.
 
-# Tahtada / slaytta mutlaka görünmesi gerekenler
-
-## 1. Problem tablosu
-
-Kasıtlı olarak belirsizlik ve tekrar içeren küçük ödünç tablosu.
-
-## 2. Üçlü kavram ayrımı
-
-```text
-VERİTABANI
-Verinin düzenli olarak saklandığı yapı
-
-VTYS
-Bu yapıyı yöneten yazılım
-
-İLİŞKİSEL VERİTABANI
-Veriyi tablolar ve ilişkiler üzerinden düzenleyen yaklaşım
-```
-
-## 3. Mimari
-
-```text
-İstemci → MySQL Server → Veritabanı → Tablolar
-```
-
-## 4. Temel tablo anatomisi
-
-```text
-cihaz
----------------------------------
-envanter_no | cihaz_turu | durum
----------------------------------
-K-014       | Kamera      | ...
-M-008       | Mikrofon    | ...
-```
-
-Sütun, satır ve veri tipi bu görsel üzerinde gösterilir.
-
----
-
-# Sık karışabilecek noktalar
-
-## “Veritabanı = tablo”
-
-Hayır. Tablo veritabanı içindeki yapılardan biridir.
-
-## “VTYS = veritabanı”
-
-Hayır. VTYS veritabanını yöneten yazılımdır.
-
-## “Workbench = MySQL”
-
-Hayır. MySQL Server VTYS'dir; Workbench istemci / yönetim aracıdır.
-
-## “Excel kötüdür, veritabanı iyidir”
-
-Bu karşıtlık kurulmaz. Araç seçimi gereksinime bağlıdır. Veritabanı ihtiyacı; veri bütünlüğü, ilişkili veri, eşzamanlı erişim, güvenilir sorgulama ve yönetim gereksinimleri büyüdüğünde ortaya çıkar.
-
-## “Her şeyi ilk haftada ilişkilere ayıralım”
-
-Hayır. İlk hafta problemin görülmesi yeterlidir. E-R modeli H2'de, normalizasyon H3'te sistematik olarak ele alınacaktır.
-
----
-
-# Sonraki haftaya geçiş
-
-Ders şu açık soruyla kapatılır:
-
-> Öğrenci, cihaz ve ödünç alma olaylarının farklı türde bilgiler olduğunu fark ettik. Peki bir gereksinim metninden bu veri nesnelerini sistematik biçimde nasıl çıkarır ve aralarındaki ilişkileri nasıl gösteririz?
-
-Bu soru H2 — **Varlık-İlişki (E-R) Modeli** için doğrudan geçiştir.
-
----
-
-# Kapsam dışı / sonraya bırakılanlar
-
-- E-R sembolleri
-- kardinalite ve katılım
-- birincil anahtarın sistematik öğretimi
-- yabancı anahtar ve referans bütünlüğü
-- 1NF / 2NF / 3NF
-- DDL / DML sözdizimi
-- `SELECT` yazımı
-- ayrıntılı MySQL Workbench arayüz kullanımı
-
-Bu kavramlar yalnız öğrencinin fark ettiği problemlere isim vermek gerektiğinde kısa biçimde sezdirilebilir; çözüm olarak öğretilmez.
-
----
-
-# Kaynak dayanağı ve tasarım notu
-
-Bu hafta aşağıdaki proje kaynaklarıyla uyumlu tasarlanmıştır:
-
-- `blp1005.pdf`: H1 “Veritabanı Temel Kavramları ve Mimari”, ÖÇ1 ve 1+2 ders yapısı.
-- `02_DONEM_PLANI.md`: H1'in resmî kapsamı ve sonraki haftalarla sınırı.
-- `03_ANLATIM_VE_ICERIK_YAKLASIMI.md`: gereksinim → veri problemi → karar → doğrulanabilir sonuç yaklaşımı; veritabanı / VTYS / ilişkisel veritabanı ayrımı.
-- `05_KONU_HARITASI.md`: V1–V2 kavram alanları.
-- `06_UYGULAMA_VE_MYSQL_YAKLASIMI.md`: Workbench'in arayüz ezberi yerine istemci–sunucu ayrımını ve veri davranışını görünür kılmak için kullanılması.
-- `kitap_analizi.md`: problemi önce kurma, yetersiz yaklaşımı görünür kılma ve kavramı ihtiyaçtan doğurma pedagojik yaklaşımı. Kitaptaki kişi, kurum, şema, veri ve olay akışı kullanılmamış; özgün “kampüs ekipman ödünç sistemi” vakası oluşturulmuştur.
-
-## Nihai tasarım kararı
-
-H1'de **anahtarlar ve ilişkiler yalnız problem olarak sezdirilir; çözüm olarak öğretilmez.** Böylece ilk hafta ÖÇ1'e odaklanır, H2 ve H3'ün öğrenme gereksinimini önceden kurar ve ileriki konuları erkenden tüketmez.
+Haftanın sonunda hedef, SQL sözdizimi yazmak değildir. Hedef; veriyi saklama problemi ile veriyi yönetme problemini ayırabilmek, veritabanı–VTYS–istemci kavramlarını doğru yere oturtmak ve ilişkisel yapının temel bileşenlerini tanıyabilmektir.
+:::
