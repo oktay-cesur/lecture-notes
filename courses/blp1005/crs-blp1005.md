@@ -2,7 +2,7 @@
 title: "BLP 1005 Veritabanı Yönetim Sistemleri"
 subtitle: "Ders Notları"
 type: syllabus
-description: BLP 1005 Veritabanı Yönetim Sistemleri dersi için resmî izlenceyi temel alan ders sunumları, çalışma notları ve MySQL uygulamaları.
+description: BLP 1005 Veritabanı Yönetim Sistemleri dersi için veritabanı tasarımı, MySQL ve SQL konularını bir araya getiren ders notları ve uygulamalar.
 tags:
   - output
 sidebar: blp1005
@@ -10,48 +10,57 @@ sidebar: blp1005
 
 ## Dersin Amacı
 
-Bu dersin amacı; öğrencilerin ilişkisel veritabanı kavramlarını ve tasarım ilkelerini kavramalarını, bir problem alanındaki veri gereksinimlerini modele dönüştürmelerini ve MySQL kullanarak veritabanı oluşturma, sorgulama ve yönetme becerisi kazanmalarını sağlamaktır.
+Veritabanları, bir uygulamanın kullandığı veriyi yalnızca saklamak için değil; veriyi **tutarlı, sorgulanabilir, ilişkilendirilebilir ve güvenli biçimde yönetmek** için kullanılır. Bu ders boyunca gerçek bir veri probleminden başlayarak hangi bilgilerin saklanması gerektiğini, bu bilgilerin nasıl modellenebileceğini ve ortaya çıkan yapının MySQL üzerinde nasıl kurulup sorgulanacağını inceleyeceğiz.
 
-Ders haftada **1 saat teori + 2 saat uygulama** biçimindedir. Uygulama ortamı **MySQL Server** ve **MySQL Workbench**'tir. Workbench, menü ve arayüz ezberi için değil; şema, veri, sorgu sonucu ve hata davranışını görünür kılmak için kullanılır.
+Derse veritabanı, veritabanı yönetim sistemi ve ilişkisel modelin temel kavramlarıyla başlayacağız. Ardından metinsel gereksinimleri Varlık–İlişki (E-R) modeline dönüştürecek, anahtarları ve ilişkileri kuracak ve normalizasyonla veri tekrarının neden olduğu sorunları gidereceğiz. İkinci bölümde bu tasarımı MySQL üzerinde fiziksel bir veritabanına dönüştürerek DDL ve DML komutlarını, temel sorgulamayı, gruplamayı, çoklu tablo sorgularını, alt sorguları ve görünümleri kullanacağız. Dönemin sonunda tasarım, sorgulama ve temel güvenlik konularını tek bir veritabanı problemi üzerinde birlikte değerlendireceğiz.
 
-## Öğrenme Çıktıları
+Ders haftada **1 saat teori + 2 saat uygulama** biçimindedir. Uygulamalarda **MySQL Server** ve **MySQL Workbench** kullanılacaktır. Workbench, veritabanı yapısını ve SQL sonuçlarını gözlemlemek için kullandığımız istemci aracıdır; asıl odak veri modeli, SQL ve sonuçların doğrulanmasıdır.
 
-Bu dersi başarıyla tamamlayan öğrenciler:
+## Notları Nasıl Takip Etmelisiniz?
 
-1. İlişkisel veritabanı sistemlerinin temel kavramlarını ve çalışma mimarisini açıklar.
-2. Verilen bir problem senaryosuna uygun Varlık-İlişki (E-R) veri modelini tasarlar.
-3. Normalizasyon kurallarını uygulayarak veri tekrarı ve tutarsızlıkları azaltır.
-4. SQL Veri Tanımlama Dili (DDL) komutlarını kullanarak MySQL üzerinde tablolar oluşturur.
-5. MySQL Workbench ortamında SQL Veri İşleme Dili (DML) komutlarıyla kayıt ekleme, silme ve güncelleme işlemleri gerçekleştirir.
-6. Çoklu tabloları birleştiren ve veriyi gruplayan SQL sorgularını yazarak veri setlerini analiz eder.
+1. **Önce problemi anlayın.** Bir tabloya veya SQL komutuna geçmeden önce hangi verinin neden tutulduğunu ve hangi soruya cevap vermesi gerektiğini belirleyin.
+2. **Modeli sorgudan önce okuyun.** Bir sorgunun doğru olması, kullandığı tabloların ve ilişkilerin doğru kurulmasına bağlıdır. Tablo adlarını ezberlemek yerine verinin neden o yapıda tutulduğunu takip edin.
+3. **SQL'i çalıştırmadan önce sonucu tahmin edin.** Hangi satırların seçileceğini, hangi kayıtların değişeceğini veya hangi kısıtın devreye gireceğini önceden düşünün.
+4. **Sonucu doğrulayın.** Sorgu çalıştı diye doğru kabul etmeyin. Küçük ve bilinen bir veri kümesi üzerinde sonucun gereksinimi karşılayıp karşılamadığını kontrol edin.
+5. **Hata mesajlarını kullanın.** Sözdizimi, veri tipi ve kısıt hataları yalnız düzeltilmesi gereken sorunlar değil, veritabanının hangi kuralı uyguladığını gösteren geri bildirimlerdir.
+6. **Konu bağlantılarını takip edin.** Anahtarlar, normalizasyon, JOIN ve bütünlük kısıtları birbirinden bağımsız başlıklar değildir. Bir kavramın önceki modelleme kararlarıyla ilişkisini kurmaya çalışın.
 
-## Ders Notlarının Yapısı
+::: {.callout-tip}
+## Önerilen Çalışma Döngüsü
 
-Her haftanın konu dosyası iki katmanlı hazırlanır:
+Problemi oku → gerekli veriyi ve iş kurallarını çıkar → modeli incele veya kur → SQL'i yazmadan önce sonucu tahmin et → sorguyu çalıştır → sonucu doğrula → hata veya sınır durumunu incele.
 
-- **Sunum katmanı:** Derste ekranda görülecek ana fikir, kısa örnek, diyagram, tablo veya SQL parçasını taşır.
-- **Çalışma notu katmanı:** Slaytlardaki `.notes` bölümlerinde yer alır. Bu bölümler sunum yaparken okunacak konuşmacı yönergeleri değildir; öğrencinin ders sonrasında konuyu kendi başına çalışabilmesi için ders kitabı düzeyinde açıklama, gerekçe, örnek, kavramsal ayrım ve sınır durumlarını içerir.
+Veritabanı çalışmalarında doğru sözdizimi kadar, **neden bu tabloya, bu ilişkiye veya bu sorguya ihtiyaç duyulduğunu** açıklayabilmek önemlidir.
+:::
 
-Bu nedenle haftalık dosyalar ders planı veya öğretim elemanına yönelik anlatım senaryosu değildir. Her dosya doğrudan **ders sunumu + öğrencinin çalışma metni** olarak kullanılmalıdır.
+::: {.callout-note}
+## Temel Kaynaklar
 
-SQL içeren haftalarda çalıştırılabilir örnek, beklenen sonuç, doğrulama ve hata teşhisi aynı konu dosyasında veya ona bağlı uygulama materyalinde görünür tutulur.
+- MySQL Reference Manual
+- Ders kapsamında hazırlanan konu anlatımları ve MySQL uygulamaları
+- W3Schools SQL / MySQL
+- SQLBolt
+- BTK Akademi — Uygulamalarla SQL
+:::
 
 ## Haftalık Plan
 
-| Hafta | Konu Notu / Kapsam |
-|:---:|---|
-| 1 | [[tp_veritabani-temel-kavramlari-ve-mimari\|Veritabanı Temel Kavramları ve Mimari]] — veri ve bilgi, dosya yaklaşımının sınırları, veritabanı / VTYS / ilişkisel veritabanı ayrımı, tablo–satır–sütun kavramları ve istemci–sunucu mimarisine giriş. |
-| 2 | **Varlık-İlişki (E-R) Modeli** — gereksinimlerden varlık, nitelik, ilişki, kardinalite ve katılım çıkarma. |
-| 3 | **Normalizasyon (1NF, 2NF, 3NF)** — veri tekrarı, fonksiyonel bağımlılıklar ve ekleme / güncelleme / silme anomalileri üzerinden normalizasyon. |
-| 4 | **MySQL Workbench Kurulumu ve Çalışma Ortamı** — MySQL Server / Workbench ayrımı, bağlantı, şema ve tablo inceleme, SQL betiği çalıştırma ve hata mesajlarını okuma. |
-| 5 | **DDL: Tablo Oluşturma** — `CREATE DATABASE`, `CREATE TABLE`, temel MySQL veri tipleri ve kısıtlar. |
-| 6 | **Anahtarlar ve İlişkiler / Ara Sınav Haftası** — birincil ve yabancı anahtarlar, referans bütünlüğü ve ilişkisel şemaya dönüşüm. |
-| 7 | **DML: INSERT, UPDATE, DELETE** — kayıt ekleme, güvenli güncelleme ve silme; etkilenen satırların doğrulanması. |
-| 8 | **Temel Veri Sorgulama** — `SELECT`, `WHERE`, temel filtreleme ve sıralama. |
-| 9 | **SQL Fonksiyonları ve Gruplama** — toplama fonksiyonları, `GROUP BY`, `HAVING` ve özet bilgi üretme. |
-| 10 | **Çoklu Tablo Sorguları (JOIN)** — model ilişkilerinin `INNER JOIN` ve `LEFT JOIN` sorgularına dönüştürülmesi. |
-| 11 | **Alt Sorgular ve Görünümler** — alt sorgular, `IN` / `EXISTS` ayrımları ve `CREATE VIEW`. |
-| 12 | **Veritabanı Güvenliği ve Proje Sunumları** — kimlik doğrulama / yetkilendirme, en az ayrıcalık, SQL injection farkındalığı, veri minimizasyonu ve proje bütünleştirmesi. |
+Haftalık plan dersin resmî izlencesindeki 12 haftalık kapsamı temel alır. Konu notları ise kavramsal bütünlüğe göre hazırlanır; bir konu gerektiğinde birden fazla haftada yeniden kullanılabilir veya aynı hafta birden fazla konu notuyla işlenebilir.
+
+| Hafta | Notlar | Açıklama |
+|:---:|---|---|
+| 1 | [[notes/tp_veritabani-temel-kavramlari-ve-mimari\|Veritabanı Temel Kavramları ve Mimari]] | Veri ve bilgi, dosya yaklaşımının sınırları, veritabanı–VTYS–istemci ayrımı, ilişkisel yaklaşım ve istemci–sunucu mimarisine giriş. |
+| 2 | **Varlık–İlişki (E-R) Modeli** | Gereksinimlerden varlık, nitelik ve ilişki çıkarma; kardinalite ve katılım kurallarını model üzerinde gösterme. |
+| 3 | **Normalizasyon** | Veri tekrarı, fonksiyonel bağımlılıklar, ekleme–güncelleme–silme anomalileri ve 1NF–2NF–3NF. |
+| 4 | **MySQL Çalışma Ortamı** | MySQL Server ve Workbench ayrımı, bağlantı, şema ve tablo inceleme, SQL betiği çalıştırma ve hata mesajlarını okuma. |
+| 5 | **DDL, Veri Tipleri ve Kısıtlar** | `CREATE DATABASE`, `CREATE TABLE`, temel MySQL veri tipleri, `NOT NULL`, `UNIQUE`, `DEFAULT` ve diğer temel kısıtlar. |
+| 6 | **Anahtarlar ve İlişkiler** | Aday ve birincil anahtar, yabancı anahtar, referans bütünlüğü ve ilişkisel şemaya dönüşüm. |
+| 7 | **Veri Ekleme ve Değiştirme** | `INSERT`, `UPDATE`, `DELETE`; hedef satırları kontrol etme ve veri değişikliklerini doğrulama. |
+| 8 | **Tek Tablo Üzerinde Sorgulama** | `SELECT`, `WHERE`, karşılaştırma ve mantıksal koşullar, `LIKE`, `IN`, `BETWEEN`, `IS NULL`, `ORDER BY` ve `LIMIT`. |
+| 9 | **Fonksiyonlar ve Gruplama** | `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`, `GROUP BY`, `HAVING` ve özet bilgi üretme. |
+| 10 | **Çoklu Tablo Sorguları** | İlişkilerin sorguya dönüşmesi; `INNER JOIN`, `LEFT JOIN`, birden fazla tabloyu birleştirme ve yanlış JOIN koşullarını teşhis etme. |
+| 11 | **Alt Sorgular ve Görünümler** | Tek değer ve çok satır döndüren alt sorgular, `IN` / `EXISTS` kullanımı ve `CREATE VIEW`. |
+| 12 | **Temel Veritabanı Güvenliği ve Bütünleştirme** | Kimlik doğrulama ve yetkilendirme, en az ayrıcalık, SQL injection farkındalığı, veri minimizasyonu ve dönem boyunca kurulan yapının birlikte değerlendirilmesi. |
 
 ## Değerlendirme
 
@@ -59,11 +68,4 @@ SQL içeren haftalarda çalıştırılabilir örnek, beklenen sonuç, doğrulama
 - Proje: **%30**
 - Yarıyıl sonu sınavı: **%40**
 
-Değerlendirmede arayüz kullanımı değil; modelleme, şema kurma, SQL yazma, sorgu sonucunu yorumlama, hata teşhisi ve tasarım kararlarını gerekçelendirme becerileri ölçülür.
-
-## Temel Kaynaklar
-
-- BLP 1005 resmî ders izlencesi.
-- MySQL Reference Manual.
-- Ders kapsamında geliştirilen özgün problem senaryoları, laboratuvar betikleri ve doğrulama örnekleri.
-- Ek çalışma için W3Schools SQL / MySQL, SQLBolt ve BTK Akademi SQL materyalleri.
+Değerlendirmelerde yalnız SQL sözdizimi değil; veri modelini okuyabilme, doğru yapıyı seçebilme, sorgu sonucunu yorumlama, hatayı teşhis etme ve yapılan tercihi gerekçelendirme becerisi de önemlidir.
