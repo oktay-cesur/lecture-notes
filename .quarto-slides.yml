@@ -4,6 +4,7 @@ project:
 format:
   revealjs:
     theme: dracula
+    css: slides.css
     slide-number: true
     transition: fade
     incremental: false
