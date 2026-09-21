@@ -142,8 +142,10 @@ website:
         - courses/blp1003/crs-blp1003.md
         - section: "Dönemin İlk Yarısı"
           contents:
-            - courses/blp1003/notes/tp_bilgisayar-aglarina-giris-ve-veri-iletimi.md
-            - courses/blp1003/notes/tp_ag-turleri-topolojiler-ve-ortamlar.md
+            - courses/blp1003/notes/tp_protokol-ve-veri-iletisiminin-temel-yapisi.md
+            - courses/blp1003/notes/tp_bilgisayar-aglarinin-ortaya-cikisi-ve-temel-amaclari.md
+            - courses/blp1003/notes/tp_veri-bit-sinyal-ve-temel-iletim-bicimleri.md
+            - courses/blp1003/notes/tp_ag-topolojileri-fiziksel-ve-mantiksal-yapi.md
             - courses/blp1003/notes/tp_ag-cihazlari-ethernet-ve-mac.md
             - courses/blp1003/notes/tp_katmanli-mimari-ve-osi-modeli.md
             - courses/blp1003/notes/tp_tcpip-kumesi-ve-temel-protokoller.md
