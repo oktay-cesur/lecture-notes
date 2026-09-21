@@ -23,6 +23,8 @@ courses/_ortak/tez/
 **/_draft/
 **/_private/
 **/_backup/
+**/draft/
+draft/
 
 # İşletim sistemi ve geçici dosyalar
 .DS_Store
@@ -35,3 +37,4 @@ texput.log
 
 /.quarto/
 **/*.quarto_ipynb
+.obsidian/
