@@ -711,16 +711,16 @@ Kaynak notu, dersin standartlarını ve dayanaklarını şeffaf biçimde belgele
 ## Sık Yapılan Hatalar: DDL ve Tablo Tasarımı Yanılgıları (1/2)
 
 ### 1. `AUTO_INCREMENT` Mekanizmasını Birincil Anahtar ile Özdeşleştirmek
-- **Kavram Yanılgısı**: Birincil anahtarın mutlaka otomatik artan bir sayaç olmak zorunda olduğunu düşünmek.
-- **Teknik Mekanizma**: `AUTO_INCREMENT` yalnızca satır eklendikçe sıralı tamsayı üreten bir sayaçtır. Birincil anahtar ise tekillik ve `NOT NULL` mantıksal kuralıdır. Otomatik sayacı olmayan metinsel kodlar (`demirbas_numarasi VARCHAR(20)`) da güvenilir birincil anahtarlardır.
+- **Yanılgı**: PK'nın mutlaka otomatik artan bir sayaç olması gerektiğini düşünmek.
+- **Doğrusu**: PK'yı belirleyen tekillik ve `NOT NULL`'dır; metinsel kodlar da (`VARCHAR`) geçerli PK'dır.
 
 ### 2. Sayısal Karakterler İçeren Her Alana `INT` Atamak
-- **Kavram Yanılgısı**: Rakamlardan oluşan her veriyi matematiksel bir büyüklük zannetmek.
-- **Teknik Mekanizma**: Üzerinde toplama, çıkarma veya ortalama alma gibi aritmetik işlemler yapılmayacak olan telefon, TC kimlik veya demirbaş kodları `VARCHAR` tanımlanmalıdır. `INT` verilmesi baştaki sıfırları (`0042` -> `42`) siler ve harfli kodlara (`KTP-101`) geçişi engeller.
+- **Yanılgı**: Rakamlardan oluşan her veriyi matematiksel büyüklük zannetmek.
+- **Doğrusu**: Aritmetik yapılmayacak kod/kimlik alanları `VARCHAR`dır; `INT` baştaki sıfırları siler.
 
 ### 3. `NULL` Değerini Sıfır veya Boş Metin ile Aynı Görmek
-- **Kavram Yanılgısı**: `NULL`'ı sayısal sıfır (`0`) ya da boşluk (`''`) saymak.
-- **Teknik Mekanizma**: Sıfır sayı doğrusunda kesin bir değerdir; boş metin bilinen bir dizgidir. `NULL` ise değerin henüz girilmediği veya bilinmediği tanımsızlık durumudur. İade edilmemiş bir kitabın `iade_tarihi` alanında `NULL` bulunması "tarih henüz yok / kitap teslim edilmedi" demektir.
+- **Yanılgı**: `NULL`'ı sayısal sıfır (`0`) ya da boş metin (`''`) sanmak.
+- **Doğrusu**: `NULL` "henüz bilinmiyor" demektir; sıfır ve boş metin ise tanımlı değerlerdir.
 
 ::: {.notes}
 Bu slaytta DDL konularında öğrencilerin en çok aldandığı ilk üç hatayı özetliyoruz. İlki, sayacı anahtar sanmaktır. Sayaç sadece numara basar; anahtarı anahtar yapan şey satırı tekil kılmasıdır. İkincisi, rakam gördüğü her yere `INT` yapıştırmaktır. Telefon numarasına `INT` verirseniz baştaki sıfır uçar gider. Üçüncüsü ise `NULL`'ı sıfır sanmaktır. Bir öğrencinin sınav notunun 0 olması ile sınav notunun `NULL` olması tamamen farklıdır; sıfır sınava girip başarısız olduğunu gösterir, `NULL` ise sınava henüz girmediğini veya notun henüz okunmadığını gösterir. Şimdi diğer üç yaygın hataya bakalım.
@@ -731,16 +731,16 @@ Bu slaytta DDL konularında öğrencilerin en çok aldandığı ilk üç hatayı
 ## Sık Yapılan Hatalar: DDL ve Tablo Tasarımı Yanılgıları (2/2)
 
 ### 4. `UNIQUE` Kısıtının Birincil Anahtar Yerine Geçeceğini Varsaymak
-- **Kavram Yanılgısı**: Bir sütun tekil (`UNIQUE`) tanımlandığında ayrıca birincil anahtar belirlemeye gerek olmadığını düşünmek.
-- **Teknik Mekanizma**: Bir tabloda yalnızca tek bir `PRIMARY KEY` olabilir ve kesinlikle `NULL` kabul etmez. Buna karşılık tabloda birden çok `UNIQUE` sütun yer alabilir ve `UNIQUE` alanlar `NULL` kabul edebilir. Bu ayrım tablonun asıl kimlik omurgasını korur.
+- **Yanılgı**: Sütun `UNIQUE` ise ayrıca PK belirlemeye gerek olmadığını düşünmek.
+- **Doğrusu**: Tabloda tek bir `PRIMARY KEY` olur ve asla `NULL` almaz; `UNIQUE` alanlar birden çok olabilir ve `NULL` kabul edebilir.
 
 ### 5. Bağımlı Tabloyu Referans Verdiği Tablodan Önce Oluşturmaya Çalışmak
-- **Kavram Yanılgısı**: Tablo oluşturma komutlarının rastgele sırayla çalıştırılabileceğini varsaymak.
-- **Teknik Mekanizma**: `FOREIGN KEY` kısıtı, hedef tablonun ve sütunun katalogda önceden tanımlı olmasını şart koşar. Henüz `uye` tablosu yokken `odunc` tablosu çalıştırılırsa sunucu nesneyi bulamaz ve `ERROR 1824` üretir. Tablolar daima ana tablolardan bağımlı tablolara doğru kurulmalıdır.
+- **Yanılgı**: Tablo oluşturma sırasının rastgele olabileceğini varsaymak.
+- **Doğrusu**: `FOREIGN KEY`, hedef tablonun önceden var olmasını şart koşar; önce ana, sonra bağımlı tablo kurulur.
 
 ### 6. Tablo Yapısını Değiştirmek İçin Tabloyu Silip Baştan Oluşturmak
-- **Kavram Yanılgısı**: Yeni bir sütun eklemek için `DROP TABLE` yoluna gitmek.
-- **Teknik Mekanizma**: Canlı bir veritabanında `DROP TABLE` komutu, o güne kadar kaydedilmiş tüm verileri geri dönüşsüz biçimde yok eder. Şema genişletmeleri daima veriyi koruyan `ALTER TABLE` komutlarıyla yürütülmelidir.
+- **Yanılgı**: Yeni sütun eklemek için `DROP TABLE` yoluna gitmek.
+- **Doğrusu**: `DROP TABLE` tüm veriyi geri dönüşsüz siler; genişletme `ALTER TABLE` ile yapılır.
 
 ::: {.notes}
 Dördüncü hata, `UNIQUE` ile `PRIMARY KEY`'i birbiri yerine ikame etmeye çalışmaktır. Birincil anahtar tablonun yegane kimliğidir; diğer tekil alanlar ise ek denetimlerdir. Beşinci hata, tablo çalıştırma sırasını gözetmemektir. Yabancı anahtar hedef tablonun varlığını zorunlu kılar; önce ana tabloları, sonra bağımlı tabloları oluşturmalıyız. Son hata ise en tehlikelisidir: Sütun eklemek için tabloyu silmek. Çalışan hiçbir sistemde `DROP TABLE` ile sütun eklenmez; daima veriyi koruyan `ALTER TABLE` komutu kullanılır. Bu altı kuralı zihnimizde tuttuğumuzda, sağlam ve hatasız bir fiziksel şema inşa etmiş oluruz.

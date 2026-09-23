@@ -444,12 +444,12 @@ Her başarılı teknik işlemin ardından eğitmen profilimizin temel refleksi o
 ## Sık Yapılan Hatalar: Arayüz ve Sunucu Yanılgıları
 
 ### 1. MySQL Workbench'i Açmayı Sunucuyu Başlatmakla Eşit Görmek
-- **Kavram Yanılgısı**: Ekranda Workbench penceresi açıldığında veritabanı sunucusunun da otomatikman hazır olduğunu varsaymak.
-- **Teknik Mekanizma**: Workbench yalnızca istemci arayüzüdür. Bilgisayarda çalışan bağımsız bir MySQL sunucu servisi bulunmadığı sürece arayüzün açık olması veritabanı işlemlerini yürütmeye yetmez; komutların işlenebilmesi için arka plandaki servis sürecinin aktif olması şarttır.
+- **Yanılgı**: Workbench penceresi açılınca sunucunun da hazır olduğunu sanmak.
+- **Doğrusu**: Workbench sadece istemcidir; arka planda MySQL servisi ayrıca çalışıyor olmalıdır.
 
 ### 2. Sorgu Sonucunun Dönmemesini Tablonun Silindiği Şeklinde Yorumlamak
-- **Kavram Yanılgısı**: Çalıştırılan bir komut başarısız olduğunda sonuç ızgarasında veri göremeyince tabloların veya verilerin silindiğini düşünmek.
-- **Teknik Mekanizma**: Çalıştırılan komut sunucu tarafında bir hataya takıldığında sonuç ızgarasında yeni bir tablo oluşturulmaz. Bu durum verilerin silindiğini göstermez; işlemin yürütülemediğini gösterir. Doğru bilgiye ulaşmak için sonuç ızgarasına değil, çıktı alanındaki hata iletisine bakılmalıdır.
+- **Yanılgı**: Sonuç ızgarası boş gelince verinin silindiğini sanmak.
+- **Doğrusu**: Boş ızgara sadece işlemin başarısız olduğunu gösterir; teşhis çıktı alanındaki hata mesajından yapılır.
 
 ::: {.notes}
 Buradaki iki hata arayüz ile sunucu arasındaki zihinsel modelin oturmaması durumunda ortaya çıkar. Tekrar vurgulayalım: Workbench bir araba gösterge paneli gibidir; panelin ışıklarının yanması arabanın motorunun çalıştığı anlamına gelmez. Motor arka plandaki MySQL servisidir. İkinci yanılgı da aynı kökten beslenir: Göstergede hız sıfır görünüyorsa araba yok olmuş demek değildir; motor stop etmiş olabilir. Sonuç ızgarasında satır göremeyen öğrencinin paniğe kapılmak yerine alttaki bildirim alanını okuması bu dersin en kritik davranış kazanımlarından biridir.
@@ -460,12 +460,12 @@ Buradaki iki hata arayüz ile sunucu arasındaki zihinsel modelin oturmaması du
 ## Sık Yapılan Hatalar: Nesne ve Saklama Yanılgıları
 
 ### 3. Nesne Adı Hatasını SQL Sözdizimi Kuralı Hatasıyla Karıştırmak
-- **Kavram Yanılgısı**: Sunucu `Table doesn't exist` iletisi verdiğinde komutun SQL yazım kurallarını (`SELECT`, `FROM` sözdizimini) değiştirmeye çalışmak.
-- **Teknik Mekanizma**: `SELECT` veya `FROM` sözdizimi tümüyle standartlara uygun olabilir. Ancak aranan tablo seçili şemada yer almıyorsa ya da adı yanlış yazılmışsa (`atolye_kayit` yerine `ogrenci_kayit`) sorun SQL gramerinde değil, katalogdaki nesne adlandırmasındadır.
+- **Yanılgı**: `Table doesn't exist` görünce `SELECT`/`FROM` sözdizimini değiştirmeye çalışmak.
+- **Doğrusu**: Sözdizimi doğru olabilir; sorun genelde yanlış yazılmış veya şemada olmayan tablo adıdır.
 
 ### 4. SQL Editöründe Görünen Komutların Veritabanında Saklandığını Sanmak
-- **Kavram Yanılgısı**: Editör ekranında açık duran SQL metinlerinin veritabanı motoru tarafından otomatik olarak veritabanı içine kaydedildiğini düşünmek.
-- **Teknik Mekanizma**: Veritabanı sunucusu kendisine iletilen tabloları ve verileri depolar; ancak istemci ekranında açık duran SQL metinlerini kendi bünyesinde saklamaz. Betik dosyası yerel olarak diske kaydedilmediğinde pencere kapatıldığı anda yazılmış olan komut geçmişi bütünüyle kaybolur.
+- **Yanılgı**: Editördeki SQL metninin veritabanına otomatik kaydedildiğini sanmak.
+- **Doğrusu**: Sunucu sadece tabloyu/veriyi saklar; betik diske kaydedilmezse pencere kapanınca kaybolur.
 
 ::: {.notes}
 Nesne adı hatasını sözdizimiyle karıştırmak çok yaygın bir vakit kaybı nedenidir. Öğrenci "Table doesn't exist" uyarısını gördüğünde "Acaba SELECT'i büyük harfle mi yazsaydım, tırnak işareti mi koysaydım?" gibi gereksiz arayışlara girer. Oysa sunucu açıkça söylemektedir: Sözdizimini anladım, ancak bana sorduğun isimde bir tablo bu şemada yok. Dördüncü hata ise veri ile kodun saklama yerini ayırmaktır. Veriler sunucunun diskinde saklanır; SQL betiklerimiz ise kendi geliştirme klasörümüzde dosya olarak saklanmalıdır. Bu iki depolama alanı birbirinden tamamen bağımsızdır.

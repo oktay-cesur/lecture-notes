@@ -482,16 +482,16 @@ Doğrulama adımını canlı olarak izledik. Kayıt tablosundaki 101 numaralı A
 ## Sık Yapılan Hatalar: Anahtar ve Bağımlılık Yanılgıları
 
 ### 1. Yapay Tekil Anahtarın Normalizasyonu Çözdüğünü Sanmak
-- **Yanılgı**: Tablonun başına `id` veya `kayit_no` sütunu ekleyince tablonun normalize olduğunu düşünmek.
-- **Mekanizma**: Yapay anahtar fonksiyonel bağımlılıkları değiştirmez. `ders_adi` hâlâ `ders_kodu`'na bağımlı kalır; aynı dersi alan yüz öğrenci varsa ders adı yüz kez yazılır ve güncelleme anomalisi sürer.
+- **Yanılgı**: `id` sütunu ekleyince tablonun normalize olduğunu sanmak.
+- **Doğrusu**: Yapay anahtar fonksiyonel bağımlılıkları değiştirmez; `ders_adi` yine `ders_kodu`'na bağımlı kalır, tekrar sürer.
 
 ### 2. Tek Sütunlu Birincil Anahtarda Kısmi Bağımlılık Aramak
-- **Yanılgı**: Tek sütunlu anahtara sahip tablolarda 2NF ihlali arayarak vakit kaybetmek.
-- **Mekanizma**: 2NF anahtarın bir parçasına bağımlılığı yasaklar. Tek sütunun "parçası" olamaz. Birincil anahtarı tek sütunlu olan ve 1NF koşulunu sağlayan her tablo doğrudan 2NF'dir. Kısmi bağımlılık denetimi yalnızca bileşik anahtarlarda yapılır.
+- **Yanılgı**: Tek sütunlu anahtarlı tablolarda 2NF ihlali aramaya çalışmak.
+- **Doğrusu**: Tek sütun "parça" olamaz; 1NF sağlayan tek-sütunlu-PK tablo zaten doğrudan 2NF'dir.
 
 ### 3. Bağımlılığı İş Kuralı Yerine Anlık Verilerden Çıkarmak
-- **Yanılgı**: Örnek tablodaki birkaç satıra bakıp "burada telefonlar benzersiz, demek ki telefon adı belirler" demek.
-- **Mekanizma**: Anlık veride tesadüfen tekrar bulunmaması kuramsal bağımlılık kanıtı değildir. Yarın aynı doğum tarihine sahip yeni bir kayıt geldiğinde bu varsayım çöker. Bağımlılık daima iş kuralından çıkarılır.
+- **Yanılgı**: Örnek satırlara bakıp "burada tekrar yok, demek ki belirler" demek.
+- **Doğrusu**: Anlık verideki rastlantısal tekillik kanıt değildir; bağımlılık daima iş kuralından çıkarılır.
 
 ::: {.notes}
 Öğrencilerin ve yeni başlayan tasarımcıların en sık düştüğü üç kavram yanılgısını inceleyelim. Birincisi, yapay id ekleyince normalizasyon bitti sanmaktır. Tekrar vurgulayalım: id eklemek satır kimliği kurar ama bağımlılıkları ortadan kaldırmaz. İkinci hata, tek sütunlu anahtarlarda 2NF ihlali aramaktır. Tek bir sütundan oluşan anahtar bölünemeyeceği için kısmi bağımlılık barındıramaz; dolayısıyla doğrudan 2NF düzeyindedir. Üçüncü hata ise bağımlılığı ekrandaki üç satır veriye bakarak tahmin etmektir. Veri anlıktır ve değişkendir; bağımlılık ise kurumun çalışma tüzüğünden ve değişmez kurallarından gelir.
@@ -502,12 +502,12 @@ Doğrulama adımını canlı olarak izledik. Kayıt tablosundaki 101 numaralı A
 ## Sık Yapılan Hatalar: Ayrıştırma ve İlişki Yanılgıları
 
 ### 4. Normalizasyonu Yalnızca Tablo Bölmek Sanıp Yabancı Anahtarı Unutmak
-- **Yanılgı**: Tabloyu bölüp yeni bir tablo açarken, iki tablo arasındaki ilişki köprüsünü kurmamak.
-- **Mekanizma**: Öğretim üyesi bilgileri ayrı tabloya taşındığında `ders` tablosuna `ogretim_uyesi_no` sütunu konulmazsa, hangi dersi hangi hocanın verdiği bilgisi geri getirilemez biçimde kaybolur. Ayrıştırma, anahtar bağı kırılarak değil, yabancı anahtar (FK) köprüsü kurularak yapılır.
+- **Yanılgı**: Tabloyu bölerken aradaki ilişki köprüsünü kurmayı atlamak.
+- **Doğrusu**: FK sütunu konulmazsa bağ kalıcı olarak kaybolur; ayrıştırma FK köprüsüyle yapılır.
 
 ### 5. Geçişli Bağımlılığı Yabancı Anahtar İlişkisiyle Karıştırmak
-- **Yanılgı**: Bir tabloda yabancı anahtar bulunmasını geçişli bağımlılık ihlali zannetmek.
-- **Mekanizma**: Yabancı anahtar meşru ve gerekli bir ilişki köprüsüdür. İhlal olan durum, aynı tablo içinde anahtar-olmayan bir alanın başka bir anahtar-olmayan alanı doğrudan belirlemesidir (örneğin `ders` tablosunda hocanın sicil numarası varken hocanın adının ve bölümünün de ısrarla aynı tabloda tutulması).
+- **Yanılgı**: Tabloda FK görünce geçişli bağımlılık ihlali sanmak.
+- **Doğrusu**: FK meşru bir köprüdür; ihlal, anahtar-olmayan bir alanın başka anahtar-olmayan alanı belirlemesidir.
 
 ::: {.notes}
 Ayrıştırma aşamasında yapılan iki büyük hataya dikkat edelim. Dördüncü hata, tabloları bölerken yabancı anahtar koymayı unutmaktır. Hoca tablosunu ayırıp ders tablosuna hoca numarasını koymazsanız, dersler ile hocalar arasındaki bağı koparırsınız ve sistemi bir daha asla birleştiremezsiniz. Beşinci hata ise tam tersi bir aşırı yorumdur: Tabloda foreign key görünce "burada geçişli bağımlılık var" korkusuna kapılmaktır. Yabancı anahtar meşru bir köprüdür; geçişli bağımlılık ise o köprünün arkasındaki detayların (hocanın bölümünün) ısrarla ders tablosunda tutulmasıdır.

@@ -53,7 +53,7 @@ Ekranda veya kağıtta gördüğümüz tekil bir sayı, arkasında bir etiket ve
 - Saklanacak Bilgiler: Öğrenci adı-soyadı, iletişim telefonu, kayıt tarihi.
 
 ### İlk Akla Gelen Çözüm: Düz Dosya (Flat File)
-- Bilgileri bir deftere elle yazmak veya bilgisayarda bir metin belgesine (`.txt`, `.csv`) satır satır kaydetmek.
+- Bilgileri deftere veya `.txt`/`.csv` dosyasına satır satır elle kaydetmek.
 
 ```text
 Can Demir, 05551112233, 2026-09-10
@@ -108,8 +108,8 @@ Görevli A                                                   Görevli B
 ```
 
 ### Yapısal Eksiklik
-- Düz dosyalarda aynı anda birden çok kullanıcının veriye zarar vermeden erişmesini sağlayacak **bağımsız bir denetim ve kilit mekanizması** bulunmaz.
-- **Zorunlu İhtiyaç**: Verinin kuralları tanımlı, yapılandırılmış ve özel bir yazılım tarafından yönetilen bir sisteme emanet edilmesi.
+- Düz dosyalarda eşzamanlı erişimi koruyacak bir **kilit mekanizması** yoktur.
+- **Zorunlu İhtiyaç**: Veriyi kurallı, özel bir yazılımın (VTYS) yönetmesi.
 
 ::: {.notes}
 Birden fazla kullanıcının çalıştığı ortamlarda düz dosyaların en zayıf halkası eşzamanlı erişim kontrolünün olmamasıdır. İki görevli aynı anda dosyayı açtığında, işletim sistemi ikisine de dosyanın o anki durumunu verir. Görevli A bir telefon güncellemesi yapıp kaydeder; birkaç saniye sonra Görevli B kendi ekranındaki dosyayı kaydettiğinde, Görevli A'nın yaptığı değişiklikten habersiz olduğu için önceki kaydı ezer. Buna kayıp güncelleme problemi denir. Bu risk, verinin dosya düzeyinde değil, kayıt düzeyinde merkezi bir yazılımla yönetilmesini zorunlu kılar.
@@ -120,8 +120,8 @@ Birden fazla kullanıcının çalıştığı ortamlarda düz dosyaların en zay�
 ## Veri Nasıl Yapılandırılır: Tablo, Satır ve Sütun
 
 ### İki Boyutlu Yapı Düzeni
-- **Sütun (Alan / Şablon)**: Tabloda saklanacak belirli bir bilgi türünü tanımlar. Şema yapısı sabittir.
-- **Satır (Kayıt / Değer)**: Sütunların şablonuna uygun girilmiş somut bir kaydı temsil eder; tek bir varlığa ait ilişkili değerler kümesidir. Zamanla eklenir, güncellenir veya silinir.
+- **Sütun (Alan/Şablon)**: Saklanacak bilgi türünü tanımlar; şema sabittir.
+- **Satır (Kayıt/Değer)**: Şablona uygun somut bir kayıttır; zamanla eklenir, güncellenir, silinir.
 
 ### Atölye Kayıt Tablosu
 
@@ -175,9 +175,9 @@ VTYS Mimarisi (Kontrollü ve Güvenli):
 ```
 
 ### Mekanik Güvenceler
-- **Doğrudan Müdahale Engeli**: Kullanıcılar ve yazılımlar işletim sistemi düzeyinde fiziksel veri dosyalarına doğrudan dokunamaz.
-- **Tek Merkezden Denetim**: Bütün okuma ve yazma talepleri aradaki VTYS yazılımından geçer.
-- **Bütünlük ve Eşzamanlılık**: Aynı veriye aynı anda gelen erişimler sıralanır, kurallara uymayan talepler reddedilir.
+- **Doğrudan Müdahale Engeli**: Kullanıcılar fiziksel veri dosyalarına doğrudan dokunamaz.
+- **Tek Merkezden Denetim**: Tüm okuma/yazma istekleri VTYS üzerinden geçer.
+- **Bütünlük ve Eşzamanlılık**: Eşzamanlı erişimler sıralanır, kural dışı talepler reddedilir.
 
 ::: {.notes}
 Düz dosyalarda yaşanan kayıp güncelleme ve veri bozulması problemlerinin temel nedeni, dosyaların korumasız olması ve herkesin doğrudan yazabilmesiydi. VTYS mimarisinde ise veritabanı dosyaları işletim sistemi düzeyinde kullanıcılara kapatılır. Hiçbir uygulama doğrudan diske gidip satır yazamaz. Araya giren VTYS motoru, gelen her isteği inceler; yetki var mı, veri tipi uygun mu, başka biri o sırada aynı kaydı değiştiriyor mu gibi kontrolleri yapar. Bu mimari sayesinde verinin fiziksel güvenliği ve mantıksal tutarlılığı güvence altına alınır.
@@ -309,12 +309,12 @@ Doğrulama adımı, tasarladığımız çözümün önceki arıza senaryosunu ge
 ## Sık Yapılan Hatalar: Veritabanı ve Mimari Yanılgıları
 
 ### 1. "Veritabanı kurdum" (VTYS ile Veritabanını Eşit Görmek)
-- **Kavram Yanılgısı**: MySQL'i veritabanının kendisi zannetmek.
-- **Teknik Mekanizma**: MySQL yönetim yazılımıdır (VTYS). Veritabanı ise o yazılımın disk üzerinde sakladığı tablo, sütun ve satırlar bütünüdür. Yönetim yazılımı değiştirilse veya güncellense bile arkasındaki veritabanı yapısı korunabilir.
+- **Yanılgı**: MySQL'i veritabanının kendisi sanmak.
+- **Doğrusu**: MySQL bir yönetim yazılımıdır (VTYS); veritabanı diskteki tablo ve satırların kendisidir.
 
 ### 2. "İstemci verileri kendi içinde arar" (İstemci Sorumluluğu Yanılgısı)
-- **Kavram Yanılgısı**: Arayüz programının bütün satırları kendi belleğine çekip filtrelemeyi kendisinin yaptığını düşünmek.
-- **Teknik Mekanizma**: İstemci yalnızca kullanıcının isteğini bir komut olarak sunucuya gönderir. Veri dosyalarını tarayan, filtreleyen ve sonucu üreten sunucudaki VTYS'dir; istemci yalnızca dönen nihai sonucu gösterir.
+- **Yanılgı**: Arayüzün tüm veriyi kendi belleğinde filtrelediğini sanmak.
+- **Doğrusu**: Tarama ve filtreleme sunucudaki VTYS'nin işidir; istemci yalnızca sonucu gösterir.
 
 ::: {.notes}
 Veritabanı dersine başlarken yapılan en yaygın hata araç ile veriyi birbirine karıştırmaktır. Bir öğrenci bilgisayarına MySQL kurduğunda aslında bir veritabanı kurmuş olmaz; veritabanlarını işletecek olan sunucu motorunu kurmuş olur. Veritabanı ancak tabloları ve verileri tasarladığımızda var olur. İkinci yanılgı ise istemcinin rolüdür: İstemci bir arama motoru değildir, sadece sunucuya komut gönderen bir aracıdır. Bu ayrım ağ trafiğini ve veritabanı performansını anlamak için esastır.
@@ -325,12 +325,12 @@ Veritabanı dersine başlarken yapılan en yaygın hata araç ile veriyi birbiri
 ## Sık Yapılan Hatalar: Anahtar ve Veri Yanılgıları
 
 ### 3. "Birincil anahtar mutlaka otomatik artan bir tamsayı olmalıdır"
-- **Kavram Yanılgısı**: Birincil anahtarın her zaman 1, 2, 3 gibi ardışık bir sayaç olmak zorunda olduğunu düşünmek.
-- **Teknik Mekanizma**: Birincil anahtarın zorunlu teknik şartı tekillik (benzersizlik) ve boş bırakılamaz (`NOT NULL`) olmasıdır. Standart ders kodları (`BLP1005`) veya ülke kodları (`TR`) gibi metinsel alanlar da geçerli birincil anahtarlardır; otomatik artan sayaç yalnızca pratik bir tasarım tercihidir.
+- **Yanılgı**: PK'nın ardışık bir sayaç olmak zorunda olduğunu düşünmek.
+- **Doğrusu**: Şart tekillik ve `NOT NULL`'dır; `BLP1005` gibi metinsel kodlar da geçerli PK'dır.
 
 ### 4. "Sisteme girilen her veri doğrudan bir bilgidir"
-- **Kavram Yanılgısı**: Veri ile bilginin eşanlamlı olduğunu varsaymak.
-- **Teknik Mekanizma**: Tablo hücrelerinde saklanan değerler tek başlarına yalnızca birer ham veridir. Bu veriler filtrelendiğinde, gruplandığında veya bir karar sürecine dayanak olacak bir bağlam kazandığında bilgi niteliği kazanır.
+- **Yanılgı**: Veri ile bilgiyi eşanlamlı saymak.
+- **Doğrusu**: Hücredeki değer ham veridir; bağlam kazandığında (filtrelenip karara dayanak olunca) bilgiye dönüşür.
 
 ::: {.notes}
 Otomatik artan tamsayılar pratikte çok sık kullanıldığı için öğrenciler bunun kural olduğunu düşünebilir. Oysa veritabanı teorisinde önemli olan değerin sayısal olması değil, satırı benzersiz biçimde tanımlamasıdır. Doğal anahtarlar da aynı görevi eksiksiz yerine getirir. Veri-bilgi ayrımı ise dersin başından sonuna kadar aklımızda tutmamız gereken temel çizgidir: Tablolara doldurduğumuz değerler birer hammaddedir; bunları anlamlı hale getiren ise ilerleyen haftalarda yazacağımız ilişkisel sorgular ve analizlerdir.

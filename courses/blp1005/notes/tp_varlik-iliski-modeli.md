@@ -481,24 +481,24 @@ Tasarladığımız modelin kağıt üstünde doğru görünmesi yetmez; veri ad�
 ## Sık Yapılan Hatalar ve Altında Yatan Mekanizmalar
 
 ### 1. Varlık ile Niteliği Bağlamdan Kopuk Değerlendirmek
-- **Yanılgı**: Bir kavramın her zaman varlık veya her zaman nitelik olduğunu varsaymak.
-- **Mekanizma**: Kararı iş kuralları belirler. Yalnızca yazar adı saklanacaksa `yazar` bir niteliktir; doğum tarihi, biyografi ve ödülleri saklanacaksa `Yazar` bağımsız bir varlıktır.
+- **Yanılgı**: Bir kavramın hep varlık ya da hep nitelik olduğunu sanmak.
+- **Doğrusu**: Kararı iş kuralı verir — sadece ad saklanıyorsa nitelik, bağımsız nitelikleri varsa varlıktır.
 
 ### 2. Kardinalite ile Katılımı Birbirine Karıştırmak
 - **Yanılgı**: Üst sınır ile alt sınırı eş tutmak.
-- **Mekanizma**: Kardinalite üst sınırı (1 veya N), katılım alt sınırı (0 veya 1) belirler. Bu ayrımı karıştırmak, tablolara dönüşümde sütunların yanlışlıkla `NOT NULL` yapılmasına veya ilişkinin yanlış kurulmasına yol açar.
+- **Doğrusu**: Kardinalite üst sınırı (1/N), katılım alt sınırı (0/1) belirler; karıştırmak yanlış `NOT NULL` veya yanlış ilişkiye yol açar.
 
 ### 3. E-R Diyagramında Doğrudan Yabancı Anahtar Tanımlamak
-- **Yanılgı**: Kavramsal E-R kutusunun içine karşı tablonun anahtarını sütun olarak eklemek.
-- **Mekanizma**: Yabancı anahtar kavramsal bir nitelik değil, ilişkisel şemaya geçiş aracıdır. Kavramsal düzeyde sadece varlığın kendi öz nitelikleri ve ilişki çizgileri yer alır.
+- **Yanılgı**: Kavramsal kutunun içine karşı tablonun anahtarını sütun olarak eklemek.
+- **Doğrusu**: Yabancı anahtar ilişkisel şemaya geçiş aracıdır; kavramsal düzeyde sadece öz nitelikler ve ilişki çizgileri olur.
 
 ### 4. N:M İlişkiyi Bağlantı Tablosuz Çözmeye Çalışmak
-- **Yanılgı**: Tablolardan birine karşı tarafın anahtarını ekleyerek ilişkiyi çözebileceğini sanmak.
-- **Mekanizma**: Atomiklik kuralını yıkar veya geçmiş verileri ezer. N:M ilişki iki adet 1:N ilişki üreten bir bağlantı tablosu olmadan modellenemez.
+- **Yanılgı**: Bir tabloya karşı tarafın anahtarını ekleyerek ilişkiyi çözebileceğini sanmak.
+- **Doğrusu**: Atomikliği yıkar veya geçmişi ezer; N:M mutlaka bağlantı tablosu gerektirir.
 
 ### 5. 1:1 İlişkide Yabancı Anahtarın Tek Başına Tekillik Sağladığını Sanmak
 - **Yanılgı**: FK eklenince ilişkinin kendiliğinden 1:1 kalacağını varsaymak.
-- **Mekanizma**: Yabancı anahtar varsayılan olarak aynı değeri defalarca kabul edebilir. Tekillik (UNIQUE) kısıtı eklenmezse ilişki sessizce 1:N'ye dönüşür.
+- **Doğrusu**: FK aynı değeri tekrar kabul edebilir; tekillik ancak `UNIQUE` kısıtıyla garanti edilir.
 
 ::: {.notes}
 Bu beş hata, veritabanı modellemesinde en sık tekrarlanan kavram yanılgılarıdır. Bir kavramın varlık mı nitelik mi olduğunu ezbere değil kurumun ihtiyacına göre belirleriz. Kardinalite ile katılımı karıştırmamak gerekir; biri üst sınırdır, diğeri alt sınırdır. E-R diyagramı çizerken kutuların içine foreign key yazılmaz; foreign key ancak tablo aşamasında ortaya çıkar. Çoka çok ilişkiler mutlaka bağlantı tablosuyla iki adet bire çok ilişkiye dönüştürülmelidir. Bire bir ilişkilerde ise yabancı anahtarın üzerine tekillik kısıtı koyulması zorunludur. Bu kurallara dikkat edildiğinde, iş kurallarından sağlam ve tutarlı bir ilişkisel şemaya sorunsuz biçimde ulaşılır. Bir sonraki konumuzda bu şemalardaki veri tekrarlarını sistematik olarak gideren normalizasyon kurallarını inceleyeceğiz.
