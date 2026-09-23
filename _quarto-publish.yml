@@ -10,6 +10,7 @@ project:
     - konu-yazilari.md
     - "courses/bim444/**"
     - "courses/blp1003/**"
+    - "courses/bgt201/**"
     - "courses/lineer-cebir/**"
     - "courses/diferansiyel-denklemler/**"
     - "courses/qturkey/**"
@@ -160,6 +161,26 @@ website:
             - courses/blp1003/notes/tp_yonlendirme-ve-varsayilan-ag-gecidi.md
             - courses/blp1003/notes/tp_kablosuz-aglar-ve-guvenlik.md
             - courses/blp1003/notes/tp_temel-guvenlik-nat-ve-butunlesik-ag.md
+    - id: bgt201
+      title: "BGT 201 Bilgi Güvenliği Yönetimi I"
+      style: docked
+      contents:
+        - courses/bgt201/crs-bgt201.md
+        - section: "Ara Sınava Kadar"
+          contents:
+            - courses/bgt201/notes/tp_guvenlik-temelleri.md
+            - courses/bgt201/notes/tp_bgys-ve-yonetim-dongusu.md
+            - courses/bgt201/notes/tp_standartlar-cerceveler-ve-uyum.md
+            - courses/bgt201/notes/tp_yasal-yukumlulukler-ve-kisisel-veri.md
+            - courses/bgt201/notes/tp_varlik-envanteri-ve-siniflandirma.md
+        - section: "Ara Sınavdan Sonra"
+          contents:
+            - courses/bgt201/notes/tp_roller-kimlik-ve-erisim-yonetimi.md
+            - courses/bgt201/notes/tp_erisim-kontrolleri-parola-kayit-ve-izleme.md
+            - courses/bgt201/notes/tp_bgys-stratejisi-ve-politika-dokumantasyonu.md
+            - courses/bgt201/notes/tp_gap-risk-analizi.md
+            - courses/bgt201/notes/tp_risk-isleme-ve-olay-aksiyon-plani.md
+            - courses/bgt201/notes/tp_butunlestirici-vaka-ve-degerlendirme.md
     - id: ai-llm
       title: "Yapay Zeka ve LLM"
       style: docked

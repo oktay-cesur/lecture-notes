@@ -39,6 +39,8 @@ website:
             href: courses/blp1003/crs-blp1003.md
           - text: "BLP 1005 — Veritabanı Yönetim Sistemleri"
             href: courses/blp1005/crs-blp1005.md
+          - text: "BGT 201 — Bilgi Güvenliği Yönetimi I"
+            href: courses/bgt201/crs-bgt201.md
           - text: "QTurkey Eğitimleri — QPrep ve QBronze"
             href: courses/qturkey/index.md
       - text: "Konular"
