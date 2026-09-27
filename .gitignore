@@ -17,12 +17,15 @@ _quarto-local.yml
 .codex/
 AGENTS.md
 courses/_ortak/tez/
+.obsidian/
 
 # Yayın deposuna girmeyen çalışma alanları
 **/_arsiv/
 **/_draft/
 **/_private/
 **/_backup/
+**/draft/
+draft/
 
 # İşletim sistemi ve geçici dosyalar
 .DS_Store
@@ -35,4 +38,3 @@ texput.log
 
 /.quarto/
 **/*.quarto_ipynb
-.obsidian

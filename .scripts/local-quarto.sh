@@ -27,6 +27,7 @@ Usage:
   .scripts/local-quarto.sh clean
   .scripts/local-quarto.sh preview
   .scripts/local-quarto.sh render-all
+  .scripts/local-quarto.sh render-changed
   .scripts/local-quarto.sh render-file <file.md|file.qmd>
   .scripts/local-quarto.sh preview-file <file.md|file.qmd>
   .scripts/local-quarto.sh render-slide <file.md|file.qmd>
@@ -245,13 +246,13 @@ is_presentation_file() {
 render_html_file() {
   local rel_file="$1"
 
-  quarto render "$rel_file" --profile publish --to html
+  quarto render "$rel_file" --profile publish,local --to html
 }
 
 render_slide_file() {
   local rel_file="$1"
   local temp_dir rel_dir base_name html_name source_dir output_dir source_html source_files target_html target_files
-  local resource_dir source_resource_dir target_resource_dir
+  local resource_dir source_resource_dir target_resource_dir root_css
 
   temp_dir="$(mktemp -d /tmp/ders-slide-render.XXXXXX)"
   rsync -a \
@@ -268,7 +269,7 @@ render_slide_file() {
     QUARTO_DENO_DIR="$temp_dir/.quarto-deno-cache" \
     DENO_DIR="$temp_dir/.quarto-deno-cache" \
     XDG_CACHE_HOME="$temp_dir/.quarto-xdg-cache" \
-      quarto render "$rel_file" --profile slides,publish --to revealjs
+      quarto render "$rel_file" --profile slides,publish,local --to revealjs
   ); then
     rm -rf "$temp_dir" 2>/dev/null || true
     return 1
@@ -288,6 +289,11 @@ render_slide_file() {
 
   source_html="$source_dir/$html_name"
   source_files="$source_dir/${base_name}_files"
+  if [[ ! -f "$source_html" && -f "$temp_dir/$html_name" ]]; then
+    source_dir="$temp_dir"
+    source_html="$source_dir/$html_name"
+    source_files="$source_dir/${base_name}_files"
+  fi
   target_html="$output_dir/$html_name"
   target_files="$output_dir/${base_name}_files"
 
@@ -310,6 +316,10 @@ render_slide_file() {
       cp -a "$source_resource_dir/." "$target_resource_dir/"
     fi
   done
+
+  while IFS= read -r root_css; do
+    cp -f "$root_css" "$SLIDES_OUTPUT_DIR_REL/$(basename "$root_css")"
+  done < <(find "$temp_dir/_site/slides" -maxdepth 1 -type f -name '*.css' | sort)
 
   rm -rf "$temp_dir" 2>/dev/null || true
 }
@@ -401,7 +411,7 @@ render_all_html_files() {
     fi
 
     rm -rf .quarto site_libs 2>/dev/null || true
-    quarto render "$rel_file" --profile publish --to html --output-dir "$ROOT_DIR/_site"
+    quarto render "$rel_file" --profile publish,local --to html --output-dir "$ROOT_DIR/_site"
     rendered_count=$((rendered_count + 1))
   done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
 
@@ -426,11 +436,14 @@ render_all_outputs_in_temp_workspace() {
     --exclude='*.html' \
     ./ "$temp_dir/"
 
-  rm -f "$temp_dir/_quarto-local.yml"
-
   (
     cd "$temp_dir"
-    quarto render --profile publish --to html
+    if [[ -f "$ROOT_DIR/_quarto-local.yml" ]]; then
+      cp -f "$ROOT_DIR/_quarto-local.yml" ./_quarto-local.yml
+    elif [[ -f "$ROOT_DIR/.quarto-local.yml" ]]; then
+      cp -f "$ROOT_DIR/.quarto-local.yml" ./_quarto-local.yml
+    fi
+    quarto render --profile publish,local --to html
 
     rm -rf _site/slides
     while IFS= read -r rel_file; do
@@ -444,7 +457,16 @@ render_all_outputs_in_temp_workspace() {
         continue
       fi
       if is_presentation_file "$rel_file"; then
-        quarto render "$rel_file" --profile slides,publish --to revealjs
+        quarto render "$rel_file" --profile slides,publish,local --to revealjs
+        if [[ ! -f "_site/slides/${rel_file%.*}.html" && -f "${rel_file##*/}" ]]; then
+          slide_base="${rel_file##*/}"
+          slide_base="${slide_base%.*}"
+          mkdir -p "_site/slides/$(dirname "$rel_file")"
+          mv "${rel_file##*/}" "_site/slides/${rel_file%.*}.html"
+          if [[ -d "${slide_base}_files" ]]; then
+            mv "${slide_base}_files" "_site/slides/${rel_file%.*}_files"
+          fi
+        fi
         if [[ ! -f "_site/slides/${rel_file%.*}.html" ]]; then
           echo "ERROR: slide output not created: $rel_file" >&2
           exit 1
@@ -480,6 +502,54 @@ render_file_outputs() {
   fi
 }
 
+render_changed_outputs() {
+  local rel_file html_output slide_output
+  local rendered_count=0
+  local skipped_count=0
+
+  prepare_output_dirs
+
+  while IFS= read -r rel_file; do
+    if is_fallback_qmd_file "$rel_file" || is_render_all_excluded_file "$rel_file"; then
+      continue
+    fi
+
+    html_output="$OUTPUT_DIR_REL/${rel_file%.*}.html"
+    if [[ ! -s "$html_output" || "$rel_file" -nt "$html_output" ]]; then
+      :
+    elif ! is_index_file "$rel_file" && is_presentation_file "$rel_file"; then
+      slide_output="$SLIDES_OUTPUT_DIR_REL/${rel_file%.*}.html"
+      if [[ -s "$slide_output" && ! "$rel_file" -nt "$slide_output" ]]; then
+        skipped_count=$((skipped_count + 1))
+        continue
+      fi
+    else
+      skipped_count=$((skipped_count + 1))
+      continue
+    fi
+
+    echo "INFO: changed or missing output → $rel_file"
+    clean_source_artifacts
+    render_file_outputs "$rel_file"
+
+    if [[ ! -s "$html_output" ]]; then
+      echo "ERROR: html output not created: $rel_file" >&2
+      return 1
+    fi
+    if ! is_index_file "$rel_file" && is_presentation_file "$rel_file"; then
+      slide_output="$SLIDES_OUTPUT_DIR_REL/${rel_file%.*}.html"
+      if [[ ! -s "$slide_output" ]]; then
+        echo "ERROR: slide output not created: $rel_file" >&2
+        return 1
+      fi
+    fi
+
+    rendered_count=$((rendered_count + 1))
+  done < <(find . -path './_site' -prune -o -type f \( -name '*.md' -o -name '*.qmd' \) -print | sort | sed 's|^\./||')
+
+  echo "INFO: rendered changed page count: $rendered_count; unchanged page count: $skipped_count"
+}
+
 ensure_quarto_config_links
 trap on_exit EXIT
 
@@ -494,13 +564,17 @@ case "$command" in
     prepare_output_dirs
     ensure_preview_runtime_dirs
     start_slide_watcher
-    quarto preview --profile publish
+    quarto preview --profile publish,local
     ;;
   render-all)
     CLEAN_SOURCE_ON_EXIT=1
     clean_source_artifacts
     rm -rf "$OUTPUT_DIR_REL"
     render_all_outputs_in_temp_workspace
+    ;;
+  render-changed)
+    CLEAN_SOURCE_ON_EXIT=1
+    render_changed_outputs
     ;;
   render-file)
     file_arg="${2:-}"
@@ -526,7 +600,7 @@ case "$command" in
     render_file_outputs "$rel_file"
     CLEAN_SOURCE_ON_EXIT=1
     start_slide_watcher
-    quarto preview --profile publish --render none
+    quarto preview --profile publish,local --render none
     ;;
   render-slide)
     file_arg="${2:-}"

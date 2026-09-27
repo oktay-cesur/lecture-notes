@@ -28,6 +28,9 @@ make preview
 # Tüm çıktıları üret
 make render-all
 
+# Son derlemeden beri değişen veya yeni eklenen Markdown dosyalarını derle
+make render-changed
+
 # Tek dosya render
 make render-file FILE=courses/_ortak/temel-ai/notes/tp_yapay-zekanin-temelleri.md
 
@@ -38,6 +41,12 @@ make preview-file FILE=courses/_ortak/temel-ai/notes/tp_yapay-zekanin-temelleri.
 Tüm yerel çıktılar depo içindeki `_site/` klasörüne yazılır. Böylece proje,
 önceden içinde bulunduğu kişisel vault'tan veya depo dışındaki bir çıktı
 klasöründen bağımsız çalışır.
+
+`render-changed`, her `.md`/`.qmd` dosyasının değiştirilme zamanını karşılık gelen
+HTML çıktısıyla ve sunumsa slayt çıktısıyla karşılaştırır. Çıktısı eksik ya da
+kaynağından eski dosyaları derler; diğerlerini atlar. `_site/` yoksa tüm kaynaklar
+yeni kabul edilir. Kaynak dışındaki ortak yapılandırma değişikliklerinden sonra
+`make render-all` kullanın.
 
 ## Lisans
 
