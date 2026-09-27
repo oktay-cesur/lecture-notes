@@ -50,10 +50,10 @@ Haftalık plan dersin resmî izlencesindeki 12 haftalık kapsamı temel alır. K
 | Hafta | Notlar | Açıklama |
 |:---:|---|---|
 | 1 | [[../../courses/blp1005/notes/tp_veritabani-temel-kavramlari-ve-mimari\|Veritabanı Temel Kavramları ve Mimari]] | Veri ve bilgi, dosya yaklaşımının sınırları, veritabanı–VTYS–istemci ayrımı, ilişkisel yaklaşım ve istemci–sunucu mimarisine giriş. |
-| 2 | **Varlık–İlişki (E-R) Modeli** | Gereksinimlerden varlık, nitelik ve ilişki çıkarma; kardinalite ve katılım kurallarını model üzerinde gösterme. |
-| 3 | **Normalizasyon** | Veri tekrarı, fonksiyonel bağımlılıklar, ekleme–güncelleme–silme anomalileri ve 1NF–2NF–3NF. |
-| 4 | **MySQL Çalışma Ortamı** | MySQL Server ve Workbench ayrımı, bağlantı, şema ve tablo inceleme, SQL betiği çalıştırma ve hata mesajlarını okuma. |
-| 5 | **DDL, Veri Tipleri ve Kısıtlar** | `CREATE DATABASE`, `CREATE TABLE`, temel MySQL veri tipleri, `NOT NULL`, `UNIQUE`, `DEFAULT` ve diğer temel kısıtlar. |
+| 2 | [[../../courses/blp1005/notes/tp_varlik-iliski-modeli\|Varlık–İlişki (E-R) Modeli]] | Gereksinimlerden varlık, nitelik ve ilişki çıkarma; kardinalite ve katılım kurallarını model üzerinde gösterme. |
+| 3 | [[../../courses/blp1005/notes/tp_normalizasyon-1nf-2nf-3nf\|Normalizasyon]] | Veri tekrarı, fonksiyonel bağımlılıklar, ekleme–güncelleme–silme anomalileri ve 1NF–2NF–3NF. |
+| 4 | [[../../courses/blp1005/notes/tp_mysql-workbench-ve-calisma-ortami\|MySQL Çalışma Ortamı]] | MySQL Server ve Workbench ayrımı, bağlantı, şema ve tablo inceleme, SQL betiği çalıştırma ve hata mesajlarını okuma. |
+| 5 | [[../../courses/blp1005/notes/tp_ddl-ve-tablo-olusturma\|DDL, Veri Tipleri ve Kısıtlar]] | `CREATE DATABASE`, `CREATE TABLE`, temel MySQL veri tipleri, `NOT NULL`, `UNIQUE`, `DEFAULT` ve diğer temel kısıtlar. |
 | 6 | **Anahtarlar ve İlişkiler** | Aday ve birincil anahtar, yabancı anahtar, referans bütünlüğü ve ilişkisel şemaya dönüşüm. |
 | 7 | **Veri Ekleme ve Değiştirme** | `INSERT`, `UPDATE`, `DELETE`; hedef satırları kontrol etme ve veri değişikliklerini doğrulama. |
 | 8 | **Tek Tablo Üzerinde Sorgulama** | `SELECT`, `WHERE`, karşılaştırma ve mantıksal koşullar, `LIKE`, `IN`, `BETWEEN`, `IS NULL`, `ORDER BY` ve `LIMIT`. |

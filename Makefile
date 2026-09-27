@@ -1,4 +1,4 @@
-.PHONY: clean preview render-all render-file preview-file render-slide
+.PHONY: clean preview render-all render-changed render-file preview-file render-slide
 
 clean:
 	./.scripts/local-quarto.sh clean
@@ -8,6 +8,9 @@ preview:
 
 render-all:
 	./.scripts/local-quarto.sh render-all
+
+render-changed:
+	./.scripts/local-quarto.sh render-changed
 
 render-file:
 	@test -n "$(FILE)" || (echo "ERROR: FILE is required. Example: make render-file FILE=courses/_ortak/temel-ai/notes/tp_yapay-zekanin-temelleri.md or FILE=courses/bim444/notes/tp_arama-algoritmalari-animasyon.md" >&2; exit 1)
