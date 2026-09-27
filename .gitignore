@@ -35,3 +35,4 @@ texput.log
 
 /.quarto/
 **/*.quarto_ipynb
+.obsidian
