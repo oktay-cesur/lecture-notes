@@ -561,6 +561,7 @@ case "$command" in
     rm -rf "$OUTPUT_DIR_REL"
     ;;
   preview)
+    clean_source_artifacts
     prepare_output_dirs
     ensure_preview_runtime_dirs
     start_slide_watcher

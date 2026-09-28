@@ -33,7 +33,10 @@ local function resolve_stem_to_project_path(stem)
 
   local root = quarto.project.directory:gsub("'", "'\\''")
   local s = stem:gsub("'", "'\\''")
-  local cmd = "find '" .. root .. "' -type f \\( -name '" .. s .. ".md' -o -name '" .. s .. ".qmd' \\) | head -n 2"
+  local cmd = "find '" .. root .. "' " ..
+    "\\( -path '" .. root .. "/.git' -o -path '" .. root .. "/.claude' -o " ..
+    "-path '" .. root .. "/.quarto' -o -path '" .. root .. "/_site' \\) -prune -o " ..
+    "-type f \\( -name '" .. s .. ".md' -o -name '" .. s .. ".qmd' \\) -print | head -n 2"
   local p = io.popen(cmd)
   if p == nil then
     return nil

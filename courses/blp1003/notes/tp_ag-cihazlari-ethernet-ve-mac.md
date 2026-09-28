@@ -30,6 +30,7 @@ Ethernet iletişiminde verinin yalnızca kablodan geçmesi yeterli değildir. Ve
 
 - Uç sistemler ile ara ağ cihazlarını işlevlerine göre ayırmak
 - Temel ağ cihazlarını çözdükleri problemle eşleştirmek
+- Paylaşılan ve anahtarlamalı Ethernet'i collision davranışıyla karşılaştırmak
 - Ethernet frame'i ile MAC adresi arasındaki ilişkiyi açıklamak
 - Switch'in MAC öğrenme ve iletim kararını çözümlemek
 - Basit bir yerel ağdaki iletişim yolunu yorumlamak
@@ -131,16 +132,7 @@ Bir dizüstü bilgisayarın kablolu Ethernet arabirimi ile kablosuz ağ arabirim
 
 ## Ağ Cihazlarına Neden İhtiyaç Duyulur?
 
-| Ağdaki problem | Gerekli işlev |
-|---|---|
-| Sinyalin erişim mesafesi | Sinyali yeniden üretme |
-| Birden fazla cihazı bağlama | Bağlantıları bir araya getirme |
-| Gereksiz trafiği azaltma | Trafiği filtreleme |
-| Yerel hedefe teslim | MAC bilgisine göre iletme |
-| Farklı ağları bağlama | Ağlar arasında paket iletme |
-| Kablosuz istemciyi LAN'a katma | Kablosuz erişim sağlama |
-| Trafiği denetleme | Güvenlik politikası uygulama |
-| Erişim teknolojisine bağlanma | Sinyal ve iletişim uyarlaması |
+![](../../../images/bilgisayar-aglari/hafta-03/01-ag-cihazlarinin-islev-haritasi.png){width="96%" fig-align="center" fig-alt="Uç sistemleri, yerel ağ cihazlarını ve ağ sınırı cihazlarını çözdükleri işlevlere göre gruplayan şema"}
 
 ::: {.notes}
 Ara ağ cihazları aynı işi yapan farklı kutular değildir. Her cihaz belirli bir iletişim problemini çözer. Repeater fiziksel sinyalin erişimini uzatırken switch Ethernet frame'lerinin yerel ağ içinde hangi bağlantıya iletileceğini belirler. Router ise farklı ağlar arasındaki iletişime aracılık eder.
@@ -236,16 +228,36 @@ Modern anahtarlamalı Ethernet'te her uç cihaz ile switch portu arasında ayrı
 
 ## Hub, Bridge ve Switch Gelişimi
 
-| Yapı | Temel davranış | Sonuç |
-|---|---|---|
-| Hub | Sinyali diğer portlara tekrarlar | Ortak ortam ve gereksiz trafik |
-| Bridge | Segmentler arasında MAC'e göre filtreler | Trafik segmentlere ayrılır |
-| Switch | Çok sayıda portta MAC tabanlı iletim yapar | Port başına ayrı bağlantı |
+![](../../../images/bilgisayar-aglari/hafta-03/02-hub-bridge-switch-gelisimi.png){width="96%" fig-align="center" fig-alt="Hub'ın trafiği bütün portlara tekrarlamasını, bridge'in segmentler arasında filtreleme yapmasını ve switch'in hedef porta iletimini karşılaştıran şema"}
 
 ::: {.notes}
 Hub bütün cihazları aynı paylaşılan Ethernet ortamında tutar. Bridge ağı segmentlere ayırarak her frame'in bütün bölümlere taşınmasını önler. Switch bu MAC tabanlı filtreleme ve iletim yaklaşımını çok sayıda porta uygular.
 
 Bu gelişim yalnızca cihazların hızlanması değildir. Ağ davranışı ortak ortamdan, frame'lerin hedef bilgisine göre seçilen bağlantılara iletildiği anahtarlamalı yapıya dönüşmüştür.
+:::
+
+---
+
+## Paylaşılan ve Anahtarlamalı Ethernet
+
+![](../../../images/bilgisayar-aglari/hafta-03/03-paylasilan-ve-anahtarlamali-ethernet.png){width="96%" fig-align="center" fig-alt="Hub tabanlı paylaşılan half-duplex Ethernet ile switch tabanlı full-duplex Ethernet'i collision davranışı bakımından karşılaştıran şema"}
+
+::: {.notes}
+Hub tabanlı Ethernet'te bütün uçlar aynı fiziksel iletim ortamını ve tek collision domain'i paylaşır. İki uç aynı anda gönderime başlarsa sinyaller çakışabilir. Half-duplex çalışma ve CSMA/CD bu ortak ortam davranışıyla ilişkilidir.
+
+Modern switched Ethernet'te her uç ile switch portu arasında ayrı, point-to-point ve full-duplex bir bağlantı bulunur. Bağlantılar aynı elektriksel ortamı paylaşmadığı için collision oluşmaz ve CSMA/CD kullanılmaz.
+:::
+
+---
+
+## CSMA/CD Karar Akışı
+
+![](../../../images/bilgisayar-aglari/hafta-03/04-csma-cd-karar-akisi.png){width="94%" fig-align="center" fig-alt="Paylaşılan Ethernet'te ortamı dinleme, gönderme, collision algılama ve rastgele bekleyerek yeniden deneme akışı"}
+
+::: {.notes}
+CSMA/CD kullanan cihaz gönderimden önce ortamı dinler. Ortam meşgulse bekler; boş görünüyorsa gönderime başlar ve gönderim boyunca ortamı izlemeyi sürdürür. İki uzak uç ortamı kısa bir zaman aralığında birlikte boş algılayabildiği için önceden dinleme collision olasılığını azaltır, ancak tamamen ortadan kaldırmaz.
+
+Collision algılanırsa gönderim durdurulur. Cihazlar aynı anda yeniden başlamamak için rastgele bir süre bekler ve sürecin başına dönerek ortamı yeniden dinler.
 :::
 
 ---
@@ -264,6 +276,18 @@ Bu gelişim yalnızca cihazların hızlanması değildir. Ağ davranışı ortak
 Switch'in temel görevi aynı yerel Ethernet yapısındaki frame'leri uygun portlara iletmektir. Router ise farklı ağlar arasındaki paketlerin ilerlemesine aracılık eder. Bu nedenle switch ve router aynı bağlantı problemine çözüm değildir.
 
 Router'ın karar mekanizması, yerel Ethernet tesliminde kullanılan switch MAC tablosundan farklıdır. Bu ayrım, tek bir yerel ağ içindeki teslim ile ağlar arasındaki iletimin birbirine karıştırılmasını önler.
+:::
+
+---
+
+## Collision Domain ve Broadcast Domain
+
+![](../../../images/bilgisayar-aglari/hafta-03/08-collision-ve-broadcast-domain.png){width="94%" fig-align="center" fig-alt="Hub, switch ve router'ın collision domain ve broadcast domain sınırlarına etkisini karşılaştıran şema"}
+
+::: {.notes}
+Hub'a bağlı uçlar tek bir collision domain içindedir. Switch ise her port bağlantısını ayrı bir collision domain hâline getirir; bir porttaki iletim diğer portun fiziksel sinyaliyle çakışmaz.
+
+Switch varsayılan durumda broadcast frame'i geldiği port dışındaki uygun portlara yaydığı için bağlı portlar tek broadcast domain içinde kalır. Router'ın farklı arayüzlerine bağlı yerel ağlar ise ayrı broadcast domain'lerdir; yerel broadcast trafiği router üzerinden diğer ağa geçirilmez.
 :::
 
 ---
@@ -344,17 +368,7 @@ Modern yerel ağlarda uç sistemin Ethernet arabirimi bir frame üretir. Switch 
 
 ## Ethernet Frame
 
-```text
-┌─────────────┬───────────┬─────────────┬─────────┬─────────┐
-│ Hedef MAC   │ Kaynak MAC│ Type/Length │ Payload │   FCS   │
-└─────────────┴───────────┴─────────────┴─────────┴─────────┘
-```
-
-- **Hedef MAC:** Yerel teslimin hedefi
-- **Kaynak MAC:** Frame'i gönderen arayüz
-- **Type/Length:** Taşınan verinin türü veya uzunluk bilgisi
-- **Payload:** Taşınan veri
-- **FCS:** İletim hatalarını algılamaya yardımcı olan denetim bilgisi
+![](../../../images/bilgisayar-aglari/hafta-03/05-ethernet-frame-anatomisi.png){width="94%" fig-align="center" fig-alt="Ethernet frame alanlarını ve switch'in kaynak MAC ile hedef MAC alanlarını farklı amaçlarla kullanmasını gösteren şema"}
 
 ::: {.notes}
 Frame, Ethernet'in yerel iletişimde kullandığı veri birimidir. Payload alanı taşınan veriyi içerir. Ethernet bu veriye yerel teslim ve hata denetimi için gerekli alanları ekler.
@@ -408,16 +422,7 @@ Bir cihazın kablolu ve kablosuz arabirimleri farklı MAC adreslerine sahip olab
 
 ## MAC Adresinin Kaynağı
 
-```text
-00:1A:2B : 3C:4D:5E
-   OUI      arayüze ayrılan bölüm
-```
-
-- Evrensel olarak yönetilen adreslerde üreticiye ayrılan bir OUI bulunabilir.
-- Adres donanımla birlikte atanabilir.
-- Yazılım veya sanallaştırma ortamı farklı bir adres kullanabilir.
-
-**MAC adresi mutlak biçimde değişmez değildir.**
+![](../../../images/bilgisayar-aglari/hafta-03/06-mac-adresinin-anatomisi.png){width="92%" fig-align="center" fig-alt="48 bitlik MAC adresinin OUI ve arayüze ayrılan bölümlerini, ağ arabirimiyle ilişkisini ve yazılımla değiştirilebilirliğini gösteren şema"}
 
 ::: {.notes}
 Üreticiler, evrensel olarak yönetilen MAC adreslerinin bir bölümünde IEEE tarafından tahsis edilen Organizationally Unique Identifier bilgisini kullanabilir. Kalan bölüm üretici tarafından arayüzü ayırt edecek biçimde atanır.
@@ -565,48 +570,15 @@ Frame'in hedefi broadcast olsa da kaynak MAC alanı belirli bir göndericiye ait
 
 ---
 
-## İlk Frame: PC-A'dan PC-B'ye
+## Switch'in İki Frame ile Öğrenmesi
 
-```text
-PC-A             SWITCH              PC-B       PC-C
-AA... ──port 1── [     ] ──port 2── BB...       CC...
-                     └─────port 3───────────────┘
-
-Frame: kaynak AA... / hedef BB...
-Başlangıç MAC tablosu: boş
-```
-
-1. Switch `AA... → port 1` ilişkisini öğrenir.
-2. `BB...` tabloda bulunmaz.
-3. Frame port 2 ve port 3'e iletilir.
-4. Yalnız PC-B frame'i hedef olarak kabul eder.
+![](../../../images/bilgisayar-aglari/hafta-03/07-switchin-iki-frame-ile-ogrenmesi.png){width="96%" fig-align="center" fig-alt="Switch'in PC-A'dan gelen ilk frame'de kaynak adresi öğrenip bilinmeyen hedefi yayması ve PC-B'nin yanıtında seçici iletime geçmesi"}
 
 ::: {.notes}
 PC-A'nın PC-B'ye gönderdiği frame port 1'den gelir. Switch önce kaynak MAC adresi AA ile port 1 arasındaki ilişkiyi kaydeder.
 
 Hedef BB tabloda bulunmadığı için switch frame'i port 2 ve port 3'e iletir. PC-B hedef adresin kendisine ait olduğunu görerek frame'i kabul eder. PC-C frame'i alabilse de hedef MAC adresi kendi adresi olmadığı için teslim almaz.
-:::
 
----
-
-## Yanıt Frame'i: PC-B'den PC-A'ya
-
-```text
-PC-A             SWITCH              PC-B
-AA... ──port 1── [     ] ──port 2── BB...
-
-Frame: kaynak BB... / hedef AA...
-
-MAC tablosu:
-AA... → port 1
-BB... → port 2
-```
-
-1. Switch `BB... → port 2` ilişkisini öğrenir.
-2. Hedef `AA...` tabloda bulunur.
-3. Yanıt yalnız port 1'e iletilir.
-
-::: {.notes}
 PC-B yanıt frame'i gönderdiğinde frame switch'e port 2 üzerinden gelir. Switch kaynak MAC adresi BB ile port 2 arasındaki ilişkiyi öğrenir. Böylece tabloda hem PC-A hem de PC-B için port bilgisi bulunur.
 
 Yanıtın hedefi AA adresidir. Bu adres port 1 ile eşleştirildiği için switch frame'i yalnızca port 1'e iletir. Öğrenilmiş kayıtlar kullanıldığı sürece sonraki iletişimlerde gereksiz flooding yapılmaz.
@@ -616,17 +588,7 @@ Yanıtın hedefi AA adresidir. Bu adres port 1 ile eşleştirildiği için switc
 
 ## Switch Karar Akışı
 
-```text
-Frame porta gelir
-       ↓
-Kaynak MAC + giriş portu öğrenilir veya güncellenir
-       ↓
-Hedef MAC tabloda aranır
-       ↓
-       ├─ Bilinen unicast ──> ilgili porta ilet
-       ├─ Bilinmeyen unicast > diğer uygun portlara ilet
-       └─ Broadcast ─────────> diğer uygun portlara ilet
-```
+![](../../../images/bilgisayar-aglari/hafta-03/09-switch-karar-akisi.png){width="94%" fig-align="center" fig-alt="Switch'in kaynak MAC ve giriş portunu öğrenmesinden sonra hedef MAC'e göre bilinen unicast, bilinmeyen unicast veya broadcast iletim kararı vermesi"}
 
 ::: {.notes}
 Switch davranışı iki ana aşamada özetlenebilir. Öğrenme aşaması kaynak MAC adresine ve frame'in geldiği porta dayanır. İletim aşaması hedef MAC adresinin tablodaki durumuna dayanır.
@@ -665,21 +627,7 @@ Trafik başka bir ağa gidecekse router ağlar arasındaki geçişe aracılık e
 
 ## Yerel Ethernet İletişiminin Ana Zinciri
 
-```text
-uç sistem
-   ↓
-NIC ve MAC adresi
-   ↓
-Ethernet frame
-   ↓
-switch'in kaynak MAC öğrenmesi
-   ↓
-hedef MAC araması
-   ↓
-uygun porta iletim veya flooding
-   ↓
-hedef Ethernet arayüzü
-```
+![](../../../images/bilgisayar-aglari/hafta-03/10-yerel-ethernet-teslim-zinciri.png){width="94%" fig-align="center" fig-alt="Uç sistemden başlayan Ethernet frame'inin switch'in kaynak öğrenme ve hedef arama işlemlerinden geçerek hedef arayüze ulaşması"}
 
 ::: {.notes}
 Yerel Ethernet iletişimi birbirinden kopuk cihaz ve adres kavramlarından oluşmaz. Uç sistemin ağ arabirimi, kaynak ve hedef MAC bilgilerini taşıyan bir Ethernet frame'i gönderir. Switch frame'in kaynak adresinden konum bilgisi öğrenir ve hedef adresine göre iletim kararı verir.
