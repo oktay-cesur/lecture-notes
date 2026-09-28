@@ -3,6 +3,7 @@ project:
 
 format:
   revealjs:
+    from: markdown+wikilinks_title_after_pipe
     theme: dracula
     css: slides.css
     slide-number: true
@@ -13,6 +14,7 @@ format:
     height: 960
     chalkboard: true
     filters:
+      - .filters/obsidian-wikilink.lua
       - .filters/animation-assets.lua
 
 controls-layout: bottom-right
