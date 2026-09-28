@@ -141,6 +141,8 @@ Veri üst katmandan alt katmana inerken her katman verinin başına kendi yönet
 [Fiziksel Katman]   ───> 01011001011010101100110100101...                  ───> BİT
 ```
 
+![](../.content/data_encapsulation_styled_1790553491204.jpg){width="80%" fig-align="center" fig-alt="Verinin ağ katmanları tarafından sarmalanmasını gösteren yapısal diyagram"}
+
 ::: {.notes}
 - **Kapsülleme (Encapsulation):** Gönderici cihazda verinin yukarından aşağıya inerken her katmanda bir zarfın içine konulması.
 - **Çözümleme (Decapsulation):** Alıcı cihazda kablodan gelen bitlerin yukarı doğru çıkarken her katmanda kendi başlığının soyularak verinin açılması.

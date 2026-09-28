@@ -26,6 +26,7 @@ courses/_ortak/tez/
 **/_backup/
 **/draft/
 draft/
+**/.content/
 
 # İşletim sistemi ve geçici dosyalar
 .DS_Store

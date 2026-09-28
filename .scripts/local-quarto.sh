@@ -48,13 +48,13 @@ clean_source_artifacts() {
       sleep 0.1
     done
   done
-  find . -path './_site' -prune -o -type f -name '*.html' -delete 2>/dev/null || true
-  find . -path './_site' -prune -o -type d -name '*_files' -prune -exec rm -rf {} + 2>/dev/null || true
+  find . \( -path './_site' -o -path './.claude' \) -prune -o -type f -name '*.html' -delete 2>/dev/null || true
+  find . \( -path './_site' -o -path './.claude' \) -prune -o -type d -name '*_files' -prune -exec rm -rf {} + 2>/dev/null || true
 }
 
 source_artifacts_exist() {
   [[ -e .quarto || -e site_libs || -e README_files ]] && return 0
-  find . -path './_site' -prune -o -type f -name '*.html' -print -quit 2>/dev/null | grep -q .
+  find . \( -path './_site' -o -path './.claude' \) -prune -o -type f -name '*.html' -print -quit 2>/dev/null | grep -q .
 }
 
 settle_source_artifacts() {
@@ -220,7 +220,7 @@ is_fallback_qmd_file() {
 
 is_render_all_excluded_file() {
   local rel_file="$1"
-  [[ "$rel_file" == "README.md" || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
+  [[ "$rel_file" == "README.md" || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == .content/* || "$rel_file" == */.content/* || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
 }
 
 is_presentation_file() {
@@ -257,6 +257,7 @@ render_slide_file() {
   temp_dir="$(mktemp -d /tmp/ders-slide-render.XXXXXX)"
   rsync -a \
     --exclude='.git' \
+    --exclude='.claude' \
     --exclude='.quarto' \
     --exclude='_site' \
     --exclude='site_libs' \
@@ -349,7 +350,7 @@ slide_watcher_loop() {
           failed=1
         fi
       fi
-    done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sed 's|^\./||')
+    done < <(find . -path './.claude' -prune -o -type f \( -name '*.md' -o -name '*.qmd' \) -print | sed 's|^\./||')
 
     if [[ "$changed" == "1" && "$failed" == "0" ]]; then
       touch "$stamp_file"
@@ -392,7 +393,7 @@ render_all_slides() {
       render_slide_file "$rel_file"
       rendered_count=$((rendered_count + 1))
     fi
-  done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
+  done < <(find . -path './.claude' -prune -o -type f \( -name '*.md' -o -name '*.qmd' \) -print | sort | sed 's|^\./||')
 
   echo "INFO: rendered slide deck count: $rendered_count"
 }
@@ -413,7 +414,7 @@ render_all_html_files() {
     rm -rf .quarto site_libs 2>/dev/null || true
     quarto render "$rel_file" --profile publish,local --to html --output-dir "$ROOT_DIR/_site"
     rendered_count=$((rendered_count + 1))
-  done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
+  done < <(find . -path './.claude' -prune -o -type f \( -name '*.md' -o -name '*.qmd' \) -print | sort | sed 's|^\./||')
 
   cp -a _site/. "$OUTPUT_DIR_REL/"
   echo "INFO: rendered html page count: $rendered_count"
@@ -429,6 +430,7 @@ render_all_outputs_in_temp_workspace() {
 
   rsync -a \
     --exclude='.git' \
+    --exclude='.claude' \
     --exclude='.quarto' \
     --exclude='_site' \
     --exclude='site_libs' \
@@ -474,7 +476,7 @@ render_all_outputs_in_temp_workspace() {
 
         rendered_slide_count=$((rendered_slide_count + 1))
       fi
-    done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
+    done < <(find . -path './.claude' -prune -o -type f \( -name '*.md' -o -name '*.qmd' \) -print | sort | sed 's|^\./||')
     echo "INFO: rendered slide deck count: $rendered_slide_count"
   )
 
@@ -545,7 +547,7 @@ render_changed_outputs() {
     fi
 
     rendered_count=$((rendered_count + 1))
-  done < <(find . -path './_site' -prune -o -type f \( -name '*.md' -o -name '*.qmd' \) -print | sort | sed 's|^\./||')
+  done < <(find . \( -path './_site' -o -path './.claude' \) -prune -o -type f \( -name '*.md' -o -name '*.qmd' \) -print | sort | sed 's|^\./||')
 
   echo "INFO: rendered changed page count: $rendered_count; unchanged page count: $skipped_count"
 }
