@@ -11,7 +11,7 @@ sidebar: psi303
 ::: {.callout-warning}
 ## Taslak Çalışma Notu Seti
 
-Bu ders notları seti, PSİ 303 dersi için resmî izlence ve kaynak kitaplar (Salkind, *Statistics for People Who (Think They) Hate Statistics*) temel alınarak oluşturulmuş ilk çalışma iskeletidir. Şu anda yalnız ilk iki hafta hazırdır; içerik haftalık olarak genişletilmeye devam edecektir.
+Bu ders notları seti, PSİ 303 dersi için resmî izlence ve kaynak kitaplar (Salkind, *Statistics for People Who (Think They) Hate Statistics*) temel alınarak hazırlanmıştır. Hafta 1–6 notları ara sınav kapsamını oluşturur.
 :::
 
 ## Dersin Amacı
@@ -54,10 +54,10 @@ Haftalık plan dersin resmî izlencesindeki 14 haftalık kapsamı (7. hafta ara 
 |:---:|---|---|
 | 1 | [[../../courses/psi303/notes/tp_arastirma-sorusundan-veriye\|Araştırma Sorusundan Veriye]] | Hedef evren–örneklem ayrımı, betimleme–çıkarım farkı, seçim yanlılığı ve örneklem değişkenliği, gözlem birimi/değişken, kimlik/değer alanı ayrımı. |
 | 2 | [[../../courses/psi303/notes/tp_degiskeni-tanimlamak-ve-veriyi-yazilimda-kurmak\|Değişkeni Tanımlamak ve Veriyi Gerçek Yazılımda Kurmak]] | Veri türü–ölçüm düzeyi ayrımı, nominal/ordinal/aralık/oran, bağımsız/eşleştirilmiş gözlem, eksik kayıt–kodlama hatası ayrımı, veri sözlüğü ve jamovi/SPSS'te değişken tanımlama uygulaması. |
-| 3 | **Verileri Yönetme** | Eksik kayıt, ters puanlama, türetilmiş puan; ortalama ve yayılıma giriş; örneklem özetinin neden değiştiğine giriş. |
-| 4 | **Betimsel İstatistik, Normal Dağılım ve Çıkarımın Mantığı** | Merkez/yayılım/dağılım ve grafik; standart hata ve z-puanı; p-değeri, anlamlılık düzeyi, Tip I/II hata ve normallik tanısı. |
-| 5 | **T-testleri** | Tek örneklem, bağımsız örneklem ve eşleştirilmiş örneklem t-testi; varsayım, ortalama farkı, etki ve belirsizlik yorumu. |
-| 6 | **Tek Yönlü Varyans Analizi ve Post-hoc Testler** | Çok grup problemi, F istatistiği, çoklu karşılaştırma ve veri–hipotez–test zincirinin gözden geçirilmesi. |
+| 3 | [[../../courses/psi303/notes/tp_veriyi-yonetmek-ve-betimlemeye-giris\|Veriyi Yönetmek ve Betimlemeye Giriş]] | Eksik kayıt, ters puanlama, türetilmiş puan; ortalama ve yayılıma giriş; örneklem özetinin neden değiştiğine giriş. |
+| 4 | [[../../courses/psi303/notes/tp_betimsel-istatistikten-cikarima\|Betimsel İstatistikten Çıkarıma]] | Merkez/yayılım/dağılım ve grafik; standart hata ve z-puanı; p-değeri, anlamlılık düzeyi, Tip I/II hata ve normallik tanısı. |
+| 5 | [[../../courses/psi303/notes/tp_t-testleri-desenden-teste\|t-Testleri: Desenden Teste]] | Tek örneklem, bağımsız örneklem ve eşleştirilmiş örneklem t-testi; varsayım, ortalama farkı, etki ve belirsizlik yorumu. |
+| 6 | [[../../courses/psi303/notes/tp_tek-yonlu-varyans-analizi-ve-post-hoc\|Tek Yönlü Varyans Analizi ve Post-Hoc Testler]] | Çok grup problemi, F istatistiği, çoklu karşılaştırma ve veri–hipotez–test zincirinin gözden geçirilmesi. |
 | 7 | **ARA SINAV** | Hafta 1–6 kapsamının ölçülmesi. |
 | 8 | **İki Yönlü Varyans Analizi ve Kovaryans Analizi** | Temel etki/etkileşim, kovaryat kavramı, ayarlanmış karşılaştırma ve ANCOVA koşulları. |
 | 9 | **Tekrarlı Ölçümler için Varyans Analizi** | Çok zamanlı ölçüm, kişi içi değişim, küresellik ve düzeltme yorumu. |

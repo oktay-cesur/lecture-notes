@@ -79,6 +79,8 @@ Bir bankacılık işleminde ya da yazılım indirmede tek bir baytın bile kaybo
 
 ## TCP Üç Yollu El Sıkışma (Three-Way Handshake)
 
+![](../.content/tcp_handshake_styled_1790553504552.jpg){width="80%" fig-align="center" fig-alt="TCP 3-Yollu El Sıkışma sürecini gösteren yapısal diyagram"}
+
 TCP, veri aktarmadan önce istemci ve sunucu arasında oturumu resmî olarak kurar:
 
 ```text
