@@ -41,7 +41,7 @@ Bu nedenle ağ yapısı dört ayrı boyutla incelenir: ağdaki düğümler, uçl
 ::: {.notes}
 Düğüm, ağ üzerindeki her bağlantı veya işlem noktasını kapsayan geniş bir terimdir; hem iletişimin başladığı uç sistemleri hem de bir router veya switch gibi iletiyi yalnız ileten ara noktaları içerir. Uç sistem ise kullanıcı verisini üreten, tüketen veya bir hizmete katılan iletişim ucudur ve bu bakımdan ara düğümden ayrılır: ara düğüm iletiyi işleyip yönlendirirken uç sistem iletinin gerçek kaynağı veya hedefidir.
 
-Yukarıdaki çizimde Uç A ve Uç B birer uç sistemdir; ikisi arasındaki Düğüm ise iletiyi yalnız ileten bir ara noktadır. Bağlantı, düğümler arasındaki fiziksel veya mantıksal iletişim yoludur; bir topoloji, ağdaki bütün düğüm ve bağlantıların birlikte oluşturduğu düzeni gösterir.
+İletişimin başladığı ve bittiği Uç A ile Uç B birer uç sistemdir; aralarındaki Düğüm ise iletiyi yalnız ileten bir ara noktadır. Bağlantı, düğümler arasındaki fiziksel veya mantıksal iletişim yoludur; bir topoloji, ağdaki bütün düğüm ve bağlantıların birlikte oluşturduğu düzeni gösterir.
 :::
 
 ---
@@ -63,7 +63,7 @@ Ağları kapsadıkları coğrafi alana göre ayırmak, bağlantının fiziksel k
 
 **WAN (geniş alan ağı),** şehirler, ülkeler veya daha geniş coğrafyalar arasında uzanır. Farklı şehirlerdeki kurum şubeleri arasındaki bağlantı buna örnektir. İnternet'i yalnızca tek bir büyük WAN olarak düşünmemek gerekir: İnternet, çok sayıda farklı ağın birbirine bağlandığı bir **ağlar ağıdır (internetwork)**.
 
-Bu adlar bir ağın fiziksel yayılımını anlamaya yarar; ağın nasıl düzenlendiğini ya da cihazların hangi görevleri üstlendiğini açıklamaz. Görseldeki bina/kampüs ifadesi LAN'ın yerel ölçeğini sezdirir; kampüsün gerçek ağ düzeni birden fazla yerel ağ içerebilir.
+Bu adlar bir ağın fiziksel yayılımını anlamaya yarar; ağın nasıl düzenlendiğini ya da cihazların hangi görevleri üstlendiğini açıklamaz. Bina veya kampüs gibi örnekler LAN'ın yerel ölçeğini sezdirir; kampüsün gerçek ağ düzeni birden fazla yerel ağ içerebilir.
 :::
 
 
@@ -390,7 +390,7 @@ Bu iki boyut birbirinden bağımsız değerlendirilir, çünkü fiziksel çizim 
 ![](../../../images/bilgisayar-aglari/hafta-02/fiziksel-yildiz-mantiksal-davranislar.png){width="94%" fig-align="center"}
 
 ::: {.notes}
-Aşağıdaki üç örnekte A, B, C ve D düğümlerinin merkeze bağlandığı fiziksel yıldız değişmeden kalır. Değişen, merkezdeki cihazın gelen sinyali nasıl işlediği ve buna bağlı olarak düğümler arasındaki iletişimin hangi düzeni izlediğidir.
+Üç örnekte de A, B, C ve D düğümlerinin merkeze bağlandığı fiziksel yıldız değişmeden kalır. Değişen, merkezdeki cihazın gelen sinyali nasıl işlediği ve buna bağlı olarak düğümler arasındaki iletişimin hangi düzeni izlediğidir.
 
 Aynı fiziksel çizimin üç ayrı mantıksal okuması, fiziksel topolojinin iletişim davranışını tek başına belirlemediğini doğrudan gösterir.
 :::

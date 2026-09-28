@@ -1,0 +1,283 @@
+{
+  "course": "psi303",
+  "objective": "PSI 303 icin hafta 3-6 (vizeye kadar) ders notlarini olustur",
+  "content_root": "courses/psi303/.content",
+  "max_parallel": 2,
+  "routing_overrides": {
+    "deny": ["codex", "codex-astra"]
+  },
+  "yurutme": { "yetki": "kritik-kararlarda-sor" },
+  "jobs": [
+    {
+      "id": "brief-verileri-yonetme",
+      "skill": "ders-notu-planla",
+      "capability": "topic-brief",
+      "task": "Hafta 3 konusu 'Verileri Yonetme' icin icerik brief'i hazirla.",
+      "inputs": [
+        "courses/psi303/crs-psi303.md",
+        "courses/psi303/notes/tp_arastirma-sorusundan-veriye.md",
+        "courses/psi303/notes/tp_degiskeni-tanimlamak-ve-veriyi-yazilimda-kurmak.md"
+      ],
+      "outputs": ["courses/psi303/.content/briefs/verileri-yonetme.md"],
+      "prompt": "Kapsam (crs-psi303.md Hafta 3 satirindan): Eksik kayit, ters puanlama, turetilmis puan; ortalama ve yayilima giris; orneklem ozetinin neden degistigine giris. Bu ders icin ayri bir content-profile.md dosyasi henuz yok; ders araci (jamovi ana yol, SPSS Variable View esdeger), terminoloji ve anlatim tarzini crs-psi303.md ile hafta 1-2 notlarindan cikar. Hafta 1-2'de kurulan K01-K08 (uyku_saati, bolum, uyku_kalitesi) ornek veri setiyle sureklilik kurulmasi beklenir; brief bu devamliligi not etsin. Salkind kaynak kitabinin bu bolumdeki tam sayfa icerigine erisim yok; brief'i genel istatistik pedagojisi ve ders kapsamina dayandir, kaynaktan alinti uydurma."
+    },
+    {
+      "id": "topic-verileri-yonetme",
+      "skill": "ders-notu-olustur",
+      "capability": "canonical-content",
+      "task": "Brief'e dayanarak 'Verileri Yonetme' icin kanonik topic icerigini uret.",
+      "depends_on": ["brief-verileri-yonetme"],
+      "inputs": [
+        "courses/psi303/.content/briefs/verileri-yonetme.md",
+        "courses/psi303/crs-psi303.md",
+        "courses/psi303/notes/tp_arastirma-sorusundan-veriye.md",
+        "courses/psi303/notes/tp_degiskeni-tanimlamak-ve-veriyi-yazilimda-kurmak.md"
+      ],
+      "outputs": ["courses/psi303/.content/topics/verileri-yonetme.md"],
+      "prompt": "Format-bagimsiz semantik Markdown topic uret (slayt/notes ayrimi degil). Egitmenin kalici pedagojik/yazim kimligi icin /media/oktay/UbiStock/GitHub/agent-skills-prompts/.agents/instructor-profile/profile.md dosyasini ve /media/oktay/UbiStock/GitHub/agent-skills-prompts/.agents/instructor-profile/exemplars/ altindaki (ozellikle 'negative-decorative-listing-and-leakage.md' ve 'positive-mechanism-and-verification.md') exemplar'lari oku ve uygula. 'Uretim/editoryal sizintisi' (ogrenciye soylenmeli, sinifta sorulsun, X dakika gibi ders-plani talimatlarinin ogrenci metnine karismasi) kesinlikle uretme; bu tam olarak bu derste az once bulunup duzeltilen bir hatadir. K01-K08 ornek veri setiyle sureklilik kur."
+    },
+    {
+      "id": "review-verileri-yonetme-topic",
+      "skill": "ders-notu-kontrol",
+      "capability": "content-review",
+      "task": "'Verileri Yonetme' kanonik topic'ini kapsam, onbilgi, kavramsal sira, teknik dogruluk ve uretim/editoryal sizinti acisindan salt okunur denetle.",
+      "depends_on": ["topic-verileri-yonetme"],
+      "inputs": ["courses/psi303/.content/topics/verileri-yonetme.md"],
+      "outputs": ["courses/psi303/.content/reviews/verileri-yonetme-topic.md"],
+      "prompt": "Denetimde ozellikle 'ogrenciye soylenmeli/sorulmali', sinif-ici kolaylastirma talimati, dakika bazli zamanlama gibi uretim/editoryal sizinti kaliplarini ara (guides/02-editorial-policy.md, guides/10-instructor-voice.md). Bulgu yoksa acikca 'uygun' sonucunu yaz."
+    },
+    {
+      "id": "presentation-verileri-yonetme",
+      "skill": "ders-sunumu-olustur",
+      "capability": "presentation",
+      "task": "Kontrolden gecen kanonik topic'ten 'Verileri Yonetme' sunum taslagini (slayt + ::: {.notes}) uret ve hedef projenin yayin dosyasi olarak yaz.",
+      "depends_on": ["review-verileri-yonetme-topic"],
+      "inputs": [
+        "courses/psi303/.content/topics/verileri-yonetme.md",
+        "courses/psi303/.content/reviews/verileri-yonetme-topic.md",
+        "courses/psi303/notes/tp_degiskeni-tanimlamak-ve-veriyi-yazilimda-kurmak.md"
+      ],
+      "outputs": ["courses/psi303/notes/tp_verileri-yonetme.md"],
+      "prompt": "Cikti dosyasini hafta 1-2 dosyalarindaki frontmatter sozlesmesiyle ayni bicimde yaz (title, subtitle: 'PSI 303 -- Davranissal Istatistik icin Yazilim Uygulamalari', type: presentation, author: 'Ogr. Gor. Oktay Cesur', date, description, tags: [psi303, ..., hafta-3]). Notes bolumlerinde sahne talimati, ekrana isaret eden ifade veya uretim/editoryal talimat kullanma; notes taslaktan bagimsiz okundugunda anlasilir olmali. Egitmen profili ve exemplar'lari (bir onceki job'daki yollar) burada da uygula."
+    },
+    {
+      "id": "review-verileri-yonetme-presentation",
+      "skill": "ders-sunumu-kontrol",
+      "capability": "presentation-review",
+      "task": "'Verileri Yonetme' sunum taslagini kanonik topic'e karsi salt okunur denetle; sizinti/kayip/carpitma ara.",
+      "depends_on": ["presentation-verileri-yonetme"],
+      "inputs": [
+        "courses/psi303/notes/tp_verileri-yonetme.md",
+        "courses/psi303/.content/topics/verileri-yonetme.md"
+      ],
+      "outputs": ["courses/psi303/.content/reviews/verileri-yonetme-presentation.md"]
+    },
+
+    {
+      "id": "brief-betimsel-istatistik",
+      "skill": "ders-notu-planla",
+      "capability": "topic-brief",
+      "task": "Hafta 4 konusu 'Betimsel Istatistik, Normal Dagilim ve Cikarimin Mantigi' icin icerik brief'i hazirla.",
+      "inputs": [
+        "courses/psi303/crs-psi303.md",
+        "courses/psi303/.content/topics/verileri-yonetme.md"
+      ],
+      "depends_on": ["topic-verileri-yonetme"],
+      "outputs": ["courses/psi303/.content/briefs/betimsel-istatistik-normal-dagilim-ve-cikarim.md"],
+      "prompt": "Kapsam (crs-psi303.md Hafta 4 satirindan): Merkez/yayilim/dagilim ve grafik; standart hata ve z-puani; p-degeri, anlamlilik duzeyi, Tip I/II hata ve normallik tanisi. Hafta 3'un topic'ine (girdi olarak verildi) onkosul olarak dayan; ayni K01-K08 turu ornek veri gelenegini surdur. Test secimi bu hafta ilk kez formel olarak acilir; hafta 1'de bilerek ertelenmis 'p-degeri/anlamlilik' konusuna donus noktasidir, bunu brief'te belirt."
+    },
+    {
+      "id": "topic-betimsel-istatistik",
+      "skill": "ders-notu-olustur",
+      "capability": "canonical-content",
+      "task": "Brief'e dayanarak 'Betimsel Istatistik, Normal Dagilim ve Cikarimin Mantigi' icin kanonik topic icerigini uret.",
+      "depends_on": ["brief-betimsel-istatistik"],
+      "inputs": [
+        "courses/psi303/.content/briefs/betimsel-istatistik-normal-dagilim-ve-cikarim.md",
+        "courses/psi303/crs-psi303.md",
+        "courses/psi303/.content/topics/verileri-yonetme.md"
+      ],
+      "outputs": ["courses/psi303/.content/topics/betimsel-istatistik-normal-dagilim-ve-cikarim.md"],
+      "prompt": "Format-bagimsiz semantik Markdown topic uret. Egitmen profili: /media/oktay/UbiStock/GitHub/agent-skills-prompts/.agents/instructor-profile/profile.md ve ilgili exemplar'lari uygula. Uretim/editoryal sizinti uretme (ogrenciye soylenmeli, sinif ici talimat, dakika sayaci vb.). Standart hata ve z-puanini somut sayisal ornekle (mumkunse K01-K08 uyku_saati serisiyle) baglayarak anlat; Tip I/II hatayi soyut tanimda birakma, yanlis karar senaryosuyla goster."
+    },
+    {
+      "id": "review-betimsel-istatistik-topic",
+      "skill": "ders-notu-kontrol",
+      "capability": "content-review",
+      "task": "'Betimsel Istatistik, Normal Dagilim ve Cikarimin Mantigi' kanonik topic'ini denetle.",
+      "depends_on": ["topic-betimsel-istatistik"],
+      "inputs": [
+        "courses/psi303/.content/topics/betimsel-istatistik-normal-dagilim-ve-cikarim.md",
+        "courses/psi303/.content/topics/verileri-yonetme.md"
+      ],
+      "outputs": ["courses/psi303/.content/reviews/betimsel-istatistik-topic.md"],
+      "prompt": "Onkosul (Hafta 3 topic) ile tutarliligi ve uretim/editoryal sizinti yoklugunu da denetle."
+    },
+    {
+      "id": "presentation-betimsel-istatistik",
+      "skill": "ders-sunumu-olustur",
+      "capability": "presentation",
+      "task": "Kontrolden gecen kanonik topic'ten sunum taslagini uret ve hedef projenin yayin dosyasi olarak yaz.",
+      "depends_on": ["review-betimsel-istatistik-topic"],
+      "inputs": [
+        "courses/psi303/.content/topics/betimsel-istatistik-normal-dagilim-ve-cikarim.md",
+        "courses/psi303/.content/reviews/betimsel-istatistik-topic.md"
+      ],
+      "outputs": ["courses/psi303/notes/tp_betimsel-istatistik-normal-dagilim-ve-cikarim.md"],
+      "prompt": "Frontmatter sozlesmesi hafta 1-2 ile ayni (tags icinde hafta-4 olsun). Sahne talimati veya uretim/editoryal talimat icermeyen notes yaz."
+    },
+    {
+      "id": "review-betimsel-istatistik-presentation",
+      "skill": "ders-sunumu-kontrol",
+      "capability": "presentation-review",
+      "task": "Sunum taslagini kanonik topic'e karsi denetle.",
+      "depends_on": ["presentation-betimsel-istatistik"],
+      "inputs": [
+        "courses/psi303/notes/tp_betimsel-istatistik-normal-dagilim-ve-cikarim.md",
+        "courses/psi303/.content/topics/betimsel-istatistik-normal-dagilim-ve-cikarim.md"
+      ],
+      "outputs": ["courses/psi303/.content/reviews/betimsel-istatistik-presentation.md"]
+    },
+
+    {
+      "id": "brief-t-testleri",
+      "skill": "ders-notu-planla",
+      "capability": "topic-brief",
+      "task": "Hafta 5 konusu 'T-testleri' icin icerik brief'i hazirla.",
+      "inputs": [
+        "courses/psi303/crs-psi303.md",
+        "courses/psi303/.content/topics/betimsel-istatistik-normal-dagilim-ve-cikarim.md"
+      ],
+      "depends_on": ["topic-betimsel-istatistik"],
+      "outputs": ["courses/psi303/.content/briefs/t-testleri.md"],
+      "prompt": "Kapsam (crs-psi303.md Hafta 5 satirindan): Tek orneklem, bagimsiz orneklem ve eslestirilmis orneklem t-testi; varsayim, ortalama farki, etki ve belirsizlik yorumu. Hafta 4'teki p-degeri/anlamlilik/Tip I-II hata temelini onkosul say; ilk somut 'test secimi' karari burada verilir."
+    },
+    {
+      "id": "topic-t-testleri",
+      "skill": "ders-notu-olustur",
+      "capability": "canonical-content",
+      "task": "Brief'e dayanarak 'T-testleri' icin kanonik topic icerigini uret.",
+      "depends_on": ["brief-t-testleri"],
+      "inputs": [
+        "courses/psi303/.content/briefs/t-testleri.md",
+        "courses/psi303/crs-psi303.md",
+        "courses/psi303/.content/topics/betimsel-istatistik-normal-dagilim-ve-cikarim.md"
+      ],
+      "outputs": ["courses/psi303/.content/topics/t-testleri.md"],
+      "prompt": "Egitmen profili ve exemplar'lari uygula (bkz. onceki topic job'lari). Uc t-testi turunu (tek orneklem, bagimsiz, eslestirilmis) hangi arastirma sorusuna hangisinin cevap verdigini ayirt eden bir karar semasiyla anlat; mekanizmayi (ortalama farki, standart hata, serbestlik derecesi) atlamayan bir anlatim kur. Uretim/editoryal sizinti uretme."
+    },
+    {
+      "id": "review-t-testleri-topic",
+      "skill": "ders-notu-kontrol",
+      "capability": "content-review",
+      "task": "'T-testleri' kanonik topic'ini denetle.",
+      "depends_on": ["topic-t-testleri"],
+      "inputs": [
+        "courses/psi303/.content/topics/t-testleri.md",
+        "courses/psi303/.content/topics/betimsel-istatistik-normal-dagilim-ve-cikarim.md"
+      ],
+      "outputs": ["courses/psi303/.content/reviews/t-testleri-topic.md"]
+    },
+    {
+      "id": "presentation-t-testleri",
+      "skill": "ders-sunumu-olustur",
+      "capability": "presentation",
+      "task": "Kontrolden gecen kanonik topic'ten sunum taslagini uret ve hedef projenin yayin dosyasi olarak yaz.",
+      "depends_on": ["review-t-testleri-topic"],
+      "inputs": [
+        "courses/psi303/.content/topics/t-testleri.md",
+        "courses/psi303/.content/reviews/t-testleri-topic.md"
+      ],
+      "outputs": ["courses/psi303/notes/tp_t-testleri.md"],
+      "prompt": "Frontmatter sozlesmesi hafta 1-2 ile ayni (tags icinde hafta-5 olsun). Sahne talimati veya uretim/editoryal talimat icermeyen notes yaz."
+    },
+    {
+      "id": "review-t-testleri-presentation",
+      "skill": "ders-sunumu-kontrol",
+      "capability": "presentation-review",
+      "task": "Sunum taslagini kanonik topic'e karsi denetle.",
+      "depends_on": ["presentation-t-testleri"],
+      "inputs": [
+        "courses/psi303/notes/tp_t-testleri.md",
+        "courses/psi303/.content/topics/t-testleri.md"
+      ],
+      "outputs": ["courses/psi303/.content/reviews/t-testleri-presentation.md"]
+    },
+
+    {
+      "id": "brief-anova-tek-yonlu",
+      "skill": "ders-notu-planla",
+      "capability": "topic-brief",
+      "task": "Hafta 6 konusu 'Tek Yonlu Varyans Analizi ve Post-hoc Testler' icin icerik brief'i hazirla.",
+      "inputs": [
+        "courses/psi303/crs-psi303.md",
+        "courses/psi303/.content/topics/t-testleri.md"
+      ],
+      "depends_on": ["topic-t-testleri"],
+      "outputs": ["courses/psi303/.content/briefs/anova-tek-yonlu.md"],
+      "prompt": "Kapsam (crs-psi303.md Hafta 6 satirindan): Cok grup problemi, F istatistigi, coklu karsilastirma ve veri-hipotez-test zincirinin gozden gecirilmesi. Bu hafta ayni zamanda 1-6 arasi zincirin (Hafta 7 ara sinav) toparlanma noktasidir; brief bu ozeti de kapsasin. Neden ikiden fazla grupta tekrarlanan t-testinin sorun oldugunu (Tip I hata birikimi) acik bir motivasyon olarak kur."
+    },
+    {
+      "id": "topic-anova-tek-yonlu",
+      "skill": "ders-notu-olustur",
+      "capability": "canonical-content",
+      "task": "Brief'e dayanarak 'Tek Yonlu Varyans Analizi ve Post-hoc Testler' icin kanonik topic icerigini uret.",
+      "depends_on": ["brief-anova-tek-yonlu"],
+      "inputs": [
+        "courses/psi303/.content/briefs/anova-tek-yonlu.md",
+        "courses/psi303/crs-psi303.md",
+        "courses/psi303/.content/topics/t-testleri.md"
+      ],
+      "outputs": ["courses/psi303/.content/topics/anova-tek-yonlu.md"],
+      "prompt": "Egitmen profili ve exemplar'lari uygula. Coklu karsilastirma (post-hoc) ihtiyacini F testinin 'en az bir fark var' sonucundan nereye ait oldugu sorusuna gecisle motive et. Hafta 1-6 zincirini (evren-orneklem, betimleme-cikarim, veri yapisi, normal dagilim/p-degeri, t-testi, ANOVA) kisa bir sentez bolumuyle bagla; bu sentez gercek kavramsal baglanti kursun, yalnizca liste tekrari olmasin. Uretim/editoryal sizinti uretme."
+    },
+    {
+      "id": "review-anova-tek-yonlu-topic",
+      "skill": "ders-notu-kontrol",
+      "capability": "content-review",
+      "task": "'Tek Yonlu Varyans Analizi ve Post-hoc Testler' kanonik topic'ini denetle.",
+      "depends_on": ["topic-anova-tek-yonlu"],
+      "inputs": [
+        "courses/psi303/.content/topics/anova-tek-yonlu.md",
+        "courses/psi303/.content/topics/t-testleri.md"
+      ],
+      "outputs": ["courses/psi303/.content/reviews/anova-tek-yonlu-topic.md"]
+    },
+    {
+      "id": "presentation-anova-tek-yonlu",
+      "skill": "ders-sunumu-olustur",
+      "capability": "presentation",
+      "task": "Kontrolden gecen kanonik topic'ten sunum taslagini uret ve hedef projenin yayin dosyasi olarak yaz.",
+      "depends_on": ["review-anova-tek-yonlu-topic"],
+      "inputs": [
+        "courses/psi303/.content/topics/anova-tek-yonlu.md",
+        "courses/psi303/.content/reviews/anova-tek-yonlu-topic.md"
+      ],
+      "outputs": ["courses/psi303/notes/tp_anova-tek-yonlu.md"],
+      "prompt": "Frontmatter sozlesmesi hafta 1-2 ile ayni (tags icinde hafta-6 olsun). Sahne talimati veya uretim/editoryal talimat icermeyen notes yaz."
+    },
+    {
+      "id": "review-anova-tek-yonlu-presentation",
+      "skill": "ders-sunumu-kontrol",
+      "capability": "presentation-review",
+      "task": "Sunum taslagini kanonik topic'e karsi denetle.",
+      "depends_on": ["presentation-anova-tek-yonlu"],
+      "inputs": [
+        "courses/psi303/notes/tp_anova-tek-yonlu.md",
+        "courses/psi303/.content/topics/anova-tek-yonlu.md"
+      ],
+      "outputs": ["courses/psi303/.content/reviews/anova-tek-yonlu-presentation.md"]
+    }
+  ],
+  "milestones": [
+    {
+      "title": "Vize oncesi (hafta 3-6) notlar tamamlandi",
+      "after": [
+        "review-verileri-yonetme-presentation",
+        "review-betimsel-istatistik-presentation",
+        "review-t-testleri-presentation",
+        "review-anova-tek-yonlu-presentation"
+      ]
+    }
+  ]
+}
