@@ -29,7 +29,7 @@ Aynı sekiz katılımcıya (K01–K08) üç maddelik bir "ders kaygısı" ölçe
 | K07 | 25 | 3 | 3 | 3 |
 | K08 | 7 | 1 | 2 | 5 |
 
-Bu kurgusal bir öğretim tablosudur, gerçek katılımcı verisi değildir. `uyku_saati` sütunu, temizlik alıştırması için bilerek bozulmuş bir kopyadır: Hafta 1'deki temiz tabloda K07'nin uyku süresi 6 saattir. Merkez ve yayılım bölümü, Hafta 1'deki temiz sekiz değerle çalışır.
+Bu kurgusal bir öğretim tablosudur, gerçek katılımcı verisi değildir. `uyku_saati` sütunu, temizlik alıştırması için bilerek bozulmuş bir kopyadır: Hafta 1'deki temiz öğretim tablosunda K07'nin değeri 6 saattir. İki karar senaryosunu ayırın: Temiz tablo doğrulanmış özgün kayıt kabul edilirse çalışma kopyasındaki 25, gerekçesi kaydedilerek 6'ya düzeltilebilir; özgün kayıt doğrulanamıyorsa 25 eksik işaretlenir. Aşağıdaki veri yönetimi uygulaması ikinci senaryoyu kullanır. Merkez ve yayılım bölümü ise ayrı olarak Hafta 1'in temiz sekiz değeriyle çalışır.
 
 ::: {.notes}
 K07'nin 25 değeri ile K05'in boş `kaygi_m1` hücresi aynı görünse de aynı sorunu temsil etmez. İlkinde olanaksız bir kayıt, ikincisinde yanıtsız bir madde vardır; uygulanacak işlemden önce bu fark kurulmalıdır.
@@ -98,7 +98,7 @@ Filtreleme bazen gereklidir; sorun işlemin görünmez kalmasıdır. Çıkarma �
 
 Buraya kadar yapılan her şey — hangi hücrenin neden değiştirildiği, hangi maddenin ters çevrildiği, hangi kaydın hangi gerekçeyle filtrelendiği — adım adım okunabilir bir günlükte tutulur:
 
-- K07, `uyku_saati`: 25 → yeni bir sütunda eksik olarak işaretlendi (olanaksız değer, kaynak doğrulanamadı); ham sütun olduğu gibi kaldı.
+- K07, `uyku_saati`: uygulamada özgün kayıt erişilemez varsayıldığı için 25 → yeni bir sütunda eksik olarak işaretlendi; ham sütun olduğu gibi kaldı. Doğrulanmış kaynak varsa 6'ya düzeltme ayrı bir karar olarak kaydedilir.
 - K05, `kaygi_m1`: boş bırakılmış kayıt, yeni sütunda eksik olarak işaretlendi.
 - `kaygi_m3` → `kaygi_m3_ters`: tüm satırlara `6 − kaygi_m3` uygulandı.
 - `kaygi_toplam`: yalnızca üç madde de doluysa hesaplandı; K05 için eksik bırakıldı.
@@ -108,17 +108,12 @@ Buraya kadar yapılan her şey — hangi hücrenin neden değiştirildiği, hang
 Bu günlük, "veri temizlendi" gibi tek cümlelik bir özetten farklıdır: ham veri ile analiz tablosu arasındaki her farkın gerekçesini taşır. Her adım hangi hücreyi veya sütunu etkilediğini, uygulanan işlemi ve gerekçesini okunabilir biçimde göstermelidir.
 :::
 
-## Uygulama: Veri Yönetimini Yazılımda Yapmak (60 dk)
+## Teorik akış — 120 dakika
 
-1. **Ham tabloyu kur (10 dk):** yukarıdaki sekiz satırlık tabloyu gir; ham sütunlara dokunma.
-2. **Eksikleri işaretle (10 dk):** K07 `uyku_saati` ve K05 `kaygi_m1` için yeni sütunlarda eksik değer işaretini ver; iki durumun neden ayrı sütun olarak kaydedildiğini işlem kaydına yaz.
-3. **Ters puanla (15 dk):** `kaygi_m3_ters = 6 − kaygi_m3` sütununu üret; K01 ve K06 satırlarını elle hesapladığın değerlerle karşılaştır.
-4. **Toplam üret (10 dk):** `kaygi_toplam` sütununu yalnızca üç madde de doluyken hesapla; K01 için 12, K06 için 15 çıktığını doğrula, K05'in eksik kaldığını kontrol et.
-5. **Filtrele ve kaydet (15 dk):** `kaygi_toplam` eksik olan kaydı analiz alt kümesinden çıkar; $n$'nin 8'den 7'ye düştüğünü ve çıkarılan kaydın kim olduğunu işlem kaydına yaz.
-
-::: {.notes}
-Araç serbesttir (jamovi, SPSS, Excel, JASP); ekran konumu ezberletilmez. Beklenen ürün, ham tablo + dönüştürülmüş tablo + işlem kaydıdır.
-:::
+1. **Ham kayıt ve karar gerekçesi (30 dk):** K05'in boş maddesini, K07'nin 25 saatini ve tepki süresi veri setindeki negatif, boş ve çok uzun kayıtları karşılaştır. Her kayıt için “olanaksız mı, eksik mi, alışılmadık ama mümkün mü?” sorusuna kanıtla cevap verdir; özgün kaynağa erişilebilir ve erişilemez senaryoları ayır.
+2. **Ters madde ve türetilmiş puan (30 dk):** `kaygi_m3` için 1→5 ve 5→1 dönüşümünü iki uçta göster; sonra K01 ve K06 toplamlarını öğrencilerle elle hesapla. K05'te eksik maddenin toplamı neden eksik bıraktığını ve bu kararın analizdeki kişi sayısına etkisini tartıştır.
+3. **Merkez ölçülerini karşılaştır (25 dk):** Hafta 1'in temiz sekiz uyku değerini sıralayıp ortalama, medyan ve modu ayrı ayrı buldur. Tek bir uyku değeri değişirse üçünün aynı biçimde değişmeyeceğini karşı örnekle sınat; her ölçünün hangi soruyu yanıtladığını belirt.
+4. **Yayılım ve örneklem değişkenliği (35 dk):** Eşit ortalamalı A/B grupları için açıklığı ve kareli sapmaları tahtada adım adım hesaplat. Örneklem varyansında `n−1` ve standart sapmada karekökün işlevini bağla. Puan grupları dosyasında ortalamalar eşitken standart sapmaların neden farklı çıktığını yorumlat; farklı sekiz kişilik örneklemlerin ortalamasının değişebileceği düşünce deneyine geç.
 
 ## Kısa Geri Kontrol — Veri Yönetimi
 
@@ -199,6 +194,18 @@ Tek bir örneklem ortalaması, evren ortalamasının kesin değeri değildir. Ay
 
 ::: {.notes}
 Düşünce deneyinin sonucu iki parçalıdır: örneklem ortalamaları birbirinden farklıdır, fakat aynı evrenden geldikleri için genellikle ortak bir bölge çevresinde toplanırlar. Çıkarımın belirsizliği bu değişkenlikten doğar.
+:::
+
+## Uygulama: Veri Yönetimini Yazılımda Yapmak (60 dk)
+
+1. **Ham tabloyu aç ve denetle (10 dk):** K01–K08 Excel dosyasını jamovi'de aç; satırları yukarıdaki kaynak tabloyla karşılaştır ve ham sütunlara dokunma.
+2. **Eksikleri işaretle (10 dk):** özgün kayıt erişilemez senaryosunda K07 `uyku_saati` ve K05 `kaygi_m1` için yeni sütunlarda eksik değer işaretini ver; iki kaydın nedenlerini işlem kaydına ayrı ayrı yaz.
+3. **Ters puanla (15 dk):** `kaygi_m3_ters = 6 − kaygi_m3` sütununu üret; K01 ve K06 satırlarını elle hesapladığın değerlerle karşılaştır.
+4. **Toplam üret (10 dk):** `kaygi_toplam` sütununu yalnızca üç madde de doluyken hesapla; K01 için 12, K06 için 15 çıktığını doğrula, K05'in eksik kaldığını kontrol et.
+5. **Filtrele ve kaydet (15 dk):** `kaygi_toplam` eksik olan kaydı analiz alt kümesinden çıkar; $n$'nin 8'den 7'ye düştüğünü ve çıkarılan kaydın kim olduğunu işlem kaydına yaz.
+
+::: {.notes}
+K01–K08 Excel dosyası ders sayfasında bulunur. Beklenen ürün, ham tablo + dönüştürülmüş jamovi dosyası + işlem kaydıdır; menü konumu ezberletilmez.
 :::
 
 ## Kısa Geri Kontrol — Haftanın Tamamı

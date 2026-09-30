@@ -4,6 +4,7 @@ project:
   resources:
     - .assets/**
     - images/**
+    - data/**
   render:
     - "**/*.md"
     - "**/*.qmd"

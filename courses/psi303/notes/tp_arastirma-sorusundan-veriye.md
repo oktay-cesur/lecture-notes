@@ -18,7 +18,8 @@ Bu üniversitede PSİ 303'e kayıtlı öğrenciler, ara sınavdan önceki gece k
 "Öğrencilerin uyku süresi" belirsiz kalıyor: hangi öğrenciler, hangi gece, kimin verisi?
 
 ::: {.notes}
-Derse bu soruyla girilir; soru tahtaya yazılabilir. Amaç, ilk cümleden itibaren "elimizde veri olması" ile "kimin hakkında konuşmak istediğimiz" arasındaki boşluğu görünür kılmaktır. İstatistiğin ilk işi tam olarak bu boşluğu görünür kılmaktır: elimizdeki veriyle ne söyleyebileceğimizi, hangi topluluğa ne kadar güvenle taşıyabileceğimizden ayırmak.:::
+Derse bu soruyla girilir; soru tahtaya yazılabilir. Amaç, ilk cümleden itibaren "elimizde veri olması" ile "kimin hakkında konuşmak istediğimiz" arasındaki boşluğu görünür kılmaktır. İstatistiğin ilk işi tam olarak bu boşluğu görünür kılmaktır: elimizdeki veriyle ne söyleyebileceğimizi, hangi topluluğa ne kadar güvenle taşıyabileceğimizden ayırmak.
+:::
 
 ---
 
@@ -138,18 +139,26 @@ Cevap: hiçbir şeye — kod numaraları kişiyi etiketlemek için seçilmiş ra
 
 ---
 
-## Uygulama: iki cümleyi tablodan kur
+## Teorik akış — 120 dakika
 
-Sekiz satırlık tabloyu (K01–K08, uyku saatleri 5, 6, 6, 7, 8, 5, 6, 7) seçtiğin bir ortamda (Excel, JASP, jamovi ya da SPSS) incele.
+1. **Araştırma sorusunu sınırla (25 dk):** “Öğrenciler kaç saat uyudu?” cümlesini kişi, gece ve ölçüm biçimi açısından belirsiz buldur. Aynı sekiz değeri kullanarak “bu sekiz gönüllü” ve “dersteki herkes” öznelerini karşılaştır; değişen şeyin sayı değil iddianın kapsamı olduğunu tartıştır.
+2. **Evren, örneklem ve seçim (35 dk):** Gönüllü seçilen sekiz kişi ile rastgele seçilen sekiz kişiyi iki ayrı senaryo olarak ele al. İkisinde de 5/8 sayımı aynı olsa bile genellemenin dayanağının neden aynı olmadığını öğrencilerden gerekçelendirmelerini iste. Seçim yanlılığı ile başka bir sekizlinin farklı sonuç verebilmesini ayır.
+3. **Betimleme ve çıkarım (30 dk):** Tablodan doğrulanabilen üç cümle kurdur; her cümlenin öznesini ve zamanını işaretlet. Ardından aynı cümleleri bütün PSİ 303 öğrencilerine genişletip hangi ek bilgiye ihtiyaç duyulduğunu tartıştır. “Beş kişi” sayımının tek başına evren oranı olmadığını kontrol et.
+4. **Tablonun yapısı (30 dk):** Her satırın kimi, her sütunun neyi temsil ettiğini örneklerle çözdür. `K03` kodunu değiştirip uyku değerini sabit tut; kimlik ile ölçümün işlevini ayır. Aynı kişiden iki gece ölçüm alınsa satır kimliğinin nasıl değişeceğini kısa bir karşı örnekle bağla.
 
-1. Yalnızca bu sekiz kişiyi tanımlayan, doğrudan doğrulanabilir bir sonuç yaz.
-2. Kayıtlı bütün PSİ 303 öğrencileri hakkında kurmak istediğin, ama mevcut veriden tek başına kesinleştiremeyeceğin bir iddia yaz.
-3. İki cümle için gözlem birimini ve hedef evreni bir satırda belirt.
+## Uygulama: iki cümleyi tablodan kur — 60 dakika
+
+Sekiz satırlık tabloyu (K01–K08, uyku saatleri 5, 6, 6, 7, 8, 5, 6, 7) jamovi'de kur ve incele.
+
+1. **Tabloyu kur ve denetle (15 dk):** `katilimci_kodu` ve `uyku_saati` sütunlarını gir; K01, K05 ve K08 satırlarını yukarıdaki kaynak tabloyla karşılaştır.
+2. **Betimle (15 dk):** yedi saatin altında uyuyanları say; yalnızca bu sekiz kişiye ve bu geceye ilişkin doğrulanabilir bir cümle yaz.
+3. **Çıkarım sınırını yaz (15 dk):** bütün PSİ 303 öğrencileri için kurmak istediğin cümleyi yaz; örneklem seçimi hakkında hangi bilgi olmadan bu cümleyi destekleyemeyeceğini belirt.
+4. **Çapraz kontrol et (15 dk):** arkadaşının iki cümlesinde özneyi, geceyi, gözlem birimini ve hedef evreni işaretle; tablodan çıkmayan bir iddia varsa düzelt.
 
 Beklenen ürün: gözlem birimi ve hedef evren belirtilmiş, betimleme/çıkarım ayrımını gösteren iki kısa ifade.
 
 ::: {.notes}
-Araç seçimi serbesttir; hiçbir araç zorunlu tutulmaz. Her cümle için öznesini ve geceye ait zaman sınırını işaretlemeleri istenir, sonra kendilerine şunu sormaları: "veri bu özneyi ve bu zamanı gerçekten kapsıyor mu?" İkinci cümle için evrene ilişkin bir yorum yapabilmek için hangi ek bilgiye (seçimin nasıl yapıldığı, örneklem değişkenliğinin ne olduğu) ihtiyaç duyduklarını tek cümleyle belirtmeleri istenir. Uygulama saatinin bir bölümünü kapsar; bugün yalnız tabloyu tanıyoruz, değişkenlerin ölçüm düzeyi ayrıca ele alınır.
+jamovi'de kimlik ve uyku sütunlarının rolünü kontrol ettirin; menü adını ezberletmeyin. Her cümle için özneyi ve geceye ait zaman sınırını işaretlemelerini isteyin. İkinci cümlede örneklem seçimi ve örneklem değişkenliği hakkında hangi ek bilginin gerektiğini bir cümleyle belirtmeleri beklenir; değişkenlerin ölçüm düzeyi sonraki hafta ele alınır.
 :::
 
 ---

@@ -86,7 +86,8 @@ Her satırdan sonra "bu değişkende hangi işlemi yapmak istiyoruz?" diye sorun
 Sekiz farklı kişinin tek gecelik kaydı bağımsız gözlem düzenidir. Aynı kişiden üç gece ölçüm alınırsa üç satırın ortak kimliği vardır; bunlar aynı kişiye ait ilişkili (tekrarlı) gözlemlerdir. Bu durumda `katilimci_kodu` artık satırı tek başına ayırt etmez; gözlem birimi "kişi–gece" çiftidir.
 
 ::: {.notes}
-İki tablo çizdirin: "sekiz kişi × bir gece" ve "sekiz kişi × üç gece". Satırların kimlik bilgisi değişince veri yapısının da değiştiğini belirtin.:::
+İki tablo çizdirin: "sekiz kişi × bir gece" ve "sekiz kişi × üç gece". Satırların kimlik bilgisi değişince veri yapısının da değiştiğini belirtin.
+:::
 
 ---
 
@@ -118,6 +119,13 @@ Bu tablo yazılım ekranının kopyası değildir; yazılım ayarının araştı
 :::
 
 ---
+
+## Teorik akış — 120 dakika
+
+1. **Kimlik, değer ve saklama biçimi (25 dk):** K01–K08 tablosunda her sütunun işlevini öğrencilerle sınıflandır. `K01` yerine başka bir kod yazıldığında ölçümün değişmediğini; `bolum` için 1/2 kodu kullanıldığında da kategorinin sayısal büyüklük kazanmadığını karşı örnek olarak çöz.
+2. **Ölçüm düzeyinin sonuçları (35 dk):** Dört düzey için “hangi karşılaştırma anlamlı?” sorusunu aynı veri sözlüğü üzerinden uygula. `uyku_kalitesi` için sıralama yapılabildiğini ama kötü–orta ile orta–iyi aralıklarının eşit varsayılamayacağını; `uyku_saati` için 8/4 oranının anlamlı olduğunu tartıştır. Celsius örneğinde 20/10 oranını neden aynı biçimde okuyamadığımızı kontrol et.
+3. **Gözlem düzeni ve kayıt sorunları (30 dk):** Sekiz kişi × bir gece ile sekiz kişi × üç gece tablolarının satır anahtarlarını çizdir. Ardından boş uyku hücresi, `25` ve geçerli `0` içeren üç kayıt göster; hangi durumda bilgi eksik, hangi durumda kaynak kontrolü gerekli, hangi durumda sıfır gerçek ölçüm olabilir sorularını ayrı ayrı yanıtlat.
+4. **Veri sözlüğünü gerekçelendir (30 dk):** Öğrencilerden dört değişkenin türünü ve ölçüm düzeyini önce kâğıt üzerinde seçmelerini iste. Yanlış otomatik yazılım türü önerisinin hangi özet veya karşılaştırmayı bozacağını bir örnekle açıklat; ardından sözlüğü karşılıklı denetlet.
 
 ## Gerçek yazılım uygulaması — 60 dakika
 
