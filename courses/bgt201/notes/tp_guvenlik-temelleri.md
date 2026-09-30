@@ -1,6 +1,6 @@
 ---
-title: "Güvenlik Temelleri: Bilgi Varlığını Korumak"
-subtitle: "BGT 201 — Bilgi Güvenliği Yönetimi I"
+title: "Bilgi Güvenliğine Giriş: Bilgiyi Korumak"
+subtitle: "BGT 201 — Bilgi Güvenliği Yönetimi I · Hafta 1"
 type: presentation
 author: "Öğr. Gör. Oktay Cesur"
 date: today
@@ -8,238 +8,471 @@ execute:
   echo: false
 ---
 
-::: {.callout-warning}
-## Taslak Çalışma Notu
-Bu doküman BGT 201 Bilgi Güvenliği Yönetimi I dersi için resmî izlence ve kaynak analizi temel alınarak hazırlanmış ilk çalışma taslağıdır. Haftalık pedagojik revizyonlarla olgunlaştırılmaya devam edecektir.
-Ana İzlence: [[crs-bgt201|Ders İzlence Merkezi]]
-:::
+## Bilgi güvenliği
 
-## Güvenlik temelleri: bilgi varlığını korumak
+**Korunacak şey nedir?**
 
-BGT 201 — Bilgi Güvenliği Yönetimi I · Hafta 1
+- Bir metin
+- Bir ölçüm
+- Bir kayıt
+- Bir görüntü
+
+Bunların taşıdığı anlam nasıl korunur?
 
 ::: {.notes}
-Dersin ilk oturumu. Öğrencinin bu derse girerken kafasındaki "güvenlik" imgesi muhtemelen bir güvenlik duvarı, antivirüs ya da hacker'dır — yani bir araç ya da bir saldırgan. Bu oturumun amacı bu imgeyi düzeltmek: güvenlik konuşması bir araç listesiyle değil, kurumun hangi bilgiyle iş yaptığı sorusuyla başlar. Bunu ilk slaytta söylemiyoruz, ama kendi zihnimizde çerçeveyi böyle kuruyoruz; bir sonraki slaytta öğrenciye doğrudan bu soruyu soracağız.
+Bir güvenlik sorusunu yanıtlayabilmek için önce neyi koruduğumuzu bilmemiz gerekir. Bir bilgi kâğıtta, insan belleğinde ya da bilgisayarda durabilir; bu, onun değerini ve başına gelebilecekleri değiştirir ama korunması gereken şeyi ortadan kaldırmaz. Bu yüzden derse bir teknolojiden değil, “bilgi” sözcüğünün kendisinden başlıyoruz. Bir metin, bir ölçüm, bir kayıt ve bir görüntü birbirinden çok farklı görünür; hepsinde ortak olan, bir anlam taşımalarıdır ve korunması gereken de çoğu zaman bu anlamdır.
 :::
 
 ---
 
-## Bugünün sorusu
+## Bilgi nedir?
 
-**"Hangi araç kullanılıyor?" değil — "Kurum hangi bilgiyle hangi işi yürütüyor?"**
+:::: {.columns}
 
-Örnek kurum birimi: öğrenci/aday kayıtları, personel belgeleri ve hizmet başvurularını yöneten kurgusal bir birim.
+::: {.column width="50%"}
+TDK'ye göre “bilgi”:
+
+- İnsan aklının erebileceği olgu, gerçek ve ilkelerin bütünü
+- Öğrenme, araştırma veya gözlemle elde edilen gerçek
+- İnsan zekâsının çalışması sonucu ortaya çıkan düşünce ürünü
+- Zihnin kavradığı temel düşünceler
+- Kurallardan yararlanarak kişinin **veriye yönelttiği anlam**
+:::
+
+::: {.column width="50%"}
+**Bir olguyu kaydetmek ile o kayıttan bir şey anlamak aynı işlem midir?**
+
+[Kaynak: TDK, “bilgi”](https://sozluk.gov.tr/kelime/bilgi)
+:::
+
+::::
 
 ::: {.notes}
-Bu soruyu tahtaya yazıp öğrenciye sormakla başlanabilir: "Bir kurumu güvenlik açısından tanımak isteseniz ilk sorunuz ne olurdu?" Çoğu öğrenci "hangi yazılımı/donanımı kullanıyorlar" der — bu doğal ama yanlış giriş noktasıdır, çünkü araç listesi kurumun neyi koruması gerektiğini söylemez. Doğru giriş noktası kurumun hangi bilgiyle hangi kararı verdiğidir. Dönem boyunca kullanacağımız örnek birimi burada tanıtıyoruz: başvuru alan, değerlendiren, yönlendiren ve sonucu kayıt altına alan kurgusal bir birim. Bunun gerçek bir kurum olmadığını, ders boyunca tekrar döneceğimiz ortak bir vaka olduğunu belirt. Geçiş: "Peki bu birimin elindeki kayıtların hepsi aynı ağırlıkta mı? Hayır — şimdi bunu ayıracağız."
+Sözlük “bilgi” için tek bir tanım vermiyor, birkaç ayrı kullanım sayıyor: öğrenilmiş birikim, gözlemle elde edilen gerçek, bir düşünce ürünü ve son maddede veriye yüklenen anlam. Bu çok anlamlılığı baştan görmekte yarar var, çünkü güvenliğin konusunu tanımlarken hangi anlamdan söz ettiğimiz kararı etkiler. Örneğin “sıcaklık 38” yazan bir kaydı düşünelim. Bu kayıt bir ölçümü saklar, ama ölçümün nerede, ne zaman ve hangi ölçekte alındığını bilmeden ne anlama geldiğini söyleyemeyiz. Yorum için bağlam gerekir. Sözlükteki kullanımların ortak yanı da bilginin işaretlerin kendisinden çok, bu işaretlerin anlaşılmasıyla ilgili olmasıdır.
 :::
 
 ---
 
-## Veriden bilgiye
+## Aynı sözcük, farklı kullanım
 
-| | Tek başına | Bağlamıyla birlikte |
+- “Bu konuda bilgim var.”
+- “Yeni bir bilgi geldi.”
+- “Dosyadaki bilgi yanlış.”
+
+**Üç cümlede “bilgi” aynı şeyi mi anlatıyor?**
+
+::: {.notes}
+İlk cümlede bilgi, kişinin edindiği birikimdir. İkincisinde iletilen bir haberdir, üçüncüsünde bir kaydın içeriğidir. Güvenlik açısından bu ayrım şu sonucu doğurur: kişinin belleğindeki birikimi korumak ile bir dosyanın doğruluğunu korumak aynı pratik sorun değildir. Yine de üçü de anlamın kaybolması ya da yanlış aktarılmasıyla zarar görebilir. “Dosyada yanlış bilgi var” dediğimizde dosyanın bozulmuş olması da, dosyadaki değerin gerçeği yanlış anlatması da kastedilmiş olabilir. Bu nedenle “bilgi” sözcüğünü tek bir tanıma sığdırmak yerine kullanıldığı bağlamla birlikte okuruz.
+:::
+
+---
+
+## Veri ve bilgi
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Veri (data):** olgu, kavram veya komutların iletişim, yorum ve işlem için elverişli biçimli gösterimi.
+:::
+
+::: {.column width="50%"}
+**Bilgi (information):** kurallardan yararlanarak kişinin veriye yönelttiği anlam.
+:::
+
+::::
+
+Veri ile bilgi ilişkili, fakat farklı şeylerdir.
+
+[Kaynak: TDK](https://sozluk.gov.tr/kelime/bilgi)
+
+::: {.notes}
+Sözlük veriyi bir gösterim olarak tanımlıyor: olguların, kavramların ya da komutların, yorumlanmaya ve işlenmeye elverişli biçimde yazılmış hâli. Bilgi ise bu gösterime yönelttiğimiz anlamdır. İki sözcüğün ilişkili olmasının nedeni, bilginin veriden çıkmasıdır; farklı olmasının nedeni de aynı verinin farklı kurallarla farklı anlamlara çevrilebilmesidir. Sayı, metin, ses, görüntü ya da bir formdaki işaret veri olabilir. Veriye “değersiz” ya da “korunması gerekmeyen” demek de bu tanımdan çıkmaz. Burada yalnızca gösterim ile yorumun ayrı şeyler olduğunu söylüyoruz.
+:::
+
+---
+
+## Veri: kaydedilebilen gösterim
+
+**38** · **2026-09-29** · **A17**
+
+Ölçüm mü, tarih mi, tanımlayıcı mı? Bağlam olmadan yorumları açık değil.
+
+::: {.notes}
+Ekrandaki üç değer de kaydedilebilir ve iletilebilir; buna karşılık ne olduklarını değerlerin kendisinden çıkaramayız. “38” bir vücut sıcaklığı, bir sınıf mevcudu ya da bir sıra numarası olabilir. İşaretin biçimi neyi temsil ettiğini garanti etmez. Veri kavramını bu yüzden gösterim olarak alıyoruz; anlam onun üstüne kurulan ayrı bir adımdır.
+:::
+
+---
+
+## Veri bağlam kazandığında
+
+- `38` + hasta dosyası, °C, bugün → ateş yüksek olabilir
+- `38` + sınıf listesi, öğrenci sayısı → sınıf mevcudu 38
+- `38` + ürün stoğu, adet → depoda 38 ürün var
+
+**Aynı gösterim, farklı bağlamlarda farklı bilgi verir.**
+
+::: {.notes}
+İlk satırdaki yorumun doğru olması için ölçünün gerçekten vücut sıcaklığı olması, birimin santigrat derece olması ve ölçümün doğru kişiye ait olması gerekir. Bunlardan biri yanlışsa yorum da yanlış olur. İkinci ve üçüncü satırlarda aynı sayı bambaşka sorulara cevap veriyor. Veri ile bilgi arasındaki fark, ham verinin değersiz, işlenmiş verinin değerli olması değildir; fark, kaydın temsil ettiği şey ile ona yönelttiğimiz anlamdadır. Kaynak sunumdaki veri (data) ve bilgi (information) ayrımı (s. 5) bu örnekte somutlaşıyor.
+:::
+
+---
+
+## Tek veri, birden çok yorum
+
+Bir kayıtta şu satır var: `2026-09-29, 38`.
+
+- Bu satır hangi sorulara cevap verebilir?
+- Hangi sorulara cevap veremez?
+- Yanlış birim ya da yanlış tarih eklenirse ne değişir?
+
+::: {.notes}
+Satırın ilk bölümü bir tarihe benziyor; ikinci bölümünün ne olduğu belirsiz. Onu sıcaklık, sınıf mevcudu ya da stok sayısı diye okuyabiliriz ve bu okumaların hiçbiri bağlam olmadan doğrulanamaz. “38 kimin ölçümü, hangi birimde, hangi yöntemle?” soruları kaydın kullanılabilirliğini belirler. 38 °C ile 38 °F birbirinden çok farklı iki durumdur; birim yanlış yazılırsa sayı aynen korunmuş olsa bile karar yanlış olur. Bu nedenle koruma, rakamları değiştirmeden saklamakla bitmez; onları yorumlamaya yarayan açıklamaların da korunması gerekir.
+:::
+
+---
+
+## Veri → bilgi → edinilmiş bilgi
+
+- **Veri (data):** gösterim · `38`
+- **Bilgi (information):** bağlama bağlı anlam · “Hastanın sıcaklığı 38 °C.”
+- **Edinilmiş bilgi (knowledge):** örnek ve deneyimle kurulan yorumlama becerisi · “Bu ölçümü diğer belirtilerle birlikte değerlendirmeliyim.”
+- Zincirin devamı: **sezgi → bilgelik**
+
+::: {.notes}
+Kaynak sunumda (s. 6) bu zincir veriyle başlayıp bilgi, edinilmiş bilgi, sezgi ve bilgelikle sürüyor. Biz ilk üç basamağı kullanıyoruz, çünkü güvenlik tartışmasında ihtiyacımız olan ayrım bunlar arasında. Zincirdeki her basamak ayrı bir soruyu yanıtlar: ne kaydedildi, bu kayıt ne söylüyor, bu tür bir kayıt nasıl yorumlanır? Üçüncü basamak tek bir kayıtla kendiliğinden oluşmaz; örnek görmeyi, karşılaştırmayı ve alan bilgisini gerektirir. Bir kişi ölçümü okuyabilir ama klinik olarak değerlendiremeyebilir. Bu zinciri her alanda aynı işleyen bir dönüşüm yasası olarak değil, düşünmeyi kolaylaştıran bir ayrım olarak kullanıyoruz.
+:::
+
+---
+
+## Edinilmiş bilgi otomatik oluşmaz
+
+“Hastanın sıcaklığı 38 °C.” cümlesi bir durum bildirir.
+
+Bu kaydı değerlendiren kişi **ölçüm zamanını, yöntemi ve diğer belirtileri** de bilmek ister.
+
+::: {.notes}
+Veriye bağlam eklediğimizde anlam kurulabilir, ama bundan doğrudan güvenilir bir karar çıkmaz. Ölçümün ne zaman ve nasıl yapıldığı, kişinin durumu ve diğer gözlemler yorumun parçasıdır; aynı kayıt farklı koşullarda farklı önem taşır. Edinilmiş bilgi (knowledge) çok sayıda verinin toplamı değildir: örnekler arasındaki ilişkileri tanımayı ve yorumun hangi koşullarda geçerli olduğunu bilmeyi içerir. 38 sayısını ateş olarak tanımak bir adımdır, ölçümü değerlendirebilmek başka bir adım.
+:::
+
+---
+
+## Ayrımın sınaması
+
+Bir dosyada yalnızca kimlik numaraları var. Adlar ve açıklamalar ayrı bir dosyada tutuluyor.
+
+**İlk dosya “yalnız veri” olduğu için korunmasız bırakılabilir mi?**
+
+::: {.notes}
+Hayır. Kimlik numarası tek başına bile kişiyi tanımlayabilir, başka kayıtlarla eşleştirilebilir ya da yanlış kişiyle ilişkilendirilebilir. Bir kaydın anlamının o an okuyana açık olmaması, koruma gereksinimini ortadan kaldırmaz. Anlam sonradan kurulabilir; ayrıca yanlış ya da yetkisiz değiştirilen ham kayıtlar, daha sonra üretilecek bilgiyi de bozar. Dolayısıyla veri ile bilgi ayrımı korumanın kapsamını daraltmaz.
+:::
+
+---
+
+## Kayıtla anlamı birlikte düşünün
+
+Bir laboratuvar sonucu doğru sayıyla kaydedildi; ancak numune iki hastanın dosyasında karıştı.
+
+**Rakam doğruyken bilgi güvenilir olabilir mi?**
+
+::: {.notes}
+Sayı doğru ölçülmüş ve doğru yazılmış olabilir. Yine de yanlış kişiye bağlandığı için dosyanın verdiği anlam yanlıştır. Kaydın teknik olarak değişmemiş olması bilgi düzeyindeki hatayı dışlamaz. Tersi de mümkün: bağlam doğruyken sayının bir hanesi bozulursa yorum yanlış olur. Bu örnekte sayının, kişi eşlemesinin ve birimin doğruluğu ayrı ayrı gerekir; biri tek başına yetmez.
+:::
+
+---
+
+## Bilgi güvenliği nedir?
+
+**Bir varlık olarak bilginin; yetkisiz erişim, değiştirme, kaybolma, bozulma, ifşa edilme gibi istenmeyen durumlardan korunmasıdır.**
+
+Veri ile bilgi arasında ayrım yaparız; ikisi de kapsamdadır.
+
+::: {.notes}
+Tanımdaki ilk ifade önemli: bilgiyi bir varlık olarak ele alıyoruz. Varlık, sahibi ve değeri olan, başına bir şey gelebilecek bir şeydir. Tanım “istenmeyen durumları” sayarken yalnız yetkisiz erişimi değil, değiştirilmeyi, kaybolmayı, bozulmayı ve ifşayı da sayıyor. Yani bir kayıt okunamasa, yanlış okunsa, kaybolsa ya da ilgisiz birine ulaşsa değerini ve kullanımını etkileyen bir sorun doğar. Korunacak şey bazen ham ölçüm, bazen yorumlanmış rapor, bazen de o raporu kullanmaya yarayan açıklamadır. Kaydı yalnız gizli tutmak bu sorunların hepsini karşılamaz; koruma, kaydın yaşamı ve kullanım koşulları boyunca sürer.
+:::
+
+---
+
+## Bilgi yalnız bir bilgisayarda bulunmaz
+
+**Bilgi güvenliği sadece dijital ortamlar için tanımlanmış bir kavram değildir.**
+
+Defter, mektup, arşiv kutusu, sözlü aktarım ve sayısal dosya: her biri bilgi taşıyabilir.
+
+::: {.notes}
+Bir belgeye parola koyamıyor olmamız onu güvenlik açısından ilgisiz yapmaz. Fiziksel belgeler de kaybolabilir, bozulabilir, yetkisiz kişilerce görülebilir ya da yanlış kişiye atfedilebilir. Sözlü bir aktarımda mesaj eksik veya yanlış iletilebilir. Bilginin tutulduğu ortam koruma biçimini değiştirir; bilgi güvenliğinin var olup olmadığını belirlemez. Bunu somut bir arşiv örneğiyle inceleyelim.
+:::
+
+---
+
+## Tanpınar'ın arşivindeki evrak
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Tanpınar'ın çalışma notları, vefatından on yıl sonra ailesi tarafından İstanbul Üniversitesi Türkiyat Enstitüsü'ne bağışlandı.
+- Evrak, arşiv kurallarına uygun tasnif ve kataloglama yapılmadan kutularda saklandı.
+- 2016'da koruma ve sayısallaştırma çalışması başladı; yaklaşık 6.000 sayfa taranarak dijitalleştirildi.
+:::
+
+::: {.column width="50%"}
+**Bir belge yıllarca mevcut olduğu hâlde bilgi neden kullanılamaz?**
+
+[Kaynak: A. H. Tanpınar Arşivi, proje ekibi](https://arsiv.tanpinarmerkezi.msgsu.edu.tr/65.html) · [Arşivin dijitalleştirilmesi](https://www.aa.com.tr/tr/kultur-sanat/tanpinar-arsivi-dijital-ortama-aktarildi/913678)
+:::
+
+::::
+
+::: {.notes}
+Bu örnekte saldırgan yok; sorun bir arşivin korunması ve incelenmesidir. Proje ekibinin anlatımına göre evrak yıllarca kutularda, tasnif ve katalog yapılmadan durdu. Belgeyi fiziksel olarak saklamak, içindeki bilgiyi kullanılabilir kılmaz: doğru belgenin bulunması, hangi metne ait olduğunun anlaşılması ve okunabilmesi gerekir. Kaynak sunumda Tanpınar'ın kolisine ve arşivle ilgili haber alıntılarına yer veriliyor (s. 7–8); müsveddelerin Osmanlıca yazılmış olması okunmalarını zorlaştıran bir etkendir. El yazmaları ve müsveddeler, bilgi taşıyan fiziksel ortamların güvenliğini tartışmak için uygun bir örnektir.
+:::
+
+---
+
+## Tanpınar'ın notlarının başına neler gelebilirdi?
+
+- Değiştirilebilirdi.
+- İmha edilebilirdi.
+- İzinsiz yayımlanabilirdi.
+- Çalınabilirdi.
+- Hiç bulunmayabilirdi.
+
+::: {.notes}
+İlk liste akla en çabuk gelen olasılıkları içeriyor: değişiklik, imha, izinsiz yayım, çalınma ve hiç bulunamama (s. 9). Bunların sonuçları birbirinden farklıdır. Kaybolan ya da imha edilen sayfa artık incelenemez. İzinsiz yayım, belge sağlam ve okunabilirken de sorun yaratır. Değiştirilen bir taslak ise Tanpınar'ın düşüncesi hakkında yanlış bir sonuca götürebilir. “Çalınmadıysa güvenlidir” yargısı bu yüzden savunulamaz; listedeki maddelerin çoğunda kimse bir şey çalmıyor.
+:::
+
+---
+
+## Neler daha gelebilirdi?
+
+- Düzgün saklanmazsa okunamaz hâle gelirdi.
+- Osmanlıca el yazmaları okunmayabilirdi.
+- Arşivden hiçbir zaman çıkmayabilirdi.
+- Başka belgelerle karışıp tespit edilemezdi.
+- Biri değişiklik yapıp yazarı karalayabilirdi.
+- Notların Tanpınar'a ait olmadığı iddia edilebilirdi.
+
+::: {.notes}
+İkinci liste belgenin okunmasına, bulunmasına ve kime ait olduğuna daha çok yaklaşıyor (s. 10). Yanlış saklanan belge okunamaz hâle gelir; okunamayan belge fiziksel olarak yerinde olsa da bilgi vermez. Osmanlıca el yazmasını okuyacak kişi yoksa belge sağlam ve yerinde olduğu hâlde kullanılamaz; buradaki eksik, belgenin korunması değil okuyucunun becerisidir. Başka belgelerle karışan sayfa mevcuttur ama bulunamaz. Bir de aidiyet sorusu var: yazarına ait olduğu tespit edilemeyen ya da ona ait olmadığı iddia edilebilen not, içeriği aynı kalsa bile aynı bilgiyi taşımaz.
+:::
+
+---
+
+## Bir arşivde “var” ne demektir?
+
+Bir sayfa kutuda duruyor; katalogda kaydı yok. Bir araştırmacı onu arıyor fakat bulamıyor.
+
+**Sayfa korunmuş sayılır mı?**
+
+::: {.notes}
+Sayfa fiziksel olarak kaybolmamış olabilir; ancak araştırmacı açısından ona erişilemiyordur. Bu, “mevcut olma” ile “bulunabilir olma” arasındaki farktır. Arşivde belgeyi kutuya koymak yetmez; kutunun içeriğini bulmaya yarayan kayıtlar da bilgi parçasıdır. Yanlış bir katalog bilgisi, doğru belgeyi yanlış yere yönlendirir. Bu olayı hırsızlık olarak adlandırmadan da açıklayabiliriz: belgenin fiziksel varlığı ve kullanılabilirliği ayrı koşullardır.
+:::
+
+---
+
+## Arşiv sorusu: neyi koruyoruz?
+
+**Kâğıdı mı, üzerindeki metni mi, metnin kime ait olduğunu mu, gerektiğinde bulunabilmesini mi?**
+
+Tek bir belge için bu soruların hepsi anlamlıdır.
+
+::: {.notes}
+Müsveddenin maddi varlığı, içerdiği metin ve köken bilgisi birbirini tamamlar. Kâğıdı korumak metnin değişmediğini kanıtlamaz; metni aktarmak da kimin hangi sürümü yazdığını kendiliğinden açıklamaz. Arşiv kutusunun içeriği bulunamıyorsa araştırmacı için belge pratikte yok gibidir. İki senaryoyu ayırmakta yarar var: “belge kilitli dolapta ama katalogda yok” ve “belge katalogda var ama metin yanlış aktarılmış”. İlkinde bulma ve erişme, ikincisinde güvenilir aktarım sorunu vardır.
+:::
+
+---
+
+## Metnin aidiyeti neden önemlidir?
+
+Bir müsvedde bulundu; kimin yazdığı bilinmiyor. Metnin içeriği okunabiliyor.
+
+**Yazar adı olmadan aynı bilgiye mi sahibiz?**
+
+::: {.notes}
+Metnin sözcükleri okunabilir olsa da “Tanpınar bu düşünceyi yazdı” diyebilmek için belgenin kökenine ilişkin dayanak gerekir. Yazarın kimliği, tarih, taslakların sırası ve saklama geçmişi bu iddiayı değerlendirmemizi sağlar. Aidiyet yanlışsa metnin kendisi aynı kalır, ama edebiyat tarihi açısından çıkardığımız bilgi yanlış olur. Güvenilirlik belgenin içindeki işaretlere olduğu kadar bağlamına da dayanır. Tanpınar örneğinde sorun yalnız yaprakların yıpranması değil, yapraklarla ilgili iddiaların doğruluğudur.
+:::
+
+---
+
+## Arşiv çalışması
+
+Bir arşivde aynı metnin iki taslağı var. Birinin tarihi silik, diğerinde bazı satırlar sonradan değiştirilmiş olabilir.
+
+1. Hangi kayıtlar korunmalı?
+2. Hangi eksik bilgi yorumunuzu etkiler?
+3. Belgeler yerinde dursa bile hangi yanlış sonuçlara varılabilir?
+
+::: {.notes}
+Yalnız metin gövdesi değil, taslakların birbirleriyle ilişkisi, tarihleri, üzerlerinde yapılan değişikliklerin izi ve yazara aidiyet bilgisi de korunmalıdır. Tarih okunamazsa hangi taslağın önce yazıldığına dair yorum zayıflar. Sonradan eklenen satırlar özgün metinden ayrılamazsa, yazara ait olmayan bir ifade ona atfedilebilir. İki sayfa da yerinde durabilir ve yine de yanlış sıralama, yanlış atıf ya da bir taslağın nihai sürüm sanılması söz konusu olabilir. Sonuçta fiziksel saklama ile anlamın güvenilir biçimde aktarılması ayrı işlerdir.
+:::
+
+---
+
+## Mars yüzeyinden ilk fotoğraf
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![Viking 1'in 20 Temmuz 1976'da Mars yüzeyinden elde ettiği ilk fotoğraf (NASA/JPL)](https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia00/pia00381/PIA00381.jpg?crop=faces%2Cfocalpoint&fit=clip&h=512&w=1439)
+:::
+
+::: {.column width="50%"}
+- Viking 1, 20 Temmuz 1976'da Mars'a indi; fotoğraf iniş sonrası dakikalar içinde alındı.
+- Dünya ile Mars arası ortalama yaklaşık 225 milyon km; sinyal, konuma göre dakikalar süren bir yol alır.
+- Araç yaklaşık 6 yıl Dünya'dan yönetildi.
+
+**Görüntü Mars'ta elde edildi; Dünya'da nasıl görülebildi?**
+
+[Kaynak: NASA/JPL, PIA00381](https://science.nasa.gov/photojournal/first-photograph-taken-on-mars-surface/)
+:::
+
+::::
+
+::: {.notes}
+NASA'ya göre Viking 1 iniş aracı 20 Temmuz 1976'da Mars'a indi ve ilk fotoğrafı iniş sonrası dakikalar içinde elde etti. Görev yaklaşık altı yıl sürdü ve 11 Kasım 1982'de hatalı bir komutun ardından iletişim kesildi. Mars ile Dünya arasındaki mesafe konuma göre çok değişir; ortalama değeri yaklaşık 225 milyon kilometredir ve sinyalin bu yolu alması dakikalar sürer. Bu örnek Tanpınar arşivindeki “yerinde duran ama okunamayan ya da bulunamayan belge” sorununa yeni bir boyut ekliyor: bilgi kaynağından kullanıcıya taşınmak zorunda. Dünya'daki araştırmacı yüzeye gidip fotoğrafı alamaz; yüzeydeki gözlem bir temsile dönüştürülmeli, iletilmeli ve alınan veriden yeniden görüntüye çevrilmelidir.
+:::
+
+---
+
+## Fotoğrafı aldık; neyi biliyoruz?
+
+Mars'tan gelen görüntü eksiksiz görünüyor. Kayıtta çekim tarihi ve görüntünün hangi görevden geldiği yazmıyor.
+
+**Görüntüye hangi iddialar güvenle bağlanabilir?**
+
+::: {.notes}
+Görüntünün pikselleri eksiksiz olsa bile ne zaman, nerede ve hangi araç tarafından elde edildiği bilinmiyorsa bilimsel yorum sınırlanır. Aynı yüzeyin zaman içinde değişip değişmediği, çekim zamanı olmadan değerlendirilemez. Görev kaydı yoksa farklı araçların görüntüleri birbirine karışabilir. Bu yüzden zincirin sonunda dosyanın açılabilmesi yetmez; görüntüyü açıklayan kayıtlar da birlikte korunmalıdır. Soru, veri ile bilgi ayrımını Mars örneğinde yeniden kuruyor: görüntü verisi ile ona yüklenen bağlamsal anlam birlikte kullanılır.
+:::
+
+---
+
+## Görüntünün yolculuğu
+
+**Mars'taki sahne → algılanan görüntü → gönderilen sinyal → alınan veri → Dünya'da görüntü**
+
+Sahne yerinde dursa bile yolculuğun herhangi bir yerindeki kayıp, onu görmemizi engelleyebilir.
+
+::: {.notes}
+Bir fotoğraf yalnızca “çekilmiş bir nesne” değildir; uzaktaki bir gözlemin alıcı için kullanılabilir bir temsile dönüşmesidir. Görüntü kaydedilemezse iletilecek veri oluşmaz. Gönderilen sinyal alınamazsa Dünya'da gözleme ulaşılamaz. Alınan veri eksik ya da bozuksa ortaya çıkan görüntü gözlenen sahneyi yanlış temsil edebilir. Kayıt Dünya'ya ulaşmış olsa bile onu okunabilir bir görüntüye çevirmek gerekir. Zincirdeki her halka, bilginin korunmasının bir parçasıdır.
+:::
+
+---
+
+## İletişim zinciri çalışması
+
+Mars'taki araç bir görüntü gönderdi. Dünya'daki ekip yalnız ilk parçayı aldı; sonra bağlantı kesildi.
+
+1. Dünya'daki ekip neye sahip?
+2. “Fotoğraf Dünya'ya ulaştı” demek doğru mu?
+3. Yalnız eksik parçaya bakılarak hangi yanlış sonuca varılabilir?
+
+::: {.notes}
+Ekip görüntü verisinin bir kısmına sahiptir, gözlenen sahnenin tamamına değil. “Ulaştı” ifadesi neyin ulaştığını belirtmediği sürece yanıltıcıdır. Fotoğrafın üst bölümü geldiyse alt bölümdeki özellikler hakkında bir şey söyleyemeyiz; eksik alanı boş sanmak yanlış olur, çünkü aranan nesne tam o bölümde olabilir. İletim kaybı yalnız teknik bir gecikme değildir, elde edebildiğimiz bilginin sınırını da belirler. Kısmi verinin tam veri gibi sunulması da ikinci bir yorum hatasına yol açar.
+:::
+
+---
+
+## İletişim de korunur
+
+**Bilgi → gönderici kodlaması → gürültülü kanal → alıcı dekodlaması → bilgi**
+
+İletilen işaretin **ulaşması**, **eksilmemesi** ve **doğru yorumlanması** gerekir.
+
+::: {.notes}
+Kaynak sunumdaki Shannon şeması (s. 13) bilgiyi bir noktadan diğerine aktarma sorununu sadeleştirir. Gönderici bilgiyi bir temsile kodlar, kanal bu temsili taşır, alıcı onu yeniden bilgiye çevirir. Kanalda gürültü ve kesinti olabilir. Bu teknik iletişim sorunu bir koruma gereksinimini gösterir: bilgi hedefe doğru ve kullanılabilir biçimde ulaşmalıdır. Her gürültü ya da iletim hatası kasıtlı bir saldırı değildir. Öte yandan iletinin güvenilir ulaşması, onu kimin görmeye yetkili olduğu sorusunu tek başına çözmez.
+:::
+
+---
+
+## Aynı sonuç, farklı neden
+
+Bir görüntü açılamıyor.
+
+- Dosya hiç ulaşmamış olabilir.
+- Dosya eksik ulaşmış olabilir.
+- Dosya tamdır; görüntülemek için gerekli açıklama eksik olabilir.
+
+**Korunamayan şey her durumda aynı mıdır?**
+
+::: {.notes}
+İlk durumda alıcıda veri yoktur. İkincisinde veri vardır ama gözlemi tam temsil etmez. Üçüncüsünde içerik tam olabilir; örneğin dosyanın biçimini ya da hangi sırayla yorumlanacağını belirten açıklama yoksa kullanıcı yine görüntüye ulaşamaz. Görünen sonuç, yani “açılamayan görüntü”, farklı koruma sorunlarının belirtisi olabilir. Bu yüzden bir olayı tanımlarken yalnız sonucu söylemeyiz; kaynağın, gönderilen gösterimin, alınan kaydın ve yorumun durumunu ayrı ayrı sorgularız.
+:::
+
+---
+
+## Üç farklı bozulma
+
+- **Sinyal hiç ulaşmadı** → görüntü elde edilemez.
+- **Sinyalin bir kısmı bozuldu** → görüntü eksik veya yanıltıcı olabilir.
+- **Doğru görüntü yanlış bağlamla sunuldu** → görülen şey yanlış yorumlanabilir.
+
+::: {.notes}
+İlk durum iletim ve erişme, ikinci durum içeriğin korunması, üçüncü durum ise bağlamın korunması sorunudur. Doğru fotoğraf yanlış görev ya da yanlış tarih etiketiyle arşivlenirse pikseller doğru olduğu hâlde araştırmacı yanlış sonuca varabilir. Bu, en baştaki veri ve bilgi ayrımına geri bağlanıyor: verinin bozulmamış olması, onu yorumlamaya yarayan bağlamın doğruluğunu garanti etmez. “Sinyal doğru, açıklama yanlış” durumunda içerik korunmuş, bağlamın doğruluğu korunamamıştır.
+:::
+
+---
+
+## Tanpınar ve Mars: ortak soru
+
+| | Tanpınar'ın evrakı | Mars fotoğrafı |
 |---|---|---|
-| Örnek | Bir tarih alanı | Tarih + başvuru no + kimlik + işlem aşaması |
-| Ne olur? | **Veri** — işlenmemiş, bağlamsız gözlem | **Bilgi** — karar vermeyi destekler |
+| Nerede doğdu? | Yazıldığı fiziksel ortamda | Mars yüzeyindeki gözlemde |
+| Nasıl ulaştı? | Saklama, tasnif ve okuma yoluyla | Kayıt, iletim ve yeniden oluşturma yoluyla |
+| Ne bozulabilir? | Belge, metin, aidiyet ve bulunabilirlik | Sinyal, görüntü, etiket ve yorum |
 
-*Aynı unsur, kullanım bağlamına göre rol değiştirir.*
+**Bilgiyi korumak, varlığını sürdürmesini ve doğru kişiye anlamlı biçimde ulaşmasını da kapsar.**
 
 ::: {.notes}
-Somut örnek üzerinden ilerle: tek başına bir tarih, istatistik raporunda kalsa yalnızca veridir. Aynı tarih başvuru numarası, başvuranın kimliği ve işlem aşamasıyla birlikte okunduğunda "bu başvuruyu ne zaman sonuçlandırmalıyız?" sorusuna cevap üretir — bu da onu bilgiye çevirir. Kritik nokta: bu bir sınıflandırma etiketi değil, bir rol farkı. Aynı tarih alanı başka bir bağlamda (istatistik raporu) yine veri olarak kalabilir. Öğrenciye sor: "Sizin telefonunuzdaki bir tarih hatırlatıcısı ne zaman bilgiye dönüşür?" gibi bir soru bağlamı netleştirebilir. Geçiş: "Bilgi tek başına dolaşmaz, bir şeyin içinde taşınır — buna varlık diyoruz."
+İki örnekte araçlar çok farklıdır, ama sorunların yapısı benzerdir. Evrak fiziksel olarak saklanır, fotoğraf sinyale dönüştürülüp uzak bir yere taşınır. Her ikisinde de kaynak ile kullanıcı arasında adımlar vardır. Bilgi bu adımlarda kaybolabilir, değişebilir, yanlış kişiye ulaşabilir ya da doğru kişiye hiç ulaşmayabilir. Bu karşılaştırma bilgi güvenliğini yalnız hırsızlık ya da gizli dosya olarak düşünmenin neden eksik kaldığını gösteriyor. Koruma, bir kaydın var olması kadar güvenilir kullanılabilmesiyle de ilgilidir.
 :::
 
 ---
 
-## Bilgi varlığı: dört tür
+## Uygulama: tek kayıt, iki ortam
 
-- **Veri/belge:** başvuru dosyası, personel belgesi
-- **Hizmet/süreç:** başvuruyu değerlendirme hizmeti
-- **İnsan/rol:** değerlendirmeye yetkili personel rolü
-- **Uygulama:** başvuruların kaydedildiği yazılım
+Bir araştırmacı el yazması bir mektubu fotoğraflıyor ve uzak bir araştırmacıya gönderiyor.
 
-*Varlık = korunması gereken, kurum için değer taşıyan her şey — yalnızca cihaz değil.*
+- Asıl sayfa yerinde; fotoğrafın bir bölümü eksik.
+- Fotoğraf tam; dosyada yazar adı yanlış.
+- Dosya doğru; yalnız ilgisiz kişiler erişebiliyor.
+
+**Her durumda ne korunmuş, ne korunamamıştır?**
 
 ::: {.notes}
-Öğrencinin ilk refleksi "varlık = cihaz/bilgisayar" olur; bu slaytın işi bu refleksi kırmak. Dört türü sırayla say ve her birinin diğerine bağımlı olduğunu ama ayrı bir korunma gerekçesi taşıdığını vurgula: uygulama olmadan dosya işlenemez, yetkili rol olmadan karar verilemez — ama uygulamanın güvenliği ile personelin yetkilendirilmesi farklı sorulardır. Bu dersde her biri kendi başına bir varlık olarak ele alınabilir demek, ileride (varlık envanteri biriminde) bunların ayrı ayrı kayıt altına alınacağının habercisidir; o ayrıntıya şimdi girme. Geçiş: "Şimdi bu varlıklardan birini seçip, onu korumak ne demek, buna bakacağız — üç soru soracağız."
+Birinci durumda fiziksel belge korunmuş olabilir ama aktarılan temsil eksiktir; alıcı metnin tümünü değerlendiremez. İkinci durumda görüntü ve iletim başarılıdır, fakat aidiyet bilgisi yanlıştır, dolayısıyla çıkardığımız bilgi güvenilir değildir. Üçüncü durumda kayıt ve etiket doğru olsa bile onu kullanması gereken kişi erişemiyordur; ilgisiz kişilerin erişimi de ayrı bir sorun yaratır. “Dosya var, o hâlde sorun yok” gibi tek ölçütlü cevaplar bu üç durumu ayırt edemez. Her durumda kaydı, bağlamı, alıcıyı ve kullanım sonucunu ayrı ayrı düşünmemiz gerekir.
 :::
 
 ---
 
-## CIA: bir varlığa üç soru
+## Sonuç: ne korunuyor?
 
-Bir varlığı korurken sorulan üç soru:
+Bir kaydın **kendisi**, **taşıdığı anlam**, **kaynağı ve bağlamı**, **ulaştığı kişi** ve **gerektiğinde kullanılabilmesi**.
 
-1. **Gizlilik (confidentiality)** — yalnızca yetkili görüntüleme mi?
-2. **Bütünlük (integrity)** — yalnızca yetkili ve doğru değiştirme mi?
-3. **Erişilebilirlik (availability)** — gerektiğinde yetkili erişim mi?
-
-Odak varlık: **öğrenci/aday başvuru kaydı**
+**Bilgi güvenliği, bilginin çalınmasını önlemekten daha geniş bir koruma problemidir.**
 
 ::: {.notes}
-Bu üçlüye kısaca CIA denildiğini söyle ama hemen ekle: bunlar soyut ilke değil, seçilen varlığa özgü somut gereksinimlerdir — her varlık için ayrı ayrı gerekçelendirilmesi gerekir. Bunu tanım listesi olarak bırakmayacağımızı, tek bir varlık üzerinden (öğrenci/aday başvuru kaydı) sırayla cevaplayacağımızı söyle. Bu slayt bir çerçeve slaydı; sonraki üç slaytta her soruyu ayrı ayrı derinleştireceğiz. Geçiş: "Önce gizlilik: bu kaydı kim görebilmeli?"
+Veri ile bilgi ayrımı korunacak şeyi daha dikkatli görmemizi sağlar; koruma kapsamını daraltmaz. Tanpınar'ın evrakı bilginin fiziksel ortamda da kaybolabildiğini, bozulabildiğini ya da bulunamadığını gösterdi. Mars fotoğrafı ise bilginin kullanıcıya ulaşmasının iletişime bağlı olduğunu görünür kıldı. Bir belgeye ya da görüntüye ilişkin güvenlik değerlendirmesini yalnız “kim çalabilir?” sorusundan kuramayız. “Doğru içerik, doğru bağlamla, gerektiğinde, onu kullanacak kişiye ulaşabiliyor mu?” sorusu da gerekir.
 :::
 
 ---
 
-## Gizlilik — yalnızca yetkili görüntüleme
+## Kaynaklar
 
-**Soru:** Bu kaydı yalnızca yetkili kişiler görüntüleyebilmeli mi?
+:::: {.columns}
 
-**İhlal olursa:** Başvuranın kişisel bilgileri ilgisiz kişilere ulaşır, sürece duyulan güven zedelenir.
-
-::: {.notes}
-Başvuru kaydının içeriğini hatırlat: kimlik bilgileri ve değerlendirme notları. Sözlük tanımıyla yetinme — "gizlilik ihlali oldu" demek yeterli değil, bunun kurum için somut sonucunu söylet: kişisel bilgi sızıntısı + güven kaybı. Öğrenciye sorulabilecek soru: "Bu bilgiye kimlerin erişmemesi gerekir, ve neden?" Bu, ilerleyen erişim/rol dersinin (roller-kimlik-ve-erisim-yonetimi) habercisi ama şimdi rol tasarımına girme — yalnızca "yetkisiz olursa ne olur" sorusuna cevap veriyoruz. Geçiş: "Aynı kayıt için ikinci soru: kim değiştirebilir?"
+::: {.column width="50%"}
+- BGT 201 ders sunumu 1, “Bilgi Güvenliği”, s. 3–13.
+- [TDK, “bilgi”](https://sozluk.gov.tr/kelime/bilgi)
+- [A. H. Tanpınar Arşivi, proje sayfası](https://arsiv.tanpinarmerkezi.msgsu.edu.tr/65.html)
 :::
 
----
-
-## Bütünlük — yalnızca yetkili ve doğru değiştirme
-
-**Soru:** Bu kayıt yalnızca yetkili kişilerce ve doğru biçimde değiştirilebilmeli mi?
-
-**İhlal olursa:** Başvuru durumu ("değerlendiriliyor" → "kabul edildi") yanlış/yetkisiz değişirse, kurum hatalı karara dayanır; başvuran haksız reddedilir ya da hak etmediği sonucu alır.
-
-::: {.notes}
-Somut durum geçişi örneğini kullan: "değerlendiriliyor" → "kabul edildi". Vurgulanacak nokta: bütünlük ihlali illa kötü niyetli olmak zorunda değil — yanlışlıkla yapılan bir değişiklik de bütünlüğü bozar. Sonuç yine iş sonucuna bağlanmalı: yanlış karar, haksız ret/kabul. Öğrenci burada "peki kim doğru değiştirebilir, nasıl anlarız?" diye sorarsa, bunun cevabının rol/yetki tasarımı olduğunu ama bu dersin sınırının bu soruyu sormakla bittiğini, cevabının ileride geleceğini belirt. Geçiş: "Üçüncü soru: kayda gerektiğinde erişilebiliyor mu?"
+::: {.column width="50%"}
+- [Anadolu Ajansı, Tanpınar arşivinin dijitalleştirilmesi](https://www.aa.com.tr/tr/kultur-sanat/tanpinar-arsivi-dijital-ortama-aktarildi/913678)
+- [NASA/JPL, PIA00381, First Photograph Taken on Mars Surface](https://science.nasa.gov/photojournal/first-photograph-taken-on-mars-surface/)
+- [NASA, Viking 1 görev sayfası](https://science.nasa.gov/mission/viking-1/)
 :::
 
----
-
-## Erişilebilirlik — gerektiğinde yetkili erişim
-
-**Soru:** Bu kayıt, gerektiğinde yetkili kişilerce erişilebilir olmalı mı?
-
-**İhlal olursa:** Değerlendirme son gününde kayda erişilemezse, birim süresi içinde karar veremez; başvuru süreci aksar, başvuran mağdur olur.
+::::
 
 ::: {.notes}
-Erişilebilirlik genelde öğrenciye "en az önemli" gibi görünür (gizlilik ve bütünlük daha "güvenlik" hissi verir) — bunu düzelt: bir sistem son teslim gününde çökerse sonuç gizlilik/bütünlük ihlali kadar ciddi bir iş aksaması olur. Somut zaman baskısını vurgula: "son gün" ifadesi tesadüfi değil, erişilebilirliğin neden zaman-duyarlı bir gereksinim olduğunu gösteriyor. Geçiş: "Şimdi önemli bir uyarı: bu üç soru birbirinden bağımsız kutular değil."
-:::
-
----
-
-## CIA bağımsız kutular değildir
-
-Aynı kontrol birden fazla boyutu aynı anda etkileyebilir.
-
-*Örnek: kayda kimin erişebileceğini belirleyen bir yetkilendirme kuralı — hem gizliliği hem bütünlüğü etkiler.*
-
-CIA tek başına: sınıflandırma etiketi, risk puanı veya hazır kontrol listesi **üretmez**.
-
-::: {.notes}
-Bu slayt bir düzeltme slaydı — önceki üç slaytta CIA'yı ayrı ayrı sorduk, şimdi bunun yapay bir ayrım olmadığını, gerçekte iç içe geçtiğini söylüyoruz. Yetkilendirme kuralı örneğini somutlaştır: aynı kural "kim görebilir" (gizlilik) ve "kim değiştirebilir" (bütünlük) sorularının ikisine de cevap verir. Bunu vurgulamazsak öğrenci CIA'yı üç ayrı checkbox gibi ezberler; oysa amaç "bu varlıkta neyi, kimden, hangi bozulmaya karşı koruyoruz?" sorusunu netleştirmek. Bu slaytta risk puanlama veya kontrol seçimine girmediğimizi açıkça söyle — o iş ileri derslerin (gap-risk-analizi) konusu. Geçiş: "CIA bize neyin bozulabileceğini gösterdi. Şimdi bu bozulmayı doğru kelimelerle konuşmayı öğreneceğiz."
-:::
-
----
-
-## Üç terim, üç farklı rol
-
-| Terim | Tanım | Örnek |
-|---|---|---|
-| **Tehdit (threat)** | Varlığa zarar verebilecek neden/olay | Yetkisiz erişim denemesi (dışarıdan) ya da yanlışlıkla hatalı yetki ataması yapılması (içeriden) |
-| **Açıklık/zafiyet (vulnerability)** | Tehdidin istismar edebileceği zayıflık | Gözden geçirilmemiş yetki ataması |
-| **Risk (risk)** | Varlık üzerindeki olası olumsuz etki | Mahremiyet ihlali, hatalı karar, hizmet aksaması |
-
-::: {.notes}
-Bu üç terim sınıfta en sık birbirine karıştırılan terimlerdir — özellikle "risk" kelimesi gündelik dilde "tehdit" yerine kullanılır. Her satırı aynı örnek üzerinden anlat, tabloyu satır satır oku: önce tehdit (kim/ne zarar verebilir), sonra açıklık (bunu hangi boşluk kolaylaştırıyor), sonra risk (bu gerçekleşirse varlıkta ne olur). Tehdidin iki örneği kasıtlı: yalnız "dışarıdan saldırgan" değil, "içeriden kasıtsız hata" da bir tehdittir — açılış slaydındaki "güvenlik = hacker" imgesini burada düzeltiyoruz. Risk örneğindeki üç unsur (mahremiyet ihlali, hatalı karar, hizmet aksaması) sırasıyla gizlilik/bütünlük/erişilebilirlik boyutlarına karşılık gelir; CIA'nın üçü de risk tablosuna yansımalı. Vurgu: bunlar eş anlamlı değildir ve birini diğerinin yerine kullanmak (örneğin "açıklık" yerine "risk" demek) ayrımı bozar. Öğrenciye küçük bir alıştırma sorulabilir: "yetkisiz erişim" tehdit mi açıklık mı? (tehdit — çünkü olay/neden; açıklık ayrı bir şeydir, olayı kolaylaştıran zayıflıktır). Geçiş: "Bu üçünü tek cümlede birleştirmenin bir yolu var."
-:::
-
----
-
-## Tek cümlelik model
-
-> **"[Açıklık] nedeniyle [tehdit] gerçekleşirse, [varlık] üzerinde [risk] doğar."**
-
-**Doldurulmuş örnek:**
-> Yetki ataması gözden geçirilmediği için, yetkisiz bir kişi başvuru kaydına eriştiğinde, başvuru sahibinin mahremiyeti ve kurumun karar doğruluğu tehlikeye girer.
-
-*Bu kesin bir matematiksel formül (olasılık × açıklık gibi) değildir — üç terimi doğru yerde kullanma alışkanlığıdır.*
-
-::: {.notes}
-Bu slayt kartın son satırını doldururken öğrencinin başvuracağı şablon; ezberletmeye değer tek cümle budur. Şablonu önce boş haliyle göster, sonra bizim örneğimizle doldur — öğrenci bunu kendi seçtiği varlıkla tekrar dolduracak (vaka kartında). Kritik uyarı: bu bir risk formülü değil (olasılık × etki gibi sayısal bir hesap değil); amaç kesin sayı üretmek değil, üç terimi doğru yerde kullanabilmek. Bunu netleştirmezsen öğrenci ileride gap-risk-analizi dersinde gerçek bir formülle karşılaştığında kafası karışır — orada gerçek bir olasılık×etki hesabı görecek, bu farklı bir şey. Geçiş: "Bu varlık gerçekte tek başına durmuyor — etrafında başka varlıklar var. Ama bugün oraya girmeyeceğiz."
-:::
-
----
-
-## Bağımlılık var, ama bu dersin sınırı burada biter
-
-Başvuru kaydı → personel (kullanıcı) → bilgisayar (uç nokta) → uygulama → ağ
-
-*Bir varlığın güvenliği, ona bağlı diğer varlıkların güvenliğinden de etkilenir.*
-
-**Bu ders bu bağımlılığın teknik mimarisini çözümlemez.**
-
-::: {.notes}
-Zincirin var olduğunu göster ama her halkasını açmaya kalkma — bu tuzağa düşmek kolay, çünkü öğrenci "ağ nasıl korunur" diye sorabilir. Cevap: bu sorunun kendisi meşru ama bu dersin kapsamı dışında; bu ders yalnızca bir varlığı tamamen izole düşünmemek gerektiğini gösteriyor. Hangi varlığın kime ait olduğu, nasıl kullanıldığı ve CIA açısından ne gerektirdiği sorusu ilerleyen varlık envanteri/sınıflandırma çalışmasının konusu — bunu söyleyerek köprüyü şimdiden kur. Geçiş: "Şimdi öğrendiklerimizi tek bir kayıt üzerinden somutlaştıralım — kartı birlikte dolduracağız."
-:::
-
----
-
-## Vaka kartı (1/3) — kimlik ve kullanım
-
-**Odak varlık: öğrenci/aday başvuru kaydı**
-
-| Kart alanı | Bu varlık için gerekçe |
-|---|---|
-| Varlık adı ve işlevi | Başvurunun değerlendirilip sonuçlandırılması kararını destekler |
-| Sahip/sorumlu rol | Başvuru değerlendirme biriminin yetkili personel rolü (rol düzeyinde, kişi adı değil) |
-| Kimler hangi amaçla kullanır? | Değerlendirme personeli (karar), birim yöneticisi (onay), başvuru sahibi (durum sorgulama) |
-
-::: {.notes}
-Kartı doldururken vurgulanacak disiplin: "sahip/sorumlu rol" alanına kişi adı değil rol yazılır — bu, sorumluluğun kişiye değil göreve bağlı olduğunu gösterir (bir personel işten ayrılsa bile sorumluluk rolde kalır). "Kimler hangi amaçla kullanır" alanında üç farklı kullanıcı grubunun üç farklı amacı olduğunu ayırt ettir — bu ayrım birazdan CIA satırlarını doldururken işe yarayacak (örneğin başvuru sahibinin kendi kaydını görmesi ile personelin başka birinin kaydını görmesi aynı gizlilik sorusu değildir). Geçiş: "Şimdi bu varlık için CIA'nın üç sorusunu tek tek cevaplayalım."
-:::
-
----
-
-## Vaka kartı (2/3) — CIA gereksinimleri
-
-| Kart alanı | Bu varlık için gerekçe |
-|---|---|
-| Gizlilik + ihlal etkisi | Yalnızca yetkili görüntüleme; ihlalinde kişisel bilgiler ilgisiz kişilere ulaşır, sürece güven zedelenir |
-| Bütünlük + ihlal etkisi | Yalnızca yetkili ve doğru değiştirme; ihlalinde başvuru durumu yanlış kaydedilir, hatalı karar doğar |
-| Erişilebilirlik + ihlal etkisi | Gerektiğinde yetkili erişim; ihlalinde süresi içinde karar verilemez, süreç aksar |
-
-::: {.notes}
-Bu üç satır, birkaç slayt önce ayrı ayrı işlediğimiz gizlilik/bütünlük/erişilebilirlik slaytlarının doğrudan tekrarı değil, onların kart formatına dökülmüş hali — öğrenciye bunun aynı akıl yürütme olduğunu, sadece şimdi yazılı hale geldiğini hatırlat. Sınıf pratiğinde burada dur ve öğrencilere sor: "personel belgesi için bu üç satırı siz doldursanız ne yazardınız?" — cevap istemeden devam etme, çünkü kartın asıl amacı öğrencinin kendi gerekçesini kurmasıdır, bizim cevabımızı ezberlemesi değil. Geçiş: "Son satır: bir tehdit, bir açıklık, bir olası risk."
-:::
-
----
-
-## Vaka kartı (3/3) — tehdit, açıklık, risk
-
-| Kart alanı | Bu varlık için gerekçe |
-|---|---|
-| Tehdit | Yetkisiz kişinin kayda erişme girişimi |
-| Açıklık | Yetki ataması gözden geçirilmemiş |
-| Risk | Mahremiyet ihlali ve hatalı karar olasılığı |
-
-*Üç terim ayrı cümlelerde ve varlıkla bağlı kurulmalı; birini diğerinin yerine kullanmak (örn. "açıklık" yerine "risk") ayrımı bozar.*
-
-::: {.notes}
-Bu satırı doldururken en sık yapılan hata: öğrencinin tehdit ile açıklığı ters yazması ya da ikisini tek cümlede birleştirip riski atlaması. Tahtada üç ayrı cümle kurdur, tek cümlede birleştirtme. Kartın resmî sınıflandırma etiketi, kesin olasılık/etki puanı veya çözüm reçetesi içermediğini bir kez daha hatırlat — bunlar ileri derslerin konusu. Geçiş: "Muhtemelen içinizden biri şimdi 'güçlü parola kullanılmalı' demek istiyor — buna bakalım."
-:::
-
----
-
-## "Güçlü parola kullanılmalı" desem, olur mu?
-
-Bu öneri **yanlış değil** — ama kart bu aşamada bir çözüm reçetesi istemiyor.
-
-**Önce sor:** Bu öneri hangi CIA gereksinimine, hangi tehdit/açıklığa cevap veriyor?
-
-::: {.notes}
-Bu slayt neredeyse kesin gerçekleşecek bir sınıf anını önceden karşılıyor — bir öğrenci mutlaka "şifreleme" ya da "güçlü parola" önerecek. Bu öneriyi reddetme, ama kabul de etme: önce hangi CIA gereksinimine (muhtemelen gizlilik) ve hangi tehdit/açıklığa (muhtemelen zayıf kimlik doğrulama) cevap verdiğini sordur. Kontrol seçimi ve gerekçelendirmesi bu dersin değil, sonraki derslerin (erişim-kontrolleri-parola-kayit-ve-izleme, gap-risk-analizi) konusu — bunu açıkça söyle ki öğrenci "neden şimdi çözmüyoruz" diye sormasın. Geçiş: "Bugün kurduğumuz kart burada bitmiyor."
-:::
-
----
-
-## Sonraki adım
-
-Bugünkü kart: **tek bir varlığın** CIA gereksinimlerini ve tehdit-açıklık-risk ayrımını gerekçeli biçimde ortaya koyan bir **başlangıç kaydı**.
-
-- İlerleyen ders → **varlık envanteri ve sınıflandırma:** birden fazla varlığı sahiplik/kullanım/CIA etkisi açısından sistematik kaydetme
-- İlerleyen ders → **bilgi güvenliği yönetim döngüsü:** bu kararların kurumun yönetim sistemi içinde nasıl sürdürüleceği
-
-::: {.notes}
-Kapanış — bugünkü kartın nihai bir teslim değil, bir başlangıç kaydı olduğunu vurgula. İki köprüyü açıkça isimlendir: varlık envanteri (aynı kartın birden fazla varlık için sistematik hale gelmesi) ve BGYS/yönetim döngüsü (bu kararların nasıl sürdürüleceği). Bugün sınıflandırma etiketi, yönetim sistemi ya da standart ayrıntısına girmediğimizi, bunun bilinçli bir kapsam sınırı olduğunu söyle — öğrenci "ISO 27001 nerede?" diye sorarsa cevap "üçüncü haftada" olacak. Dersi, kartı elle doldurma alıştırmasıyla (uygulama saati) kapat: öğrenciler kendi seçtikleri bir varlık için (personel belgesi ya da hizmet başvurusu) aynı kartı dolduracak.
+38 gibi sayılar ve kayıtlar kurgusal örneklerdir. Tanpınar ve Mars bağlamı yukarıdaki yayımlanmış kaynaklara dayanır.
 :::

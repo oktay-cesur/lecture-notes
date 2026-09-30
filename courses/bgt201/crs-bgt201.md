@@ -8,19 +8,13 @@ tags:
 sidebar: bgt201
 ---
 
-::: {.callout-warning}
-## Taslak Çalışma Notu Seti
-
-Bu ders notları seti, BGT 201 Bilgi Güvenliği Yönetimi I dersi için resmî izlence ve kaynak analizi temel alınarak oluşturulmuş ilk çalışma iskeletidir. İçerik, haftalık pedagojik revizyonlar ve kurgusal kurum vakası üzerindeki uygulamalarla geliştirilmeye devam edecektir.
-:::
-
 ## Dersin Amacı
 
 Bu dersin amacı, veri ve bilgi güvenliği yönetimindeki temel yöntemleri; regülasyon, standart ve teknik tedbirlerle ilişkilendirerek öğretmektir.
 
-Bilgi güvenliği yönetiminde kullanılan başlıca standart, çerçeve ve rehberler tanıtıldıktan sonra ISO 27001/BGYS yaklaşımı temelinde varlıkların sınıflandırılması ve envanter oluşturma, gap analizi, risk analizi ve risk işleme, erişim yetkileri, izleme-denetim, politika ve talimat dokümantasyonu ile olumsuz senaryolara yönelik aksiyon planları uygulamalı olarak ele alınır. KVKK, GDPR, COBİT, ITIL ve Cumhurbaşkanlığı Bilgi ve İletişim Güvenliği Rehberi ilgili başlıklarda ISO 27001 süreciyle ilişkilendirilir.
+Bilgi güvenliği yönetiminde kullanılan başlıca standart, çerçeve ve rehberler tanıtıldıktan sonra ISO 27001/BGYS yaklaşımı temelinde varlıkların sınıflandırılması ve envanter oluşturma, gap analizi, risk analizi ve risk işleme, erişim yetkileri, izleme-denetim, politika ve talimat dokümantasyonu ile olumsuz senaryolara yönelik aksiyon planları uygulamalı olarak ele alınır. KVKK, GDPR, COBIT, ITIL ve Bilgi ve İletişim Güvenliği Rehberi ilgili başlıklarda ISO 27001 süreciyle ilişkilendirilir.
 
-Ders boyunca öğrenci/aday kayıtları, personel belgeleri ve hizmet başvurularını yöneten kurgusal küçük bir kurum birimi üzerinde çalışılır; her hafta bir önceki haftanın kararı bir sonraki haftanın girdisi olur.
+Ders boyunca öğrenci/aday kayıtları, personel belgeleri ve hizmet başvurularını yöneten kurgusal küçük bir kurum birimi üzerinde çalışılır; her haftanın kararı sonraki uygulamaya girdi olur.
 
 ## Öğrenme Çıktıları
 
@@ -51,22 +45,23 @@ Konu anlatımını ve sunumu incele → kurum vakasındaki karar sorusunu yanıt
 
 - Faruk Çubukçu, *Bilgi Güvenliği Yönetim Sistemleri*, 2013.
 - ISO 27001, ISO 27002, COBİT, ITIL, KVKK ve GDPR dokümanları.
-- Cumhurbaşkanlığı Bilgi ve İletişim Güvenliği Rehberi.
+- [Siber Güvenlik Başkanlığı, Bilgi ve İletişim Güvenliği Rehberi, v1.1 (01.03.2026)](https://cdn.siberguvenlik.gov.tr/dokuman/26/05/260515153932_Bilgi%20Gu%CC%88venlig%CC%86i%20Rehberi.pdf).
+- Ek okuma: *Fundamentals of Information Systems Security* (denetim ve izleme konuları).
 - Ders notları ve ders içi uygulamalar (bulut sistemi üzerinden paylaşılır).
 :::
 
 ## Haftalık Plan
 
-Dersin haftalık akışı resmî izlencedeki 14 haftalık plana dayanır. 7. hafta ara sınavdır.
+Dersin haftalık akışı resmî izlencedeki 14 haftalık planın konularını kapsar; öğrenme akışı gereği sıra şu farklarla düzenlenmiştir: gizlilik–bütünlük–erişilebilirlik 2. haftaya, BGYS kapsam ve bağlam çalışması 3. haftaya alınmış, ISO/IEC 27001, 27002, COBIT ve ITIL 4. haftada işlenir. 7. hafta ara sınavdır.
 
 | Hafta | Konu Notu / Sunum | Açıklama ve Kapsam |
 |:---:|---|---|
-| 1 | [[tp_guvenlik-temelleri\|Güvenlik Temelleri: Bilgi Varlığını Korumak]] | Bilgi/veri ayrımı, bilgi varlığı, CIA (gizlilik, bütünlük, erişilebilirlik) ve varlığa etkisi; tehdit, açıklık ve risk ayrımı; vaka için başlangıç varlık/veri kartı. |
-| 2 | [[tp_bgys-ve-yonetim-dongusu\|BGYS ve Yönetim Döngüsü: Güvenliği Yönetilebilir Kılmak]] | BGYS'nin yönetim döngüsü (planla-uygula-izle-iyileştir); araç–politika–proje ayrımı; bağlamdan kapsama, rollere ve kontrol/kanıt zincirine geçiş; vaka için kapsam ve ilgili taraf/rol taslağı. |
-| 3 | [[tp_standartlar-cerceveler-ve-uyum\|Standartlar, Çerçeveler ve Uyum]] | Standart, çerçeve, rehber ve kurum içi belge ayrımı; ISO 27001 ile ISO 27002 farkı; COBİT ve ITIL'in kavramsal konumu; uyumun kaynak-doğrulama-karar-kanıt akışı olarak işlemesi. |
-| 4 | [[tp_bgys-ve-yonetim-dongusu\|BGYS ve Yönetim Döngüsü (Kapsam ve Bağlam Odağıyla)]] | Bağlam, ilgili taraf, liderlik/rol, risk ve izleme ilişkisi; hafta 2'deki kapsamı bağımlılık ve sorumlulukla yeniden gözden geçirme. |
-| 5 | [[tp_yasal-yukumlulukler-ve-kisisel-veri\|Yasal Yükümlülükler ve Kişisel Veri]] | KVKK, GDPR ve Cumhurbaşkanlığı Rehberi'nin BGYS bağlamına girişi; hukukî iddia ile kaynak doğrulamasını ayırma; vaka için uyum-doğrulama kaydı. |
-| 6 | [[tp_varlik-envanteri-ve-siniflandirma\|Varlık Envanteri ve Sınıflandırma]] | Varlık türü, sahibi, değeri; sınıflandırma ölçütleri ve envanterin risk girdisi oluşu; vaka envanteri (varlık, sahip, kullanım/bağımlılık, CIA gerekçesi). |
+| 1 | [[tp_guvenlik-temelleri\|Bilgi Güvenliğine Giriş: Bilgiyi Korumak]] | TDK'den bilgi kavramı; veri, bilgi ve edinilmiş bilgi ayrımı; veri ile bilginin ortak koruma kapsamı; Tanpınar arşivi ve Viking 1'in Mars fotoğrafı üzerinden fiziksel kayıt, korunma ve iletişim. |
+| 2 | [[tp_guvenlik-ilkeleri-ve-cia\|Bilgi Türleri ve Güvenliğin Üç İlkesi]] | Bilgi türü, ortam ve görünürlük ayrımı; bilginin sahibi, kullananı ve yöneteni; gizlilik, bütünlük ve erişilebilirlik; Tanpınar ve Mars örneklerinin ilkelerle yeniden incelenmesi. |
+| 3 | [[tp_bgys-ve-yonetim-dongusu\|BGYS ve Yönetim Döngüsü]] | BGYS; kurum bağlamı, kapsam ve ilgili taraflar; karar ve uygulama rolleri; planla–uygula–kontrol et–önlem al döngüsü ve vaka için kapsam/kanıt çalışması. |
+| 4 | [[tp_standartlar-cerceveler-ve-uyum\|Standartlar, Çerçeveler ve Uyum]] | ISO/IEC 27001 ile 27002'nin görev farkı; COBIT, ITIL ve rehberlerin kullanım amacı; gereksinimden kontrol seçimine, uygulama ve kanıta uzanan vaka çalışması. |
+| 5 | [[tp_yasal-yukumlulukler-ve-kisisel-veri\|Yasal Yükümlülükler ve Kişisel Veri]] | Kişisel veri işleme akışı ve taraflar; KVKK'nın veri güvenliği yükümlülükleri; GDPR'nin uygulanma koşulları; güvenlik rehberlerinin kapsamı; vaka için kaynak–kapsam–tedbir–kanıt kaydı. |
+| 6 | [[tp_varlik-envanteri-ve-siniflandirma\|Varlık Envanteri ve Sınıflandırma]] | Bilgi varlığı, uygulama, hizmet ve destek unsurları; sahiplik ve bağımlılık; CIA etkisiyle gerekçeli sınıflandırma; vaka envanterini doldurma ve değişen bilgiye göre güncelleme. |
 | 7 | Ara Sınav | Resmî ara sınav; 1–6. hafta resmî kapsamı (Ö01, Ö04). Yeni konu veya vaka genişletmesi yoktur. |
 | 8 | [[tp_roller-kimlik-ve-erisim-yonetimi\|Roller, Kimlik ve Erişim Yönetimi]] | Sorumluluk kavramı; kimlik saptama, doğrulama, yetkilendirme ve hesap verebilirlik; vaka envanterindeki iki varlık için rol–izin matrisi. |
 | 9 | [[tp_erisim-kontrolleri-parola-kayit-ve-izleme\|Erişim Kontrolleri: Parola, Kayıt ve İzleme]] | Politika düzeyinde parola yönetimi; kayıt, gözden geçirme ve denetim kanıtı; matrise kayıt olayı, inceleme sorumlusu ve bulgu sonrası adım ekleme. |

@@ -8,296 +8,523 @@ execute:
   echo: false
 ---
 
-::: {.callout-warning}
-## Taslak Çalışma Notu
-Bu doküman BGT 201 Bilgi Güvenliği Yönetimi I dersi için resmî izlence ve kaynak analizi temel alınarak hazırlanmış ilk çalışma taslağıdır. Haftalık pedagojik revizyonlarla olgunlaştırılmaya devam edecektir.
-Ana İzlence: [[crs-bgt201|Ders İzlence Merkezi]]
-:::
-
 ## Standartlar, çerçeveler ve uyum
 
-**Dış referanstan kurum kararına**
 
-BGT 201 — Bilgi Güvenliği Yönetimi I
+---
+
+## Bir değişiklik, altı yanlış alıcı
+
+Kayıt biriminde “başvuru belgesi adaya otomatik gitsin” isteği e-postayla dış BT desteğine iletildi. Özellik pazartesi açıldı.
+
+**Yazılı onay yok. Test kaydı yok.**
 
 ::: {.notes}
-Önceki konuda BGYS'nin güvenlik kararlarını kapsam, sorumluluk, uygulama, kanıt ve iyileştirme ilişkisi içinde yaşattığını gördük. Şimdi kurumun bu kararları hangi ortak ölçütlere dayandırabileceğini ele alacağız. Amaç referans adlarını ezberlemek değil; her referans türünün hangi soruya yanıt verdiğini ve dış beklentinin kurumun gerçek işleyişine nasıl dönüştüğünü ayırt etmektir.
+Birim öğrenci ve aday kayıtlarını, personel belgelerini ve hizmet başvurularını yönetir. Birim sorumlusu, iki kayıt görevlisi ve bir belge/arşiv görevlisi vardır. Başvuru uygulamasını dış destek işletir. E-posta isteği hizmette gerçek bir değişiklik başlattı, ancak onay sahibi ve test sonucu kayda bağlanmadı. Olay hem yazılım kuralını hem karar sürecini ilgilendirir.
 :::
 
 ---
 
-## Aynı sözcük, farklı kararlar
+## Hatanın deseni
 
-Satın alma: **“Uygun kontrolü seçelim.”**  
-Bilgi işlem: **“Güvenli yapılandıralım.”**  
-Yönetim: **“Uyumu sağlayalım.”**
+| İlk 5 iş günü | Değer |
+|---|---:|
+| Otomatik e-posta | 240 |
+| Başkasının belgesi eklenen e-posta | 6 |
+| Hata oranı | 6 / 240 = **%2,5** |
+| Altı hatanın ortak noktası | Aynı gün + aynı soyadlı adaylar |
 
-**Ortak soru:** Hangi ölçüte göre, hangi kapsamda ve hangi kanıtla?
+**Sistem eşlemesi: soyadı + başvuru tarihi**
 
 ::: {.notes}
-Üç birim aynı güvenlik amacı için çalışıyor görünse de kullandıkları ifadeler ortak bir referansa bağlanmazsa farklı kararlar üretebilir. Bir uygulamanın güvenli sayılması, bir sorumluluğun yerine getirilmesi ve bir sonucun kanıtlanması kişiden kişiye değişir. Dış referansların ilk işlevi bu dağınıklığı ortak dil ve ölçütle azaltmaktır. Fakat referansın adını söylemek kurum kararını henüz kurmaz; önce türleri ayırmamız gerekir.
+Hata rastgele görünmüyor: aynı gün başvuran iki Yılmaz, yalnız soyadı ve tarihle birbirinden ayrılamaz. Oran hatanın büyüklüğünü, ortak desen ise olası nedenini gösterir. Kontrol seçimini bu gözlemden gerekçelendirebiliriz; varsayımsal bir risk puanı üretmeye gerek yoktur.
 :::
 
 ---
 
-## Dört tür, dört farklı soru
+## Hatanın fark edilmesi ve hizmet etkisi
 
-| Tür | Kurumun sorduğu soru |
+| Olay izi | Sonuç |
 |---|---|
-| **Standart** | Hangi ortak beklentiye veya ölçüte göre hareket edeceğiz? |
-| **Çerçeve** | Kararları ve sorumlulukları hangi bakışla ilişkilendireceğiz? |
-| **Rehber** | Hangi uygulama seçeneklerini değerlendirebiliriz? |
-| **Kurum içi belge** | Bizde kim, neyi, nasıl yapacak? |
+| 4. gün aday telefon etti | İçeride tespit edilmedi |
+| Özellik kapatıldı | 1 iş günü elle gönderim |
+| Elle işleme geçildi | 35 başvuru gecikti |
 
 ::: {.notes}
-Bu türleri “hangisi daha iyi?” diye sıralamak doğru değildir; her biri farklı bir karar ihtiyacına katkı verir. Standart ortak değerlendirme zemini, çerçeve ilişkileri düzenleyen bakış, rehber uygulama seçenekleri, kurum içi belge ise kurumun kendi rol ve işleyiş kararını sağlar. Bu ayrım, dış kaynağın neden olduğu gibi kopyalanamayacağını anlamak için gereklidir.
+Yanlış alıcıya gönderim belgenin gizliliğini, yanlış eşleme kaydın doğruluğunu etkiler. Kurumun kendisinin hatayı bulamaması tespit eksikliğidir. Özelliği kapatmak yeni yanlış gönderimi durdururken hizmetin hızını düşürür. Kontrol kararı bu üç sonucu birlikte görmelidir.
 :::
 
 ---
 
-## Referansın adı, uygulamanın kanıtı değildir
+## Üç öneri neden yeterli değil?
 
-| Referansın sağlayabildiği | Tek başına gösteremediği |
+| Söyleyen | Cümle |
 |---|---|
-| Ortak beklenti | Beklentiyi kurumda kimin uyguladığı |
-| Düzenli bakış açısı | Uygulamanın gerçekten yürüdüğü |
-| Uygulama önerisi | Önerinin her kurum için zorunlu olduğu |
-| Yazılı kurum kuralı | Kuralın uygulandığı ve izlendiği |
+| Birim sorumlusu | “ISO'ya uyalım, bu iş biter.” |
+| Dış destek | “ITIL'e göre düzeltiriz.” |
+| Kayıt görevlisi | “Bir kontrol ekleyelim.” |
+
+**Kim karar verecek? Ne uygulanacak? İşlediğini hangi kayıt gösterecek?**
 
 ::: {.notes}
-Burada ortak bir sınır görüyoruz: referans, çerçeve ya da yazılı belge gerçek işleyişin yerine geçmez. Bir prosedürün bulunması işlemin yapıldığını; bir rehberde öneri bulunması önerinin kuruma uygun olduğunu; bir çerçevenin seçilmesi sorumlulukların gerçekten işletildiğini kanıtlamaz. Bu sınır bizi dış referans ile kurum içi belge arasındaki dönüşüme götürür.
+İlk cümle bir yönetim sistemine, ikinci hizmetin işleyişine, üçüncü tek bir önleme bakar. “Hepsi güvenlik standardı” açıklaması bu farkı yok eder. Referans adı söylemek karar sahibi ve kanıt oluşturmaz; önce olayın hangi sorulara ayrıldığını bulmak gerekir.
 :::
 
 ---
 
-## Dış beklenti kurumda nasıl görünür?
+## Aynı olay, dört yönetim sorusu
+
+| Soru | Aranan şey |
+|---|---|
+| BGYS hatayı nasıl ele alır? | Risk, kontrol kararı, izleme |
+| Yanlış alıcı nasıl önlenir ve fark edilir? | Kontrol uygulaması |
+| BT değişikliğine kim karar verdi? | Yetki, hedef, hesap verme |
+| Hizmet değişikliği nasıl yürütülür? | Test, devreye alma, kesinti |
+
+::: {.notes}
+Test kaydı riskin kabul edildiğini göstermez; risk kaydı da testin yapıldığını göstermez. Aynı kanıt farklı kararlara destek olabilir, fakat soruların işlevi ayrıdır. Dört soruyu ayırmak, dış referansları doğru yerde kullanmanın başlangıcıdır.
+:::
+
+---
+
+## Dört soru, dört referans
+
+| Soru | Referans ve yayımlayıcı | İşlev |
+|---|---|---|
+| BGYS | ISO/IEC 27001:2022 · ISO | BGYS gereksinimleri |
+| Kontrol | ISO/IEC 27002:2022 · ISO | Kontrol rehberliği |
+| Karar hakkı | COBIT · ISACA | Bilgi ve teknoloji yönetişimi/yönetimi |
+| Hizmet | ITIL · PeopleCert | Dijital ürün ve hizmet yönetimi |
+
+::: {.notes}
+27001 kurumun güvenlik riskini, gerekli kontrolü, sorumluluğu ve izlemeyi yönetmesine ilişkin beklentiyi koyar. 27002 uygulama seçenekleri sunar. COBIT BT kararının hedef ve sorumluluk ilişkisine, ITIL değişiklik ve kesintinin hizmet içinde yürütülmesine bakar. COBIT ve ITIL ISO ailesinin üyeleri veya BGYS standardı değildir. İşlev tanımları sonda verilen yayımlayıcı kaynaklarına dayanır.
+:::
+
+---
+
+## Referansların bıraktığı boşluk
+
+| Referans | Tek başına vermediği | Kurumda gereken iz |
+|---|---|---|
+| 27001 | Eşlemenin teknik yöntemi | Risk ve kontrol kararı |
+| 27002 | Kurumun hangi seçeneği seçtiği | Uygulama tasarımı |
+| COBIT | Ek dosyanın doğrulama yöntemi | Onay ve izleme sahibi |
+| ITIL | Güvenlik riskinin kabulü | Talep, test, kesinti kaydı |
+
+::: {.notes}
+27001 “aday numarası kullan” demez; kurum olay verisinden yöntemi seçer. 27002'de bir seçeneğin bulunması o seçeneğin seçildiğinin veya uygulandığının kanıtı değildir. Değişiklik onayı hem COBIT'in karar hakkı hem ITIL'in değişiklik akışı açısından ele alınabilir; her katkı ayrı yazılır. Dördünün ortak sınırı kurum kararı ve kanıt gerektirmesidir.
+:::
+
+---
+
+## Kısa uygulama: cümleyi soruya bağlayın
+
+| Kod | Cümle |
+|---|---|
+| A | Dış desteğin hatalı değişiklik sayısını kim raporlar? |
+| B | Aynı soyadlı test adaylarıyla deneme kaydı var mı? |
+| C | Risk ve seçilen kontrolün gerekçesi nerede? |
+| D | Alıcı doğrulamada hangi yöntemler düşünülebilir? |
+
+**Her cümle için referans ve gerekçe yazın.**
+
+::: {.notes}
+B'deki test kaydı sonradan BGYS kanıtı olarak da kullanılabilir. Cümle ilk olarak devreye alma öncesi denemeyi sorgular. Eşleme referans adından değil, cümlenin istediği karar türünden yapılmalıdır.
+:::
+
+---
+
+## Kısa uygulamanın çözümü
+
+| Kod | Referans | Gerekçe |
+|---|---|---|
+| A | COBIT | İzleme ve hesap verme sahibi |
+| B | ITIL | Değişiklik öncesi test |
+| C | ISO/IEC 27001 | Risk ve kontrol gerekçesi |
+| D | ISO/IEC 27002 | Uygulama seçenekleri |
+
+::: {.notes}
+A'da dış destek performansının kime raporlandığı bir yönetişim kararıdır. B hizmet değişikliğinin nasıl güvenle devreye alınacağına bakar. C kontrol seçiminin BGYS içindeki izini arar. D henüz seçim yapmaz, seçenekleri araştırır. Bir test kaydı birden fazla kararı desteklese de sorular eş anlamlı hâle gelmez.
+:::
+
+---
+
+## Gereksinimden kanıta zincir
 
 ```text
-“Erişimler yönetilmeli”
-          ↓ kurum bağlamında yorum
-kapsamdaki sistemler + onaylayan rol + değişiklik işleyişi
-          ↓ uygulama
-yetki kaydı + gözden geçirme izi
+27001 gereksinimi
+    → kurumun kontrol seçimi ve gerekçesi
+    → 27002 rehberliğiyle uygulama
+    → sorumlu ve kanıt
+    → gözden geçirme → gerekirse düzeltme
 ```
 
 ::: {.notes}
-Dış kaynak genel bir beklenti ya da uygulama önerisi sağlayabilir. Kurum ise bunun kendi kapsamındaki karşılığını belirlemek zorundadır: hangi sistemler, hangi onay sahibi, hangi işlem akışı ve hangi kayıt? Bu nedenle kurum içi belge dış kaynağın kopyası değil, genel yönün belirli aktör ve işleyişlere dönüştürülmesidir. Şimdi kurum içindeki belge türlerinin bu dönüşümde farklı işler yaptığını ayıralım.
+Her ok kurum kararıdır. 27001, BGYS içinde riskin ele alınmasını ve kontrol kararının izlenmesini bekler; teknik yöntemi seçmez. 27002 uygulama tasarımına rehberlik eder; kurumun kararını vermez. Belirli bir maddeye uyum iddiası için güncel tam metin gerekir; burada madde veya kontrol numarası kullanılmaz.
 :::
 
 ---
 
-## Kurum içi belgeler aynı işi yapmaz
+## Seçim gerekçesi olay verisinden çıkar
 
-```text
-politika  → yön ve ilke
-prosedür  → işlem akışı
-talimat   → belirli işin uygulanışı
-kayıt     → gerçekleşen işlemin izi
-```
-
-**Belge yazmak ≠ uygulamak ≠ gözden geçirmek**
-
-::: {.notes}
-Belge adları yeterlilik etiketi değildir. Politika yönü belirlerken prosedür akışı, talimat belirli işin uygulanışını, kayıt ise gerçekleşen işlemin izini taşır. Bir prosedür yazılmış fakat uygulanmıyorsa ya da kayıtlar üretilmiş fakat hiç incelenmiyorsa metin ile gerçek işleyiş arasında boşluk vardır. Bu ayrım, ISO 27001 ile ISO 27002'nin neden aynı işlevde okunamayacağını hazırlıyor.
-:::
-
----
-
-## ISO 27001 ve ISO 27002: aynı soruya yanıt vermez
-
-| ISO 27001 ile ilişkilendirilen bakış | ISO 27002 ile ilişkilendirilen bakış |
+| Gözlem | Korunma ihtiyacı |
 |---|---|
-| BGYS'yi kurma, işletme, gözden geçirme ve iyileştirme | Güvenlik kontrollerinin uygulanmasına yönelik rehberlik |
-| Kapsam, sorumluluk, uygulama ve kanıt ilişkisi | Değerlendirilebilecek uygulama seçenekleri |
-| Yönetim sistemi içinde yaşatma | Uygulamanın nasıl ele alınabileceğini düşünme |
+| Kimlik ve başvuru bilgisi yanlış kişiye gitti | Gizlilik |
+| Belge yanlış adayla eşlendi | Bütünlük |
+| Özellik kapatılınca 35 yanıt gecikti | Erişilebilirlik |
 
 ::: {.notes}
-Bu sunum güncel madde veya kontrol kataloğu öğretmiyor; iki referansın kurum kararındaki işlevini ayırıyor. ISO 27002 düzeyindeki rehberlik olası uygulamayı düşünmeye yardım eder. ISO 27001 ile ilişkilendirilen BGYS yaklaşımı ise kararın kapsam, sorumluluk, izleme ve iyileştirme ilişkileri içinde nasıl sürdürüleceğini görünür kılar. Dolayısıyla bir öneriyi seçmek, yönetim sisteminin tamamını otomatik kurmaz.
+Kontrol amacını “güvenliği artırmak” diye bırakmak hangi hatanın önleneceğini belirsizleştirir. Gizlilik yanlış alıcıyı, bütünlük yanlış eşlemeyi, erişilebilirlik hizmet gecikmesini açıklar. Bu üç etki aynı olayda görüldüğü için önleme, tespit ve düzeltme birlikte düşünülür.
 :::
 
 ---
 
-## Bir kontrol kararı neden tek başına yetmez?
+## Kontrol kaydının omurgası
 
-**Personel belgelerine erişim**
+**Amaç → uygulama → sorumlu → kanıt → gözden geçirme**
 
-```text
-uygulama önerisi
-      ↓
-hangi belgeler? → kim onaylar? → görev değişince ne olur?
-      ↓                              ↓
-hangi kayıt oluşur?  ←  kim ve ne zaman inceler?
-```
+Örnek amaç: **Belge yalnız ilgili adaya gider; aday–belge eşlemesi doğru olur.**
 
 ::: {.notes}
-Personel belgelerine erişim için uygun bir uygulama yaklaşımı seçilmiş olsun. Kararın kurum içinde yaşaması için belgelerin kapsamı, onaylayan rol, görev değişikliğindeki güncelleme, oluşacak kayıt ve inceleme sorumluluğu ayrıca belirlenmelidir. Bu sorular yanıtlanmadığında teknik uygulama bulunsa bile BGYS bağlantıları eksik kalır. Referansların güncelliği de ayrı bir sınırdır.
+Amaç hatayı tanımlar, uygulama somut işlemi, sorumlu işlemi kimin yürüteceğini gösterir. Kanıt yalnız kararın yazıldığını değil gerçekleşip işlemesini de gösterebilmelidir. Gözden geçirme bulgu oluştuğunda kararın yeniden ele alınmasını sağlar. Bu zincir bir rehber önerisini doğrudan “uygulanıyor” diye yazmayı önler.
 :::
 
 ---
 
-## Sürüm ve kaynak sınırı
+## İki eksen: neyle ve ne için?
 
-- Eski kaynak adı veya alan listesi, güncel kontrol kataloğu değildir.
-- Güncel madde, kontrol ve sertifikasyon koşulu ayrıca doğrulanır.
-- Doğrulama; **yetkili yayımlayıcı + sürüm/tarih + geçerlilik** üzerinden yapılır.
+| Önlem | Nitelik | İşlev |
+|---|---|---|
+| Aday numarası + doğum yılı eşlemesi | Teknik | Önleyici |
+| Haftalık gönderim örneklemi | Operasyonel | Tespit edici |
+| Durdurma ve olay kaydı | Yönetimsel/operasyonel | Düzeltici |
 
 ::: {.notes}
-Eski bir kaynakta ISO 17799 ya da ISO/IEC 27002:2005 alanlarının yer alması, bunların bugün güncel kontrol listesi olarak kullanılabileceği anlamına gelmez. Bu derste kavramsal işlev ayrımı yapıyoruz. Gerçek bir kurum güncel madde, kontrol veya sertifikasyon iddiası kuracaksa yetkili ve güncel metni ayrıca kontrol etmelidir. Aynı ilke birazdan COBİT ve ITIL için de sınırı belirleyecek.
+“Teknik” ve “önleyici” aynı sınıflamanın iki alternatifi değildir. İlk önlem hatayı olmadan engeller, ikincisi oluşmuş hatayı bulur, üçüncüsü zararı sınırlar ve nedeni işler. Nitelik ve işlev ayrımı Ders sunumu 2'nin 62–67. slaytlarındaki tarihsel anlatımdan alınan düşünme aracıdır; güncel ISO kontrol taksonomisi sayılmaz.
 :::
 
 ---
 
-## COBİT ve ITIL hangi pencereyi açar?
+## “Var” kanıtı ile “işliyor” kanıtı
 
-| Bakış | Görünür kıldığı ilişki |
+| Kanıtın sorusu | Örnek |
 |---|---|
-| **COBİT** | BT kararı ↔ kurumsal hedef ↔ karar ve izleme sorumluluğu |
-| **ITIL** | Hizmet ↔ değişiklik/işleyiş ↔ etki, sorumlu ve izlenebilir sonuç |
+| Kontrol kuruldu mu? | Onaylı talep; 10 adayla test |
+| Sürekli çalıştı mı? | 4 haftalık örneklem; bulgu ve kapanış notu |
 
-**İkisi de:** ISO ailesinin parçası, teknik güvenlik ürünü veya hazır kontrol listesi değildir.
+**Gönderim günlüğü ≠ incelenmiş gönderim günlüğü**
 
 ::: {.notes}
-COBİT bu birimde “kararı kim verir, hangi hedefe hizmet eder, sonucu kim izler?” sorularını görünür kılan yönetişim bakışıyla ele alınıyor. ITIL ise bir talep ya da sistem değişikliğini yalnız teknik işlem değil, hizmete etkisi ve izlenebilir sonucu olan bir iş olarak düşünmeye yardım ediyor. Belirli sürüm, süreç, olgunluk modeli ya da sertifikasyon ayrıntısına girmiyoruz; böyle bir iddia ayrıca güncel yetkili kaynak gerektirir. Bu farklı bakışların ortak hedefi, uyumu izlenebilir hâle getirmektir.
+Yeni kuralın 10 test adayında hata üretmemesi kurulumla ilgili kanıttır. Dört hafta boyunca hatanın izlenmesi ise işleyişe ilişkin kanıttır. Kayıt duruyor diye birinin kaydı incelediği varsayılamaz; inceleyen kişi, tarih ve bulgu sonucu kaydedilmelidir.
 :::
 
 ---
 
-## “Uyumluyuz” neden yetersizdir?
+## Haftalık 20 örnek ne kadar yakalar?
+
+Olay haftasındaki **%2,5** hata oranı sürerse:
 
 ```text
-Hangi gereksinim?
-      + hangi kapsam?
-      + kimin kararı ve uygulaması?
-      + hangi kanıt?
-      + hangi gözden geçirme?
-      = doğrulanabilir uyum iddiası
+20 örnekte hiç hata görmeme ≈ 0,975²⁰ ≈ %60
+20 örnekte en az bir hata görme ≈ %40
+80 örnekte en az bir hata görme ≈ %87
 ```
 
 ::: {.notes}
-“Uyumluyuz” sözü, gereksinimin kaynağını, uygulandığı kapsamı ve gerçek işleyişin izini göstermiyorsa doğrulanabilir bilgi üretmez. Uyum bu nedenle bir etiket ya da tek seferlik kontrol listesi değil; gereksinim ile kurumun gerçek işleyişi arasında kurulan karar izidir. Şimdi bu izi beş adımda açacağız.
+Hesap bağımsız ve aynı olasılıkla seçilen gönderimler varsayar; gerçek performans garantisi değildir. Tek gönderimin doğru olma olasılığı 0,975, yirmisinin doğru olma olasılığı bunun yirminci kuvvetidir. Dört haftalık 80 örnekte hiç hata görmeme yaklaşık %13'e iner. Hataların tamamı aynı gün ve soyadlı çiftlerde olduğundan örneklemi önce bu gruptan seçmek daha anlamlıdır. Tespit, önleyici eşleme kuralının yerine geçmez.
 :::
 
 ---
 
-## Uyum: izlenebilir beş adım
+## Çözümlü kayıt: yanlış alıcıya gönderim
+
+| Alan | Karar |
+|---|---|
+| Gerekçe | 6/240 hata; aynı gün + aynı soyadı |
+| Amaç | Doğru aday–belge eşlemesi |
+| Önleme | Aday numarası + doğum yılı; ekte aday numarası |
+| Tespit | Haftada 20 gönderim; önce riskli çiftler |
+| Düzeltme | Durdur; silme iste; olay kaydı aç |
+
+::: {.notes}
+27001 riskin ele alınması ve kontrolün izlenmesi beklentisini, 27002 uygulama rehberliğini temsil eder. Dış BT eşleme kuralını uygular. Birim sorumlusu değişikliği onaylar ve gönderimi yapmayan kişi olarak örneklemi inceler. Kayıt görevlisi hatalı gönderimde düzeltme ve olay kaydını yürütür. Önlemlerin işlevi farklı olduğu için yalnız birini yazmak olayın bütününü karşılamaz.
+:::
+
+---
+
+## Çözümlü kaydın kanıtı ve durumu
+
+| Alan | Kayıt |
+|---|---|
+| Kurulum | Onaylı talep; 10 test adayı, 2 aynı soyadlı çift, 0 hata |
+| İşleyiş | 4 hafta / 80 gönderim örneklemi ve bulgular |
+| Gözden geçirme | 4. hafta sonunda kural ve sıklık yeniden değerlendirilir |
+| Uygulanabilirlik | Evet; durum **kısmen**: örneklem başladı, yeni kural testte |
+
+::: {.notes}
+Uygulanabilirlik Bildirgesi (SoA), değerlendirilen kontrollerin uygulanabilirliğini, gerekçesini ve gerçek durumunu gösteren kayıt fikridir. Alıcı doğrulama olay verisi ve belge içeriği nedeniyle uygulanabilir. Yeni kural testteyse “uygulanıyor” yazmak yanlıştır; kanıt yeri test kaydı ve örneklem çizelgesidir. Standart maddesi veya kontrol numarası güncel tam metin görülmeden yazılmaz. Kişisel veri boyutu ayrı yetkili metinle değerlendirilir.
+:::
+
+---
+
+## “Uygulanmaz” da bir karardır
+
+| Önlem | Birimde karar | Açık bağımlılık |
+|---|---|---|
+| Sunucu odasına fiziksel giriş kontrolü | Birimin kendi sunucusu yok | Dış desteğin sorumluluğu sözleşme/tedarikçi kaydında izlenir |
+
+::: {.notes}
+Birimin sunucu odası olmaması fiziksel güvenliği önemsiz yapmaz; sorumluluğun dış destekte nasıl yürüdüğü izlenir. “Uygulanmaz” satırı da gerekçe ve bağımlılık kaydı ister. Ders sunumu 2'nin 70. slaytındaki “çoğunlukla uyulur” ifadesi ölçüt değildir; kararı kurumun bağlamı ve riski belirler.
+:::
+
+---
+
+## Eski kaynakta tür hatası
+
+**Ders sunumu 2, slayt 9:** “En yaygın BGYS'ler: COBIT, ITIL, ISO 27001.”
+
+| Doğrulama sorusu | Sonuç |
+|---|---|
+| Üçü aynı tür referans mı? | **Yanlış tür eşitlemesi** |
+
+::: {.notes}
+ISO/IEC 27001 BGYS gereksinimidir. ISACA COBIT'i bilgi ve teknoloji yönetişimi/yönetimi, PeopleCert ITIL'i hizmet yönetimi çerçevesi olarak tanımlar. Düzeltilmiş ifade: “ISO/IEC 27001 BGYS gereksinimlerini koyar; COBIT ve ITIL kararların yönetişim ve hizmet bağlamına yardım eder.” İddianın kaynak konumu, dönemi, yetkili kaynak ve gerekçe birlikte kaydedilir.
+:::
+
+---
+
+## Eski iddiayı doğrulama kaydı
 
 ```text
-1. Kaynak ve gereksinim
-            ↓
-2. Kapsam ve anlam
-            ↓
-3. Kurum kararı
-            ↓
-4. Uygulama ve kanıt
-            ↓
-5. Gözden geçirme ve iyileştirme ──┐
-            ↑                       │
-            └── değişen kaynak/bağlam
+iddia → kaynak konumu → dönem → yetkili kaynak
+      → doğrulama sorusu → sonuç sınıfı → gerekçe
+```
+
+| Sınıf | Ayırıcı soru |
+|---|---|
+| Yanlış tür eşitlemesi | Farklı referanslar aynı mı sayılmış? |
+| Tarihsel / güncel değil | Eski sürüme mi bağlı? |
+| Yetkili metinden okunmalı | Güncel ayrıntı elde mi? |
+| Nedensel / abartılı | Etiket sonuç mu doğuruyor? |
+| Bu kaynaklarla doğrulanamaz | Başka yetkili metin mi gerekir? |
+
+::: {.notes}
+Bir sektör zorunluluğu standart tanıtım sayfasından değil mevzuat veya şartnameden öğrenilir. Sertifikanın insan hatasını kendiliğinden azaltması ise sürüm farkından çok nedensel abartıdır. “Doğrulanamaz” cevabı hangi metnin niçin gerektiğini söylediğinde tam bir cevaptır.
+:::
+
+---
+
+## Eski kaynak uygulaması: 1–4
+
+| No | İddia | Konum |
+|---|---|---|
+| 1 | “ISO/IEC 27001:2013” | Slayt 10 |
+| 2 | 27000 ailesi ve 27002 “uygulama pratikleri” | Slayt 11 |
+| 3 | Sertifika insan hatasını azaltır, saldırıya önlem sağlar | Slayt 12 |
+| 4 | ISO 27001 zorunlu sektörler listesi | Slayt 13 |
+
+**Doğrulama sorusu, sınıf, gerekçe ve gereken kaynağı yazın.**
+
+::: {.notes}
+Birinci satır sürüm iddiasıdır. İkinci satırda 27002'nin rehberlik işlevinin doğru olması listedeki diğer üyelerin güncelliğini kanıtlamaz. Üçüncü satırda işleyen kontrol ile sertifika arasındaki nedensellik, dördüncüde zorunluluğun kaynağı sorgulanır.
+:::
+
+---
+
+## Eski kaynak uygulaması: 5–8
+
+| No | İddia | Konum |
+|---|---|---|
+| 5 | “ISO 27001 ana maddeleri” | Slayt 14 |
+| 6 | Başvuru → komite → analiz → denetim → sertifika | Slayt 15 |
+| 7 | “Ek maddelere çoğunlukla uyulması beklenir” | Slayt 70 |
+| 8 | A.5–A.18 Ek A alanları | 2013 dönemi görseli |
+
+**Doğrulama sorusu, sınıf, gerekçe ve gereken kaynağı yazın.**
+
+::: {.notes}
+Beşinci ve sekizinci satırlar eski yapıyı güncel yapıya taşıma riski içerir. Altıncı satır belgelendirme kuruluşunun güncel sürecine bağlıdır. Yedinci satırdaki “çoğunluk” kontrolün uygulanabilirliği için ölçüt olamaz. Eski görselin düşük çözünürlüklü kopyası kullanılmaz; iddianın kendisi tarihli kayıt olarak ele alınır.
+:::
+
+---
+
+## Eski kaynak: 1–4 çözümü
+
+| No | Sonuç | Gerekçe / gereken kaynak |
+|---|---|---|
+| 1 | Tarihsel / güncel değil | ISO 27001:2022 kaydı; güncel sürüm okunur |
+| 2 | Yetkili metinden okunmalı | 27002 rehberlik işlevi uyumlu; diğer üyeler doğrulanmalı |
+| 3 | Nedensel abartı | Sertifika sonuçtur; hatayı işleyen kontrol azaltır |
+| 4 | Bu kaynaklarla doğrulanamaz | Mevzuat, şartname veya yetki düzenlemesi gerekir |
+
+::: {.notes}
+Sertifikalı bir birimde soyadı ve tarih eşlemesi aynı yanlış alıcıyı üretebilir; etkili değişiklik eşleme kuralı, test ve izlemedir. Zorunlu sektör listesi standart sayfasından türetilemez. 2013 başlığının tarihsel olduğunu görmek, eski içeriği kendiliğinden 2022'ye güncellemez.
+:::
+
+---
+
+## Eski kaynak: 5–8 çözümü
+
+| No | Sonuç | Gerekçe / gereken kaynak |
+|---|---|---|
+| 5 | Tarihsel / güncel değil | Eski liste; güncel başlıklar tam metinden okunur |
+| 6 | Yetkili kaynaktan okunmalı | Süreç belgelendirme kuruluşuna bağlı |
+| 7 | Normatif ölçüt değil | Uygulanabilirlik risk ve bağlamla gerekçelendirilir |
+| 8 | Tarihsel / güncel değil | A.5–A.18, 2013 dönemi Ek A yapısıdır |
+
+::: {.notes}
+Eski slayt 14'te bazı başlıklar ana madde gibi görünürken işletime ilişkin başlık görünmez; liste kendi içinde de dikkatle okunmalıdır. 2022 madde veya kontrol adı gerektiğinde yetkili tam metin açılır. Eski Ek A numaraları yeni kayda taşınmaz.
+:::
+
+---
+
+## Kayıt A: değişiklik yönü
+
+| Girdi | Değer |
+|---|---|
+| Talep → açılış | E-posta → pazartesi |
+| Onay/test | Yazılı kayıt yok |
+| Hatanın bulunması | 4. gün, aday telefonu |
+| Hizmet etkisi | 1 gün elle işlem; 35 gecikme |
+
+**Soru:** Değişiklik onaysız ve testsiz nasıl engellenir?
+
+::: {.notes}
+Bağımsız kayıtta soru, referansların ayrı katkısı, gerekçe, kontrol amacı, uygulama ve işlev, sorumlu, “var” ve “işliyor” kanıtı, gözden geçirme, SoA satırı ve doğrulama durumu bulunmalıdır. COBIT karar hakkı ve dış desteği izlemeye, ITIL değişiklik, test ve kesintiye katkı verir. Risk kabulü ITIL'e yüklenmez.
+:::
+
+---
+
+## Kayıt A: gerekçeli çözüm
+
+| Alan | Örnek karar |
+|---|---|
+| Referans | COBIT: onay/izleme; ITIL: değişiklik/kesinti |
+| Amaç | Onay ve test olmadan devreye alma yok |
+| Önleme | Yazılı talep + birim onayı + test |
+| Tespit/düzeltme | 1 hafta günlük izleme; geri alma/bildirim |
+| Kanıt | Onaylı talep/test; izleme notu ve onaysız değişiklik sayısı |
+
+::: {.notes}
+E-posta talebi onay ve testin yerine geçmediği, hatanın dışarıdan bulunması da devreye alma sonrası izlemenin eksik olduğu için bu kontroller seçilir. Birim sorumlusu onaylar, dış BT test eder ve devreye alır, birim yönetimi dış destek performansını dönemsel izler. SoA satırı “değişiklik yönetimi: uygulanabilir; durum yeni başlıyor; kanıt yeri talep ve test kayıtları” olabilir. COBIT/ITIL'in belirli güncel pratik adı yayımlayıcı metinden doğrulanmadan yazılmaz.
+:::
+
+---
+
+## Kayıt B: personel dosyaları
+
+| Ortak dosya alanı | Girdi |
+|---|---:|
+| Merkez İK dosyası | 18 |
+| Erişebilen çalışan | 4 |
+| İşi gereği kullanan | 1 |
+| Son 3 ayda açan kayıt görevlisi | 2; amaç belirsiz |
+
+**Soru:** Yalnız işi gereği olanlar erişsin; bunu nasıl gösteririz?
+
+::: {.notes}
+İkinci kayıt farklı olay verisine dayanır. Gerekçe, dört çalışana açık 18 dosya, tek kişilik iş ihtiyacı ve amacı belirsiz iki erişimdir. 27001 risk ve kontrol kararının izlenmesine, 27002 erişim kısıtlamasının uygulama tasarımına katkı sağlar.
+:::
+
+---
+
+## Kayıt B: gerekçeli çözüm
+
+| Alan | Örnek karar |
+|---|---|
+| Amaç | Personel dosyasının gizliliği |
+| Önleme | Erişim yalnız birim sorumlusu ve İK yetkilisi |
+| Tespit/düzeltme | Aylık erişim incelemesi; olay ve yetki düzeltmesi |
+| Kanıt | Tarihli yetki listesi; aylık inceleme notu |
+| Gözden geçirme | Görev değişince ve 3 ayda bir |
+
+::: {.notes}
+Birim sorumlusu yetkiyi onaylar ve incelemeyi yapar; dış BT ayarı uygular; İK dosyaların sahibidir. SoA satırı “erişim kısıtlama: uygulanabilir; gerekçe dosya içeriği ve kayıtlar; durum yetki değişti, inceleme ilk ayında; kanıt yeri yetki listesi ve inceleme notu” olabilir. “Klasöre parola koyduk” kişi bazında yetkiyi ve işleyişi kanıtlamaz. Güncel kontrol adı/numarası tam metin olmadan yazılmaz; hukuki boyut ayrıca yetkili metinle değerlendirilir.
+:::
+
+---
+
+## Yanlış eşleştirmeler: 1–4
+
+1. “COBIT bir BGYS standardıdır; ISO yerine onu kullanırız.”
+2. “27002 kontrollerini uyguladık, 27001'e uyumluyuz.”
+3. “SoA'da her kontrole ‘uygulanıyor’ yazmak güvenlidir.”
+4. “Gönderim kaydı var; alıcı kontrolü çalışıyor.”
+
+**Her biri için hata türü, gerekçe ve düzeltilmiş cümle yazın.**
+
+::: {.notes}
+İlk ifade türü, ikinci gereksinim–rehberlik ilişkisini, üçüncü gerçek uygulama durumunu, dördüncü kanıt türünü karıştırır. Yanlış demek yetmez; hangi kurum kararı veya inceleme izi eksikse söylenmelidir.
+:::
+
+---
+
+## Yanlış eşleştirmeler: 5–7
+
+5. “A.5–A.18 listesine göre güncel kontrol numarası verelim.”
+6. “ITIL'e göre değişiklik yaptık; güvenlik riski kalmadı.”
+7. “ISO 27001 sertifikası olan kurumda yanlış gönderim olmaz.”
+
+**Her biri için hata türü, gerekçe ve düzeltilmiş cümle yazın.**
+
+::: {.notes}
+Beşinci sürüm, altıncı hizmet ile risk kararı, yedinci sertifika ile işleyen kontrol arasındaki nedenselliği karıştırır. Yedinci iddia eski Ders sunumu 2'nin 12. slaytındaki fayda söylemiyle ilişkilidir.
+:::
+
+---
+
+## Yanlış eşleştirmeler: 1–4 çözümü
+
+| No | Hata ve düzeltilmiş ifade |
+|---|---|
+| 1 | Tür eşitlemesi: 27001 BGYS gereksinimi; COBIT karar sahipliği bakışı sağlar. |
+| 2 | Rehberliği uygunluk sayma: kontrolün gerekçesi, izlemesi ve BGYS kaydı ayrıca gerekir. |
+| 3 | Durumu gizleme: SoA'da uygulanabilirlik, gerekçe, gerçek durum ve kanıt yeri yazılır. |
+| 4 | Kanıtı karıştırma: gönderim kaydına ek olarak inceleme sonucu gerekir. |
+
+::: {.notes}
+COBIT bir BGYS standardı olmadığı için 27001'in yerini tutmaz. 27002 ile kontrol tasarlamak, 27001 açısından yönetim sistemi, seçim gerekçesi ve izleme gösterilmeden uygunluk kanıtı olmaz. Gerekçeli “uygulanmaz” mümkündür; kanıtsız “uygulanıyor” yanıltır. Sistem günlüğü, bir insanın kaydı inceleyip bulgu ürettiğini göstermez.
+:::
+
+---
+
+## Yanlış eşleştirmeler: 5–7 çözümü
+
+| No | Hata ve düzeltilmiş ifade |
+|---|---|
+| 5 | Eski yapıyı güncel sayma: ad/numara güncel tam metinden doğrulanır. |
+| 6 | Hizmet ile risk kararını eşitleme: değişiklik test edilir; kalan risk BGYS'de değerlendirilir. |
+| 7 | Sertifikaya sonuç yükleme: yanlış gönderimi işleyen eşleme ve izleme kontrolleri azaltır. |
+
+::: {.notes}
+A.5–A.18 tarihsel 2013 yapısıdır. ITIL değişikliğin hizmette yürütülmesine katkı verir, güvenlik riskini ortadan kaldırdığı sonucunu vermez. Sertifika bir değerlendirme sonucudur; soyadı ve tarih kuralı aynı kaldığında iki aday yine karışabilir. Hata kural değişikliği, test ve izlemeyle azaltılır.
+:::
+
+---
+
+## Bir uyum iddiasının izi
+
+```text
+referans + sürüm + yayımlayıcı
+       → gerekçeli kurum kararı ve sorumlusu
+       → kurulum ve işleyiş kanıtı
+       → gözden geçirme ve düzeltme
 ```
 
 ::: {.notes}
-İlk adımda ilgili ve yetkili kaynak belirlenir. İkinci adımda gereksinimin hangi hizmet, varlık ve faaliyete uygulanacağı yorumlanır; belirsizliğin kimden doğrulanacağı kararlaştırılır. Üçüncü adım genel ifade ile kurumun sorumlusu, işleyişi ve belgeleri arasında bağ kurar. Dördüncü adım işleyişi yürütür ve onay, işlem, eğitim ya da gözden geçirme kaydı gibi izler üretir. Beşinci adım kanıtı ve bulguyu değerlendirir; kaynak ya da bağlam değiştiğinde karar döngüye geri girer.
+Ortak olayda şu ifade sınanabilir: “Yanlış gönderim riskini BGYS'de kaydettik; alıcı doğrulamayı olay verisine göre seçtik; dış BT kuralı değiştirdi; test ve dört haftalık örneklemle sonucu izleyip yeniden değerlendireceğiz.” Bu, etiketin yerine kararı ve kanıtı koyar. Belirli standart maddesine uyum iddiası için güncel tam metin gerekir.
 :::
 
 ---
 
-## Aynı referans, farklı kurum kararları
+## Kaynaklar
 
-| Değişen bağlam | Değişebilecek karar |
-|---|---|
-| Hizmet ve bilgi varlıkları | Kapsam |
-| Organizasyon yapısı | Sorumlu ve onay sahibi |
-| İş akışı ve araçlar | Uygulama biçimi |
-| Risk ve izleme ihtiyacı | Kanıt ve gözden geçirme |
-
-**Fark keyfî olmamalı:** yorum + gerekçe + kanıt gösterilebilmelidir.
+- [ISO/IEC 27001:2022 — ISO](https://www.iso.org/standard/27001?previewMode=true)
+- [ISO/IEC 27002:2022 — ISO](https://www.iso.org/standard/75652.html)
+- [COBIT — ISACA](https://www.isaca.org/resources/cobit)
+- [ITIL — PeopleCert](https://www.peoplecert.org/browse-certifications/it-service-management/ITIL-1)
+- Ders sunumu 2: slayt 9–15, 62–70 ve 2013 dönemi Ek A görseli (tarihsel doğrulama malzemesi).
 
 ::: {.notes}
-Beş adımlı akış bir sertifikasyon reçetesi değildir. Aynı referans, iki kurumun hizmeti, organizasyonu ve risk bağlamı farklı olduğunda farklı uygulama kararları doğurabilir. Kabul edilebilir farkın ölçütü, kurumun yorumunu ve gerekçesini izlenebilir kanıtla gösterebilmesidir. Bu ölçütü ortak vakada uygulayacağız.
-:::
-
----
-
-## Vaka: dört yönetim sorusu
-
-Kurgusal birim; öğrenci/aday kayıtlarını, personel belgelerini ve hizmet başvurularını yönetiyor.
-
-| Yönetim sorusu | Yararlanılan bakış |
-|---|---|
-| BGYS kapsamı ve yönetim sorumluluğu? | ISO 27001 |
-| Personel belgelerine erişim seçenekleri? | ISO 27002 |
-| BT kararının hedef ve sorumluluk bağı? | COBİT |
-| Sistem değişikliğinin hizmete etkisi? | ITIL |
-
-::: {.notes}
-Tablo bir eşleştirme anahtarı ya da otomatik uygunluk sonucu değildir. Her satırda önce kurumun gerçek yönetim sorusu vardır; referans bu soruya belirli bir bakışla katkı verir. Öğrenciden adları söylemekle yetinmemesini, referansın o soruya neden uygun olduğunu açıklamasını isteyin. Sonraki slayt, seçimin kurum kararına nasıl tamamlanacağını gösterir.
-:::
-
----
-
-## Referans seçimi ancak bu zincirle tamamlanır
-
-```text
-dış referans
-      ↓
-kurum bağlamında yorum
-      ↓
-sorumlu + uygulama
-      ↓
-kanıt
-      ↓
-gözden geçirme
-```
-
-**Oklar otomatik uyum değil, her aşamada verilmesi gereken kurum kararlarıdır.**
-
-::: {.notes}
-Örneğin “ISO 27002 kullanılır” demek, erişimi kimin onaylayacağını ya da hangi kaydın inceleneceğini söylemez. Öğrencinin vaka kaydında referansın katkısından sonra sorumlu, uygulama, oluşacak izin ya da kayıt ve güncel kaynak doğrulaması görünmelidir. Okların anlamı otomatik sonuç değil, yorumlanması ve sahiplenilmesi gereken geçişlerdir.
-:::
-
----
-
-## Uygulama: vaka kaydına bir satır ekleyin
-
-| Alan | Yazılacak bilgi |
-|---|---|
-| Yönetim sorusu | Kurum neyi çözmeye çalışıyor? |
-| Referans ve katkısı | Hangi tür, hangi bakışı sağlıyor? |
-| Kurum kararı | Kim, neyi, nasıl yapacak? |
-| Kanıt | Hangi izin veya kayıt oluşacak? |
-| Doğrulama | Güncel yetkili kaynak gerekli mi? |
-
-::: {.notes}
-Gruplar kurgusal birim için yeni bir yönetim sorusu seçsin. Amaç gerçek sertifikasyon dosyası veya güncel kontrol eşlemesi üretmek değil; referans türünü kurum kararına dönüştürme mekanizmasını göstermektir. Cevabı değerlendirirken referans adından çok zincirin tamamına bakın: soru açık mı, katkı doğru türde mi, sorumlu ve uygulama belirli mi, kanıt uygulamayı gerçekten gösterebilir mi, normatif iddia varsa doğrulama ihtiyacı belirtilmiş mi?
-:::
-
----
-
-## Son kontrol: kanıt neyi gösteriyor?
-
-| Görülen unsur | Henüz kanıtlamadığı şey |
-|---|---|
-| Rehberde bir öneri | Önerinin kuruma uygunluğu |
-| Yazılmış politika | Politikanın uygulanması |
-| Üretilmiş kayıt | Kaydın gözden geçirilmesi |
-| Referans adı | Güncel sürüm ve geçerlilik |
-
-::: {.notes}
-Bu tablo vaka çalışmasını hızlıca sınamak için kullanılır. Her satırda öğrenciden eksik geçişi tamamlamasını isteyin: uygunluk değerlendirmesini kim yapar, uygulamayı hangi kayıt gösterir, kaydı kim inceler, sürümü hangi yetkili kaynaktan doğrularız? Böylece konu başındaki “ortak ölçüt” ihtiyacı, yalnız adlandırma değil izlenebilir karar davranışı olarak kapanır.
-:::
-
----
-
-## Bir sonraki soruya geçiş
-
-**Referans türünü ayırmak yetmez.**
-
-Gerçek bir yükümlülük iddiası için:
-
-```text
-yetkili metin + güncellik + uygulanabilirlik + gerektiğinde uzman değerlendirmesi
-```
-
-::: {.notes}
-Standart, rehber ve çerçevelerde kurduğumuz kaynak doğrulama alışkanlığı, kişisel veri yükümlülüklerinde daha da kritik hâle gelir. Saklama süresi, yaptırım ya da hukuki uygunluk gibi iddialar genel çerçeve bilgisiyle kurulamaz. Bir sonraki konuda hangi iddianın hangi yetkili metne dayanması gerektiğini sorgularken burada öğrendiğimiz kaynak, kapsam, kurum kararı ve kanıt zincirini kullanacağız.
+Yayımlayıcı sayfalarının işlev tanımları 30.09.2026 tarihli kaynak denetiminden alınmıştır. Eski ders sunumu güncel kontrol numaralarının kaynağı değildir. Standartların tam metni görülmediği için belirli madde veya kontrol uygunluğu iddiası kurulmamıştır.
 :::
