@@ -19,6 +19,10 @@ tags:
 | K02 | 6 | psikoloji | orta |
 | K03 | 6 | diğer | iyi |
 | K04 | 7 | psikoloji | orta |
+| K05 | 8 | psikoloji | iyi |
+| K06 | 5 | diğer | kötü |
+| K07 | 6 | psikoloji | orta |
+| K08 | 7 | diğer | iyi |
 
 K03 satırı şu cümledir: "K03 kodlu gözlem biriminin, ara sınavdan önceki gece bildirdiği uyku süresi 6 saattir; bölümü diğer, uyku kalitesi iyidir."
 
@@ -68,22 +72,21 @@ jamovi interval ve ratioyu Continuous altında, SPSS Scale altında birleştirir
 
 - Nominal: aynı/farklı; bölüm kodlarının büyüklük sırası yoktur.
 - Ordinal: sıra vardır; aralıkların eşit olduğu varsayılmaz.
-- Aralık: farklar anlamlı, sıfır noktası referans niteliğindedir; "iki kat" yorumu kurulmaz.
+- Aralık: farklar anlamlı, sıfır noktası keyfidir ve yokluğu göstermez; "iki kat" yorumu kurulmaz. Örneğin 20 °C ile 10 °C arasındaki 10 derecelik fark anlamlıdır, ama 20 °C "10 °C'nin iki katı sıcak" değildir.
 - Oran: fark ve oran anlamlı; 8 saat, 4 saatin iki katı süredir.
 
 ::: {.notes}
-Her satırdan sonra "bu değişkende hangi işlemi yapmak istiyoruz?" diye sorun. Amaç tanımları ezberletmek değil, veri sözlüğündeki kararın sonraki analiz seçimini nasıl sınırladığını görmektir. Test seçimi bu haftanın işi değildir.
+Her satırdan sonra "bu değişkende hangi işlemi yapmak istiyoruz?" diye sorun. Amaç tanımları ezberletmek değil, veri sözlüğündeki kararın sonraki analiz seçimini nasıl sınırladığını görmektir. Ölçüm düzeyi, hangi karşılaştırma ve özetin anlamlı olduğunu belirler.
 :::
 
 ---
 
 ## Bağımsız mı, aynı kişiye mi ait?
 
-Sekiz farklı kişinin tek gecelik kaydı bağımsız gözlem düzenidir. Aynı kişiden üç gece ölçüm alınırsa üç satırın ortak kimliği vardır; bunlar eşleştirilmiş/ilişkili gözlemlerdir.
+Sekiz farklı kişinin tek gecelik kaydı bağımsız gözlem düzenidir. Aynı kişiden üç gece ölçüm alınırsa üç satırın ortak kimliği vardır; bunlar aynı kişiye ait ilişkili (tekrarlı) gözlemlerdir. Bu durumda `katilimci_kodu` artık satırı tek başına ayırt etmez; gözlem birimi "kişi–gece" çiftidir.
 
 ::: {.notes}
-İki tablo çizdirin: "sekiz kişi × bir gece" ve "sekiz kişi × üç gece". Satırların kimlik bilgisi değişince veri yapısının da değiştiğini belirtin. Hangi testi seçeceğimizi bu hafta söylemeyin.
-:::
+İki tablo çizdirin: "sekiz kişi × bir gece" ve "sekiz kişi × üç gece". Satırların kimlik bilgisi değişince veri yapısının da değiştiğini belirtin.:::
 
 ---
 
@@ -96,7 +99,7 @@ Sekiz farklı kişinin tek gecelik kaydı bağımsız gözlem düzenidir. Aynı 
 Önce işaretle ve kayda geçir; düzeltme/silme kararını gerekçesiz otomatikleştirme.
 
 ::: {.notes}
-İki hatalı dosyayı karşılaştırın: birinde K06 boş, diğerinde K06=25. "İkisini de 0 yap" önerisinin hangi yanlış iddiayı ürettiğini sordurun. Bu hafta hedef tanıma ve belgelemedir; ayrıntılı yöntem seçimi ileriki veri yönetimi biriminde işlenecektir.
+İki hatalı dosyayı karşılaştırın: birinde K06 boş, diğerinde K06=25. "İkisini de 0 yap" önerisinin hangi yanlış iddiayı ürettiğini sordurun. Bu aşamada hedef, iki durumu tanımak ve belgelemektir; düzeltme ya da silme kararı gerekçeyle verilir.
 :::
 
 ---
@@ -125,7 +128,7 @@ Bu tablo yazılım ekranının kopyası değildir; yazılım ayarının araştı
 5. **Kaydet–yeniden aç (10 dk):** dosyayı kapatıp yeniden aç; satır-sütun eşleşmesini, etiketleri, ölçüm türlerini ve eksik değer tanımını kontrol et.
 
 ::: {.notes}
-jamovi'de sütun başlığına çift tıklayarak veya Data/Setup ile değişken düzenleyiciye gidilebilir. SPSS'te aynı iş Variable View üzerinden yapılır. Sürüm farkları nedeniyle ekran konumunu ezberletmeyin; beklenen ürün, kaydedilmiş veri dosyası + veri sözlüğü + kısa denetim kaydıdır. En az üç satır eşleşmesini ve dört değişken özelliğini kontrol listesinde gösterin.
+jamovi'de değişken düzenleyiciye, SPSS'te Variable View'a gidilerek aynı tanımlar yapılır; menü adları ve konumları sürüme göre değişebilir, bu yüzden ekran konumu ezberletilmez; beklenen ürün, kaydedilmiş veri dosyası + veri sözlüğü + kısa denetim kaydıdır. En az üç satır eşleşmesini ve dört değişken özelliğini kontrol listesinde gösterin.
 :::
 
 ---

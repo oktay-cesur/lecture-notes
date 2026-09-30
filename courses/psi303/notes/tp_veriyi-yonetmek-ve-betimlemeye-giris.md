@@ -21,11 +21,15 @@ Aynı sekiz katılımcıya (K01–K08) üç maddelik bir "ders kaygısı" ölçe
 | Katılımcı | uyku_saati | kaygi_m1 (düz) | kaygi_m2 (düz) | kaygi_m3 (ters) |
 |---|---|---|---|---|
 | K01 | 5 | 4 | 4 | 2 |
+| K02 | 6 | 3 | 4 | 3 |
+| K03 | 6 | 2 | 2 | 4 |
+| K04 | 7 | 2 | 3 | 4 |
 | K05 | 8 |  | 1 | 5 |
 | K06 | 5 | 5 | 5 | 1 |
 | K07 | 25 | 3 | 3 | 3 |
+| K08 | 7 | 1 | 2 | 5 |
 
-(Tam tablo K01–K08 sekiz satırdır; burada yalnız tartışacağımız dört satır gösterildi.) Bu kurgusal bir öğretim tablosudur, gerçek katılımcı verisi değildir.
+Bu kurgusal bir öğretim tablosudur, gerçek katılımcı verisi değildir. `uyku_saati` sütunu, temizlik alıştırması için bilerek bozulmuş bir kopyadır: Hafta 1'deki temiz tabloda K07'nin uyku süresi 6 saattir. Merkez ve yayılım bölümü, Hafta 1'deki temiz sekiz değerle çalışır.
 
 ::: {.notes}
 K07'nin 25 değeri ile K05'in boş `kaygi_m1` hücresi aynı görünse de aynı sorunu temsil etmez. İlkinde olanaksız bir kayıt, ikincisinde yanıtsız bir madde vardır; uygulanacak işlemden önce bu fark kurulmalıdır.
@@ -35,13 +39,13 @@ K07'nin 25 değeri ile K05'in boş `kaygi_m1` hücresi aynı görünse de aynı 
 
 Tablo üzerinde yapılan hiçbir dönüşüm ham tablonun üzerine yazılmaz. Her karar yeni bir sütun ya da yeni bir sürüm olarak eklenir.
 
-Bunun nedeni bir tedbir değil, geri döndürülebilirliktir: bir dönüşüm kararı yanlış çıkarsa (ör. ters madde yanlış yönde çevrilmişse) ham veri hâlâ duruyorsa geri dönüp düzeltilebilir. Ham veri kaybolduysa hatanın nerede başladığı artık iz sürülemez.
+Bunun gerekçesi geri döndürülebilirliktir: bir dönüşüm kararı yanlış çıkarsa (ör. ters madde yanlış yönde çevrilmişse) ham veri hâlâ duruyorsa geri dönüp düzeltilebilir. Ham veri kaybolduysa hatanın nerede başladığı artık iz sürülemez.
 
 ::: {.notes}
 Ters puanlama, eksik değer işaretleme ve filtreleme aynı riski taşır: geri dönüşü olmayan bir üzerine-yazma. Ham tablo korunursa dönüşümün nerede ve neden yapıldığı denetlenebilir.
 :::
 
-## Kodlama Hatası mı, Eksik Kayıt mı — Şimdi Karara Bağlanıyor
+## Kodlama Hatası mı, Eksik Kayıt mı: Hangi İşlem Uygulanır?
 
 İki durum ayrı işlemlere yönlendirilmelidir:
 
@@ -51,7 +55,7 @@ Ters puanlama, eksik değer işaretleme ve filtreleme aynı riski taşır: geri 
 İki durum farklı kaynaklardan gelir, ama ortak bir kural paylaşır: hiçbiri sessizce satır silinerek ya da rastgele bir sayıyla doldurularak çözülmez.
 
 ::: {.notes}
-Mekanizma burada "neden 0 yazılmaz" sorusuna dayanıyor: 0 yazmak "hiç kaygılanmadı" ya da "0 saat uyudu" gibi gerçekte ölçülmemiş bir bilgiyi uydurmak demektir — hem kayıt hatası hem gerçek yanıtsızlık için bu risk aynı. Karar ile gerekçe ayrı ayrı kayda geçirilir; bu kaydın nasıl tutulacağını birazdan "işlem kaydı" slaydında göreceğiz.
+Mekanizma burada "neden 0 yazılmaz" sorusuna dayanıyor: 0 yazmak "hiç kaygılanmadı" ya da "0 saat uyudu" gibi gerçekte ölçülmemiş bir bilgiyi uydurmak demektir — hem kayıt hatası hem gerçek yanıtsızlık için bu risk aynı. Karar ile gerekçe ayrı ayrı kayda geçirilir; işaretleme ham sütunda değil, yeni bir sütunda ya da kopyada yapılır (işlem kaydı bölümünde tutulacak biçimiyle).
 :::
 
 ## Ters Puanlama: Aynı Yönde Okunabilir Hale Getirmek
@@ -70,7 +74,11 @@ Ters madde olduğu gibi toplandığında düz maddelerle çelişen bir yön üre
 
 Ters puanlaması tamamlanmış madde seti (`kaygi_m1`, `kaygi_m2`, `kaygi_m3_ters`) üzerinden bir toplam ya da ortalama kaygı puanı hesaplanır. Bu, ham maddelerin yerine geçen bir sayı değil, onlardan **türetilmiş yeni bir değişkendir**.
 
+Örneğin K01 için ters puanlanmış m3 = 6 − 2 = 4 olduğundan toplam 4 + 4 + 4 = 12, ortalama 4'tür; K06 için 5 + 5 + 5 = 15, ortalama 5'tir.
+
 Eksik maddesi olan bir katılımcıda (K05'in `kaygi_m1` hücresi boş) toplam puanı nasıl ele alacağımız açık bir kural gerektirir: burada seçilen kural, yalnızca üç maddenin tamamı doluysa toplam/ortalama hesaplanır, değilse toplam hücresi de eksik işaretlenir.
+
+Bir Likert maddesi tek başına sıralı bir ölçümdür (Hafta 2'deki `uyku_kalitesi` gibi); maddelerin aralıklarının eşit olduğu varsayılmaz. Birkaç maddenin toplam ya da ortalaması ise davranış bilimlerinde çoğunlukla aralık ölçeğe yakın bir puan gibi işlenir. Bu bir varsayımdır, doğrulanmış bir gerçek değil; ölçeğin puanlama yönergesine dayanılarak kabul edilir.
 
 ::: {.notes}
 Eksik maddeler için tek bir evrensel işlem yoktur. Kural ölçeğin puanlama yönergesine dayanmalı, analizden önce belirlenmeli ve hangi kayıtları etkilediğiyle birlikte yazılmalıdır.
@@ -80,7 +88,7 @@ Eksik maddeler için tek bir evrensel işlem yoktur. Kural ölçeğin puanlama y
 
 Yalnızca kaygı puanı tam olan katılımcıları kullanmak istediğimizi varsayalım. Bu ölçüte göre K05 tabloya girmiyor: filtre öncesi 8 katılımcı, filtre sonrası 7. Çıkarılan katılımcının kim olduğu ve neden çıkarıldığı not edilir — "bir kayıt çıkarıldı" gibi belirsiz bir özet yetmez.
 
-Bir kaydı çıkarmak örneklemi küçültür; sistematik olarak hep aynı tür katılımcının (ör. hep belirli bir maddeyi atlayanların) filtrelenmesi kalan örneklemi belli bir yönde çarpıtabilir.
+Bir kaydı çıkarmak örneklemi küçültür; sistematik olarak hep aynı tür katılımcının (ör. hep belirli bir maddeyi atlayanların) filtrelenmesi kalan örneklemi belli bir yönde çarpıtabilir; bu, Hafta 1'deki seçim yanlılığının veri temizleme aşamasında ortaya çıkan biçimidir.
 
 ::: {.notes}
 Filtreleme bazen gereklidir; sorun işlemin görünmez kalmasıdır. Çıkarma ölçütü, etkilenen kayıtlar ve örneklem büyüklüğündeki değişim birlikte kaydedilmelidir.
@@ -90,14 +98,26 @@ Filtreleme bazen gereklidir; sorun işlemin görünmez kalmasıdır. Çıkarma �
 
 Buraya kadar yapılan her şey — hangi hücrenin neden değiştirildiği, hangi maddenin ters çevrildiği, hangi kaydın hangi gerekçeyle filtrelendiği — adım adım okunabilir bir günlükte tutulur:
 
-- K07, `uyku_saati`: 25 → eksik olarak işaretlendi (olanaksız değer, kaynak doğrulanamadı).
-- K05, `kaygi_m1`: boş bırakılmış kayıt, eksik olarak işaretlendi.
+- K07, `uyku_saati`: 25 → yeni bir sütunda eksik olarak işaretlendi (olanaksız değer, kaynak doğrulanamadı); ham sütun olduğu gibi kaldı.
+- K05, `kaygi_m1`: boş bırakılmış kayıt, yeni sütunda eksik olarak işaretlendi.
 - `kaygi_m3` → `kaygi_m3_ters`: tüm satırlara `6 − kaygi_m3` uygulandı.
 - `kaygi_toplam`: yalnızca üç madde de doluysa hesaplandı; K05 için eksik bırakıldı.
 - Filtre: `kaygi_m1` boş olan katılımcı (K05) analiz alt kümesinden çıkarıldı. n=8 → n=7.
 
 ::: {.notes}
 Bu günlük, "veri temizlendi" gibi tek cümlelik bir özetten farklıdır: ham veri ile analiz tablosu arasındaki her farkın gerekçesini taşır. Her adım hangi hücreyi veya sütunu etkilediğini, uygulanan işlemi ve gerekçesini okunabilir biçimde göstermelidir.
+:::
+
+## Uygulama: Veri Yönetimini Yazılımda Yapmak (60 dk)
+
+1. **Ham tabloyu kur (10 dk):** yukarıdaki sekiz satırlık tabloyu gir; ham sütunlara dokunma.
+2. **Eksikleri işaretle (10 dk):** K07 `uyku_saati` ve K05 `kaygi_m1` için yeni sütunlarda eksik değer işaretini ver; iki durumun neden ayrı sütun olarak kaydedildiğini işlem kaydına yaz.
+3. **Ters puanla (15 dk):** `kaygi_m3_ters = 6 − kaygi_m3` sütununu üret; K01 ve K06 satırlarını elle hesapladığın değerlerle karşılaştır.
+4. **Toplam üret (10 dk):** `kaygi_toplam` sütununu yalnızca üç madde de doluyken hesapla; K01 için 12, K06 için 15 çıktığını doğrula, K05'in eksik kaldığını kontrol et.
+5. **Filtrele ve kaydet (15 dk):** `kaygi_toplam` eksik olan kaydı analiz alt kümesinden çıkar; $n$'nin 8'den 7'ye düştüğünü ve çıkarılan kaydın kim olduğunu işlem kaydına yaz.
+
+::: {.notes}
+Araç serbesttir (jamovi, SPSS, Excel, JASP); ekran konumu ezberletilmez. Beklenen ürün, ham tablo + dönüştürülmüş tablo + işlem kaydıdır.
 :::
 
 ## Kısa Geri Kontrol — Veri Yönetimi
@@ -122,12 +142,12 @@ K01–K08 `uyku_saati` verisine dönelim: 5, 6, 6, 7, 8, 5, 6, 7. Bu sekiz sayı
 **Mod:** en sık görülen değer, 6 (üç kez).
 
 ::: {.notes}
-Ortalama, her gözlemin katkıda bulunduğu bir denge noktasıdır; herhangi bir gözlem değişirse ortalama da değişir. Aynı sekiz gözlem için ortalama 6,25, medyan 6 ve mod 6 bulunması her ölçünün veriyi farklı bir mantıkla özetlediğini gösterir. Ortalama aralık/oran ölçekte, medyan sıralı veride, mod ise kategorik veride anlamlı bir özet sağlayabilir.
+Ortalama, her gözlemin katkıda bulunduğu bir denge noktasıdır; herhangi bir gözlem değişirse ortalama da değişir. Aynı sekiz gözlem için ortalama 6,25, medyan 6 ve mod 6 bulunması her ölçünün veriyi farklı bir mantıkla özetlediğini gösterir. Ortalama en az aralık düzeyi ister; medyan en az sıralı düzey ister; mod ise her ölçüm düzeyinde hesaplanabilir. Bu yüzden `bolum` için yalnız mod, `uyku_kalitesi` için medyan ve mod, `uyku_saati` için üçü de anlamlıdır.
 :::
 
 ## Merkez Tek Başına Yeterli Değil
 
-İki kurgusal sekiz kişilik grup: A grubu 5, 6, 6, 6, 6, 6, 6, 7 (5–7 arası sıkışık); B grubu 2, 3, 5, 6, 7, 8, 9, 10 (2–10 arası dağınık). İkisinin de ortalaması 6.
+İki kurgusal sekiz kişilik grup: A grubu 5, 6, 6, 6, 6, 6, 6, 7 (5–7 arası sıkışık); B grubu 2, 3, 5, 6, 7, 8, 8, 9 (2–9 arası dağınık). İkisinin de toplamı 48, ortalaması 6.
 
 A grubundaki bir kişiye "ortalama 6 saat uyuyorsunuz" demek gerçeği iyi temsil eder; B grubunda aynı cümle yanıltıcıdır, çünkü grup içinde büyük bir çeşitlilik vardır.
 
@@ -143,11 +163,13 @@ Sınır→kavram geçişi: aynı ortalamanın iki farklı dağılımı gizleyebi
 
 1. Sapma: $x_i - \bar{x}$.
 2. Sapmaları doğrudan toplarsak sıfır çıkar (pozitif ve negatif birbirini iptal eder); bu yüzden kare alınır: $(x_i-\bar{x})^2$.
-3. Örneklem varyansı için kareli sapmaların toplamı $n-1$'e bölünür: $s^2 = \dfrac{\sum (x_i-\bar{x})^2}{n-1}$.
+3. Örneklem varyansı için kareli sapmaların toplamı $n-1$'e bölünür: $s^2 = \dfrac{\sum (x_i-\bar{x})^2}{n-1}$. Sapmalar örneklemin kendi ortalamasına göre alındığından, bu ortalama verilere olabilecek en yakın nokta olur ve sapmalar evren ortalamasına göre alınsaydı olacağından küçük çıkar; $n$ yerine $n-1$ ile bölmek bu küçülmeyi dengelemek içindir.
 
 K01–K08 için kareli sapmaların toplamı 7,5; 7'ye bölününce $s^2 \approx 1{,}07$ saat².
 
 **Doğrulayalım (birim kontrolü):** varyansın birimi karedir (saat²). Karekök alarak orijinal birime dönülür: $s = \sqrt{1{,}07} \approx 1{,}04$ saat. Katılımcıların uyku süresi ortalamadan tipik olarak yaklaşık bir saat sapmaktadır.
+
+Aynı hesabı A ve B grupları için yaptığımızda ortalamanın gizlediği fark görünür: A için kareli sapmaların toplamı 2, $s \approx 0{,}53$ saat, açıklık 2; B için toplam 44, $s \approx 2{,}51$ saat, açıklık 7. Ortalamaları aynı olan iki grubu ayıran ölçü yayılımdır.
 
 ::: {.notes}
 Kare alma, pozitif ve negatif sapmaların birbirini götürmesini önler; karekök ise ölçüyü yeniden saat birimine taşır. Hesaplamada örneklem standart sapması kullanıldığı için payda $n-1$'dir.
@@ -165,7 +187,7 @@ Sezgisel yanıt hayırdır. Örneklem ortalaması yalnız seçilen kişilere de�
 
 Aynı evrenden (PSİ 303'e kayıtlı öğrenciler) tekrar tekrar sekiz kişilik örneklemler çekildiğini düşünelim — gerçek veri toplamıyoruz, yalnızca bir düşünce deneyi kuruyoruz. K01–K08 dışında, aynı evrenden çekilmiş varsayılan üç kurgusal karşılaştırma örneklemi: ikinci grup ortalaması 5,9 saat, üçüncü grup 6,6 saat, dördüncü grup 6,1 saat.
 
-Dört ortalamaya birlikte bakınca iki şey fark edilir: hiçbiri birbirinin aynısı değil, ama tümüyle rastgele de değil — hepsi 5,9 ile 6,6 arasında toplanıyor; bu dört denemede 2 saat ya da 10 saat gibi evren ortalamasından çok uzak bir örneklem ortalaması görülmedi.
+Bu dört değeri biz kurguladık; amaç bir kanıt sunmak değil, tekrarlı örnekleme durumunda ne beklendiğini göstermektir. Dört ortalama birbirinin aynısı değildir; ancak aynı evrenden geldikleri için 5,9 ile 6,6 arasında, evren ortalaması olduğunu varsaydığımız değerin çevresinde toplanırlar. Sekiz kişilik örneklemlerde 2 saat ya da 10 saat gibi evren ortalamasından çok uzak bir örneklem ortalaması beklenmez.
 
 ::: {.notes}
 Örneklem ortalamalarının kendisi bir dağılım oluşturur. Tek bir sayı olarak düşündüğümüz "ortalama", mümkün örneklemler üzerinden bakıldığında değişen bir büyüklüktür. Verilen dört ortalama gerçek veri değil, değişkenlik fikrini somutlaştıran kurgusal değerlerdir.
@@ -184,7 +206,7 @@ Düşünce deneyinin sonucu iki parçalıdır: örneklem ortalamaları birbirind
 - Elinde ham tablo, dönüştürülmüş tablo ve işlem kaydı olduğunu düşün: K07 ve K05'in hücreleri nasıl işaretlendi, `kaygi_m3` hangi yönde çevrildi?
 - K01–K08 verisinde ortalama, medyan ve mod neden farklı sayılar veriyor?
 - A ve B gruplarının ortalaması aynıyken hangi ölçü ikisini birbirinden ayırır?
-- Standart sapma 0,97 saat ne anlama gelir — "0,94 saat kare" değil de neden bu sayı raporlanır?
+- Standart sapma yaklaşık 1,04 saat ne anlama gelir — "1,07 saat kare" (varyans) değil de neden bu sayı raporlanır?
 - Aynı evrenden çekilen dört kurgusal örneklem ortalaması (6,25; 5,9; 6,6; 6,1) neden birbirinin aynı değil, ama tamamen rastgele de değil?
 
 ::: {.notes}

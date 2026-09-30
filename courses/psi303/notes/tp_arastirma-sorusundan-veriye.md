@@ -18,8 +18,7 @@ Bu üniversitede PSİ 303'e kayıtlı öğrenciler, ara sınavdan önceki gece k
 "Öğrencilerin uyku süresi" belirsiz kalıyor: hangi öğrenciler, hangi gece, kimin verisi?
 
 ::: {.notes}
-Derse bu soruyla girilir; soru tahtaya yazılabilir. Amaç, ilk cümleden itibaren "elimizde veri olması" ile "kimin hakkında konuşmak istediğimiz" arasındaki boşluğu görünür kılmaktır. İstatistiğin ilk işi tam olarak bu boşluğu görünür kılmaktır: elimizdeki veriyle ne söyleyebileceğimizi, hangi topluluğa ne kadar güvenle taşıyabileceğimizden ayırmak. Bu slaytta çözüm verilmez, yalnız belirsizlik gösterilir — sonraki slaytta ayrım kurulur.
-:::
+Derse bu soruyla girilir; soru tahtaya yazılabilir. Amaç, ilk cümleden itibaren "elimizde veri olması" ile "kimin hakkında konuşmak istediğimiz" arasındaki boşluğu görünür kılmaktır. İstatistiğin ilk işi tam olarak bu boşluğu görünür kılmaktır: elimizdeki veriyle ne söyleyebileceğimizi, hangi topluluğa ne kadar güvenle taşıyabileceğimizden ayırmak.:::
 
 ---
 
@@ -61,7 +60,7 @@ Tablo gerçek bir katılımcı kaydı değildir, yalnızca ayrımı somutlaştı
 2. *"PSİ 303'e kayıtlı öğrencilerin çoğu ara sınavdan önceki gece yedi saatin altında uyudu."* → **çıkarım**
 
 ::: {.notes}
-Birinci cümle tabloyu sayarak (5, 6, 6, 7, 8, 5, 6, 7 içinden 7'nin altında olan beş tanesi: 5, 6, 6, 5, 6) doğrudan doğrulanabilir; öznesi "bu sekiz gönüllü", zamanı tablodaki tek gecedir. İkinci cümlenin öznesi artık sekiz gönüllü değil bütün hedef evrendir — bir çıkarım iddiasıdır ve tablodaki sayımdan kendiliğinden çıkmaz. Sekiz kişinin nasıl seçildiğini (gönüllü mü, rastgele mi) bilmeden "çoğu" ifadesini bütün derse genellemenin dayanağı eksik kalır; ayrıca tek bir geceye ait kayıt, kişinin genel uyku alışkanlığını doğrudan göstermez — ölçülen şey tek bir gecedir, bir alışkanlık değil. Gönüllü bir örneklemde gözlenen 5/8 oranı, hedef evrendeki gerçek oranın da 5/8 olduğunu göstermez; bu, oranların gerçekte aynı olma ihtimalini dışlamaz, yalnızca elimizdeki veri bunu tek başına kanıtlamaz demektir.
+Birinci cümle tabloyu sayarak (5, 6, 6, 7, 8, 5, 6, 7 içinden 7'nin altında olan beş tanesi: 5, 6, 6, 5, 6) doğrudan doğrulanabilir; öznesi "bu sekiz gönüllü", zamanı tablodaki tek gecedir. İkinci cümlenin öznesi artık sekiz gönüllü değil bütün hedef evrendir — bir çıkarım iddiasıdır ve tablodaki sayımdan kendiliğinden çıkmaz. Sekiz kişinin nasıl seçildiğini (gönüllü mü, rastgele mi) bilmeden "çoğu" ifadesini bütün derse genellemenin dayanağı eksik kalır; ayrıca tek bir geceye ait kayıt, kişinin genel uyku alışkanlığını doğrudan göstermez — ölçülen şey tek bir gecedir, bir alışkanlık değil. Gönüllü bir örneklemde gözlenen 5/8 oranı, hedef evrendeki gerçek oranın da 5/8 olduğunu göstermez; oranlar aynı çıkabilir, ama elimizdeki veri bunu tek başına kanıtlamaz.
 :::
 
 ---
@@ -72,7 +71,7 @@ Birinci cümle tabloyu sayarak (5, 6, 6, 7, 8, 5, 6, 7 içinden 7'nin altında o
 - **Örneklem değişkenliği:** aynı evrenden başka bir örneklem aynı sonucu verir miydi?
 
 ::: {.notes}
-Bu iki soru birbirinden farklı iki sorunu ayırt eder. Gönüllü olarak veri veren sekiz kişi, örneğin dersi daha düzenli takip eden ya da uyku düzenine daha dikkat eden öğrenciler olabilir — bu durumda örneklem evrenin tipik bir kesiti olmayabilir (seçim yanlılığı). Aynı evrenden seçilecek başka bir sekiz kişilik grup, salt rastlantısal olarak farklı bir sayı verebilir, diyelim 3/8 (örneklem değişkenliği). İyi bir seçim yöntemi yanlılığı azaltabilir ama sekiz kişilik bir örneklemin değişkenliğini ortadan kaldırmaz. Tersi de doğru değildir — "örneklemden hiçbir şey öğrenilemez" sonucuna varmak da hatalıdır; seçim ve değişkenlik hesaba katıldığında örneklem evrene dair bilgi taşımaya devam eder. Bu iki kavram formel olarak bu derste çözülmeyecek (örnekleme/çıkarım birimleri Hafta 4'te); burada yalnız farkı görmek hedeflenir.
+Bu iki soru birbirinden farklı iki sorunu ayırt eder. Gönüllü olarak veri veren sekiz kişi, örneğin dersi daha düzenli takip eden ya da uyku düzenine daha dikkat eden öğrenciler olabilir — bu durumda örneklem evrenin tipik bir kesiti olmayabilir (seçim yanlılığı). Aynı evrenden seçilecek başka bir sekiz kişilik grup, salt rastlantısal olarak farklı bir sayı verebilir, diyelim 3/8 (örneklem değişkenliği). İyi bir seçim yöntemi yanlılığı azaltabilir ama sekiz kişilik bir örneklemin değişkenliğini ortadan kaldırmaz. Tersi de doğru değildir — "örneklemden hiçbir şey öğrenilemez" sonucuna varmak da hatalıdır; seçim ve değişkenlik hesaba katıldığında örneklem evrene dair bilgi taşımaya devam eder. Bu iki kavram burada sayısal olarak ölçülmez; yalnız farkı görmek yeterlidir.
 :::
 
 ---
@@ -82,7 +81,7 @@ Bu iki soru birbirinden farklı iki sorunu ayırt eder. Gönüllü olarak veri v
 Veri toplanır → düzenlenip özetlenir → araştırma sorusuyla ilişkili bir yorum kurulur → yorumun kapsamı ve belirsizliği kontrol edilir.
 
 ::: {.notes}
-Bir hesaplama aracı (elle sayım, Excel, JASP, jamovi ya da SPSS) tabloyu saklayıp sayımı kolaylaştırabilir — ama hangi evrene ne söylenebileceğine tek başına karar veremez. Doğru hesaplanmış bir sayı kendiliğinden doğru bir yorum garantisi vermez: yorumun geçerliliği, sayının hangi kümeye ait olduğunun doğru belirlenmesine bağlıdır. Bu cümle, aracın (Excel/JASP/jamovi/SPSS) dönem boyunca yalnızca hesaplama katmanı olduğunu, yorumun her zaman öğrenciye ait kalacağını baştan yerleştirir.
+Bir hesaplama aracı (elle sayım, Excel, JASP, jamovi ya da SPSS) tabloyu saklayıp sayımı kolaylaştırabilir — ama hangi evrene ne söylenebileceğine tek başına karar veremez. Doğru hesaplanmış bir sayı kendiliğinden doğru bir yorum garantisi vermez: yorumun geçerliliği, sayının hangi kümeye ait olduğunun doğru belirlenmesine bağlıdır. Araç yalnızca hesaplama katmanıdır; yorum her zaman araştırmacıya aittir.
 :::
 
 ---
@@ -104,7 +103,7 @@ Hedef daraldığında iddianın kapsamı da daralmıştır, sayım değişmemiş
 Bu tablo neden bu şekilde satır ve sütunlara ayrılmış, ve bu düzenlemenin kendisi bize ne söylüyor?
 
 ::: {.notes}
-Geçiş cümlesi: az önce aynı tabloyu evren–örneklem ve betimleme–çıkarım ayrımı için kullandık; şimdi tanıdık tabloya dönüp farklı bir soru soracağız — bu tanıdıklık öğrenciye açıkça söylenmeli (yeni bir tablo değil, aynı tablo). Bu, dersin ikinci yarısının (veri yapısı girişi) başlangıcıdır.
+Az önce aynı tabloyu evren–örneklem ve betimleme–çıkarım ayrımı için kullandık; şimdi aynı tabloya bu kez yapısı açısından bakıyoruz. Yeni bir tablo değil, tanıdık tablo; değişen, sorduğumuz sorudur.
 :::
 
 ---
@@ -121,14 +120,14 @@ Geçiş cümlesi: az önce aynı tabloyu evren–örneklem ve betimleme–çıka
 - Her sütun (`katilimci_kodu`, `uyku_saati`) bir **değişken**dir.
 
 ::: {.notes}
-Bu genelleme kişiye özgü değildir: bir gözlem birimi her zaman bir kişi olmak zorunda değildir, bir oturum, bir madde ya da bir zaman noktası da olabilir; ilerideki birimlerde gözlem birimi yine katılımcı olacak, ama bu genelliği aklımızda tutmak gerekir — bu ayrıntı ileri haftalarda (örn. tekrarlı ölçüm) tekrar karşımıza çıkacak, burada yalnız adı konuyor.
+Bu genelleme kişiye özgü değildir: bir gözlem birimi her zaman bir kişi olmak zorunda değildir, bir oturum, bir madde ya da bir zaman noktası da olabilir; bu tabloda gözlem birimi katılımcıdır, ama aynı kişiden birden fazla ölçüm alınsaydı gözlem birimi "kişi–ölçüm" olurdu.
 :::
 
 ---
 
 ## Kimlik alanı mı, değer alanı mı?
 
-- `katilimci_kodu` → **kimlik** alanı: yalnızca satırı ayırt eder, üzerinde istatistik hesaplanmaz.
+- `katilimci_kodu` → **kimlik** alanı: satırı ayırt eder ve kayıtları eşlemeye yarar; ortalaması alınacak bir ölçüm değildir.
 - `uyku_saati` → **değer** alanı: betimleme ve çıkarımın asıl konusu olan ölçüm.
 
 K01–K08 kodlarının "ortalamasını" almak ne anlama gelir?
@@ -139,17 +138,18 @@ Cevap: hiçbir şeye — kod numaraları kişiyi etiketlemek için seçilmiş ra
 
 ---
 
-## Uygulama: iki cümleyi kendi verinle kur
+## Uygulama: iki cümleyi tablodan kur
 
 Sekiz satırlık tabloyu (K01–K08, uyku saatleri 5, 6, 6, 7, 8, 5, 6, 7) seçtiğin bir ortamda (Excel, JASP, jamovi ya da SPSS) incele.
 
-1. Yalnızca bu sekiz kişiyi tanımlayan, doğrudan doğrulanabilir bir sonuç.
-2. Kayıtlı bütün PSİ 303 öğrencileri hakkında kurmak istediğin, ama mevcut veriden tek başına kesinleştiremeyeceğin bir iddia.
+1. Yalnızca bu sekiz kişiyi tanımlayan, doğrudan doğrulanabilir bir sonuç yaz.
+2. Kayıtlı bütün PSİ 303 öğrencileri hakkında kurmak istediğin, ama mevcut veriden tek başına kesinleştiremeyeceğin bir iddia yaz.
+3. İki cümle için gözlem birimini ve hedef evreni bir satırda belirt.
 
-Beklenen ürün: bir soru için gözlem birimi ve hedef evren şeması; betimleme/çıkarım ayrımını gösteren iki kısa ifade.
+Beklenen ürün: gözlem birimi ve hedef evren belirtilmiş, betimleme/çıkarım ayrımını gösteren iki kısa ifade.
 
 ::: {.notes}
-Araç seçimi serbesttir; hiçbir araç zorunlu tutulmaz. Her cümle için öznesini ve geceye ait zaman sınırını işaretlemeleri istenir, sonra kendilerine şunu sormaları: "veri bu özneyi ve bu zamanı gerçekten kapsıyor mu?" İkinci cümle için evrene ilişkin bir yorum yapabilmek için hangi ek bilgiye (seçimin nasıl yapıldığı, örneklem değişkenliğinin ne olduğu) ihtiyaç duyduklarını tek cümleyle belirtmeleri istenir. Bu uygulama saatin 40 dakikalık uygulama dilimine karşılık gelir; ölçek düzeyleri ve veri sözlüğü ayrıntısı bilinçli olarak bu haftaya dahil edilmedi, gelecek haftada veri yapısı biriminin geri kalanıyla işlenecek — bu sınır öğrenciye açıkça söylenebilir ("bugün yalnız tabloyu tanıyoruz, ölçek düzeylerini gelecek hafta").
+Araç seçimi serbesttir; hiçbir araç zorunlu tutulmaz. Her cümle için öznesini ve geceye ait zaman sınırını işaretlemeleri istenir, sonra kendilerine şunu sormaları: "veri bu özneyi ve bu zamanı gerçekten kapsıyor mu?" İkinci cümle için evrene ilişkin bir yorum yapabilmek için hangi ek bilgiye (seçimin nasıl yapıldığı, örneklem değişkenliğinin ne olduğu) ihtiyaç duyduklarını tek cümleyle belirtmeleri istenir. Uygulama saatinin bir bölümünü kapsar; bugün yalnız tabloyu tanıyoruz, değişkenlerin ölçüm düzeyi ayrıca ele alınır.
 :::
 
 ---

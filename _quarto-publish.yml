@@ -11,6 +11,7 @@ project:
     - "courses/bim444/**"
     - "courses/blp1003/**"
     - "courses/bgt201/**"
+    - "courses/psi303/**"
     - "courses/lineer-cebir/**"
     - "courses/diferansiyel-denklemler/**"
     - "courses/qturkey/**"
@@ -169,6 +170,7 @@ website:
         - section: "Ara Sınava Kadar"
           contents:
             - courses/bgt201/notes/tp_guvenlik-temelleri.md
+            - courses/bgt201/notes/tp_guvenlik-ilkeleri-ve-cia.md
             - courses/bgt201/notes/tp_bgys-ve-yonetim-dongusu.md
             - courses/bgt201/notes/tp_standartlar-cerceveler-ve-uyum.md
             - courses/bgt201/notes/tp_yasal-yukumlulukler-ve-kisisel-veri.md
@@ -181,6 +183,19 @@ website:
             - courses/bgt201/notes/tp_gap-risk-analizi.md
             - courses/bgt201/notes/tp_risk-isleme-ve-olay-aksiyon-plani.md
             - courses/bgt201/notes/tp_butunlestirici-vaka-ve-degerlendirme.md
+    - id: psi303
+      title: "PSİ 303 Davranışsal İstatistik"
+      style: docked
+      contents:
+        - courses/psi303/crs-psi303.md
+        - section: "Ara Sınav Kapsamı (Hafta 1–6)"
+          contents:
+            - courses/psi303/notes/tp_arastirma-sorusundan-veriye.md
+            - courses/psi303/notes/tp_degiskeni-tanimlamak-ve-veriyi-yazilimda-kurmak.md
+            - courses/psi303/notes/tp_veriyi-yonetmek-ve-betimlemeye-giris.md
+            - courses/psi303/notes/tp_betimsel-istatistikten-cikarima.md
+            - courses/psi303/notes/tp_t-testleri-desenden-teste.md
+            - courses/psi303/notes/tp_tek-yonlu-varyans-analizi-ve-post-hoc.md
     - id: ai-llm
       title: "Yapay Zeka ve LLM"
       style: docked
