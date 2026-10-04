@@ -93,13 +93,7 @@ Ağ davranışını açıklarken daha belirgin olan ayrım kullanılır: İleti�
 
 ## İstemci ve Sunucu Rolleri
 
-```text
-Dosya hizmeti:       Bilgisayar A ──istek──> Bilgisayar B
-                     istemci                 sunucu
-
-Yazdırma hizmeti:    Bilgisayar B ──istek──> Bilgisayar A
-                     istemci                 sunucu
-```
+![](../../../images/bilgisayar-aglari/hafta-03/11-istemci-sunucu-rol-degisimi.png){height="620" fig-align="center" fig-alt="Aynı iki bilgisayarın dosya ve yazdırma hizmetlerinde istemci ve sunucu rollerini değiştirmesi"}
 
 **İstemci ve sunucu, sabit donanım türleri değil iletişim rolleridir.**
 
@@ -113,14 +107,20 @@ Aynı cihaz farklı hizmetlerde aynı anda farklı roller üstlenebilir. Bir bil
 
 ## NIC: Uç Sistem ile Ağ Arasındaki Arabirim
 
-```text
-[Uygulama ve işletim sistemi] ── [NIC / ağ arabirimi] ── [İletim ortamı]
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/12-nic-ve-ag-arabirimleri.png){height="620" fig-align="center" fig-alt="Uygulama ve işletim sisteminden ağ arabirimine ve iletim ortamına geçiş; aynı bilgisayarda ayrı kablolu ve kablosuz arabirimler"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Fiziksel bağlantıyı sağlar.
 - Ethernet frame'lerinin gönderilmesine ve alınmasına katılır.
 - Bir cihazda birden fazla ağ arabirimi bulunabilir.
 - MAC adresi ağ arabirimiyle ilişkilidir.
+:::
+
+::::
 
 ::: {.notes}
 NIC, Network Interface Card ifadesinin kısaltmasıdır. Ağ arabirimi, uç sistemin kablolu veya kablosuz ağa katıldığı bağlantı noktasıdır.
@@ -144,14 +144,20 @@ Bir cihazın adından önce çözdüğü problem düşünülürse benzer görün
 
 ## Repeater
 
-```text
-zayıflayan sinyal ──> [ REPEATER ] ──> yeniden üretilen sinyal
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/13-repeater-sinyali-yeniden-uretir.png){height="620" fig-align="center" fig-alt="Zayıflamış sayısal sinyalin repeater tarafından aynı bit örüntüsünü koruyarak yeniden üretilmesi"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Fiziksel sinyalle ilgilenir.
 - Beklenen sinyal biçimini yeniden üretir.
 - Adres veya frame hedefi yorumlamaz.
 - Erişim mesafesini artırmak için kullanılmıştır.
+:::
+
+::::
 
 ::: {.notes}
 Fiziksel sinyal iletim ortamında ilerlerken zayıflayabilir ve bozulabilir. Repeater yalnızca bir yükselteç gibi düşünülmemelidir. Sayısal iletişimde beklenen bit değerlerini temsil eden sinyali yeniden oluşturur ve sonraki bölüme iletir.
@@ -163,18 +169,20 @@ Repeater kaynak veya hedef MAC adresine bakmaz. Görevi fiziksel iletimle sını
 
 ## Hub
 
-```text
-          [PC A]
-             |
-[PC B] ─── [HUB] ─── [PC C]
-             |
-          [PC D]
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/14-hub-sinyali-diger-portlara-tekrarlar.png){height="620" fig-align="center" fig-alt="Hub'ın PC-A'dan aldığı sinyali giriş portu dışındaki üç porta tekrarlaması ve tek ortak collision domain"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Çok portlu repeater gibi çalışır.
 - Bir porttan gelen sinyali diğer portlara tekrarlar.
 - Bütün cihazlar aynı Ethernet ortamını paylaşır.
 - Ortak collision domain içinde CSMA/CD kullanılır.
+:::
+
+::::
 
 ::: {.notes}
 Hub, cihazları fiziksel yıldız düzeninde bir araya getirir. Buna rağmen portları bağımsız Ethernet bağlantıları oluşturmaz. Bir porttan aldığı fiziksel sinyali diğer portlarına tekrarlar. Bağlı cihazlar ortak bir iletim ortamını paylaşır.
@@ -186,14 +194,20 @@ Aynı anda yapılan gönderimler ortak ortamda çarpışabilir. Geleneksel payla
 
 ## Bridge
 
-```text
-[Ethernet segmenti A] ── [ BRIDGE ] ── [Ethernet segmenti B]
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/15-bridge-iletim-ve-filtreleme.png){height="620" fig-align="center" fig-alt="Bridge'in aynı segmentte kalan frame'i filtrelemesi ve farklı segmentteki hedefe yönelik frame'i iletmesi"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Ethernet ortamını segmentlere ayırır.
 - Kaynak MAC adreslerinden konum bilgisi öğrenebilir.
 - Hedef MAC bilgisine göre frame'i iletir veya filtreler.
 - Gereksiz trafiğin her segmente geçmesini azaltır.
+:::
+
+::::
 
 ::: {.notes}
 Bridge, Ethernet segmentleri arasında frame aktarır. Hub'dan farklı olarak her frame'i koşulsuz biçimde bütün bağlantılara tekrarlamaz. MAC adreslerinden yararlanarak bir frame'in başka bir segmente geçirilip geçirilmeyeceğine karar verebilir.
@@ -205,18 +219,20 @@ Kaynak ve hedef aynı segmentteyse bridge frame'i diğer segmente aktarmayabilir
 
 ## Switch
 
-```text
-           port 1 ── PC A
-                  |
-PC B ── port 2 [ SWITCH ] port 3 ── PC C
-                  |
-           port 4 ── PC D
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/16-switch-portlar-ve-secici-iletim.png){height="620" fig-align="center" fig-alt="Dört ayrı bağlantılı switch'in port 1'den gelen frame'i MAC tablosundaki bilinen hedefe göre yalnız port 2'ye iletmesi"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Ethernet frame'lerini portlar arasında iletir.
 - MAC adresleri ile portlar arasındaki ilişkileri öğrenir.
 - Hedef biliniyorsa ilgili porta iletim yapar.
 - Her uçla ayrı point-to-point bağlantı kurabilir.
+:::
+
+::::
 
 ::: {.notes}
 Switch, yerel Ethernet iletişiminin merkezindeki ara cihazdır. Bir portundan aldığı frame'in kaynak MAC adresini kullanarak adresin hangi bağlantıda bulunduğunu öğrenir. Ardından hedef MAC adresine göre frame'in hangi porta iletileceğini belirler.
@@ -264,13 +280,19 @@ Collision algılanırsa gönderim durdurulur. Cihazlar aynı anda yeniden başla
 
 ## Router
 
-```text
-[Yerel ağ A] ── [ ROUTER ] ── [Yerel ağ B]
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/17-router-iki-yerel-agi-baglar.png){height="620" fig-align="center" fig-alt="İki ayrı yerel ağdaki switch ve uç sistemlerin router'ın farklı arabirimleri üzerinden bağlanması"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Farklı ağları birbirine bağlar.
 - Ağlar arasındaki paket iletimine aracılık eder.
 - Yerel switch ile aynı görevi üstlenmez.
+:::
+
+::::
 
 ::: {.notes}
 Switch'in temel görevi aynı yerel Ethernet yapısındaki frame'leri uygun portlara iletmektir. Router ise farklı ağlar arasındaki paketlerin ilerlemesine aracılık eder. Bu nedenle switch ve router aynı bağlantı problemine çözüm değildir.
@@ -294,13 +316,19 @@ Switch varsayılan durumda broadcast frame'i geldiği port dışındaki uygun po
 
 ## Access Point
 
-```text
-[Kablosuz istemci] ))) [ ACCESS POINT ] ── [Switch] ── [LAN]
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/18-access-point-kablosuzdan-lana.png){height="620" fig-align="center" fig-alt="Kablosuz bilgisayar ve telefonun access point üzerinden switch'e ve kablolu LAN'a bağlanması"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Kablosuz istemcilerin yerel ağa katılmasını sağlar.
 - Kablosuz bağlantı ile kablolu LAN arasında erişim noktası oluşturur.
 - Router olmak zorunda değildir.
+:::
+
+::::
 
 ::: {.notes}
 Access point, kablosuz istemcilerin yerel ağa bağlanmasını sağlar. Kablosuz cihazlardan aldığı trafiği bağlı olduğu yerel ağ yapısına taşır ve ters yöndeki trafiği kablosuz istemcilere ulaştırır.
@@ -312,13 +340,19 @@ Bir access point'in temel rolü farklı ağlar arasında yönlendirme yapmak de�
 
 ## Firewall
 
-```text
-[Ağ / sistem] ── [ FIREWALL: güvenlik politikası ] ── [Diğer ağ / sistem]
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/19-firewall-izin-ve-engelleme.png){height="620" fig-align="center" fig-alt="Firewall'ın güvenlik politikasına göre bir iletişime izin verirken diğerini engellemesi"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Ağ trafiğini belirlenen güvenlik politikasına göre denetler.
 - İzin verilen ve engellenen iletişimleri ayırır.
 - Donanım, yazılım veya birleşik cihaz işlevi olabilir.
+:::
+
+::::
 
 ::: {.notes}
 Firewall, ağ trafiğine güvenlik politikası uygular. Politika, hangi iletişimlerin geçmesine izin verileceğini ve hangilerinin engelleneceğini belirler. Böylece ağlar veya sistemler arasındaki trafik kontrolsüz biçimde aktarılmaz.
@@ -330,13 +364,19 @@ Firewall bağımsız bir cihaz, bir işletim sistemi yazılımı veya başka bir
 
 ## Modem ve Erişim Teknolojisi
 
-```text
-[Yerel ağ] ── [ MODEM / erişim birimi ] ── [Servis sağlayıcı erişim ağı]
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/20-modem-erisim-teknolojisine-uyarlama.png){height="620" fig-align="center" fig-alt="Modem veya erişim biriminin yerel bağlantı ile servis sağlayıcının erişim teknolojisi arasında uyarlama sağlaması"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Yerel ağ ile erişim teknolojisi arasında gerekli uyarlamayı sağlar.
 - Kullanılan teknolojiye uygun sinyal veya iletişim biçimini üretir.
 - Tek başına “interneti dağıtan cihaz” anlamına gelmez.
+:::
+
+::::
 
 ::: {.notes}
 Modem, yerel ağın servis sağlayıcının kullandığı erişim teknolojisiyle iletişim kurabilmesini sağlayan uç birimdir. Gerekli dönüşüm ve uyarlama kullanılan erişim teknolojisine göre değişir. Modemi yalnızca genel bir dijital ve analog dönüştürücü olarak tanımlamak bütün kullanım biçimlerini kapsamaz.
@@ -380,16 +420,19 @@ Kaynak ve hedef MAC alanları 48 bittir. Switch kaynak alanını adres öğrenme
 
 ## Frame Neden İki MAC Adresi Taşır?
 
-```text
-Kaynak MAC                      Hedef MAC
-AA:AA:AA:AA:AA:AA              BB:BB:BB:BB:BB:BB
-        \                         /
-         └──── Ethernet frame ───┘
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/21-frame-kaynak-ve-hedef-mac.png){height="620" fig-align="center" fig-alt="Gönderici ve hedef ağ arabirimlerinin frame'in kaynak ve hedef MAC alanlarıyla eşleştirilmesi"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Kaynak bilgisi frame'in hangi arayüzden geldiğini gösterir.
 - Hedef bilgisi yerel teslimin hangi arayüze yönelik olduğunu gösterir.
 - Switch iki alanı farklı amaçlarla kullanır.
+:::
+
+::::
 
 ::: {.notes}
 Kaynak MAC adresi frame'i oluşturan Ethernet arayüzünü, hedef MAC adresi ise frame'in yerel ağdaki hedefini belirtir. İki adres hem göndericinin tanınmasını hem de teslim kararının verilmesini sağlar.
@@ -434,11 +477,7 @@ Bu yapı bütün MAC adreslerinin fabrikada kalıcı ve değiştirilemez olduğu
 
 ## Ethernet Hedefleme Biçimleri
 
-| Hedefleme | Frame'in amacı | Temel örnek |
-|---|---|---|
-| Unicast | Tek bir hedef arayüze ulaşmak | PC-A'dan PC-B'ye frame |
-| Broadcast | Yerel ağdaki bütün ilgili arayüzlere ulaşmak | `FF:FF:FF:FF:FF:FF` |
-| Multicast | Belirli bir alıcı grubuna ulaşmak | Gruba yönelik MAC hedefi |
+![](../../../images/bilgisayar-aglari/hafta-03/22-ethernet-unicast-broadcast-multicast.png){height="620" fig-align="center" fig-alt="Unicast'ın tek arayüzü, broadcast'ın tüm ilgili arayüzleri ve multicast'ın belirli alıcı grubunu hedeflemesi"}
 
 ::: {.notes}
 Unicast frame tek bir hedef MAC adresine yöneliktir. Switch hedef adresi öğrendiyse frame'i yalnızca ilgili bağlantıya iletebilir.
@@ -472,14 +511,7 @@ Switch'e bir frame ulaştığında frame'in geldiği port bellidir. Frame başl�
 
 ## Kaynak MAC Adresinden Öğrenme
 
-```text
-PC-A ── port 1 ──> [ SWITCH ]
-
-Gelen frame: kaynak MAC = AA:AA:AA:AA:AA:AA
-
-MAC tablosu:
-AA:AA:AA:AA:AA:AA  →  port 1
-```
+![](../../../images/bilgisayar-aglari/hafta-03/23-kaynak-macten-mac-tablosuna.png){height="620" fig-align="center" fig-alt="Switch'in gelen frame'in kaynak MAC alanını giriş portuyla eşleştirerek MAC tablosuna kayıt eklemesi"}
 
 **Switch adresi kaynak MAC alanından öğrenir.**
 
@@ -514,30 +546,7 @@ Broadcast frame'ler de hedefleri gereği uygun diğer portlara yayılır. Unknow
 
 ## Bilinen ve Bilinmeyen Unicast
 
-:::: {.columns}
-
-::: {.column width="48%"}
-### Bilinen hedef
-
-```text
-AA... → port 1
-BB... → port 2
-```
-
-Hedef `BB...` ise frame yalnız port 2'ye iletilir.
-:::
-
-::: {.column width="48%"}
-### Bilinmeyen hedef
-
-```text
-BB... → tabloda yok
-```
-
-Frame gelen port dışındaki uygun portlara iletilir.
-:::
-
-::::
+![](../../../images/bilgisayar-aglari/hafta-03/24-bilinen-ve-bilinmeyen-unicast.png){height="620" fig-align="center" fig-alt="Aynı topolojide bilinen hedefe tek porttan iletim ve bilinmeyen hedefe giriş portu dışındaki portlardan flooding karşılaştırması"}
 
 ::: {.notes}
 Bilinen unicast hedef için switch tablodaki port bilgisini kullanır ve frame'i yalnızca ilgili bağlantıya iletir. Hedef adres frame'in geldiği portla aynı portta kayıtlıysa switch frame'i başka bir porta iletmez.
@@ -549,18 +558,19 @@ Unknown unicast hedef için switch hedefin bağlantısını bilmediğinden flood
 
 ## Broadcast Frame
 
-```text
-Hedef MAC = FF:FF:FF:FF:FF:FF
+:::: {.columns}
 
-                ┌── PC-B
-PC-A ── [ SWITCH ]
-                ├── PC-C
-                └── PC-D
-```
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/25-broadcast-framein-yayilmasi.png){height="620" fig-align="center" fig-alt="Broadcast frame'in switch'te giriş portu dışındaki uygun portlara yayılması ve kaynak MAC kaydının öğrenilmesi"}
+:::
 
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - Frame bütün ilgili cihazlara yöneliktir.
 - Switch frame'i geldiği port dışındaki uygun portlara iletir.
 - Switch kaynak MAC adresini yine öğrenebilir.
+:::
+
+::::
 
 ::: {.notes}
 Broadcast frame tek bir hedefe değil, ilgili yerel ağdaki bütün cihazlara yöneliktir. Switch hedef adresin broadcast olduğunu gördüğünde frame'i geldiği port dışındaki uygun portlara iletir.
@@ -600,20 +610,22 @@ MAC tablosu, adresleri fiziksel portlarla ilişkilendirerek yerel Ethernet trafi
 
 ## Cihazların Aynı Ağ Üzerindeki Rolleri
 
-```text
-Kablosuz istemci ))) Access Point ─┐
-                                   |
-PC ─ NIC ─────────────────────── Switch ── Firewall / Router ── Modem ── Erişim ağı
-                                   |
-Sunucu ─ NIC ──────────────────────┘
-```
+:::: {.columns}
 
+::: {.column width="70%"}
+![](../../../images/bilgisayar-aglari/hafta-03/26-ayni-agda-cihazlarin-rolleri.png){height="620" fig-align="center" fig-alt="Kablosuz istemci, AP, PC ve sunucunun yerel switch üzerinden bağlanması; router, firewall ve erişim biriminin ayrı işlevleri"}
+:::
+
+::: {.column style="width: 28%; font-size: 0.72em;"}
 - NIC, uç sistemi Ethernet bağlantısına katar.
 - Switch, yerel frame'leri MAC bilgisine göre iletir.
 - Access point, kablosuz istemciyi LAN'a bağlar.
 - Router, farklı ağlar arasındaki iletişime aracılık eder.
 - Firewall, trafiğe güvenlik politikası uygular.
 - Modem, erişim teknolojisiyle gerekli uyarlamayı sağlar.
+:::
+
+::::
 
 ::: {.notes}
 Uç sistemin NIC'i Ethernet frame'lerini gönderir ve alır. Switch aynı yerel ağ içindeki frame'leri kaynak ve hedef MAC bilgileriyle işler. Kablosuz istemciler access point üzerinden yerel yapıya katılabilir.
