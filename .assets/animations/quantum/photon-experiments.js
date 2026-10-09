@@ -1,21 +1,8 @@
+import { makeEl as htmlEl, makeSvg as svgEl } from "../core/dom.js";
 // photon-experiments.js
 // Quantum photon experiment animations for QBronze / QTEA26
 // Scenes: bs-single | mz-with-a | mz-no-a | amplitude-cancel
 
-const NS = "http://www.w3.org/2000/svg";
-
-function svgEl(tag, attrs = {}) {
-  const el = document.createElementNS(NS, tag);
-  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, String(v));
-  return el;
-}
-
-function htmlEl(tag, cls = null, text = null) {
-  const el = document.createElement(tag);
-  if (cls) el.className = cls;
-  if (text !== null) el.textContent = text;
-  return el;
-}
 
 // Animate a circle along waypoints [{x,y}, ...].
 // msPerSeg: milliseconds per segment
@@ -70,7 +57,7 @@ function svgBase(container) {
   return svg;
 }
 
-function svgText(x, y, str, color = "#94a3b8", size = 11, anchor = "middle") {
+function svgText(x, y, str, color = "var(--anim-muted)", size = 11, anchor = "middle") {
   const t = svgEl("text", { x, y, "text-anchor": anchor, fill: color, "font-size": size });
   t.textContent = str;
   return t;
@@ -79,27 +66,27 @@ function svgText(x, y, str, color = "#94a3b8", size = 11, anchor = "middle") {
 function drawBS(svg, x, y, label) {
   svg.appendChild(svgEl("rect", {
     x: x - 12, y: y - 12, width: 24, height: 24,
-    fill: "#1e3a5f", stroke: "#60a5fa", "stroke-width": 2,
+    fill: "var(--anim-blue-bg)", stroke: "var(--anim-blue)", "stroke-width": 2,
     transform: `rotate(45,${x},${y})`
   }));
-  svg.appendChild(svgText(x, y + 33, label, "#60a5fa", 11));
+  svg.appendChild(svgText(x, y + 33, label, "var(--anim-blue)", 11));
 }
 
 function drawMirror(svg, x, y) {
   svg.appendChild(svgEl("rect", {
     x: x - 10, y: y - 10, width: 20, height: 20,
-    fill: "#1e293b", stroke: "#94a3b8", "stroke-width": 2,
+    fill: "var(--anim-surface)", stroke: "var(--anim-muted)", "stroke-width": 2,
     transform: `rotate(45,${x},${y})`
   }));
-  svg.appendChild(svgText(x, y + 25, "Ayna", "#475569", 10));
+  svg.appendChild(svgText(x, y + 25, "Ayna", "var(--anim-border-strong)", 10));
 }
 
-function drawDet(svg, x, y, label, color = "#94a3b8") {
+function drawDet(svg, x, y, label, color = "var(--anim-muted)") {
   svg.appendChild(svgEl("rect", {
     x: x - 14, y: y - 14, width: 28, height: 28,
-    fill: "#1e293b", stroke: color, "stroke-width": 2, rx: 3
+    fill: "var(--anim-surface)", stroke: color, "stroke-width": 2, rx: 3
   }));
-  const t = svgEl("text", { x, y: y + 5, "text-anchor": "middle", fill: "#e2e8f0", "font-size": 12, "font-weight": "bold" });
+  const t = svgEl("text", { x, y: y + 5, "text-anchor": "middle", fill: "var(--anim-text)", "font-size": 12, "font-weight": "bold" });
   t.textContent = label;
   svg.appendChild(t);
   return t; // return for flash
@@ -107,11 +94,11 @@ function drawDet(svg, x, y, label, color = "#94a3b8") {
 
 function drawSource(svg) {
   const L = PT;
-  svg.appendChild(svgEl("circle", { cx: L.src.x, cy: L.src.y, r: 8, fill: "#1e293b", stroke: "#f59e0b", "stroke-width": 2 }));
-  svg.appendChild(svgText(L.src.x, L.src.y - 16, "Kaynak", "#f59e0b", 11));
+  svg.appendChild(svgEl("circle", { cx: L.src.x, cy: L.src.y, r: 8, fill: "var(--anim-surface)", stroke: "var(--anim-amber)", "stroke-width": 2 }));
+  svg.appendChild(svgText(L.src.x, L.src.y - 16, "Kaynak", "var(--anim-amber)", 11));
 }
 
-function ln(svg, x1, y1, x2, y2, color = "#334155", sw = 2) {
+function ln(svg, x1, y1, x2, y2, color = "var(--anim-border)", sw = 2) {
   svg.appendChild(svgEl("line", { x1, y1, x2, y2, stroke: color, "stroke-width": sw }));
 }
 
@@ -156,36 +143,36 @@ function bsSingle(container) {
   ln(svg, bs.x, bs.y + 14, d1.x, d1.y - 15);
 
   // Labels on paths
-  svg.appendChild(svgText((src.x + bs.x) / 2, src.y - 10, "foton", "#475569", 10));
-  svg.appendChild(svgText((bs.x + d0.x) / 2, bs.y - 10, "geçti (0)", "#475569", 10));
-  svg.appendChild(svgText(bs.x + 35, (bs.y + d1.y) / 2, "yansıdı (1)", "#475569", 10, "start"));
+  svg.appendChild(svgText((src.x + bs.x) / 2, src.y - 10, "foton", "var(--anim-border-strong)", 10));
+  svg.appendChild(svgText((bs.x + d0.x) / 2, bs.y - 10, "geçti (0)", "var(--anim-border-strong)", 10));
+  svg.appendChild(svgText(bs.x + 35, (bs.y + d1.y) / 2, "yansıdı (1)", "var(--anim-border-strong)", 10, "start"));
 
   // Source
-  svg.appendChild(svgEl("circle", { cx: src.x, cy: src.y, r: 8, fill: "#1e293b", stroke: "#f59e0b", "stroke-width": 2 }));
-  svg.appendChild(svgText(src.x, src.y - 16, "Kaynak", "#f59e0b", 11));
+  svg.appendChild(svgEl("circle", { cx: src.x, cy: src.y, r: 8, fill: "var(--anim-surface)", stroke: "var(--anim-amber)", "stroke-width": 2 }));
+  svg.appendChild(svgText(src.x, src.y - 16, "Kaynak", "var(--anim-amber)", 11));
 
   // BS
-  svg.appendChild(svgEl("rect", { x: bs.x - 12, y: bs.y - 12, width: 24, height: 24, fill: "#1e3a5f", stroke: "#60a5fa", "stroke-width": 2, transform: `rotate(45,${bs.x},${bs.y})` }));
-  svg.appendChild(svgText(bs.x, bs.y + 30, "Işın Bölücü", "#60a5fa", 10));
+  svg.appendChild(svgEl("rect", { x: bs.x - 12, y: bs.y - 12, width: 24, height: 24, fill: "var(--anim-blue-bg)", stroke: "var(--anim-blue)", "stroke-width": 2, transform: `rotate(45,${bs.x},${bs.y})` }));
+  svg.appendChild(svgText(bs.x, bs.y + 30, "Işın Bölücü", "var(--anim-blue)", 10));
 
   // D0
   drawDet(svg, d0.x, d0.y, "D0");
-  svg.appendChild(svgText(d0.x, d0.y - 22, "Geçti", "#64748b", 10));
+  svg.appendChild(svgText(d0.x, d0.y - 22, "Geçti", "var(--anim-muted-2)", 10));
 
   // D1
   drawDet(svg, d1.x, d1.y, "D1");
-  svg.appendChild(svgText(d1.x + 38, d1.y + 5, "Yansıdı", "#64748b", 10, "start"));
+  svg.appendChild(svgText(d1.x + 38, d1.y + 5, "Yansıdı", "var(--anim-muted-2)", 10, "start"));
 
   // Photon circle
-  const photon = svgEl("circle", { cx: src.x, cy: src.y, r: 6, fill: "#fbbf24", opacity: 0 });
+  const photon = svgEl("circle", { cx: src.x, cy: src.y, r: 6, fill: "var(--anim-amber-soft)", opacity: 0 });
   svg.appendChild(photon);
 
   container.appendChild(svg);
 
   // Bars
   const barsDiv = htmlEl("div", "pq-bars");
-  const bD0 = makeBar(barsDiv, "D0 (Geçti)", "#38bdf8");
-  const bD1 = makeBar(barsDiv, "D1 (Yansıdı)", "#f472b6");
+  const bD0 = makeBar(barsDiv, "D0 (Geçti)", "var(--anim-sky)");
+  const bD1 = makeBar(barsDiv, "D1 (Yansıdı)", "var(--anim-pink)");
 
   let counts = [0, 0];
   let busy = false;
@@ -210,7 +197,7 @@ function bsSingle(container) {
     const outcome = Math.random() < 0.5 ? 0 : 1;
     const dest = outcome === 0 ? d0 : d1;
     const destLbl = outcome === 0 ? "D0" : "D1";
-    const flashColor = outcome === 0 ? "#38bdf8" : "#f472b6";
+    const flashColor = outcome === 0 ? "var(--anim-sky)" : "var(--anim-pink)";
 
     photon.setAttribute("opacity", 1);
     photon.setAttribute("cx", src.x);
@@ -227,7 +214,7 @@ function bsSingle(container) {
         const idx = outcome === 0 ? 0 : 1;
         if (rects[idx]) {
           rects[idx].setAttribute("stroke", flashColor);
-          setTimeout(() => rects[idx].setAttribute("stroke", "#94a3b8"), 350);
+          setTimeout(() => rects[idx].setAttribute("stroke", "var(--anim-muted)"), 350);
         }
         setTimeout(() => {
           photon.setAttribute("opacity", 0);
@@ -292,14 +279,14 @@ function drawMZLayout(svg, showA = false) {
   drawBS(svg, L.bs2.x, L.bs2.y, "BS2");
 
   if (showA) {
-    drawDet(svg, L.adet.x, L.adet.y, "A", "#f59e0b");
-    svg.appendChild(svgText(L.adet.x, L.adet.y - 22, "Ded. A", "#f59e0b", 11));
+    drawDet(svg, L.adet.x, L.adet.y, "A", "var(--anim-amber)");
+    svg.appendChild(svgText(L.adet.x, L.adet.y - 22, "Ded. A", "var(--anim-amber)", 11));
   }
 
   drawDet(svg, L.b1.x, L.b1.y, "B1");
-  svg.appendChild(svgText(L.b1.x, L.b1.y - 22, "B1", "#64748b", 11));
+  svg.appendChild(svgText(L.b1.x, L.b1.y - 22, "B1", "var(--anim-muted-2)", 11));
   drawDet(svg, L.b2.x, L.b2.y, "B2");
-  svg.appendChild(svgText(L.b2.x + 38, L.b2.y + 5, "B2", "#64748b", 11, "start"));
+  svg.appendChild(svgText(L.b2.x + 38, L.b2.y + 5, "B2", "var(--anim-muted-2)", 11, "start"));
 }
 
 // ─── Scene 2: mz-with-a ──────────────────────────────────────────────────────
@@ -309,13 +296,13 @@ function mzWithA(container) {
   const svg = svgBase(container);
   drawMZLayout(svg, true);
 
-  const photon = svgEl("circle", { cx: L.src.x, cy: L.src.y, r: 6, fill: "#fbbf24", opacity: 0 });
+  const photon = svgEl("circle", { cx: L.src.x, cy: L.src.y, r: 6, fill: "var(--anim-amber-soft)", opacity: 0 });
   svg.appendChild(photon);
 
   const barsDiv = htmlEl("div", "pq-bars");
-  const bA  = makeBar(barsDiv, "A (50%)", "#f59e0b");
-  const bB1 = makeBar(barsDiv, "B1 (25%)", "#38bdf8");
-  const bB2 = makeBar(barsDiv, "B2 (25%)", "#f472b6");
+  const bA  = makeBar(barsDiv, "A (50%)", "var(--anim-amber)");
+  const bB1 = makeBar(barsDiv, "B1 (25%)", "var(--anim-sky)");
+  const bB2 = makeBar(barsDiv, "B2 (25%)", "var(--anim-pink)");
 
   let counts = { A: 0, B1: 0, B2: 0 };
   let busy = false;
@@ -394,22 +381,22 @@ function mzNoA(container) {
   drawMZLayout(svg, false);
 
   // Two ghost photons for superposition
-  const ph1 = svgEl("circle", { cx: L.src.x, cy: L.src.y, r: 5, fill: "#fbbf24", opacity: 0 });
-  const ph2 = svgEl("circle", { cx: L.src.x, cy: L.src.y, r: 5, fill: "#a78bfa", opacity: 0 });
+  const ph1 = svgEl("circle", { cx: L.src.x, cy: L.src.y, r: 5, fill: "var(--anim-amber-soft)", opacity: 0 });
+  const ph2 = svgEl("circle", { cx: L.src.x, cy: L.src.y, r: 5, fill: "var(--anim-purple)", opacity: 0 });
   svg.appendChild(ph1);
   svg.appendChild(ph2);
 
   // Path label: both routes active simultaneously
   const supLabel = svgEl("text", {
     x: (L.bs1.x + L.bs2.x) / 2, y: L.bs1.y + 26,
-    "text-anchor": "middle", fill: "#64748b", "font-size": 10
+    "text-anchor": "middle", fill: "var(--anim-muted-2)", "font-size": 10
   });
   supLabel.textContent = "her iki yol aynı anda";
   svg.appendChild(supLabel);
 
   const barsDiv = htmlEl("div", "pq-bars");
-  const bB1 = makeBar(barsDiv, "B1", "#38bdf8");
-  const bB2 = makeBar(barsDiv, "B2 (interferans!)", "#f472b6");
+  const bB1 = makeBar(barsDiv, "B1", "var(--anim-sky)");
+  const bB2 = makeBar(barsDiv, "B2 (interferans!)", "var(--anim-pink)");
 
   const shock = htmlEl("div", "pq-shock", "B2'de hiç foton gözüklemiyor — girişim (interferans)!");
   container.appendChild(svg);
@@ -454,7 +441,7 @@ function mzNoA(container) {
         // Merge at BS2: photon always goes to B1
         ph1.setAttribute("opacity", 0);
         ph2.setAttribute("opacity", 0);
-        const winner = svgEl("circle", { cx: L.bs2.x, cy: L.bs2.y, r: 6, fill: "#fbbf24", opacity: 1 });
+        const winner = svgEl("circle", { cx: L.bs2.x, cy: L.bs2.y, r: 6, fill: "var(--anim-amber-soft)", opacity: 1 });
         svg.appendChild(winner);
         animPath(winner, [L.bs2, L.b1], 260, () => {
           counts.B1++;
@@ -537,14 +524,14 @@ function amplitudeCancel(container) {
   }
 
   const rows = [
-    ampRow("Yol 1 (alt yol) →B2", +0.5, "#38bdf8"),
-    ampRow("Yol 2 (üst yol) →B2", -0.5, "#f472b6"),
-    ampRow("Toplam genlik →B2",    0,    "#64748b"),
+    ampRow("Yol 1 (alt yol) →B2", +0.5, "var(--anim-sky)"),
+    ampRow("Yol 2 (üst yol) →B2", -0.5, "var(--anim-pink)"),
+    ampRow("Toplam genlik →B2",    0,    "var(--anim-muted-2)"),
   ];
 
   const sumRow = htmlEl("div", null);
-  sumRow.style.cssText = "text-align:center;margin-top:0.6rem;font-size:0.82rem;color:#94a3b8;opacity:0;transition:opacity 0.6s";
-  sumRow.innerHTML = `Genlik² = 0² = 0 &nbsp;→&nbsp; <strong style="color:#f87171">Olasılık = 0 %</strong> &nbsp;→&nbsp; B2'ye foton gitmez!`;
+  sumRow.style.cssText = "text-align:center;margin-top:0.6rem;font-size:0.82rem;color:var(--anim-muted);opacity:0;transition:opacity 0.6s";
+  sumRow.innerHTML = `Genlik² = 0² = 0 &nbsp;→&nbsp; <strong style="color:var(--anim-red)">Olasılık = 0 %</strong> &nbsp;→&nbsp; B2'ye foton gitmez!`;
   sec.appendChild(sumRow);
 
   container.appendChild(sec);
@@ -586,13 +573,11 @@ function amplitudeCancel(container) {
 
 // ─── Entry point ─────────────────────────────────────────────────────────────
 
-export function mountQuantumAnimations() {
-  for (const div of document.querySelectorAll('[data-anim="quantum"]')) {
-    const scene = (div.dataset.scene || "").trim();
-    div.classList.add("pq-container");
-    if      (scene === "bs-single")         bsSingle(div);
-    else if (scene === "mz-with-a")         mzWithA(div);
-    else if (scene === "mz-no-a")           mzNoA(div);
-    else if (scene === "amplitude-cancel")  amplitudeCancel(div);
-  }
+export function mount(div, dataset = div.dataset) {
+  const scene = (dataset.scene || "").trim();
+  div.classList.add("pq-container");
+  if      (scene === "bs-single")         bsSingle(div);
+  else if (scene === "mz-with-a")         mzWithA(div);
+  else if (scene === "mz-no-a")           mzNoA(div);
+  else if (scene === "amplitude-cancel")  amplitudeCancel(div);
 }

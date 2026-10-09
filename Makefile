@@ -1,4 +1,4 @@
-.PHONY: clean preview render-all render-changed render-file preview-file render-slide
+.PHONY: clean preview render-all render-changed render-file preview-file render-slide check-animations
 
 clean:
 	./.scripts/local-quarto.sh clean
@@ -23,3 +23,6 @@ preview-file:
 render-slide:
 	@test -n "$(FILE)" || (echo "ERROR: FILE is required. Example: make render-slide FILE=courses/_ortak/temel-ai/notes/tp_yapay-zekanin-temelleri.md or FILE=courses/bim444/notes/tp_arama-algoritmalari-animasyon.md" >&2; exit 1)
 	./.scripts/local-quarto.sh render-slide "$(FILE)"
+
+check-animations:
+	./.scripts/check-animations.py

@@ -10,6 +10,7 @@ courses/              ← Ders izlenceleri ve öğretim notları
 └── _ortak/           ← Birden fazla derste kullanılabilen notlar
 topics/               ← Ders akışından bağımsız konu yazıları
 .filters/             ← Quarto Lua filtreleri
+.assets/animations/   ← Etkileşimli animasyonlar ve bağlayıcı animasyon sözleşmesi
 ```
 
 - **courses/**: Ders izlenceleri ve ders akışına bağlı öğretim notları burada yaşar.
@@ -51,3 +52,9 @@ yeni kabul edilir. Kaynak dışındaki ortak yapılandırma değişikliklerinden
 ## Lisans
 
 [CC BY-SA 4.0](LICENSE)
+
+## Animasyonlar
+
+Notlardaki etkileşimli animasyonlar (`<div data-anim="…">`) ortak bir dil, tema ve yaklaşım sözleşmesine
+tabidir: [.assets/animations/README.md](.assets/animations/README.md). Animasyon üreten veya değiştiren
+her kişi ve ajan önce bu belgeyi okumalıdır. Denetim: `make check-animations`.

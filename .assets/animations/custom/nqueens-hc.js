@@ -1,3 +1,4 @@
+import { makeSvg as el } from "../core/dom.js";
 // nqueens-hc.js — Interactive 8-Queens Hill Climbing Visualization
 //
 // Usage:
@@ -14,7 +15,6 @@
 //
 // When editable: click any cell to move that column's queen there.
 
-const SVG_NS = "http://www.w3.org/2000/svg";
 const N = 8;
 const CELL = 40;
 const BOARD = N * CELL;
@@ -25,24 +25,24 @@ const TOTAL_W = PAD_SIDE + BOARD + 4;
 const TOTAL_H = PAD_TOP + BOARD + PAD_BOTTOM;
 
 const C = {
-  cellLight:    "#334155",
-  cellDark:     "#1e293b",
-  cellHover:    "#475569",
-  border:       "#475569",
-  queen:        "#e2e8f0",
-  queenStroke:  "#0f172a",
-  attackLine:   "#ef4444",
-  attackQueen:  "#fca5a5",
-  label:        "#94a3b8",
-  hBad:         "#ef4444",
-  hGood:        "#22c55e",
-  colLabel:     "#64748b"
+  cellLight:    "var(--anim-border)",
+  cellDark:     "var(--anim-surface)",
+  cellHover:    "var(--anim-border-strong)",
+  border:       "var(--anim-border-strong)",
+  queen:        "var(--anim-text)",
+  queenStroke:  "var(--anim-bg)",
+  attackLine:   "var(--anim-red-soft)",
+  attackQueen:  "var(--anim-red)",
+  label:        "var(--anim-muted)",
+  hBad:         "var(--anim-red-soft)",
+  hGood:        "var(--anim-green)",
+  colLabel:     "var(--anim-muted-2)"
 };
 
 const PRESETS = {
   stuck:    { queens: [0, 4, 7, 5, 2, 6, 1, 6], label: "Yerel Minimum" },
-  solution: { queens: [0, 4, 7, 5, 2, 6, 1, 3], label: "Cozum" },
-  start:    { queens: [4, 6, 0, 2, 7, 5, 3, 6], label: "Baslangic" }
+  solution: { queens: [0, 4, 7, 5, 2, 6, 1, 3], label: "Çözüm" },
+  start:    { queens: [4, 6, 0, 2, 7, 5, 3, 6], label: "Başlangıç" }
 };
 
 function computeAttacks(queens) {
@@ -55,13 +55,6 @@ function computeAttacks(queens) {
     }
   }
   return pairs;
-}
-
-function el(tag, attrs, text) {
-  const e = document.createElementNS(SVG_NS, tag);
-  if (attrs) for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
-  if (text != null) e.textContent = text;
-  return e;
 }
 
 function parseQueens(str) {

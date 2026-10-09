@@ -1,21 +1,8 @@
+import { makeEl as htmlEl, makeSvg as svgEl } from "../core/dom.js";
 // gate-animations.js
 // Kuantum kapısı animasyonları — birim çember görselleştirmesi
 // Sahneler: x-gate | z-gate
 
-const NS = "http://www.w3.org/2000/svg";
-
-function svgEl(tag, attrs = {}) {
-  const el = document.createElementNS(NS, tag);
-  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, String(v));
-  return el;
-}
-
-function htmlEl(tag, cls = null, text = null) {
-  const el = document.createElement(tag);
-  if (cls) el.className = cls;
-  if (text !== null) el.textContent = text;
-  return el;
-}
 
 function easeInOut(t) {
   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
@@ -83,31 +70,31 @@ function buildCircleUI(container) {
   });
 
   svg.appendChild(svgEl("circle", {
-    cx, cy, r: R, fill: "none", stroke: "#1e3a5f", "stroke-width": 2
+    cx, cy, r: R, fill: "none", stroke: "var(--anim-wire)", "stroke-width": 2
   }));
   for (const [ax, ay] of [[cx, cy - R], [cx, cy + R], [cx - R, cy], [cx + R, cy]])
-    svg.appendChild(svgEl("circle", { cx: ax, cy: ay, r: 2.5, fill: "#334155" }));
-  svg.appendChild(svgEl("circle", { cx, cy, r: 3, fill: "#475569" }));
+    svg.appendChild(svgEl("circle", { cx: ax, cy: ay, r: 2.5, fill: "var(--anim-border)" }));
+  svg.appendChild(svgEl("circle", { cx, cy, r: 3, fill: "var(--anim-border-strong)" }));
 
   const lbl0 = svgEl("text", {
     x: cx, y: cy - R - 14, "text-anchor": "middle",
-    fill: "#60a5fa", "font-size": 14, "font-weight": "bold"
+    fill: "var(--anim-blue)", "font-size": 14, "font-weight": "bold"
   });
   lbl0.textContent = "|0\u27E9";
 
   const lbl1 = svgEl("text", {
     x: cx, y: cy + R + 24, "text-anchor": "middle",
-    fill: "#475569", "font-size": 14, "font-weight": "bold"
+    fill: "var(--anim-border-strong)", "font-size": 14, "font-weight": "bold"
   });
   lbl1.textContent = "|1\u27E9";
 
   const lblPlus = svgEl("text", {
-    x: cx + R + 10, y: cy + 5, "text-anchor": "start", fill: "#334155", "font-size": 11
+    x: cx + R + 10, y: cy + 5, "text-anchor": "start", fill: "var(--anim-border)", "font-size": 11
   });
   lblPlus.textContent = "|+\u27E9";
 
   const lblMinus = svgEl("text", {
-    x: cx - R - 10, y: cy + 5, "text-anchor": "end", fill: "#334155", "font-size": 11
+    x: cx - R - 10, y: cy + 5, "text-anchor": "end", fill: "var(--anim-border)", "font-size": 11
   });
   lblMinus.textContent = "|\u2212\u27E9";
 
@@ -115,18 +102,18 @@ function buildCircleUI(container) {
   svg.appendChild(lblPlus); svg.appendChild(lblMinus);
 
   const arcTrace = svgEl("path", {
-    d: "", fill: "none", stroke: "#3b82f6",
+    d: "", fill: "none", stroke: "var(--anim-blue-strong)",
     "stroke-width": 1.5, "stroke-dasharray": "4 3", opacity: 0
   });
   svg.appendChild(arcTrace);
 
   const shaft = svgEl("line", {
     x1: cx, y1: cy, x2: cx, y2: cy - (R - 12),
-    stroke: "#60a5fa", "stroke-width": 3, "stroke-linecap": "round"
+    stroke: "var(--anim-blue)", "stroke-width": 3, "stroke-linecap": "round"
   });
   svg.appendChild(shaft);
 
-  const head = svgEl("polygon", { fill: "#60a5fa" });
+  const head = svgEl("polygon", { fill: "var(--anim-blue)" });
   svg.appendChild(head);
 
   container.appendChild(svg);
@@ -134,12 +121,12 @@ function buildCircleUI(container) {
   // ── Amplitüd paneli ────────────────────────────────────────────────────────
   const infoDiv = htmlEl("div");
   infoDiv.style.cssText =
-    "font-family:system-ui,sans-serif;font-size:0.82rem;color:#cbd5e1;" +
+    "font-family:system-ui,sans-serif;font-size:0.82rem;color:var(--anim-text-2);" +
     "margin:0.3rem 0 0.25rem;padding:0.35rem 0.7rem;" +
-    "background:#0c1220;border:1px solid #1e3a5f;border-radius:6px;";
+    "background:var(--anim-bg);border:1px solid var(--anim-wire);border-radius:6px;";
 
   const infoTitle = htmlEl("div");
-  infoTitle.style.cssText = "color:#475569;font-size:0.75rem;margin-bottom:0.25rem;";
+  infoTitle.style.cssText = "color:var(--anim-border-strong);font-size:0.75rem;margin-bottom:0.25rem;";
   infoTitle.textContent = "|\u03C8\u27E9 = \u03B1|0\u27E9 + \u03B2|1\u27E9";
   infoDiv.appendChild(infoTitle);
 
@@ -150,10 +137,10 @@ function buildCircleUI(container) {
     const row = htmlEl("div");
     row.style.cssText = "display:flex;align-items:baseline;gap:0.3rem;";
     const lbl = htmlEl("span");
-    lbl.style.cssText = "color:#64748b;white-space:nowrap;";
+    lbl.style.cssText = "color:var(--anim-muted-2);white-space:nowrap;";
     lbl.textContent = label;
     const val = htmlEl("span");
-    val.style.cssText = "color:#e2e8f0;font-weight:bold;min-width:3.8rem;";
+    val.style.cssText = "color:var(--anim-text);font-weight:bold;min-width:3.8rem;";
     val.textContent = "\u2014";
     row.appendChild(lbl); row.appendChild(val);
     grid.appendChild(row);
@@ -174,16 +161,16 @@ function buildCircleUI(container) {
     "font-family:system-ui,sans-serif;font-size:0.78rem;";
 
   const sliderLblEl = htmlEl("span");
-  sliderLblEl.style.cssText = "color:#64748b;white-space:nowrap;flex-shrink:0;";
+  sliderLblEl.style.cssText = "color:var(--anim-muted-2);white-space:nowrap;flex-shrink:0;";
   sliderLblEl.textContent = "\u03B8 =";
 
   const slider = document.createElement("input");
   slider.type = "range"; slider.min = 0; slider.max = 360;
   slider.step = 1; slider.value = 0;
-  slider.style.cssText = "flex:1;accent-color:#60a5fa;cursor:pointer;height:4px;";
+  slider.style.cssText = "flex:1;accent-color:var(--anim-blue);cursor:pointer;height:4px;";
 
   const sliderDeg = htmlEl("span");
-  sliderDeg.style.cssText = "color:#94a3b8;width:3rem;text-align:left;flex-shrink:0;";
+  sliderDeg.style.cssText = "color:var(--anim-muted);width:3rem;text-align:left;flex-shrink:0;";
   sliderDeg.textContent = "0°";
 
   sliderWrap.appendChild(sliderLblEl);
@@ -224,8 +211,8 @@ function buildCircleUI(container) {
 
   function setStateLabels(svgDeg) {
     const norm = ((svgDeg % 360) + 360) % 360;
-    lbl0.setAttribute("fill", Math.abs(norm - 270) < 5 ? "#60a5fa" : "#475569");
-    lbl1.setAttribute("fill", Math.abs(norm - 90)  < 5 ? "#60a5fa" : "#475569");
+    lbl0.setAttribute("fill", Math.abs(norm - 270) < 5 ? "var(--anim-blue)" : "var(--anim-border-strong)");
+    lbl1.setAttribute("fill", Math.abs(norm - 90)  < 5 ? "var(--anim-blue)" : "var(--anim-border-strong)");
   }
 
   function fmtNum(n) { return (n >= 0 ? " " : "") + n.toFixed(3); }
@@ -313,13 +300,13 @@ function zGate(container) {
   // Dikey eksen — yansıma çizgisi (ince kesikli)
   svg.appendChild(svgEl("line", {
     x1: cx, y1: cy - R - 5, x2: cx, y2: cy + R + 5,
-    stroke: "#1e3a5f", "stroke-width": 1, "stroke-dasharray": "3 4"
+    stroke: "var(--anim-wire)", "stroke-width": 1, "stroke-dasharray": "3 4"
   }));
 
   // Yansıma göstergesi — animasyon sırasında görünür olacak yay izi
   const mirrorFlash = svgEl("line", {
     x1: cx, y1: cy - R, x2: cx, y2: cy + R,
-    stroke: "#7c3aed", "stroke-width": 2, opacity: 0
+    stroke: "var(--anim-purple)", "stroke-width": 2, opacity: 0
   });
   svg.appendChild(mirrorFlash);
 
@@ -374,11 +361,9 @@ function zGate(container) {
 
 // ─── Entry point ─────────────────────────────────────────────────────────────
 
-export function mountGateAnimations() {
-  for (const div of document.querySelectorAll('[data-anim="gate"]')) {
-    const scene = (div.dataset.scene || "").trim();
-    div.classList.add("pq-container");
-    if      (scene === "x-gate") xGate(div);
-    else if (scene === "z-gate") zGate(div);
-  }
+export function mount(div, dataset = div.dataset) {
+  const scene = (dataset.scene || "").trim();
+  div.classList.add("pq-container");
+  if      (scene === "x-gate") xGate(div);
+  else if (scene === "z-gate") zGate(div);
 }

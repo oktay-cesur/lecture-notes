@@ -1,37 +1,34 @@
+-- Her animasyon ailesi bir JS modülüdür ve mount(div, dataset) dışa aktarır.
+local CORE_CSS = ".assets/animations/core/theme.css"
+local CORE_THEME_JS = ".assets/animations/core/theme.js"
+
 local ANIMATION_MAP = {
   search = {
     css = ".assets/animations/search/search-animations.css",
-    js  = ".assets/animations/search/browser-runtime.js",
-    mount = "mountSearchAnimations"
+    js  = ".assets/animations/search/browser-runtime.js"
   },
   quantum = {
     css = ".assets/animations/quantum/photon-animations.css",
-    js  = ".assets/animations/quantum/photon-experiments.js",
-    mount = "mountQuantumAnimations"
+    js  = ".assets/animations/quantum/photon-experiments.js"
   },
   gate = {
     css = ".assets/animations/quantum/photon-animations.css",
-    js  = ".assets/animations/quantum/gate-animations.js",
-    mount = "mountGateAnimations"
+    js  = ".assets/animations/quantum/gate-animations.js"
   },
   gate3 = {
     css = ".assets/animations/quantum/photon-animations.css",
-    js  = ".assets/animations/quantum/3gate-animations.js",
-    mount = "mountGate3Animations"
+    js  = ".assets/animations/quantum/3gate-animations.js"
   },
   superdense = {
     css = ".assets/animations/quantum/photon-animations.css",
-    js  = ".assets/animations/quantum/superdense-anim.js",
-    mount = "mountSuperdenseAnimations"
+    js  = ".assets/animations/quantum/superdense-anim.js"
   },
   switch = {
     css = ".assets/animations/quantum/photon-animations.css",
-    js  = ".assets/animations/quantum/switch-animations.js",
-    mount = "mountSwitchAnimations"
+    js  = ".assets/animations/quantum/switch-animations.js"
   },
   custom = {
-    js  = ".assets/animations/custom-loader.js",
-    mount = "mountCustomAnimations"
+    js  = ".assets/animations/custom-loader.js"
   }
 }
 
@@ -85,37 +82,55 @@ function Pandoc(doc)
 
   local topics = collect_anim_topics(doc)
 
-  if next(topics) == nil then
+  -- Sunumlarda açık/koyu tema düğmesi animasyon olmasa da gerekir.
+  local is_slides = quarto.doc.is_format("revealjs")
+  if next(topics) == nil and not is_slides then
     return doc
   end
 
   local css_lines = {}
-  local js_lines = {}
-  local mounts = {}
+  local css_seen = {}
+  local imports = {}
+  local entries = {}
 
-  for topic, _ in pairs(topics) do
-    local cfg = ANIMATION_MAP[topic]
-    if cfg then
-      if cfg.css then
-        table.insert(css_lines, string.format('<link rel="stylesheet" href="%s">', rel_to_project(cfg.css)))
-      end
-      table.insert(js_lines, string.format('import { %s } from "%s";', cfg.mount, rel_to_project(cfg.js)))
-      table.insert(mounts, string.format("%s();", cfg.mount))
-    end
+  local function add_css(path)
+    if css_seen[path] then return end
+    css_seen[path] = true
+    table.insert(css_lines, string.format('<link rel="stylesheet" href="%s">', rel_to_project(path)))
   end
 
-  if #js_lines == 0 then
+  -- Sıra deterministik olsun diye aile adlarına göre sıralanır.
+  local names = {}
+  for topic, _ in pairs(topics) do
+    if ANIMATION_MAP[topic] then table.insert(names, topic) end
+  end
+  table.sort(names)
+
+  if #names == 0 and not is_slides then
     return doc
   end
 
-  if #css_lines > 0 then
-    local css_block = pandoc.RawBlock("html", table.concat(css_lines, "\n"))
-    table.insert(doc.blocks, css_block)
+  add_css(CORE_CSS)
+  for _, topic in ipairs(names) do
+    local cfg = ANIMATION_MAP[topic]
+    if cfg.css then add_css(cfg.css) end
+    table.insert(imports, string.format('import { mount as mount_%s } from "%s";', topic, rel_to_project(cfg.js)))
+    table.insert(entries, string.format('["%s", mount_%s]', topic, topic))
   end
 
-  local script_body = table.concat(js_lines, "\n  ") .. "\n  " .. table.concat(mounts, "\n  ")
-  local script_block = pandoc.RawBlock("html", "<script type=\"module\">\n  " .. script_body .. "\n</script>")
-  table.insert(doc.blocks, script_block)
+  table.insert(doc.blocks, pandoc.RawBlock("html", table.concat(css_lines, "\n")))
+
+  local script_body = string.format([[
+import { initTheme } from "%s";
+%s
+initTheme();
+for (const [name, mount] of [%s]) {
+  for (const div of document.querySelectorAll('[data-anim="' + name + '"]')) {
+    Promise.resolve(mount(div, div.dataset)).catch((err) => console.error("[anim:" + name + "]", err));
+  }
+}]], rel_to_project(CORE_THEME_JS), table.concat(imports, "\n"), table.concat(entries, ", "))
+
+  table.insert(doc.blocks, pandoc.RawBlock("html", "<script type=\"module\">\n" .. script_body .. "\n</script>"))
 
   return doc
 end

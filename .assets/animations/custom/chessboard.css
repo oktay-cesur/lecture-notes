@@ -9,6 +9,10 @@
 
 .cb-board {
   flex: 0 1 auto;
+  padding: 8px;
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
   min-width: 200px;
   max-width: 380px;
 }

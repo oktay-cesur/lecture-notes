@@ -1,21 +1,21 @@
 .tik-frqi-widget {
-  --tik-bg: #0f172a;
-  --tik-panel: #111827;
-  --tik-panel-2: #1e293b;
-  --tik-text: #e2e8f0;
-  --tik-strong: #f8fafc;
-  --tik-muted: #94a3b8;
-  --tik-border: #334155;
-  --tik-blue: #60a5fa;
-  --tik-blue-strong: #38bdf8;
-  --tik-teal: #2dd4bf;
-  --tik-amber: #f59e0b;
-  --tik-rose: #f87171;
-  --tik-green: #22c55e;
-  --tik-purple: #a78bfa;
-  --tik-red: #ef4444;
+  --tik-bg: var(--anim-bg);
+  --tik-panel: var(--anim-panel);
+  --tik-panel-2: var(--anim-surface);
+  --tik-text: var(--anim-text);
+  --tik-strong: var(--anim-strong);
+  --tik-muted: var(--anim-muted);
+  --tik-border: var(--anim-border);
+  --tik-blue: var(--anim-blue);
+  --tik-blue-strong: var(--anim-sky);
+  --tik-teal: var(--anim-teal);
+  --tik-amber: var(--anim-amber);
+  --tik-rose: var(--anim-red);
+  --tik-green: var(--anim-green);
+  --tik-purple: var(--anim-purple);
+  --tik-red: var(--anim-red-soft);
   background: var(--tik-bg);
-  border: 1px solid #1e293b;
+  border: 1px solid var(--anim-surface);
   border-radius: 8px;
   color: var(--tik-text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -55,7 +55,7 @@
 }
 
 .tik-frqi-btn {
-  background: #1e3a5f;
+  background: var(--anim-blue-bg);
   border: 1px solid var(--tik-blue);
   border-radius: 6px;
   color: var(--tik-text);
@@ -68,18 +68,18 @@
 }
 
 .tik-frqi-btn:hover {
-  background: #2d4f8a;
+  background: var(--anim-blue-bg-hover);
 }
 
 .tik-frqi-btn[aria-pressed="true"] {
-  background: #1d4ed8;
+  background: var(--anim-blue-strong);
   border-color: var(--tik-blue-strong);
   box-shadow: inset 0 0 0 1px var(--tik-blue-strong);
   color: var(--tik-strong);
 }
 
 .tik-frqi-readout {
-  background: rgba(30, 41, 59, 0.72);
+  background: color-mix(in srgb, var(--anim-surface) 72%, transparent);
   border: 1px solid var(--tik-border);
   border-radius: 6px;
   color: var(--tik-muted);
@@ -145,7 +145,7 @@
 
 .tik-frqi-patch-card.is-active {
   border-color: var(--tik-blue-strong);
-  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.9);
+  box-shadow: 0 0 0 1px var(--anim-sky);
   transform: translateY(-2px);
 }
 
@@ -167,7 +167,7 @@
 
 .tik-frqi-patch {
   aspect-ratio: 1;
-  border: 1px solid #475569;
+  border: 1px solid var(--anim-border-strong);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   overflow: hidden;
@@ -176,7 +176,7 @@
 
 .tik-frqi-pixel {
   align-items: center;
-  border: 1px solid rgba(15, 23, 42, 0.55);
+  border: 1px solid color-mix(in srgb, var(--anim-bg) 55%, transparent);
   display: flex;
   font-size: 0.62rem;
   font-weight: 800;
@@ -244,7 +244,7 @@
 }
 
 .tik-frqi-point.is-emph {
-  filter: drop-shadow(0 0 5px rgba(248, 250, 252, 0.65));
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--anim-strong) 65%, transparent));
 }
 
 .tik-frqi-circuit-gate,
@@ -254,7 +254,7 @@
 
 .tik-frqi-circuit-gate.is-active,
 .tik-frqi-flow-box.is-active {
-  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.65));
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--anim-sky) 65%, transparent));
   stroke-width: 3;
 }
 

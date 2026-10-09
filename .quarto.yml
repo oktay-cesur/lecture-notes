@@ -16,6 +16,8 @@ project:
     - "!courses/qturkey/qbronze/crs-qbronze/**"
     - "!.assets/**"
     - "!README.md"
+    - "!courses/psi303/.content/**"
+    - "!courses/psi303/content-profile.md"
 
 profile:
   default: publish

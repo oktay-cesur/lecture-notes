@@ -1,3 +1,4 @@
+import { makeSvg as s } from "../core/dom.js";
 // chessboard.js — Generic reusable chessboard renderer
 //
 // ── Direct use (custom-loader) ──────────────────────────────────
@@ -44,7 +45,6 @@
 //   board.update({ pieces: [...] });     // re-render
 //
 
-const SVG_NS = "http://www.w3.org/2000/svg";
 const N = 8;
 const CELL = 40;
 const BOARD_PX = N * CELL;
@@ -62,29 +62,29 @@ const PIECE_CHAR = {
 };
 
 const PIECE_COLOR = {};
-for (const ch of "KQRBNP") PIECE_COLOR[ch] = "white";
-for (const ch of "kqrbnp") PIECE_COLOR[ch] = "black";
+for (const ch of "KQRBNP") PIECE_COLOR[ch] = "w";
+for (const ch of "kqrbnp") PIECE_COLOR[ch] = "b";
 
 // ── Theme ───────────────────────────────────────────────────────
 
 const TH = {
-  cellLight:      "#334155",
-  cellDark:       "#1e293b",
-  border:         "#475569",
-  highlight:      "#fbbf24",
+  cellLight:      "var(--anim-cell-light)",
+  cellDark:       "var(--anim-cell-dark)",
+  border:         "var(--anim-border-strong)",
+  highlight:      "var(--anim-amber-soft)",
   highlightAlpha: "0.25",
-  lineDefault:    "#ef4444",
+  lineDefault:    "var(--anim-red-soft)",
   lineWidth:      "2.5",
   lineDash:       "5,3",
-  pieceWhite:     "#f1f5f9",
-  pieceBlack:     "#e2e8f0",
-  pieceStroke:    "#0f172a",
-  atkGlow:        "#ef4444",
-  labelColor:     "#94a3b8",
-  coordColor:     "#64748b",
-  statusGood:     "#22c55e",
-  statusBad:      "#ef4444",
-  statusDefault:  "#f8fafc",
+  pieceWhite:     "var(--anim-strong)",
+  pieceBlack:     "var(--anim-text)",
+  pieceStroke:    "var(--anim-bg)",
+  atkGlow:        "var(--anim-red-soft)",
+  labelColor:     "var(--anim-muted)",
+  coordColor:     "var(--anim-muted-2)",
+  statusGood:     "var(--anim-green)",
+  statusBad:      "var(--anim-red-soft)",
+  statusDefault:  "var(--anim-strong)",
 };
 
 // ── Coordinate helpers ──────────────────────────────────────────
@@ -104,13 +104,6 @@ function cellCenter(row, col) {
 }
 
 // ── SVG helper ──────────────────────────────────────────────────
-
-function s(tag, attrs, text) {
-  const e = document.createElementNS(SVG_NS, tag);
-  if (attrs) for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
-  if (text != null) e.textContent = text;
-  return e;
-}
 
 // ── Attack computation (queens) ─────────────────────────────────
 
@@ -251,7 +244,7 @@ function render(svgRoot, config) {
     const { row, col } = sqToRC(sq);
     const onLine = lineSqs.has(sq);
     const side = PIECE_COLOR[piece];
-    const fillColor = side === "white" ? TH.pieceWhite : TH.pieceBlack;
+    const fillColor = side === "w" ? TH.pieceWhite : TH.pieceBlack;
 
     if (onLine) {
       g.appendChild(s("circle", {

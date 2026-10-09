@@ -1,21 +1,8 @@
+import { makeEl as htmlEl, makeSvg as svgEl } from "../core/dom.js";
 // gate-animations.js
 // Kuantum kapısı animasyonları — birim çember görselleştirmesi
 // Sahneler: x-gate | h-gate | z-gate | phase-kickback
 
-const NS = "http://www.w3.org/2000/svg";
-
-function svgEl(tag, attrs = {}) {
-  const el = document.createElementNS(NS, tag);
-  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, String(v));
-  return el;
-}
-
-function htmlEl(tag, cls = null, text = null) {
-  const el = document.createElement(tag);
-  if (cls) el.className = cls;
-  if (text !== null) el.textContent = text;
-  return el;
-}
 
 function easeInOut(t) {
   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
@@ -50,12 +37,12 @@ function buildBlochCircle(container, opts = {}) {
   // Çember
   svg.appendChild(svgEl("circle", {
     cx, cy, r: R,
-    fill: "none", stroke: "#1e3a5f", "stroke-width": 2
+    fill: "none", stroke: "var(--anim-wire)", "stroke-width": 2
   }));
 
   // 4 eksen noktası
   for (const [ax, ay] of [[cx, cy - R], [cx, cy + R], [cx - R, cy], [cx + R, cy]]) {
-    svg.appendChild(svgEl("circle", { cx: ax, cy: ay, r: 2.5, fill: "#334155" }));
+    svg.appendChild(svgEl("circle", { cx: ax, cy: ay, r: 2.5, fill: "var(--anim-border)" }));
   }
 
   // Eksen etiketleri (opsiyonel)
@@ -69,7 +56,7 @@ function buildBlochCircle(container, opts = {}) {
     for (const [x, y, txt, anchor] of lblData) {
       const t = svgEl("text", {
         x, y, "text-anchor": anchor,
-        fill: "#334155", "font-size": 9
+        fill: "var(--anim-border)", "font-size": 9
       });
       t.textContent = txt;
       svg.appendChild(t);
@@ -77,12 +64,12 @@ function buildBlochCircle(container, opts = {}) {
   }
 
   // Merkez noktası
-  svg.appendChild(svgEl("circle", { cx, cy, r: 3, fill: "#475569" }));
+  svg.appendChild(svgEl("circle", { cx, cy, r: 3, fill: "var(--anim-border-strong)" }));
 
   // Yay izi
   const arcTrace = svgEl("path", {
     d: "", fill: "none",
-    stroke: "#3b82f6", "stroke-width": 1.5,
+    stroke: "var(--anim-blue-strong)", "stroke-width": 1.5,
     "stroke-dasharray": "4 3", opacity: 0
   });
   svg.appendChild(arcTrace);
@@ -90,18 +77,18 @@ function buildBlochCircle(container, opts = {}) {
   // Ok gövdesi
   const shaft = svgEl("line", {
     x1: cx, y1: cy, x2: cx, y2: cy - (R - 12),
-    stroke: "#60a5fa", "stroke-width": 3, "stroke-linecap": "round"
+    stroke: "var(--anim-blue)", "stroke-width": 3, "stroke-linecap": "round"
   });
   svg.appendChild(shaft);
 
   // Ok ucu
-  const head = svgEl("polygon", { fill: "#60a5fa" });
+  const head = svgEl("polygon", { fill: "var(--anim-blue)" });
   svg.appendChild(head);
 
   container.appendChild(svg);
 
   function updateArrow(angleDeg, color) {
-    const c = color || "#60a5fa";
+    const c = color || "var(--anim-blue)";
     shaft.setAttribute("stroke", c);
     head.setAttribute("fill", c);
     const rad = angleDeg * Math.PI / 180;
@@ -143,14 +130,14 @@ function xGate(container) {
   const lbl0 = svgEl("text", {
     x: cx, y: cy - R - 14,
     "text-anchor": "middle",
-    fill: "#60a5fa", "font-size": 15, "font-weight": "bold"
+    fill: "var(--anim-blue)", "font-size": 15, "font-weight": "bold"
   });
   lbl0.textContent = "|0\u27E9";
 
   const lbl1 = svgEl("text", {
     x: cx, y: cy + R + 24,
     "text-anchor": "middle",
-    fill: "#475569", "font-size": 15, "font-weight": "bold"
+    fill: "var(--anim-border-strong)", "font-size": 15, "font-weight": "bold"
   });
   lbl1.textContent = "|1\u27E9";
 
@@ -159,7 +146,7 @@ function xGate(container) {
 
   const statusDiv = htmlEl("div");
   statusDiv.style.cssText =
-    "text-align:center;font-size:0.85rem;color:#94a3b8;" +
+    "text-align:center;font-size:0.85rem;color:var(--anim-muted);" +
     "margin:0.25rem 0 0.4rem;font-family:system-ui,sans-serif";
   container.appendChild(statusDiv);
 
@@ -167,8 +154,8 @@ function xGate(container) {
     const norm = ((deg % 360) + 360) % 360;
     const isZero = Math.abs(norm - 270) < 5;
     const isOne  = Math.abs(norm - 90) < 5;
-    lbl0.setAttribute("fill", isZero ? "#60a5fa" : "#475569");
-    lbl1.setAttribute("fill", isOne  ? "#60a5fa" : "#475569");
+    lbl0.setAttribute("fill", isZero ? "var(--anim-blue)" : "var(--anim-border-strong)");
+    lbl1.setAttribute("fill", isOne  ? "var(--anim-blue)" : "var(--anim-border-strong)");
     statusDiv.textContent = isZero
       ? "Durum: |0\u27E9"
       : isOne
@@ -240,7 +227,7 @@ function hGate(container) {
   // Eksen çizgisi (X ekseni göstergesi, ekvator)
   const equator = svgEl("line", {
     x1: cx - R, y1: cy, x2: cx + R, y2: cy,
-    stroke: "#1e3a5f", "stroke-width": 1, "stroke-dasharray": "3 3"
+    stroke: "var(--anim-wire)", "stroke-width": 1, "stroke-dasharray": "3 3"
   });
   svg.appendChild(equator);
 
@@ -255,14 +242,14 @@ function hGate(container) {
     return t;
   }
 
-  const lblZ0  = addLabel(cx, cy - R - 14, "|0\u27E9", "#475569");
-  const lblZ1  = addLabel(cx, cy + R + 24, "|1\u27E9", "#475569");
-  const lblPlus  = addLabel(cx + R + 16, cy + 5, "|+\u27E9", "#475569", "start");
-  const lblMinus = addLabel(cx - R - 16, cy + 5, "|\u2212\u27E9", "#475569", "end");
+  const lblZ0  = addLabel(cx, cy - R - 14, "|0\u27E9", "var(--anim-border-strong)");
+  const lblZ1  = addLabel(cx, cy + R + 24, "|1\u27E9", "var(--anim-border-strong)");
+  const lblPlus  = addLabel(cx + R + 16, cy + 5, "|+\u27E9", "var(--anim-border-strong)", "start");
+  const lblMinus = addLabel(cx - R - 16, cy + 5, "|\u2212\u27E9", "var(--anim-border-strong)", "end");
 
   const statusDiv = htmlEl("div");
   statusDiv.style.cssText =
-    "text-align:center;font-size:0.85rem;color:#94a3b8;" +
+    "text-align:center;font-size:0.85rem;color:var(--anim-muted);" +
     "margin:0.25rem 0 0.4rem;font-family:system-ui,sans-serif";
   container.appendChild(statusDiv);
 
@@ -281,7 +268,7 @@ function hGate(container) {
 
   function setLabels(key) {
     for (const [k, el] of Object.entries(allLabels)) {
-      el.setAttribute("fill", k === key ? "#60a5fa" : "#475569");
+      el.setAttribute("fill", k === key ? "var(--anim-blue)" : "var(--anim-border-strong)");
     }
   }
 
@@ -299,7 +286,7 @@ function hGate(container) {
   // Formül metni
   const formulaDiv = htmlEl("div");
   formulaDiv.style.cssText =
-    "text-align:center;font-size:0.78rem;color:#64748b;" +
+    "text-align:center;font-size:0.78rem;color:var(--anim-muted-2);" +
     "margin:0.1rem 0 0.3rem;font-family:monospace;letter-spacing:0.02em";
   formulaDiv.textContent = "H = \u00BD\u00B7[[1,1],[1,\u22121]]";
   container.appendChild(formulaDiv);
@@ -327,11 +314,11 @@ function hGate(container) {
     statusDiv.textContent = "Dönüyor\u2026";
 
     animAngle(from, to, 750, (angle) => {
-      updateArrow(angle, "#a78bfa"); // H kapısı için mor
+      updateArrow(angle, "var(--anim-purple)"); // H kapısı için mor
       updateArc(from, angle);
     }, () => {
       stateIdx = nextIdx;
-      updateArrow(toState.deg, "#a78bfa");
+      updateArrow(toState.deg, "var(--anim-purple)");
       arcTrace.setAttribute("opacity", 0);
       setLabels(toState.key);
       statusDiv.textContent = toState.label;
@@ -365,13 +352,13 @@ function zGate(container) {
   // Eksen çizgisi (ekvator)
   svg.appendChild(svgEl("line", {
     x1: cx - R, y1: cy, x2: cx + R, y2: cy,
-    stroke: "#1e3a5f", "stroke-width": 1, "stroke-dasharray": "3 3"
+    stroke: "var(--anim-wire)", "stroke-width": 1, "stroke-dasharray": "3 3"
   }));
 
   // Z ekseni kılavuzu (dikey kesik çizgi)
   svg.appendChild(svgEl("line", {
     x1: cx, y1: cy - R, x2: cx, y2: cy + R,
-    stroke: "#1e3a5f", "stroke-width": 1, "stroke-dasharray": "3 3", opacity: 0.5
+    stroke: "var(--anim-wire)", "stroke-width": 1, "stroke-dasharray": "3 3", opacity: 0.5
   }));
 
   function addLabel(x, y, text, color, anchor = "middle") {
@@ -384,23 +371,23 @@ function zGate(container) {
     return t;
   }
 
-  const lblZ0   = addLabel(cx, cy - R - 14, "|0\u27E9",        "#60a5fa");
-  const lblZ1   = addLabel(cx, cy + R + 24, "|1\u27E9",        "#475569");
-  const lblPlus = addLabel(cx + R + 16, cy + 5, "|+\u27E9",    "#475569", "start");
-  const lblMinus= addLabel(cx - R - 16, cy + 5, "|\u2212\u27E9","#475569", "end");
+  const lblZ0   = addLabel(cx, cy - R - 14, "|0\u27E9",        "var(--anim-blue)");
+  const lblZ1   = addLabel(cx, cy + R + 24, "|1\u27E9",        "var(--anim-border-strong)");
+  const lblPlus = addLabel(cx + R + 16, cy + 5, "|+\u27E9",    "var(--anim-border-strong)", "start");
+  const lblMinus= addLabel(cx - R - 16, cy + 5, "|\u2212\u27E9","var(--anim-border-strong)", "end");
 
   // Faz göstergesi (Z kapısının özü)
   const phaseIndicator = htmlEl("div");
   phaseIndicator.style.cssText =
     "text-align:center;font-size:0.82rem;padding:0.3rem 0.6rem;" +
     "border-radius:6px;margin:0.3rem auto;max-width:260px;" +
-    "background:#1e293b;color:#94a3b8;transition:all 0.5s;font-family:monospace";
+    "background:var(--anim-surface);color:var(--anim-muted);transition:all 0.5s;font-family:monospace";
   phaseIndicator.textContent = "Faz: \u03C6 = 0";
   container.appendChild(phaseIndicator);
 
   const statusDiv = htmlEl("div");
   statusDiv.style.cssText =
-    "text-align:center;font-size:0.82rem;color:#94a3b8;" +
+    "text-align:center;font-size:0.82rem;color:var(--anim-muted);" +
     "margin:0.15rem 0 0.4rem;font-family:system-ui,sans-serif";
   statusDiv.textContent = "Durum: |0\u27E9";
   container.appendChild(statusDiv);
@@ -423,24 +410,24 @@ function zGate(container) {
 
   function setLabels(key) {
     for (const [k, el] of Object.entries(allLabels)) {
-      el.setAttribute("fill", k === key ? "#22d3ee" : "#475569");
+      el.setAttribute("fill", k === key ? "var(--anim-cyan)" : "var(--anim-border-strong)");
     }
   }
 
   function updatePhaseDisplay() {
     if (phase === 0) {
-      phaseIndicator.style.background = "#1e293b";
-      phaseIndicator.style.color = "#94a3b8";
+      phaseIndicator.style.background = "var(--anim-surface)";
+      phaseIndicator.style.color = "var(--anim-muted)";
       phaseIndicator.textContent = "Faz: \u03C6 = 0  (katsayı: +1)";
     } else {
-      phaseIndicator.style.background = "#3b1f2b";
-      phaseIndicator.style.color = "#f87171";
+      phaseIndicator.style.background = "var(--anim-rose-bg)";
+      phaseIndicator.style.color = "var(--anim-red)";
       phaseIndicator.textContent = "Faz: \u03C6 = \u03C0  (katsayı: \u22121)";
     }
   }
 
   setLabels("z0");
-  updateArrow(STATES_MAP.z0.deg, "#22d3ee");
+  updateArrow(STATES_MAP.z0.deg, "var(--anim-cyan)");
   updatePhaseDisplay();
 
   // H butonu
@@ -456,7 +443,7 @@ function zGate(container) {
   // Uyarı: Z'nin görsel etkisini görmek için önce H gerekli
   const hint = htmlEl("div");
   hint.style.cssText =
-    "text-align:center;font-size:0.76rem;color:#475569;" +
+    "text-align:center;font-size:0.76rem;color:var(--anim-border-strong);" +
     "margin:0.2rem 0;font-family:system-ui,sans-serif";
   hint.textContent = "İpucu: Z'nin görsel etkisi için önce H uygulayın";
   container.appendChild(hint);
@@ -484,11 +471,11 @@ function zGate(container) {
     updateArc(from, from + delta);
 
     animAngle(from, from + delta, 700, (angle) => {
-      updateArrow(angle, "#a78bfa");
+      updateArrow(angle, "var(--anim-purple)");
       updateArc(from, angle);
     }, () => {
       currentKey = targetKey;
-      updateArrow(STATES_MAP[targetKey].deg, "#22d3ee");
+      updateArrow(STATES_MAP[targetKey].deg, "var(--anim-cyan)");
       arcTrace.setAttribute("opacity", 0);
       setLabels(targetKey);
       statusDiv.textContent = `Durum: ${targetKey === "plus" ? "|+\u27E9" : targetKey === "minus" ? "|\u2212\u27E9" : targetKey === "z0" ? "|0\u27E9" : "|1\u27E9"}`;
@@ -514,17 +501,17 @@ function zGate(container) {
 
       statusDiv.textContent = "Z uygulanıyor… (faz)";
       arcTrace.setAttribute("opacity", 0.5);
-      arcTrace.setAttribute("stroke", "#22d3ee");
+      arcTrace.setAttribute("stroke", "var(--anim-cyan)");
       updateArc(from, to);
 
       animAngle(from, to, 800, (angle) => {
-        updateArrow(angle, "#22d3ee");
+        updateArrow(angle, "var(--anim-cyan)");
         updateArc(from, angle);
       }, () => {
         currentKey = targetKey;
-        updateArrow(STATES_MAP[targetKey].deg, "#22d3ee");
+        updateArrow(STATES_MAP[targetKey].deg, "var(--anim-cyan)");
         arcTrace.setAttribute("opacity", 0);
-        arcTrace.setAttribute("stroke", "#3b82f6");
+        arcTrace.setAttribute("stroke", "var(--anim-blue-strong)");
         phase = (phase + 1) % 2;
         updatePhaseDisplay();
         setLabels(targetKey);
@@ -541,10 +528,10 @@ function zGate(container) {
 
       // Flaş animasyonu
       let flashes = 0;
-      const flashColor = isOne ? "#f87171" : "#60a5fa";
+      const flashColor = isOne ? "var(--anim-red)" : "var(--anim-blue)";
       function flashArrow() {
         if (flashes >= 4) {
-          updateArrow(s.deg, "#22d3ee");
+          updateArrow(s.deg, "var(--anim-cyan)");
           updatePhaseDisplay();
           statusDiv.textContent = isOne
             ? "Z|1\u27E9 = \u22121|1\u27E9 — faz değişti!"
@@ -554,7 +541,7 @@ function zGate(container) {
           zBtn.disabled = false;
           return;
         }
-        updateArrow(s.deg, flashes % 2 === 0 ? flashColor : "#1e3a5f");
+        updateArrow(s.deg, flashes % 2 === 0 ? flashColor : "var(--anim-wire)");
         flashes++;
         setTimeout(flashArrow, 180);
       }
@@ -592,7 +579,7 @@ function phaseKickback(container) {
   const X_END   = 430;
 
   // ── Qubit hatları ──
-  function wireLine(y, x1, x2, color = "#1e3a5f") {
+  function wireLine(y, x1, x2, color = "var(--anim-wire)") {
     svg.appendChild(svgEl("line", {
       x1, y1: y, x2, y2: y,
       stroke: color, "stroke-width": 2
@@ -604,20 +591,20 @@ function phaseKickback(container) {
   wireLine(Y_T, X_START, X_END + 80);
 
   // Qubit etiketleri (başlangıç durumu)
-  function svgTxt(x, y, text, color = "#94a3b8", size = 11, anchor = "middle") {
+  function svgTxt(x, y, text, color = "var(--anim-muted)", size = 11, anchor = "middle") {
     const t = svgEl("text", { x, y, "text-anchor": anchor, fill: color, "font-size": size });
     t.textContent = text;
     return t;
   }
 
-  svg.appendChild(svgTxt(X_START - 5, Y_C + 4, "|0\u27E9", "#60a5fa", 13, "end"));
-  svg.appendChild(svgTxt(X_START - 5, Y_T + 4, "|0\u27E9", "#60a5fa", 13, "end"));
+  svg.appendChild(svgTxt(X_START - 5, Y_C + 4, "|0\u27E9", "var(--anim-blue)", 13, "end"));
+  svg.appendChild(svgTxt(X_START - 5, Y_T + 4, "|0\u27E9", "var(--anim-blue)", 13, "end"));
 
-  svg.appendChild(svgTxt(X_START + 5, Y_C - 12, "Kontrol (q₀)", "#475569", 9, "start"));
-  svg.appendChild(svgTxt(X_START + 5, Y_T + 20, "Hedef (q₁)",   "#475569", 9, "start"));
+  svg.appendChild(svgTxt(X_START + 5, Y_C - 12, "Kontrol (q₀)", "var(--anim-border-strong)", 9, "start"));
+  svg.appendChild(svgTxt(X_START + 5, Y_T + 20, "Hedef (q₁)",   "var(--anim-border-strong)", 9, "start"));
 
   // ── Kapı çizim yardımcıları ──
-  function drawGateBox(x, y, label, color = "#1e3a5f", strokeColor = "#60a5fa") {
+  function drawGateBox(x, y, label, color = "var(--anim-blue-bg)", strokeColor = "var(--anim-blue)") {
     const g = svgEl("g");
     g.appendChild(svgEl("rect", {
       x: x - 16, y: y - 16, width: 32, height: 32,
@@ -625,7 +612,7 @@ function phaseKickback(container) {
     }));
     const t = svgEl("text", {
       x, y: y + 5, "text-anchor": "middle",
-      fill: "#e2e8f0", "font-size": 12, "font-weight": "bold"
+      fill: "var(--anim-text)", "font-size": 12, "font-weight": "bold"
     });
     t.textContent = label;
     g.appendChild(t);
@@ -635,38 +622,38 @@ function phaseKickback(container) {
   function drawCNOT(x, yCtrl, yTgt) {
     const g = svgEl("g");
     // Kontrol noktası (dolu daire)
-    g.appendChild(svgEl("circle", { cx: x, cy: yCtrl, r: 7, fill: "#60a5fa" }));
+    g.appendChild(svgEl("circle", { cx: x, cy: yCtrl, r: 7, fill: "var(--anim-blue)" }));
     // Dikey bağlantı
     g.appendChild(svgEl("line", {
       x1: x, y1: yCtrl + 7, x2: x, y2: yTgt - 16,
-      stroke: "#60a5fa", "stroke-width": 2
+      stroke: "var(--anim-blue)", "stroke-width": 2
     }));
     // Hedef (çember + çapraz)
-    g.appendChild(svgEl("circle", { cx: x, cy: yTgt, r: 16, fill: "#1e3a5f", stroke: "#60a5fa", "stroke-width": 2 }));
-    g.appendChild(svgEl("line", { x1: x - 10, y1: yTgt, x2: x + 10, y2: yTgt, stroke: "#60a5fa", "stroke-width": 2 }));
-    g.appendChild(svgEl("line", { x1: x, y1: yTgt - 10, x2: x, y2: yTgt + 10, stroke: "#60a5fa", "stroke-width": 2 }));
+    g.appendChild(svgEl("circle", { cx: x, cy: yTgt, r: 16, fill: "var(--anim-blue-bg)", stroke: "var(--anim-blue)", "stroke-width": 2 }));
+    g.appendChild(svgEl("line", { x1: x - 10, y1: yTgt, x2: x + 10, y2: yTgt, stroke: "var(--anim-blue)", "stroke-width": 2 }));
+    g.appendChild(svgEl("line", { x1: x, y1: yTgt - 10, x2: x, y2: yTgt + 10, stroke: "var(--anim-blue)", "stroke-width": 2 }));
     return g;
   }
 
   // ── Statik kapılar ──
   const gHc = drawGateBox(X_H_C, Y_C, "H");
   const gHt = drawGateBox(X_H_T, Y_T, "H");
-  const gZt = drawGateBox(X_Z_T, Y_T, "Z", "#1e3a5f", "#a78bfa");
+  const gZt = drawGateBox(X_Z_T, Y_T, "Z", "var(--anim-blue-bg)", "var(--anim-purple)");
   const gCNOT = drawCNOT(X_CNOT, Y_C, Y_T);
 
   // Başlangıçta soluk
   [gHc, gHt, gZt, gCNOT].forEach(g => { g.setAttribute("opacity", 0.3); svg.appendChild(g); });
 
   // Çıkış etiketleri (başlangıçta gizli)
-  const outCtrl = svgTxt(X_END + 85, Y_C + 4, "", "#f87171", 12, "end");
-  const outTgt  = svgTxt(X_END + 85, Y_T + 4, "", "#94a3b8", 12, "end");
+  const outCtrl = svgTxt(X_END + 85, Y_C + 4, "", "var(--anim-red)", 12, "end");
+  const outTgt  = svgTxt(X_END + 85, Y_T + 4, "", "var(--anim-muted)", 12, "end");
   svg.appendChild(outCtrl);
   svg.appendChild(outTgt);
 
   // Faz göstergesi oku (kontrol qubitten çıkan ok)
   const kickbackArrow = svgEl("path", {
     d: `M${X_CNOT} ${Y_C - 25} Q${X_CNOT - 60} ${Y_C - 60} ${X_H_C + 5} ${Y_C - 25}`,
-    fill: "none", stroke: "#f87171", "stroke-width": 2,
+    fill: "none", stroke: "var(--anim-red)", "stroke-width": 2,
     "marker-end": "url(#arrowhead)", opacity: 0,
     "stroke-dasharray": "5 3"
   });
@@ -677,7 +664,7 @@ function phaseKickback(container) {
     id: "arrowhead", markerWidth: "8", markerHeight: "8",
     refX: "3", refY: "3", orient: "auto"
   });
-  const markerPath = svgEl("path", { d: "M0,0 L0,6 L6,3 z", fill: "#f87171" });
+  const markerPath = svgEl("path", { d: "M0,0 L0,6 L6,3 z", fill: "var(--anim-red)" });
   marker.appendChild(markerPath);
   defs.appendChild(marker);
   svg.appendChild(defs);
@@ -688,8 +675,8 @@ function phaseKickback(container) {
   // ── Açıklama paneli ──
   const infoDiv = htmlEl("div");
   infoDiv.style.cssText =
-    "font-size:0.82rem;color:#94a3b8;background:#0f172a;" +
-    "border:1px solid #1e3a5f;border-radius:6px;padding:0.5rem 0.75rem;" +
+    "font-size:0.82rem;color:var(--anim-muted);background:var(--anim-bg);" +
+    "border:1px solid var(--anim-wire);border-radius:6px;padding:0.5rem 0.75rem;" +
     "margin:0.3rem 0;font-family:monospace;min-height:3.2rem;line-height:1.5;" +
     "transition:all 0.4s";
   infoDiv.innerHTML = "Devre hazır. Adım adım ilerleyin.";
@@ -742,7 +729,7 @@ function phaseKickback(container) {
     if (s.gate2) s.gate2.setAttribute("opacity", 1);
     outCtrl.textContent = s.ctrl_out || "";
     outTgt.textContent  = s.tgt_out  || "";
-    outCtrl.setAttribute("fill", s.kickback || s.final ? "#f87171" : "#60a5fa");
+    outCtrl.setAttribute("fill", s.kickback || s.final ? "var(--anim-red)" : "var(--anim-blue)");
     infoDiv.innerHTML = s.label.replace(/\n/g, "<br>");
 
     if (s.kickback) {
@@ -751,7 +738,7 @@ function phaseKickback(container) {
       let flashes = 0;
       function flashCtrl() {
         if (flashes >= 5) return;
-        wireLine(Y_C, X_CNOT - 120, X_CNOT, flashes % 2 === 0 ? "#f87171" : "#1e3a5f");
+        wireLine(Y_C, X_CNOT - 120, X_CNOT, flashes % 2 === 0 ? "var(--anim-red)" : "var(--anim-wire)");
         flashes++;
         setTimeout(flashCtrl, 180);
       }
@@ -790,13 +777,11 @@ function phaseKickback(container) {
 
 // ─── Entry point ─────────────────────────────────────────────────────────────
 
-export function mountGate3Animations() {
-  for (const div of document.querySelectorAll('[data-anim="gate3"]')) {
-    const scene = (div.dataset.scene || "").trim();
-    div.classList.add("pq-container");
-    if      (scene === "x-gate")          xGate(div);
-    else if (scene === "h-gate")          hGate(div);
-    else if (scene === "z-gate")          zGate(div);
-    else if (scene === "phase-kickback")  phaseKickback(div);
-  }
+export function mount(div, dataset = div.dataset) {
+  const scene = (dataset.scene || "").trim();
+  div.classList.add("pq-container");
+  if      (scene === "x-gate")          xGate(div);
+  else if (scene === "h-gate")          hGate(div);
+  else if (scene === "z-gate")          zGate(div);
+  else if (scene === "phase-kickback")  phaseKickback(div);
 }

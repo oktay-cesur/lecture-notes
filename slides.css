@@ -10,3 +10,35 @@
   height: 100%;
   border: 0;
 }
+
+/* Sunum teması: Reveal değişkenleri, .assets/animations/core/theme.css içindeki --anim-slide-*
+   jetonlarından türetilir; temalar ve renk değerleri orada tanımlıdır. Tema, theme.js
+   tarafından <html data-anim-theme="…"> olarak ayarlanır ve animasyonlarla birlikte değişir.
+   Öznitelik yoksa (JS çalışmadıysa) Quarto'nun Dracula teması geçerli kalır. */
+:root[data-anim-theme] {
+  --r-background-color: var(--anim-slide-bg);
+  --r-main-color: var(--anim-slide-text);
+  --r-heading-color: var(--anim-slide-heading);
+  --r-link-color: var(--anim-slide-link);
+  --r-link-color-dark: color-mix(in srgb, var(--anim-slide-link) 75%, black);
+  --r-link-color-hover: var(--anim-slide-link-hover);
+  --r-selection-background-color: color-mix(in srgb, var(--anim-slide-heading) 30%, var(--anim-slide-bg));
+  --r-selection-color: var(--anim-slide-text);
+  --r-bold-color: var(--anim-slide-bold);
+  --r-italic-color: var(--anim-slide-italic);
+  --r-inline-code-color: var(--anim-slide-code);
+  --r-list-bullet-color: var(--anim-slide-bullet);
+  --quarto-body-bg: var(--anim-slide-bg);
+  --quarto-body-color: var(--anim-slide-text);
+  --quarto-text-muted: var(--anim-muted);
+  --quarto-border-color: var(--anim-border-strong);
+}
+
+:root[data-anim-theme] .reveal .slide-number {
+  color: var(--anim-muted);
+  background-color: var(--anim-slide-bg);
+}
+
+:root[data-anim-theme] .reveal blockquote {
+  background: color-mix(in srgb, var(--anim-slide-text) 7%, transparent);
+}

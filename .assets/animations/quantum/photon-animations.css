@@ -1,5 +1,5 @@
 .pq-container {
-  background: #0f172a;
+  background: var(--anim-bg);
   border-radius: 10px;
   padding: 0.75rem 1rem 0.9rem;
   font-family: system-ui, sans-serif;
@@ -10,7 +10,7 @@
 .pq-svg {
   width: 100%;
   max-width: 600px;
-  background: #0f172a;
+  background: var(--anim-bg);
   border-radius: 8px;
   display: block;
   margin: 0 auto;
@@ -24,9 +24,9 @@
 }
 
 .pq-btn {
-  background: #1e3a5f;
-  color: #e2e8f0;
-  border: 1px solid #60a5fa;
+  background: var(--anim-blue-bg);
+  color: var(--anim-text);
+  border: 1px solid var(--anim-blue);
   border-radius: 6px;
   padding: 0.35rem 0.9rem;
   font-size: 0.82rem;
@@ -34,13 +34,13 @@
   transition: background 0.15s;
 }
 
-.pq-btn:hover:not(:disabled) { background: #2d4f8a; }
+.pq-btn:hover:not(:disabled) { background: var(--anim-blue-bg-hover); }
 .pq-btn:disabled { opacity: 0.4; cursor: default; }
 
 .pq-btn-secondary {
-  border-color: #475569;
-  background: #1e293b;
-  color: #94a3b8;
+  border-color: var(--anim-border-strong);
+  background: var(--anim-surface);
+  color: var(--anim-muted);
 }
 
 .pq-bars {
@@ -55,20 +55,20 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.8rem;
-  color: #cbd5e1;
+  color: var(--anim-text-2);
 }
 
 .pq-bar-label {
   width: 5.5rem;
   text-align: right;
-  color: #94a3b8;
+  color: var(--anim-muted);
   flex-shrink: 0;
   font-size: 0.78rem;
 }
 
 .pq-bar-track {
   flex: 1;
-  background: #1e293b;
+  background: var(--anim-surface);
   border-radius: 4px;
   height: 13px;
   overflow: hidden;
@@ -84,7 +84,7 @@
 .pq-bar-pct {
   width: 3rem;
   text-align: left;
-  color: #94a3b8;
+  color: var(--anim-muted);
   font-size: 0.78rem;
 }
 
@@ -95,7 +95,7 @@
 
 .pq-amp-title {
   font-size: 0.82rem;
-  color: #94a3b8;
+  color: var(--anim-muted);
   margin-bottom: 0.4rem;
   text-align: center;
 }
@@ -106,16 +106,16 @@
   align-items: center;
   gap: 0.6rem;
   font-size: 0.82rem;
-  color: #cbd5e1;
+  color: var(--anim-text-2);
   margin-bottom: 0.3rem;
 }
 
-.pq-amp-label { text-align: right; color: #94a3b8; font-size: 0.78rem; }
+.pq-amp-label { text-align: right; color: var(--anim-muted); font-size: 0.78rem; }
 
 .pq-amp-track {
   position: relative;
   height: 18px;
-  background: #1e293b;
+  background: var(--anim-surface);
   border-radius: 4px;
 }
 
@@ -125,7 +125,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #475569;
+  background: var(--anim-border-strong);
   transform: translateX(-50%);
 }
 
@@ -137,14 +137,14 @@
 }
 
 .pq-amp-value {
-  color: #f8fafc;
+  color: var(--anim-strong);
   font-size: 0.82rem;
   font-weight: bold;
 }
 
 .pq-shock {
   text-align: center;
-  color: #f87171;
+  color: var(--anim-red);
   font-weight: bold;
   font-size: 0.88rem;
   margin-top: 0.4rem;

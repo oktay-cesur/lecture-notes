@@ -1,4 +1,4 @@
-const SVG_NS = "http://www.w3.org/2000/svg";
+import { makeEl as el, makeSvg as s } from "../core/dom.js";
 
 const NODES = {
   root: { x: 340, y: 52, label: "MAX", type: "max" },
@@ -22,13 +22,13 @@ const EDGES = [
 
 const STAGES = [
   {
-    name: "Baslangic",
+    name: "Başlangıç",
     alpha: "-inf",
     summary: "Aynı minimax ağacı DFS sırasıyla soldan sağa inceleniyor. Henüz hiçbir dal değerlendirilmedi, budama yok.",
     details: [
       ["Sol MIN", "3 ve 5 bekliyor"],
       ["Orta MIN", "6 ve 9 bekliyor"],
-      ["Sag MIN", "1 ve 7 bekliyor"]
+      ["Sağ MIN", "1 ve 7 bekliyor"]
     ],
     visitedNodes: [],
     activeEdges: [],
@@ -39,12 +39,12 @@ const STAGES = [
     showAlphaArrow: null
   },
   {
-    name: "Adim 1",
+    name: "Adım 1",
     alpha: "3",
     summary: "Sol dal tam açıldı. MIN solda min(3, 5) = 3 seçiyor ve kökte alpha 3'e yükseliyor.",
     details: [
       ["Sol MIN", "min(3, 5) = 3"],
-      ["Kok MAX", "alpha = 3"],
+      ["Kök MAX", "alpha = 3"],
       ["Budama", "Yok"]
     ],
     visitedNodes: ["left", "l1", "l2"],
@@ -56,13 +56,13 @@ const STAGES = [
     showAlphaArrow: { from: "left", to: "root", text: "alpha = 3" }
   },
   {
-    name: "Adim 2",
+    name: "Adım 2",
     alpha: "6",
     summary: "Orta dal açılıyor. MIN ortada min(6, 9) = 6 veriyor; MAX artık en az 6 garantileyebildiği için alpha 6 oluyor.",
     details: [
       ["Orta MIN", "min(6, 9) = 6"],
-      ["Kok MAX", "alpha = 6"],
-      ["Sezgi", "Sag dal artik 6'dan kucukse ilgisiz"]
+      ["Kök MAX", "alpha = 6"],
+      ["Sezgi", "Sağ dal artık 6'dan küçükse ilgisiz"]
     ],
     visitedNodes: ["left", "l1", "l2", "mid", "m1", "m2"],
     activeEdges: [["root", "left"], ["left", "l1"], ["left", "l2"], ["root", "mid"], ["mid", "m1"], ["mid", "m2"]],
@@ -75,11 +75,11 @@ const STAGES = [
   {
     name: "Budama",
     alpha: "6",
-    summary: "Sag dalda ilk yaprak 1 bulundu. MIN bu daldan en fazla 1 verebilir; bu alpha=6'nin altinda kaldigi icin 7 yapragi hic acilmadan kesiliyor.",
+    summary: "Sağ dalda ilk yaprak 1 bulundu. MIN bu daldan en fazla 1 verebilir; bu alpha=6'nın altında kaldığı için 7 yaprağı hiç açılmadan kesiliyor.",
     details: [
-      ["Sag MIN", "ilk yaprak = 1"],
-      ["Kosul", "1 <= alpha(6)"],
-      ["Sonuc", "7 acilmadan budandi"]
+      ["Sağ MIN", "ilk yaprak = 1"],
+      ["Koşul", "1 <= alpha(6)"],
+      ["Sonuç", "7 açılmadan budandı"]
     ],
     visitedNodes: ["left", "l1", "l2", "mid", "m1", "m2", "right", "r1"],
     activeEdges: [["root", "left"], ["left", "l1"], ["left", "l2"], ["root", "mid"], ["mid", "m1"], ["mid", "m2"], ["root", "right"], ["right", "r1"]],
@@ -91,20 +91,6 @@ const STAGES = [
   }
 ];
 
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text != null) node.textContent = text;
-  return node;
-}
-
-function s(tag, attrs, text) {
-  const node = document.createElementNS(SVG_NS, tag);
-  for (const [k, v] of Object.entries(attrs || {})) node.setAttribute(k, v);
-  if (text != null) node.textContent = text;
-  return node;
-}
-
 function edgeKey(from, to) {
   return from + "->" + to;
 }
@@ -114,7 +100,7 @@ function makeTreeSvg() {
     viewBox: "0 0 680 370",
     class: "ab-prune__svg",
     role: "img",
-    "aria-label": "Alpha-beta budama ornek agaci"
+    "aria-label": "Alpha-beta budama örnek ağacı"
   });
 }
 
@@ -132,7 +118,7 @@ function draw(svg, stage) {
       markerHeight: "7",
       orient: "auto-start-reverse"
     })
-  ).appendChild(s("path", { d: "M 0 0 L 10 5 L 0 10 z", fill: "#38bdf8" }));
+  ).appendChild(s("path", { d: "M 0 0 L 10 5 L 0 10 z", fill: "var(--anim-sky)" }));
   svg.appendChild(defs);
 
   const activeSet = new Set(stage.activeEdges.map(([from, to]) => edgeKey(from, to)));
@@ -149,7 +135,7 @@ function draw(svg, stage) {
         y1: a.y + 18,
         x2: b.x,
         y2: b.y - 18,
-        stroke: isPruned ? "#ef4444" : isActive ? "#38bdf8" : "#334155",
+        stroke: isPruned ? "var(--anim-red-soft)" : isActive ? "var(--anim-sky)" : "var(--anim-border)",
         "stroke-width": isActive ? "4" : "2.2",
         "stroke-dasharray": isPruned ? "8 6" : "none",
         opacity: isPruned ? "0.95" : isActive ? "1" : "0.65"
@@ -161,8 +147,8 @@ function draw(svg, stage) {
     const isVisited = stage.visitedNodes.includes(id);
     const isCurrent = pathSet.has(id);
     const isCut = stage.cutNode === id;
-    const fill = node.type === "leaf" ? "#0f172a" : node.type === "max" ? "#172554" : "#3f1d67";
-    const stroke = isCut ? "#ef4444" : isCurrent ? "#f8fafc" : isVisited ? "#38bdf8" : "#475569";
+    const fill = node.type === "leaf" ? "var(--anim-bg)" : node.type === "max" ? "var(--anim-blue-deep)" : "var(--anim-purple-bg)";
+    const stroke = isCut ? "var(--anim-red-soft)" : isCurrent ? "var(--anim-strong)" : isVisited ? "var(--anim-sky)" : "var(--anim-border-strong)";
     const radius = node.type === "leaf" ? 24 : 28;
 
     svg.appendChild(
@@ -170,7 +156,7 @@ function draw(svg, stage) {
         cx: node.x,
         cy: node.y,
         r: radius,
-        fill: isCut ? "#3f1111" : fill,
+        fill: isCut ? "var(--anim-red-bg)" : fill,
         stroke,
         "stroke-width": isCurrent || isCut ? "3.5" : "2.2",
         opacity: isCut ? "0.9" : "1"
@@ -182,7 +168,7 @@ function draw(svg, stage) {
         x: node.x,
         y: node.y + 5,
         "text-anchor": "middle",
-        fill: isCut ? "#fca5a5" : "#e2e8f0",
+        fill: isCut ? "var(--anim-red)" : "var(--anim-text)",
         "font-size": node.type === "leaf" ? "18" : "15",
         "font-family": "system-ui,sans-serif",
         "font-weight": "700"
@@ -197,8 +183,8 @@ function draw(svg, stage) {
           width: 52,
           height: 22,
           rx: 11,
-          fill: "#1e293b",
-          stroke: "#38bdf8"
+          fill: "var(--anim-surface)",
+          stroke: "var(--anim-sky)"
         })
       );
       svg.appendChild(
@@ -206,7 +192,7 @@ function draw(svg, stage) {
           x: node.x,
           y: node.y + 49,
           "text-anchor": "middle",
-          fill: "#bae6fd",
+          fill: "var(--anim-sky)",
           "font-size": "12",
           "font-family": "ui-monospace,monospace",
           "font-weight": "700"
@@ -217,18 +203,18 @@ function draw(svg, stage) {
     if (isCut) {
       svg.appendChild(s("line", {
         x1: node.x - 18, y1: node.y - 18, x2: node.x + 18, y2: node.y + 18,
-        stroke: "#ef4444", "stroke-width": "3"
+        stroke: "var(--anim-red-soft)", "stroke-width": "3"
       }));
       svg.appendChild(s("line", {
         x1: node.x + 18, y1: node.y - 18, x2: node.x - 18, y2: node.y + 18,
-        stroke: "#ef4444", "stroke-width": "3"
+        stroke: "var(--anim-red-soft)", "stroke-width": "3"
       }));
       svg.appendChild(
         s("text", {
           x: node.x,
           y: node.y + 44,
           "text-anchor": "middle",
-          fill: "#fca5a5",
+          fill: "var(--anim-red)",
           "font-size": "12",
           "font-family": "system-ui,sans-serif",
           "font-weight": "700"
@@ -242,11 +228,11 @@ function draw(svg, stage) {
       x: 340,
       y: 18,
       "text-anchor": "middle",
-      fill: "#93c5fd",
+      fill: "var(--anim-blue)",
       "font-size": "14",
       "font-family": "ui-monospace,monospace",
       "font-weight": "700"
-    }, "DFS sirasi: sol -> orta -> sag")
+    }, "DFS sırası: sol → orta → sağ")
   );
 
   if (stage.showAlphaArrow) {
@@ -256,7 +242,7 @@ function draw(svg, stage) {
       s("path", {
         d: `M ${from.x} ${from.y - 34} Q ${(from.x + to.x) / 2} ${from.y - 86} ${to.x} ${to.y + 38}`,
         fill: "none",
-        stroke: "#38bdf8",
+        stroke: "var(--anim-sky)",
         "stroke-width": "2.5",
         "marker-end": "url(#ab-arrow)"
       })
@@ -265,7 +251,7 @@ function draw(svg, stage) {
       s("text", {
         x: (from.x + to.x) / 2 - 10,
         y: from.y - 72,
-        fill: "#7dd3fc",
+        fill: "var(--anim-sky)",
         "font-size": "13",
         "font-family": "ui-monospace,monospace",
         "font-weight": "700"
@@ -278,14 +264,14 @@ export function mount(div) {
   const root = el("section", "ab-prune");
   const top = el("div", "ab-prune__top");
   const head = el("div");
-  head.appendChild(el("h3", "ab-prune__title", "Alpha-Beta Budama Ornegi"));
-  head.appendChild(el("p", "ab-prune__subtitle", "Ayni minimax agaci: sol [3,5], orta [6,9], sag [1,7]."));
+  head.appendChild(el("h3", "ab-prune__title", "Alpha-Beta Budama Örneği"));
+  head.appendChild(el("p", "ab-prune__subtitle", "Aynı minimax ağacı: sol [3,5], orta [6,9], sağ [1,7]."));
 
   const controls = el("div", "ab-prune__controls");
   const prev = el("button", "ab-prune__btn", "Geri");
   prev.type = "button";
   const stageText = el("div", "ab-prune__stage");
-  const next = el("button", "ab-prune__btn", "Ileri");
+  const next = el("button", "ab-prune__btn", "İleri");
   next.type = "button";
   controls.append(prev, stageText, next);
   top.append(head, controls);
@@ -302,12 +288,12 @@ export function mount(div) {
   explainCard.appendChild(explain);
 
   const detailsCard = el("div", "ab-prune__card");
-  detailsCard.appendChild(el("h4", "ab-prune__card-title", "Degerler"));
+  detailsCard.appendChild(el("h4", "ab-prune__card-title", "Değerler"));
   const details = el("div", "ab-prune__list");
   detailsCard.appendChild(details);
 
   const chipsCard = el("div", "ab-prune__card");
-  chipsCard.appendChild(el("h4", "ab-prune__card-title", "Akis"));
+  chipsCard.appendChild(el("h4", "ab-prune__card-title", "Akış"));
   const chips = el("div", "ab-prune__chips");
   STAGES.forEach((item, idx) => {
     const chip = el("button", "ab-prune__chip", item.name);

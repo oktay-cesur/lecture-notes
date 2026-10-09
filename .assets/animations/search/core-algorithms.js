@@ -327,43 +327,43 @@ function runBidir(start, goal) {
 export const algoMeta = {
   BFS: {
     fn: runBFS,
-    color: "#3b82f6",
+    color: "var(--anim-blue-strong)",
     label: "BFS (Enine Arama)",
     desc: "FIFO kuyruk · bilgisiz · tam · optimal DEĞİL (ağırlıklı grafta)"
   },
   DFS: {
     fn: runDFS,
-    color: "#8b5cf6",
+    color: "var(--anim-purple)",
     label: "DFS (Derinlik Arama)",
     desc: "LIFO yığıt · bilgisiz · tam DEĞİL · optimal DEĞİL"
   },
   UCS: {
     fn: runUCS,
-    color: "#06b6d4",
+    color: "var(--anim-cyan)",
     label: "UCS (Düzgün Maliyet)",
     desc: "min g(n) · bilgisiz · tam · optimal ✓"
   },
   IDS: {
     fn: runIDS,
-    color: "#f59e0b",
+    color: "var(--anim-amber)",
     label: "IDS (İteratif Derinleşme)",
     desc: "artan derinlik sınırı · bilgisiz · tam · optimal ✓ (birim maliyet)"
   },
   BIDIR: {
     fn: runBidir,
-    color: "#ec4899",
+    color: "var(--anim-pink)",
     label: "Çift Yönlü Arama",
     desc: "iki yönlü BFS · bilgisiz · tam · optimal ✓ (birim maliyet)"
   },
   GREEDY: {
     fn: runGreedy,
-    color: "#ef4444",
+    color: "var(--anim-red-soft)",
     label: "Greedy Best-First",
     desc: "f(n)=h(n) · sezgisel · tam DEĞİL · optimal DEĞİL"
   },
   ASTAR: {
     fn: runAstar,
-    color: "#10b981",
+    color: "var(--anim-teal)",
     label: "A* Arama",
     desc: "f(n)=g(n)+h(n) · sezgisel · tam · optimal ✓"
   }

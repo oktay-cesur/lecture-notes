@@ -1,21 +1,8 @@
+import { makeEl as htmlEl, makeSvg as svgEl } from "../core/dom.js";
 // superdense-anim.js
 // Superdense Coding protokolü — adım adım etkileşimli animasyon
 // data-anim="superdense" div'i ile çalışır
 
-const NS = "http://www.w3.org/2000/svg";
-
-function svgEl(tag, attrs) {
-  const el = document.createElementNS(NS, tag);
-  if (attrs) for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, String(v));
-  return el;
-}
-
-function htmlEl(tag, cls, text) {
-  const el = document.createElement(tag);
-  if (cls)  el.className = cls;
-  if (text != null) el.textContent = text;
-  return el;
-}
 
 // ── Protokol adım verisi ──────────────────────────────────────────────────────
 
@@ -171,12 +158,12 @@ function buildCircuit(container) {
   // ── Zone highlight rects (drawn first, behind everything) ─────────────────
   //   bell/bcnot/meas cover both wires; encode/channel/bh cover q₁ only
   const ZD = {
-    bell:    { x:54,  y:46, w:119, h:H-55, fill:"#dbeafe" },
-    encode:  { x:176, y:46, w:90,  h:46,   fill:"#fef9c3" },
-    channel: { x:270, y:46, w:76,  h:46,   fill:"#dcfce7" },
-    bcnot:   { x:349, y:46, w:56,  h:H-55, fill:"#d1fae5" },
-    bh:      { x:408, y:46, w:54,  h:46,   fill:"#d1fae5" },
-    meas:    { x:465, y:46, w:86,  h:H-55, fill:"#f3e8ff" },
+    bell:    { x:54,  y:46, w:119, h:H-55, fill:"color-mix(in srgb, var(--anim-blue) 22%, var(--anim-bg))" },
+    encode:  { x:176, y:46, w:90,  h:46,   fill:"color-mix(in srgb, var(--anim-amber) 22%, var(--anim-bg))" },
+    channel: { x:270, y:46, w:76,  h:46,   fill:"color-mix(in srgb, var(--anim-green) 22%, var(--anim-bg))" },
+    bcnot:   { x:349, y:46, w:56,  h:H-55, fill:"color-mix(in srgb, var(--anim-teal) 22%, var(--anim-bg))" },
+    bh:      { x:408, y:46, w:54,  h:46,   fill:"color-mix(in srgb, var(--anim-teal) 22%, var(--anim-bg))" },
+    meas:    { x:465, y:46, w:86,  h:H-55, fill:"color-mix(in srgb, var(--anim-purple) 22%, var(--anim-bg))" },
   };
   const zones = {};
   for (const [name, d] of Object.entries(ZD)) {
@@ -186,7 +173,7 @@ function buildCircuit(container) {
   }
 
   // ── Section labels ─────────────────────────────────────────────────────────
-  const slbAttrs = { "font-size":8.5, "font-family":"system-ui,sans-serif", fill:"#94a3b8" };
+  const slbAttrs = { "font-size":8.5, "font-family":"system-ui,sans-serif", fill:"var(--anim-muted)" };
   const slab = (x, txt) => {
     const t = svgEl("text", { x, y:40, "text-anchor":"middle", ...slbAttrs });
     t.textContent = txt;
@@ -200,11 +187,11 @@ function buildCircuit(container) {
   // ── Wire labels ────────────────────────────────────────────────────────────
   const wlab = (yw, main, sub) => {
     const t1 = svgEl("text", { x:2, y:yw-2, "text-anchor":"start",
-      fill:"#475569", "font-size":10, "font-weight":"bold", "font-family":"system-ui,sans-serif" });
+      fill:"var(--anim-border-strong)", "font-size":10, "font-weight":"bold", "font-family":"system-ui,sans-serif" });
     t1.textContent = main;
     svg.appendChild(t1);
     const t2 = svgEl("text", { x:2, y:yw+10, "text-anchor":"start",
-      fill:"#94a3b8", "font-size":8, "font-family":"system-ui,sans-serif" });
+      fill:"var(--anim-muted)", "font-size":8, "font-family":"system-ui,sans-serif" });
     t2.textContent = sub;
     svg.appendChild(t2);
   };
@@ -214,71 +201,71 @@ function buildCircuit(container) {
   // ── Wires ──────────────────────────────────────────────────────────────────
   // q₁: solid → dashed channel → solid
   svg.appendChild(svgEl("line", {
-    x1:53, y1:Q1, x2:270, y2:Q1, stroke:"#475569", "stroke-width":1.5 }));
+    x1:53, y1:Q1, x2:270, y2:Q1, stroke:"var(--anim-border-strong)", "stroke-width":1.5 }));
   svg.appendChild(svgEl("line", {
-    x1:270, y1:Q1, x2:346, y2:Q1, stroke:"#16a34a", "stroke-width":2, "stroke-dasharray":"6 3" }));
+    x1:270, y1:Q1, x2:346, y2:Q1, stroke:"var(--anim-green)", "stroke-width":2, "stroke-dasharray":"6 3" }));
   svg.appendChild(svgEl("line", {
-    x1:346, y1:Q1, x2:484, y2:Q1, stroke:"#475569", "stroke-width":1.5 }));
+    x1:346, y1:Q1, x2:484, y2:Q1, stroke:"var(--anim-border-strong)", "stroke-width":1.5 }));
   // q₂: full solid
   svg.appendChild(svgEl("line", {
-    x1:53, y1:Q2, x2:484, y2:Q2, stroke:"#475569", "stroke-width":1.5 }));
+    x1:53, y1:Q2, x2:484, y2:Q2, stroke:"var(--anim-border-strong)", "stroke-width":1.5 }));
 
   // channel arrow (pointing right, along dashed segment)
   svg.appendChild(svgEl("polygon", {
     points: `${290},${Q1-6} ${314},${Q1} ${290},${Q1+6}`,
-    fill:"#16a34a", opacity:0.8,
+    fill:"var(--anim-green)", opacity:0.8,
   }));
 
   // ── Gate helper ────────────────────────────────────────────────────────────
   function gbox(cx, cy, w, label, fill2) {
     svg.appendChild(svgEl("rect", {
       x:cx-w/2, y:cy-11, width:w, height:22, rx:3,
-      fill:fill2 || "white", stroke:"#334155", "stroke-width":1.5 }));
+      fill:fill2 || "var(--anim-bg)", stroke:"var(--anim-border)", "stroke-width":1.5 }));
     const t = svgEl("text", {
-      x:cx, y:cy+4, "text-anchor":"middle", fill:"#1e3a5f",
+      x:cx, y:cy+4, "text-anchor":"middle", fill:"var(--anim-strong)",
       "font-size":11, "font-weight":"bold", "font-family":"system-ui,sans-serif" });
     t.textContent = label;
     svg.appendChild(t);
   }
 
   function cnot(x, y1, y2) {
-    svg.appendChild(svgEl("line",   { x1:x, y1:y1, x2:x, y2:y2, stroke:"#334155", "stroke-width":1.5 }));
-    svg.appendChild(svgEl("circle", { cx:x, cy:y1, r:5, fill:"#334155" }));
-    svg.appendChild(svgEl("circle", { cx:x, cy:y2, r:8, fill:"none", stroke:"#334155", "stroke-width":1.5 }));
-    svg.appendChild(svgEl("line",   { x1:x, y1:y2-8, x2:x, y2:y2+8, stroke:"#334155", "stroke-width":1.5 }));
-    svg.appendChild(svgEl("line",   { x1:x-8, y1:y2, x2:x+8, y2:y2, stroke:"#334155", "stroke-width":1.5 }));
+    svg.appendChild(svgEl("line",   { x1:x, y1:y1, x2:x, y2:y2, stroke:"var(--anim-border)", "stroke-width":1.5 }));
+    svg.appendChild(svgEl("circle", { cx:x, cy:y1, r:5, fill:"var(--anim-border)" }));
+    svg.appendChild(svgEl("circle", { cx:x, cy:y2, r:8, fill:"none", stroke:"var(--anim-border)", "stroke-width":1.5 }));
+    svg.appendChild(svgEl("line",   { x1:x, y1:y2-8, x2:x, y2:y2+8, stroke:"var(--anim-border)", "stroke-width":1.5 }));
+    svg.appendChild(svgEl("line",   { x1:x-8, y1:y2, x2:x+8, y2:y2, stroke:"var(--anim-border)", "stroke-width":1.5 }));
   }
 
   function mbox(cx, y) {
-    svg.appendChild(svgEl("rect",   { x:cx-13, y:y-11, width:26, height:22, rx:3, fill:"white", stroke:"#334155", "stroke-width":1.5 }));
-    svg.appendChild(svgEl("path",   { d:`M${cx-7},${y+3} A7,7 0 0,1 ${cx+7},${y+3}`, fill:"none", stroke:"#334155", "stroke-width":1.2 }));
-    svg.appendChild(svgEl("line",   { x1:cx, y1:y+3, x2:cx+5, y2:y-3, stroke:"#334155", "stroke-width":1.2 }));
+    svg.appendChild(svgEl("rect",   { x:cx-13, y:y-11, width:26, height:22, rx:3, fill:"var(--anim-bg)", stroke:"var(--anim-border)", "stroke-width":1.5 }));
+    svg.appendChild(svgEl("path",   { d:`M${cx-7},${y+3} A7,7 0 0,1 ${cx+7},${y+3}`, fill:"none", stroke:"var(--anim-border)", "stroke-width":1.2 }));
+    svg.appendChild(svgEl("line",   { x1:cx, y1:y+3, x2:cx+5, y2:y-3, stroke:"var(--anim-border)", "stroke-width":1.2 }));
   }
 
   // ── Static gates ───────────────────────────────────────────────────────────
-  gbox(92,  Q1, 26, "H",  "#dbeafe");   // Bell H
+  gbox(92,  Q1, 26, "H",  "var(--anim-blue-bg)");   // Bell H
   cnot(145, Q1, Q2);                     // Bell CNOT
   cnot(377, Q1, Q2);                     // Balvis CNOT
-  gbox(435, Q1, 26, "H",  "#dbeafe");   // Balvis H
+  gbox(435, Q1, 26, "H",  "var(--anim-blue-bg)");   // Balvis H
   mbox(498, Q1);                         // Measurement q₁
   mbox(498, Q2);                         // Measurement q₂
 
   // ── Dynamic encoding gate (label changes with message) ────────────────────
   svg.appendChild(svgEl("rect", {
     x:221-22, y:Q1-11, width:44, height:22, rx:3,
-    fill:"#fef08a", stroke:"#ca8a04", "stroke-width":1.5 }));
+    fill:"color-mix(in srgb, var(--anim-amber) 22%, var(--anim-bg))", stroke:"var(--anim-amber-soft)", "stroke-width":1.5 }));
   const encText = svgEl("text", {
-    x:221, y:Q1+4, "text-anchor":"middle", fill:"#92400e",
+    x:221, y:Q1+4, "text-anchor":"middle", fill:"var(--anim-amber-soft)",
     "font-size":11, "font-weight":"bold", "font-family":"system-ui,sans-serif" });
   encText.textContent = "I";
   svg.appendChild(encText);
 
   // ── Result bits (shown on measurement) ────────────────────────────────────
   const bit1 = svgEl("text", {
-    x:524, y:Q1+4, "text-anchor":"start", fill:"#6b7280",
+    x:524, y:Q1+4, "text-anchor":"start", fill:"var(--anim-muted-2)",
     "font-size":14, "font-weight":"bold", "font-family":"system-ui,sans-serif" });
   const bit2 = svgEl("text", {
-    x:524, y:Q2+4, "text-anchor":"start", fill:"#6b7280",
+    x:524, y:Q2+4, "text-anchor":"start", fill:"var(--anim-muted-2)",
     "font-size":14, "font-weight":"bold", "font-family":"system-ui,sans-serif" });
   bit1.textContent = "?";
   bit2.textContent = "?";
@@ -313,7 +300,7 @@ function superdenseCoding(container) {
   const stateDiv = htmlEl("div");
   stateDiv.style.cssText =
     "text-align:center;font-family:'Courier New',monospace;font-size:0.98rem;" +
-    "color:#1e3a5f;font-weight:500;margin:0.5rem 0 0.2rem;min-height:1.6em";
+    "color:var(--anim-text);font-weight:500;margin:0.5rem 0 0.2rem;min-height:1.6em";
   container.appendChild(stateDiv);
 
   // navigasyon
@@ -322,7 +309,7 @@ function superdenseCoding(container) {
   const btnPrev  = htmlEl("button", "pq-btn", "← Önceki");
   const stepSpan = htmlEl("span");
   stepSpan.style.cssText =
-    "font-size:0.8rem;color:#64748b;min-width:5.5rem;text-align:center;font-family:system-ui,sans-serif";
+    "font-size:0.8rem;color:var(--anim-muted-2);min-width:5.5rem;text-align:center;font-family:system-ui,sans-serif";
   const btnNext  = htmlEl("button", "pq-btn", "Sonraki →");
   navRow.append(btnPrev, stepSpan, btnNext);
   container.appendChild(navRow);
@@ -330,7 +317,7 @@ function superdenseCoding(container) {
   // açıklama
   const descDiv = htmlEl("div");
   descDiv.style.cssText =
-    "text-align:center;font-size:0.82rem;color:#475569;" +
+    "text-align:center;font-size:0.82rem;color:var(--anim-border-strong);" +
     "font-family:system-ui,sans-serif;min-height:2.5em;padding:0.1rem 1rem;line-height:1.4";
   container.appendChild(descDiv);
 
@@ -344,8 +331,8 @@ function superdenseCoding(container) {
 
     // mesaj buton rengi
     for (const [m, b] of Object.entries(msgBtns)) {
-      b.style.background = m === msg ? "#1e3a5f" : "";
-      b.style.color      = m === msg ? "white"   : "";
+      b.style.background = m === msg ? "var(--anim-blue-strong)" : "";
+      b.style.color      = m === msg ? "var(--anim-on-accent)" : "";
     }
 
     // kodlama kapısı
@@ -359,13 +346,13 @@ function superdenseCoding(container) {
     if (s.result) {
       bit1.textContent = s.result[0];
       bit2.textContent = s.result[1];
-      bit1.setAttribute("fill", "#16a34a");
-      bit2.setAttribute("fill", "#16a34a");
+      bit1.setAttribute("fill", "var(--anim-green)");
+      bit2.setAttribute("fill", "var(--anim-green)");
     } else {
       bit1.textContent = "?";
       bit2.textContent = "?";
-      bit1.setAttribute("fill", "#6b7280");
-      bit2.setAttribute("fill", "#6b7280");
+      bit1.setAttribute("fill", "var(--anim-muted-2)");
+      bit2.setAttribute("fill", "var(--anim-muted-2)");
     }
 
     stateDiv.textContent = s.state;
@@ -385,8 +372,6 @@ function superdenseCoding(container) {
   render();
 }
 
-export function mountSuperdenseAnimations() {
-  for (const div of document.querySelectorAll('[data-anim="superdense"]')) {
-    superdenseCoding(div);
-  }
+export function mount(div, dataset = div.dataset) {
+  superdenseCoding(div);
 }

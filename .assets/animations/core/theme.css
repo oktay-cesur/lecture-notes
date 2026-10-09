@@ -1,0 +1,331 @@
+/* Animasyon ve sunum ortak renk jetonları.
+   Her tema tek bir [data-anim-theme="…"] bloğudur ve TÜM jetonları tanımlar
+   (make check-animations denetler). <html data-anim-theme="…"> sayfa temasını,
+   öğe üzerindeki aynı öznitelik yalnızca o öğenin temasını belirler (önizleme için).
+   Varsayılan: light. Tema listesi ve etiketleri core/theme.js içindedir. */
+
+:root,
+[data-anim-theme="light"] {
+  --anim-bg: #ffffff;
+  --anim-panel: #f8fafc;
+  --anim-surface: #f1f5f9;
+  --anim-border: #cbd5e1;
+  --anim-border-strong: #94a3b8;
+  --anim-muted-2: #64748b;
+  --anim-muted: #475569;
+  --anim-text-2: #334155;
+  --anim-text: #1e293b;
+  --anim-strong: #0f172a;
+  --anim-on-accent: #ffffff;
+  --anim-blue-bg: #dbeafe;
+  --anim-blue-bg-hover: #bfdbfe;
+  --anim-blue-deep: #dbeafe;
+  --anim-purple-bg: #ede9fe;
+  --anim-red-bg: #fee2e2;
+  --anim-rose-bg: #fce7f3;
+  --anim-wire: #93c5fd;
+  --anim-cell-light: #e2e8f0;
+  --anim-cell-dark: #94a3b8;
+  --anim-blue: #2563eb;
+  --anim-blue-strong: #1d4ed8;
+  --anim-sky: #0284c7;
+  --anim-cyan: #0891b2;
+  --anim-teal: #0d9488;
+  --anim-green: #16a34a;
+  --anim-amber: #d97706;
+  --anim-amber-soft: #b45309;
+  --anim-red: #dc2626;
+  --anim-red-soft: #ef4444;
+  --anim-purple: #7c3aed;
+  --anim-pink: #db2777;
+  --anim-slide-bg: #fafafa;
+  --anim-slide-text: #282a36;
+  --anim-slide-heading: #6d3fb8;
+  --anim-slide-link: #b3267a;
+  --anim-slide-link-hover: #0e7490;
+  --anim-slide-bold: #b45309;
+  --anim-slide-italic: #7c6a00;
+  --anim-slide-code: #1a7f37;
+  --anim-slide-bullet: #0e7490;
+  --anim-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+  color-scheme: light;
+}
+
+[data-anim-theme="dark"] {
+  --anim-bg: #0f172a;
+  --anim-panel: #111827;
+  --anim-surface: #1e293b;
+  --anim-border: #334155;
+  --anim-border-strong: #475569;
+  --anim-muted-2: #64748b;
+  --anim-muted: #94a3b8;
+  --anim-text-2: #cbd5e1;
+  --anim-text: #e2e8f0;
+  --anim-strong: #f8fafc;
+  --anim-on-accent: #f8fafc;
+  --anim-blue-bg: #1e3a5f;
+  --anim-blue-bg-hover: #2d4f8a;
+  --anim-blue-deep: #172554;
+  --anim-purple-bg: #3f1d67;
+  --anim-red-bg: #3f1111;
+  --anim-rose-bg: #3b1f2b;
+  --anim-wire: #1e3a5f;
+  --anim-cell-light: #334155;
+  --anim-cell-dark: #1e293b;
+  --anim-blue: #60a5fa;
+  --anim-blue-strong: #3b82f6;
+  --anim-sky: #38bdf8;
+  --anim-cyan: #22d3ee;
+  --anim-teal: #2dd4bf;
+  --anim-green: #22c55e;
+  --anim-amber: #f59e0b;
+  --anim-amber-soft: #fbbf24;
+  --anim-red: #f87171;
+  --anim-red-soft: #ef4444;
+  --anim-purple: #a78bfa;
+  --anim-pink: #f472b6;
+  --anim-slide-bg: #282a36;
+  --anim-slide-text: #f8f8f2;
+  --anim-slide-heading: #bd93f9;
+  --anim-slide-link: #ff79c6;
+  --anim-slide-link-hover: #8be9fd;
+  --anim-slide-bold: #ffb86c;
+  --anim-slide-italic: #f1fa8c;
+  --anim-slide-code: #50fa7b;
+  --anim-slide-bullet: #8be9fd;
+  --anim-shadow: none;
+  color-scheme: dark;
+}
+
+[data-anim-theme="sepia"] {
+  --anim-bg: #f6efdc;
+  --anim-panel: #f0e6cc;
+  --anim-surface: #e9dcbc;
+  --anim-border: #d3c4a0;
+  --anim-border-strong: #b5a27a;
+  --anim-muted-2: #8a7a5a;
+  --anim-muted: #6b5d42;
+  --anim-text-2: #4a3f2c;
+  --anim-text: #3b3224;
+  --anim-strong: #2a2318;
+  --anim-on-accent: #fffaf0;
+  --anim-blue-bg: #dbe6ef;
+  --anim-blue-bg-hover: #c5d7e6;
+  --anim-blue-deep: #dbe6ef;
+  --anim-purple-bg: #e6dcee;
+  --anim-red-bg: #f3d9d0;
+  --anim-rose-bg: #f1dce0;
+  --anim-wire: #a9b9c6;
+  --anim-cell-light: #ecdcb8;
+  --anim-cell-dark: #b89f6e;
+  --anim-blue: #1d5fa8;
+  --anim-blue-strong: #17497f;
+  --anim-sky: #0b6e99;
+  --anim-cyan: #0f7c8a;
+  --anim-teal: #1f7a6b;
+  --anim-green: #3f7d20;
+  --anim-amber: #b36a00;
+  --anim-amber-soft: #8a5200;
+  --anim-red: #b3341f;
+  --anim-red-soft: #c8472f;
+  --anim-purple: #6a4c9c;
+  --anim-pink: #b0407a;
+  --anim-slide-bg: #f4ecd8;
+  --anim-slide-text: #3b3224;
+  --anim-slide-heading: #7a3e00;
+  --anim-slide-link: #1d5fa8;
+  --anim-slide-link-hover: #b36a00;
+  --anim-slide-bold: #8a3d00;
+  --anim-slide-italic: #6b5d00;
+  --anim-slide-code: #3f7d20;
+  --anim-slide-bullet: #0b6e99;
+  --anim-shadow: 0 1px 3px rgba(74, 63, 44, 0.18);
+  color-scheme: light;
+}
+
+[data-anim-theme="ocean"] {
+  --anim-bg: #0b1f2a;
+  --anim-panel: #0e2733;
+  --anim-surface: #123445;
+  --anim-border: #1f4a5f;
+  --anim-border-strong: #2f6b85;
+  --anim-muted-2: #5d8ea3;
+  --anim-muted: #8fb5c6;
+  --anim-text-2: #c0dbe6;
+  --anim-text: #dcecf3;
+  --anim-strong: #f2fafd;
+  --anim-on-accent: #f2fafd;
+  --anim-blue-bg: #14506b;
+  --anim-blue-bg-hover: #1c6a8a;
+  --anim-blue-deep: #0f3a52;
+  --anim-purple-bg: #2e2a63;
+  --anim-red-bg: #4a1f26;
+  --anim-rose-bg: #44243a;
+  --anim-wire: #1f5a75;
+  --anim-cell-light: #1f4a5f;
+  --anim-cell-dark: #123445;
+  --anim-blue: #5cc8ff;
+  --anim-blue-strong: #2aa7e8;
+  --anim-sky: #4fd1e8;
+  --anim-cyan: #2ee6d6;
+  --anim-teal: #34d6b0;
+  --anim-green: #5fe08a;
+  --anim-amber: #ffb84d;
+  --anim-amber-soft: #ffd166;
+  --anim-red: #ff7b72;
+  --anim-red-soft: #ff5c5c;
+  --anim-purple: #b39ddb;
+  --anim-pink: #ff8fc7;
+  --anim-slide-bg: #0a1a24;
+  --anim-slide-text: #dcecf3;
+  --anim-slide-heading: #5cc8ff;
+  --anim-slide-link: #34d6b0;
+  --anim-slide-link-hover: #ffb84d;
+  --anim-slide-bold: #ffb84d;
+  --anim-slide-italic: #ffd166;
+  --anim-slide-code: #5fe08a;
+  --anim-slide-bullet: #4fd1e8;
+  --anim-shadow: none;
+  color-scheme: dark;
+}
+
+[data-anim-theme="contrast"] {
+  --anim-bg: #000000;
+  --anim-panel: #000000;
+  --anim-surface: #141414;
+  --anim-border: #8c8c8c;
+  --anim-border-strong: #ffffff;
+  --anim-muted-2: #b3b3b3;
+  --anim-muted: #d9d9d9;
+  --anim-text-2: #f0f0f0;
+  --anim-text: #ffffff;
+  --anim-strong: #ffffff;
+  --anim-on-accent: #000000;
+  --anim-blue-bg: #0a3d91;
+  --anim-blue-bg-hover: #1456c0;
+  --anim-blue-deep: #00205b;
+  --anim-purple-bg: #3d1a7a;
+  --anim-red-bg: #7a0f0f;
+  --anim-rose-bg: #6b0f3d;
+  --anim-wire: #3d7bd9;
+  --anim-cell-light: #3a3a3a;
+  --anim-cell-dark: #141414;
+  --anim-blue: #66b3ff;
+  --anim-blue-strong: #4da3ff;
+  --anim-sky: #00d4ff;
+  --anim-cyan: #00ffff;
+  --anim-teal: #00ffc8;
+  --anim-green: #00ff66;
+  --anim-amber: #ffcc00;
+  --anim-amber-soft: #ffe066;
+  --anim-red: #ff6b6b;
+  --anim-red-soft: #ff4d4d;
+  --anim-purple: #c6a3ff;
+  --anim-pink: #ff7ad9;
+  --anim-slide-bg: #000000;
+  --anim-slide-text: #ffffff;
+  --anim-slide-heading: #ffcc00;
+  --anim-slide-link: #66b3ff;
+  --anim-slide-link-hover: #00ffff;
+  --anim-slide-bold: #ffcc00;
+  --anim-slide-italic: #00ff66;
+  --anim-slide-code: #00ff66;
+  --anim-slide-bullet: #00ffff;
+  --anim-shadow: none;
+  color-scheme: dark;
+}
+
+.anim-theme-toggle {
+  position: fixed;
+  right: 14px;
+  top: 14px;
+  z-index: 1000;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--anim-border);
+  border-radius: 50%;
+  background: var(--anim-panel);
+  color: var(--anim-text);
+  font: 700 13px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.15s;
+}
+
+.anim-theme-toggle:hover,
+.anim-theme-toggle:focus-visible,
+.anim-theme-toggle[aria-expanded="true"] {
+  opacity: 1;
+}
+
+.anim-theme-menu {
+  position: fixed;
+  right: 14px;
+  top: 54px;
+  z-index: 1001;
+  display: grid;
+  gap: 2px;
+  min-width: 190px;
+  padding: 6px;
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
+  background: var(--anim-panel);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  font: 14px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.anim-theme-menu[hidden] {
+  display: none;
+}
+
+.anim-theme-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--anim-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.anim-theme-menu button:hover,
+.anim-theme-menu button:focus-visible {
+  background: var(--anim-surface);
+}
+
+.anim-theme-menu button[aria-checked="true"] {
+  font-weight: 700;
+  background: var(--anim-surface);
+}
+
+.anim-theme-swatch {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  width: 30px;
+  height: 18px;
+  overflow: hidden;
+  border: 1px solid var(--anim-border);
+  border-radius: 4px;
+  background: var(--anim-bg);
+}
+
+.anim-theme-swatch i {
+  background: var(--anim-bg);
+}
+
+.anim-theme-swatch i + i {
+  background: var(--anim-blue);
+}
+
+/* Sunum/site teması başlık renklerini animasyon içine taşımasın. */
+[data-anim] :is(h1, h2, h3, h4, h5, h6),
+.reveal [data-anim] :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--anim-strong);
+  text-transform: none;
+}

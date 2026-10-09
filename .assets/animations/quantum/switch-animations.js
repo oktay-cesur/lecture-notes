@@ -1,21 +1,8 @@
+import { makeEl as htmlEl, makeSvg as svgEl } from "../core/dom.js";
 // switch-animations.js
 // Klasik bit — elektriksel anahtar görselleştirmesi
 // Sahneler: bit-switch | byte-switch
 
-const NS = "http://www.w3.org/2000/svg";
-
-function svgEl(tag, attrs = {}) {
-  const el = document.createElementNS(NS, tag);
-  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, String(v));
-  return el;
-}
-
-function htmlEl(tag, cls = null, text = null) {
-  const el = document.createElement(tag);
-  if (cls) el.className = cls;
-  if (text !== null) el.textContent = text;
-  return el;
-}
 
 function easeInOut(t) {
   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
@@ -45,28 +32,28 @@ function bitSwitch(container) {
 
   svg.appendChild(svgEl("line", {
     x1: 30, y1: wy, x2: pivX - 6, y2: wy,
-    stroke: "#1e3a5f", "stroke-width": 3, "stroke-linecap": "round"
+    stroke: "var(--anim-wire)", "stroke-width": 3, "stroke-linecap": "round"
   }));
   svg.appendChild(svgEl("line", {
     x1: ctX + 6, y1: wy, x2: 370, y2: wy,
-    stroke: "#1e3a5f", "stroke-width": 3, "stroke-linecap": "round"
+    stroke: "var(--anim-wire)", "stroke-width": 3, "stroke-linecap": "round"
   }));
 
   svg.appendChild(svgEl("line", {
     x1: pivX, y1: wy - 14, x2: pivX, y2: wy + 14,
-    stroke: "#475569", "stroke-width": 2
+    stroke: "var(--anim-border-strong)", "stroke-width": 2
   }));
-  svg.appendChild(svgEl("circle", { cx: pivX, cy: wy, r: 5, fill: "#60a5fa" }));
+  svg.appendChild(svgEl("circle", { cx: pivX, cy: wy, r: 5, fill: "var(--anim-blue)" }));
 
   svg.appendChild(svgEl("line", {
     x1: ctX, y1: wy - 14, x2: ctX, y2: wy + 14,
-    stroke: "#475569", "stroke-width": 2
+    stroke: "var(--anim-border-strong)", "stroke-width": 2
   }));
-  const rightDot = svgEl("circle", { cx: ctX, cy: wy, r: 5, fill: "#334155" });
+  const rightDot = svgEl("circle", { cx: ctX, cy: wy, r: 5, fill: "var(--anim-border)" });
   svg.appendChild(rightDot);
 
   const lever = svgEl("line", {
-    stroke: "#f59e0b", "stroke-width": 3.5, "stroke-linecap": "round"
+    stroke: "var(--anim-amber)", "stroke-width": 3.5, "stroke-linecap": "round"
   });
   svg.appendChild(lever);
 
@@ -74,7 +61,7 @@ function bitSwitch(container) {
     x: 420, y: wy - 22,
     "text-anchor": "middle",
     "font-size": 12, "font-weight": "bold",
-    fill: "#475569", "font-family": "system-ui, sans-serif",
+    fill: "var(--anim-border-strong)", "font-family": "system-ui, sans-serif",
     "letter-spacing": 2
   });
   bitLabel.textContent = "BIT";
@@ -84,14 +71,14 @@ function bitSwitch(container) {
     x: 420, y: wy + 16,
     "text-anchor": "middle",
     "font-size": 52, "font-weight": "bold",
-    fill: "#60a5fa", "font-family": "monospace"
+    fill: "var(--anim-blue)", "font-family": "monospace"
   });
   svg.appendChild(bitVal);
 
   const stateLabel = svgEl("text", {
     x: 420, y: wy + 40,
     "text-anchor": "middle",
-    "font-size": 11, fill: "#475569",
+    "font-size": 11, fill: "var(--anim-border-strong)",
     "font-family": "system-ui, sans-serif"
   });
   svg.appendChild(stateLabel);
@@ -113,16 +100,16 @@ function bitSwitch(container) {
   function applyState(closed) {
     if (closed) {
       bitVal.textContent = "1";
-      bitVal.setAttribute("fill", "#22d3ee");
+      bitVal.setAttribute("fill", "var(--anim-cyan)");
       stateLabel.textContent = "kapalı devre";
-      stateLabel.setAttribute("fill", "#22d3ee");
-      rightDot.setAttribute("fill", "#22d3ee");
+      stateLabel.setAttribute("fill", "var(--anim-cyan)");
+      rightDot.setAttribute("fill", "var(--anim-cyan)");
     } else {
       bitVal.textContent = "0";
-      bitVal.setAttribute("fill", "#60a5fa");
+      bitVal.setAttribute("fill", "var(--anim-blue)");
       stateLabel.textContent = "açık devre";
-      stateLabel.setAttribute("fill", "#475569");
-      rightDot.setAttribute("fill", "#334155");
+      stateLabel.setAttribute("fill", "var(--anim-border-strong)");
+      rightDot.setAttribute("fill", "var(--anim-border)");
     }
   }
 
@@ -196,7 +183,7 @@ function byteSwitch(container) {
     x: W / 2, y: 16,
     "text-anchor": "middle",
     "font-size": 11, "font-weight": "bold",
-    fill: "#334155", "font-family": "system-ui, sans-serif",
+    fill: "var(--anim-border)", "font-family": "system-ui, sans-serif",
     "letter-spacing": 3
   });
   hdrLbl.textContent = "BYTE";
@@ -206,7 +193,7 @@ function byteSwitch(container) {
   const colHdr = (x, txt) => {
     const t = svgEl("text", {
       x, y: TOP - 6, "text-anchor": "middle",
-      "font-size": 8, fill: "#334155", "font-family": "monospace"
+      "font-size": 8, fill: "var(--anim-border)", "font-family": "monospace"
     });
     t.textContent = txt;
     svg.appendChild(t);
@@ -230,7 +217,7 @@ function byteSwitch(container) {
     const posLbl = svgEl("text", {
       x: 18, y: wy + 4,
       "text-anchor": "middle",
-      "font-size": 9, fill: "#334155", "font-family": "monospace"
+      "font-size": 9, fill: "var(--anim-border)", "font-family": "monospace"
     });
     posLbl.textContent = String(N - 1 - i);
     svg.appendChild(posLbl);
@@ -238,34 +225,34 @@ function byteSwitch(container) {
     // Sol tel
     svg.appendChild(svgEl("line", {
       x1: 30, y1: wy, x2: pivX - 5, y2: wy,
-      stroke: "#1e3a5f", "stroke-width": 2, "stroke-linecap": "round"
+      stroke: "var(--anim-wire)", "stroke-width": 2, "stroke-linecap": "round"
     }));
 
     // Sağ tel (ctX=138 → 142 to 188)
     svg.appendChild(svgEl("line", {
       x1: ctX + 4, y1: wy, x2: 188, y2: wy,
-      stroke: "#1e3a5f", "stroke-width": 2, "stroke-linecap": "round"
+      stroke: "var(--anim-wire)", "stroke-width": 2, "stroke-linecap": "round"
     }));
 
     // Pivot
     svg.appendChild(svgEl("line", {
       x1: pivX, y1: wy - 10, x2: pivX, y2: wy + 10,
-      stroke: "#475569", "stroke-width": 1.5
+      stroke: "var(--anim-border-strong)", "stroke-width": 1.5
     }));
-    svg.appendChild(svgEl("circle", { cx: pivX, cy: wy, r: 3.5, fill: "#60a5fa" }));
+    svg.appendChild(svgEl("circle", { cx: pivX, cy: wy, r: 3.5, fill: "var(--anim-blue)" }));
 
     // Sağ kontak
     svg.appendChild(svgEl("line", {
       x1: ctX, y1: wy - 10, x2: ctX, y2: wy + 10,
-      stroke: "#475569", "stroke-width": 1.5
+      stroke: "var(--anim-border-strong)", "stroke-width": 1.5
     }));
-    const rd = svgEl("circle", { cx: ctX, cy: wy, r: 3.5, fill: "#334155" });
+    const rd = svgEl("circle", { cx: ctX, cy: wy, r: 3.5, fill: "var(--anim-border)" });
     svg.appendChild(rd);
     rightDots.push(rd);
 
     // Anahtar kolu
     const lev = svgEl("line", {
-      stroke: "#f59e0b", "stroke-width": 2.5, "stroke-linecap": "round"
+      stroke: "var(--anim-amber)", "stroke-width": 2.5, "stroke-linecap": "round"
     });
     svg.appendChild(lev);
     leverEls.push({ el: lev, wy });
@@ -275,7 +262,7 @@ function byteSwitch(container) {
       x: W - 30, y: wy + 4,
       "text-anchor": "middle",
       "font-size": 13, "font-weight": "bold",
-      fill: "#60a5fa", "font-family": "monospace"
+      fill: "var(--anim-blue)", "font-family": "monospace"
     });
     bl.textContent = "0";
     svg.appendChild(bl);
@@ -295,14 +282,14 @@ function byteSwitch(container) {
   const sepY = TOP + N * ROW_H + 8;
   svg.appendChild(svgEl("line", {
     x1: 20, y1: sepY, x2: W - 20, y2: sepY,
-    stroke: "#1e293b", "stroke-width": 1
+    stroke: "var(--anim-surface)", "stroke-width": 1
   }));
 
   const binaryTxt = svgEl("text", {
     x: W / 2, y: sepY + 18,
     "text-anchor": "middle",
     "font-size": 15, "font-weight": "bold",
-    fill: "#94a3b8", "font-family": "monospace",
+    fill: "var(--anim-muted)", "font-family": "monospace",
     "letter-spacing": 3
   });
   svg.appendChild(binaryTxt);
@@ -311,7 +298,7 @@ function byteSwitch(container) {
     x: W / 2, y: sepY + 38,
     "text-anchor": "middle",
     "font-size": 13,
-    fill: "#475569", "font-family": "system-ui, sans-serif"
+    fill: "var(--anim-border-strong)", "font-family": "system-ui, sans-serif"
   });
   svg.appendChild(decimalTxt);
 
@@ -333,8 +320,8 @@ function byteSwitch(container) {
   function applyBit(i, val) {
     bits[i] = val;
     bitLabels[i].textContent = val ? "1" : "0";
-    bitLabels[i].setAttribute("fill", val ? "#22d3ee" : "#60a5fa");
-    rightDots[i].setAttribute("fill", val ? "#22d3ee" : "#334155");
+    bitLabels[i].setAttribute("fill", val ? "var(--anim-cyan)" : "var(--anim-blue)");
+    rightDots[i].setAttribute("fill", val ? "var(--anim-cyan)" : "var(--anim-border)");
   }
 
   function updateDisplay() {
@@ -342,7 +329,7 @@ function byteSwitch(container) {
     const dec    = parseInt(binStr, 2);
     binaryTxt.textContent = binStr;
     decimalTxt.textContent = `= ${dec}`;
-    decimalTxt.setAttribute("fill", dec > 0 ? "#22d3ee" : "#475569");
+    decimalTxt.setAttribute("fill", dec > 0 ? "var(--anim-cyan)" : "var(--anim-border-strong)");
   }
 
   function animBit(i, toDeg, onDone) {
@@ -426,11 +413,9 @@ function byteSwitch(container) {
 
 // ─── Entry point ──────────────────────────────────────────────────────────────
 
-export function mountSwitchAnimations() {
-  for (const div of document.querySelectorAll('[data-anim="switch"]')) {
-    const scene = (div.dataset.scene || "").trim();
-    div.classList.add("pq-container");
-    if      (scene === "bit-switch")  bitSwitch(div);
-    else if (scene === "byte-switch") byteSwitch(div);
-  }
+export function mount(div, dataset = div.dataset) {
+  const scene = (dataset.scene || "").trim();
+  div.classList.add("pq-container");
+  if      (scene === "bit-switch")  bitSwitch(div);
+  else if (scene === "byte-switch") byteSwitch(div);
 }

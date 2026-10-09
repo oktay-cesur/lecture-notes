@@ -1,21 +1,21 @@
-const SVG_NS = "http://www.w3.org/2000/svg";
+import { makeEl as el, makeSvg as svgEl } from "../core/dom.js";
 
 const COLORS = {
-  bg: "#0f172a",
-  panel: "#111827",
-  panel2: "#1e293b",
-  text: "#e2e8f0",
-  strong: "#f8fafc",
-  muted: "#94a3b8",
-  border: "#334155",
-  blue: "#60a5fa",
-  cyan: "#38bdf8",
-  teal: "#2dd4bf",
-  amber: "#f59e0b",
-  rose: "#f87171",
-  green: "#22c55e",
-  purple: "#a78bfa",
-  red: "#ef4444"
+  bg: "var(--anim-bg)",
+  panel: "var(--anim-panel)",
+  panel2: "var(--anim-surface)",
+  text: "var(--anim-text)",
+  strong: "var(--anim-strong)",
+  muted: "var(--anim-muted)",
+  border: "var(--anim-border)",
+  blue: "var(--anim-blue)",
+  cyan: "var(--anim-sky)",
+  teal: "var(--anim-teal)",
+  amber: "var(--anim-amber)",
+  rose: "var(--anim-red)",
+  green: "var(--anim-green)",
+  purple: "var(--anim-purple)",
+  red: "var(--anim-red-soft)"
 };
 
 const CLASS_META = {
@@ -103,20 +103,6 @@ const PATCHES = [
     klass: "unsuitable"
   }
 ];
-
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text != null) node.textContent = text;
-  return node;
-}
-
-function svgEl(tag, attrs = {}, text) {
-  const node = document.createElementNS(SVG_NS, tag);
-  Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, String(value)));
-  if (text != null) node.textContent = text;
-  return node;
-}
 
 function clear(root) {
   while (root.firstChild) root.removeChild(root.firstChild);
@@ -227,7 +213,7 @@ function addArrow(svg, x1, y1, x2, y2, color = COLORS.muted, klass = "") {
 
 function grayFor(value) {
   const v = Math.max(0, Math.min(255, value));
-  return `rgb(${v}, ${v}, ${v})`;
+  return `rgb(${v}, ${v}, ${v})`; // anim-allow-color: piksel verisi
 }
 
 function readablePixelText(value) {

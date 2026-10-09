@@ -1,171 +1,361 @@
 ---
-title: "TCP/IP Protokol Kümesi ve Temel Protokoller"
-subtitle: "BLP 1003 — Bilgisayar Ağları"
+title: "TCP/IP Kümesi ve Temel Protokoller"
+subtitle: "BLP 1003 — Bilgisayar Ağları · 5. Hafta"
 type: presentation
+lang: tr
 author: "Öğr. Gör. Oktay Cesur"
-date: 2026-09-12
+date: 2026-10-05
 execute:
   echo: false
 ---
 
-::: {.callout-warning}
-## Taslak Çalışma Notu
-Bu doküman BLP 1003 Bilgisayar Ağları dersi için resmî izlence ve mevcut sunum malzemesi temel alınarak hazırlanmış ilk çalışma taslağıdır. Haftalık pedagojik revizyonlarla olgunlaştırılmaya devam edecektir.
-Ana İzlence: [[crs-blp1003|Ders İzlence Merkezi]]
-:::
+## Aynı iletişimi başka bir modelle anlatabilir miyiz?
 
-
-
-## Bugünün Temel Sorusu
-
-> Bir bilgisayar yanındaki bilgisayara ya da dünyanın öbür ucundaki bir sunucuya paket göndermek istediğinde, IP adresini bildiği halde neden doğrudan kabloya basamaz? ARP bu gizli köprüyü nasıl kurar ve bağlantının çalıştığını `ping` ile nasıl doğrularız?
-
-- TCP/IP modeli OSI'den nasıl farklılaşır?
-- IP protokolü neden "güvenilmez ve bağlantısız" (best-effort) olarak tasarlanmıştır?
-- ARP olmadan yerel ağda tek bir paket bile iletilebilir mi?
-
-::: {.notes}
-Geçtiğimiz hafta OSI modelini ve genel katmanlama mantığını gördük. Bu hafta ise İnternet'i fiilen çalıştıran **TCP/IP protokol kümesini** ve 3. katmanın (İnternet Katmanı) temel protokollerini inceliyoruz.
-
-Özellikle yerel ağda IP adresini MAC adresine bağlayan **ARP** mekanizmasını ve ağ teşhisinin vazgeçilmez aracı olan **ICMP** (`ping`, `traceroute`) protokolünü adım adım analiz edeceğiz.
-:::
-
----
-
-## TCP/IP Protokol Mimarisi ve OSI Karşılaştırması
-
-İnternet, ISO'nun 7 katmanlı modeli yerine DARPA tarafından geliştirilen pratik **TCP/IP protokol kümesi** üzerinde yükselmiştir:
+Bir web isteği için şu işler birlikte yürütülür:
 
 ```text
-OSI 7 Katmanı                      TCP/IP (4 Katman)         TCP/IP (5 Katman - Güncel)
-┌──────────────────────┐          ┌──────────────────────┐  ┌──────────────────────┐
-│ 7. Uygulama          │ ───┐     │                      │  │ 5. Uygulama          │
-│ 6. Sunum             │ ───┼───> │ 4. Uygulama          │  │ (HTTP, DNS, DHCP)    │
-│ 5. Oturum            │ ───┘     │                      │  │                      │
-├──────────────────────┤          ├──────────────────────┤  ├──────────────────────┤
-│ 4. Taşıma            │ ───────> │ 3. Taşıma (TCP, UDP) │  │ 4. Taşıma (TCP, UDP) │
-├──────────────────────┤          ├──────────────────────┤  ├──────────────────────┤
-│ 3. Ağ                │ ───────> │ 2. İnternet (IP)     │  │ 3. İnternet (IP, ARP)│
-├──────────────────────┤          ├──────────────────────┤  ├──────────────────────┤
-│ 2. Veri Bağı         │ ───┐     │ 1. Ağ Arayüzü /      │  │ 2. Veri Bağı (Ethernet)
-│ 1. Fiziksel          │ ───┴───> │    Ağ Erişimi        │  │ 1. Fiziksel (Kablo)  │
-└──────────────────────┘          └──────────────────────┘  └──────────────────────┘
+İsteği oluştur → Uygulamaya taşı → IP ile adresle → Yerel bağlantıda ilet
 ```
 
-::: {.notes}
-TCP/IP modeli üstteki 5, 6 ve 7. katmanları tek bir "Uygulama" katmanında birleştirmiştir. Çünkü şifreleme (Presentation) ya da oturum takibi (Session) ağın altyapısının değil, doğrudan uygulamanın kendi sorumluluğundadır.
+OSI bu işleri yedi katmanda ele alır. TCP/IP gösterimi bazı görevleri birlikte gruplar.
 
-Eğitimde ve modern ağ mühendisliğinde genellikle 5 katmanlı hibrit model kullanılır; böylece fiziksel kablo ile Ethernet çerçevesi birbirinden net olarak ayırt edilir.
+::: {.notes}
+Önceki haftada ayrı sorumlulukları tanımlamak için OSI modelini kullandık. Bu hafta gerçek iletişimde sık karşılaştığımız protokolleri bu sorumluluklara yerleştiriyoruz. Aynı iletişimin farklı sayıda katmanla gösterilebilmesi, işlerin bir modelde yapılıp diğerinde yapılmadığı anlamına gelmez.
+
+Bir tarayıcı isteği oluştururken HTTP kurallarını, veriyi taşırken uygun taşıma protokolünü, ağ adreslemesinde IP'yi ve yerel bağlantıda Ethernet'i kullanabilir. Protokoller farklı işleri birlikte tamamlar; tek başına IP, web sayfasının anlamını belirlemez.
 :::
 
 ---
 
-## İnternet Protokolü (IP / IPv4)
+## Model ile protokol kümesi
 
-İnternet katmanının merkezinde **IP (Internet Protocol)** yer alır.
+| Kavram | Ne anlatır? |
+|---|---|
+| Model | İletişim görevlerini ve aralarındaki ilişkileri |
+| Protokol | Belirli bir iletişimin kurallarını |
+| Protokol kümesi | Birlikte çalışan protokoller ailesini |
 
-Temel Özellikleri:
-- **Mantıksal Adresleme:** Her cihaza hiyerarşik ve yönlendirilebilir 32-bitlik bir kimlik (IPv4) atar.
-- **Bağlantısız (Connectionless):** Veri göndermeden önce alıcıyla önceden bir bağlantı kurmaz (mektup atmak gibidir).
-- **En İyi Çaba (Best-Effort Delivery - Güvenilmez):** IP, paketin hedefe mutlaka ulaşacağını, yolda kaybolmayacağını ya da sırayla gideceğini garanti **etmez**!
-- **Paket Bağımsızlığı:** Her paket (datagram) ağda birbirinden bağımsız olarak farklı rotalardan gidebilir.
-
-> **Soru:** IP güvenilmezse internette dosyalarımız nasıl eksiksiz iniyor?  
-> **Cevap:** Güvenilirlik, sıralama ve kayıp paket kontrolü bir üst katmandaki **TCP** tarafından sağlanır!
+TCP/IP adı hem protokol ailesi hem de bu aileyi açıklayan katmanlı model için kullanılır.
 
 ::: {.notes}
-IP'nin "güvenilmez" (unreliable) olarak tasarlanması bir hata değil, bilinçli bir mühendislik zaferidir (End-to-End Argument). Eğer aradaki tüm yönlendiriciler her paketin teyidini bekleseydi, İnternet dünya ölçeğinde ölçeklenemezdi. Ağın çekirdeği hızlı ve basit tutulmuş; akıllılık ve kontrol uç sistemlere (uç bilgisayarlara) bırakılmıştır.
+TCP ve IP, bu ailenin yalnız iki üyesidir. UDP, ICMP, DNS ve HTTP gibi başka protokoller de birlikte kullanılır. “TCP/IP kullanıyoruz” demek bütün uygulamaların mutlaka TCP kullandığını söylemek değildir.
+
+Model bir açıklama çerçevesidir; protokol ise mesaj biçimleri ve davranış kurallarıyla gerçekleştirilen iletişimi tanımlar. TCP/IP'nin gerçek ağlarda kullanılması, model olarak karşılaştırılamayacağı veya protokollerinin standartlarının bulunmadığı anlamına gelmez.
 :::
 
 ---
 
-## Adres Çözümleme Problemi: IP'den MAC'e Geçiş
+## Dört ve beş katmanlı gösterim
 
-A bilgisayarı, aynı yerel ağdaki B bilgisayarına bir paket göndermek istiyor:
+| OSI görevleri | TCP/IP: dört katman | Beş katmanlı öğretim gösterimi |
+|---|---|---|
+| Uygulama, sunum, oturum | Uygulama | Uygulama |
+| Taşıma | Taşıma | Taşıma |
+| Ağ | İnternet | Ağ |
+| Veri bağlantısı | Ağ erişimi | Veri bağlantısı |
+| Fiziksel | Ağ erişimi | Fiziksel |
 
-- A, B'nin **IP adresini** biliyor (`192.168.1.20`).
-- Ancak kablodan veriyi geçirecek olan switch Katman 2'de çalışır; switch IP adresini anlamaz, **MAC adresine** ihtiyaç duyar!
-- Eğer A, B'nin MAC adresini bilmiyorsa Ethernet çerçevesinin "Hedef MAC" alanına ne yazacaktır?
-
-> **Çözüm:** **ARP (Address Resolution Protocol - Adres Çözümleme Protokolü)**!  
-> "Mantıksal IP adresini bildiğim yerel cihazın fiziksel MAC adresi nedir?"
+Fark, alt görevlerin birlikte veya ayrı gösterilmesidir.
 
 ::: {.notes}
-Bu problem ağın iki farklı katmanının nasıl köprülendiğini gösterir. Bir mektup gönderirken kişinin adını ve TC kimliğini bilmeniz yetmez; mektubu teslim edecek postacı sokak ve kapı numarasını (fiziksel adresi) bilmek zorundadır. ARP bu eşleştirmeyi dinamik olarak yapar.
+Dört katmanlı gösterim, yerel bağlantı ve fiziksel iletim görevlerini ağ erişimi başlığında toplar. Beş katmanlı öğretim gösterimi bu iki sorumluluğu ayırır. Beş katman, dört katmanın yeni sürümü değildir.
+
+Bu tablo görevlerin yaklaşık karşılığını gösterir; bütün protokoller için bire bir eşleme veya ayrı bir yazılım modülü zorunluluğu kurmaz. Örneğin uygulamanın veri temsilini ve oturum durumunu nasıl yönettiği, seçilen uygulama protokolüne ve gerçekleştirimine bağlıdır.
 :::
 
 ---
 
-## ARP Nasıl Çalışır? (İstek ve Yanıt)
+## Paketin içinde hangi protokoller var?
 
 ```text
-[PC A] (192.168.1.10)                                   [PC B] (192.168.1.20)
-MAC: AA:AA:AA                                           MAC: BB:BB:BB
-       │                                                       │
-       ├──── 1. ARP İsteği (Broadcast: FF:FF:FF:FF:FF:FF) ───>┤ (Herkes dinler)
-       │     "192.168.1.20 kimdeyse MAC'ini söylesin!"        │
-       │                                                       │
-       │<─── 2. ARP Yanıtı (Unicast: AA:AA:AA) ────────────────┤ (Sadece A alır)
-       │     "192.168.1.20 benim, MAC adresim BB:BB:BB!"      │
+Ethernet frame'i
+└── IP paketi
+    └── TCP segmenti
+        └── HTTP verisi
 ```
 
-1. **ARP Request (İstek):** Hedef MAC bilinmediği için `FF:FF:FF:FF:FF:FF` broadcast adresiyle tüm ağa basılır.
-2. Ağdaki tüm bilgisayarlar paketi açar; IP'si eşleşmeyenler paketi çöpe atar.
-3. IP'si eşleşen PC B, kendi MAC adresini içeren **ARP Reply (Yanıt)** paketini doğrudan PC A'ya (Unicast) gönderir.
-4. PC A bu bilgiyi **ARP Tablosuna (ARP Cache)** kaydeder.
+Örnek: HTTP/1.1 isteğinin TCP üzerinden, Ethernet bağlantısında taşınması.
 
 ::: {.notes}
-Her seferinde yeniden broadcast yapıp ağı yormamak için bilgisayarlar öğrendikleri bu eşleşmeleri geçici belleklerinde (ARP Tablosu) saklar. Komut satırında `arp -a` yazılarak o anda öğrenilmiş IP-MAC eşleşmeleri listelenebilir.
+Buradaki iç içe yapı tek bir iletişim örneğidir. Ethernet bağlantısında bir IP paketi, onun içinde TCP segmenti ve segmentin yükünde HTTP verisinin bir bölümü taşınabilir. Bir HTTP mesajının tamamı mutlaka tek TCP segmentine sığmaz.
+
+Her başlık kendi görevi için bilgi taşır: Ethernet yerel frame alıcısını, IP ağ adreslerini, TCP taşıma uçlarını ve akış bilgisini belirtir. HTTP ise isteğin ne anlama geldiğini tanımlar. ARP bu çizimde TCP veya IP'nin içine yerleştirilmez; yerel Ethernet üzerinde ayrı mesajlarla adres çözümlemeye yardım eder.
 :::
 
 ---
 
-## ICMP (Internet Control Message Protocol)
+## IP adresi hangi soruyu cevaplar?
 
-IP protokolü veri taşır fakat hata bildirme mekanizmasına sahip değildir. Bu eksikliği **ICMP** kapatır.
+```text
+Kaynak IP: 192.168.10.10
+Hedef IP:  192.168.10.20
+```
 
-- **Görevi:** Ağ katmanında operasyonel kontrol, hata bildirimi ve erişilebilirlik teşhisi.
-- IP paketinin içinde taşınır (Katman 3 yardımcı protokolü).
+IP, paketin ağ düzeyindeki kaynak ve hedef adreslerini taşır.
 
-Temel ICMP Mesaj Türleri:
-- **Type 8:** Echo Request (Yankı İsteği - Ping gönderimi)
-- **Type 0:** Echo Reply (Yankı Yanıtı - Ping cevabı)
-- **Type 3:** Destination Unreachable (Hedefe Ulaşılamıyor - Rota yok, port kapalı)
-- **Type 11:** Time Exceeded (TTL Süresi Doldu - Paket döngüye girdi veya mesafe tükendi)
+Hangi uygulamanın veriyi alacağı ayrıca belirlenmelidir.
 
 ::: {.notes}
-ICMP asla doğrudan kullanıcı verisi taşımaz. Tamamen ağın kendi iç mekanizmasının birbirine haber vermesi için kullanılır. Bir router paketi yönlendirecek yol bulamadığında göndericiye "Type 3: Destination Unreachable" mesajı döner.
+IP adresi, ağ arayüzüyle ilişkili mantıksal adreslemenin parçasıdır. Bu örnekte adresler önceden verilmiştir. Sayıların ikilik dönüşümünü veya ağ sınırının hesabını yapmıyoruz.
+
+Aynı bilgisayarda birden fazla ağ uygulaması çalışabilir. Hedef IP, tek başına tarayıcı, dosya aktarımı veya başka bir uygulama arasında seçim yapmaz. Taşıma katmanındaki portlar bu ayrımı tamamlar. IP adresinin verilmesiyle adresin hangi yöntemle yapılandırıldığı da ayrı konulardır.
 :::
 
 ---
 
-## Ağ Teşhis Araçları: `ping` ve `traceroute`
+## Bağlantısız iletim
 
-ICMP mesajlarını kullanarak ağ sağlığını test eden temel araçlar:
+IP, veri göndermeden önce iki uç arasında kendi bağlantı kurma el sıkışmasını yapmaz.
 
-### 1. `ping` (Erişilebilirlik ve RTT Testi)
-- Hedefe ICMP Echo Request gönderir, Echo Reply bekler.
-- **RTT (Round Trip Time):** Paketin gidip gelme süresi (milisaniye).
-- Paket kaybı oranı (Packet Loss) ve bağlantı kararlılığı test edilir.
+```text
+IP paketi 1 →
+IP paketi 2 →
+IP paketi 3 →
+```
 
-### 2. `traceroute` / `tracert` (Yol Haritası Keşfi)
-- Paketin kaynaktan hedefe giderken hangi router'lardan geçtiğini listeler.
-- **Mekanizma:** IP başlığındaki **TTL (Time to Live)** alanını adım adım ($1, 2, 3...$) artırarak gönderir.
-- Her router TTL'i 1 azaltır; TTL sıfır olduğunda router paketi atar ve göndericiye `ICMP Time Exceeded` döner. Böylece yol üzerindeki her router tek tek kimliğini açık eder!
+Her paket, IP iletiminin ayrı bir birimidir.
 
 ::: {.notes}
-`traceroute` mekanizması ağ mühendisliğinin en dahice hilelerinden biridir. Bir hedefe giderken aradaki cihazların IP'lerini öğrenmek için bilinçli olarak TTL'i 1 olan bir paket atılır; ilk router paketi atıp hata döndüğünde ilk cihaz keşfedilmiş olur. Sonra TTL=2 yapılarak ikinci router keşfedilir.
+Bağlantısız sözcüğü, bilgisayarın kablosunun bulunmadığını veya fiziksel bağlantının gereksiz olduğunu söylemez. IP'nin paketleri taşımadan önce TCP'dekine benzer uçtan uca bağlantı durumu kurmamasını anlatır.
+
+Üst katmandaki TCP bir bağlantı kurabilir; bu bağlantının mesajları yine IP paketlerinde taşınır. Dolayısıyla aynı iletişimde IP'nin bağlantısız olmasıyla TCP'nin bağlantı yönelimli olması çelişmez.
 :::
 
 ---
 
-## Özet ve Gelecek Hafta
+## En iyi çaba hangi garantileri vermez?
 
-Bu derste öğrendiklerimiz:
-- TCP/IP protokol kümesinin 4 ve 5 katmanlı yapısı,
-- IP protokolünün bağlantısız ve en iyi çaba (best-effort) çalışma doğası,
-- Yerel ağda IP'den MAC'e geçiş ihtiyacı ve ARP protokolünün istek/yanıt akışı,
-- ARP tablosu (`arp -a`) mantığı,
-- ICMP'nin hata bildirme rolü ve `ping` ile `traceroute` çalışma prensipleri.
+IP tek başına şunları garanti etmez:
 
-**Gelecek Hafta:** Taşıma katmanı (Katman 4), TCP ve UDP karşılaştırması, portlar ve soketler, TCP 3 yollu el sıkışma, DNS, DHCP ve HTTP/HTTPS servisleri.
+- Her paketin hedefe ulaşmasını.
+- Paketlerin gönderildikleri sırada gelmesini.
+- Bir paketin yalnız bir kez gelmesini.
+- Belirli bir sürede teslimi.
+
+Uygulamanın ihtiyacı, üst katmanlarda tamamlanır.
+
+::: {.notes}
+En iyi çaba, ağın bilerek kötü iletim yaptığı anlamına gelmez. Ağ, mevcut koşullarda paketleri iletmeye çalışır; fakat IP hizmeti başarılı teslim, sıra ve gecikme için bir sözleşme sunmaz. Yoğunlukta tampon dolması veya bağlantı arızası gibi koşullar kayba neden olabilir.
+
+Eksiksiz dosya aktarımı isteyen bir uygulama kaybı giderecek mekanizmalara ihtiyaç duyar. TCP bu mekanizmaların bir bölümünü sağlar. Canlı ses gibi başka uygulamalar gecikmiş verinin yeniden gönderilmesini her durumda yararlı bulmayabilir. Bu seçim IP adresiyle değil, uygulamanın gereksinimiyle ilgilidir.
+:::
+
+---
+
+## IP adresini biliyorum; frame kime gidecek?
+
+A, B'ye bir IP paketi gönderecek. Üç bilgisayar aynı Ethernet yerel ağındadır.
+
+| Bilgisayar | IPv4 adresi | MAC adresi |
+|---|---|---|
+| A | 192.168.10.10 | 02:00:00:00:00:0A |
+| B | 192.168.10.20 | 02:00:00:00:00:0B |
+| C | 192.168.10.30 | 02:00:00:00:00:0C |
+
+A, hedef IP'yi biliyor; hedef MAC'i henüz bilmiyor.
+
+::: {.notes}
+Adresleri bizim bilmemiz, A bilgisayarının B'nin MAC adresini önceden bildiği anlamına gelmez. A'nın ARP önbelleğinin boş olduğunu varsayıyoruz. Göndereceği IP paketinin hedef adresi B'dir; Ethernet frame'ini oluşturmak için yerel alıcının MAC adresi de gerekir.
+
+Bu örnekte B'nin aynı yerel ağda olduğu başlangıç koşuludur. A'nın bunun hesabını nasıl yaptığı veya uzaktaki bir hedef için hangi sonraki adıma gönderdiği burada çözülmez. Önceden belirlenen yerel örnek, IP–MAC ilişkisini ayrı bir problem olarak görmemizi sağlar.
+:::
+
+---
+
+## Önce bilinen eşleşme aranır
+
+```text
+Hedef IPv4: 192.168.10.20
+           ↓
+A'nın ARP tablosunda eşleşme var mı?
+    Var → MAC adresini kullan
+    Yok → ARP isteği gönder
+```
+
+Önbellek, her gönderimde aynı sorunun yeniden sorulmasını azaltır.
+
+::: {.notes}
+ARP tablosu yerel ağda öğrenilen IPv4–MAC eşleşmelerini tutar. Geçerli bir eşleşme varsa A, bu bilgiyi frame oluştururken kullanabilir; her IP paketinden önce broadcast yapmak gerekmez.
+
+Dinamik kayıtlar süresiz ve değişmez değildir. İşletim sistemi bunları yaşlandırabilir veya yeniden doğrulayabilir; sabit tek bir zaman aşımı değeri bütün cihazlar için geçerli değildir. Elle girilmiş kayıtların da bulunabilmesi, “tablodaki her kayıt biraz önce broadcast ile öğrenildi” çıkarımını engeller.
+:::
+
+---
+
+## ARP isteği: soruyu herkes duyar
+
+```text
+Ethernet kaynak MAC: A'nın MAC adresi
+Ethernet hedef MAC:  FF:FF:FF:FF:FF:FF
+ARP sorusu:         192.168.10.20 kimde?
+```
+
+A, kendi IPv4 ve MAC bilgisini de istekte bildirir.
+
+::: {.notes}
+Ethernet hedefi broadcast adresidir; ARP mesajında aranan hedef IPv4 ise B'nin adresidir. Bu iki alanın farklı olması beklenir: soru, MAC adresi bilinmediği için bütün yerel alıcılara duyurulur; aranan kişi IPv4 adresiyle belirtilir.
+
+Switch frame'in kaynak MAC'inden A'nın bağlı olduğu portu öğrenir. Broadcast frame'ini aynı yerel broadcast alanındaki ilgili diğer portlara iletir. B ve C isteği alır, fakat sorulan IPv4 adresi yalnız B'ye aittir. ARP isteği bir IP paketinin içinde taşınmaz; bu örnekte doğrudan Ethernet içinde taşınır.
+:::
+
+---
+
+## ARP yanıtı: eşleşme öğrenilir
+
+```text
+B → A: 192.168.10.20 adresi 02:00:00:00:00:0B'ye ait.
+
+A'nın ARP tablosu:
+192.168.10.20 → 02:00:00:00:00:0B
+
+A → B: hedef MAC'i tamamlanmış Ethernet frame'i
+```
+
+Bu olağan isteğin yanıtı A'ya unicast gönderilir.
+
+::: {.notes}
+B, istekte A'nın kaynak IPv4 ve MAC bilgilerini gördüğü için yanıtını A'ya yöneltebilir. Switch, bu yanıtın kaynak MAC'inden B'nin portunu öğrenir. A'nın portu istekte öğrenilmiş olduğundan, bu koşullarda yanıtı A'nın portuna iletir.
+
+A, yanıtla eşleşmeyi öğrenir ve bekleyen IP paketini Ethernet frame'ine yerleştirebilir. ARP hedef IP adresini değiştirmez; frame için gereken yerel adres bilgisini tamamlar. Bu istek–yanıt işlemi yerel broadcast alanına aittir; broadcast isteği yönlendiriciler üzerinden bütün İnternet'e yayılmaz. [ARP tanımı: RFC 826](https://www.rfc-editor.org/rfc/rfc826.html).
+:::
+
+---
+
+## ARP tablosu ile switch tablosu aynı mı?
+
+| Tablo | Nerede? | Eşleştirdiği bilgi | Ne için? |
+|---|---|---|---|
+| ARP tablosu | Uç bilgisayarda | IPv4 → MAC | Yerel frame alıcısını adreslemek |
+| MAC tablosu | Switch'te | MAC → port | Frame'i uygun porta iletmek |
+
+A, hedef MAC'i seçer. Switch, frame'in hedef MAC'ine göre iletir.
+
+::: {.notes}
+A'nın B'nin IPv4 adresini bilmesi, switch'in B'nin portunu bilmesiyle aynı bilgi değildir. A'nın adres çözümlemesi ve switch'in port öğrenmesi ayrı işlemlerdir. Aynı ARP alışverişi sırasında her ikisi de gerçekleşebilir; bu durum tabloları tek bir tablo yapmaz.
+
+Switch, sıradan Ethernet iletiminde B'nin IP adresini çözümleyip A adına hedef MAC seçmez. Kaynak MAC'ten port öğrenir; hedef MAC'i biliniyorsa ilgili porta iletir. Hedef MAC bilinmiyorsa unicast frame'ini ilgili diğer portlara yayabilir. Broadcast'i yayması ile bilinmeyen unicast'i yayması farklı nedenlere dayanır.
+:::
+
+---
+
+## Paketin başına ne geldiğini nasıl öğreniriz?
+
+ICMP, IP iletişimiyle ilgili kontrol ve hata bildirimlerini taşır.
+
+- Echo Request / Echo Reply: erişim yoklaması.
+- Destination Unreachable: bazı teslim sorunları.
+- Time Exceeded: yaşam sınırının aşılması.
+
+ICMP mesajı IP içinde taşınır; TCP/UDP portu kullanmaz.
+
+::: {.notes}
+IP'nin en iyi çaba hizmeti, ağda hiçbir geri bildirim bulunmadığı anlamına gelmez. ICMP, belirli koşullarda sorun veya durum bildirebilir. Ancak her kayıp için mutlaka bir ICMP mesajı üretileceği ve bu mesajın kaynağa ulaşacağı garanti edilmez.
+
+ICMP uygulama dosyasını taşımak için kullandığımız genel bir taşıma hizmeti değildir. Yine de “ICMP veri taşımaz” demek yanlıştır: echo mesajlarının veri alanı vardır ve yanıt bu veriyi geri taşıyabilir. Burada TCP veya UDP segmenti kullanılmadığı için hedef uygulama portu üzerinden ayrım yapılmaz. [ICMP mesajları: RFC 792](https://www.rfc-editor.org/rfc/rfc792.html).
+:::
+
+---
+
+## Ping neyi ölçer?
+
+```text
+A ── Echo Request ──> B
+A <── Echo Reply ──── B
+
+Örnek üç ölçüm: 5 ms, 5 ms, 6 ms
+```
+
+Süre, isteğin gidip yanıtın geri gelmesidir.
+
+::: {.notes}
+Bu sayılar örnek ölçümlerdir, yapılmış bir laboratuvar çalışmasının çıktısı değildir. Gidiş–dönüş süresi yalnız kablodaki yayılma süresini ölçmez; uçların işlemesi, bekleme ve yolun koşulları da sonucu etkiler. İki yönün sürelerinin eşit olduğu bilinmeden değeri ikiye bölüp tek yön gecikmesi diyemeyiz.
+
+Yanıt, bu yoklama sırasında gidiş ve dönüş iletişiminin çalıştığını gösterir. B'de web sunucusunun çalıştığını, doğru sayfanın bulunduğunu veya HTTPS işleminin başarılı olacağını kanıtlamaz. ICMP ile web hizmeti farklı görevler yürütür.
+:::
+
+---
+
+## Yanıt yoksa bilgisayar kapalı mı?
+
+Yanıt alınamamasının olası nedenleri:
+
+- Hedefin veya bir bağlantının çalışmaması.
+- İsteğin ya da yanıtın kaybolması.
+- ICMP'nin filtrelenmesi veya yanıtlanmaması.
+- Adresleme ya da erişim koşullarında sorun.
+
+Tek gözlem, tek nedeni kesinleştirmez.
+
+::: {.notes}
+Bir zaman aşımı, belirlenen bekleme süresinde echo yanıtı alınamadığını bildirir. Bu sonuçtan tek başına hedefin kapalı olduğunu çıkaramayız. Gidiş yolu, hedefin yanıt davranışı ve dönüş yolu birlikte değerlendirilmelidir.
+
+Aynı yerel ağdaki ilk yoklamada adres çözümlemesi henüz tamamlanmamışsa, aracın ve sistemin davranışına bağlı olarak gecikme veya bir yanıtsız yoklama görülebilir. “İlk ping her zaman başarısız olur” kuralı yoktur. ARP tablosuna bakmak, gözlemin yerel adres çözümlemesiyle ilişkisini araştırmaya yardım eder.
+:::
+
+---
+
+## Traceroute yolu nasıl görünür kılar?
+
+```text
+Yoklama: TTL 1 → R1'den süre aşımı bildirimi
+Yoklama: TTL 2 → R2'den süre aşımı bildirimi
+Yoklama: TTL 3 → hedefe ulaşan yoklama
+```
+
+Araç, sınırı kademeli artırarak yanıt veren adımları gösterir.
+
+::: {.notes}
+IPv4 TTL alanı uygulamada yönlendirici geçişlerini sınırlar; yönlendirici bu değeri azaltır. Sınır tükendiğinde paket iletilmez ve uygun koşullarda ICMP Time Exceeded mesajı döner. TTL 1 ile ilk, TTL 2 ile sonraki yanıt veren adım görünür hale getirilebilir.
+
+Çizimdeki R1 ve R2 öğretim etiketleridir; hazırlanmış bir yolun davranışını açıklıyoruz. Komutun adı ortama göre değişir: Windows ve Packet Tracer PC komut satırında `tracert`, Cisco IOS CLI'da `traceroute` kullanılır. Traceroute gerçekleştirimleri UDP, ICMP veya TCP yoklamaları kullanabilir. Hedefe ulaşıldığını bildiren son yanıt, seçilen yoklama biçimine bağlıdır. Bir yıldız, ilgili yoklamaya süresinde yanıt alınmadığını gösterir; tek başına o yönlendiricinin veri iletmediğini kanıtlamaz.
+:::
+
+---
+
+## Aynı yerel ağda gözlemleri birleştirelim
+
+Hazır yapılandırılmış A ve B üzerinde:
+
+```text
+ping 192.168.10.20
+arp -a
+```
+
+1. Yanıtı ve gidiş–dönüş süresini gözle.
+2. B'nin IPv4–MAC eşleşmesini ara.
+3. Switch tablosuyla aynı bilgi olup olmadığını açıkla.
+
+::: {.notes}
+Komutlar Windows ve yaygın Packet Tracer PC arayüzü için tanıdık örneklerdir; çıktının alanları kullanılan sisteme göre değişebilir. Linux'ta komşuluk tablosu için ip neigh gibi araçlar da kullanılabilir.
+
+Öğrenciye önce “B'nin MAC'ini kim öğreniyor?” sorusu sorulur. Ardından switch üzerinde görülen MAC–port eşleşmesiyle uçtaki IPv4–MAC eşleşmesi karşılaştırılır. Hazır adresleme kullanılır; IP hesabı veya varsayılan ağ geçidi seçimi bu gözlemin koşulu haline getirilmez.
+:::
+
+---
+
+## Bir paketin yolculuğunu açıklayabiliyor muyuz?
+
+- IP'nin bağlantısız olması kablonun gereksiz olduğunu mu söyler?
+- ARP isteğinin Ethernet hedefi neden broadcast'tir?
+- Switch, ARP yanıtından hangi bilgiyi öğrenir?
+- ARP tablosu doluyken yeniden istek gerekir mi?
+- Ping yanıtı, web sayfasının açılacağını kanıtlar mı?
+
+::: {.notes}
+İlk soruda IP'nin bağlantı kurma davranışı ile fiziksel bağlantı ayrılmalıdır. İkinci soruda aranan IPv4 adresinin bilindiği, yerel MAC adresinin bilinmediği söylenmelidir. Üçüncü soruda switch'in kaynak MAC–giriş portu eşleşmesini öğrendiği belirtilmelidir.
+
+Dördüncü sorunun cevabı geçerli eşleşme bulunduğunda onun kullanılabileceğidir; önbellekte herhangi bir kayıt bulunması yeterli değildir. Son soruda ping'in echo alışverişini sınadığı, uygulama hizmetini doğrulamadığı açıklanmalıdır. Bu ayrımlar, sonraki haftada portlar ve uygulama protokollerinin neden gerekli olduğunu kurar.
+:::
+
+---
+
+## Kaynaklar
+
+- Dersin öğretmen slaytları: **04 — TCP/IP**; OSI ile ilişki için **03 — OSI**.
+- Tanenbaum ve Wetherall, *Computer Networks*, 5. baskı, bölüm 5.
+- Forouzan, *Data Communications and Networking*, 5. baskı, bölümler 23–24.
+- Kurose ve Ross, *Computer Networking: A Top-Down Approach*, 8. baskı, bölümler 2–4 ve 6.
+
+::: {.notes}
+Bu haftanın ARP örneği Tanenbaum bölüm 5, PDF 113–115 ve Kurose bölüm 6, PDF 32–34 ile; ICMP açıklaması Tanenbaum bölüm 5, PDF 112–113 ve RFC 792 ile desteklenmiştir.
+:::

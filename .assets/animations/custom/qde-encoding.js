@@ -1,11 +1,4 @@
-const SVG_NS = "http://www.w3.org/2000/svg";
-
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text != null) node.textContent = text;
-  return node;
-}
+import { makeEl as el, makeSvg as svgEl } from "../core/dom.js";
 
 function setMath(node, html) {
   node.innerHTML = html;
@@ -18,13 +11,6 @@ function typeset(root) {
     }
     window.MathJax.typesetPromise([root]).catch(() => {});
   }
-}
-
-function svgEl(tag, attrs = {}, text) {
-  const node = document.createElementNS(SVG_NS, tag);
-  Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, String(value)));
-  if (text != null) node.textContent = text;
-  return node;
 }
 
 function probBars(labels) {
@@ -81,12 +67,12 @@ function mountAngle(root) {
   svg.appendChild(svgEl("circle", { cx, cy, r: radius, fill: "none", stroke: "currentColor", "stroke-opacity": "0.18", "stroke-width": "2" }));
   svg.appendChild(svgEl("line", { x1: cx, y1: cy + radius + 16, x2: cx, y2: cy - radius - 16, stroke: "currentColor", "stroke-opacity": "0.18" }));
   svg.appendChild(svgEl("line", { x1: cx - radius - 18, y1: cy, x2: cx + radius + 18, y2: cy, stroke: "currentColor", "stroke-opacity": "0.18" }));
-  const vector = svgEl("line", { x1: cx, y1: cy, x2: cx, y2: cy - radius, stroke: "#2563eb", "stroke-width": "4", "stroke-linecap": "round" });
-  const dot = svgEl("circle", { cx, cy: cy - radius, r: 5, fill: "#2563eb" });
-  const angleArc = svgEl("path", { d: "", fill: "none", stroke: "#b45309", "stroke-width": "3" });
+  const vector = svgEl("line", { x1: cx, y1: cy, x2: cx, y2: cy - radius, stroke: "var(--anim-blue-strong)", "stroke-width": "4", "stroke-linecap": "round" });
+  const dot = svgEl("circle", { cx, cy: cy - radius, r: 5, fill: "var(--anim-blue-strong)" });
+  const angleArc = svgEl("path", { d: "", fill: "none", stroke: "var(--anim-amber-soft)", "stroke-width": "3" });
   svg.append(angleArc, vector, dot);
-  svg.appendChild(svgEl("text", { x: cx, y: cy - radius - 24, "text-anchor": "middle", fill: "#94a3b8", "font-size": "12" }, "|0⟩"));
-  svg.appendChild(svgEl("text", { x: cx, y: cy + radius + 20, "text-anchor": "middle", fill: "#94a3b8", "font-size": "12" }, "|1⟩"));
+  svg.appendChild(svgEl("text", { x: cx, y: cy - radius - 24, "text-anchor": "middle", fill: "var(--anim-muted)", "font-size": "12" }, "|0⟩"));
+  svg.appendChild(svgEl("text", { x: cx, y: cy + radius + 20, "text-anchor": "middle", fill: "var(--anim-muted)", "font-size": "12" }, "|1⟩"));
 
   const bars = probBars(["\\(P(0)\\)", "\\(P(1)\\)"]);
   right.appendChild(el("div", "qde-panel-title", "Ölçüm olasılıkları"));
@@ -118,8 +104,8 @@ function mountAngle(root) {
     const half = theta / 2;
     const p0 = Math.cos(half) ** 2;
     const p1 = Math.sin(half) ** 2;
-    bars.set("\\(P(0)\\)", p0, "#60a5fa");
-    bars.set("\\(P(1)\\)", p1, "#2dd4bf");
+    bars.set("\\(P(0)\\)", p0, "var(--anim-blue)");
+    bars.set("\\(P(1)\\)", p1, "var(--anim-teal)");
     setMath(readout, `\\(x=${x.toFixed(2)}\\) · \\(\\theta=x\\pi=${theta.toFixed(2)}\\) rad · \\(\\cos(\\theta/2)\\lvert0\\rangle + \\sin(\\theta/2)\\lvert1\\rangle\\)`);
     typeset(root);
   }
@@ -153,13 +139,13 @@ function mountPhase(root) {
   phaseSvg.appendChild(svgEl("circle", { cx: pcx, cy: pcy, r: pr, fill: "none", stroke: "currentColor", "stroke-opacity": "0.2", "stroke-width": "1.5" }));
   phaseSvg.appendChild(svgEl("line", { x1: pcx - pr - 8, y1: pcy, x2: pcx + pr + 8, y2: pcy, stroke: "currentColor", "stroke-opacity": "0.15" }));
   phaseSvg.appendChild(svgEl("line", { x1: pcx, y1: pcy - pr - 8, x2: pcx, y2: pcy + pr + 8, stroke: "currentColor", "stroke-opacity": "0.15" }));
-  phaseSvg.appendChild(svgEl("text", { x: pcx + pr + 10, y: pcy + 4, fill: "#94a3b8", "font-size": "9", "text-anchor": "start" }, "Re"));
-  phaseSvg.appendChild(svgEl("text", { x: pcx + 3, y: pcy - pr - 5, fill: "#94a3b8", "font-size": "9", "text-anchor": "start" }, "Im"));
-  phaseSvg.appendChild(svgEl("circle", { cx: pcx + pr, cy: pcy, r: 2.5, fill: "#94a3b8" }));
-  const phaseArc = svgEl("path", { d: "", fill: "none", stroke: "#7c3aed", "stroke-width": "2", "stroke-dasharray": "4 2" });
-  const phaseVec = svgEl("line", { x1: pcx, y1: pcy, x2: pcx + pr, y2: pcy, stroke: "#7c3aed", "stroke-width": "2.5", "stroke-linecap": "round" });
-  const phaseDot = svgEl("circle", { cx: pcx + pr, cy: pcy, r: 5, fill: "#7c3aed" });
-  const thetaLabel = svgEl("text", { x: pcx, y: pcy + pr + 18, fill: "#7c3aed", "font-size": "10", "text-anchor": "middle" });
+  phaseSvg.appendChild(svgEl("text", { x: pcx + pr + 10, y: pcy + 4, fill: "var(--anim-muted)", "font-size": "9", "text-anchor": "start" }, "Re"));
+  phaseSvg.appendChild(svgEl("text", { x: pcx + 3, y: pcy - pr - 5, fill: "var(--anim-muted)", "font-size": "9", "text-anchor": "start" }, "Im"));
+  phaseSvg.appendChild(svgEl("circle", { cx: pcx + pr, cy: pcy, r: 2.5, fill: "var(--anim-muted)" }));
+  const phaseArc = svgEl("path", { d: "", fill: "none", stroke: "var(--anim-purple)", "stroke-width": "2", "stroke-dasharray": "4 2" });
+  const phaseVec = svgEl("line", { x1: pcx, y1: pcy, x2: pcx + pr, y2: pcy, stroke: "var(--anim-purple)", "stroke-width": "2.5", "stroke-linecap": "round" });
+  const phaseDot = svgEl("circle", { cx: pcx + pr, cy: pcy, r: 5, fill: "var(--anim-purple)" });
+  const thetaLabel = svgEl("text", { x: pcx, y: pcy + pr + 18, fill: "var(--anim-purple)", "font-size": "10", "text-anchor": "middle" });
   phaseSvg.append(phaseArc, phaseVec, phaseDot, thetaLabel);
   left.appendChild(phaseSvg);
 
@@ -210,8 +196,8 @@ function mountPhase(root) {
     const p1 = Math.sin(theta / 2) ** 2;
     setMath(beforeText, `\\(\\tfrac{1}{\\sqrt{2}}(\\lvert0\\rangle + e^{i\\theta}\\lvert1\\rangle)\\) → \\(P(0)=P(1)=0.5\\)`);
     setMath(afterText, `\\(H\\) sonrası: \\(P(0)=${p0.toFixed(3)},\\; P(1)=${p1.toFixed(3)}\\)`);
-    bars.set("\\(P(0)\\)", p0, "#60a5fa");
-    bars.set("\\(P(1)\\)", p1, "#f87171");
+    bars.set("\\(P(0)\\)", p0, "var(--anim-blue)");
+    bars.set("\\(P(1)\\)", p1, "var(--anim-red)");
     typeset(root);
   }
 
@@ -232,7 +218,7 @@ function ampSet(title, vec) {
   const normalized = normalize(vec);
   box.appendChild(bars.el);
   normalized.forEach((amp, idx) => {
-    bars.set(ampLabels[idx], amp * amp, "#60a5fa");
+    bars.set(ampLabels[idx], amp * amp, "var(--anim-blue)");
   });
   const note = el("div", "qde-mini-note");
   setMath(note, `normalize: \\((${normalized.map((v) => v.toFixed(3)).join(", ")})\\)`);
