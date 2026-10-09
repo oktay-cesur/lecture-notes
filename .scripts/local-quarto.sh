@@ -309,7 +309,7 @@ render_slide_file() {
     cp -a "$source_files" "$target_files"
   fi
 
-  for resource_dir in .assets images; do
+  for resource_dir in .assets images data; do
     source_resource_dir="$temp_dir/_site/slides/$resource_dir"
     target_resource_dir="$SLIDES_OUTPUT_DIR_REL/$resource_dir"
     if [[ -d "$source_resource_dir" ]]; then
