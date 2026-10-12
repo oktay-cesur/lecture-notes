@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">TCP/IP protokol kümesi</title>
+  <desc id="desc">TCP/IP'nin dört katmanında birlikte çalışan protokoller: Uygulama katmanında HTTP, DNS ve SMTP; Taşıma katmanında TCP ve UDP; İnternet katmanında IP. Ağ erişimi katmanında Ethernet ve Wi-Fi gibi bağlantı teknolojileri kullanılır. TCP ve IP vurgulanmıştır.</desc>
+  <rect width="1600" height="900" rx="28" fill="#f8fafc"/>
+  <g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+    <text x="800.0" y="72" font-size="44" font-weight="800" fill="#0f172a" text-anchor="middle">TCP/IP: birlikte çalışan protokoller ailesi</text>
+    <rect x="150" y="120" width="1300" height="150" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <line x1="510" y1="138" x2="510" y2="252" stroke="#2563eb" stroke-width="2" opacity="0.5"/>
+    <text x="190" y="197.0" font-size="34" font-weight="800" fill="#0f172a" text-anchor="start">Uygulama</text>
+    <text x="190" y="227.0" font-size="20" font-weight="600" fill="#475569" text-anchor="start">Application</text>
+    <rect x="570" y="157.0" width="210" height="76" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <text x="675.0" y="206.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">HTTP</text>
+    <rect x="816" y="157.0" width="210" height="76" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <text x="921.0" y="206.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">DNS</text>
+    <rect x="1062" y="157.0" width="210" height="76" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <text x="1167.0" y="206.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">SMTP</text>
+    <rect x="150" y="286" width="1300" height="140" rx="18" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <line x1="510" y1="304" x2="510" y2="408" stroke="#16a34a" stroke-width="2" opacity="0.5"/>
+    <text x="190" y="358.0" font-size="34" font-weight="800" fill="#0f172a" text-anchor="start">Taşıma</text>
+    <text x="190" y="388.0" font-size="20" font-weight="600" fill="#475569" text-anchor="start">Transport</text>
+    <rect x="570" y="318.0" width="210" height="76" rx="14" fill="#16a34a" stroke="#16a34a" stroke-width="6"/>
+    <text x="675.0" y="367.0" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">TCP</text>
+    <rect x="816" y="318.0" width="210" height="76" rx="14" fill="#ffffff" stroke="#16a34a" stroke-width="3"/>
+    <text x="921.0" y="367.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">UDP</text>
+    <rect x="150" y="442" width="1300" height="140" rx="18" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <line x1="510" y1="460" x2="510" y2="564" stroke="#7c3aed" stroke-width="2" opacity="0.5"/>
+    <text x="190" y="514.0" font-size="34" font-weight="800" fill="#0f172a" text-anchor="start">İnternet</text>
+    <text x="190" y="544.0" font-size="20" font-weight="600" fill="#475569" text-anchor="start">Internet</text>
+    <rect x="570" y="474.0" width="210" height="76" rx="14" fill="#7c3aed" stroke="#7c3aed" stroke-width="6"/>
+    <text x="675.0" y="523.0" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">IP</text>
+    <rect x="150" y="598" width="1300" height="140" rx="18" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    <line x1="510" y1="616" x2="510" y2="720" stroke="#ea580c" stroke-width="2" opacity="0.5"/>
+    <text x="190" y="670.0" font-size="34" font-weight="800" fill="#0f172a" text-anchor="start">Ağ erişimi</text>
+    <text x="190" y="700.0" font-size="20" font-weight="600" fill="#475569" text-anchor="start">Network Access</text>
+    <rect x="570" y="630.0" width="210" height="76" rx="14" fill="#ffffff" stroke="#ea580c" stroke-width="3" stroke-dasharray="10 8"/>
+    <text x="675.0" y="679.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">Ethernet</text>
+    <rect x="816" y="630.0" width="210" height="76" rx="14" fill="#ffffff" stroke="#ea580c" stroke-width="3" stroke-dasharray="10 8"/>
+    <text x="921.0" y="679.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">Wi-Fi</text>
+    <text x="1420" y="670.0" font-size="21" font-weight="600" fill="#475569" text-anchor="end">bağlantı teknolojileri;</text>
+    <text x="1420" y="698.0" font-size="21" font-weight="600" fill="#475569" text-anchor="end">TCP/IP belirli birini şart koşmaz</text>
+    <text x="800.0" y="862" font-size="26" font-weight="700" fill="#475569" text-anchor="middle">TCP ve IP ailenin yalnız iki üyesidir; küme çok daha fazla protokol içerir.</text>
+  </g>
+</svg>
