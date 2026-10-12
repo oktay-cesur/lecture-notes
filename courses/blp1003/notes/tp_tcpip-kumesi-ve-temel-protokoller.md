@@ -203,9 +203,45 @@ Eksiksiz ve sıralı teslim gerektiren uygulamalar için bu eksiklikler üst kat
 
 ---
 
+## Evde Wi-Fi'ye bağlandık: cihaz bir IP adresi aldı
+
+```text
+Wi-Fi'ye bağlan  →  dizüstü bilgisayar bir IP adresi alır: 192.168.1.10
+
+ping 192.168.1.20            →  yazıcı yanıt veriyor mu?
+Yazıcı ekle: 192.168.1.20    →  belgeyi yazıcıya gönder
+TV'ye bağlan: 192.168.1.30   →  bilgisayardan akıllı TV'ye yayın
+```
+
+Yerel ağdaki cihazlara **IP adresiyle** ulaşıyoruz.
+
+::: {.notes}
+Ev veya iş yerindeki bir yerel ağa bağlanan cihaz, ağdaki modem/router'dan otomatik olarak bir IP adresi alır. Adresin bu şekilde nasıl atandığı 6. haftanın konusudur. Kullanıcı yerel ağdaki diğer cihazlarla çalışırken çoğunlukla bu adresleri kullanır: yazıcı kurulurken yazıcının IP adresi girilir, bir cihazın yanıt verip vermediği `ping` ile denenir, akıllı TV'ye veya ağ depolama cihazına IP adresi üzerinden bağlanılır.
+
+Bu işlemlerin hiçbirinde kullanıcı bir MAC adresi yazmaz. Ev ağındaki modem/router kutusu çoğunlukla kablosuz erişim noktası ve switch işlevlerini birlikte taşır (3. hafta); kablolu ve kablosuz cihazlar aynı yerel ağın parçasıdır. `ping` komutunun nasıl çalıştığı haftanın sonunda ele alınır.
+:::
+
+---
+
+## Bir çelişki mi?
+
+| 3. hafta | Bu hafta |
+|---|---|
+| Yerel ağda switch, çerçeveyi **MAC adresine** göre iletir. | Yerel ağdaki yazıcıya ve TV'ye **IP adresiyle** ulaşıyoruz. |
+
+**Soru:** Yerel ağda hangi adres kullanılıyor: IP mi, MAC mi?
+
+::: {.notes}
+Çelişki gibi görünen durum, iki adresin farklı katmanlarda ve farklı amaçlarla kullanılmasından kaynaklanır. Kullanıcı ve uygulama hedefi IP adresiyle belirtir; IP adresi paketin içinde taşınır ve paketin hangi uç sisteme gittiğini söyler. Ancak paket yerel bağlantıda tek başına iletilmez. Bir çerçeveye yerleştirilir ve switch bu çerçeveyi MAC adresine göre iletir.
+
+Bu nedenle doğru soru "hangisi?" değil, "ikisi birlikte nasıl kullanılıyor?" sorusudur. Yerel ağdaki bir gönderim hem IP adresini hem MAC adresini gerektirir. Açık kalan nokta şudur: kullanıcı yalnız IP adresini bildiğine göre, çerçeve için gereken MAC adresi nereden bulunur?
+:::
+
+---
+
 ## IP adresini biliyorum; çerçeveyi kime göndereceğim?
 
-PC-A, PC-B'ye bir IP paketi gönderecek. İkisi de aynı switch'e bağlı, aynı Ethernet yerel ağında.
+Dizüstü bilgisayar (PC-A), yazıcıya (192.168.1.20) bir belge gönderecek. İkisi aynı yerel ağda.
 
 ```text
 Ethernet çerçevesi
@@ -218,9 +254,9 @@ Ethernet çerçevesi
 PC-A hedef IP adresini biliyor; çerçevenin hedef MAC alanını dolduramıyor.
 
 ::: {.notes}
-IP paketi hazır olsa da paket iletim ortamına doğrudan çıkmaz; ağ erişimi katmanında bir Ethernet çerçevesine yerleştirilmesi gerekir. Çerçevenin hedef alanında IP adresi değil MAC adresi bulunur. Switch çerçeveyi bu hedef MAC adresine göre iletir; IP adresine bakmaz.
+Kullanıcının girdiği IP adresi, IP paketinin hedef alanına yazılır. IP paketi hazır olsa da paket iletim ortamına doğrudan çıkmaz; ağ erişimi katmanında bir çerçeveye yerleştirilmesi gerekir. Çerçevenin hedef alanında IP adresi değil MAC adresi bulunur. Switch çerçeveyi bu hedef MAC adresine göre iletir; IP adresine bakmaz.
 
-Bu örnekte PC-A, PC-B'nin IP adresini bilmektedir; ancak PC-B'nin MAC adresini henüz bilmemektedir. PC-A hedef MAC alanını dolduramadığı sürece çerçeveyi oluşturup gönderemez.
+PC-A, yazıcının IP adresini bilmektedir; ancak yazıcının MAC adresini henüz bilmemektedir. PC-A hedef MAC alanını dolduramadığı sürece çerçeveyi oluşturup gönderemez. Örnekte Ethernet çerçevesi gösterilmiştir; Wi-Fi bağlantısında kullanılan çerçeveler de alıcıyı MAC adresiyle belirtir, bu nedenle aynı problem kablosuz bağlantıda da vardır.
 
 İki cihazın aynı yerel ağda bulunması bu örneğin başlangıç koşuludur. Bir cihazın hedefin aynı yerel ağda olup olmadığını nasıl belirlediği 8. haftada, farklı ağdaki bir hedefe nasıl gönderim yaptığı 10. haftada ele alınır.
 :::
@@ -233,14 +269,17 @@ Bu örnekte PC-A, PC-B'nin IP adresini bilmektedir; ancak PC-B'nin MAC adresini 
 |---|---|---|
 | Nerede taşınır? | IP paketinde | Ethernet çerçevesinde |
 | Neyi belirtir? | Paketin mantıksal hedefini | Çerçevenin yerel bağlantıdaki alıcısını |
-| Bu örnekte | 192.168.1.20 | PC-B'nin MAC adresi: **bilinmiyor** |
+| Kim kullanır? | Kullanıcı ve uygulama (yazıcı ekle, `ping`) | Ağ arabirimi ve switch |
+| Bu örnekte | 192.168.1.20 | Yazıcının MAC adresi: **bilinmiyor** |
 
-IP nereye gidileceğini, MAC bu bağlantıda kime teslim edileceğini belirtir.
+Çelişki yok: kullanıcı IP adresini bilir; çerçeve için gereken MAC adresi arka planda bulunur.
 
 ::: {.notes}
-IP ve MAC adresleri birbirinin yerine geçmez; iç içe birimlerde farklı sorulara cevap verir. IP adresi paketin içinde taşınır ve paketin mantıksal hedefini, yani hangi uç sisteme gideceğini belirtir. MAC adresi paketi taşıyan Ethernet çerçevesinin başlığında bulunur ve çerçevenin o yerel bağlantıda hangi ağ arabirimine teslim edileceğini belirtir. Çerçeveyi oluşturabilmek için ikisine birlikte ihtiyaç vardır.
+IP ve MAC adresleri birbirinin yerine geçmez; iç içe birimlerde farklı sorulara cevap verir. IP adresi paketin içinde taşınır ve paketin mantıksal hedefini, yani hangi uç sisteme gideceğini belirtir. MAC adresi paketi taşıyan çerçevenin başlığında bulunur ve çerçevenin o yerel bağlantıda hangi ağ arabirimine teslim edileceğini belirtir. Çerçeveyi oluşturabilmek için ikisine birlikte ihtiyaç vardır.
 
-Bu örnekte iki adres de PC-B'yi gösterir. Bu durum her gönderimde böyle olmak zorunda değildir; hedef başka bir ağdaysa çerçevenin yerel alıcısı ile paketin mantıksal hedefi farklı cihazlar olabilir. Bu durum yönlendirme haftasında incelenir.
+Kullanıcının MAC adresiyle uğraşmaması, MAC adresinin kullanılmadığı anlamına gelmez. Kullanıcı ve uygulamalar hedefi IP adresiyle belirtir; MAC adresi ise çerçeve oluşturulurken işletim sistemi tarafından kullanılır ve kullanıcıya görünmez.
+
+Bu örnekte iki adres de yazıcıyı gösterir. Bu durum her gönderimde böyle olmak zorunda değildir; hedef başka bir ağdaysa çerçevenin yerel alıcısı ile paketin mantıksal hedefi farklı cihazlar olabilir. Bu durum yönlendirme haftasında incelenir.
 
 PC-A'nın önündeki problem artık açıktır: bildiği IP adresinden, bilmediği MAC adresine nasıl ulaşacaktır?
 :::
@@ -249,7 +288,7 @@ PC-A'nın önündeki problem artık açıktır: bildiği IP adresinden, bilmedi�
 
 ## "192.168.1.20'nin MAC adresi nedir?"
 
-> 192.168.1.20'nin IP adresini biliyorum. MAC adresi nedir?
+> 192.168.1.20'nin (yazıcının) IP adresini biliyorum. MAC adresi nedir?
 
 Bu soruyu yerel ağda sorup cevabını almayı sağlayan protokol:
 **ARP** (Address Resolution Protocol, adres çözümleme protokolü).
@@ -257,7 +296,9 @@ Bu soruyu yerel ağda sorup cevabını almayı sağlayan protokol:
 ARP veriyi taşımaz; verinin Ethernet üzerinde taşınabilmesi için gereken **IP → MAC** eşlemesini sağlar.
 
 ::: {.notes}
-ARP (Address Resolution Protocol), bilinen bir IPv4 adresine karşılık gelen MAC adresini yerel ağda bulmak için kullanılır. PC-A, 192.168.1.20 adresinin kime ait olduğunu yerel ağa sorar; adresin sahibi kendi MAC adresiyle cevap verir.
+ARP (Address Resolution Protocol), bilinen bir IPv4 adresine karşılık gelen MAC adresini yerel ağda bulmak için kullanılır. PC-A, 192.168.1.20 adresinin kime ait olduğunu yerel ağa sorar; adresin sahibi olan yazıcı kendi MAC adresiyle cevap verir.
+
+Çelişkinin çözümü buradadır: kullanıcı yazıcıyı kurarken yalnız IP adresini girer; IP adresinden MAC adresine geçişi işletim sistemi ARP ile kendiliğinden yapar.
 
 ARP kullanıcı verisini taşımaz. PC-A'nın göndermek istediği IP paketi ARP mesajının içine konmaz. Önce ARP ile IP–MAC eşlemesi öğrenilir; ardından paket, hedef MAC adresi tamamlanmış Ethernet çerçevesine yerleştirilir. Öğrenilen eşleme bir süre ARP tablosunda tutulur; böylece aynı hedefe gönderilen her pakette aynı soru yeniden sorulmaz.
 
@@ -269,16 +310,16 @@ ARP'nin görev alanı yerel ağdır; ARP istekleri yönlendiriciden geçip başk
 ## ARP Request: soru herkese sorulur
 
 ```text
-                        ┌──> PC-B  192.168.1.20   ✓ "Bu adres benim."
+                        ┌──> Yazıcı     192.168.1.20   ✓ "Bu adres benim."
 PC-A ── ARP Request ──> Switch
-192.168.1.10            └──> PC-C  192.168.1.30   ✗ yanıt vermez
+192.168.1.10            └──> Akıllı TV  192.168.1.30   ✗ yanıt vermez
 
 Ethernet hedef MAC:  FF:FF:FF:FF:FF:FF   (broadcast: yerel ağdaki herkes)
 ARP sorusu:          192.168.1.20 kimde? Cevabı 192.168.1.10'a bildir.
 ```
 
 ::: {.notes}
-PC-A hedef MAC adresini bilmediği için soruyu tek bir alıcıya yöneltemez. ARP isteği, Ethernet broadcast (yayın) adresi FF:FF:FF:FF:FF:FF ile yerel ağdaki bütün cihazlara gönderilir. Switch broadcast çerçevesini geldiği port dışındaki portlara iletir. Bu örnekte PC-B ve PC-C isteği alır; ancak sorulan IP adresi yalnız PC-B'ye aittir. PC-C isteği işler, adresin kendisine ait olmadığını görür ve yanıt vermez.
+PC-A hedef MAC adresini bilmediği için soruyu tek bir alıcıya yöneltemez. ARP isteği, Ethernet broadcast (yayın) adresi FF:FF:FF:FF:FF:FF ile yerel ağdaki bütün cihazlara gönderilir. Switch broadcast çerçevesini geldiği port dışındaki portlara iletir; ev ağında kablosuz erişim noktası da broadcast çerçevesini kablosuz cihazlara ulaştırır. Bu örnekte yazıcı ve akıllı TV isteği alır; ancak sorulan IP adresi yalnız yazıcıya aittir. Akıllı TV isteği işler, adresin kendisine ait olmadığını görür ve yanıt vermez.
 
 İstekte PC-A kendi IP ve MAC adresini de bildirir. Doğru cihaz, yanıtı kime göndereceğini bu bilgiden öğrenir.
 
@@ -290,7 +331,7 @@ Ethernet hedefinin broadcast olması ile aranan IP adresinin tek bir cihaza ait 
 ## ARP Reply: cevap yalnız soran cihaza
 
 ```text
-PC-B ── ARP Reply (unicast) ──> PC-A
+Yazıcı ── ARP Reply (unicast) ──> PC-A
         "192.168.1.20 → 02:00:00:00:00:0B"
 
 PC-A artık çerçeveyi tamamlayabilir:
@@ -300,9 +341,9 @@ PC-A artık çerçeveyi tamamlayabilir:
 Hedef MAC bilinmiyor → ARP Request → ARP Reply → MAC öğrenildi → çerçeve oluşturuldu
 
 ::: {.notes}
-PC-B, istekte PC-A'nın MAC adresini gördüğü için yanıtı yalnız PC-A'ya gönderebilir; bu nedenle ARP yanıtı tipik olarak unicast'tir. Yanıt, 192.168.1.20 adresinin 02:00:00:00:00:0B MAC adresine ait olduğunu bildirir. PC-A bu eşlemeyi ARP tablosuna yazar ve bekleyen IP paketini Ethernet çerçevesine yerleştirir. Böylece süreç tamamlanır: hedef MAC bilinmez, istek gönderilir, yanıt alınır, MAC öğrenilir ve çerçeve oluşturulur.
+Yazıcı, istekte PC-A'nın MAC adresini gördüğü için yanıtı yalnız PC-A'ya gönderebilir; bu nedenle ARP yanıtı tipik olarak unicast'tir. Yanıt, 192.168.1.20 adresinin 02:00:00:00:00:0B MAC adresine ait olduğunu bildirir. PC-A bu eşlemeyi ARP tablosuna yazar ve bekleyen IP paketini Ethernet çerçevesine yerleştirir. Böylece süreç tamamlanır: hedef MAC bilinmez, istek gönderilir, yanıt alınır, MAC öğrenilir ve çerçeve oluşturulur.
 
-ARP hedef IP adresini değiştirmez; yalnız çerçevenin eksik hedef MAC alanını tamamlar. Öğrenilen eşlemeler Windows ve Packet Tracer PC komut satırında `arp -a` komutuyla görülebilir. Kayıtların ne kadar süre tutulduğu gibi ayrıntılar işletim sistemine bağlıdır ve bu dersin kapsamı dışındadır.
+ARP hedef IP adresini değiştirmez; yalnız çerçevenin eksik hedef MAC alanını tamamlar. Öğrenilen eşlemeler Windows ve Packet Tracer PC komut satırında `arp -a` komutuyla görülebilir. Evdeki bir bilgisayarda bu komut çalıştırıldığında modemin, yazıcının veya TV'nin IP–MAC eşleşmeleri listelenebilir; bu kayıtlar kullanıcı hiçbir MAC adresi yazmadan ARP ile öğrenilmiştir. Kayıtların ne kadar süre tutulduğu gibi ayrıntılar işletim sistemine bağlıdır ve bu dersin kapsamı dışındadır.
 :::
 
 ---
@@ -347,8 +388,8 @@ ICMP de güvence sunmaz. Her sorun için mesaj üretilmeyebilir, üretilen mesaj
 ## Ping: Echo Request ve Echo Reply
 
 ```text
-PC-A ── ICMP Echo Request ──> PC-B
-PC-A <── ICMP Echo Reply ──── PC-B
+PC-A ── ICMP Echo Request ──> Yazıcı (192.168.1.20)
+PC-A <── ICMP Echo Reply ──── Yazıcı
 ```
 
 ```text
@@ -358,7 +399,7 @@ C:\> ping 192.168.1.20
 Her Echo Request için bir Echo Reply beklenir; araç yanıtın gelip gelmediğini ve gidiş–dönüş süresini gösterir.
 
 ::: {.notes}
-Ping, belirli bir hedefin ICMP üzerinden yanıt verip veremediğini gözlemlemeye yarayan bir araçtır. Hedefe ICMP Echo Request (yankı isteği) mesajı gönderir ve karşılığında ICMP Echo Reply (yankı yanıtı) mesajı bekler. Hedef cihaz Echo Request aldığında, isteğin içeriğini geri döndüren bir Echo Reply ile yanıt verir.
+Ping, belirli bir hedefin ICMP üzerinden yanıt verip veremediğini gözlemlemeye yarayan bir araçtır. Hedefe ICMP Echo Request (yankı isteği) mesajı gönderir ve karşılığında ICMP Echo Reply (yankı yanıtı) mesajı bekler. Hedef cihaz Echo Request aldığında, isteğin içeriğini geri döndüren bir Echo Reply ile yanıt verir. Ev ağında yazıcının yanıt verip vermediğini denemek için kullanılan `ping 192.168.1.20` komutu bu alışverişi başlatır.
 
 Yanıt geldiğinde araç gidiş–dönüş süresini gösterir. Bu süre, isteğin gönderilmesinden yanıtın alınmasına kadar geçen toplam süredir; yalnız kablodaki yayılma süresini değil, cihazların mesajı işleme süresini ve yol üzerindeki beklemeleri de içerir. Komut Windows ve Packet Tracer PC komut satırında bu biçimde kullanılır; çıktının görünümü sisteme göre değişebilir.
 :::
@@ -394,7 +435,7 @@ Yanıt alınamaması da tek bir nedene işaret etmez. Hedef veya aradaki bir ba�
 - PC-A'da çalıştırılan komut: `ping 192.168.1.20`
 
 ::: {.notes}
-Bu senaryo, ayrı ayrı ele alınan IP, MAC, ARP ve ICMP kavramlarını tek bir gönderimde bir araya getirir. Topoloji en basit biçimiyle iki bilgisayar ve bir switch'ten oluşur. PC-A ve PC-B aynı yerel ağdadır; IP ve MAC adresleri yukarıda verilmiştir.
+Bu senaryo, ayrı ayrı ele alınan IP, MAC, ARP ve ICMP kavramlarını tek bir gönderimde bir araya getirir. Topoloji en basit biçimiyle iki bilgisayar ve bir switch'ten oluşur; yazıcı örneğinde 192.168.1.20 adresini taşıyan cihazın yerini burada PC-B alır. PC-A ve PC-B aynı yerel ağdadır; IP ve MAC adresleri yukarıda verilmiştir.
 
 Başlangıç koşulu belirleyicidir: PC-A'nın ARP tablosu boştur. PC-A, `ping 192.168.1.20` komutuyla hedefin IP adresini bilir; fakat PC-B'nin MAC adresini bilmez. Bu nedenle ICMP mesajının gönderilebilmesi için önce ARP alışverişinin tamamlanması gerekir.
 :::
@@ -463,7 +504,7 @@ Aynı ping ikinci kez gönderildiğinde ARP olayları görülmez; PC-A eşlemeyi
 
 1. TCP/IP'nin Uygulama katmanı OSI'nin hangi sorumluluklarını kapsar? Bu sorumluluklar ortadan kalkar mı?
 2. "TCP/IP" adı iki protokolden geldiği hâlde neden bütün aileyi temsil eder?
-3. PC-A hedef IP adresini bildiği hâlde çerçeveyi neden hemen gönderemez?
+3. Ev ağında yazıcıya IP adresiyle ulaşıyoruz; switch ise çerçeveyi MAC adresine göre iletiyor. Bu bir çelişki mi?
 4. ARP Request neden broadcast, ARP Reply neden unicast gönderilir?
 5. ICMP mesajı hangi birimin içinde taşınır? ARP mesajından farkı nedir?
 6. Ping yanıtı alınamadığında hedefin kapalı olduğu söylenebilir mi?
@@ -471,7 +512,7 @@ Aynı ping ikinci kez gönderildiğinde ARP olayları görülmez; PC-A eşlemeyi
 ::: {.notes}
 Birinci soru, TCP/IP Uygulama katmanının OSI'deki uygulama, sunum ve oturum sorumluluklarını kapsadığını hatırlatır; sunum ve oturum görevleri ortadan kalkmaz, uygulama protokolü veya uygulama yazılımı tarafından yürütülür. İkinci soru adlandırma ile kapsam arasındaki farka dayanır: ad ailenin iki merkezi protokolünden gelir, aile ise HTTP, DNS, SMTP ve UDP gibi başka protokolleri de içerir.
 
-Üçüncü ve dördüncü sorular ARP'nin gerekçesine yöneliktir. Çerçevenin hedef alanı MAC adresidir ve PC-A bu adresi bilmez. Hedef MAC bilinmediği için soru broadcast ile yerel ağdaki herkese sorulur; yanıt veren cihaz soranın MAC adresini istekten öğrendiği için yanıtını unicast olarak yalnız ona gönderir.
+Üçüncü ve dördüncü sorular ARP'nin gerekçesine yöneliktir. Çelişki yoktur: kullanıcı hedefi IP adresiyle belirtir ve bu adres IP paketinde taşınır; paketi taşıyan çerçevenin hedef alanı ise MAC adresidir. Kullanıcının bilmediği MAC adresi ARP ile kendiliğinden bulunur. Hedef MAC bilinmediği için soru broadcast ile yerel ağdaki herkese sorulur; yanıt veren cihaz soranın MAC adresini istekten öğrendiği için yanıtını unicast olarak yalnız ona gönderir.
 
 Beşinci soru taşınma biçimini ayırt eder: ICMP mesajı IP paketinin içinde, ARP mesajı doğrudan Ethernet çerçevesinin içinde taşınır. Altıncı sorunun yanıtı olumsuzdur; yanıtın alınamaması isteğin veya yanıtın kaybolmasından, ICMP'nin engellenmesinden ya da adresleme hatasından da kaynaklanabilir.
 :::
