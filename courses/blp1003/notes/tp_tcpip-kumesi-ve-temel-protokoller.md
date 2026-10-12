@@ -20,9 +20,9 @@ Karşı uçta  → aynı katman, aynı kurallarla yorumlar
 Bu hafta aynı fikri, gerçek ağlarda kullanılan protokol kümesiyle sürdürüyoruz.
 
 ::: {.notes}
-Katmanlama, büyük bir iletişim problemini birbirinden ayrı değiştirilebilen sorumluluklara böler. Önceki haftanın video aktarımı örneğinde sıra, eksiklik, bozulma, alıcı kapasitesi ve yerel teslim ayrı sorulara dönüşmüştü. Bir katmanın yöntemi değiştiğinde, sunduğu hizmet korunduğu sürece üst katmanın değişmesi gerekmez.
+Katmanlı mimari, iletişimi tek ve büyük bir problem olarak ele almak yerine birbirine hizmet sunan sorumluluklara böler. Her katman kendi sorusunu çözer: verinin anlamı, verinin hangi uygulama iletişimine ait olduğu, hangi uç sisteme gideceği, yerel bağlantıda hangi arabirime teslim edileceği ve bitlerin ortamda nasıl aktarılacağı ayrı sorulardır.
 
-Bu hafta yeni bir katmanlama fikri kurmuyoruz. Aynı ilkeyi, İnternet'te fiilen kullanılan protokol ailesine uyguluyoruz.
+Bu bölünmenin kazancı bağımsız değişebilirliktir. Bir katmanın yöntemi değiştiğinde, örneğin bakır kablo yerine fiber kullanıldığında, sunulan hizmet korunduğu sürece üst katmanların değişmesi gerekmez. Karşı uçta aynı katmanın aynı kurallarla çalışması ise iki sistemin birbirini anlamasının koşuludur. TCP/IP protokol kümesi de bu ilke üzerine kuruludur.
 :::
 
 ---
@@ -35,9 +35,11 @@ Bu hafta yeni bir katmanlama fikri kurmuyoruz. Aynı ilkeyi, İnternet'te fiilen
 **Soru:** Gerçek ağlarda kullanılan protokoller bu sorumlulukları nasıl gruplar?
 
 ::: {.notes}
-OSI'nin değeri ortak bir dil sağlamasıdır: "bu bir yerel teslim sorunu" ya da "bu taşıma katmanının işi" diyebilmemizi sağlar. Ancak yedi katman, her iletişimde yedi ayrı başlık bulunacağı veya her katmanın ayrı bir yazılım parçası olduğu anlamına gelmez.
+OSI modeli, iletişimde yapılması gereken işleri yedi katmanda adlandıran bir referans çerçevesidir. Değeri ortak bir dil sağlamasıdır: bir sorunun yerel teslimle mi yoksa taşıma hizmetiyle mi ilgili olduğu bu çerçeve üzerinden tartışılabilir.
 
-Önceki haftanın sonunda Ethernet–IP–TCP–HTTP örneğinde ayrı bir sunum ya da oturum başlığı bulunmadığını görmüştük. Bu gözlem, TCP/IP'nin aynı sorumlulukları nasıl grupladığı sorusuna götürür.
+Model ile protokol farklı şeylerdir. Model hangi sorumlulukların bulunduğunu söyler; protokol ise mesajların biçimini ve alışveriş kurallarını tanımlar. Bu nedenle OSI'nin yedi katmanı, her iletişimde yedi ayrı başlık bulunduğu veya her katmanın ayrı bir yazılım parçası olduğu anlamına gelmez. Ethernet, IP, TCP ve HTTP ile yapılan sıradan bir web isteğinde ayrı bir sunum ya da oturum başlığı yoktur.
+
+Gerçek ağlarda kullanılan protokoller aynı sorumlulukları farklı biçimde gruplar. TCP/IP bu gruplamanın en yaygın örneğidir.
 :::
 
 ---
@@ -47,9 +49,9 @@ OSI'nin değeri ortak bir dil sağlamasıdır: "bu bir yerel teslim sorunu" ya d
 ![](../../../images/bilgisayar-aglari/hafta-05/01-osi-tcpip-gecis.svg){height="620" fig-align="center" fig-alt="Solda OSI'nin yedi katmanı, sağda TCP/IP'nin dört katmanı; OSI'deki Uygulama, Sunum ve Oturum katmanları TCP/IP'de tek Uygulama katmanında toplanır"}
 
 ::: {.notes}
-Görselde solda OSI'nin yedi katmanı, sağda TCP/IP'nin dört katmanı yer alıyor. Şimdilik yalnız üst kısımdaki birleşmeye bakıyoruz: OSI uygulama tarafındaki sorumlulukları uygulama, sunum ve oturum olarak üç ayrı katmanda tanımlar; TCP/IP bu ayrımı zorunlu tutmaz ve üçünü tek bir Uygulama (Application) katmanında toplar.
+OSI uygulama tarafındaki sorumlulukları üç ayrı katmanda tanımlar. Uygulama katmanı hangi mesajlarla konuşulacağını, sunum katmanı verinin hangi biçimde temsil edileceğini, oturum katmanı ise süren etkileşimin nasıl düzenleneceğini belirler. TCP/IP bu üçlü ayrımı zorunlu tutmaz ve hepsini tek bir Uygulama (Application) katmanında toplar.
 
-Alt katmanların eşleşmesini, TCP/IP'nin hangi protokollerden oluştuğunu gördükten sonra tamamlayacağız. Daha az katmanla gösterilmek daha az iş yapmak anlamına gelmez; aynı işler farklı biçimde gruplanır.
+Katman sayısının yediden dörde inmesi, TCP/IP'nin daha az iş yaptığı anlamına gelmez. İşler aynıdır; değişen, hangi işlerin ayrı bir katman olarak tanımlandığıdır. Taşıma, ağ ve alt katmanların eşleşmesi de benzer bir gruplama mantığına dayanır. Bu eşleşme, TCP/IP'yi oluşturan protokoller tanındıktan sonra daha açık görülür.
 :::
 
 ---
@@ -59,9 +61,11 @@ Alt katmanların eşleşmesini, TCP/IP'nin hangi protokollerden oluştuğunu gö
 ![](../../../images/bilgisayar-aglari/hafta-05/02-tcpip-protokol-kumesi.svg){height="620" fig-align="center" fig-alt="TCP/IP'nin dört katmanında birlikte çalışan protokoller: Uygulama katmanında HTTP, DNS ve SMTP; Taşıma katmanında TCP ve UDP; İnternet katmanında IP; Ağ erişimi katmanında Ethernet ve Wi-Fi"}
 
 ::: {.notes}
-TCP/IP adı yalnız TCP ve IP'nin kullanıldığını düşündürebilir. Oysa web sayfası istemek için HTTP, alan adlarını adreslere çevirmek için DNS, e-posta göndermek için SMTP kullanılır; taşıma katmanında TCP'nin yanında UDP de vardır. Bu protokoller birbirinin yerine geçmez, farklı işleri birlikte tamamlar: bir web isteğinde HTTP, TCP ve IP aynı anda görev alır.
+TCP/IP adı, yalnız TCP ve IP'nin kullanıldığı izlenimini verebilir. Oysa TCP/IP, farklı katmanlarda birlikte çalışan çok sayıda protokolü kapsayan bir protokol ailesidir. Web sayfası istemek için HTTP, alan adlarını adreslere çevirmek için DNS, e-posta göndermek için SMTP kullanılır. Taşıma katmanında TCP'nin yanında UDP de bulunur.
 
-Ağ erişimi katmanında Ethernet ve Wi-Fi gibi bağlantı teknolojileri kullanılır. Bunlar IEEE standartlarıyla tanımlanır; TCP/IP, IP paketlerinin hangi bağlantı teknolojisi üzerinden taşınacağını tek bir seçeneğe bağlamaz. IP'nin çok farklı ağlar üzerinde çalışabilmesi bu esneklikten gelir.
+Bu protokoller birbirinin yerine geçmez; farklı işleri birlikte tamamlar. Bir web isteğinde HTTP isteğin anlamını, TCP verinin hangi uygulama iletişimine ait olduğunu ve nasıl teslim edileceğini, IP ise paketin hangi uç sisteme gideceğini belirler.
+
+Ağ erişimi katmanındaki Ethernet ve Wi-Fi, IEEE standartlarıyla tanımlanan bağlantı teknolojileridir. TCP/IP, IP paketlerinin hangi bağlantı teknolojisi üzerinden taşınacağını tek bir seçeneğe bağlamaz. IP'nin kablolu, kablosuz veya başka türden çok farklı ağlar üzerinde çalışabilmesi bu esneklikten gelir.
 :::
 
 ---
@@ -77,9 +81,9 @@ Ağ erişimi katmanında Ethernet ve Wi-Fi gibi bağlantı teknolojileri kullan�
 Bu görevlerin nasıl gerçekleştirileceği büyük ölçüde uygulama geliştirme tarafına bırakılır.
 
 ::: {.notes}
-TCP/IP sunum ve oturum görevlerini ortadan kaldırmaz; yalnız bunları ayrı ve zorunlu katmanlar olarak tanımlamaz. Örneğin bir web yanıtındaki metnin karakter kodlaması (UTF-8 gibi) HTTP mesajında belirtilir ve tarayıcı tarafından yorumlanır. Kullanıcının oturum açık kalması ise çoğu zaman web uygulamasının çerez (cookie) gibi kendi mekanizmalarıyla sağlanır.
+TCP/IP sunum ve oturum görevlerini ortadan kaldırmaz; bunları ayrı ve zorunlu katmanlar olarak tanımlamaz. Bu görevlerin nasıl yerine getirileceği kullanılan uygulama protokolüne ve uygulama yazılımına bırakılır. Örneğin bir web yanıtındaki metnin karakter kodlaması (UTF-8 gibi) HTTP mesajında belirtilir ve tarayıcı tarafından yorumlanır. Kullanıcının bir web sitesinde oturumunun açık kalması ise çoğu zaman uygulamanın çerez (cookie) gibi kendi mekanizmalarıyla sağlanır.
 
-Yanlış anlaşılmaya açık nokta: "Uygulama katmanında ağla ilgili hiçbir şey yoktur" demek doğru değildir. HTTP, DNS ve SMTP, ağ üzerinden konuşan iki tarafın mesaj biçimlerini ve alışveriş kurallarını tanımlayan uygulama katmanı protokolleridir. Uygulama katmanında bulunan, ağ iletişiminin uygulamanın amacına göre düzenlenen kısmıdır.
+Bu durum "uygulama katmanında ağla ilgili hiçbir şey yoktur" biçiminde yorumlanmamalıdır. HTTP, DNS ve SMTP, ağ üzerinden konuşan iki tarafın mesaj biçimlerini ve alışveriş kurallarını tanımlayan uygulama katmanı protokolleridir. Uygulama katmanında bulunan, ağ iletişiminin uygulamanın amacına göre düzenlenen kısmıdır.
 :::
 
 ---
@@ -95,9 +99,9 @@ Yanlış anlaşılmaya açık nokta: "Uygulama katmanında ağla ilgili hiçbir 
 Ad, ailenin iki merkezi protokolünden gelir; kapsamı bu ikisinden çok daha geniştir.
 
 ::: {.notes}
-Benzetmenin tek işlevi adlandırmayı açıklamaktır. Bir marka adı gündelik dilde bütün ürün türü için kullanılabildiği gibi, TCP ve IP'nin adları da bütün protokol ailesinin adı olarak kullanılır. TCP/IP adı hem bu protokol ailesi hem de aileyi açıklayan dört katmanlı model için kullanılır.
+TCP/IP adı, ailenin merkezinde yer alan iki protokolden, TCP ve IP'den gelir. Gündelik dilde "Aygaz" adının tüp gaz, "Sana" adının margarin yerine kullanılması gibi, iki protokolün adı da bütün ailenin adı olarak kullanılır. Benzetmenin işlevi yalnız bu adlandırmayı açıklamaktır; TCP/IP'nin nasıl geliştiğini anlatmaz. TCP/IP adı hem protokol ailesi hem de bu aileyi açıklayan dört katmanlı model için kullanılır.
 
-Benzetme TCP/IP'nin nasıl geliştiğini anlatmaz. Tarihsel konumu kısaca şöyledir: TCP/IP, Web'den önce vardı. ARPANET 1983'te TCP/IP'ye geçti; World Wide Web 1989'da önerildi ve 1990'larda mevcut TCP/IP tabanlı İnternet altyapısı üzerinde yaygınlaştı. Web, İnternet'in kendisi değil, İnternet üzerinde HTTP ile çalışan bir uygulamadır.
+TCP/IP ile Web sık karıştırılır. TCP/IP Web'den önce vardı: ARPANET 1983'te TCP/IP'ye geçti. World Wide Web 1989'da önerildi ve 1990'larda mevcut TCP/IP tabanlı İnternet altyapısı üzerinde yaygınlaştı. Web, İnternet'in kendisi değil, İnternet üzerinde HTTP ile çalışan bir uygulamadır.
 :::
 
 ---
@@ -107,9 +111,11 @@ Benzetme TCP/IP'nin nasıl geliştiğini anlatmaz. Tarihsel konumu kısaca şöy
 ![](../../../images/bilgisayar-aglari/hafta-05/03-osi-tcpip-eslesme.svg){height="620" fig-align="center" fig-alt="OSI Uygulama, Sunum ve Oturum katmanları TCP/IP Uygulama katmanına; Taşıma Taşıma katmanına; Ağ İnternet katmanına; Veri bağlantısı ve Fiziksel katmanlar Ağ erişimi katmanına karşılık gelir"}
 
 ::: {.notes}
-Taşıma katmanı iki modelde de aynı adı ve aynı sorumluluğu taşır. OSI'nin ağ katmanı TCP/IP'de İnternet (Internet) katmanı olarak adlandırılır; bu katmanın merkezinde IP bulunur. OSI'nin veri bağlantısı ve fiziksel katmanları TCP/IP'de Ağ erişimi (Network Access) başlığında toplanır: Ethernet çerçevesinin oluşturulması da bitlerin ortamda aktarılması da bu başlığın altındadır.
+Taşıma katmanı iki modelde de aynı adı ve aynı sorumluluğu taşır: verinin hangi uygulama iletişimine ait olduğunu belirlemek ve teslim hizmetini düzenlemek. OSI'nin ağ katmanı TCP/IP'de İnternet (Internet) katmanı olarak adlandırılır. Bu katmanın merkezinde IP bulunur; görevi paketi farklı ağlar üzerinden hedef uç sisteme ulaştırmaktır.
 
-Bazı ders kitapları, Kurose–Ross gibi, son katmanı ikiye ayıran beş katmanlı bir öğretim gösterimi kullanır. Bu yeni bir model değil, aynı görevlerin daha ayrıntılı gösterimidir. Eşleşme görevlerin yaklaşık karşılığıdır; bir protokolün bütün işlevleri her zaman tek bir kutuya bire bir yerleşmez.
+OSI'nin veri bağlantısı ve fiziksel katmanları TCP/IP'de Ağ erişimi (Network Access) başlığında toplanır. Ethernet çerçevesinin oluşturulması da çerçevenin bitlerinin ortamda sinyallerle aktarılması da bu başlığın altındadır.
+
+Bazı ders kitapları, örneğin Kurose ve Ross, ağ erişimi katmanını veri bağlantısı ve fiziksel katman olarak ikiye ayıran beş katmanlı bir gösterim kullanır. Bu yeni bir model değil, aynı görevlerin daha ayrıntılı gösterimidir. Eşleşme görevlerin yaklaşık karşılığıdır; bir protokolün bütün işlevleri her zaman tek bir kutuya bire bir yerleşmez.
 :::
 
 ---
@@ -128,9 +134,11 @@ Ethernet çerçevesi [ IP paketi [ TCP segmenti [ HTTP verisi ] ] ]
 ```
 
 ::: {.notes}
-Önceki haftanın PDU hattını TCP/IP katmanları üzerinde izliyoruz: uygulama verisi → segment → paket → çerçeve → bit. Amaç adları ezberlemek değil, aynı verinin her katmanda o katmanın sorumluluğu için gereken bilgiyle birlikte taşındığını görmektir.
+Aynı veri, gönderici tarafta TCP/IP katmanlarından aşağı doğru geçerken her katmanda o katmanın sorumluluğu için gereken bilgiyle birlikte taşınır. Uygulama verisi taşıma katmanında segmente, segment İnternet katmanında pakete, paket ağ erişimi katmanında çerçeveye yerleştirilir. Çerçevenin bitleri de fiziksel ortamda sinyallerle aktarılır.
 
-Her katman üstten gelen birimin tamamını yük olarak alır ve kendi başlığını ekler. Taşıma katmanında TCP yerine UDP kullanıldığında birim datagram olarak adlandırılır. Ağ erişimi katmanında çerçeve oluşturulur ve çerçevenin bitleri fiziksel ortamda sinyallerle aktarılır. Şimdi bu zincirin ortasındaki İnternet katmanının hangi problemi çözdüğüne bakıyoruz.
+Her katman üstten gelen birimin tamamını yük olarak alır ve kendi başlığını ekler. Bu nedenle Ethernet çerçevesinin yükünde yalnız kullanıcı verisi değil, IP başlığı, TCP başlığı ve HTTP verisi birlikte bulunur. Birim adları ezberlenecek etiketler değildir; hangi protokolün sorumluluğuna bakıldığını belirtir. Taşıma katmanında TCP yerine UDP kullanıldığında birim datagram olarak adlandırılır.
+
+Alıcı tarafta işlem ters yönde yürür: her katman kendi başlığını yorumlar ve yükü bir üst katmana iletir.
 :::
 
 ---
@@ -146,9 +154,9 @@ PC-A ── paket ──┼── PC-C
 **Soru:** Başka bir cihaza gönderilecek paket hangi hedefe gideceğini nasıl bilir?
 
 ::: {.notes}
-Ağda çok sayıda cihaz vardır ve paket bunlardan yalnız birine gidecektir. Bunun için iki şey gerekir: bütün cihazların aynı biçimde yorumladığı ortak bir adresleme düzeni ve paketin bu düzene göre hedef adresini kendi üzerinde taşıması. Böylece yol üzerindeki cihazlar ve alıcı, paketin kime gittiğini paketin kendisinden okuyabilir.
+Bir ağda çok sayıda cihaz bulunur ve gönderilen paket bunlardan yalnız birine gidecektir. Paketin doğru hedefe ulaşabilmesi için iki koşul gerekir. Birincisi, bütün cihazların aynı biçimde yorumladığı ortak bir adresleme düzenidir. İkincisi, paketin hedef adresini kendi üzerinde taşımasıdır; böylece yol üzerindeki cihazlar ve alıcı paketin kime gittiğini paketin kendisinden okuyabilir.
 
-Bu problem, İnternet katmanının sorumluluğudur. Bu katmanın protokolü IP'dir.
+Bu adresleme düzeni kullanılan bağlantı teknolojisinden bağımsız olmalıdır. Paket yolculuğu boyunca Ethernet, Wi-Fi veya başka türden bağlantılardan geçebilir; hedef adresin bu geçişlerde aynı anlamı koruması gerekir. Bu problem İnternet katmanının sorumluluğudur ve bu katmanın temel protokolü IP'dir (Internet Protocol).
 :::
 
 ---
@@ -166,9 +174,11 @@ IP paketi
 - **İletim:** Paket, hedef IP adresine göre ağlar üzerinden ilerletilir.
 
 ::: {.notes}
-IP adresine mantıksal adres denmesinin nedeni, ağ kartına üretimde yazılmaması ve cihaz bir ağa bağlandığında o ağın düzenine uygun biçimde atanmasıdır. IP başlığı paketin kaynak ve hedef adresini taşır; paketi ileten cihazlar hedef adrese bakarak iletim kararı verir. Bu kararların nasıl verildiği yönlendirme haftasının konusudur.
+IP paketi, başlığında kaynak ve hedef IP adreslerini, yükünde ise üst katmandan gelen birimi taşır. Kaynak adres paketi kimin gönderdiğini, hedef adres paketin hangi uç sisteme gideceğini belirtir. Paketi ileten cihazlar iletim kararını hedef IP adresine bakarak verir.
 
-Adresin yapısı, ikilik gösterimi ve ağ bölümünün hesabı 8. haftada ele alınacak. Bu haftaki örneklerde adresler hazır verilmiştir.
+IP adresine mantıksal adres denir; çünkü ağ kartına üretim sırasında yazılmaz, cihaz bir ağa bağlandığında o ağın düzenine uygun biçimde atanır. Aynı bilgisayar başka bir ağa bağlandığında farklı bir IP adresi alabilir. Bu özellik, adresin cihazın ağdaki konumunu yansıtmasını ve paketlerin ağlar arasında iletilebilmesini sağlar.
+
+IP adresinin yapısı, ikilik gösterimi ve ağ bölümünün hesaplanması 8. haftada; yönlendiricilerin iletim kararını nasıl verdiği 10. haftada ele alınır. Bu bölümdeki adresler hazır verilmiştir.
 :::
 
 ---
@@ -184,9 +194,11 @@ IP paketi hedefe ulaştırmaya çalışır; ancak tek başına şunları garanti
 Bu yaklaşıma **en iyi çaba** (best effort) iletim denir.
 
 ::: {.notes}
-En iyi çaba, ağın bilerek kötü iletim yaptığı anlamına gelmez. Ağ mevcut koşullarda paketi iletmeye çalışır; fakat başarılı teslim, sıra ve süre için bir sözleşme sunmaz. Yoğunlukta tamponların dolması veya bir bağlantının kopması paket kaybına yol açabilir.
+IP paketi hedefe ulaştırmaya çalışır; ancak başarılı teslim, sıra veya süre için güvence vermez. Bu hizmet biçimine en iyi çaba (best effort) iletim denir. En iyi çaba, ağın bilerek kötü iletim yaptığı anlamına gelmez. Ağ mevcut koşullarda paketi iletmeye çalışır; fakat yoğunlukta cihazların tamponlarının dolması veya bir bağlantının kopması paket kaybına yol açabilir. Paketler gönderilme sırasından farklı bir sırayla da ulaşabilir.
 
-IP ayrıca bağlantısız çalışır: paket göndermeden önce iki uç arasında kendi bağlantısını kurmaz; her paket ayrı bir iletim birimidir. Eksiksiz teslim isteyen uygulamalar için bu eksiklik üst katmanlarda tamamlanır; bunun nasıl yapıldığı 6. haftanın konusudur.
+IP ayrıca bağlantısız çalışır: paket göndermeden önce iki uç arasında bir bağlantı kurmaz ve her paketi ayrı bir iletim birimi olarak ele alır. Bağlantısız sözcüğü fiziksel bir kablonun bulunmadığını değil, iletimden önce uçlar arasında bir anlaşma yapılmadığını anlatır.
+
+Eksiksiz ve sıralı teslim gerektiren uygulamalar için bu eksiklikler üst katmanlarda tamamlanır; bunun nasıl yapıldığı 6. haftanın konusudur.
 :::
 
 ---
@@ -206,9 +218,11 @@ Ethernet çerçevesi
 PC-A hedef IP adresini biliyor; çerçevenin hedef MAC alanını dolduramıyor.
 
 ::: {.notes}
-IP paketi hazırdır, fakat paket ortama doğrudan çıkmaz: Ağ erişimi katmanında Ethernet çerçevesine yerleştirilmesi gerekir. Çerçevenin hedef alanında IP adresi değil MAC adresi bulunur. 3. haftada gördüğümüz gibi switch, çerçeveyi hedef MAC adresine göre iletir; IP adresine bakmaz.
+IP paketi hazır olsa da paket iletim ortamına doğrudan çıkmaz; ağ erişimi katmanında bir Ethernet çerçevesine yerleştirilmesi gerekir. Çerçevenin hedef alanında IP adresi değil MAC adresi bulunur. Switch çerçeveyi bu hedef MAC adresine göre iletir; IP adresine bakmaz.
 
-PC-A'nın ARP tablosunun boş olduğunu, yani PC-B'nin MAC adresini henüz bilmediğini varsayıyoruz. Adresleri bizim tabloda görmemiz, PC-A'nın da bildiği anlamına gelmez. İki cihazın aynı yerel ağda olduğu bu örneğin başlangıç koşuludur; bunun nasıl belirlendiği 8. ve 10. haftaların konusudur.
+Bu örnekte PC-A, PC-B'nin IP adresini bilmektedir; ancak PC-B'nin MAC adresini henüz bilmemektedir. PC-A hedef MAC alanını dolduramadığı sürece çerçeveyi oluşturup gönderemez.
+
+İki cihazın aynı yerel ağda bulunması bu örneğin başlangıç koşuludur. Bir cihazın hedefin aynı yerel ağda olup olmadığını nasıl belirlediği 8. haftada, farklı ağdaki bir hedefe nasıl gönderim yaptığı 10. haftada ele alınır.
 :::
 
 ---
@@ -224,9 +238,11 @@ PC-A'nın ARP tablosunun boş olduğunu, yani PC-B'nin MAC adresini henüz bilme
 IP nereye gidileceğini, MAC bu bağlantıda kime teslim edileceğini belirtir.
 
 ::: {.notes}
-İki adres birbirinin yerine geçmez; iç içe birimlerde farklı sorulara cevap verir. IP adresi paketin içinde, MAC adresi paketi taşıyan çerçevenin başlığında bulunur. Çerçeveyi oluşturmak için ikisine birlikte ihtiyaç vardır.
+IP ve MAC adresleri birbirinin yerine geçmez; iç içe birimlerde farklı sorulara cevap verir. IP adresi paketin içinde taşınır ve paketin mantıksal hedefini, yani hangi uç sisteme gideceğini belirtir. MAC adresi paketi taşıyan Ethernet çerçevesinin başlığında bulunur ve çerçevenin o yerel bağlantıda hangi ağ arabirimine teslim edileceğini belirtir. Çerçeveyi oluşturabilmek için ikisine birlikte ihtiyaç vardır.
 
-Bu örnekte ikisi de PC-B'yi gösterir. Bu durum her gönderimde böyle olmak zorunda değildir; farklı ağdaki bir hedefe gönderimi yönlendirme haftasında ele alacağız. Şimdilik problemimiz şudur: PC-A, bildiği IP adresinden PC-B'nin MAC adresine nasıl ulaşacak?
+Bu örnekte iki adres de PC-B'yi gösterir. Bu durum her gönderimde böyle olmak zorunda değildir; hedef başka bir ağdaysa çerçevenin yerel alıcısı ile paketin mantıksal hedefi farklı cihazlar olabilir. Bu durum yönlendirme haftasında incelenir.
+
+PC-A'nın önündeki problem artık açıktır: bildiği IP adresinden, bilmediği MAC adresine nasıl ulaşacaktır?
 :::
 
 ---
@@ -241,9 +257,11 @@ Bu soruyu yerel ağda sorup cevabını almayı sağlayan protokol:
 ARP veriyi taşımaz; verinin Ethernet üzerinde taşınabilmesi için gereken **IP → MAC** eşlemesini sağlar.
 
 ::: {.notes}
-ARP'nin işi, bilinen bir IPv4 adresine karşılık gelen MAC adresini yerel ağda bulmaktır. PC-A'nın göndermek istediği IP paketi ARP mesajının içine konmaz: önce ARP ile eşleme öğrenilir, ardından paket çerçeveye yerleştirilir. Öğrenilen eşleme bir süre ARP tablosunda tutulur; böylece her pakette aynı soru yeniden sorulmaz.
+ARP (Address Resolution Protocol), bilinen bir IPv4 adresine karşılık gelen MAC adresini yerel ağda bulmak için kullanılır. PC-A, 192.168.1.20 adresinin kime ait olduğunu yerel ağa sorar; adresin sahibi kendi MAC adresiyle cevap verir.
 
-ARP, IP ile Ethernet arasında köprü görevi gördüğü için kaynaklarda katman yerleşimi farklı gösterilebilir; bizim için belirleyici olan görevidir. ARP'nin görev alanı yerel ağdır: ARP istekleri yönlendiriciden geçip başka ağlara yayılmaz. [ARP tanımı: RFC 826](https://www.rfc-editor.org/rfc/rfc826.html).
+ARP kullanıcı verisini taşımaz. PC-A'nın göndermek istediği IP paketi ARP mesajının içine konmaz. Önce ARP ile IP–MAC eşlemesi öğrenilir; ardından paket, hedef MAC adresi tamamlanmış Ethernet çerçevesine yerleştirilir. Öğrenilen eşleme bir süre ARP tablosunda tutulur; böylece aynı hedefe gönderilen her pakette aynı soru yeniden sorulmaz.
+
+ARP'nin görev alanı yerel ağdır; ARP istekleri yönlendiriciden geçip başka ağlara yayılmaz. ARP, IP ile Ethernet arasında köprü görevi gördüğü için kaynaklarda katman yerleşimi farklı gösterilebilir; belirleyici olan görevidir. [ARP tanımı: RFC 826](https://www.rfc-editor.org/rfc/rfc826.html).
 :::
 
 ---
@@ -260,9 +278,11 @@ ARP sorusu:          192.168.1.20 kimde? Cevabı 192.168.1.10'a bildir.
 ```
 
 ::: {.notes}
-Hedef MAC bilinmediği için soru tek bir alıcıya yöneltilemez; Ethernet broadcast (yayın) adresi FF:FF:FF:FF:FF:FF ile yerel ağdaki bütün cihazlara gönderilir. Switch, broadcast çerçevesini geldiği port dışındaki portlara iletir. PC-B ve PC-C isteği alır; ancak sorulan IP adresi yalnız PC-B'ye aittir.
+PC-A hedef MAC adresini bilmediği için soruyu tek bir alıcıya yöneltemez. ARP isteği, Ethernet broadcast (yayın) adresi FF:FF:FF:FF:FF:FF ile yerel ağdaki bütün cihazlara gönderilir. Switch broadcast çerçevesini geldiği port dışındaki portlara iletir. Bu örnekte PC-B ve PC-C isteği alır; ancak sorulan IP adresi yalnız PC-B'ye aittir. PC-C isteği işler, adresin kendisine ait olmadığını görür ve yanıt vermez.
 
-PC-A istekte kendi IP ve MAC adresini de bildirir; doğru cihaz yanıtı kime göndereceğini buradan öğrenir. Ethernet hedefinin broadcast olması ile aranan IP adresinin tek bir cihaza ait olması çelişmez: soru herkese duyurulur, aranan cihaz IP adresiyle belirtilir. ARP isteği bir IP paketinin içinde değil, doğrudan Ethernet çerçevesinin içinde taşınır.
+İstekte PC-A kendi IP ve MAC adresini de bildirir. Doğru cihaz, yanıtı kime göndereceğini bu bilgiden öğrenir.
+
+Ethernet hedefinin broadcast olması ile aranan IP adresinin tek bir cihaza ait olması çelişmez: soru herkese duyurulur, aranan cihaz IP adresiyle belirtilir. ARP isteği bir IP paketinin içinde değil, doğrudan Ethernet çerçevesinin içinde taşınır.
 :::
 
 ---
@@ -280,9 +300,9 @@ PC-A artık çerçeveyi tamamlayabilir:
 Hedef MAC bilinmiyor → ARP Request → ARP Reply → MAC öğrenildi → çerçeve oluşturuldu
 
 ::: {.notes}
-PC-B, istekte PC-A'nın MAC adresini gördüğü için yanıtı yalnız PC-A'ya gönderebilir; tipik durumda yanıt unicast'tir. PC-A eşlemeyi ARP tablosuna yazar ve bekleyen IP paketini Ethernet çerçevesine yerleştirir.
+PC-B, istekte PC-A'nın MAC adresini gördüğü için yanıtı yalnız PC-A'ya gönderebilir; bu nedenle ARP yanıtı tipik olarak unicast'tir. Yanıt, 192.168.1.20 adresinin 02:00:00:00:00:0B MAC adresine ait olduğunu bildirir. PC-A bu eşlemeyi ARP tablosuna yazar ve bekleyen IP paketini Ethernet çerçevesine yerleştirir. Böylece süreç tamamlanır: hedef MAC bilinmez, istek gönderilir, yanıt alınır, MAC öğrenilir ve çerçeve oluşturulur.
 
-ARP hedef IP adresini değiştirmez; yalnız çerçevenin eksik hedef MAC alanını tamamlar. Öğrenilen eşlemeler Windows ve Packet Tracer PC komut satırında `arp -a` ile görülebilir. Kayıtların ne kadar süre tutulduğu gibi tablo yönetimi ayrıntıları işletim sistemine bağlıdır ve bu dersin kapsamında değildir.
+ARP hedef IP adresini değiştirmez; yalnız çerçevenin eksik hedef MAC alanını tamamlar. Öğrenilen eşlemeler Windows ve Packet Tracer PC komut satırında `arp -a` komutuyla görülebilir. Kayıtların ne kadar süre tutulduğu gibi ayrıntılar işletim sistemine bağlıdır ve bu dersin kapsamı dışındadır.
 :::
 
 ---
@@ -297,9 +317,9 @@ ARP hedef IP adresini değiştirmez; yalnız çerçevenin eksik hedef MAC alanı
 Ağ hakkında geri bildirim taşıyan ayrı bir mekanizma gerekir.
 
 ::: {.notes}
-Adres problemini çözdük: PC-A artık çerçeveyi oluşturup gönderebilir. Ancak en iyi çaba iletimi nedeniyle paket kaybolabilir ve gönderici bunu IP'nin kendisinden öğrenemez.
+ARP ile adres problemi çözüldükten sonra PC-A çerçeveyi oluşturup gönderebilir. Ancak gönderimin başarılı olup olmadığı ayrı bir sorudur. IP en iyi çaba hizmeti sunduğu için paket yolda kaybolabilir ve IP paketi, hedefe ulaştığına ya da ulaşamadığına dair kendiliğinden bir bilgi geri getirmez.
 
-Hem kullanıcıların hem de ağ yöneticilerinin bir hedefin erişilebilir olup olmadığını sınayabilmesi ve bazı sorunlardan haberdar olabilmesi gerekir. Bu ihtiyaç IP ile birlikte çalışan bir kontrol ve hata bildirim mekanizmasıyla karşılanır.
+Hem kullanıcıların hem de ağ yöneticilerinin bir hedefin erişilebilir olup olmadığını sınayabilmesi ve iletim sırasında oluşan bazı sorunlardan haberdar olabilmesi gerekir. Bu ihtiyaç, IP ile birlikte çalışan bir kontrol ve hata bildirim mekanizmasıyla karşılanır.
 :::
 
 ---
@@ -315,9 +335,11 @@ Ethernet çerçevesi [ IP paketi [ ICMP mesajı ] ]
 ```
 
 ::: {.notes}
-ICMP iletişim hakkında bilgi taşır; kullanıcının dosyasını veya web sayfasını taşımak için kullanılan bir protokol değildir. Bir yönlendirici ya da hedef cihaz, paketi iletemediği bazı durumlarda kaynağa ICMP mesajı gönderebilir.
+ICMP (Internet Control Message Protocol), IP iletişimiyle ilgili kontrol ve hata bilgilerini taşır. Bir yönlendirici veya hedef cihaz, paketi iletemediği bazı durumlarda kaynağa ICMP mesajı gönderebilir; örneğin hedefe ulaşılamadığını bildirebilir. ICMP, kullanıcının dosyasını veya web sayfasını taşımak için kullanılan bir protokol değildir; iletişimin kendisi hakkında bilgi taşır.
 
-ICMP de garanti vermez: her sorun için mesaj üretilmeyebilir, üretilen mesaj kaybolabilir veya güvenlik nedeniyle engellenebilir. ICMP mesajı TCP veya UDP kullanmaz, doğrudan IP paketinin içinde taşınır. ARP ile farkı da buradadır: ARP mesajı doğrudan Ethernet çerçevesinde, ICMP mesajı IP paketinin içinde taşınır. ICMP'nin çok sayıda mesaj türü vardır; bu hafta yalnız en görünür kullanımına, ping'e odaklanıyoruz. [ICMP mesajları: RFC 792](https://www.rfc-editor.org/rfc/rfc792.html).
+ICMP mesajı TCP veya UDP kullanmaz, doğrudan IP paketinin içinde taşınır. ARP ile önemli bir farkı buradadır: ARP mesajı doğrudan Ethernet çerçevesinde, ICMP mesajı ise IP paketinin içinde taşınır.
+
+ICMP de güvence sunmaz. Her sorun için mesaj üretilmeyebilir, üretilen mesaj kaybolabilir veya güvenlik nedeniyle engellenebilir. ICMP'nin çok sayıda mesaj türü vardır; en sık karşılaşılan kullanımı ping aracıdır. [ICMP mesajları: RFC 792](https://www.rfc-editor.org/rfc/rfc792.html).
 :::
 
 ---
@@ -336,9 +358,9 @@ C:\> ping 192.168.1.20
 Her Echo Request için bir Echo Reply beklenir; araç yanıtın gelip gelmediğini ve gidiş–dönüş süresini gösterir.
 
 ::: {.notes}
-Ping, belirli bir hedefin ICMP üzerinden yanıt verip veremediğini gözlemlemeye yarayan bir araçtır. Hedefe ICMP Echo Request gönderir ve ICMP Echo Reply bekler. Yanıt geldiğinde gösterilen süre, isteğin gidip yanıtın dönmesine kadar geçen toplam süredir; yalnız kablodaki yayılma süresi değil, cihazların işlemesi ve beklemeler de bu süreye katılır.
+Ping, belirli bir hedefin ICMP üzerinden yanıt verip veremediğini gözlemlemeye yarayan bir araçtır. Hedefe ICMP Echo Request (yankı isteği) mesajı gönderir ve karşılığında ICMP Echo Reply (yankı yanıtı) mesajı bekler. Hedef cihaz Echo Request aldığında, isteğin içeriğini geri döndüren bir Echo Reply ile yanıt verir.
 
-Komut Windows ve Packet Tracer PC komut satırında bu biçimde kullanılır; çıktının görünümü sisteme göre değişebilir.
+Yanıt geldiğinde araç gidiş–dönüş süresini gösterir. Bu süre, isteğin gönderilmesinden yanıtın alınmasına kadar geçen toplam süredir; yalnız kablodaki yayılma süresini değil, cihazların mesajı işleme süresini ve yol üzerindeki beklemeleri de içerir. Komut Windows ve Packet Tracer PC komut satırında bu biçimde kullanılır; çıktının görünümü sisteme göre değişebilir.
 :::
 
 ---
@@ -353,9 +375,9 @@ Komut Windows ve Packet Tracer PC komut satırında bu biçimde kullanılır; ç
 "Ping başarılıysa ağdaki her şey doğrudur" sonucu çıkarılamaz.
 
 ::: {.notes}
-Başarılı bir ping, Echo Request ile Echo Reply alışverişinin çalıştığını gösterir. Hedefte bir web sunucusunun çalıştığını, istenen sayfanın bulunduğunu veya uygulamanın doğru yanıt vereceğini kanıtlamaz; ICMP ile uygulama protokolleri farklı görevler yürütür.
+Başarılı bir ping, Echo Request ile Echo Reply alışverişinin o anda çalıştığını gösterir: istek hedefe ulaşmış, hedef yanıt vermiş ve yanıt geri dönmüştür. Ancak bu sonuç hedefte bir web sunucusunun çalıştığını, istenen sayfanın bulunduğunu veya başka bir uygulamanın doğru yanıt vereceğini kanıtlamaz. ICMP ile uygulama protokolleri farklı görevler yürütür.
 
-Yanıt alınamaması da tek bir nedene işaret etmez: hedef veya bir bağlantı çalışmıyor olabilir, istek ya da yanıt kaybolmuş olabilir, ICMP bir güvenlik duvarında engellenmiş olabilir ya da adresleme hatalı olabilir. Tek bir gözlem tek bir nedeni kesinleştirmez; ping bir teşhis başlangıcıdır.
+Yanıt alınamaması da tek bir nedene işaret etmez. Hedef veya aradaki bir bağlantı çalışmıyor olabilir, istek ya da yanıt kaybolmuş olabilir, ICMP bir güvenlik duvarında engellenmiş olabilir veya adresleme hatalı olabilir. Tek bir gözlem tek bir nedeni kesinleştirmez; ping bir teşhisin sonucu değil, başlangıcıdır.
 :::
 
 ---
@@ -372,7 +394,9 @@ Yanıt alınamaması da tek bir nedene işaret etmez: hedef veya bir bağlantı 
 - PC-A'da çalıştırılan komut: `ping 192.168.1.20`
 
 ::: {.notes}
-Bu bölümde yeni bir kavram eklemiyoruz; haftanın parçalarını tek bir akışta birleştiriyoruz. IP, MAC, ARP ve ICMP'nin aynı gönderimde nasıl birlikte çalıştığını izleyeceğiz. Aynı senaryoyu uygulamada Packet Tracer'da kuracağız.
+Bu senaryo, ayrı ayrı ele alınan IP, MAC, ARP ve ICMP kavramlarını tek bir gönderimde bir araya getirir. Topoloji en basit biçimiyle iki bilgisayar ve bir switch'ten oluşur. PC-A ve PC-B aynı yerel ağdadır; IP ve MAC adresleri yukarıda verilmiştir.
+
+Başlangıç koşulu belirleyicidir: PC-A'nın ARP tablosu boştur. PC-A, `ping 192.168.1.20` komutuyla hedefin IP adresini bilir; fakat PC-B'nin MAC adresini bilmez. Bu nedenle ICMP mesajının gönderilebilmesi için önce ARP alışverişinin tamamlanması gerekir.
 :::
 
 ---
@@ -392,9 +416,11 @@ Bu bölümde yeni bir kavram eklemiyoruz; haftanın parçalarını tek bir akı�
 ```
 
 ::: {.notes}
-Adım 3–4 adres problemini, adım 5–7 kapsüllemeyi, adım 8–9 iletimi ve yanıtı gösterir. Gerçek bir sistemde ICMP mesajı ve IP paketi önce hazırlanıp ARP tamamlanana kadar bekletilebilir. Buradaki sıralama, hedef MAC adresi bilinmeden çerçevenin gönderilemeyeceğini vurgulamak için seçilmiştir.
+Adım 1–4 adres problemini çözer: PC-A, ARP isteği ve yanıtıyla PC-B'nin MAC adresini öğrenir. Adım 5–7 kapsüllemeyi gösterir: ICMP Echo Request mesajı IP paketine, IP paketi de Ethernet çerçevesine yerleştirilir. Adım 8–9 iletimi ve yanıtı gösterir: switch çerçeveyi hedef MAC adresine göre PC-B'nin portuna iletir, PC-B de Echo Reply ile yanıt verir.
 
-Adım 9'da PC-B yeniden ARP sorusu sormaz: PC-A'nın MAC adresini ARP isteğinden zaten öğrenmiştir. Echo Reply'da IP ve MAC adreslerinin yönü tersine döner.
+Gerçek bir sistemde ICMP mesajı ve IP paketi önce hazırlanıp ARP tamamlanana kadar bekletilebilir. Adımların ARP ile başlaması, hedef MAC adresi bilinmeden çerçevenin gönderilemeyeceğini öne çıkarır.
+
+Adım 9'da PC-B yeniden ARP isteği göndermez; PC-A'nın MAC adresini ARP isteğinden zaten öğrenmiştir. Echo Reply'da IP ve MAC adreslerinin yönü tersine döner: kaynak PC-B, hedef PC-A olur.
 :::
 
 ---
@@ -408,7 +434,9 @@ Ethernet çerçevesi   hedef MAC: 02:00:00:00:00:0B   kaynak MAC: 02:00:00:00:00
 ```
 
 ::: {.notes}
-Hedef IP adresi kullanıcının yazdığı ping komutundan, hedef MAC adresi ARP alışverişinden, ICMP mesajı ise ping aracından gelir. Kaynak adresler PC-A'nın kendi yapılandırmasıdır. Bu çerçevede haftanın bütün parçaları aynı anda görünür: ICMP IP'nin içinde, IP Ethernet'in içinde taşınır; ARP ise çerçevenin eksik alanını önceden tamamlamıştır.
+Echo Request çerçevesindeki her bilgi farklı bir kaynaktan gelir. Hedef IP adresi kullanıcının yazdığı ping komutundan, hedef MAC adresi ARP alışverişinden, ICMP mesajı ise ping aracından gelir. Kaynak IP ve kaynak MAC adresleri PC-A'nın kendi yapılandırmasıdır.
+
+Bu çerçevede haftanın bütün parçaları aynı anda görülür. ICMP mesajı IP paketinin içinde, IP paketi Ethernet çerçevesinin içinde taşınır. ARP bu çerçevenin içinde yer almaz; çerçevenin eksik hedef MAC alanını gönderimden önce tamamlamıştır.
 :::
 
 ---
@@ -422,11 +450,11 @@ Hedef IP adresi kullanıcının yazdığı ping komutundan, hedef MAC adresi ARP
 5. Event List'te sırayı izleyin: **ARP Request → ARP Reply → ICMP Echo Request → ICMP Echo Reply**.
 
 ::: {.notes}
-IP adresi girildiğinde Packet Tracer'ın otomatik doldurduğu maske değerini değiştirmeyin; maskenin anlamı 8. haftanın konusudur. Filtre ayarı Event List altındaki "Edit Filters" ile yapılır.
+Bu uygulamada yeni bir protokol yoktur; adım adım izlenen akış Packet Tracer'ın Simulation Mode'unda görünür hâle gelir. IP adresi girildiğinde Packet Tracer'ın otomatik doldurduğu maske değeri değiştirilmemelidir; maskenin anlamı 8. haftada ele alınır. Olay listesinin filtresi Event List altındaki "Edit Filters" ile ayarlanır.
 
-Event List'teki her olaya tıklandığında açılan pencerede çerçevenin ve paketin ayrıntıları görülebilir: ARP isteğinin hedef MAC'inin broadcast olduğunu, ICMP mesajının ise IP paketi içinde taşındığını bu pencereden doğrulayın. İkinci kez ping gönderildiğinde ARP olaylarının görülmemesi, eşlemenin ARP tablosunda tutulduğunu gösterir; PC-A'da `arp -a` ile bu kaydı kontrol edin.
+Event List'teki her olaya tıklandığında açılan pencerede çerçevenin ve paketin ayrıntıları görülebilir. Bu pencerede ARP isteğinin hedef MAC adresinin broadcast olduğu ve ICMP mesajının IP paketi içinde taşındığı doğrulanabilir.
 
-Uygulamanın amacı yeni bir protokol öğretmek değil, teoride kurulan veri akışını görünür kılmaktır.
+Aynı ping ikinci kez gönderildiğinde ARP olayları görülmez; PC-A eşlemeyi ARP tablosunda tuttuğu için soruyu yeniden sormaz. Bu kayıt PC-A komut satırında `arp -a` ile kontrol edilebilir.
 :::
 
 ---
@@ -441,9 +469,11 @@ Uygulamanın amacı yeni bir protokol öğretmek değil, teoride kurulan veri ak
 6. Ping yanıtı alınamadığında hedefin kapalı olduğu söylenebilir mi?
 
 ::: {.notes}
-1: Uygulama, sunum ve oturum sorumluluklarını kapsar; sunum ve oturum görevleri kalkmaz, uygulama protokolü veya uygulama yazılımı tarafından yürütülür. 2: Ad, ailenin iki merkezi protokolünden gelir ve gündelik kullanımda bütün aileyi temsil eder; aile HTTP, DNS, SMTP, UDP gibi başka protokolleri de içerir.
+Birinci soru, TCP/IP Uygulama katmanının OSI'deki uygulama, sunum ve oturum sorumluluklarını kapsadığını hatırlatır; sunum ve oturum görevleri ortadan kalkmaz, uygulama protokolü veya uygulama yazılımı tarafından yürütülür. İkinci soru adlandırma ile kapsam arasındaki farka dayanır: ad ailenin iki merkezi protokolünden gelir, aile ise HTTP, DNS, SMTP ve UDP gibi başka protokolleri de içerir.
 
-3: Çerçevenin hedef alanı MAC adresidir ve PC-A bu adresi bilmemektedir. 4: Hedef MAC bilinmediği için soru yerel ağdaki herkese sorulur; yanıtı veren cihaz soranın MAC adresini istekten öğrendiği için yalnız ona yanıt verir. 5: ICMP mesajı IP paketinin içinde taşınır; ARP mesajı ise doğrudan Ethernet çerçevesinde taşınır. 6: Söylenemez; istek veya yanıt kaybolmuş, ICMP engellenmiş ya da adresleme hatalı olabilir.
+Üçüncü ve dördüncü sorular ARP'nin gerekçesine yöneliktir. Çerçevenin hedef alanı MAC adresidir ve PC-A bu adresi bilmez. Hedef MAC bilinmediği için soru broadcast ile yerel ağdaki herkese sorulur; yanıt veren cihaz soranın MAC adresini istekten öğrendiği için yanıtını unicast olarak yalnız ona gönderir.
+
+Beşinci soru taşınma biçimini ayırt eder: ICMP mesajı IP paketinin içinde, ARP mesajı doğrudan Ethernet çerçevesinin içinde taşınır. Altıncı sorunun yanıtı olumsuzdur; yanıtın alınamaması isteğin veya yanıtın kaybolmasından, ICMP'nin engellenmesinden ya da adresleme hatasından da kaynaklanabilir.
 :::
 
 ---
@@ -452,10 +482,10 @@ Uygulamanın amacı yeni bir protokol öğretmek değil, teoride kurulan veri ak
 
 - Dersin öğretmen slaytları: **03 — OSI** ve **04 — TCP/IP**.
 - Tanenbaum ve Wetherall, *Computer Networks*, 5. baskı, bölüm 1 ve 5.
-- Forouzan, *Data Communications and Networking*, 5. baskı, bölüm 2 ve 23–24.
-- Kurose ve Ross, *Computer Networking: A Top-Down Approach*, 8. baskı, bölüm 1, 4 ve 6.
+- Forouzan, *Data Communications and Networking*, 5. baskı, bölüm 2.
+- Kurose ve Ross, *Computer Networking: A Top-Down Approach*, 8. baskı, bölüm 1 ve 4–6.
 - [RFC 826: ARP](https://www.rfc-editor.org/rfc/rfc826.html) · [RFC 792: ICMP](https://www.rfc-editor.org/rfc/rfc792.html).
 
 ::: {.notes}
-Anlatım sırası dersin OSI ve TCP/IP slaytlarındaki hattı izler: katmanlı model → TCP/IP'ye geçiş → protokol ailesi → IP → MAC ihtiyacı → ARP → ICMP. ARP örneği Tanenbaum bölüm 5, PDF 113–115 ve Kurose bölüm 6, PDF 32–34 ile; ICMP açıklaması Tanenbaum bölüm 5, PDF 112–113 ve RFC 792 ile desteklenmiştir.
+Katmanlı model ve OSI–TCP/IP ilişkisi için Tanenbaum bölüm 1, Forouzan bölüm 2 ve Kurose bölüm 1 okunabilir. IP için Kurose bölüm 4; ICMP için Tanenbaum bölüm 5 (yerel PDF 112–113) ve Kurose bölüm 5; ARP için Tanenbaum bölüm 5 (yerel PDF 113–115) ve Kurose bölüm 6 (yerel PDF 32–34) temel kaynaklardır. ARP ve ICMP'nin özgün tanımları RFC 826 ve RFC 792'dedir.
 :::
