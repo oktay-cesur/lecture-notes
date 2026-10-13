@@ -93,7 +93,7 @@ Ağ davranışını açıklarken daha belirgin olan ayrım kullanılır: İleti�
 
 ## İstemci ve Sunucu Rolleri
 
-![](../../../images/bilgisayar-aglari/hafta-03/11-istemci-sunucu-rol-degisimi.png){height="620" fig-align="center" fig-alt="Aynı iki bilgisayarın dosya ve yazdırma hizmetlerinde istemci ve sunucu rollerini değiştirmesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/11-istemci-sunucu-rol-degisimi.png){width="100%" fig-align="center" fig-alt="Aynı iki bilgisayarın dosya ve yazdırma hizmetlerinde istemci ve sunucu rollerini değiştirmesi"}
 
 **İstemci ve sunucu, sabit donanım türleri değil iletişim rolleridir.**
 
@@ -110,7 +110,7 @@ Aynı cihaz farklı hizmetlerde aynı anda farklı roller üstlenebilir. Bir bil
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/12-nic-ve-ag-arabirimleri.png){height="620" fig-align="center" fig-alt="Uygulama ve işletim sisteminden ağ arabirimine ve iletim ortamına geçiş; aynı bilgisayarda ayrı kablolu ve kablosuz arabirimler"}
+![](../../../images/bilgisayar-aglari/hafta-03/12-nic-ve-ag-arabirimleri.png){width="100%" fig-align="center" fig-alt="Uygulama ve işletim sisteminden ağ arabirimine ve iletim ortamına geçiş; aynı bilgisayarda ayrı kablolu ve kablosuz arabirimler"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -147,7 +147,7 @@ Bir cihazın adından önce çözdüğü problem düşünülürse benzer görün
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/13-repeater-sinyali-yeniden-uretir.png){height="620" fig-align="center" fig-alt="Zayıflamış sayısal sinyalin repeater tarafından aynı bit örüntüsünü koruyarak yeniden üretilmesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/13-repeater-sinyali-yeniden-uretir.png){width="100%" fig-align="center" fig-alt="Zayıflamış sayısal sinyalin repeater tarafından aynı bit örüntüsünü koruyarak yeniden üretilmesi"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -172,7 +172,7 @@ Repeater kaynak veya hedef MAC adresine bakmaz. Görevi fiziksel iletimle sını
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/14-hub-sinyali-diger-portlara-tekrarlar.png){height="620" fig-align="center" fig-alt="Hub'ın PC-A'dan aldığı sinyali giriş portu dışındaki üç porta tekrarlaması ve tek ortak collision domain"}
+![](../../../images/bilgisayar-aglari/hafta-03/14-hub-sinyali-diger-portlara-tekrarlar.png){width="100%" fig-align="center" fig-alt="Hub'ın PC-A'dan aldığı sinyali giriş portu dışındaki üç porta tekrarlaması ve tek ortak collision domain"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -197,7 +197,7 @@ Aynı anda yapılan gönderimler ortak ortamda çarpışabilir. Geleneksel payla
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/15-bridge-iletim-ve-filtreleme.png){height="620" fig-align="center" fig-alt="Bridge'in aynı segmentte kalan frame'i filtrelemesi ve farklı segmentteki hedefe yönelik frame'i iletmesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/15-bridge-iletim-ve-filtreleme.png){width="100%" fig-align="center" fig-alt="Bridge'in aynı segmentte kalan frame'i filtrelemesi ve farklı segmentteki hedefe yönelik frame'i iletmesi"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -222,7 +222,7 @@ Kaynak ve hedef aynı segmentteyse bridge frame'i diğer segmente aktarmayabilir
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/16-switch-portlar-ve-secici-iletim.png){height="620" fig-align="center" fig-alt="Dört ayrı bağlantılı switch'in port 1'den gelen frame'i MAC tablosundaki bilinen hedefe göre yalnız port 2'ye iletmesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/16-switch-portlar-ve-secici-iletim.png){width="100%" fig-align="center" fig-alt="Dört ayrı bağlantılı switch'in port 1'den gelen frame'i MAC tablosundaki bilinen hedefe göre yalnız port 2'ye iletmesi"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -283,7 +283,7 @@ Collision algılanırsa gönderim durdurulur. Cihazlar aynı anda yeniden başla
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/17-router-iki-yerel-agi-baglar.png){height="620" fig-align="center" fig-alt="İki ayrı yerel ağdaki switch ve uç sistemlerin router'ın farklı arabirimleri üzerinden bağlanması"}
+![](../../../images/bilgisayar-aglari/hafta-03/17-router-iki-yerel-agi-baglar.png){width="100%" fig-align="center" fig-alt="İki ayrı yerel ağdaki switch ve uç sistemlerin router'ın farklı arabirimleri üzerinden bağlanması"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -319,7 +319,7 @@ Switch varsayılan durumda broadcast frame'i geldiği port dışındaki uygun po
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/18-access-point-kablosuzdan-lana.png){height="620" fig-align="center" fig-alt="Kablosuz bilgisayar ve telefonun access point üzerinden switch'e ve kablolu LAN'a bağlanması"}
+![](../../../images/bilgisayar-aglari/hafta-03/18-access-point-kablosuzdan-lana.png){width="100%" fig-align="center" fig-alt="Kablosuz bilgisayar ve telefonun access point üzerinden switch'e ve kablolu LAN'a bağlanması"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -343,7 +343,7 @@ Bir access point'in temel rolü farklı ağlar arasında yönlendirme yapmak de�
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/19-firewall-izin-ve-engelleme.png){height="620" fig-align="center" fig-alt="Firewall'ın güvenlik politikasına göre bir iletişime izin verirken diğerini engellemesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/19-firewall-izin-ve-engelleme.png){width="100%" fig-align="center" fig-alt="Firewall'ın güvenlik politikasına göre bir iletişime izin verirken diğerini engellemesi"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -367,7 +367,7 @@ Firewall bağımsız bir cihaz, bir işletim sistemi yazılımı veya başka bir
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/20-modem-erisim-teknolojisine-uyarlama.png){height="620" fig-align="center" fig-alt="Modem veya erişim biriminin yerel bağlantı ile servis sağlayıcının erişim teknolojisi arasında uyarlama sağlaması"}
+![](../../../images/bilgisayar-aglari/hafta-03/20-modem-erisim-teknolojisine-uyarlama.png){width="100%" fig-align="center" fig-alt="Modem veya erişim biriminin yerel bağlantı ile servis sağlayıcının erişim teknolojisi arasında uyarlama sağlaması"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -423,7 +423,7 @@ Kaynak ve hedef MAC alanları 48 bittir. Switch kaynak alanını adres öğrenme
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/21-frame-kaynak-ve-hedef-mac.png){height="620" fig-align="center" fig-alt="Gönderici ve hedef ağ arabirimlerinin frame'in kaynak ve hedef MAC alanlarıyla eşleştirilmesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/21-frame-kaynak-ve-hedef-mac.png){width="100%" fig-align="center" fig-alt="Gönderici ve hedef ağ arabirimlerinin frame'in kaynak ve hedef MAC alanlarıyla eşleştirilmesi"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -477,7 +477,7 @@ Bu yapı bütün MAC adreslerinin fabrikada kalıcı ve değiştirilemez olduğu
 
 ## Ethernet Hedefleme Biçimleri
 
-![](../../../images/bilgisayar-aglari/hafta-03/22-ethernet-unicast-broadcast-multicast.png){height="620" fig-align="center" fig-alt="Unicast'ın tek arayüzü, broadcast'ın tüm ilgili arayüzleri ve multicast'ın belirli alıcı grubunu hedeflemesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/22-ethernet-unicast-broadcast-multicast.png){width="100%" fig-align="center" fig-alt="Unicast'ın tek arayüzü, broadcast'ın tüm ilgili arayüzleri ve multicast'ın belirli alıcı grubunu hedeflemesi"}
 
 ::: {.notes}
 Unicast frame tek bir hedef MAC adresine yöneliktir. Switch hedef adresi öğrendiyse frame'i yalnızca ilgili bağlantıya iletebilir.
@@ -511,7 +511,7 @@ Switch'e bir frame ulaştığında frame'in geldiği port bellidir. Frame başl�
 
 ## Kaynak MAC Adresinden Öğrenme
 
-![](../../../images/bilgisayar-aglari/hafta-03/23-kaynak-macten-mac-tablosuna.png){height="620" fig-align="center" fig-alt="Switch'in gelen frame'in kaynak MAC alanını giriş portuyla eşleştirerek MAC tablosuna kayıt eklemesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/23-kaynak-macten-mac-tablosuna.png){width="100%" fig-align="center" fig-alt="Switch'in gelen frame'in kaynak MAC alanını giriş portuyla eşleştirerek MAC tablosuna kayıt eklemesi"}
 
 **Switch adresi kaynak MAC alanından öğrenir.**
 
@@ -546,7 +546,7 @@ Broadcast frame'ler de hedefleri gereği uygun diğer portlara yayılır. Unknow
 
 ## Bilinen ve Bilinmeyen Unicast
 
-![](../../../images/bilgisayar-aglari/hafta-03/24-bilinen-ve-bilinmeyen-unicast.png){height="620" fig-align="center" fig-alt="Aynı topolojide bilinen hedefe tek porttan iletim ve bilinmeyen hedefe giriş portu dışındaki portlardan flooding karşılaştırması"}
+![](../../../images/bilgisayar-aglari/hafta-03/24-bilinen-ve-bilinmeyen-unicast.png){width="100%" fig-align="center" fig-alt="Aynı topolojide bilinen hedefe tek porttan iletim ve bilinmeyen hedefe giriş portu dışındaki portlardan flooding karşılaştırması"}
 
 ::: {.notes}
 Bilinen unicast hedef için switch tablodaki port bilgisini kullanır ve frame'i yalnızca ilgili bağlantıya iletir. Hedef adres frame'in geldiği portla aynı portta kayıtlıysa switch frame'i başka bir porta iletmez.
@@ -561,7 +561,7 @@ Unknown unicast hedef için switch hedefin bağlantısını bilmediğinden flood
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/25-broadcast-framein-yayilmasi.png){height="620" fig-align="center" fig-alt="Broadcast frame'in switch'te giriş portu dışındaki uygun portlara yayılması ve kaynak MAC kaydının öğrenilmesi"}
+![](../../../images/bilgisayar-aglari/hafta-03/25-broadcast-framein-yayilmasi.png){width="100%" fig-align="center" fig-alt="Broadcast frame'in switch'te giriş portu dışındaki uygun portlara yayılması ve kaynak MAC kaydının öğrenilmesi"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -613,7 +613,7 @@ MAC tablosu, adresleri fiziksel portlarla ilişkilendirerek yerel Ethernet trafi
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-03/26-ayni-agda-cihazlarin-rolleri.png){height="620" fig-align="center" fig-alt="Kablosuz istemci, AP, PC ve sunucunun yerel switch üzerinden bağlanması; router, firewall ve erişim biriminin ayrı işlevleri"}
+![](../../../images/bilgisayar-aglari/hafta-03/26-ayni-agda-cihazlarin-rolleri.png){width="100%" fig-align="center" fig-alt="Kablosuz istemci, AP, PC ve sunucunun yerel switch üzerinden bağlanması; router, firewall ve erişim biriminin ayrı işlevleri"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}

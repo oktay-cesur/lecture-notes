@@ -29,7 +29,7 @@ Ağ iletişiminde de mesaj üretme, doğru alıcıya taşıma ve sinyalle aktarm
 
 ## Bir video göndermek hangi işleri gerektirir?
 
-![](../../../images/bilgisayar-aglari/hafta-04/01-video-aktariminin-gorevleri.png){height="620" fig-align="center" fig-alt="100 MB video dosyası aktarımında alıcı, ortam, parçalama ve veri bütünlüğü soruları"}
+![](../../../images/bilgisayar-aglari/hafta-04/01-video-aktariminin-gorevleri.png){width="100%" fig-align="center" fig-alt="100 MB video dosyası aktarımında alıcı, ortam, parçalama ve veri bütünlüğü soruları"}
 
 ::: {.notes}
 Kullanıcının gönderme isteği tek bir işlemdir, fakat ağ açısından birden fazla iş doğurur. Aynı ağda başka bilgisayarlar varsa alıcı ayırt edilmelidir. Dosyanın bitleri ortamın taşıyabileceği sinyallerle temsil edilmelidir. Dosya, kullanılan aktarım birimlerinden büyük olduğunda parçalara ayrılır; bu da alıcının bütünü yeniden kurmasını gerektirir.
@@ -61,7 +61,7 @@ Parçalama bir çözüm sağlarken yeni bir yönetim ihtiyacı doğurur. Veriyi 
 :::: {.columns}
 
 ::: {.column width="70%"}
-![](../../../images/bilgisayar-aglari/hafta-04/02-sira-eksiklik-ve-bozulma.png){height="620" fig-align="center" fig-alt="Beklenen parça sırasıyla farklı sıra, eksik P2 ve bozulmuş P3 durumlarının karşılaştırılması"}
+![](../../../images/bilgisayar-aglari/hafta-04/02-sira-eksiklik-ve-bozulma.png){width="100%" fig-align="center" fig-alt="Beklenen parça sırasıyla farklı sıra, eksik P2 ve bozulmuş P3 durumlarının karşılaştırılması"}
 :::
 
 ::: {.column style="width: 28%; font-size: 0.72em;"}
@@ -84,7 +84,7 @@ Bütün parçaların bulunması da içeriğin bozulmadığını tek başına kan
 
 ## Gönderici alıcıdan hızlıysa?
 
-![](../../../images/bilgisayar-aglari/hafta-04/03-alici-kapasitesi-ve-gonderim.png){height="560" fig-align="center" fig-alt="Hızlı göndericiden gelen verinin alıcının sınırlı işleme kapasitesi önünde birikmesi"}
+![](../../../images/bilgisayar-aglari/hafta-04/03-alici-kapasitesi-ve-gonderim.png){width="100%" fig-align="center" fig-alt="Hızlı göndericiden gelen verinin alıcının sınırlı işleme kapasitesi önünde birikmesi"}
 
 Alıcının kapasitesine göre gönderimi düzenlemek, kayıp veriyi tamamlamaktan farklı bir iştir.
 
@@ -98,7 +98,7 @@ Tek bir dosya aktarımında birden fazla kontrol ihtiyacının ortaya çıkması
 
 ## Bir yöntemi değiştirmek bütün sistemi değiştirmeli mi?
 
-![](../../../images/bilgisayar-aglari/hafta-04/04-hizmet-ve-gerceklestirim.png){height="620" fig-align="center" fig-alt="Üst görevin kullandığı hizmet korunurken bakır ve fiber gerçekleştirimlerinin değişebilmesi"}
+![](../../../images/bilgisayar-aglari/hafta-04/04-hizmet-ve-gerceklestirim.png){width="100%" fig-align="center" fig-alt="Üst görevin kullandığı hizmet korunurken bakır ve fiber gerçekleştirimlerinin değişebilmesi"}
 
 ::: {.notes}
 Uygulama kablonun elektriksel ayrıntılarını kendisi yönetirse, fiber bağlantıya geçiş uygulamayı da etkileyebilir. Sorumluluk ayrıldığında ilgili alt bileşenler bitlerin fiziksel temsilini yönetir; uygulama beklediği aktarım hizmetini kullanır.
@@ -110,7 +110,7 @@ Katmanlı mimari, her katmanın belirli sorumluluklar üstlenmesi ve üsttekine 
 
 ## İki uçta kim kiminle konuşur?
 
-![](../../../images/bilgisayar-aglari/hafta-04/05-filozof-cevirmen-sekreter.png){height="620" fig-align="center" fig-alt="İki uçta filozof, çevirmen ve sekreter rolleri; yerel görev devri, ortak dilin kuralları ve gerçek taşıma yolu"}
+![](../../../images/bilgisayar-aglari/hafta-04/05-filozof-cevirmen-sekreter.png){width="100%" fig-align="center" fig-alt="İki uçta filozof, çevirmen ve sekreter rolleri; yerel görev devri, ortak dilin kuralları ve gerçek taşıma yolu"}
 
 ::: {.notes}
 A'daki filozof mesajını yerel çevirmene verir. Çevirmen ortak dile dönüştürür; sekreter mesajı taşır. B tarafında sekreterden çevirmene, oradan filozofa ilerleyen işlem mesajı alıcının diline ulaştırır.
@@ -122,7 +122,7 @@ Dikey oklar yerel görev devridir. Noktalı çizgi iki çevirmenin uyduğu ortak
 
 ## Hizmet, arayüz ve protokol
 
-![](../../../images/bilgisayar-aglari/hafta-04/06-hizmet-arayuz-protokol.png){height="620" fig-align="center" fig-alt="Aynı sistemde arayüz üzerinden hizmet kullanımı ve farklı sistemlerin eş katmanları arasında protokol ilişkisi"}
+![](../../../images/bilgisayar-aglari/hafta-04/06-hizmet-arayuz-protokol.png){width="100%" fig-align="center" fig-alt="Aynı sistemde arayüz üzerinden hizmet kullanımı ve farklı sistemlerin eş katmanları arasında protokol ilişkisi"}
 
 ::: {.notes}
 Filozof kendi çevirmeninin hizmetini kullanır; iki çevirmen ise ortak dilin kurallarına uyar. Ağda da komşu katmanlar arasında hizmet kullanımıyla karşı uçtaki eşle protokol ilişkisi birlikte bulunur. Arayüz, aynı sistemde katmanın sunduğu hizmetin nasıl kullanılacağını belirler.
@@ -314,7 +314,7 @@ Fiziksel aktarım veriyi ilk kez bite dönüştürmek değildir. Bitler verinin 
 
 ## Yedi katman, yedi sorumluluk sorusu
 
-![](../../../images/bilgisayar-aglari/hafta-04/07-osi-yedi-sorumluluk.png){height="620" fig-align="center" fig-alt="OSI katmanlarının uygulamadan fiziksele sırası ve her katmanın cevapladığı sorumluluk sorusu"}
+![](../../../images/bilgisayar-aglari/hafta-04/07-osi-yedi-sorumluluk.png){width="100%" fig-align="center" fig-alt="OSI katmanlarının uygulamadan fiziksele sırası ve her katmanın cevapladığı sorumluluk sorusu"}
 
 ::: {.notes}
 Aynı iletişimde mesajın amacı, veri temsili, etkileşim düzeni, uygulama uçları arasındaki teslim, hedef uç sisteme taşıma, yerel arayüze teslim ve fiziksel sinyal aktarımı birlikte bulunur. Katman adları, hangi sorumluluğa baktığımızı ayırt etmeyi sağlar.
@@ -326,7 +326,7 @@ Bu sorumlulukların ayrı adlandırılması, her birinin ayrı bir donanımda ve
 
 ## MAC, IP ve port aynı soruyu mu cevaplar?
 
-![](../../../images/bilgisayar-aglari/hafta-04/08-mac-ip-port-ayrimi.png){height="620" fig-align="center" fig-alt="MAC ile Ethernet arayüzünün, IP ile hedef ucun, port ile uygulama iletişiminin ayırt edilmesi"}
+![](../../../images/bilgisayar-aglari/hafta-04/08-mac-ip-port-ayrimi.png){width="100%" fig-align="center" fig-alt="MAC ile Ethernet arayüzünün, IP ile hedef ucun, port ile uygulama iletişiminin ayırt edilmesi"}
 
 ::: {.notes}
 Aynı aktarımda bu bilgiler birlikte bulunabilir. Her biri ayrı sorumlulukta kullanıldığından biri diğerini gereksiz kılmaz. Bilgilerin mesajla birlikte taşınabilmesi için protokoller kendi alanlarını oluşturur.
@@ -497,7 +497,7 @@ Bu örnekte Merhaba mesajı tek bir taşıma birimine sığar. Büyük dosyalard
 
 ## Birimin içindeki başlık ve yük
 
-![](../../../images/bilgisayar-aglari/hafta-04/09-baslik-yuk-ve-pdu.png){height="620" fig-align="center" fig-alt="Başlık ve yükten oluşan PDU ile üst birimin tamamının alt katmanın yükünde taşınması"}
+![](../../../images/bilgisayar-aglari/hafta-04/09-baslik-yuk-ve-pdu.png){width="100%" fig-align="center" fig-alt="Başlık ve yükten oluşan PDU ile üst birimin tamamının alt katmanın yükünde taşınması"}
 
 ::: {.notes}
 PDU, bir katmanın protokolünün işlediği veri birimidir. Başlık o protokol için gerekli bilgileri, yük ise taşınan içeriği barındırır. Bazı protokollerde birimin sonunda da kontrol alanı bulunur; Ethernet'in FCS alanı bunun örneğidir.
@@ -509,7 +509,7 @@ Yük yalnız kullanıcının metni demek değildir. Daha alt protokole baktığ�
 
 ## Kapsülleme: aynı mesaj, iç içe birimler
 
-![](../../../images/bilgisayar-aglari/hafta-04/10-kapsulleme-ic-ice-birimler.png){height="620" fig-align="center" fig-alt="Mesaja taşıma, IP ve Ethernet başlıklarının eklenmesi; FCS ve Ethernet yükünün sınırı"}
+![](../../../images/bilgisayar-aglari/hafta-04/10-kapsulleme-ic-ice-birimler.png){width="100%" fig-align="center" fig-alt="Mesaja taşıma, IP ve Ethernet başlıklarının eklenmesi; FCS ve Ethernet yükünün sınırı"}
 
 ::: {.notes}
 Taşıma protokolü mesajı yük olarak alır ve kendi başlığını ekler. IP, bu bütün birimi yük olarak taşır. Ethernet ise IP paketini yüküne yerleştirir, yerel teslim bilgilerini ve hata denetim alanını ekler. Bu iç içe yerleştirme kapsüllemedir.
@@ -539,7 +539,7 @@ Paket sözcüğü genel kullanımda farklı ağ birimlerine de uygulanır. UDP v
 
 ## Alıcıda çözümleme
 
-![](../../../images/bilgisayar-aglari/hafta-04/11-alicida-cozumleme.png){height="620" fig-align="center" fig-alt="Frame, IP paketi ve taşıma birimi alanlarının işlenmesiyle Merhaba mesajının uygulamaya teslimi"}
+![](../../../images/bilgisayar-aglari/hafta-04/11-alicida-cozumleme.png){width="100%" fig-align="center" fig-alt="Frame, IP paketi ve taşıma birimi alanlarının işlenmesiyle Merhaba mesajının uygulamaya teslimi"}
 
 ::: {.notes}
 Alıcı sinyalleri bitler olarak yorumlar ve frame'i işler. Yerel kabul ve hata kontrollerinden geçen frame'in ağ birimi ilgili ağ işlemine verilir. Ağ bilgileri değerlendirildikten sonra taşıma birimi; taşıma işleminden sonra ilgili uygulama iletişimine mesaj teslim edilir.
@@ -585,7 +585,7 @@ Bu karar için uygulama metninin anlamını bilmesi gerekmez. Bilinmeyen unicast
 
 ## Uç sistem ve ara cihazın görevi
 
-![](../../../images/bilgisayar-aglari/hafta-04/12-uc-sistem-switch-router.png){height="620" fig-align="center" fig-alt="Gönderici, switch, router ve alıcının kapsülleme, MAC tabanlı iletim, paket iletimi ve uygulamaya teslim görevleri"}
+![](../../../images/bilgisayar-aglari/hafta-04/12-uc-sistem-switch-router.png){width="100%" fig-align="center" fig-alt="Gönderici, switch, router ve alıcının kapsülleme, MAC tabanlı iletim, paket iletimi ve uygulamaya teslim görevleri"}
 
 ::: {.notes}
 Her ara cihazın veriyi uygulamaya kadar açması gerekmez. Tipik iletim işlevinde link-layer switch link bilgisiyle, router ağ bilgisiyle görev yapar. Uç sistem mesajı uygulama iletişimine kadar işler.

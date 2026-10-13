@@ -8,7 +8,6 @@ date: 2026-10-05
 execute:
   echo: false
 ---
-
 ## Geçen hafta: iletişimi sorumluluklara ayırdık
 
 ```text
@@ -46,7 +45,7 @@ Gerçek ağlarda kullanılan protokoller aynı sorumlulukları farklı biçimde 
 
 ## Yedi katmandan dörde: OSI → TCP/IP
 
-![](../../../images/bilgisayar-aglari/hafta-05/01-osi-tcpip-gecis.svg){height="620" fig-align="center" fig-alt="Solda OSI'nin yedi katmanı, sağda TCP/IP'nin dört katmanı; OSI'deki Uygulama, Sunum ve Oturum katmanları TCP/IP'de tek Uygulama katmanında toplanır"}
+![img](../../../images/bilgisayar-aglari/hafta-05/01-osi-tcpip-gecis.svg){width="100%" fig-align="center" fig-alt="Solda OSI'nin yedi katmanı, sağda TCP/IP'nin dört katmanı; OSI'deki Uygulama, Sunum ve Oturum katmanları TCP/IP'de tek Uygulama katmanında toplanır"}
 
 ::: {.notes}
 OSI uygulama tarafındaki sorumlulukları üç ayrı katmanda tanımlar. Uygulama katmanı hangi mesajlarla konuşulacağını, sunum katmanı verinin hangi biçimde temsil edileceğini, oturum katmanı ise süren etkileşimin nasıl düzenleneceğini belirler. TCP/IP bu üçlü ayrımı zorunlu tutmaz ve hepsini tek bir Uygulama (Application) katmanında toplar.
@@ -58,7 +57,7 @@ Katman sayısının yediden dörde inmesi, TCP/IP'nin daha az iş yaptığı anl
 
 ## TCP/IP: tek protokol değil, protokol ailesi
 
-![](../../../images/bilgisayar-aglari/hafta-05/02-tcpip-protokol-kumesi.svg){height="620" fig-align="center" fig-alt="TCP/IP'nin dört katmanında birlikte çalışan protokoller: Uygulama katmanında HTTP, DNS ve SMTP; Taşıma katmanında TCP ve UDP; İnternet katmanında IP; Ağ erişimi katmanında Ethernet ve Wi-Fi"}
+![](../../../images/bilgisayar-aglari/hafta-05/02-tcpip-protokol-kumesi.svg){width="100%" fig-align="center" fig-alt="TCP/IP'nin dört katmanında birlikte çalışan protokoller: Uygulama katmanında HTTP, DNS ve SMTP; Taşıma katmanında TCP ve UDP; İnternet katmanında IP; Ağ erişimi katmanında Ethernet ve Wi-Fi"}
 
 ::: {.notes}
 TCP/IP adı, yalnız TCP ve IP'nin kullanıldığı izlenimini verebilir. Oysa TCP/IP, farklı katmanlarda birlikte çalışan çok sayıda protokolü kapsayan bir protokol ailesidir. Web sayfası istemek için HTTP, alan adlarını adreslere çevirmek için DNS, e-posta göndermek için SMTP kullanılır. Taşıma katmanında TCP'nin yanında UDP de bulunur.
@@ -72,11 +71,11 @@ Ağ erişimi katmanındaki Ethernet ve Wi-Fi, IEEE standartlarıyla tanımlanan 
 
 ## Uygulama katmanı: üç sorumluluk, tek katman
 
-| OSI'de ayrı katman | Sorduğu soru | TCP/IP'de kim ele alır? |
-|---|---|---|
-| Uygulama | Hangi mesajlarla konuşuyoruz? | Uygulama protokolü (HTTP, DNS, SMTP) |
-| Sunum | Veri hangi biçimde temsil ediliyor? | Uygulama protokolü veya uygulama yazılımı |
-| Oturum | Süren etkileşim nasıl düzenleniyor? | Uygulama protokolü veya uygulama yazılımı |
+| OSI'de ayrı katman | Sorduğu soru                           | TCP/IP'de kim ele alır?                      |
+| ------------------- | --------------------------------------- | --------------------------------------------- |
+| Uygulama            | Hangi mesajlarla konuşuyoruz?          | Uygulama protokolü (HTTP, DNS, SMTP)         |
+| Sunum               | Veri hangi biçimde temsil ediliyor?    | Uygulama protokolü veya uygulama yazılımı |
+| Oturum              | Süren etkileşim nasıl düzenleniyor? | Uygulama protokolü veya uygulama yazılımı |
 
 Bu görevlerin nasıl gerçekleştirileceği büyük ölçüde uygulama geliştirme tarafına bırakılır.
 
@@ -108,7 +107,7 @@ TCP/IP ile Web sık karıştırılır. TCP/IP Web'den önce vardı: ARPANET 1983
 
 ## Eşleşmeyi tamamlayalım
 
-![](../../../images/bilgisayar-aglari/hafta-05/03-osi-tcpip-eslesme.svg){height="620" fig-align="center" fig-alt="OSI Uygulama, Sunum ve Oturum katmanları TCP/IP Uygulama katmanına; Taşıma Taşıma katmanına; Ağ İnternet katmanına; Veri bağlantısı ve Fiziksel katmanlar Ağ erişimi katmanına karşılık gelir"}
+![](../../../images/bilgisayar-aglari/hafta-05/03-osi-tcpip-eslesme.svg){width="100%" fig-align="center" fig-alt="OSI Uygulama, Sunum ve Oturum katmanları TCP/IP Uygulama katmanına; Taşıma Taşıma katmanına; Ağ İnternet katmanına; Veri bağlantısı ve Fiziksel katmanlar Ağ erişimi katmanına karşılık gelir"}
 
 ::: {.notes}
 Taşıma katmanı iki modelde de aynı adı ve aynı sorumluluğu taşır: verinin hangi uygulama iletişimine ait olduğunu belirlemek ve teslim hizmetini düzenlemek. OSI'nin ağ katmanı TCP/IP'de İnternet (Internet) katmanı olarak adlandırılır. Bu katmanın merkezinde IP bulunur; görevi paketi farklı ağlar üzerinden hedef uç sisteme ulaştırmaktır.
@@ -122,12 +121,12 @@ Bazı ders kitapları, örneğin Kurose ve Ross, ağ erişimi katmanını veri b
 
 ## Aynı veri, dört katman
 
-| TCP/IP katmanı | Birimin adı | Eklenen bilgi neyi sağlar? |
-|---|---|---|
-| Uygulama | Uygulama verisi | Mesajın anlamı (ör. HTTP isteği) |
-| Taşıma | Segment | Hangi uygulama iletişimine ait olduğu |
-| İnternet | Paket | Kaynak ve hedef IP adresi |
-| Ağ erişimi | Çerçeve (frame) → bit | Yerel teslim (MAC) ve fiziksel aktarım |
+| TCP/IP katmanı | Birimin adı             | Eklenen bilgi neyi sağlar?             |
+| --------------- | ------------------------ | --------------------------------------- |
+| Uygulama        | Uygulama verisi          | Mesajın anlamı (ör. HTTP isteği)    |
+| Taşıma        | Segment                  | Hangi uygulama iletişimine ait olduğu |
+| İnternet       | Paket                    | Kaynak ve hedef IP adresi               |
+| Ağ erişimi    | Çerçeve (frame) → bit | Yerel teslim (MAC) ve fiziksel aktarım |
 
 ```text
 Ethernet çerçevesi [ IP paketi [ TCP segmenti [ HTTP verisi ] ] ]
@@ -225,9 +224,9 @@ Bu işlemlerin hiçbirinde kullanıcı bir MAC adresi yazmaz. Ev ağındaki mode
 
 ## Bir çelişki mi?
 
-| 3. hafta | Bu hafta |
-|---|---|
-| Yerel ağda switch, çerçeveyi **MAC adresine** göre iletir. | Yerel ağdaki yazıcıya ve TV'ye **IP adresiyle** ulaşıyoruz. |
+| 3. hafta                                                            | Bu hafta                                                              |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Yerel ağda switch, çerçeveyi**MAC adresine** göre iletir. | Yerel ağdaki yazıcıya ve TV'ye**IP adresiyle** ulaşıyoruz. |
 
 **Soru:** Yerel ağda hangi adres kullanılıyor: IP mi, MAC mi?
 
@@ -265,12 +264,12 @@ PC-A, yazıcının IP adresini bilmektedir; ancak yazıcının MAC adresini hen�
 
 ## Aynı gönderimde iki adres, iki görev
 
-| | IP adresi | MAC adresi |
-|---|---|---|
-| Nerede taşınır? | IP paketinde | Ethernet çerçevesinde |
-| Neyi belirtir? | Paketin mantıksal hedefini | Çerçevenin yerel bağlantıdaki alıcısını |
-| Kim kullanır? | Kullanıcı ve uygulama (yazıcı ekle, `ping`) | Ağ arabirimi ve switch |
-| Bu örnekte | 192.168.1.20 | Yazıcının MAC adresi: **bilinmiyor** |
+|                    | IP adresi                                        | MAC adresi                                      |
+| ------------------ | ------------------------------------------------ | ----------------------------------------------- |
+| Nerede taşınır? | IP paketinde                                     | Ethernet çerçevesinde                         |
+| Neyi belirtir?     | Paketin mantıksal hedefini                      | Çerçevenin yerel bağlantıdaki alıcısını |
+| Kim kullanır?     | Kullanıcı ve uygulama (yazıcı ekle,`ping`) | Ağ arabirimi ve switch                         |
+| Bu örnekte        | 192.168.1.20                                     | Yazıcının MAC adresi:**bilinmiyor**    |
 
 Çelişki yok: kullanıcı IP adresini bilir; çerçeve için gereken MAC adresi arka planda bulunur.
 
@@ -408,10 +407,10 @@ Yanıt geldiğinde araç gidiş–dönüş süresini gösterir. Bu süre, isteğ
 
 ## Ping neyi gösterir, neyi göstermez?
 
-| Gözlem | Söylenebilecek | Söylenemeyecek |
-|---|---|---|
-| Yanıt geldi | Hedef bu anda ICMP'ye yanıt veriyor; gidiş ve dönüş yolu çalışıyor | Web sunucusunun veya başka bir uygulamanın çalıştığı |
-| Yanıt gelmedi | Bu yoklamaya süresinde yanıt alınmadı | Hedefin kesinlikle kapalı olduğu |
+| Gözlem        | Söylenebilecek                                                             | Söylenemeyecek                                              |
+| -------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Yanıt geldi   | Hedef bu anda ICMP'ye yanıt veriyor; gidiş ve dönüş yolu çalışıyor | Web sunucusunun veya başka bir uygulamanın çalıştığı |
+| Yanıt gelmedi | Bu yoklamaya süresinde yanıt alınmadı                                   | Hedefin kesinlikle kapalı olduğu                           |
 
 "Ping başarılıysa ağdaki her şey doğrudur" sonucu çıkarılamaz.
 

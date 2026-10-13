@@ -33,7 +33,7 @@ execute:
 
 ```{=html}
 <div style="height:72vh; display:flex; justify-content:center; align-items:center;">
-  <div style="display:flex; gap:220px; align-items:center;">
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:clamp(1rem, 15vw, 220px); align-items:center; width:100%; max-width:660px;">
 
     <div style="width:220px; height:220px; display:flex; justify-content:center; align-items:center;">
       <svg data-id="pd-ring"
