@@ -52,17 +52,17 @@ Konu anlatımını ve sunumu incele → kurum vakasındaki karar sorusunu yanıt
 
 ## Haftalık Plan
 
-Dersin haftalık akışı resmî izlencedeki 14 haftalık planın konularını kapsar; öğrenme akışı gereği sıra şu farklarla düzenlenmiştir: gizlilik–bütünlük–erişilebilirlik 2. haftaya, BGYS kapsam ve bağlam çalışması 3. haftaya alınmış, ISO/IEC 27001, 27002, COBIT ve ITIL 4. haftada işlenir. 7. hafta ara sınavdır.
+Dersin haftalık akışı resmî izlencedeki 14 haftalık planın konularını kapsar. Gizlilik, bütünlük ve erişilebilirlik 2. haftada; BGYS tanımı, referansların rolleri ve genel belgeleme 3. haftada; bağlam, kapsam, roller ve PUKÖ uygulaması 4. haftada yer alır. 7. hafta ara sınavdır.
 
 | Hafta | Konu Notu / Sunum | Açıklama ve Kapsam |
 |:---:|---|---|
 | 1 | [[tp_guvenlik-temelleri\|Bilgi Güvenliğine Giriş: Bilgiyi Korumak]] | TDK'den bilgi kavramı; veri, bilgi ve edinilmiş bilgi ayrımı; veri ile bilginin ortak koruma kapsamı; Tanpınar arşivi ve Viking 1'in Mars fotoğrafı üzerinden fiziksel kayıt, korunma ve iletişim. |
 | 2 | [[tp_guvenlik-ilkeleri-ve-cia\|Bilgi Türleri ve Güvenliğin Üç İlkesi]] | Bilgi türü, ortam ve görünürlük ayrımı; bilginin sahibi, kullananı ve yöneteni; gizlilik, bütünlük ve erişilebilirlik; Tanpınar ve Mars örneklerinin ilkelerle yeniden incelenmesi. |
-| 3 | [[tp_bgys-ve-yonetim-dongusu\|BGYS ve Yönetim Döngüsü]] | BGYS; kurum bağlamı, kapsam ve ilgili taraflar; karar ve uygulama rolleri; planla–uygula–kontrol et–önlem al döngüsü ve vaka için kapsam/kanıt çalışması. |
-| 4 | [[tp_standartlar-cerceveler-ve-uyum\|Standartlar, Çerçeveler ve Uyum]] | ISO/IEC 27001 ile 27002'nin görev farkı; COBIT, ITIL ve rehberlerin kullanım amacı; gereksinimden kontrol seçimine, uygulama ve kanıta uzanan vaka çalışması. |
+| 3 | [[tp_bgys-ve-yonetim-dongusu\|BGYS ve Belgeleme]] | Yönetim ihtiyacından tam BGYS tanımına; ISO/IEC 27001, 27002, COBIT ve ITIL’in işlevleri; belge, kayıt ve gerçeğe uygun beyan; imza, hesap verebilirlik ve çalışanın kendi işini gösterebilmesi. |
+| 4 | [[tp_standartlar-cerceveler-ve-uyum\|BGYS: Kapsam, Roller ve PUKÖ]] | Kurum bağlamı, ilgili taraflar, kapsam ve bağımlılıklar; karar, uygulama ve değerlendirme rolleri; PUKÖ’nün dört aşaması; erişim kayıtlarının incelenmesi ve bağımsız gönderim vakası. |
 | 5 | [[tp_yasal-yukumlulukler-ve-kisisel-veri\|Yasal Yükümlülükler ve Kişisel Veri]] | Kişisel veri işleme akışı ve taraflar; KVKK'nın veri güvenliği yükümlülükleri; GDPR'nin uygulanma koşulları; güvenlik rehberlerinin kapsamı; vaka için kaynak–kapsam–tedbir–kanıt kaydı. |
 | 6 | [[tp_varlik-envanteri-ve-siniflandirma\|Varlık Envanteri ve Sınıflandırma]] | Bilgi varlığı, uygulama, hizmet ve destek unsurları; sahiplik ve bağımlılık; CIA etkisiyle gerekçeli sınıflandırma; vaka envanterini doldurma ve değişen bilgiye göre güncelleme. |
-| 7 | Ara Sınav | Resmî ara sınav; 1–6. hafta resmî kapsamı (Ö01, Ö04). Yeni konu veya vaka genişletmesi yoktur. |
+| 7 | Ara Sınav | Resmî ara sınav; 1–6. hafta resmî kapsamı (Ö01, Ö02, Ö04). Yeni konu veya vaka genişletmesi yoktur. |
 | 8 | [[tp_roller-kimlik-ve-erisim-yonetimi\|Roller, Kimlik ve Erişim Yönetimi]] | Sorumluluk kavramı; kimlik saptama, doğrulama, yetkilendirme ve hesap verebilirlik; vaka envanterindeki iki varlık için rol–izin matrisi. |
 | 9 | [[tp_erisim-kontrolleri-parola-kayit-ve-izleme\|Erişim Kontrolleri: Parola, Kayıt ve İzleme]] | Politika düzeyinde parola yönetimi; kayıt, gözden geçirme ve denetim kanıtı; matrise kayıt olayı, inceleme sorumlusu ve bulgu sonrası adım ekleme. |
 | 10 | [[tp_bgys-stratejisi-ve-politika-dokumantasyonu\|BGYS Stratejisi ve Politika Dokümantasyonu]] | Güvenlik yönetim stratejisinin hedef–sorumluluk–öncelik ilişkisi; belge mimarisi ve izlenebilirlik; önceki vaka kararlarını belge türü/sahibi/onayı ile eşleme. |
