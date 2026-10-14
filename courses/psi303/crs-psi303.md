@@ -58,6 +58,23 @@ Uygulamalarda kullanılan kurgusal öğretim veri setleri aşağıdan indirilebi
 | 3 | [Tepki süresi kayıtları (xlsx)](../../data/psi303/PSI303-hafta3-tepki-suresi.xlsx){download="PSI303-hafta3-tepki-suresi.xlsx"} | Boş, olanaksız ve alışılmadık ama mümkün kayıtların ayrımı; ham sütunu koruyarak yeni değişken üretme. |
 | 3 | [Aynı ortalama, farklı yayılım (xlsx)](../../data/psi303/PSI303-hafta3-puan-gruplari.xlsx){download="PSI303-hafta3-puan-gruplari.xlsx"} | İki kurgusal grup; merkez ve yayılımın ayrı özellikler olduğunu gösterme. |
 
+## Açık Veri Setleri
+
+Aşağıdaki veri setleri gerçek katılımcılara ait, Mendeley Data üzerinde yayımlanmış açık veri setleridir. Dosyalar bu siteden dağıtılmaz; her bağlantı veri setinin yayıncı sayfasına gider ve dosyalar oradan indirilir. Hepsi CC BY 4.0 lisanslıdır, kullanırken veri setine atıf yapılmalıdır. Kendi küçük analizlerinizi (frekans, ortalama ve yayılım, grafik, çapraz tablo, grup karşılaştırması) gerçek veriyle denemek için kullanabilirsiniz; ders uygulamaları bu veri setlerine bağlı değildir.
+
+| Veri seti | Katılımcı | İçerik |
+| --- | --- | --- |
+| [COVID-19 pandemisinin Türkiye'deki sosyal ve psikolojik etkileri](https://data.mendeley.com/datasets/sv95c7ydpy/9) | 2.868 | Kaygı, davranış değişimleri ve demografik değişkenler. |
+| [Clance Impostor Phenomenon Scale (Türkçe)](https://data.mendeley.com/datasets/zzt73pzv8d/1) | Türk üniversite öğrencileri | 20 maddelik ölçek maddeleri; ölçek toplamı hesabı için uygun. |
+| [İstanbul'da ebeveynlerin çocuk ağız hijyeni tutum ve uygulamaları](https://data.mendeley.com/datasets/mhhprrnr8f/1) | 203 | Demografi, tutum ve davranış değişkenleri; dosyada ayrıca `sorular` sayfasında değişken açıklamaları bulunur. |
+| [Patient Safety Culture](https://data.mendeley.com/datasets/bzcrpt47zz/1) | 258 | Konya'daki iki üniversite hastanesinde çalışan sağlık personeli; Likert maddeleri ve demografi. |
+| [COVID-19'un Türkiye'deki odyoloji öğrencileri üzerindeki etkileri](https://data.mendeley.com/datasets/j36zbmf4b4/1) | 518 | Lisans ve lisansüstü öğrencilerden kesitsel anket verisi. |
+| [Exercise Dependence Health Correlates](https://data.mendeley.com/datasets/9zb9nrzrbc/1) | 850 | Düzenli egzersiz yapan 18 yaş üstü yetişkinler. |
+| [Menopoz geçişinde istenmeyen gebelik korkusu ve cinsel yaşam kalitesi](https://data.mendeley.com/datasets/ptcx3dwsgy/1) | 124 | 40–50 yaş perimenopozal kadınlar; 23 değişken. |
+| [Tonsil Adenoid Health Status Instrument, Türkçe uyarlama](https://data.mendeley.com/datasets/9nfsc964fs/1) | — | Türkçe ölçek uyarlama ve geçerlik çalışmasına ait veriler. |
+| [Digital Addiction Research Dataset](https://data.mendeley.com/datasets/6hhdxszm56/2) | 497 | Üniversite öğrencileri; mutluluk, Big Five, FoMO, akıllı telefon ve sosyal medya bağımlılığı ölçekleri. |
+| [FSCAM — iş sağlığı ve güvenliği kültürü anketi](https://data.mendeley.com/datasets/xrprwxv4xx/1) | — | Türkiye'de bir metal sektörü üretim şirketinin çalışanlarından anket verisi. |
+
 ## Haftalık Plan
 
 Haftalık plan dersin resmî izlencesindeki 14 haftalık kapsamı (7. hafta ara sınav) temel alır. Konu notları kavramsal bütünlüğe göre hazırlanır; bir konu gerektiğinde birden fazla haftada yeniden kullanılabilir.
