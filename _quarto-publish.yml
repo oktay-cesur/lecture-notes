@@ -14,6 +14,8 @@ project:
     - "courses/psi303/**"
     - "!courses/psi303/.content/**"
     - "!courses/psi303/content-profile.md"
+    - "!courses/bgt201/.content/**"
+    - "!courses/bgt201/content-profile.md"
     - "courses/lineer-cebir/**"
     - "courses/diferansiyel-denklemler/**"
     - "courses/qturkey/**"

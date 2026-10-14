@@ -1,5 +1,5 @@
 ---
-title: "BGYS ve Yönetim Döngüsü"
+title: "BGYS ve Belgeleme"
 subtitle: "BGT 201 — Bilgi Güvenliği Yönetimi I · Hafta 3"
 type: presentation
 author: "Öğr. Gör. Oktay Cesur"
@@ -15,903 +15,674 @@ include-in-header:
     </style>
 ---
 
+<!-- Kanonik dayanaklar: ../topics/bgys-ve-yonetim-dongusu.md, yalnız yonetim-temeli ve bgys-tanimi kesitleri; ../topics/standartlar-cerceveler-ve-uyum.md; ../topics/belge-kayit-ve-hesap-verebilirlik.md. Türetme: 14 Ekim 2026. standartlar-cerceveler-ve-uyum.md SHA256 c07ca284386556802cf785dfa3d2eea4988b56224c41383a5270cf739e9653f0; belge-kayit-ve-hesap-verebilirlik.md SHA256 393304f6e100779b15a85dc43793c14e60e69f54c09050f03496b8b2e3922776. BGYS kesitinin üretim dayanağı: bgys-ve-yonetim-dongusu brief'i §3.1–3.2 ve mevcut notes'un H3 doğru metni. -->
 
-## BGYS ve yönetim döngüsü
+## Güvenlik yönetimi ve belgeleme
 
-<!-- Kanonik topic: .content/topics/bgys-ve-yonetim-dongusu.md · SHA256: 491ea9358e6526ad79f7e418fbec9ad979c0a0db37091c1f6d0ec6f113038203 -->
-
-Bilgi Güvenliği Yönetim Sistemi (BGYS) ve planla–uygula–kontrol et–önlem al döngüsü
+Amaç → karar → görev ve kaynak → uygulamanın sonucu → değerlendirme
 
 ::: {.notes}
-Geçen hafta aynı birimde farklı olayları gizlilik, bütünlük ve erişilebilirlik ilkelerine göre inceledik: hangi bilginin, hangi ortamda, hangi koşulu kaybettiğini olgulardan çıkardık. Bu hafta olaydan bir adım geri çekiliyoruz: Kurum bu olayların tekrarını önlemek için neye karar veriyor, kararın uygulandığını nasıl görüyor ve sonuca göre kararı nasıl değiştiriyor? Bu sorunun kurumsal yanıtına bilgi güvenliği yönetim sistemi (BGYS; İngilizcesi *Information Security Management System*, ISMS) diyoruz. Haftanın sonunda bir güvenlik önerisinde eksik kalan yönetim kararını gösterebilmeli, bir kararı döngü içinde izleyip ölçüt ile kanıtı karşılaştırabilmeli ve bir iç tetkikin nasıl hazırlanıp raporlandığını açıklayabilmeliyiz.
+Bilgi güvenliğini yönetmek, bir önlem seçmekle başlayan fakat uygulamanın sonucunu incelemeyi de gerektiren kurumsal bir iştir. Kararın neyi koruduğu, kim tarafından uygulanacağı ve sonucunun neye göre değerlendirileceği birbiriyle ilişkilendirilir. Belgeleme bu ilişkide kuralı, günlük işleyişi ve gerçekleşenin izini taşır. Böylece kurum kararını inceleyebilir; çalışan da kendi yaptığı işi gösterebilir.
 :::
 
 ---
 
-## Önlem var; yanlış gönderim neden sürüyor?
+## Önlemler hangi adıma etki ediyor?
 
-**Kayıt ve Başvuru Birimi:** sorumlu A; görevliler B, C, D; eylülün başında stajyer E. Eylülde 48 başvuru.
+Kayıt ve Başvuru Birimi: **A sorumlu; B, C ve D görevli.**
 
-- Kilitli arşiv dolabı → kâğıt dosyaları korur
-- Parolalı çalışan hesapları → hesabı korur
-- “Gönderimde dikkat” uyarısı → bir dilek
+Başvuru alma → değerlendirme → sonuç gönderme
 
-Yine de sonuç yazıları zaman zaman yanlış kişiye gidiyor; “Başvurular” klasörüne kimlerin erişebildiği kesin bilinmiyor.
+- Kilitli dolap: kâğıt arşiv
+- Parola: hesap üzerinden erişim
+- “Gönderimde dikkat” uyarısı: gönderim davranışı
+
+Sonuç yazıları zaman zaman yanlış kişiye gidiyor; “Başvurular” klasörüne kimlerin erişebildiği kesin bilinmiyor.
+
+<!-- Görsel placeholder: Üç iş adımı üzerinde dolap, parola ve uyarının etki noktaları; yanlış gönderim sonuç adımında işaretli. Amaç önlem ile hedeflenen akışı karşılaştırmak. Önlemlerin tümü etkisiz diye etiketlenmez. -->
 
 ::: {.notes}
-Birimin işi üç adımdan oluşuyor: başvuruyu almak, değerlendirmek ve sonucu adaya göndermek. Bu iş boyunca başvuru formu, ekler, değerlendirme notu ve sonuç yazısı kullanılıyor; bu bilgiler kâğıt arşiv dolabında, paylaşılan “Başvurular” klasöründe ve e-postada duruyor. Vakadaki tarihler 2026 takvimine göredir; birim, kişiler ve sayılar kurgusaldır.
+Kurgusal Kayıt ve Başvuru Birimi başvuruları alır, değerlendirir ve sonucu adaya gönderir. Başvuru formu, ekler, değerlendirme notu ve sonuç yazısı; kâğıt arşivde, paylaşılan klasörde ve e-postada bulunur. Eylülde 48 başvuru alınmıştır; ilk listedeki 12 aday bu toplamın alt kümesidir. D hem arşiv hem belge tarama işini yürütür; bunlar ayrı işlevlerdir.
 
-Sorunun nedenini önlemlerin ne yaptığına bakarak arayabiliriz. Dolap kâğıt dosyaları, parola hesapları korur; ikisi de sonuç yazısının alıcısını doğrulamaz. Parola, hesabın sahibinin hâlâ birimde çalışıp çalışmadığını söylemez. “Gönderimde dikkat” uyarısı dikkatli davranışın gerçekleştiğine dair hiçbir iz bırakmaz. Önlemler var, ama hiçbiri gönderim sorununun kendisine yönelmiyor ve kimse sonuçlarını izlemiyor.
+Dolap kâğıt dosyaya erişimi sınırlar; parola hesabın başkası tarafından kullanılmasını zorlaştırır. İkisi de gönderilecek yazının alıcısını doğrulamaz. Uyarı, hangi alanların karşılaştırılacağını veya karşılaştırmanın yapıldığını neyin göstereceğini belirlemez. Yanlış gönderimin nedeni bu verilerden kesin çıkarılamaz; görülen, önlemler ile gönderim sonucu arasındaki yönetim kararlarının açık olmamasıdır.
 :::
 
 ---
 
-## Güvenlikten siz sorumlusunuz: ne önerirsiniz?
+## İki önerinizi somutlaştırın
 
-Kayıt ve Başvuru Birimi için iki somut öneri yazın.
+Birimin güvenliği için iki öneri yazın.
 
-- **İş:** başvuru alma, değerlendirme, sonuç gönderme
-- **Bilgi:** form, ek, değerlendirme notu, sonuç yazısı
-- **Ortam:** kâğıt dolap, “Başvurular” klasörü, e-posta
+Her öneriyi belirli bir **bilgiye**, **iş adımına** ve **ortama** bağlayın.
 
 ::: {.notes}
-Bir kurumda bilgi güvenliğini sağlamakla görevlendirilseniz ne yapardınız? Önerinizi bu birimin işine, bilgisine ve ortamına bağlayarak yazın. Bir önerinin hangi bilgiyi ve hangi akışı koruduğu söylenmezse onu değerlendirecek bir dayanağımız olmaz. Yazdıklarınızı tahtada toplayacağız ve aynı soruya daha önceki sınıflarda verilmiş yanıtlarla karşılaştıracağız.
+“Güvenliği artıralım” ifadesinin hangi işi değiştireceği belli değildir. “Sonuç yazısını göndermeden önce alıcı bilgisini karşılaştıralım” önerisi ise bilgiyi ve işlem adımını belirler. Önerinin birimin işine bağlanması, uygulanabilirliğini ve sonucunu değerlendirmek için başlangıç sağlar. Bir önlemin adı, karar sahibini veya uygulayıcıyı kendiliğinden belirlemez.
 :::
 
 ---
 
-## Aynı soruya gelen dört yanıt turu
+## Önlem, amaç ve sorumluluk
 
-| Soru | Yanıtlardan örnekler |
+**Güvenlik önlemi / güvenlik kontrolü:** Belirli bir bilgiyi veya akışı belirli bir korunma amacıyla koruyan, seçilmiş teknik, fiziksel ya da idari düzenleme.
+
+**Amaç:** Önlemin hangi bilginin veya akışın hangi gizlilik, bütünlük ya da erişilebilirlik koşulunu koruyacağı.
+
+**Sorumluluk:** Bir kararın ya da işin belirli bir kişiye verilmiş olması.
+
+::: {.notes}
+Güvenlik kontrolü, bir korunma amacıyla seçilen önlemdir. Dolap fiziksel bir önlem, parola teknik bir önlem, gönderim öncesi karşılaştırmanın görev olarak belirlenmesi idari bir önlemdir. Bu türler birlikte çalışabilir. Amaç, hangi bilginin hangi koşulunun korunacağına bağlıdır; örneğin sonuç yazısının yanlış kişiye gitmesini önlemek gizliliği korumayı hedefler. Karar sahibi ile uygulayıcı farklı kişiler olabilir: kuralı A onaylayıp işin uygulanmasını bir görevliye verebilir. Bunlar önerinin adından çıkarılamayan ayrı kararlardır.
+:::
+
+---
+
+## Yönetim
+
+**Yönetim**, amaç koyma, karar verip onaylama, uygulayıcıyı ve kaynağı belirleme, uygulamanın sonucunu önceden belirlenmiş bir ölçüte göre değerlendirme ve gerekirse kararı değiştirme işlerinin birlikte yürütülmesidir.
+
+::: {.notes}
+Yönetim, bir önlemin kurumda hangi koşullarda işleyeceğini belirler. Gönderim öncesinde bir karşılaştırma isteniyorsa bu iş için kişinin ve zamanın ayrılması gerekir. Sonuca bakılacak ölçüt de belirlenmelidir; yalnız “dikkatli olunsun” demek neyin inceleneceğini açıklamaz. Sonuç beklenen amaçla uyuşmuyorsa yönetim kararın veya işleyişin değişmesine ilişkin karar verir. Onay bu işlerin bir parçasıdır; uygulama için kaynak ayrılması ve sonucun değerlendirilmesi de yönetimin işidir.
+:::
+
+---
+
+## Önerinin dört sorusu
+
+1. Neyi korur?
+2. Kim karar verir?
+3. Kim uygular?
+4. İşe yaradığını ne gösterir?
+
+Öneride bulunmayan yanıt: **belirtilmemiş**.
+
+<!-- Görsel placeholder: Öneri kutusundan dört soruya ayrılan kollar; yanıtsız kollarda eksik karar alanı. Amaç önlemin adıyla yönetim kararını ayırmak; eksik alanlara kişi tahmini eklenmez. -->
+
+::: {.notes}
+Dört soru, bir öneriyi değerlendirmek için gereken bilgiyi ayırır. Korunacak bilgi veya akış, karar sahibi, uygulayıcı ve sonuç kanıtı ayrı belirlenir. Log kaydını sistem üretebilir; hangi kişinin hangi sıklıkla inceleyeceği ise idari karardır. Bu karar yazılmadığında logun varlığı, incelendiğini göstermez. Öneride yer almayan bilgiyi tahminle tamamlamak eksik kararı görünmez kılar; “belirtilmemiş” ifadesi karar ihtiyacını açık tutar.
+:::
+
+---
+
+## Çözümlü örnek: “Eğitim verelim”
+
+| Soru | Önerinin söylediği |
 |---|---|
-| Güvenliği nasıl sağlarsınız? | çalışanları bilgilendirmek · güçlü parola · politika geliştirip uygulamak · yerel VPN sunucusu · güvenlik duvarı · fiziksel erişim kontrolü · açıkların tespiti · “hash şifreleme ile veri tutmak” · log kaydı |
-| Aynı soru, ikinci tur | bilgiyi içeride tutmak · çalışanlara uyarı · açıkları kapatmak · yerel VPN · şifreleme protokollerine uymak · medya imhası · ağ trafiğini izlemek · üçüncü taraf yazılım ve hizmetlerden uzaklaşmak |
-| Organizasyon olarak nasıl sağlarsınız? | çalışan eğitimi · kurum kültürünü oturtmak · düzenli toplantı · yetkilendirme · siber güvenlik ekibi · güvenlik raporu |
-| Organizasyon sorusu, ikinci tur | antivirüs · güvenlik duvarında açıklık tespiti · sunucu güvenliği · fiziksel erişim kontrolü · rıza metni ve eğitim · veri imhası · ekip kurmak · organizasyon ve standartlar |
-
-Organizasyon sorusuna gelen yanıtların yarısı yine teknik; yerel VPN ve fiziksel erişim iki turda da var.
+| Neyi korur? | Doğru alıcıya gönderimi hedefleyebilir |
+| Kim karar verir? | Belirtilmemiş |
+| Kim uygular? | Belirtilmemiş |
+| İşe yaradığını ne gösterir? | Katılım imzası katılım beyanını gösterir |
 
 ::: {.notes}
-Ders sunumu aynı soruyu dört kez sorar ve her turda gelen yanıtları listeler (BGT 201 ders sunumu 2, slayt 2–5). Tahtadaki önerilerinizi bu tabloyla karşılaştırın: büyük olasılıkla çoğu burada bir karşılık bulur. Dördüncü satır ayrıca öğreticidir. Soru açıkça organizasyonu sorduğu hâlde antivirüs, sunucu güvenliği ve açıklık tespiti gibi teknik yanıtlar gelir; bu, iki sınıfın birbirinden kolay ayrılmadığını gösterir.
-
-Bazı yanıtlar düzeltilerek okunmalıdır. “Hash şifreleme” iki ayrı işlemi birleştirir: hash bir veriden sabit uzunlukta bir özet üretir ve özetten verinin kendisine geri dönülemez; şifrelenmiş veri ise doğru anahtarla yeniden okunabilir hâle getirilir. Bir parolanın özetini saklamak ile bir başvuru dosyasını şifreleyip saklamak bu yüzden farklı kararlardır. “Bilgiyi içeride tutmak” ve “üçüncü taraflardan uzaklaşmak” da tartışılacak başlangıç yanıtlarıdır, genel bir kural değildir: bu birimde e-posta hizmetini merkez BT, hesap işlemlerini dış BT yürütüyor; birimin kararı bu tarafların neyi sağladığını yazıp izlemektir. Rıza metni imzalatmak çalışanın bilgilendirildiğini gösterebilir; tedbirin uygulandığını göstermez ve onun yerine geçmez. “Kurum kültürünü oturtmak” önerisi de neyin değişeceğini ve bunu kimin, neye bakarak göreceğini söylemedikçe değerlendirilemez.
-
-Bu yanıtların hepsi bir başlangıç noktasıdır; hiçbiri kendiliğinden doğru ya da yanlış değildir. Hepsinde ortak eksik, bu birimde hangi bilgiyi ve hangi akışı koruduklarının söylenmemesidir. Şimdi her birine aynı dört soruyu soracağız.
+Eğitim önerisinin yanlış gönderimle ilişkili olması mümkündür; fakat öneri hangi içeriğin öğretileceğini, eğitimi kimin vereceğini veya günlük işte hangi davranışın değişeceğini söylemez. Katılım kaydı eğitimde bulunmaya ilişkin bilgi verir. Yanlış gönderimin azaldığını göstermek için gönderim sonuçları incelenmelidir. Eğitim reddedilmez; amaç, karar, uygulama ve değerlendirme bağları tamamlanarak değerlendirilebilir bir öneriye dönüştürülür.
 :::
 
 ---
 
-## Bir öneriyi değerlendirilebilir kılan dört soru
-
-1. **Neyi korur?** Hangi bilgiyi ya da akışı hedefliyor?
-2. **Kim karar verir?** Kuralı kim koyar, kim onaylar?
-3. **Kim uygular?** Kural günlük işte kimin elinde işler?
-4. **İşe yaradığını ne gösterir?** Hangi kayıt, hangi ölçütle karşılaştırılacak?
-
-::: {.notes}
-Teknik–organizasyonel ayrımı yararlıdır ama iki sınıf birbirini dışlamaz. Logu sistem üretir; onu kimin, hangi sıklıkla inceleyip bir bulguya dönüştüreceği organizasyonel bir karardır. Güçlü parola teknik bir ayardır; parola kuralını kimin koyacağı ve ayarın uygulandığını kimin denetleyeceği yine bir karar sorusudur. “Güvenlik raporu” önerisi bu açıdan öğreticidir: hangi kaydın kime, ne sıklıkla ve ne amaçla raporlanacağı yazılmadığı için belirsiz kalır. Bu belirsizlik rapora özgü değildir; kimin, ne zaman, neye göre yapacağı yazılmamış her önerinin ortak niteliğidir. Dört soru, bu yazılmamış kısmı görünür kılar.
-:::
-
----
-
-## “Eğitim verelim” dört sorudan geçerse
-
-- **Neyi korur?** Sonuç yazısının doğru alıcıya gitmesini hedefleyebilir.
-- **Kim karar verir?** Belirtilmemiş: içeriğe kim karar verir?
-- **Kim uygular?** Belirtilmemiş: eğitimi kim verir, hangi davranış değişir?
-- **İşe yaradığını ne gösterir?** Katılım imzası yalnız katılımı gösterir.
-
-::: {.notes}
-Eğitim çok sık verilen ve kolay onaylanan bir öneridir. Dördüncü soru en öğreticisidir: eğitimin kanıtı olarak çoğunlukla katılım imzası gösterilir. İmza yalnız kimlerin eğitime katıldığını gösterir; yanlış gönderimin azaldığını göstermez. Eğitim önerisini reddetmiyoruz; hangi karar ve kanıtın eksik olduğunu belirliyoruz. İçerik, karar sahibi, uygulayıcı ve gönderim kayıtları birbirine bağlandığında öneri değerlendirilebilir hâle gelir.
-:::
-
----
-
-## Etkinlik 1: iki öneriyi dört soruyla sınayın
+## Ana görev 1: iki öneriyi sınayın
 
 **Öneriler:** güçlü parola · log kayıtları tutmak
 
-**Teslim:** iki satır × dört sütunluk tablo
+**Üretim:** İki satır × dört soru tablosu.
 
 **Başarı ölçütü:**
 
-- “Neyi korur?” birimdeki belirli bir bilgiye ya da akışa bağlı
-- Öneriden çıkmayan hücrede tahmin değil “belirtilmemiş”
-- En az bir hücrede önerinin neyi *yapamadığı* yazılı
+- Korunan bilgi veya akış birime bağlı olsun.
+- Öneride bulunmayan yanıt “belirtilmemiş” olsun.
+- En az bir hücre önlemin yapamadığı bir işi göstersin.
 
 ::: {.notes}
-Tabloyu birimin işi (başvuru alma, değerlendirme, sonuç gönderme), bilgisi (form, ek, değerlendirme notu, sonuç yazısı) ve ortamları (kâğıt dolap, “Başvurular” klasörü, e-posta) üzerinden dolduruyoruz. “Eğitim verelim” örneğindeki gibi her satırda önce önerinin neyi hedeflediğini yazıyoruz, sonra karar, uygulama ve kanıt sorularında önerinin kendisinin ne söylediğine bakıyoruz. Öneride yazmayan bir yanıtı kendi tahminimizle doldurmak, eksik yönetim kararını gizler; bu yüzden o hücreye “belirtilmemiş” yazılır.
+Görev verisi, birimin başvuru alma, değerlendirme ve sonuç gönderme işleri; kâğıt dolap, “Başvurular” klasörü ve e-posta ortamlarıdır. Güçlü parola ve log kaydı önerileri bu verilerle değerlendirilir. Her önerinin hedeflediği bilgi yazıldıktan sonra karar, uygulama ve sonuç sorularının öneride yanıtlanıp yanıtlanmadığı incelenir. Eksik kişi veya değerlendirme düzeni mevcutmuş gibi yazılmaz. Çıktı, öneriyi reddeden genel yargı yerine eksik kararları görünür kılan bir tablodur.
 :::
 
 ---
 
-## Etkinlik 1: çözüm
+## Ana görev 1: çözüm
 
-| Öneri | Neyi korur? | Kim karar verir? | Kim uygular? | İşe yaradığını ne gösterir? |
+| Öneri | Neyi korur? | Karar | Uygulama | Sonuç kanıtı |
 |---|---|---|---|---|
-| Güçlü parola | Başvurulara hesap üzerinden yetkisiz erişimi zorlaştırır | Belirtilmemiş | Belirtilmemiş | Ölçüt ve değerlendirme kaydı belirtilmemiş |
-| Log | Erişimi sonradan izlemeye veri sağlar | Belirtilmemiş | Kaydı üreten sistem ve inceleyen kişi belirtilmemiş | İnceleme ve sonuç ölçütü belirtilmemiş |
+| Güçlü parola | Başvurulara hesap üzerinden yetkisiz erişimi zorlaştırır | Belirtilmemiş | Belirtilmemiş | Ölçüt ve inceleme belirtilmemiş |
+| Log | Erişimi sonradan izlemeye veri sağlar | Belirtilmemiş | Sistem ve inceleyen belirtilmemiş | İnceleme ve ölçüt belirtilmemiş |
 
 ::: {.notes}
-Güçlü parola, başkasının bir çalışanın hesabını kullanmasını zorlaştırır; korunan şey “Başvurular” klasöründeki taranmış kayıtlara hesap üzerinden erişimdir. Ancak birimden ayrılmış bir kişinin açık kalan hesabını saptamaz; çünkü o hesabın parolası da güçlüdür. Parola kuralını kimin koyacağı ve sistem ayarını kimin denetleyeceği öneride belirtilmemiştir. Log ise erişimi doğrudan engellemez; sonradan hangi hesabın ne yaptığını gösterebilir. Kimin, hangi sıklıkla inceleyip bulguya dönüştüreceği yazılmadıkça kaydın bir etkisi olmaz. Birkaç kişinin ortak kullandığı bir hesap varsa log, işlemi yapan kişiyi de ayırt edemez. Her iki öneride yanıtsız kalan sorular, henüz verilmemiş yönetim kararlarıdır.
+Güçlü parola, başkasının hesabı kullanmasını zorlaştırır; hesabın sahibinin hâlâ o iş için yetkili olup olmadığını söylemez. Ayrılmış bir kişinin hesabı açık kalmışsa parolanın güçlü olması bu yönetim sorununu gidermez. Bu ifade koşullu bir sınırdır; birimde böyle bir olay yaşandığını bildirmez.
+
+Log doğrudan erişimi engellemez. Hangi hesabın ne yaptığını incelemeye veri sağlayabilir; birden çok kişinin kullandığı bir hesap varsa işlem yapan kişiyi ayırt etmeyebilir. İnceleyen, sıklık ve karşılaştırma ölçütü belirtilmedikçe kayıt üretimi değerlendirmeye dönüşmez. İki satırdaki boşluklar, uygulayıcı ve değerlendirme konusunda verilmesi gereken yönetim kararlarını gösterir.
 :::
 
 ---
 
-## Bir kişinin alışkanlığı neden yetmez?
+## D'nin alışkanlığı nasıl sürdürülebilir?
 
 **D:** “Her sonuç yazısını göndermeden önce bir daha kontrol ediyorum.”
 
-- Kontrolü kim yapar?
-- Hangi alanları karşılaştırır?
-- Yapıldığını hangi kayıt gösterir?
+- Hangi alanlar karşılaştırılıyor?
+- D yoksa işi kim yapıyor?
+- Yapıldığını ne gösteriyor?
 
-D izne çıkarsa, görev değiştirirse ya da ayrılırsa ne olur?
-
-Kurulacak yapı: sistematik · altyapıyla bütünleşik · paydaş ihtiyacına ve kapsama dayalı · iş sürekliliğini gözeten · değişikliğe uyumlu
+<!-- Görsel placeholder: D'nin kişisel uygulaması ile tanımlı görev/işleyiş/iz düzeni yan yana. Amaç görev değişse de işin nasıl sürdürüleceğini göstermek; D'nin hiç kontrol yapmadığı sonucu çıkarılmaz. -->
 
 ::: {.notes}
-Önlemleri bir araya getirmek kendiliğinden bir sistem kurmaz; dolap kilidi, parola ve uyarı farklı yerlere etki eder. D'nin alışkanlığı işe yarayabilir, ama kurum kontrolü D'nin varlığına bağlamış olur. D izne çıktığında, görev değiştirdiğinde ya da ayrıldığında uygulama sessizce kaybolur ve kimse kaybolduğunu fark etmez; çünkü kontrolün kim tarafından, hangi alanlar karşılaştırılarak yapıldığı ve yapıldığını hangi kaydın gösterdiği hiçbir yerde yazmıyor. Karar yazılı bir iş akışına, uygulanabilir bir göreve ve gözden geçirilebilir bir kayda bağlandığında kişi değişse de beklenti sürer.
-
-Ders sunumu aynı noktaya kurumlar arasındaki farktan gelir: her kurumun güvenlik ihtiyacı, kültürü, çalışanlarının iş yapma yöntemi ve yöneticilerinin idare biçimi farklıdır (BGT 201 ders sunumu 2, slayt 6). Sunum buradan bilgi güvenliğinin “bunlardan bağımsız” olması gerektiği sonucuna varır. Bu cümleden iki ayrı sonuç çıkar: güvenlik tek bir kişinin alışkanlığına bağımlı kalmamalıdır; ama bu, her kurumda aynı düzenin kurulacağı anlamına gelmez. Düzen kuruma özgüdür, kişiye bağımlı değildir. Bu yüzden başka bir kurumun önlem listesini kopyalamak D'nin alışkanlığındaki boşluğu kendiliğinden doldurmaz.
-
-Sunum kurulacak yapının nasıl olması gerektiğini de sayar: sistematik olmalı, altyapıyla bütünleşmeli, paydaşların ihtiyacını ve kapsamı dikkate almalı, iş sürekliliğini gözetmeli ve değişikliklere uyum sağlayabilmelidir (slayt 7). Altyapıyla bütünleşmenin bu birimdeki karşılığı açıktır: ayrılış bilgisi merkez İK'da doğar, hesap işlemi dış BT'de yapılır, erişim kararı birimde verilir. Bu üç yer arasında bilgi akışı kurulmadıkça birimde yazılan bir erişim kuralı işlemez. Bu ilişkiyi kapsam ve erişim vakasında adım adım izleyeceğiz.
+D'nin kişisel karşılaştırması işe yarayabilir. Ancak karşılaştırılan alanlar ve uygulama izi yazılı değilse A belirli bir gönderimin nasıl incelendiğini gösteremez. D'nin bulunmadığı bir günde aynı işi kimin nasıl yapacağı da açık değildir. Tanımlı işleyiş, kişisel bilgiyi kurumun sürdürebileceği işe dönüştürür. Düzen kurumun bilgisine ve işine göre kurulur; başka bir kurumun önlem listesini kopyalamak bu boşluğu kendiliğinden gidermez.
 :::
 
 ---
 
-## BGYS: sonuç karara geri döner
+## Bilgi Güvenliği Yönetim Sistemi
 
-:::: {.columns}
-
-::: {.column width="50%"}
-**Bilgi güvenliği yönetim sistemi (BGYS):** bilgi varlıklarını korumaya yönelik, riskleri belirleyen, değerlendiren ve yöneten, sürekli geliştirilen sistematik yaklaşım.
-
-Düzen kuruma özgüdür; kişiye bağımlı değildir. Bilginin yanında iş sürekliliğini de gözetir; yasal koşulları karar girdisi yapar.
-:::
-
-::: {.column width="50%"}
-```text
-kurumun işi → güvenlik kararı → uygulama kaydı
-    ↑                                │
-    └── değişen karar ← değerlendirme ┘
-```
-:::
-
-::::
+**Bilgi güvenliği yönetim sistemi (BGYS)**, bilginin gizliliğini, bütünlüğünü ve erişilebilirliğini kurumun işi ve tabi olduğu koşullarla birlikte korumayı amaçlayan; kararları tanımlı süreçler üzerinden günlük işe dönüştüren, bu kararları veren, uygulayan ve değerlendiren insanları, gerekli zaman ve araç gibi kaynakları ve her işin sorumluluğunu birbirine bağlayan, uygulama sonuçlarını değerlendirip kararları değiştirerek sürekli iyileşen bir yönetim sistemidir.
 
 ::: {.notes}
-Tanım ders sunumundandır (slayt 8). Birimin diliyle: kurum kendi işini ve ilgili tarafların beklentilerini değerlendirir, önlemi amacıyla birlikte seçer, uygulamanın kaydını tutar, kaydı önceden konmuş ölçütle karşılaştırır ve sonucu yeni kararın girdisi yapar. Sistemi tek tek önlemlerden ayıran şey bu son halkadır.
-
-Sunum tanıma iki ekleme yapar: BGYS çoğunlukla bilginin yanında iş sürekliliğini de kapsar ve yasal çerçevelere uymayı sağlar. İş sürekliliği birimde şöyle görünür: “Başvurular” klasörüne erişilemezse ya da e-posta hizmeti durursa değerlendirme ve sonuç gönderimi de durur. Erişilebilirlik kararı bu yüzden yalnız teknik bir ayar değildir; başvuru işinin sürüp sürmeyeceğine ilişkin bir karardır. Yasal koşullar da bir karar girdisidir: başvuru sahiplerinin bilgisini işleyen birim, uyması gereken yükümlülükleri kararlarına katar. Ancak BGYS kurmuş olmak, bütün yasal yükümlülüklerin karşılandığını kendiliğinden göstermez; her yükümlülüğün ayrıca kararla ve kayıtla karşılaştırılması gerekir. Sunum bu sistemlerin 1990'larda doğan ihtiyaçlarla şekillendiğini de söyler. ISO/IEC 27001:2013'e dayanan bu tarihli sunumdaki ifade genel bir dönem bilgisidir; belirli bir başlangıç yılı olarak okunmamalıdır.
+BGYS, güvenlik kararlarının günlük işte yürütülmesini ve sonuçlarının değerlendirilmesini birlikte düzenler. İnsanlar kararı verir, uygular ve değerlendirir; kaynaklar bu iş için ayrılan zaman, görevlendirme ve araçları içerir. Her kararın ve işin sahibi belirlenir. Yönetim desteği bu nedenle onay imzasıyla sınırlı değildir. Sürekli iyileştirme, uygulamanın sonucunun yeni karara girdi olmasıyla gerçekleşir. Sistem kurumun işiyle ilişkili olarak kurulur; güvenlik amacıyla seçilen tek bir araç veya belge tanımdaki bütün ilişkileri taşımaz.
 :::
 
 ---
 
-## Araç, belge, proje ve sertifika hangi işi görür?
+## Sonuç yönetim kararına nasıl döner?
 
-- **Erişim aracı:** yetki kuralını uygular → kimin erişeceğine kim karar verir?
-- **Politika belgesi:** kuralı yazar → uygulandığını gösterir mi?
-- **İyileştirme projesi:** bir değişiklik yapar → açılan hesaplara sonra yeniden bakıldı mı?
-- **Sertifika:** dış değerlendirmenin sonucudur → belirli bir yanlış gönderimi önler mi?
+Kurumun işi → güvenlik kararı → uygulamanın izi → değerlendirme → değişen karar
+
+Kaynak: zaman, görevlendirme ve araç.
+
+**Risk:** Bilginin gizlilik, bütünlük veya erişilebilirliğini kaybetmesine yol açabilecek bir olayın olasılığı ve sonucunun birlikte düşünülmesi.
+
+<!-- Görsel placeholder: İş–karar–uygulama izi–değerlendirme–değişen karar bağı ve karara dönüş oku; insan/sorumluluk/kaynak bağları. Amaç sistemin öğelerini sonuçla ilişkilendirmek; aşama adı verilmez. -->
 
 ::: {.notes}
-Bunlar sık sık BGYS ile karıştırılır. Bir erişim aracı yetki kuralını uygular; ama kimin erişeceğine araç karar vermez, süreç sahibi karar verir. Bir politika belgesi kuralı yazar; kuralın uygulandığını göstermez. Yeni bir belge tarayıcısı kurmak gibi bir iyileştirme projesi bir değişiklik yapar; kurulum sırasında açılan hesapların sonradan yeniden kontrol edilmesi ayrıca gerekir. Sertifika kurumun değerlendirilmiş olduğunu gösterebilir, ama belirli bir yanlış gönderimi kendi başına önlemez. Her biri bir yönetim sisteminin parçası olabilir; her biri yalnız kendi iddiasına kanıt oluşturur ve hiçbiri tek başına sistem değildir.
+Birim sonuçları doğru kişiye göndermek ister. Bir karşılaştırma kararı alındığında kimin uygulayacağı ve iş için gerekli zaman belirlenir. Gerçekleşen işin izi ile gönderim sonucu değerlendirilir; sonuç istenen duruma uymuyorsa karar gözden geçirilir. Güvenlik kararı işin sürmesini de gözetir: klasöre veya e-postaya erişilemezse başvuru değerlendirmesi ve sonuç gönderimi aksayabilir. Kurumun tabi olduğu koşullar da karar girdisidir; BGYS kurulması bütün yükümlülüklerin karşılandığını kendiliğinden göstermez.
+
+Güvenlik kararı verilirken, bilginin gizlilik, bütünlük veya erişilebilirliğini kaybetmesine yol açabilecek bir olayın olasılığı ve sonucu birlikte düşünülür. Bu, riskin başlangıç anlamıdır.
 :::
 
 ---
 
-## Güvenlik kararına hangi koşullar girer?
+## Araç ve belge hangi parçayı taşır?
 
-```text
-başvuru hizmeti + işlenen bilgi
-       + iç koşullar (A, B, C, D, stajyer E)
-       + dış koşullar (merkez İK, dış BT, merkez BT)
-       + ilgili tarafların beklentileri
-                         ↓
-                 KURUM BAĞLAMI
-```
-
-::: {.notes}
-Kurum bağlamı, kararları etkileyen koşulların bütünüdür: birimin sunduğu hizmet, işlediği bilgi, iç koşullar ve dış koşullar. Birim kâğıt formları, taranmış dosyaları ve sonuç e-postalarını farklı ortamlarda işler; tek bir erişim ayarı bütün süreci açıklayamaz. İç koşullar birimin kendi çalışanlarıdır. Dış koşullar birimin dışında yönetilen ama birimi etkileyen unsurlardır: merkez İK personel bilgisini, dış BT hesap işlemlerini, merkez BT de e-posta hizmetini yönetir.
-:::
-
----
-
-## İlgili tarafın beklentisi hangi karara dönüşür?
-
-| İlgili taraf | Beklenti | Dönüştüğü karar |
+| Öğe | Taşıdığı iş | Tek başına göstermediği |
 |---|---|---|
-| Başvuru sahibi | Bilgisi yanlış kişiye açılmasın | Gönderim ve erişim kuralı |
-| Görevliler B, C, D | Hangi iş için erişecekleri açık olsun | Göreve bağlı yetki |
-| Merkez İK | Özlük dosyası kendi sürecinde kalsın | Kapsam sınırı, ayrılış bildirimi |
-| Dış BT | Onaylı hesap talebi gelsin | Talep ve kapama kaydı |
-| Üst yönetim | Kaynak kullanımının gerekçesi görülsün | Kaynak ve gözden geçirme kararı |
+| Erişim aracı | Seçilmiş yetki kuralını uygular | Yetki kararının sahibi ve değerlendirilmesi |
+| Politika belgesi | Amaç ve kuralı yazar | Kuralın uygulandığı |
 
 ::: {.notes}
-İlgili taraf, süreçten etkilenen ya da süreci etkileyen kişi veya kuruluştur. Bağlamı soyut bir liste olmaktan çıkaran şey, her tarafın beklentisinin belirli bir karara dönüşmesidir. A ise işin zamanında ve hatasız yürümesini bekler. Her beklenti aynı önlemle karşılanmaz; her biri ayrı bir karar girdisidir. Başvuru sahibinin beklentisi gönderim kontrolüne, BT'nin beklentisi ise yetki talebinin kimin onayıyla geleceğine bağlanır.
+Bir erişim aracı, belirlenen yetkiyi uygulayabilir. Kimin hangi bilgiye erişeceğine, bu yetkinin hangi amaçla verildiğine ve sonucun nasıl inceleneceğine ilişkin kararlar ayrıca gerekir. Politika belgesi kuralı görünür kılar; personelin o kurala göre iş yaptığını gösteren gerçekleşme kaydının yerini tutmaz. Araç ve belge sistemde farklı işlere katkı sağlar. BGYS'yi açıklamak için bu öğelerin birbirine ve yönetime nasıl bağlandığı gösterilmelidir.
 :::
 
 ---
 
-## Kapsam: kararın sınırını çizmek
+## Proje ve sertifika hangi parçayı taşır?
 
-“Kurumun bilgi güvenliği” hangi **süreç**, **bilgi**, **ortam** ve **kurum parçası** hakkında karar verildiğini göstermez.
-
-- **Dahil:** başvuru alma, değerlendirme, sonuçlandırma; kâğıt formlar, “Başvurular” klasörü, sonuç yazıları
-- **Amaç:** kayıtlar yetkili kişilerce, doğru biçimde ve gerektiğinde erişilebilir şekilde işlensin
-- **Bu birimin seçtiği sınır:** personel özlük dosyaları dışarıda (süreç sahibi merkez İK)
-
-::: {.notes}
-Kapsam, güvenlik yönetiminin ele aldığı süreç, bilgi, ortam ve kurum parçasının açık sınırıdır. Geniş bir kapsam yanlış değildir; bütün kurum kapsanabilir. Sorun, “kurumun bilgi güvenliği” gibi bir ifadenin karar alanını ve sahipliği göstermemesidir. Sınır belirlenince hangi işin içeride olduğu, hangi işin başka bir süreç sahibine ait olduğu ve hangi dış girdilere ihtiyaç duyulduğu görünür olur. Birim özlük dosyalarını dışarıda bıraktı, çünkü bu dosyaların süreç sahibi merkez İK'dır ve birim onların yaşam döngüsüne karar vermez. Bu, birimin kendi koşullarına göre yaptığı bir seçimdir; özlük süreçlerinin her BGYS'de kapsam dışında kalması gerektiği anlamına gelmez. Özlük dosyalarını da yöneten bir birim aynı süreci kapsamına alabilirdi.
-:::
-
----
-
-## Kapsam sınırını geçen bilgi: bağımlılık
-
-```text
-Merkez İK ─── ayrılış / görev değişikliği ──┐
-Dış BT ────── hesap açma / kapama kaydı ────┼─→ BAŞVURU BİRİMİ
-Merkez BT ─── e-posta hizmetinin çalışması ─┘   (kapsam içi süreç)
-
-Yemekhane kart sistemi                         (bilgi/işlem bağı yok)
-```
-
-**Bağımlılık kaydı:** kim, neyi, ne zaman sağlar; sağlandığı nasıl görülür?
-
-::: {.notes}
-Kapsam dışında bırakmak ilişkiyi koparmak değildir. Bir personelin ayrılış bilgisi İK'da doğar, ama başvuru klasöründeki erişimi doğrudan etkiler; sınırın dışındaki bir bilgi içeriye girdi olarak gelebilir. Bağımlılık, kapsam dışındaki bir tarafın birimin işini etkileyen bilgi ya da hizmet sağlamasıdır. Bir bağımlılığı yönetmek için kimin neyi ne zaman sağlayacağını ve sağlandığının nasıl görüleceğini yazmak gerekir. Dış BT'nin bir firma olarak kapsam dışında olması, birimin kendi yetki kararını takip sorumluluğunu kaldırmaz. Öte yandan kapsam dışındaki her şey bağımlılık değildir; yemekhane kart sisteminin başvuru süreciyle hiçbir bilgi ya da işlem bağı yoktur.
-:::
-
----
-
-## Etkinlik 2: kapsam kartları
-
-**Etiketler:** *dahil* · *kapsam dışı ama bağımlılık var* · *kapsam dışı ve bağ yok*
-
-**Örnek:** kâğıt formlar ve dolap → *dahil*. Özlük dosyaları → kapsam dışı; ayrılış bildirimi bağımlılık.
-
-- “Başvurular” klasörü
-- Sonuç yazısının e-postayla gönderimi
-- Dış BT'nin hesap işlemleri
-- Yemekhane kart sistemi
-
-**Teslim:** her kart için etiket ve tek cümlelik gerekçe. **Başarı ölçütü:** gerekçe unsurun adına değil süreç sahipliğine ya da bilgi/işlem bağına dayanır; bağımlılık kartında karşı tarafın neyi sağladığı yazılır.
-
-::: {.notes}
-Örnek iki kartın farkı süreç sahipliğidir: arşiv dolabının anahtarına birim karar verir, özlük dosyalarını ise İK yönetir. Özlük dosyaları dışarıda bırakıldığında ayrılış bilgisinin erişime etkisi ayrıca kayda geçirilir. Bir kartta iki ayrı iş iç içe görünüyorsa, örneğin bir işi yapmak ile o işin dayandığı hizmeti işletmek, bunları ayrı ayrı etiketlemek gerekir.
-:::
-
----
-
-## Etkinlik 2: çözüm
-
-:::: {.columns}
-
-::: {.column width="50%"}
-- **“Başvurular” klasörü:** *dahil* — birimin taranmış kayıtları; erişim kararı birimde
-- **Sonuç yazısını gönderme:** *dahil* — kime hangi sonucun gideceğine birim karar verir; e-posta hizmetinin işletilmesi merkez BT'ye bağımlı
-:::
-
-::: {.column width="50%"}
-- **Dış BT hesap işlemleri:** *kapsam dışı ama bağımlılık var* — birimin onayladığı yetkiyi uygular, açma/kapama kaydını sağlar
-- **Yemekhane kart sistemi:** *kapsam dışı ve bağ yok* — başvuru bilgisi veya işiyle ilişkisi yok
-:::
-
-::::
-
-::: {.notes}
-Gönderim kartında iki şey ayrılır: gönderim işi birimindir, e-posta hizmetinin işletilmesi ise merkez BT'ye bağımlıdır. Dış BT için bağımlılık kaydında talep biçimi, kapama süresi ve kapama kaydı beklentisi yer alabilir; hesabı açan taraf farklı olsa da yetki onayı birime aittir. Yemekhane kartı, kapsam dışındaki her unsurun bağımlılık sayılmayacağını gösterir.
-:::
-
----
-
-## Kurulum işleri ile PUKÖ aynı liste midir?
-
-:::: {.columns}
-
-::: {.column width="50%"}
-**Kurulumda düzenlenen işler:** hedefler ve planlama, komite, mevcut durum–hedef farkı, varlık ve risk yönetimi, kontrollerin uygulanması, dokümantasyon
-:::
-
-::: {.column width="50%"}
-**Kararları kayıtlara göre yeniden düzenleyen döngü:**
-
-```text
-Planla → Uygula → Kontrol Et → Önlem Al
-   ↑                              │
-   └──────────────────────────────┘
-```
-:::
-
-::::
-
-::: {.notes}
-Ders sunumu BGYS adımlarını bu biçimde listeler (BGT 201 ders sunumu 2, slayt 16). Liste sistem kurulurken nelerin düzenleneceğini gösterir; ama listenin tamamlanması değişen personeli, yeni bir aracı ya da bir hatayı kendiliğinden yönetmez. Yinelenen kararı düşünmek için PUKÖ döngüsünü kullanıyoruz (slayt 17). Planla'da yazılan karar ve ölçüt Uygula'da günlük işe dönüşür; uygulamanın bıraktığı kayıt Kontrol Et'te önceden konmuş ölçütle karşılaştırılır; bu karşılaştırmanın bulgusu Önlem Al'da hem hatanın giderilmesine hem de kararın değişmesine yol açar; değişen karar yeniden Planla'ya döner. PUKÖ böylece “karar → uygulama → kanıt → yeniden karar” ilişkisini adım adım izlemenin bir yoludur. ISO/IEC 27001:2022'nin halka açık tanıtım sayfası, standardın bir BGYS'nin kurulması, uygulanması, sürdürülmesi ve sürekli iyileştirilmesi için gereksinimleri ortaya koyduğunu belirtir; PUKÖ bu sürekli iyileştirme fikrini bir birimin somut kararları üzerinde izlememizi sağlar.
-:::
-
----
-
-## “Kontrol” iki farklı iş yapar
-
-- **Güvenlik kontrolü:** seçilmiş önlem, Uygula'da çalışır → “Başvurular” klasörünün yetki ayarı
-- **Kontrol Et aşaması:** yapılanı ölçüte göre değerlendirir → yetki dökümünü görev listesiyle karşılaştırmak
-
-“Kontrol var” diyen kişiye: ayardan mı, ayarın incelenmesinden mi söz ediyorsunuz?
-
-::: {.notes}
-Aynı sözcük iki ayrı iş için kullanılıyor. Güvenlik kontrolü, seçilmiş bir önlemdir ve Uygula aşamasında çalışır. PUKÖ'nün Kontrol Et aşaması ise yapılanı izleyip önceden konmuş ölçüte göre değerlendirmektir. Bu ayrım yapılmazsa bir ayarın var olması, işleyişinin incelendiği yerine geçebilir.
-
-Döngünün her aşamasında bir karar sahibi ve bir uygulayıcı var. Kurulum listesinin ikinci maddesi olan komiteye ve bu kişilerin zamanını kimin sağladığına şimdi geçiyoruz.
-:::
-
----
-
-## Yönetim desteği hangi kararı etkiler?
-
-- **Onay:** politikanın onayı ve yayımlanması
-- **Kaynak:** ikinci kişi kontrolü ve yetki incelemesi için zaman; görevlendirme
-- **Gözden geçirme:** toplantılarla sürecin izlenmesi
-
-**Soru:** Kurum yalnız dışarıya iyi görünmek için şikâyet gelen gönderim işini kapsam dışında bırakırsa ne olur?
-
-::: {.notes}
-Ders sunumu üst yönetimi, bilgi güvenliği politikasını onaylayıp yayımlayan, finansal desteği sağlayan ve süreci gözden geçirme toplantılarıyla izleyen taraf olarak tanımlar; vizyonu olmayan bir üst yönetimin en büyük engellerden biri olduğunu ve personelin tavrının üst yönetimin yaklaşımından etkilendiğini vurgular (BGT 201 ders sunumu 2, slayt 18). Bu desteği yalnız bir imza olarak düşünmemek gerekir. Gönderimde ikinci bir kişinin kontrol yapması o kişinin zamanını gerektirir; ayda bir yetki incelemesi yapılacaksa bunun kimin görevi olduğu ve hangi işin yerine yapılacağı kararlaştırılmalıdır. Bu kararlar birim düzeyinde A'nın yetkisini aşıyorsa üst yönetimden gelir. Gözden geçirme toplantısında bir bulgunun hangi karara dönüştüğünü erişim vakasını tamamladıktan sonra ayrıca göreceğiz.
-
-Aynı slayt kurumun sistemi neden kurmak istediğini de sorar: gerçek bir ihtiyaç mı, piyasada olumlu imaj mı, yasal avantaj mı? Kolay gösterilecek ama şikâyet gelen gönderim işini içermeyen bir süreç seçilirse, belgelenmiş bir düzen kurulsa bile yanlış gönderim sürer. Bu olası bir karar yanlılığıdır; her kurumun böyle davrandığı sonucu çıkmaz.
-:::
-
----
-
-## Sorumluluk işlevlere ayrılır
-
-- **Yön ve kaynak:** amaç ve kaynak kararı → üst yönetim; birim düzeyinde A
-- **Karar sahibi:** onaylı erişim ya da gönderim kuralı → A
-- **Uygulayıcı:** yetki tanımı ve işlem kaydı → dış BT; B, C, D
-- **Gözden geçiren:** kayıtları ölçütle karşılaştırma, bulgu → A ya da birim dışından bir görevli
-- **Dokümantasyon:** onaylı kararları ve kayıtları güncel, bulunur tutmak → bu birimde A; kayıtları üretenler dış BT ile B, C, D
-
-A'nın aylık incelemesi operasyonel gözden geçirmedir; bağımsız iç tetkik değildir.
-
-::: {.notes}
-Bu satırlar bir hiyerarşi ya da işlem sırası değil, aynı kararın farklı işlevleridir. Ders sunumu büyük kurumlar için üst yönetim temsilcisi, BGYS yöneticisi, iç tetkikçi ile BT, İK, muhasebe ve hukuk gibi bölümlerden kişilerin yer aldığı bir komite örneği verir. Komitenin görevi BGYS süreçlerini yönetmektir ve başlangıçtan itibaren etkin rol almalıdır; yani sistem kurulduktan sonra çağrılan bir onay kurulu değildir, hedeflerin ve planın yazıldığı ilk adımdan itibaren işin içindedir. Sunum organizasyonun her şirkette farklı olabileceğini ve ekipteki kişilerin mesaisinin bu işe göre düzenlenmesi gerektiğini de belirtir (slayt 19). İşlevlerin çiziminde BGYS sorumlusu, BT bölümü, dokümantasyon, ekip üyeleri, iç denetçi ve üst yönetim ayrı kutularda yer alır (slayt 20). Bu çizim bir örnek düzendir; küçük bir birimin bu unvanların hepsine sahip olması gerekmez. Gereken, her işlevin birinde olması ve o kişinin zamanının ayrılmış olmasıdır.
-
-Dokümantasyonun ayrı bir işlev olarak görünmesi bir şeyi hatırlatır: kayıtları işi yapanlar üretir, ama birinin onları bir arada, güncel ve bulunur tutması gerekir. A'nın onayladığı erişim kararı, dış BT'nin açma ve kapama kayıtları, B, C ve D'nin işlem kayıtları dağınık kalırsa gözden geçiren kişi neyi neyle karşılaştıracağını bulamaz.
-
-Dört kişilik bir birimde A hem karar sahibi hem gözden geçiren olabilir. Kendi kararını değerlendirirken kanıtı kendi beyanından değil, BT yetki dökümü gibi başka bir kaynaktan alması değerlendirmeyi güçlendirir. Yine de bu, bağımsız bir iç tetkik ile aynı şey değildir; iç tetkiki kimin, nasıl yaptığını dersin son bölümünde ayrıca göreceğiz. A'nın incelemesinin sağladığı şey, kararın sahibinin sonuçları düzenli olarak görmesidir.
-:::
-
----
-
-## Standart ortak ölçüt verir; klasör kararını birim verir
-
-- **Ortak çerçeve:** BGYS'nin hangi yönetim konularında karar vermesi gerektiği. Örnek: ISO/IEC 27001
-- **Birimin kararı:** “Başvurular” klasörüne kim erişir? Ayrılanın erişimi ne kadar sürede kaldırılır?
-
-Vakadaki “1 iş günü” ve inceleme örneklemleri birimin kendi ölçütleridir.
-
-::: {.notes}
-ISO/IEC 27001 gibi bir standart, bir BGYS'nin hangi yönetim konularında karar vermesi gerektiğine ortak bir ölçüt sunar; standardın tanıtım sayfasına [ISO/IEC 27001:2022](https://www.iso.org/standard/27001) adresinden bakılabilir. Ama “Başvurular” klasörüne kimin erişeceğine ya da ayrılan bir kişinin erişiminin ne kadar sürede kaldırılacağına birim karar verir. Vakada kullanılan “bir iş günü” süresi ve inceleme örneklemleri kurgusal birimin seçtiği ölçütlerdir; bir standardın zorunlu kıldığı değerler değildir. Ortak ölçüt ile yerel karar ayrılınca, iki farklı kurumun süreçlerine aynı hazır yetki listesini kopyalamaktan da kaçınırız.
-:::
-
----
-
-## Erişim vakası · Planla: kararı ölçülebilir yazmak
-
-**1 Eylül, karar sahibi A.** Amaç: taranmış başvurular ilgisiz kişilerce görülmesin ve değiştirilmesin.
-
-| Karar | Ölçüt | Sahip / uygulayıcı |
+| Öğe | Taşıdığı iş | Tek başına göstermediği |
 |---|---|---|
-| Klasöre yalnız ilgili görevliler erişir | Her hesap güncel bir görevli ve onaylı taleple eşleşir | A / dış BT |
-| Ayrılan ya da görevi değişen kişinin erişimi kaldırılır | En geç 1 iş günü içinde | A / dış BT |
+| İyileştirme projesi | Belirli bir değişikliği yapar | Sonucun sürekli değerlendirilmesi |
+| Sertifika | Dış değerlendirmenin sonucunu taşır | Her gönderimin doğru olduğu |
 
-**Gözden geçirme:** her ayın son iş günü; yetki dökümü ↔ görev listesi.
+<!-- Görsel placeholder: Araç, belge, proje ve sertifikadan her birinin taşıdığı tek iddiaya bağlantı; BGYS bileşenleri ayrı çevrede. Amaç bir parça ile sistem bütününü ayırmak. -->
 
 ::: {.notes}
-Planla aşamasında mevcut duruma bakıp amacı, karar sahibini, uygulayıcıyı ve neyin başarı sayılacağını belirleriz. İşleyiş şöyle tasarlandı: A erişim talebini onaylayıp BT'ye iletir, BT hesabı tanımlar ya da kapatır. Onaylı talepler, hesap açma ve kapama kayıtları ve yetki dökümü olası kanıtlardır. Ölçütün önceden konması önemlidir: eylül sonunda neyin ihlal edildiğini ancak önceden yazılmış bir koşulla karşılaştırarak söyleyebiliriz. Plan kaydında, birinin ayrıldığı bilgisinin A'ya ve BT'ye hangi yolla, kimden ulaşacağı yazmıyor.
+Gönderim için yeni bir şablon getirildiğini varsayalım. Şablonun hazırlanması belirli bir değişikliği tamamlar; sonucunu kimin neye göre inceleyeceği belirlenmemişse sürekli değerlendirme ilişkisi eksiktir. Bu varsayımsal örnek gerçekleşmiş vaka kaydı değildir. Sertifika da belirli bir dış değerlendirmenin sonucudur; tek bir yanlış gönderimi önleyecek işleyişin veya bütün gönderimlerin doğruluğunun yerini tutmaz. Her iki öğe BGYS ile ilişkili olabilir; tanımdaki bütün öğeleri tek başına oluşturmaz.
 :::
 
 ---
 
-## Uygula: hesap ile görev değişikliği ayrışıyor
+## Kısa kontrol 1: yazılım alımı
 
-- A, B, C, D ve E için hesap açıldı → onaylı talepler
-- E, **11 Eylül** cuma stajını bitirip ayrıldı → merkez İK kaydı
-- 1 iş günü ölçütüne göre erişimin kaldırılması için son gün → **14 Eylül** pazartesi
+Birim yeni bir gönderim yazılımı alıp erişim ayarını yapıyor.
+
+**Bu işlem tek başına BGYS kurar mı?**
+
+**Ölçüt:** En az iki eksik bileşen ve bir birim olgusuyla gerekçelendirin.
 
 ::: {.notes}
-Erişim başlangıçta onaylı taleplere dayandı. Cuma günü ayrılan biri için ilk iş günü pazartesidir; bu yüzden takvim günü ile iş gününü ayırmak gerekir. Ayrılış bilgisi İK'da doğar; erişim kararı birimde verilir ve BT'de uygulanır. Bu iki yer arasında bir bilgi akışı yoksa hesap açık kalabilir.
+Yazılım alımı ve erişim ayarı gerçekleştiği varsayılan iki işlemdir. Sorunun yanıtı BGYS tanımındaki insan, süreç, kaynak, sorumluluk ve değerlendirme bağlarıyla sınanır. Gerekçe, birimdeki yanlış gönderim veya D'nin tanımlanmamış kişisel alışkanlığı gibi verilen olgulara dayanır. Yalnız “evet” ya da “hayır” yazılması hangi yönetim işinin eksik kaldığını göstermez.
 :::
 
 ---
 
-## Kontrol Et · rehberli görev: 30 Eylül kayıtları
+## Kısa kontrol 1: çözüm
 
-| Kayıt | İçerik |
+Tek başına BGYS kurmaz.
+
+- Karar ve iş sahipleri belirtilmemiştir.
+- Gönderim işleyişi ve sonuç değerlendirmesi belirtilmemiştir.
+
+D'nin alışkanlığı yazılım alınca tanımlı göreve dönüşmez.
+
+::: {.notes}
+Yazılım erişim kuralını uygulayabilir; fakat yanlış gönderim sorununun hangi işleyişle ele alınacağını ve sonucun neyle değerlendirileceğini kendiliğinden belirlemez. Karar sahibi ve uygulayıcı da bu iki işlemden çıkarılamaz. En az bu iki bileşen grubunun eksikliği, sistemin yalnız araçla kurulamayacağını gösterir. D'nin kişisel karşılaştırma alışkanlığının kurumsal işleyişe dönüşmesi için ayrıca görev, yöntem ve uygulama izi belirlenmelidir.
+:::
+
+---
+
+## Dış referans ve kurum kararı
+
+**Dış referans:** Kurum dışında yayımlanan; güvenlik yönetimini kurarken, uygularken veya karşılaştırırken başvurulan metin.
+
+**Ortak ölçüt:** Farklı kurumların aynı biçimde başvurabildiği beklenti.
+
+**Kurum kararı:** Kurumun kendi işine, bilgisine ve ortamına göre seçtiği somut kural, sorumlu ve değer.
+
+::: {.notes}
+Bir kurum güvenlik yönetimini oluştururken yayımlanmış standart ve çerçevelerden yararlanabilir. Bu metinlerin katkısı ortak beklenti veya düzen sunmalarıdır. Metin kurumun yerine görevli atamaz veya bir dosyaya erişecek kişiyi seçmez. D'nin yaptığı karşılaştırmanın kurumda nasıl yürütüleceği, birimin işi ve kaynakları dikkate alınarak kararlaştırılır. Referansa başvurmak ile kurum kararını vermek bu nedenle ayrı işlerdir.
+:::
+
+---
+
+## ISO/IEC 27001
+
+**ISO/IEC 27001**, ISO ve IEC'nin yayımladığı, BGYS'nin gereksinimlerini tanımlayan uluslararası standarttır. BGYS'yi kurma, uygulama, sürdürme ve sürekli iyileştirme işlerini kapsar; insan, politika ve teknolojiyi birlikte ele alır.
+
+Ortak gereksinim → birimin güvenlik yönetimi kararı
+
+::: {.notes}
+ISO/IEC 27001, kurumun BGYS'si için gereksinim kaynağıdır. Birimde yanlış gönderimin ve klasör erişiminin yönetim sistemi içinde ele alınması bu işlevle ilişkilidir. Standardın gereksinimlerine başvurmak, hangi önlemin seçileceğini veya hangi kişiye görev verileceğini kendiliğinden belirlemez. BGYS kurumun kendi sistemidir; standart o sistemin gereksinimlerini tanımlar. [ISO/IEC 27001](https://www.iso.org/standard/27001)
+:::
+
+---
+
+## ISO/IEC 27002
+
+**ISO/IEC 27002**, ISO ve IEC'nin yayımladığı, bilgi güvenliği kontrolleri ve bunların uygulanmasına yönelik rehberlik sağlayan uluslararası standarttır.
+
+Kontrol ve uygulama rehberliği → birimin seçenek ve işleyiş kararı
+
+::: {.notes}
+ISO/IEC 27002, güvenlik kontrolünün uygulanmasına ilişkin seçenekleri incelemeye rehberlik sağlar. Birim gönderim öncesinde hangi alanları karşılaştıracağını ve bunu kimin yapacağını kendi işi üzerinden belirler. Bir seçeneğin rehberde bulunması, kurumda seçildiği veya uygulandığı anlamına gelmez. ISO/IEC 27001'in BGYS gereksinimleri işlevi ile ISO/IEC 27002'nin kontrol rehberliği işlevi bu noktada ayrılır. [ISO/IEC 27002](https://www.iso.org/standard/75652.html)
+:::
+
+---
+
+## COBIT
+
+**COBIT**, ISACA'nın yayımladığı, kurumsal bilgi ve teknolojinin yönetişimi ve yönetimi için kullanılan çerçevedir.
+
+Yönetişim: kurumsal hedef, karar hakkı ve kimin kime hesap vereceği.
+
+::: {.notes}
+Birim ile dış ve merkez BT arasındaki işlerde karar hakkının kimde olduğu belirlenmelidir. Hangi BT kararının kurumun hangi hedefini desteklediği ve sonucun kime raporlanacağı da yönetişim sorusudur. COBIT bu ilişkileri kurmayı destekleyen bir çerçevedir; kişi atamasını kurum yapar. Bu işlev, bilgi güvenliği kontrolü uygulama rehberliğinden ve BGYS gereksinim standardından farklıdır. [ISACA — COBIT](https://www.isaca.org/resources/cobit)
+:::
+
+---
+
+## ITIL
+
+**ITIL**, PeopleCert'in sunduğu, dijital ürün ve hizmet yönetimi için kullanılan çerçevedir.
+
+Hizmet yönetimi: talep, değişiklik ve kesintinin ele alınması.
+
+::: {.notes}
+E-posta hizmetinde bir değişiklik veya kesinti olduğunda talebin nereye iletileceği ve birime nasıl bilgi verileceği kararlaştırılmalıdır. Bu, BT hizmetinin yürütülmesiyle ilgili bir sorudur. ITIL hizmet yönetimine çerçeve sağlar. Birim ile merkez BT kendi bildirim yolunu ve muhatabını belirler. Bu hizmetin düzenli işletilmesi güvenlik yönetimine katkı sağlayabilir; fakat ITIL bir BGYS değildir. [PeopleCert — ITIL](https://www.peoplecert.org/Frameworks-Professionals/ITIL-framework)
+:::
+
+---
+
+## Dört soru, dört katkı
+
+| Sorunun istediği iş | Referansın katkısı |
 |---|---|
-| BT yetki dökümü | A, B, C, D, E, **birim-ortak** |
-| Güncel görev listesi | A, B, C, D |
-| Onaylı talepler | A–E için 5 talep; ortak hesap için yok |
-| Kapama kayıtları | E hesabının kapamasına ilişkin kayıt bulunmuyor |
-| BT oturum kaydı | İncelenen kayıtta E hesabıyla 11 Eylül sonrası oturum görünmüyor |
+| Güvenliği sistem olarak yönetmek | 27001: BGYS gereksinimleri |
+| Güvenlik kontrolünü uygulamak | 27002: kontrol rehberliği |
+| BT'de karar hakkını belirlemek | COBIT: yönetişim ve yönetim |
+| BT hizmetini yürütmek | ITIL: hizmet yönetimi |
 
-**Görev:** Dökümdeki her hesabı görev listesi ve taleple eşleştirin. **Teslim:** her uygunsuzluk için hesap · karşılanmayan ölçüt · dayandığı kayıtlar. **Başarı ölçütü:** her bulgu en az iki kayda dayanır; kayıt yokluğu işlem yokluğu diye yazılmaz.
+Her katkı kurumun somut kararından geçer.
+
+<!-- Görsel placeholder: Dört soru → dört katkı → kurum kararı kolları. Amaç işlev ayrımı. COBIT/ITIL BGYS kutusunun içine çizilmez; referanstan doğrudan “güvenli” sonucu üretilmez. -->
 
 ::: {.notes}
-30 Eylül ayın son iş günüdür ve A farklı kaynaklardan gelen kayıtları yan yana koyar. Her kaydın neyi gösterdiği farklıdır: yetki dökümü gerçek yetki durumunu, görev listesi kimin çalıştığını, talepler kararın onayını, kapama kayıtları kapamanın kayda geçip geçmediğini, oturum kaydı ise kaydın kapsadığı oturumlarda hesabın kullanılıp kullanılmadığını gösterir. Planla aşamasındaki iki ölçüt, karşılaştırmanın neye göre yapılacağını belirler.
+Referans sorunun istediği işten seçilir. Bir hizmet değişikliği hem değişiklik bildirim yolunu hem karar hakkını etkileyebilir: birinci soru ITIL'in hizmet yönetimi, ikinci soru COBIT'in yönetişim işleviyle ilişkilidir. Aynı olayın iki referansa dokunması, soruları eş anlamlı yapmaz. Kurumda kalan karar da ayrı yazılır; bir referansın adını söylemek sorumlunun atanması veya önlemin uygulanması yerine geçmez.
 :::
 
 ---
 
-## Bulgu 1: E'nin hesabı
+## Çözümlü örnek: alıcıyı doğrulamak
 
-```text
-11 Eylül ayrılış → 14 Eylül kapama sınırı → 30 Eylül dökümde hâlâ açık
-```
+**Soru:** Sonuç yazısı gönderilmeden önce alıcı nasıl doğrulanabilir?
 
-- **Karşılanmayan ölçüt:** en geç 1 iş günü
-- **Dayanak:** İK kaydı ve görev listesi (ayrılış) + 30 Eylül yetki dökümü (açık hesap)
-- Oturum görünmemesi ölçüt ihlalini ortadan kaldırmaz
+**Katkı:** ISO/IEC 27002 — kontrol ve uygulama rehberliği.
+
+**Kurum kararı:** Hangi alanlar karşılaştırılır, işi kim yapar?
 
 ::: {.notes}
-Tek bir kayda bakmak bulgu için yetmez: E'nin ayrıldığını yalnız yetki dökümünden, hesabının açık olduğunu yalnız görev listesinden çıkaramayız; ikisinin karşılaştırılması gerekir. Kapama kaydının bulunmaması da tek başına hesabın kapatılmadığını göstermez; kapama yapılıp kayda geçmemiş olabilir. Hesabın açık kaldığını gösteren, 30 Eylül yetki dökümünde E'nin hâlâ yer almasıdır. Ayrılış ile inceleme arasında 19 takvim günü vardır; bu sayı ayrılıştan beri geçen süredir ve ölçütün yerine geçmez. İncelenen oturum kaydında E hesabıyla ayrılış sonrasında oturum görünmemesi, kaydın kapsadığı oturumlar için hesabın kullanılmadığına ilişkin bir işarettir; “zarar görülmedi, sorun yok” yanıtı ise önceden konmuş koşulu görmezden gelir.
+Alıcı doğrulama sorusu bir kontrolün uygulama biçimini istediği için ISO/IEC 27002'ye bağlanır. Hangi alanların karşılaştırılacağı ve uygulayıcının kim olacağı birimin kararıdır. ISO/IEC 27001 ise bu kontrolün amaç, sorumluluk ve değerlendirmeyle BGYS içinde ilişkilendirilmesine ortak gereksinimler sağlar. Belirli bir gönderimin karşılaştırma yöntemini standart adı tek başına söylemez. D'nin alışkanlığının tanımlı işe dönüştürülmesi kurum kararını gerektirir.
 :::
 
 ---
 
-## Bulgu 2: ortak hesabın sahibi kim?
+## Kısa kontrol 2: referansı seçin
 
-- Görev listesi → kişi karşılığı yok
-- Onaylı talep → yok
-- D'nin açıklaması → belge tarayıcısı kurulurken açılmış (**sözlü beyan**)
-- Kullanım → D taranmış başvuruları bu hesapla yüklüyor
+1. Yanlış gönderim ve klasör erişimi aynı güvenlik yönetiminde ele alınacak.
+2. E-posta hizmeti değişikliği birime nasıl bildirilecek?
+3. BT kararını birimde kim verecek; sonuç kime raporlanacak?
+4. “Dış BT ITIL'e göre çalışıyorsa birimin BGYS'si kurulmuştur.”
 
-**Karşılanmayan koşullar:** onaylı talep ve kişisel izlenebilirlik
+**Üretim:** Soru · referans · kurumda kalan karar.
 
 ::: {.notes}
-D'nin açıklaması hesabın neden oluşmuş olabileceğine ışık tutar, ama kimin hangi onayla açtığını gösteren bir kayıt değildir. Sorun dökümde fazladan bir satır bulunması değil, yetkinin kimin adına ve hangi işle bağlandığının bilinmemesidir. Ortak hesapla yapılan bir işlemin hangi kişiye ait olduğunu logdan ayırmak da güçleşir. D'nin tarama işini sürdürebilmesi için, ortak hesap kapatıldığında aynı yetkinin D'nin kendi hesabına onaylı bir taleple verilmesi gerekir.
+Dört cümle, birimdeki olgulardan üretilmiştir. Her cümlede istenen karar türü belirlenip referans buna göre seçilir. Son cümle bir iddia içerir; hangi iki işi birbirine eşitlediği incelenmelidir. Kurum kararı için A, birim görevlileri veya hizmeti sağlayan tarafla kurulacak ilişki somut olarak yazılır.
 :::
 
 ---
 
-## İki bulgunun arkasında ne olabilir?
+## Kısa kontrol 2: başarı ölçütü
 
-| Kayıtlar gösteriyor | Kayıtlar göstermiyor |
-|---|---|
-| Plan kaydında ayrılış bilgisinin A'ya hangi yolla ulaşacağı yazmıyor | İK bildirimi hiç yapmadı mı, yapıldı da birimde işlenmedi mi? |
-| Ortak hesap için onaylı talep yok | BT talepsiz mi açtı, talep başka yolla gelip kayda geçmedi mi? |
-
-**Neden adayı:** İK'dan birime bildirim akışı ve BT'de talep şartı yok. **Doğrulama:** A, İK'ya ve BT'ye sorar; yanıtları kayıtla görür.
+- Soru, referans ve kalan karar ayrı yazılı.
+- Seçim, referansın işleviyle gerekçeli.
+- Kalan karar birimin işi veya rolüne bağlı.
+- COBIT/ITIL BGYS sayılmıyor; referans kişi atamıyor.
 
 ::: {.notes}
-İki bulguda ortak bir örüntü var: bir bilgi, olması gereken karara ulaşmamış. E'nin ayrılışı İK'da kayıtlı ama erişim kararına yansımamış; ortak hesap açılmış ama onaylı bir talep kaydına bağlanmamış. Yine de “bildirim akışı ve talep şartı yok” cümlesi doğrulanmış bir neden değil, bir neden adayıdır. Neden adayını sınırlamak iyileştirme kararını engellemez: kayıtla doğrulanan şey bir planlama ve dokümantasyon boşluğudur ve hangi neden doğrulanırsa doğrulansın bu boşluğun doldurulması gerekir. Özlük dosyalarının kapsam dışında bırakılması doğru bir seçimdi; eksik olan, sınırı geçen ayrılış bilgisinin bir bağımlılık olarak yazılmamasıdır. Hatayı yalnız BT çalışanına ya da A'nın unutkanlığına yüklemek, bu açıklama doğrulansa bile, plan kaydındaki yazılmamış bilgi yolunu doldurmaz.
+Bir yanıtın yeterliliği referans adını doğru yazmasına bağlı değildir; sorunun istediği işle seçilen referansın katkısı ilişkilendirilmelidir. Kalan kararın “kurum karar verir” diye genel bırakılması da birimdeki eksik işi göstermez. Örneğin bildirim yolu birim ile merkez BT arasında, karar sahibi ise birimde belirlenir. Referansın katkısı ile kurumun yapacağı iş ayrı yazılınca eşleme değerlendirilebilir olur.
 :::
 
 ---
 
-## Önlem Al: düzeltme ile nedene yönelik iyileştirme
+## Kısa kontrol 2: çözüm
 
-- **Düzeltme:** E'nin hesabı ve ortak hesap kapanır; D'ye kendi hesabıyla onaylı tarama yetkisi → *kanıt:* BT kapama kaydı + yeni yetki dökümü
-- **Nedene yönelik iyileştirme:** İK ayrılış ve görev değişikliğini aynı gün A'ya bildirir; BT talep numarası olmayan hesap açmaz → *kanıt:* bağımlılık kaydı + sonraki talep ve kapama kayıtları
-
-İşlemin kapanışı ≠ iyileştirmenin işe yaradığının görülmesi
-
-::: {.notes}
-Düzeltme, bulunan uygunsuzluğun kendisini giderir. BT'den gelen “hallettik” e-postası neyin ne zaman kapandığını doğrulamaz; kapama kaydı ve yeni döküm birlikte değerlendirilir. Nedene yönelik iyileştirme, aynı türden boşluğun yeniden oluşmasını önlemeyi hedefler. Bu kararlar kapsam kaydındaki bağımlılık satırlarına da işlenir. İK'nın özlük süreci yine İK'nın sorumluluğunda kalır; birim yalnız ihtiyaç duyduğu bilginin kendisine nasıl ulaşacağını tanımlar. Aynı gün bildirim süresi de bu kurgusal birimin İK ile kararlaştırdığı bir değerdir.
-
-E'nin hesabının kapatılması bir işlemin kapanışıdır ve BT kaydıyla doğrulanır. İyileştirmenin işe yaradığı ise ancak bir sonraki ayrılışta görülebilir. Böyle bir faaliyetin nasıl açılıp kapatıldığına iç tetkikten sonra yeniden döneceğiz.
-:::
-
----
-
-## İkinci tur: iyileştirme işledi mi?
-
-**Yeni ölçüt:** talepsiz hesap sayısı 0. **İnceleme:** 30 Ekim
-
-- B, 15 Ekim başka birime geçti → İK bildirimi 15 Ekim; BT kapama kaydı 16 Ekim → 1 iş günü içinde
-- F birime katıldı → onaylı erişim talebi var
-- Güncel yetki dökümü → A, C, D, F; talepsiz hesap 0
-
-Tek ayrılış akışın işlediğini destekler; her durumda işleyeceğini kanıtlamaz.
-
-::: {.notes}
-Önlem Al'dan sonra Planla'ya dönüyoruz: A mevcut iki karara “talepsiz hesap sayısı sıfır” ölçütünü ekliyor. Ekim verisi, ayrılış bildiriminin ve BT kapamasının bu kez zamanında işlediğini; F için onaylı talep bulunması da yeni hesabın normal akışla açıldığını destekler. İkinci tur, bir defalık kapamanın değil değişen düzenin işleyişinin kanıtıdır. Kanıtın sınırı da vardır: ekimde tek bir ayrılış yaşandı; bu yüzden aylık inceleme sürer. Bu gözden geçirme bir saldırı testi değildir; hedefin kayıtlarla değerlendirilmesidir.
-:::
-
----
-
-## Erişim vakasında hangi yanıt eksik kalır?
-
-- “E'nin hesabını kapattık, bitti.” → bu bir düzeltme; sonraki ayrılışın bildirimi kurulmadıkça boşluk yeniden oluşur
-- “BT dışarıda, bizi ilgilendirmez.” → bağımlılık sahipliği devretmez; erişim kararının sahibi A
-- “Politika yazalım.” → yazılı kural uygulamanın kanıtı değil
-- “E'nin hesabıyla giriş yok, sorun yok.” → 1 iş günü ölçütü aşıldı
-
-::: {.notes}
-Bu yanıtların her biri verinin bir bölümüne bakıyor ama döngünün kalanını atlıyor. İlki Önlem Al'ın yalnız düzeltme yarısında kalıyor; ikincisi bağımlılığı sahiplik devri sanıyor; üçüncüsü yazılı kuralı uygulamanın izi ve incelemesi yerine koyuyor; dördüncüsü zarar belirtisinin görülmemesini önceden konmuş ölçütün yerine koyuyor.
-:::
-
----
-
-## Yazılan, yapılan, kaydedilen
-
-```text
-kural (yazılan) → uygulama (yapılan) → kayıt (yapıldığının izi)
-```
-
-Bir halkanın varlığı diğerini kanıtlamaz; kayıt yalnız kendi içeriğini gösterir.
-
-| Kayıt | Gösterebildiği | Tek başına göstermediği |
+| Cümle | Referans | Birimde kalan karar |
 |---|---|---|
-| Toplantı kaydı | Kararın ne zaman, kimlerle alındığı | Kararın uygulandığı |
-| Kullanıcı işlem kaydı | Hangi hesabın ne yaptığı | Ortak hesapta işlemi yapan kişi |
-| Giriş–çıkış kaydı | Kimin, ne zaman girip çıktığı | İçeride ne yapıldığı |
-| Eğitim kaydı | Katılım | İşin doğru yapılabildiği |
-| Yetkinlik ve tecrübe kaydı | Görevin kime verilebileceğinin dayanağı | Belirli bir işin doğru yapıldığı |
-| Rapor · tutanak | Belirli bir tarihte neyin tespit edildiği | Tespit dışında kalanlar |
+| 1 | 27001 | Amaç, sorumlu ve değerlendirme |
+| 2 | ITIL | Merkez BT ile bildirim yolu |
+| 3 | COBIT | Karar sahibi ve rapor muhatabı |
+| 4 | Tür eşitlemesi hatalı | Birimin kendi BGYS'sini kurması |
 
 ::: {.notes}
-Ders sunumu dokümantasyonu yönetim sistemlerinin temel konusu sayar ve “yaptığını yaz, yazdığını yap” ilkesiyle özetler; dokümantasyon sistematik olmalı ve görevli kişilerce yapılmalıdır (BGT 201 ders sunumu 2, slayt 24). Birimde bunun karşılığı şudur: A'nın onayladığı karar, dış BT'nin açma ve kapama kaydı, B, C ve D'nin işlem kayıtları işi yapan kişinin elinden çıkar; bunları düzenli ve güncel tutmak ise dokümantasyon işlevine düşer. D'nin alışkanlığı yazılmadığı için D ayrılınca kayboluyordu. Karar ve kayıt belirli bir görevli tarafından düzenli tutulduğunda, kişi değiştiğinde de neyin beklendiği ve neyin yapıldığı izlenebilir.
-
-Sunum kayıt türlerini toplantı kayıtları, kullanıcı işlemlerinin kaydı, giriş–çıkış kayıtları, eğitim, yetkinlik ve tecrübe kayıtları, raporlar ve tutanaklar olarak sayar (slayt 39). Tablodaki iki sütun her kaydın hangi iddiaya kanıt olabileceğini ayırır. Eğitim kaydı katılımı gösterir; o kişinin ikinci kişi kontrolünü doğru yaptığını göstermez. Yetkinlik ya da tecrübe kaydı bir görevin kime verilebileceğine dayanak olur; o görevin belirli bir gün doğru yapıldığını yine işlem kaydı gösterir. Kullanıcı işlem kaydı hesabı gösterir; erişim vakasındaki ortak hesap gibi birkaç kişinin kullandığı bir hesapta kişiyi göstermez. Bir kaydın neyi göstermediğini bilmek, birazdan göreceğimiz iç tetkikte hangi iddia için hangi kaydın isteneceğini de belirler.
+İlk cümle güvenliği sistem olarak ele aldığı için ISO/IEC 27001'in gereksinim işlevine bağlanır. İkinci cümlede asıl iş hizmet değişikliğinin bildirilmesidir; karar hakkı ayrıca sorulursa COBIT ilişkisi de kurulabilir. Üçüncü cümle doğrudan karar hakkını ve hesap verme ilişkisini sorar. Dördüncü cümlede hizmet yönetimi BGYS'ye eşitlenmiştir. Dış BT'nin hizmet yönetimi, birimin güvenlik amaçlarını, süreçlerini, kaynaklarını ve değerlendirmesini tek başına kurmaz.
 :::
 
 ---
 
-## Yönetimin gözden geçirmesi: bulgu hangi karara dönüşür?
+## D yaptığı işi nasıl gösterebilir?
 
-```text
-Kontrol Et bulgusu → güncel rapor → yönetimin gözden geçirmesi → plan kararı
-```
+D: “Göndermeden önce karşılaştırdım.”
 
-| Öneri | Ertelenirse bilgiye / hizmete sonucu | Kaynak · yetkili · tarih |
-|---|---|---|
-| E'nin ve ortak hesabın kapatılması | Ayrılmış bir kişinin ve sahibi belirsiz bir hesabın erişimi sürer | BT işlemi · A onayı, dış BT uygular · inceleme sonrası ilk iş günü |
-| İK'dan aynı gün ayrılış bildirimi | Her yeni ayrılışta aynı boşluk yeniden oluşur | İK ile anlaşma · A · bir sonraki görev değişikliğinden önce |
+- Hangi işlem?
+- Hangi alanlar?
+- Ne zaman ve kim tarafından?
 
-Hangi öneri önce? Gerekçe, ertelemenin sonucundan gelir.
+Aynı sorular kurumun uygulamayı incelemesi için de gerekir.
 
 ::: {.notes}
-Ders sunumu yönetimin gözden geçirmesinde güncel raporun değerlendirilmesini ve mevcut planın onaylanmasını sayar (slayt 61). Erişim vakasında 30 Eylül incelemesinin bulguları bu güncel rapordur. A bulguların bir kısmını birim düzeyinde kendisi karara bağlayabilir; İK ile bir bildirim akışı kurmak ya da ikinci kişi kontrolüne zaman ayırmak birimin yetkisini aşıyorsa karar üst yönetimin gözden geçirmesine gider. Bu toplantının çıktısı bir hedefin değişmesi, bir sorumluluğun yeniden verilmesi ya da bir sürece kaynak ayrılmasıdır. Sunumdaki aynı listede risk yönteminin ve kabul edilebilir risk düzeyinin onaylanması da yer alır; risk değerlendirmesini ilerleyen haftalarda ayrıca ele alacağız.
-
-Kontrollerin uygulanmasında sunum, önerilerin riskin önceliğine göre ele alınmasını ve her biri için gerekli kaynağın, yetkili kişilerin ve tarihlerin belirlenmesini ister (slayt 69). Bütün önlemler aynı anda yapılamıyorsa sıra, önlem ertelendiğinde bilgiye ve hizmete ne olacağına göre gerekçelendirilir. Hesapların kapatılması bugün süren bir erişimi sonlandırır ve küçük bir BT işlemi gerektirir; bu yüzden ilk iş günü yapılır. Bildirim akışı İK ile bir anlaşma ister; ama bir sonraki ayrılıştan önce kurulmazsa aynı boşluk yeniden oluşur. Bu karşılaştırma bir puanlama değildir; ertelemenin sonucunu kayıtlardaki olgulara dayanarak yazmaktır. Her öneri için yazılan kaynak, yetkili ve tarih, gönderim vakasındaki plan kaydında da arayacağımız alanlardır.
+D'nin açıklaması bir işin yapıldığını söyleyen beyandır. Belirli bir yanlış gönderim incelendiğinde, hangi alanların ne zaman karşılaştırıldığını gösteren ayrıntı yoksa D yaptığı işi kayıt üzerinden gösteremez. A da uygulamanın gerçekleşmesini inceleyemez. Kayıt eksikliği işlemin yapılmadığını kanıtlamaz; gerçekleşenin gösterilmesini zorlaştırır. Belgeleme kurumu ve çalışanın kendi işini gösterebilmesini birlikte destekler.
 :::
 
 ---
 
-## İç tetkik: kim yapar, neyi inceler?
+## Belge ve iki işlevi
 
-```text
-planlama → tetkik → raporlama        (belirli aralıklarla)
-```
+**Belge (doküman)**, belirli bir amaçla kaydedilmiş bilgi ve onu taşıyan ortamdır.
 
-- Tetkikçi: kurum içinden bu iş için eğitim almış biri ya da hizmet veren bir firmadan gelen tetkikçi
-- Koşul: tetkikçi kendi bölümünü tetkik etmez
-- İncelenen: sistemin işleyişi · gereksinimlere ve mevzuata uygunluk · gelişme için gereken koşullar · başvuru sahibi gibi ilgili tarafların beklentileri · kuruma özgü durumlar
-- Sonuç: üst yönetimin bilgilendirilmesi
+- Beklenti belgesi: yapılacak işi belirler.
+- Gerçekleşenin kaydı: belirli iş, karar veya gözlemi taşır.
 
-A'nın aylık incelemesi kararın sahibinin gözden geçirmesidir; iç tetkikin yerine geçmez.
+Kayıt da belge olabilir.
 
 ::: {.notes}
-Ders sunumu iç tetkiki, belgelendirme için yapılan dış denetimden önce sistemin belirli aralıklarla kurum içinde denetlenmesi olarak anlatır (slayt 71). Tetkikçi BGYS ekibinden bu iş için eğitim almış biri ya da bu hizmeti sunan bir firmadan gelen biri olabilir; bir kurumun tetkikçiden hangi eğitimi ya da belgeyi istediği kuruma göre değişir. Değişmeyen koşul, ekip içi tetkikte tetkikçinin kendi bölümünü denetlememesidir: kendi kararını inceleyen kişi kararın gerekçesini zaten bildiği için eksik bir kaydı kolayca açıklanmış sayabilir. Tetkik planlama, tetkik ve raporlama adımlarıyla yürür. Belgelendirmenin kendisini standartlar konusunda ayrıca ele alıyoruz.
-
-Sunum tetkikin hedeflerini şöyle sayar: standarda ve mevzuata uygunluğun belirlenmesi, BGYS'nin çalışmasının incelenmesi, geliştirilmesi için gereken şartların kontrolü, üst yönetimin bilgilendirilmesi, müşteri isteklerinin uygulanma durumu ve kuruluşa özgü durumların tespiti (slayt 72). Kayıt ve Başvuru Birimi'nde müşteri yerine başvuru sahibini düşünebiliriz: bilgisinin yanlış kişiye açılmaması beklentisinin uygulanıp uygulanmadığı tetkikin konusudur. Tetkikçi uygunluğu tek bir cümleyle ilan etmez; hangi gereksinimi hangi kayıtla karşılaştırdığını gösterir. Bu sonuç üst yönetime ulaştığında yönetimin gözden geçirmesinin girdisi olur.
-
-A'nın aylık incelemesi ile iç tetkik farklı işler görür. A kararın sahibi olarak sonuçları düzenli görür. Tetkikçi ise bölümün dışından, önceden hazırlanmış bir plana göre işleyişi inceler ve yönetime raporlar. İkisi birbirinin yerine geçmez.
+Belge kavramı kâğıtla veya önceden yazılmış kuralla sınırlı değildir. Elektronik bir işlem satırı, yazılı karar veya doldurulmuş arşiv formu belge olabilir. Beklenti belgesi ile gerçekleşenin kaydı işlev olarak ayrılır: biri yapılacak işi belirler, diğeri belirli bir gerçekleşme hakkında bilgi taşır. Bu ayrım bütün belgelerin önceden hazırlanıp onaylandığı anlamına gelmez. Bir kararın belgesi, o kararın günlük işte uygulandığına ilişkin kaydın yerini tutmaz.
 :::
 
 ---
 
-## Tetkiki hazırlamak: soru listesi ve tetkik planı
+## Boş form ve kayıt
 
-Soru listeleri: ortak · bilgi işlem · fiziksel güvenlik
+**Boş form**, hangi bilginin hangi alanlara yazılacağını ve her imza alanının hangi beyana ait olduğunu önceden belirleyen şablondur.
 
-| Liste | Soru (vaka örneği) | Ölçüt | İstenen kanıt |
-|---|---|---|---|
-| Ortak | Birimde her işlevin sahibi yazılı mı? | Her işlev bir kişiye bağlı | Onaylı görev listesi |
-| Bilgi işlem | Dökümdeki her hesap onaylı bir talebe bağlı mı? | Talepsiz hesap 0 | Yetki dökümü + talepler |
-| Fiziksel güvenlik | ? | ? | ? |
-
-Tetkik planı: hangi bölümün, ne zaman, kimin tarafından tetkik edileceğini önceden belirler.
-
-**İkili, 2 dakika:** fiziksel güvenlik satırını arşiv dolabı için doldurun.
+**Kayıt**, gerçekleşmiş bir iş, karar veya gözlem için tutulan; ne olduğunu, ne zaman olduğunu ve kim tarafından yapıldığını taşıyan belgedir.
 
 ::: {.notes}
-Ders sunumu üç tür soru listesi ayırır: her bölüme sorulan ortak sorular, bilgi işlem soruları ve fiziksel güvenlik amaçlı sorular (slayt 73–74). Hazır bir liste tetkikçinin neye bakacağını önceden belirler; böylece tetkik o gün akla gelenlerle sınırlı kalmaz ve iki farklı tetkikçi aynı soruları sorar. Bir soru tek başına yetmez: her sorunun yanında neye göre değerlendirileceği ve hangi kaydın isteneceği yazılmalıdır. Tablodaki sorular bu birim için yazılmış örneklerdir; bilgi işlem satırındaki ölçüt, erişim vakasının ikinci turunda A'nın koyduğu ölçüttür.
-
-Tetkik planı (slayt 75) tetkikin hangi bölümde, hangi tarihte ve kimin tarafından yapılacağını önceden düzenler. Kurumlar planı farklı biçimlerde tutar; burada planın yaptığı işe bakıyoruz. Plan önceden bilindiği için tetkik edilen bölüm kayıtlarını hazırlayabilir; tetkikçinin kendi bölümünü denetlemediği de planda görülür. A'nın “her ayın son iş günü” incelemesi bir tetkik planı değildir; kararın sahibinin kendi takvimidir.
-
-İkili görev için bir yanıt: “Arşiv dolabının anahtarı kimlerde?” Ölçüt: anahtar yalnız birimin yetkili görevlilerinde. Kanıt: anahtar teslim kaydı ve dolabın yerinde görülmesi. Başka sorular da yazılabilir; değerlendirmede bakacağımız şey ölçüt ve kanıt sütunlarının boş kalmaması ve kanıtın soruya gerçekten yanıt vermesidir.
+Boş form yalnız kayıt için alan açar; bir işin yapıldığını göstermez. Kayıt iş sırasında veya hemen ardından gerçeğe uygun tutulur. Sonradan düzeltme gerektiğinde önceki bilgi gizlenmez; düzeltmenin tarihi ve yapanı görünür kalır. Böylece kaydın bütünlüğü korunabilir. Kayıt bulunamadığında gerçekleşme gösterilemeyebilir; bu durum işin yapılmadığını kendiliğinden kanıtlamaz. Kaydın bulunabilir olması, değerlendirmede kullanılabilmesi için gereklidir.
 :::
 
 ---
 
-## Tetkik sahada: sor, dinle, gör
+## Kuraldan değerlendirmeye
 
-```text
-açılış toplantısı → görüşme + belge kontrolü + yerinde gözlem → kapanış toplantısı
-```
+Politika / karar → amaç ve kural
 
-- Hazırlanmış soru listesi kullanılır; fiziksel koşullar ve donanım yerinde görülür
-- Not alınır; notlar tetkik edilen kişiden gizlenmez
-- **Sor:** beyan → D'nin ortak hesap açıklaması
-- **Gör:** kayıt ya da gözlem → BT'deki hesap oluşturma kaydı
-- **Ölçüt:** ikisinin neye göre değerlendirileceği, önceden
+Prosedür / talimat → kimin hangi adımı yaptığı
 
-Örneklem yalnız incelenen kayıtlar hakkında sonuç üretir.
+Form → kayıt alanları
+
+Doldurulmuş kayıt → gerçekleşenin izi
+
+**Değerlendirme:** Kayıtların toplu olarak kuralın amacına göre incelenmesi.
+
+<!-- Görsel placeholder: Kural → işleyiş → form → kayıt → değerlendirme → karar ilişkisi. Amaç her halkanın taşıdığı farklı bilgiyi ayırmak; bir halkanın varlığı ötekinin kanıtı yapılmaz. -->
 
 ::: {.notes}
-Ders sunumu iç tetkiklerin karşılıklı görüşme ve doküman kontrolüyle yürütülmesini, fiziksel şartların ve donanımın kontrol edilmesini ve hazırlanmış soru listelerinin kullanılmasını önerir. Not alınabilir, ama bu notlar gizli olmamalıdır. “Sor–dinle–gör” yaklaşımıyla objektif kanıt kullanılır; inceleme bütün dokümanlar üzerinden değil örneklem üzerinden yapılır; uygunsuzluklar belirlenir ve açılış–kapanış toplantıları yapılır (slayt 76).
-
-Notun gizli olmaması, tetkik edilen kişinin neyin yazıldığını görebilmesi ve kapanışta itiraz edebilmesi demektir. Notun herkese açık bir kayıt olduğu anlamına gelmez; tetkik kayıtları da erişim yetkisine göre saklanır. Açılış toplantısında tetkikin kapsamı ve planı paylaşılır, kapanış toplantısında bulgular tetkik edilenlere aktarılır; böylece hiçbir bulgu ilk kez raporda görülmez.
-
-Beyan değerlidir, çünkü nereye bakılacağını gösterir; ama kaydın yerine geçmez. Yerinde gözlem de bir kanıttır: arşiv dolabının kilitli durduğu ancak dolaba bakılarak görülür. Son 20 gönderim satırına bakan bir inceleme o 20 satır hakkında konuşur; ayın bütün gönderimleri için genelleme ancak gerekçesiyle yapılabilir. Aynı ayrım A'nın günlük gözden geçirmesinde de işe yarar.
+Politika veya karar ne istendiğini ve nedenini belirler. İşleyiş günlük adımları açıklar. Form alanları, gerçekleştiğinde hangi bilginin tutulacağını düzenler. Doldurulmuş kayıt belirli bir gerçekleşmenin beyanını taşır. Değerlendirme ise kayıtları kuralın amacı açısından birlikte inceler; sonucu yeni karara girdi olmalıdır. “Değerlendirildi” ifadesi sonuç yazılmadığında neyin değişmesi gerektiğini göstermez. Eğitim katılım kaydıyla gönderim sonucunun ayrılması, bir kaydın ancak belirli bir iddia için kanıt olmasını örnekler.
 :::
 
 ---
 
-## Uygunsuzluk ve tetkik raporu
+## Görevlendirme, uygulama, kontrol, onay
 
-| Sunumdaki majör örnekler | Sunumdaki minör örnekler |
-|---|---|
-| Ana politika ya da dokümanlardan bazıları yok | Bazı dokümanlarda eksikler var |
-| Roller ve görevler dağıtılmamış | Bakım kayıtları tutulmamış |
-| Parola ve hesaplar için önlem alınmamış | Ziyaretçi kayıtları tutulmuyor |
-| Eğitimler verilmemiş | Ortam imhası yapılmıyor |
+**Görevlendirme:** İşin kime verildiğinin yetkili kişi tarafından yazılı belirlenmesi.
 
-Sınıf, örneğin adından değil; karşılanmayan ölçütten ve etkisinden çıkar.
+**Uygulama:** İşin fiilen yürütülmesi.
 
-**Rapor:** tarih · bölüm · açılış–kapanış katılımcıları · uygunsuzluklar ve gözlemler · genel değerlendirme
+**Kontrol:** İşin veya sonucunun tanımlı ölçütle karşılaştırılması.
 
-Bulgu satırı: E'nin hesabı → ölçüt: en geç 1 iş günü → kanıt: İK kaydı + 30 Eylül yetki dökümü
+**Onay:** Kuralın veya kararın yetkili kişi tarafından kabul edilip yürürlüğe konması.
 
 ::: {.notes}
-Ders sunumu uygunsuzlukları majör ve minör olarak ayırır ve her biri için örnek verir (slayt 77). Bu örnekler bir sınıflandırma kuralı değildir. Bir dokümandaki eksik, eksik kalan bölüm gönderimin nasıl kontrol edileceğiyse birimin ana işini etkiler. Ziyaretçi kaydının tutulmaması, arşivin bulunduğu odaya kimin girdiğinin izlenememesi demekse ağır bir sonuç doğurabilir. Bir bulgunun hangi sınıfa girdiği, karşılanmayan gereksinime, etkisine ve kurumun kullandığı tanıma göre gerekçelendirilir. Gözlem ise genellikle henüz bir gereksinimin karşılanmadığını göstermeyen ama izlenmesi önerilen durum için kullanılır.
-
-Sunum tetkik raporunda tarihin, tetkik edilen bölümün, açılış–kapanış toplantısına katılanların, majör–minör uygunsuzlukların ve gözlemlerin ve genel değerlendirmenin yer almasını ister (slayt 78). Her alan bir soruya yanıt verir: tarih ve bölüm bulgunun hangi döneme ve hangi işe ait olduğunu, katılımcılar bulgunun kimlere aktarıldığını gösterir. Erişim vakasındaki E'nin hesabı bir tetkik raporuna yazılsaydı, satır karşılanmayan ölçütü ve objektif kanıtı birlikte taşırdı. Ölçüt ve kanıt yazılmazsa raporu okuyan kişi aynı sonuca yeniden ulaşamaz ve bulgu bir görüş olarak kalır.
+Görevlendirme uygulama kaydı değildir: D'nin arşiv işine atanması belirli bir dosyanın iadesini göstermez. Onay da kuralın kabul edilmesini gösterir; her işlemin incelendiğini göstermez. Kontrol burada tanımlı ölçütle karşılaştırma işidir; güvenlik kontrolü ise korunma amacıyla seçilen önlemdir. Karşılaştırmanın farklı kişi tarafından yapılması, belirli bir işleyişte ayrıca konabilecek kuraldır. Aynı kişi birden fazla işlev üstlenirse hangi işleve ilişkin beyan verdiği ayrı tutulur.
 :::
 
 ---
 
-## Düzeltici faaliyet: ne açar, ne kapatır?
+## Beyan ve imza
 
-```text
-AÇ (girdi) → UYGULA (kök neden + önlem) → KONTROL → KAPA (ilgililere bildirim)
-```
+**Beyan:** Bir kişinin bir olgu hakkında kendi adıyla yaptığı ifade.
 
-- Faaliyeti açan girdiler: tetkik uygunsuzluğu · güvenlik testinde çıkan sorun · ihlal olayı · yönetimin gözden geçirmesi kararı · yasal değişiklik
-- Hiçbir doküman nihai değildir: faaliyet, kararı ve kaydı değiştirebilir
+**İmza / paraf:** İmzalayanı, bulunduğu alana bağlı belirli beyanla ilişkilendirir.
 
-| Erişim vakasında | |
-|---|---|
-| Açan girdi | 30 Eylül incelemesinin iki bulgusu |
-| Uygula | Neden adayı doğrulanır; hesaplar kapanır, İK bildirimi kurulur |
-| Kontrol | 30 Ekim incelemesi: B'nin geçişi 1 iş günü içinde kapandı |
-| Kapa | Plana talepsiz hesap ölçütü eklendi; kapanış İK'ya ve dış BT'ye bildirilmeli |
+Beyanın kapsamını alanın metni belirler.
+
+<!-- Görsel placeholder: “Dosyayı aldım” ve “Sayfa sayısını karşılaştırdım” alanlarının ayrı imzalara bağlantısı; metinsiz “Kontrol” alanı soru işaretiyle. Amaç işaretten önce beyanın kapsamını göstermek. -->
 
 ::: {.notes}
-Ders sunumu düzeltici ve önleyici faaliyetleri (DÖF) şu düşünceyle açar: dokümanların hiçbiri nihai değildir; değişim olmayacaksa denetim ve raporlama gereksizdir (slayt 79). Tetkik raporu bir son değil, bir faaliyetin girdisidir. Faaliyeti başlatan tek kaynak tetkik de değildir: bir güvenlik testinde karşılaşılan sorun, bir ihlal olayı, yönetimin gözden geçirmesinden çıkan karar ya da yasalardaki bir değişiklik de faaliyet açar.
-
-Faaliyet aç–uygula–kapa yapısıyla yürür: uygulama sırasında kök sorunlara inilmeli, uygulamadan sonra kontrol edilmeli ve kapatıldığı ilgili kişilere bildirilmelidir. Erişim vakasında bu yapıyı zaten izledik. E'nin hesabının kapatılması işlemin kapanışıydı ve BT kaydıyla doğrulandı. İyileştirmenin işe yaradığı ise 30 Ekim incelemesinde, B'nin görev değişikliğiyle görüldü; plan kaydı da değişti ve talepsiz hesap ölçütü eklendi. Kontrol adımı atlanırsa faaliyet işlem yapıldığı gün kapanmış görünür, ama boşluğun kapandığı bilinmez.
-
-Bu araçlarla ikinci vakayı, sonuç yazısının gönderimini, kendi başınıza inceleyeceksiniz.
+İmza, bağlı olduğu beyanın kime ait olduğunu gösterir. “Dosyayı aldım” ile “Dosyayı geri aldım; sayfa sayısı aynı” farklı işlere ilişkindir. Katılım imzası da katılımı beyan eder; bilginin öğrenildiğini veya davranışın değiştiğini göstermez. Alan metni belirsiz olduğunda paraf atan kişinin ne söylediği de belirsizdir. İşin doğruluğu için ayrıca dosyanın görülmesi, başka bir işlem kaydı veya başka bir kişinin gözlemi gerekebilir. Bir beyanın yazılı olması içeriğini kendiliğinden doğrulamaz.
 :::
 
 ---
 
-## Gönderim vakası · dosya 1/3: plan, talimat, eğitim
+## Gerçeğe uygun beyan
 
-**Karar alanı:** sonuç yazısı doğru başvuru sahibine gitsin.
+**Gerçeğe uygun beyan**, kişinin yaptığı veya gördüğü işi olduğundan geniş yazmadan bildirmesidir.
 
-- **Kayıt 1 · Plan kaydı:** Karar: “Gönderilmeden önce kontrol edilir.” Amaç: yanlış gönderimi önlemek. Sorumlu: “Birim.” Ölçüt, kanıt ve gözden geçirme alanları boş.
-- **Kayıt 2 · Talimat, 1 Ekim:** “Her yazı gönderilmeden önce ikinci kişi kontrol eder.” A onaylamış.
-- **Kayıt 3 · Eğitim, 2 Ekim:** o tarihte birimde çalışan dört kişinin (A, B, C, D) imzası; konu “gönderimde dikkat”.
+Yapılmamış işe “yapıldı” yazıp imzalamak, bu ifadeyi kişinin kendi beyanı hâline getirir.
+
+İmza tek başına işlemin doğruluğunu, önlemin etkisini veya bütün hukuki sorumluluğu belirlemez.
 
 ::: {.notes}
-A'nın vaka dosyasında yedi kayıt var. İlk üç kayıt gönderim kararının nasıl yazıldığını, hangi kuralın onaylandığını ve kimlerin hangi konuda eğitime katıldığını içerir.
+Gerçeğe uygun kayıt için kişi kendi yaptığı ya da gördüğü işi açıkça yazar. Başkası adına veya iş yapılmadan önce imza atılmaz. Yapılmayan işin nedeni belirtilir; sonradan eklenen bilgi ekleme tarihiyle gösterilir. Bu davranışlar hangi gerçekleşmenin kimin beyanıyla kayda girdiğini açık tutar. Bir kişinin imzasından bütün olayın sorumluluğu çıkarılamaz. Gerçeğe aykırı geniş bir beyan ise kişinin yapmadığı işleri de ona ait ifade gibi gösterebilir.
 :::
 
 ---
 
-## Gönderim vakası · dosya 2/3: kontrol listesi
+## Hesap verebilirlik
 
-**Kayıt 4 · Gönderim kontrol listesi, 1–9 Ekim**
-
-- Sütunlar: başvuru no · alıcı e-posta adresi · gönderen · kontrol eden parafı
-- Hangi alanların karşılaştırıldığına ilişkin sütun **yok**
-- Toplam gönderim: **20**
-- Kontrol eden parafı olan satır: **14** · kontrol eden alanı boş satır: **6**
-- Paraflı 14 satırın **9**'unda gönderen ile paraf atan aynı kişi
+**Hesap verebilirlik**, bir iş veya kararın onu yapan kişiye ya da yürüten sürece bağlanabilmesi, ne yapıldığının ve neye dayanarak yapıldığının gösterilebilmesi ve başkasının bunu kayıt üzerinden inceleyebilmesidir.
 
 ::: {.notes}
-Liste, 1–9 Ekim arasında yapılan bütün gönderimleri satır satır içeriyor. Her satırda başvuru numarası, alıcı adresi, gönderen ve kontrol eden parafı alanı bulunuyor. Sayılar listenin kendisinden sayılmıştır.
+Sorumluluk bir işin kime verildiğini belirler; hesap verebilirlik yapılan işin izlenebilmesiyle ilgilidir. Görevlendirme, uygulama, kontrol ve onay ayrıldığında kurum hangi işin kim tarafından yapıldığını inceleyebilir. Çalışan kendi yaptığı ile başkasının yaptığı işi ayırt edebilir. Ayrı bir teslim alanın iade beyanı, dosyayı alan kişinin iadeyi göstermesine yardımcı olur. Bu açıklama kusur veya yaptırım hükmü değildir; kayıtların sağladığı gösterme imkânını anlatır.
 :::
 
 ---
 
-## Gönderim vakası · dosya 3/3: şikâyet, not, ek bilgi
+## Arşiv örneği: amaç ve görevlendirme
 
-- **Kayıt 5 · Şikâyet, 9 Ekim:** B-117 numaralı başvuruda C, başka bir adayın sonuç yazısını göndermiş. Listede bu satırın göndereni C, parafı da C.
-- **Kayıt 6 · A'nın notu:** “Kontrol yapılıyor, talimat asıldı, eğitim verildi.”
-- **Kayıt 7 · Ek bilgi:** e-posta hizmeti merkez BT tarafından işletiliyor. C, e-posta programının alıcı adresini otomatik tamamlamasından şüpheleniyor.
+**Kurgusal öğretim verisi — 17 Eylül 2026**
+
+A'nın kararı: dosyanın yeri bilinsin, sayfaları eksilmesin, yalnız değerlendirme için kullanılsın.
+
+Kural: kayıtla çıkış ve aynı gün iade.
+
+Görevlendirme: arşiv işi D'de; yokluğunda yedek belirtilmemiş.
 
 ::: {.notes}
-Dosyanın son üç kaydı bir başvuru sahibinin şikâyetini, birim sorumlusunun durum notunu ve e-posta hizmetine ilişkin ek bilgiyi içerir. Vaka dosyası bu yedi kayıttan ibarettir; görevdeki her iddia bu kayıtlardan birine dayanmalıdır.
+Arşiv düzeni ve işlemler, Kayıt ve Başvuru Birimi için oluşturulmuş kurgusal öğretim verisidir. A'nın kararı erişilebilirlik, bütünlük ve gizlilik amaçlarını dosya hareketiyle ilişkilendirir. Görevlendirme D'nin işini belirler, belirli bir iadeyi yaptığını göstermez. D'nin bulunmadığı gün için yedek belirtilmemesi, işin sürdürülmesine ilişkin ayrı bir yönetim kararı boşluğudur. Bu bilgiler gerçek bir çalışan hakkında hukuk veya kusur hükmü kurmaya elverişli değildir.
 :::
 
 ---
 
-## Gönderim vakası: altı karar
+## Arşiv örneği: işleyiş
 
-1. Kayıt 1'i karar sahibi, uygulayıcı, ölçüt, kanıt ve inceleme tarihiyle tamamlayın.
-2. Kayıt 2–6 için neyi gösterdiğini / göstermediğini yazın; *kesin bulgu*, *beyan* ya da *doğrulanmamış olasılık* olarak sınıflandırın.
-3. Sayısal bulguları ve dayandıkları kayıtları çıkarın.
-4. Düzeltme ile nedene yönelik iyileştirmeyi sorumlusu ve kanıtıyla ayırın.
-5. “Daha fazla eğitim verelim” önerisini değerlendirin.
-6. E-posta hizmetinin kapsamla ilişkisini belirleyin.
+1. Alan kişi çıkış kaydını imzalar.
+2. Farklı görevli iadeyi alır; sayfa sayısını karşılaştırır.
+3. Teslim alan iade beyanını imzalar.
+4. A cuma günü açık satırları dolapla karşılaştırıp sonucu yazar.
 
-**Teslim:** altı başlıklı, tek sayfalık karar kaydı; 2. karar için kayıt–gösterir–göstermez tablosu.
+Farklı kişi koşulu bu örneğin kuralıdır; atanmış teslim alan D'dir.
 
 ::: {.notes}
-Erişim vakasında kullandığımız dört soru, kapsam ve bağımlılık, ölçüt–kanıt karşılaştırması ile beyan–kayıt ayrımı bu dosyadaki kararlar için de geçerlidir. Bir önerinin hangi kayıtla doğrulanacağı belirtilirse, başka biri aynı ölçüte göre kararı yeniden değerlendirebilir.
+Arşiv işleyişinde çıkış ve iade iki ayrı beyanla izlenir. Dosyayı alan kişi çıkışı; teslim alan ise iadeyi ve sayfa sayısı karşılaştırmasını beyan eder. Farklı kişi koşulu genel kontrol tanımının parçası değildir; bu düzen için ayrıca seçilmiştir. A'nın açık satırları dolapla karşılaştırması, kayıt boşluğunun dosyanın gerçekten nerede olduğu ile ilişkilendirilmesini sağlar. Sonuç yazılmazsa bu incelemenin ne gösterdiği karara taşınamaz.
 :::
 
 ---
 
-## Gönderim kararı: tesliminizi kontrol edin
+## Arşiv örneği: form alanları
 
-- Her iddiayı en az bir kayıt numarasına bağlayın.
-- Planın karar sahibi bir kişi; ölçütü sayılabilir; incelemesi tarihli olsun.
-- Kayıt yokluğunu uygulama yokluğu, olasılığı doğrulanmış neden saymayın.
-- Düzeltme ve iyileştirmeyi ayrı satırlarda, kendi sorumlu ve kanıtlarıyla yazın.
-- Sayısal uygulama izini doğru gönderim oranından ayırın.
+Tarih · dosya no · alan kişi · amaç · çıkış sayfa sayısı
 
-**Kayıt değerlendirme tablosu:**
+**“Dosyayı aldım”** — alan imzası
 
-| Kayıt no | Gösterir | Göstermez | Kesin bulgu / beyan / olasılık |
-|---|---|---|---|
-| … | … | … | … |
+İade tarihi/saati · **“Geri aldım; sayfa sayısı çıkıştakiyle aynı”** — teslim alan imzası
+
+**“Kontrol”** — beyan metni ve işleyişte karşılığı belirtilmemiş paraf alanı
+
+<!-- Görsel placeholder: Çıkış ve iade alanları ayrı renkte, imzalar alan metnine bağlı; metinsiz “Kontrol” sütunu ayrı işaretli. Amaç formun tek satırda farklı beyanları nasıl taşıdığını göstermek; zorunlu standart formu diye sunulmaz. -->
 
 ::: {.notes}
-Bir kaydın iddiası ile sınırını birlikte yazmak, aynı veriden farklı sonuçlar çıkarılmasını önler. Önerilen düzeltme bugünkü hataya, iyileştirme ise tekrarına yol açabilecek koşula yönelir; bu yüzden ikisinin gerçekleştiğini gösterecek kayıtlar farklı olabilir. Doldurulan formun, işlemin gerçek sonucunu hangi koşullarda gösterebildiği ayrıca değerlendirilir.
+Boş arşiv formu gerçekleşecek iş için alanları belirler. Çıkış imzası dosyayı aldığını, iade imzası ise geri alma ve sayfa sayısını karşılaştırma beyanını taşır. Formdaki “Kontrol” sütunu hangi ölçüte göre hangi karşılaştırmanın beyan edildiğini açıklamaz; işleyişte de karşılığı yoktur. Sütunun adından bir görev veya ek güvence çıkarılamaz. Alan metni ile görev tanımının birlikte açık olması gerekir.
 :::
 
 ---
 
-## Çözüm: plan kaydı nasıl tamamlanır?
+## Çözümlü kayıt: satır 1
 
-- **Karar sahibi:** A — onay ve izleme
-- **Uygulayıcı:** gönderen ve ondan farklı bir kontrol eden
-- **Ölçüt:** kontrol eden ≠ gönderen; yazıdaki başvuru no + ad ↔ başvuru kaydı, kayıtlı adres ↔ alıcı adresi; üç eşleşmenin sonucu satıra işlenir
-- **Kanıt:** doldurulmuş liste (uygulama izi) · şikâyet kayıtları (bildirilen hatalar) · seçilen gönderimlerin yeniden karşılaştırılması (doğru sonuç)
-- **Gözden geçirme (önerilen):** 12 Ekim'de yürürlük; 26 Ekim'de son 20 satır + seçilen gönderimlerde belge–kayıt–alıcı eşleşmesi
+21 Eylül · dosya **07** · değerlendirme · **6 sayfa**
+
+Çıkış: **C** — “Dosyayı aldım.”
+
+İade, 21 Eylül 16.00: **D** — “Geri aldım; sayfa sayısı aynı.”
+
+Sayfa sayısı eşleşmesi, içeriklerin değişmediğini göstermez.
 
 ::: {.notes}
-“Birim” sorumlu olarak bir kişiyi göstermiyor; hata görüldüğünde kimin işlem yapacağı belli değil. Alanların nereden alınacağı en kolay atlanan kısımdır. Kontrol listesine yazılan başvuru numarası ile alıcı adresi kendi aralarında tutarlı olabilir; ama e-postaya başka bir adayın sonuç yazısı eklenmişse liste bunu göstermez. B-117'deki gibi bir hata, listede doğru görünen bir satırla da gerçekleşebilir. Bu yüzden karşılaştırma gönderilecek belgenin kendisinden başlar.
-
-12 ve 26 Ekim tarihleri, iki hafta ve 20 satır vaka dosyasındaki kayıtlar değil, bu çözüm için önerilen bir inceleme düzenidir; başka açık ve uygulanabilir bir hedef de gerekçesiyle seçilebilir. 20 satırlık örneklem yalnız o satırlar hakkında sonuç verir. İkinci kişinin kontrol için ayıracağı zaman da kararın parçasıdır; görevlilerin iş yükü bunu karşılamıyorsa karar, A'nın ya da üst yönetimin kaynak kararına dönüşür.
+C, dosyayı 21 Eylül'de değerlendirme için aldığını beyan etmiştir. D aynı gün dosyayı geri aldığını ve sayfa sayısını çıkıştakiyle karşılaştırdığını beyan etmiştir. İki ayrı kişinin beyanı işlem zincirini izlemeyi sağlar: C iadeye, D yaptığı karşılaştırmaya ilişkin kayıt gösterebilir. Ancak altı sayfanın içeriğinin değişmediği veya dosyanın yalnız belirtilen amaçla kullanıldığı bu satırdan çıkarılamaz. Tek satır bütün düzenin amacına ulaştığını da göstermez.
 :::
 
 ---
 
-## Çözüm: kayıtlar hangi iddiayı taşır?
+## Görev verisi: satır 2 ve 3
 
-| Kayıt | Gösterir | Göstermez | Tür |
-|---|---|---|---|
-| 2 · Talimat | Kural ve A'nın onayı | Hangi gönderimde uygulandığı | Kesin bulgu (kuralın varlığı) |
-| 3 · Eğitim imzası | Dört kişinin katılımı | Doğru alıcı seçimi, ikinci kişi kontrolü | Kesin bulgu (katılım) |
-| 4 · Liste | Paraf dağılımı | Gerçekte karşılaştırılan alanlar | Kesin bulgu (paraf dağılımı) |
-| 5 · Şikâyet | En az bir yanlış gönderim | Bütün yanlışların sayısı ve nedeni | Kesin bulgu (B-117) |
-| 6 · A'nın notu | A'nın değerlendirmesi | İşleyişin doğruluğu | Beyan |
+| Satır | Çıkış | Dosya / amaç / sayfa | Çıkış imzası | İade | İade imzası |
+|---|---|---|---|---|---|
+| 2 | 22 Eylül | 19 / değerlendirme / 8 | B | Boş | Boş |
+| 3 | 23 Eylül | 23 / değerlendirme / 5 | B | 23 Eylül 15.00 | B |
 
-Kayıt 7'deki otomatik tamamlama: C'nin şüphesine dayanan **doğrulanmamış olasılık**.
+“Kontrol” alanları boş. **D, 23 Eylül'de izinli.**
 
 ::: {.notes}
-Hiçbir kayıt doğru gönderimin kendisini göstermiyor. Boş altı satırda kontrol hiç yapılmamış olabilir, yapılıp kaydedilmemiş de olabilir; kesin söyleyebileceğimiz şey, bu satırlarda ikinci kişi kontrolünün kanıtının bulunmadığıdır. Aynı ayrım kendi paraflı dokuz satır için de geçerlidir: ikinci kişi kontrolü kayıtta gösterilmiyor ve ikinci kişi parafı koşulu karşılanmıyor; ama başka birinin kayda geçmeden bakıp bakmadığını kayıt söylemez. A'nın notu talimatın ve eğitimin varlığını doğru biçimde söyler. “Kontrol yapılıyor” kısmını kayıtlar yalnız sınırlı biçimde destekler: beş satırda gönderenden farklı bir kişinin parafı var, ama hangi alanların karşılaştırıldığı yazmıyor ve kalan 15 satırda ikinci kişi kontrolü kayıtta görünmüyor.
+İki arşiv satırının çıkış beyanı B'ye aittir. İade alanında kullanılan beyan metni “Dosyayı geri aldım; sayfa sayısı çıkıştakiyle aynı”dır. İkinci satırın iade alanı boş, üçüncü satırın iade imzası B'dir. D'nin 23 Eylül'de izinli olduğu bilgisiyle görevlendirmede yedek belirtilmediği bilgisi birlikte erişilebilirdir. Bunlar kurgusal öğretim kayıtlarıdır; boş alana fiili dosya durumu tahmin edilerek eklenmez.
 :::
 
 ---
 
-## Çözüm: sayılar ne söylüyor?
+## Görev verisi: satır 4 ve toplu notlar
 
-:::: {.columns}
+24 Eylül · dosya **31** · değerlendirme · **7 sayfa**
 
-::: {.column width="55%"}
-```text
-20 gönderim (1–9 Ekim)
- ├─ 6: kontrol eden alanı boş → %30
- └─ 14: paraf var
-      ├─ 9: gönderen kendi parafını atmış
-      │     → ikinci kişi parafı koşulu karşılanmıyor
-      └─ 5: farklı kişinin parafı → toplamın %25'i
-```
-:::
+Çıkış: C · İade, 24 Eylül 16.00: D · “Kontrol” parafı: C
 
-::: {.column width="45%"}
-Sayılar ikinci kişi koşulunun **uygulanma izini** ölçer; doğru gönderim oranını vermez.
+**A:** “25 Eylül: açık satırlar dolapla karşılaştırıldı.” Sonuç yazılmamış.
 
-**B-117:** paraf var, gönderen ve paraf atan C; yanlış gönderim gerçekleşmiş.
-:::
-
-::::
+**D:** “Bu hafta arşivden çıkan bütün dosyalar iade edildi.”
 
 ::: {.notes}
-Altı bölü yirmi yüzde otuz eder: bu satırlarda ikinci kişi kontrolünün kaydı yok. Kalan 5 satır, 20 gönderimin yüzde 25'idir ve ikinci kişi parafı koşulunu karşılar. Ancak koşulu karşılamak ile gönderimin doğru olduğunu göstermek ayrı şeylerdir: listede karşılaştırılan alanlar yazılmadığı için bu beş paraf, başvuru numarası, ad ve adresin gerçekten karşılaştırıldığını göstermez. Vaka dosyasında diğer 19 gönderimin sonucuna ilişkin bir kayıt bulunmaması da o gönderimlerin doğru yapıldığının kanıtı değildir; yanlış alıcıya ulaşan her yazı şikâyete dönüşmeyebilir. B-117, parafın tek başına güvenilir bir sonuç üretmediğine somut bir örnektir. Otomatik tamamlamanın bu hataya yol açıp açmadığı ise henüz bilinmiyor.
+Dördüncü satırda C'nin çıkış imzası ve D'nin iade imzası aynı alan metinlerine bağlıdır. Ayrıca C metinsiz “Kontrol” alanına paraf atmıştır. A'nın satırı karşılaştırma yapıldığı beyanını taşır; karşılaştırmanın sonucunu belirtmez. D'nin notu tüm dosyaları kapsayan bir iddiadır. Bu iki not, dört işlem satırıyla birlikte incelenecek veridir; doğrulandıkları varsayılmaz.
 :::
 
 ---
 
-## Çözüm: olayın düzeltilmesi ve tekrarın önlenmesi
+## Ana görev 2: kaydı ve beyanı inceleyin
 
-| İş | Tür | Sorumlu | Kanıt |
-|---|---|---|---|
-| Olayı kaydetmek; doğru yazıyı B-117'nin sahibine göndermek; yanlış alıcıdaki yazının etkisini sınırlamaya çalışmak | Düzeltme | C ve farklı bir kontrol eden; olay kaydı A'da | Olay kaydı, yeni liste satırı |
-| Kontrol eden ≠ gönderen kuralını ve üç karşılaştırmanın sonucunun satıra işlenmesini listeye yazmak | Nedene yönelik iyileştirme | A | Yeni liste; 26 Ekim incelemesi ve belge–kayıt–alıcı karşılaştırması |
-| Otomatik tamamlama olasılığını doğrulatmak | Neden adayının doğrulanması | A ve merkez BT | BT'nin yazılı inceleme sonucu |
+1. Satır 2–4: neyi gösterir, neyi göstermez?
+2. Satır 3–4: imzalayan, alanın beyanı ve sınırı nedir?
+3. D'nin notunu kaydın gösterdiği kadarını söyleyecek biçimde yazın.
+4. Form veya görevlendirmede tek değişiklik önerin.
+
+**Üretim:** kısa tablo · düzeltilmiş not · gerekçeli öneri.
 
 ::: {.notes}
-Düzeltme satırında bir sınır var. Doğru yazıyı doğru kişiye göndermek, B-117'nin sahibinin sonucunu öğrenme ihtiyacını karşılar; ama başka bir adayın sonuç yazısı yanlış alıcıya zaten açılmıştır ve bu açılma geri alınamaz. Yanlış alıcıdan yazıyı silmesini istemek gibi adımlar etkiyi sınırlamaya çalışır, açılmayı ortadan kaldırmaz. Bu yüzden olay kaydında hangi adayın bilgisinin kime ulaştığı ve etkiyi sınırlamak için hangi adımların atıldığı da yer alır.
-
-İyileştirme satırı iş akışındaki boşluğa yönelir: kontrol eden sütunu listede zaten vardı; eksik olan, bu sütunun gönderenle aynı kişi olamayacağının, neyin neyle karşılaştırılacağının ve sonucun kaydedileceğinin yazılmasıydı. Otomatik tamamlama bir neden adayıdır; programın ayarını değiştirmek gibi bir karara ancak merkez BT'nin doğrulamasından sonra gidilebilir. Faaliyet de liste değiştirildiği gün kapanmaz. 26 Ekim incelemesinde parafların ve üç alanın ne ölçüde doldurulduğu uygulamanın izidir; seçilen gönderimlerde belgenin başvuru kaydı ve alıcıyla gerçekten eşleşip eşleşmediği ise kontrolün işe yarayıp yaramadığının kanıtıdır. Vaka dosyasında bu incelemenin sonucu henüz yoktur; bu yüzden iyileştirmenin etkisi şimdilik doğrulanamaz.
+Görevin verisi A'nın kararı, görevlendirme yazısı, işleyiş, form alanları, dört işlem satırı, D'nin izin bilgisi ve A ile D'nin notlarıdır. İddialar bu malzemeler üzerinden kurulmalıdır. İmzanın bağlı olduğu beyan, işlemin doğruluğu ve düzenin amacına ulaşması ayrı değerlendirilir. Öneri gerçekleşmiş işlem olarak yazılmaz; kaydın veya görevlendirmenin hangi belirsizliğini gidereceği belirtilir.
 :::
 
 ---
 
-## Çözüm: eğitim önerisi ve e-posta hizmeti
+## Ana görev 2: başarı ölçütü
 
-- **“Daha fazla eğitim” yeterli mi?** Tek başına hayır. Kural var (Kayıt 2) ve kontrol eden sütunu var (Kayıt 4); eksik olan karşılaştırılacak alanların tanımı ve gönderenin satırı kendi parafıyla tamamlayabilmesi.
-- **E-posta hizmeti kapsamda mı?** Gönderim işi kapsamda; hizmetin işletilmesi merkez BT'ye bağımlılık. Otomatik tamamlama bu bağımlılık üzerinden doğrulanır.
+- Her iddia satır numarasına veya malzemeye bağlı.
+- İmzalayan, beyan ve beyanın sınırı ayrı.
+- Eksik bilgi için “kayıt göstermiyor” yazılı.
+- Kişi hakkında genel hüküm yerine gösterilebilen iş açıklanmış.
+- Öneri, belirli alanı ve kimin beyanını netleştirdiğini söylüyor.
 
 ::: {.notes}
-Eğitim kaydı, 2 Ekim'de dört kişinin “gönderimde dikkat” konulu eğitime katıldığını gösterir; eğitimde ikinci kişi kontrolünün nasıl yapılacağının anlatılıp anlatılmadığı kayıtta yoktur. 9 Ekim şikâyeti eğitimden sonra en az bir yanlış gönderimin gerçekleştiğini gösterir. Kendi paraflı 9 satır ise 1–9 Ekim döneminin toplamıdır; bunların kaçının eğitimden sonra olduğu kayıtta görünmüyor. Bu veriler eğitimin tek başına yeterli olduğu sonucunu desteklemez; ama sorunun bilgi eksikliğinden mi, uygulama ve iş akışından mı kaynaklandığını da kendi başına kanıtlamaz; iki neden adayının ayrıca incelenmesi gerekir. Eğitim eklenebilir; ancak alan tanımı ve kendi parafı boşluğu giderilmeden aynı sorun sürebilir. E-posta için kapsam kartlarındaki ayrım geçerlidir: birim kime hangi sonucu göndereceğine karar verir, merkez BT hizmetin çalışmasını sağlar; birim bağımlılık kaydına bu tür bir inceleme talebinin nasıl yapılacağını ekleyebilir.
+İade alanının boş olması, kaydın iadeyi göstermediği anlamına gelir; dosyanın nerede olduğu ayrıca gözlenmeden söylenemez. İmzalayanın hangi ifadeyi üstlendiği alan metninden çıkarılır. Formdaki eksik görev veya belirsiz alan, kişi hakkındaki yorumla doldurulmaz. Önerinin yeterliliği genel bir “daha dikkatli olma” çağrısıyla değil, belirli bir kayıt veya görevlendirme bilgisini netleştirmesiyle değerlendirilir.
 :::
 
 ---
 
-## Etkinlik 3: dört kısa karar
+## Ana görev 2: satır 2 ve 3 çözümü
 
-1. Yeni bir paylaşım yazılımı ve erişim ayarı BGYS kurar mı?
-2. Dört kişilik birimde A hem karar sahibi hem gözden geçiren olabilir mi?
-3. İK kapsam dışındaysa ayrılış bilgisi önemsiz midir?
-4. PUKÖ'deki **Kontrol Et**, erişim **kontrolü** müdür?
+**Satır 2:** Çıkış B'nin beyanı; iade kayıtla gösterilemiyor. Dosyanın kaybolduğu sonucu çıkmaz.
 
-**Teslim:** her soruya iki–üç cümlelik gerekçeli yanıt. **Başarı ölçütü:** evet/hayır yetmez; her yanıt erişim ya da gönderim vakasından en az bir kayda veya tarihe dayanır.
+**Satır 3:** İade beyanı B'ye ait. Farklı teslim alan koşulu karşılanmamış; D izinli, yedek belirtilmemiş.
 
 ::: {.notes}
-Bu dört soru haftanın dört ayrımını yeniden çağırır: araç ile yönetim sistemi, işlevler ile kişiler, kapsam sınırı ile bağımlılık, güvenlik kontrolü ile Kontrol Et aşaması. Her yanıtta gerekçeyi genel bir ilke yerine vakadaki bir kayda ya da tarihe bağlıyoruz.
+Satır 2'de iadenin kaydı bulunmadığından iadenin olup olmadığı bu satırla gösterilemez. A'nın sonuç yazılmamış karşılaştırma satırı da bu boşluğu gidermez. Satır 3'te B'nin imzası, ayrı bir teslim alanın iadeyi gördüğünü göstermez. İşleyişin farklı kişi koşulu karşılanmamıştır. D'nin izniyle yedek görevlendirme boşluğu, işin sürdürülmesi için eksik yönetim kararını görünür kılar; B'nin niyetini veya kişisel kusurunu göstermez.
 :::
 
 ---
 
-## Etkinlik 3: gerekçeler
+## Ana görev 2: satır 4 ve D'nin notu
 
-:::: {.columns}
+**Satır 4:** D iadeyi ve sayfa sayısını beyan eder. C'nin “Kontrol” parafının beyanı belirsizdir.
 
-::: {.column width="50%"}
-- **Yazılım:** kuralı uygular; sahip, ölçüt, kanıt ve yeniden inceleme olmadan BGYS olmaz — tarayıcı kurulumundaki ortak hesap
-- **A'nın iki işlevi:** mümkün; kanıt BT dökümü gibi ayrı kaynaktan — ama bağımsız iç tetkik değil
-:::
+**D'nin düzeltilmiş notu:**
 
-::: {.column width="50%"}
-- **İK sınırı:** özlük süreci dışarıda; ayrılış bildirimi bağımlılık — E'nin hesabı 30 Eylül'de hâlâ açık
-- **İki “kontrol”:** erişim kontrolü Uygula'da çalışır; **Kontrol Et** onu ölçüte göre inceler
-:::
-
-::::
+“07 ve 31'i geri aldım; sayfa sayılarını karşılaştırdım. 19'un iade alanı boş. 23'ün iade beyanı B'ye ait.”
 
 ::: {.notes}
-Yeni yazılım bir erişim kuralını uygulayabilir; ama kapsam, karar sahibi, ölçüt, kanıt ve yeniden inceleme ilişkisi kurulmadan BGYS oluşmaz. Belge tarayıcısının kurulumunda açılan ortak hesap, bir yazılım değişikliğinin önceki erişim kararının yeniden incelenmesini gerektirebileceğini gösterir. Küçük birimde A iki işlevi üstlenebilir; kendi kararını değerlendirirken kanıtı BT yetki dökümü gibi ayrı bir kaynaktan alması değerlendirmeyi güçlendirir, ama bu inceleme bağımsız bir iç tetkik yerine geçmez. İK'nın kapsam dışında olması ayrılış bilgisini önemsiz kılmaz; E'nin hesabının 30 Eylül'de hâlâ açık olması, bu bilginin erişim kararına ulaşmasının ne kadar önemli olduğunu gösterir. Son olarak erişim kontrolü Uygula aşamasında çalışan bir önlemdir; PUKÖ'nün Kontrol Et aşaması ise bu önlemin işleyişini önceden konmuş ölçüte göre inceler.
+Satır 4'te D'nin iade beyanı, dosyanın içeriğinin değişmediğini göstermez. C'nin “Kontrol” alanındaki parafından neyi karşılaştırdığı çıkarılamaz. D'nin toplu notu ise satır 2'deki boş iade alanını ve satır 3'te başka kişiye ait beyanı kendi yaptığı iş gibi kapsar. Düzeltilmiş not D'nin imzaladığı iadeleri ve diğer satırlardaki kayıt durumunu ayırır. Dosya 19'un kaybolduğunu söylemez; dosya 23'ün iadesini D'nin gözlemi gibi sunmaz.
+:::
+
+---
+
+## Ana görev 2: değişiklik önerisi
+
+**Örnek öneri:** A, D yokken iadeyi alacak farklı bir yedek görevli belirlesin.
+
+Alternatifler:
+
+- “Kontrol” alanı kaldırılır veya beyanı açık yazılır.
+- Değerlendirme satırına karşılaştırma sonucu eklenir.
+
+<!-- Görsel placeholder: Görevlendirme–uygulama–kontrol–onay–değerlendirme satırları; kişi, beyan ve kayıt sütunları. Amaç aynı kişinin farklı işleri ayrı göstermesi ve eksik yedek/sonuç alanlarının kararlarla giderilmesi. İşlev matrisi hiyerarşi değildir. -->
+
+::: {.notes}
+Yedek görevlendirme, D'nin yokluğunda farklı teslim alan koşulunu kimin yürüteceğini belirler. “Kontrol” alanının beyanının yazılması, imzalayanın yaptığı karşılaştırmayı açıklar; alan gereksizse kaldırılması belirsiz beyanı önler. A'nın değerlendirme sonucunun yazılması, açık satırların fiili durumunun karar için kullanılmasını sağlar. Bunlar kabul edilebilir önerilerdir; gerçekleştikleri söylenmez. Görev, uygulama, karşılaştırma ve onay ayrı görünür olduğunda kurum uygulamayı inceleyebilir, çalışan da kendi işiyle başkasının işini ayırt edebilir.
 :::
 
 ---
 
 ## Kaynaklar
 
-- BGT 201 ders sunumu 2, “Bilgi Güvenliği Yönetim Sistemleri”, slayt 2–8, 16–20, 24, 39, 61, 69, 71–79.
-- [ISO/IEC 27001:2022 tanıtım sayfası](https://www.iso.org/standard/27001)
-- Ek okuma: *Fundamentals of Information Systems Security* (denetim ve izleme konuları).
+- [ISO/IEC 27001](https://www.iso.org/standard/27001) · [ISO/IEC 27002](https://www.iso.org/standard/75652.html)
+- [ISACA — COBIT](https://www.isaca.org/resources/cobit) · [PeopleCert — ITIL](https://www.peoplecert.org/Frameworks-Professionals/ITIL-framework)
+- BGT 201 ders sunumu 2, slayt 2–8, 24, 27, 39.
+- *Fundamentals of Information Systems Security*, Bölüm 5, s. 137, 154; Bölüm 6, s. 192–195.
 
 ::: {.notes}
-Birim, kişiler, sayılar ve olay kayıtları kurgusaldır; gerçek bir kurumu temsil etmez.
+Standart ve çerçevelerin genel işlevleri ISO, ISACA ve PeopleCert'in tanıtım sayfalarına dayanır; bu sayfalar 14 Ekim 2026 tarihli yetkili kaynak kontrolünde incelenmiştir. Yönetim ihtiyacının kurulmasında ders sunumundaki önlemden sistematik yaklaşıma geçiş kullanılır. Belgeleme ve hesap verebilirlik açıklamaları seçilmiş kaynak bölümleriyle desteklenir. Birim örnekleri kurgusaldır; arşiv düzeni ve satırları öğretim için oluşturulmuştur.
 :::
