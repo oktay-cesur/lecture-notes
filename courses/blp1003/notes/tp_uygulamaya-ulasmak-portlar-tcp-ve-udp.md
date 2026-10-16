@@ -29,7 +29,7 @@ Tarayıcı     Dosya aktarımı     Ses uygulaması
 IP adresi **bilgisayara** ulaştırır. Uygulamayı kim seçecek?
 
 ::: {.notes}
-Ping yanıtı almak, hedef bilgisayara IP düzeyinde ulaşılabildiğini gösterir. Ancak bir bilgisayara ulaşmak, onun içinde çalışan bir uygulamaya ulaşmak anlamına gelmez. Aynı bilgisayarda bir web sunucusu, bir dosya aktarım programı ve bir müzik uygulaması aynı anda ağ kullanıyor olabilir. Gelen bir paketin bunlardan hangisine ait olduğunu söyleyen bir bilginin bulunması gerekir.
+Ping yanıtı almak, hedef bilgisayara IP düzeyinde ulaşılabildiğini gösterir. Bilgisayara ulaşan veri, henüz içindeki uygulamaya ulaşmış değildir. Aynı bilgisayarda bir web sunucusu, bir dosya aktarım programı ve bir müzik uygulaması aynı anda ağ kullanıyor olabilir. Gelen bir paketin bunlardan hangisine ait olduğunu söyleyen bir bilginin bulunması gerekir.
 
 Bu soruyu **portlar** cevaplar. Ardından, IP'nin vermediği garantileri (N1) tamamlayan ve birbirinden çok farklı iki taşıma hizmeti olan **TCP** ve **UDP** gelir. Konunun ön bilgisi, IP'nin hizmet sınırları, kapsülleme ve N2'deki erişilebilirlik gözlemleridir.
 :::
@@ -49,12 +49,12 @@ Bir apartmanın kapı numarası posta için yeterlidir: zarf binaya ulaşır. Am
 
 Port numarası 16 bitlik bir alandır; yani 0 ile 65535 arasında bir değer alır. Bir uygulamanın ağ kullanmak için taşıma hizmetine eriştiği arayüze **soket** (socket) denir. IP adresi ile port birlikte bir iletişim ucunu belirtir ve IPv4'te `192.168.10.20:80` biçiminde yazılır. Bu yazım bir gösterimdir; soketin kendisi uygulamanın taşıma hizmetine eriştiği araçtır, yazılan metin değildir.
 
-Benzetmenin sınırı vardır: daire numarası dairenin sabit kimliği gibi durur, ama port öyle değildir (sonraki slayt).
+Daire numarası dairenin sabit kimliğidir; port ise bir uygulamaya sabit bağlı değildir (sonraki slayt).
 :::
 
 ---
 
-## Port bir uygulamanın kimlik numarası değil
+## Port, uygulamanın sabit kimliği mi?
 
 - Bir program birden fazla soket açabilir.
 - Bir uygulama aynı anda birden fazla bağlantı kurabilir.
@@ -81,7 +81,7 @@ Yanıt: 192.168.10.20:80    → 192.168.10.10:52000
 - Yanıtta uçlar yer değiştirir.
 
 ::: {.notes}
-İletişimin iki ucu olduğu için taşıma başlığında da iki port bulunur: **kaynak portu** ve **hedef portu**. Tarayıcı B'deki web sunucusuna HTTP/1.1 isteği gönderirken hedef port hizmetin tipik portu olan 80'dir; kaynak port ise sistemin o bağlantı için geçici olarak seçtiği bir değerdir. 52000 öğretim örneği olarak seçilmiştir; her tarayıcının bu değeri kullandığı söylenemez.
+İletişimin iki ucu olduğu için taşıma başlığında da iki port bulunur: **kaynak portu** ve **hedef portu**. Tarayıcı B'deki web sunucusuna HTTP/1.1 isteği gönderirken hedef port hizmetin tipik portu olan 80'dir; kaynak port ise sistemin o bağlantı için geçici olarak seçtiği bir değerdir. 52000 örnek bir değerdir; sistem başka bir geçici port seçebilir.
 
 Yanıtta uçlar yer değiştirir: sunucu yanıtı istemcinin 52000 numaralı portuna gönderir. Aksi hâlde yanıt, hangi uygulamaya gideceğini bilemezdi. İstemcinin geçici bir port alması bu yüzden gereklidir.
 :::
@@ -100,9 +100,9 @@ Kaynak portları aynı, **kaynak IP'ler farklı**; bağlantılar ayrılır.
 ::: {.notes}
 Sunucu bütün web istemcilerini 80 numaralı portta karşılayabilir; her istemci için ayrı bir sunucu portu açılması gerekmez. İki TCP bağlantısında sunucu ucu aynı, istemci uçları farklıdır. İki istemcinin kaynak portu aynı sayı olabilir; kaynak IP'leri farklı olduğu için bağlantılar ayırt edilir.
 
-Aynı bilgisayardaki iki tarayıcı sekmesi de benzer şekilde aynı sunucunun 80 numaralı portuna bağlanabilir. Sunucu iki bağlantıyı birbirinden ayıramazsa yanıtlar karışırdı; bu yüzden ikinci bağlantıda istemci, örneğin 52001 gibi başka bir kaynak portu seçebilir. Bu, sekmelerin portlarla bire bir eşleştiği anlamına gelmez; yalnız bağlantıların ayrı uçlar kullandığını gösterir.
+Aynı bilgisayardaki iki tarayıcı sekmesi de benzer şekilde aynı sunucunun 80 numaralı portuna bağlanabilir. Sunucu iki bağlantıyı birbirinden ayıramazsa yanıtlar karışırdı; bu yüzden ikinci bağlantıda istemci, örneğin 52001 gibi başka bir kaynak portu seçebilir. Burada gösterilen, bağlantıların ayrı uçlar kullandığıdır; sekmeler ile portlar bire bir eşleşmek zorunda değildir.
 
-Sunucu gelen bir TCP segmentini yalnız hedef portuna bakarak değil, bağlantının iki ucunu birlikte değerlendirerek yerleştirir. Portu "programın numarası" diye ezberlemek bu ayrıntıyı kaçırır: bir sunucu programı aynı anda çok sayıda bağlantıya hizmet verebilir.
+Sunucu gelen bir TCP segmentini, bağlantının iki ucunu (IP ve port çiftlerini) birlikte değerlendirerek yerleştirir. Bu yüzden port, programın numarasından çok bir bağlantı ucunun parçasıdır: bir sunucu programı aynı anda çok sayıda bağlantıya hizmet verebilir.
 :::
 
 ---
@@ -125,7 +125,7 @@ IP paketlerin kayıpsız, sıralı ve tekrarsız teslimini garanti etmez. Taşı
 
 **TCP** (Transmission Control Protocol) bağlantı yönelimlidir. İki uç, veri göndermeden önce bir bağlantı durumu kurar; gönderilen baytları numaralar, alınanları onaylar, kaybolanı yeniden gönderir ve uygulamaya veriyi sıralı bir bayt akışı olarak sunar. **UDP** (User Datagram Protocol) bağlantı kurmaz. Uygulamanın verdiği her mesaja küçük bir başlık ekleyerek onu bir **datagram** olarak gönderir; kaybı gidermez, sırayı düzeltmez, akışı ve yoğunluğu denetlemez. Aldığı mesajları sınırlarıyla korur, yani iki mesaj birleşmez.
 
-UDP için "yok" yazan özellikler eksik gibi görünür, ama bunlar her uygulama için eksik sayılmaz. "TCP güvenli, UDP hızlı" cümlesi bu yüzden yetersizdir: güvenilirlik, gizlilik ve hız ayrı ölçütlerdir. TCP kendi başına şifreleme sağlamaz; UDP de her koşulda daha hızlı bir uygulama anlamına gelmez. Hangisinin uygun olduğu, uygulamanın istediği şeye bağlıdır.
+UDP için "yok" yazan özellikler eksik gibi görünür, ama bunlar her uygulama için eksik sayılmaz. "TCP güvenli, UDP hızlı" cümlesi bu yüzden yetersizdir: güvenilirlik, gizlilik ve hız ayrı ölçütlerdir. TCP kendi başına şifreleme sağlamaz; UDP ise her koşulda daha hızlı bir uygulama sağlamaz. Hangisinin uygun olduğu, uygulamanın istediği şeye bağlıdır.
 :::
 
 ---
@@ -146,9 +146,9 @@ TCP **baytların sırasını** korur; **gönderim çağrısı sınırlarını** 
 ::: {.notes}
 Bu örnek paket kaybı ya da karakterlerin yer değiştirmesi örneği değildir. Baytlar eksiksiz ve sıralı gelir; değişen, alıcı uygulamanın bunları kaç okumada alacağıdır. Gönderen önce `MER`, sonra `HABA` verdiğinde alıcı bunları tek okumada `MERHABA` olarak, iki okumada ya da daha fazla parçaya bölünmüş hâlde alabilir. TCP baytların sırasını korur; uygulamanın gönderirken kullandığı çağrı sınırlarını korumayı vaat etmez.
 
-Bu nedenle alıcı uygulamanın "mesaj nerede bitti?" sorusuna kendi protokolüyle cevap vermesi gerekir. HTTP/1.1'de başlıkların sonundaki boş satır ve uygun durumlarda `Content-Length` alanı bu işi yapar. TCP sıralı baytları getirir; HTTP o baytların nasıl okunacağını söyler.
+Alıcı uygulamanın "mesaj nerede bitti?" sorusuna kendi protokolüyle cevap vermesi gerekir. HTTP/1.1'de başlıkların sonundaki boş satır ve uygun durumlarda `Content-Length` alanı bu işi yapar. TCP sıralı baytları getirir; HTTP o baytların nasıl okunacağını söyler.
 
-UDP'de durum farklıdır. Uygulama iki ayrı datagram gönderirse teslim edilen her datagram ayrı bir mesaj sınırına sahiptir. Ancak birinin ulaşması diğerinin de ulaştığını göstermez. TCP ile UDP'yi karşılaştırırken yalnız hızdan söz etmek, iki protokolün uygulamaya farklı veri sunumu yaptığını gözden kaçırır.
+UDP'de durum farklıdır. Uygulama iki ayrı datagram gönderirse teslim edilen her datagram ayrı bir mesaj sınırına sahiptir. Ancak birinin ulaşması diğerinin de ulaştığını göstermez. İki protokol uygulamaya farklı veri sunumu yapar; karşılaştırmayı yalnız hız üzerinden kurmak bu farkı gizler.
 :::
 
 ---
@@ -170,7 +170,7 @@ TCP, veri göndermeden önce iki ucun bağlantı durumunu ve başlangıç sıra 
 
 Birinci mesajda istemci SYN ile "ben 100'den başlıyorum" der. İkinci mesajda sunucu hem kendi başlangıcını bildirir (Seq=200) hem de istemciyi onaylar: Ack=101, yani "sıradaki beklediğim 101". SYN sıra uzayında bir konum tükettiği için onaydan sonra beklenen değer 100 değil 101 olur. Üçüncü mesajda istemci aynı mantıkla sunucunun SYN'ini onaylar: Ack=201. Bu örnekte son ACK veri taşımadığından ek bir konum tüketmez.
 
-Bu üç mesajdan sonra iki uç da bağlantının durumunu ve hangi baytlardan başlandığını bilir. El sıkışma, sonradan gönderilen verinin kayıpsız ulaşacağını ya da şifreleneceğini kanıtlamaz; yalnız bağlantı durumunu ve başlangıç sıra bilgisini kurar.
+Bu üç mesajdan sonra iki uç da bağlantının durumunu ve hangi baytlardan başlandığını bilir. El sıkışma, sonradan gönderilen verinin kayıpsız ulaşacağını ya da şifreleneceğini kanıtlamaz; kurduğu şey bağlantı durumu ve başlangıç sıra bilgisidir.
 :::
 
 ---
@@ -213,7 +213,7 @@ IP kayıp verebileceğine göre TCP bu durumu nasıl telafi eder? Alıcı üç a
 
 Alıcının 1200–1299'u tamponda tuttuğu varsayılırsa, eksik bölge yeniden geldiğinde kesintisiz sınır doğrudan 1300'e atlar. Gönderici, zaman aşımı gibi mekanizmalarla eksik bölgeyi yeniden göndermeye karar verir. Uygulama bu olayların hiçbirini görmez; kendisine yalnız 1000'den 1299'a sıralı bir bayt akışı sunulur.
 
-TCP'nin güvenilirliği, dosyanın her koşulda tamamlanacağı anlamına gelmez. Bağlantı kalıcı olarak bozulabilir ve uygulama bir hata alabilir. TCP'nin sıralı bayt teslimi ile sunucunun alınan veriyi diske yazması da ayrı işlerdir.
+TCP'nin güvenilirliği, dosyanın her koşulda tamamlanacağını garanti etmez. Bağlantı kalıcı olarak bozulabilir ve uygulama bir hata alabilir. TCP'nin sıralı bayt teslimi ile sunucunun alınan veriyi diske yazması da ayrı işlerdir.
 :::
 
 ---
@@ -227,11 +227,11 @@ TCP'nin güvenilirliği, dosyanın her koşulda tamamlanacağı anlamına gelmez
 | **Yoğunluk denetimi** | Ağ yolu ne kadar yük taşıyabilir? | Ağ koşulları |
 
 ::: {.notes}
-Kayıp yalnız kablonun kopmasıyla oluşmaz. Sunucudan veri alan program, gelen baytları yeterince hızlı işleyemiyor olabilir; TCP'nin alıcı tamponu sınırlıdır. Alıcı kabul edebileceği veri miktarını göndericiye bildirir ve gönderici henüz onaylanmamış verisini bu sınır içinde tutar. **Akış denetimi**, hızlı göndericinin yavaş alıcıyı taşırmasını önlemeye yöneliktir.
+Kayıp, kablonun kopmasından başka nedenlerle de oluşur. Sunucudan veri alan program, gelen baytları yeterince hızlı işleyemiyor olabilir; TCP'nin alıcı tamponu sınırlıdır. Alıcı kabul edebileceği veri miktarını göndericiye bildirir ve gönderici henüz onaylanmamış verisini bu sınır içinde tutar. **Akış denetimi**, hızlı göndericinin yavaş alıcıyı taşırmasını önlemeye yöneliktir.
 
 Şimdi alıcının çok hızlı, ama aradaki yolun başka bağlantılarla dolu olduğunu düşünelim. Alıcının tamponunun boş olması, ağdaki kuyrukların büyümesini engellemez. **Yoğunluk denetimi** bu kez ağ koşullarına göre gönderimi ayarlar. Aynı bağlantıda hem alıcının kabul kapasitesi hem de ağın taşıyabildiği yük dikkate alınır.
 
-Onay, akış denetimi ve yoğunluk denetimi birbirine temas eden ama farklı işlerdir. Onay hangi baytların alındığını, alıcı penceresi ne kadar ek verinin kabul edilebileceğini bildirir; yoğunluk denetimi ağ yoluna ne kadar yük verileceğini düzenler. Bu ayrımı görmek için algoritmaların ayrıntısını ezberlemek gerekmez.
+Onay, akış denetimi ve yoğunluk denetimi birbirine temas eden ama farklı işlerdir. Onay hangi baytların alındığını, alıcı penceresi ne kadar ek verinin kabul edilebileceğini bildirir; yoğunluk denetimi ağ yoluna ne kadar yük verileceğini düzenler.
 :::
 
 ---
@@ -256,7 +256,7 @@ UDP başlığı yalnız dört alandan oluşur: kaynak port, hedef port, uzunluk 
 
 ---
 
-## UDP "güvenilmez" demek değil
+## UDP üzerinde güvenilirlik kurulabilir
 
 - UDP ile istek gönderip **yanıt** alınabilir; tek yönlü değildir.
 - Uygulama zaman aşımıyla yeniden deneyebilir, kendi sıralamasını yazabilir.
@@ -265,11 +265,11 @@ UDP başlığı yalnız dört alandan oluşur: kaynak port, hedef port, uzunluk 
 - Yoğunluğu önemsemek TCP'de hazır gelir; UDP'de uygulamanın işi.
 
 ::: {.notes}
-Bir UDP datagramının kaybolması, uygulamanın kaybı mutlaka kabul edeceği anlamına gelmez. Uygulama UDP ile istek gönderip yanıt alabilir (UDP tek yönlü değildir), zaman aşımından sonra yeniden deneyebilir ve gerekirse kendi sıralama kurallarını yazabilir.
+Bir UDP datagramı kaybolduğunda uygulama kaybı kabul etmek zorunda değildir. Uygulama UDP ile istek gönderip yanıt alabilir (UDP tek yönlü değildir), zaman aşımından sonra yeniden deneyebilir ve gerekirse kendi sıralama kurallarını yazabilir.
 
 Güncel web sürümlerinden HTTP/3, UDP üzerinde çalışan QUIC protokolünü kullanır ve güvenilir aktarım mekanizmalarına sahiptir. QUIC'in ayrıntısı bu dersin konusu değildir; ama örnek, UDP'nin "güvenilir olamaz" diye düşünülmemesi gerektiğini gösterir. Bu örnekte güvenilirliği sağlayan mekanizmalar QUIC'e aittir, UDP altta datagram hizmetini sunar. Aynı örnek, "web TCP'dir" gibi genellemelerin sınırını da gösterir.
 
-UDP kullanmak, uygulamanın ağ yoğunluğunu önemsemeyebileceği anlamına gelmez. Yoğunluk denetimi TCP'de hazır gelir; UDP'de bu sorumluluk uygulamadadır.
+UDP kullanan uygulama da ağ yoğunluğunu gözetmelidir. Yoğunluk denetimi TCP'de hazır gelir; UDP'de bu sorumluluk uygulamadadır.
 :::
 
 ---
@@ -291,7 +291,7 @@ Tek ölçüt ("hız" ya da "güven") yetmez. Birlikte tartılanlar:
 ::: {.notes}
 TCP ile UDP arasındaki seçim, uygulamanın gereksinimlerinden yapılır. 10 MB'lık bir dosyanın ortasındaki tek bir kayıp dosyayı kullanılamaz kılar; bu yüzden beklemek ve eksik bölgeyi tamamlamak mantıklıdır. Canlı bir görüşmede ise yarım saniye önceki bir ses parçasını yeniden almak işe yaramaz, çünkü oynatılmış zamanı geri getiremeyiz. Kısa bir ad sorgusunda ise yanıt gelmezse sorguyu tekrarlamak ucuzdur ve küçük bir mesaj için bağlantı kurmak gereksiz yük olabilir.
 
-Bunlar evrensel kurallar değildir: dosya uygulamalarının hepsi TCP, ses uygulamalarının hepsi UDP kullanmaz. İhtiyaç tek bir ölçütle ("hız" ya da "güven") değil, kayıp toleransı, sıra gereksinimi ve gecikme beklentisiyle birlikte tartılır. N1'de zıt ihtiyaçlarıyla görülen iki uygulama böylece iki ayrı taşıma hizmetiyle karşılanır.
+Bunlar evrensel kurallar değildir: dosya uygulamalarının hepsi TCP, ses uygulamalarının hepsi UDP kullanmaz. İhtiyaç; kayıp toleransı, sıra gereksinimi ve gecikme beklentisiyle birlikte tartılır; "hız" ya da "güven" tek başına yetmez. N1'de zıt ihtiyaçlarıyla görülen iki uygulama böylece iki ayrı taşıma hizmetiyle karşılanır.
 :::
 
 ---
@@ -311,7 +311,7 @@ Bu sayılar **tek yöndeki bayt akışının konumunu** izler; mesaj ya da dosya
 ::: {.notes}
 Bir segment Seq=4000 ile 60 bayt, sonraki segment Seq=4060 ile 40 bayt taşısın. İkisi de sırayla alınır ve her segment ayrı onaylanırsa ilk onay 4060, ikincisi 4100 olur. TCP her segmente hemen ayrı bir ACK göndermek zorunda değildir; iki segment birlikte onaylanırsa doğrudan 4100 görülebilir. Aralıkların son değerleri dahildir: son onaylanan bayt 4099'dur ve onay beklenen sonraki baytı, 4100'ü gösterir.
 
-Alıcı TCP'nin 4100'ü onaylaması, sunucu uygulamasının veriyi diske kaydettiği ya da isteği başarıyla işlediği anlamına gelmez. Uygulama sonucu için daha üst düzeyde bir yanıt gerekir. Bir web isteğinin HTTP yanıtı, tam da bu nedenle TCP ACK'inden ayrı bir bilgi taşır.
+Alıcı TCP'nin 4100'ü onaylaması, uygulamanın veriyi diske kaydettiğini ya da isteği işlediğini göstermez. Uygulama sonucu için daha üst düzeyde bir yanıt gerekir. Bir web isteğinin HTTP yanıtı, tam da bu nedenle TCP ACK'inden ayrı bir bilgi taşır.
 :::
 
 ---
@@ -325,5 +325,5 @@ Taşıma hizmeti baytları doğru uygulamaya getirdi.
 - Yanıt nasıl biçimlenecek?
 
 ::: {.notes}
-Taşıma katmanı veriyi doğru uygulamaya, doğru hizmet niteliğiyle ulaştırır; ama uygulamanın bu baytlarla ne yapacağını belirlemez. Hangi sayfanın istendiği, yanıtın nasıl biçimleneceği gibi sorular uygulamaların kendi protokollerine aittir. Bunlar N4'te ağ hizmetleriyle birlikte ele alınır.
+Taşıma katmanı veriyi doğru uygulamaya, doğru hizmet niteliğiyle ulaştırır; ama uygulamanın bu baytlarla ne yapacağını belirlemez. Hangi sayfanın istendiği, yanıtın nasıl biçimleneceği gibi sorular uygulamaların kendi protokollerine aittir. Cevap N4'te ağ hizmetleriyle birlikte verilir.
 :::

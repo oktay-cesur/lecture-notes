@@ -35,7 +35,7 @@ Ağa hazırlanma → Web → Dosya → E-posta → Uzaktan erişim ve yönetim
 ::: {.notes}
 Taşıma katmanı veriyi doğru uygulamaya ulaştırır; ama uygulamanın kendisine ulaşan baytlarla ne yapacağını belirlemez. Bir tarayıcının sunucudan sayfa istemesi, sunucunun "bulamadım" ya da "hazır" yanıtı vermesi **uygulama protokolleri** ile tanımlanır. Her uygulama protokolü, iki uygulamanın birbirinden ne isteyeceğini, hangi biçimde isteyeceğini ve nasıl yanıtlayacağını belirler.
 
-Bir bilgisayarın ağa katılmasıyla ağdaki bir işi tamamlaması arasında birkaç farklı hizmet devreye girer. Bilgisayar önce ayarlarını edinir ve gerektiğinde bir ismin adresini sorar; sonra web sayfası ister, dosya aktarır ya da e-posta gönderir. Ağ yöneticisi de cihazlara uzaktan erişmek ve durumlarını izlemek ister. Bu hizmetler beş grupta ele alınır: ağa hazırlanma, web, dosya aktarımı, e-posta, uzaktan erişim ve yönetim.
+Bir bilgisayarın ağa katılmasıyla ağdaki bir işi tamamlaması arasında birkaç farklı hizmet devreye girer. Bilgisayar önce ayarlarını edinir ve gerektiğinde bir ismin adresini sorar; sonra web sayfası ister, dosya aktarır ya da e-posta gönderir. Ağ yöneticisi de cihazlara uzaktan erişmek ve durumlarını izlemek ister. Hizmetler beş grupta okunur: ağa hazırlanma, web, dosya aktarımı, e-posta, uzaktan erişim ve yönetim.
 
 Ön bilgi olarak N1–N3 kullanılır. Adres ve paket akışları hazır bir yerel ağda geçer; ağ geçidi veya alt ağ hesabı yapılmaz. Gruplara aynı ayrıntı düzeyi verilmez: DHCP/DNS ve HTTP/HTTPS mekanizması daha ayrıntılı, dosya, e-posta ve yönetim grupları seçilmiş bir akışla işlenir. Kısa işlenen protokoller de açık bir tanım ve temel işleyiş içerir.
 :::
@@ -57,9 +57,9 @@ Ağa yeni katılan bilgisayarın henüz kullanılabilir yapılandırması yok.
 ::: {.notes}
 Otomatik adres almaya ayarlanmış bir bilgisayar ağa yeni katıldığında kullanılabilir bir IPv4 yapılandırması yoktur: kendi IP adresi, kullanacağı DNS sunucusu ve ağın dışına çıkarken gideceği cihaz bilinmez. Bu ayarları elle yazmak küçük bir ağda mümkündür, yüzlerce cihazda hataya açıktır. **DHCP** (Dynamic Host Configuration Protocol) bu ayarları otomatik dağıtır.
 
-Verilen bilgiler birbirinin yerine geçmez. IP adresi arayüzü adresler. **Alt ağ maskesi**, IP adresinin ağ kısmını belirlemeye ve hedefin aynı alt ağda olup olmadığını değerlendirmeye yarar. **Varsayılan ağ geçidi**, başka bir ağdaki hedefe giderken kullanılabilecek çıkış yolunu gösterir. **DNS sunucusu adresi**, isim sorularının kime gönderileceğini belirtir. Bu değerlerin sayısal hesabı sonraki adresleme konusunda yapılır; burada yalnız görevleri tanınır.
+Verilen bilgiler birbirinin yerine geçmez. IP adresi arayüzü adresler. **Alt ağ maskesi**, IP adresinin ağ kısmını belirlemeye ve hedefin aynı alt ağda olup olmadığını değerlendirmeye yarar. **Varsayılan ağ geçidi**, başka bir ağdaki hedefe giderken kullanılabilecek çıkış yolunu gösterir. **DNS sunucusu adresi**, isim sorularının kime gönderileceğini belirtir. Bu değerlerin sayısal hesabı sonraki adresleme konusunda yapılır; burada görevleri tanınır.
 
-Değerleri okuyabilmek, ağ ayar ekranlarındaki kutuları anlamlandırır. Örneğin `192.168.10.53` DNS alanında yazıyorsa bu, bilgisayarın kendi adresi değil, ad sorgusunun gönderileceği yerdir. Aynı sayı yanlış alana yazıldığında doğru görünen bir IP adresi yanlış göreve atanmış olur.
+Değerleri okuyabilmek, ağ ayar ekranlarındaki kutuları anlamlandırır. Örneğin `192.168.10.53` DNS alanında yazıyorsa bu, ad sorgusunun gönderileceği yerdir; bilgisayarın kendi adresi buraya yazılmaz. Aynı sayı yanlış alana yazıldığında doğru görünen bir IP adresi yanlış göreve atanmış olur.
 :::
 
 ---
@@ -75,7 +75,7 @@ Ethernet hedefi: FF:FF:FF:FF:FF:FF
 İstemci aynı yerel ağdaki DHCP sunucusunu aramak için **herkese seslenir**.
 
 ::: {.notes}
-Burada çözülmesi gereken problem şudur: henüz IP adresi olmayan bir istemci DHCP sunucusuna nasıl ulaşır? İstemci kaynak adres olarak 0.0.0.0, hedef olarak yayın adresi 255.255.255.255 kullanır; Ethernet hedefi de broadcast'tir. UDP portları istemci için 68, sunucu için 67'dir. Böylece istemci aynı yerel ağdaki DHCP sunucusunu aramak için herkese seslenir.
+Burada çözülmesi gereken problem şudur: henüz IP adresi olmayan bir istemci DHCP sunucusuna nasıl ulaşır? İstemci kaynak adres olarak 0.0.0.0, hedef olarak yayın adresi 255.255.255.255 kullanır; Ethernet hedefi de broadcast'tir. UDP portları istemci için 68, sunucu için 67'dir. İstemci, aynı yerel ağdaki DHCP sunucusunu aramak için herkese seslenir.
 
 Bu, N2'deki ARP isteğiyle aynı fikre dayanır: hedef bilinmediğinde yerel yayın alanına seslenmek. DHCP başlangıcında sunucunun MAC adresinin önceden bilinmesi gerekmez, çünkü ilk mesaj broadcast gider.
 :::
@@ -100,7 +100,7 @@ Normal başarılı DHCP akışı dört mesajdan oluşur ve baş harflerinden **D
 
 OFFER yalnız tekliftir; istemciye adres verilmiş sayılmaz. Birden fazla DHCP sunucusu varsa birden fazla teklif gelebilir ve istemci REQUEST ile birini seçer. ACK'ten sonra istemci yapılandırmayı kullanmaya başlar. Teklif ile kiralamanın onayı bu yüzden iki ayrı mesajdır.
 
-Şemadaki oklar uygulama mesajlarının yönünü gösterir; her mesajın unicast taşındığı sonucu çıkmaz. Başlangıç durumunda istemcinin henüz adresi olmadığı için yanıtın iletilme biçimi değişebilir. Şema ayrıca yalnız normal akışı gösterir, hata ve ret durumlarını kapsamaz. Örnekte sunucu ile istemci aynı yerel ağdadır.
+Şemadaki oklar uygulama mesajlarının yönünü gösterir; her mesajın unicast taşındığı sonucu çıkmaz. Başlangıç durumunda istemcinin henüz adresi olmadığı için yanıtın iletilme biçimi değişebilir. Şema normal akışı gösterir; hata ve ret durumlarını kapsamaz. Örnekte sunucu ile istemci aynı yerel ağdadır.
 
 Adres bir **kiralamadır**: kalıcı olarak cihazın değildir. Dizüstü bilgisayar ağa katıldığında bir adres alır; ağda kalıyorsa süre bitmeden kiralamayı yenilemeye çalışır. Yenilemenin her zaman dört mesajı baştan tekrarlaması gerekmez. Sunucu hangi adresin hangi istemciye hangi süreyle ayrıldığını izler. Aynı ağda iki cihaza aynı adresin gelişigüzel verilmesi yerine dağıtımın merkezi olarak yönetilmesi, DHCP'nin çözdüğü asıl işlerden biridir. DHCP sunucusu web sayfalarını ya da alan adlarının adreslerini dağıtmaz; istemcinin aldığı DNS sunucusu adresi, bir sonraki adımda soru soracağı hizmetin adresidir.
 :::
@@ -121,7 +121,7 @@ Sorgu **çözümleyiciye** gider. Yanıt, **web sunucusunun** adresidir.
 ::: {.notes}
 Kullanıcı `ders.test` gibi bir ad yazar; bağlantı kurmak için ise IP adresi gerekir. **DNS** (Domain Name System), alan adlarıyla ilgili kayıtları dağıtık bir yapıda sorgulamayı sağlar. Burada ilk iş, bir adın IPv4 adresini öğrenmektir. `ders.test` yerel bir örnek addır; genel İnternet'te bir site iddiası taşımaz.
 
-Sorgunun gittiği cihaz ile yanıtın gösterdiği cihaz farklıdır. İstemci sorguyu DHCP'den öğrendiği **çözümleyiciye** gönderir. Çözümleyici adın karşılığını biliyorsa (önbelleğinde ya da kendi kaydında) doğrudan cevaplar. Bilmiyorsa dağıtık yapıdaki ad sunucularına (kök, üst düzey alan, yetkili sunucu) başvurup cevabı bulur; bu zinciri çoğunlukla istemci değil çözümleyici yürütür. İstemci yalnız sorar ve cevabı alır. Yanıt ise çözümleyicinin değil, **web sunucusunun** adresidir. Örnekteki laboratuvar sunucusu kaydı zaten bildiği için dış sunuculara hiç gidilmez.
+Sorgunun gittiği cihaz ile yanıtın gösterdiği cihaz farklıdır. İstemci sorguyu DHCP'den öğrendiği **çözümleyiciye** gönderir. Çözümleyici adın karşılığını biliyorsa (önbelleğinde ya da kendi kaydında) doğrudan cevaplar. Bilmiyorsa dağıtık yapıdaki ad sunucularına (kök, üst düzey alan, yetkili sunucu) başvurup cevabı bulur; bu zinciri çözümleyici yürütür. İstemci yalnız sorar ve cevabı alır. Yanıt ise **web sunucusunun** adresini taşır. Örnekteki laboratuvar sunucusu kaydı zaten bildiği için dış sunuculara hiç gidilmez.
 :::
 
 ---
@@ -131,7 +131,7 @@ Sorgunun gittiği cihaz ile yanıtın gösterdiği cihaz farklıdır. İstemci s
 - Yanıt **önbelleğe** alınır ve kaydın **TTL**'si boyunca yeniden sorulmaz.
 - **A kaydı:** ad → IPv4 adresi (bir ad için birden fazla adres dönebilir).
 - **MX kaydı:** alan adına gelen postayı hangi sunucu kabul eder.
-- Port 53; kısa sorgular çoğunlukla UDP, ama TCP desteği de gereklidir.
+- Port 53; kısa sorgular UDP üzerinden yapılabilir, TCP desteği de gereklidir.
 
 DNS TTL'si ≠ IP paketindeki TTL alanı.
 
@@ -140,7 +140,7 @@ Bulunan yanıt **önbelleğe** alınır ve kaydın yaşam süresi (TTL) boyunca 
 
 DNS'nin cevabı her zaman tek bir IP adresinden ibaret değildir. **A kaydı** bir adı IPv4 adresiyle ilişkilendirir; bir ad için birden fazla adres de dönebilir. **MX kaydı** ise bir alan adına gelen postayı hangi posta sunucusunun kabul ettiğini belirtir (e-posta bölümünde tekrar görülecek). Aynı alan adı web ve e-posta için farklı sunucular kullanabilir.
 
-İki ayrım daha önemlidir. DNS yanıtı web sayfasının kendisi değil, o sayfayı sunan sunucunun adresidir; DNS'nin yanıt vermesi HTTP hizmetinin hazır olduğunu göstermez. DNS port 53'ü kullanır ve kısa sorgular çoğunlukla UDP üzerinden yapılır; ama DNS yalnız UDP kullanmaz, TCP desteği de gereklidir. Adla erişim başarısızken doğrudan IP adresiyle aynı hizmete ulaşılabiliyorsa sorunun isim çözümlemesinde olabileceği düşünülür; bu gözlem tek başına kesin teşhis değildir. DNS hiyerarşisinin ayrıntısı bu notun konusu değildir.
+İki ayrım daha önemlidir. DNS yanıtı, web sayfasını sunan sunucunun adresidir; DNS'nin yanıt vermesi HTTP hizmetinin hazır olduğunu göstermez. DNS port 53'ü kullanır ve kısa sorgular UDP üzerinden yapılabilir; TCP desteği de gereklidir. Adla erişim başarısızken doğrudan IP adresiyle aynı hizmete ulaşılabiliyorsa sorunun isim çözümlemesinde olabileceği düşünülür; bu gözlem tek başına kesin teşhis değildir.
 :::
 
 ---
@@ -155,7 +155,7 @@ DNS'nin cevabı her zaman tek bir IP adresinden ibaret değildir. **A kaydı** b
 | `/index.html` | Sunucuya **hangi kaynağın** istendiğini söyler |
 
 ::: {.notes}
-Bir web adresinin iki parçası farklı görev yapar. Alan adı kısmı (`ders.test`) DNS ile IP adresine çevrilir. Yol kısmı (`/index.html`) ise sunucuya hangi kaynağın istendiğini söyler. Adres bulunduktan sonra tarayıcının sunucudan ne isteyeceğini ve sunucunun nasıl yanıt vereceğini **HTTP** belirler. Bu notta HTTP/1.1'in TCP üzerinde kullanıldığı varsayılır.
+Bir web adresinin iki parçası farklı görev yapar. Alan adı kısmı (`ders.test`) DNS ile IP adresine çevrilir. Yol kısmı (`/index.html`) ise sunucuya hangi kaynağın istendiğini söyler. Adres bulunduktan sonra tarayıcının sunucudan ne isteyeceğini ve sunucunun nasıl yanıt vereceğini **HTTP** belirler. Örneklerde HTTP/1.1'in TCP üzerinde kullanıldığı varsayılır.
 :::
 
 ---
@@ -177,7 +177,7 @@ Host: ders.test
 ::: {.notes}
 **HTTP** (Hypertext Transfer Protocol), isteğin ve yanıtın biçimini tanımlar. En yalın bir istek (GET, Host ve boş satır) küçüktür, ama her satırın görevi belirlidir. `GET` istenen işlemi, `/index.html` kaynağın yolunu, `HTTP/1.1` sürümü bildirir. `Host` başlığı hedef hizmetin adını söyler. Sunucu hangi kaynağın istendiğini bu yapıyı okuyarak anlar.
 
-Başlıklardan sonra gelen **boş satır**, başlık bölümünün bittiğini gösterir; bu ayırıcı olmadan sunucu isteğin tamamlandığını anlayamaz. HTTP mesajı TCP bayt akışı üzerinde geldiği için mesajın nerede bittiğini TCP değil, HTTP'nin bu kuralları belirler.
+Başlıklardan sonra gelen **boş satır**, başlık bölümünün bittiğini gösterir; bu ayırıcı olmadan sunucu isteğin tamamlandığını anlayamaz. HTTP mesajı TCP bayt akışı üzerinde geldiği için mesajın nerede bittiğini HTTP'nin bu kuralları belirler.
 :::
 
 ---
@@ -200,7 +200,7 @@ Content-Length: 13
 ::: {.notes}
 Yanıtın ilk satırı **durum satırıdır**: sürümü, durum kodunu ve kısa açıklamayı taşır. Sonra gelen başlıklar yanıtın özelliklerini bildirir. Boş satırdan sonra **gövde** başlar.
 
-Örnekte gövde `<h1>Ders</h1>` metnidir. Gövdenin sonunda ek bir satır sonu baytı olmadığı kabul edilirse ASCII ile 13 bayttır: `<h1>` 4, `Ders` 4 ve `</h1>` 5 bayt. `Content-Length` bu sayıyı bildirir. Yanıt gerçek bir sunucu çıktısı değil, öğretim için kurulmuş bir örnektir.
+Örnekte gövde `<h1>Ders</h1>` metnidir. Gövdenin sonunda ek bir satır sonu baytı olmadığı kabul edilirse ASCII ile 13 bayttır: `<h1>` 4, `Ders` 4 ve `</h1>` 5 bayt. `Content-Length` bu sayıyı bildirir. Yanıt örnek olarak kurulmuştur.
 
 Bu örnek, N3'teki bayt akışı ayrımını tamamlar. TCP sunucuya sıralı baytlar verir; HTTP ayrıştırıcısı bu baytlardan istek satırını, başlıkları ve varsa gövdeyi ayırır. Bir TCP segmentinin bittiği yerin HTTP mesajının bittiği yer olması gerekmez; mesajın sınırı HTTP kurallarından bulunur.
 :::
@@ -227,7 +227,7 @@ Bu örnek, N3'teki bayt akışı ayrımını tamamlar. TCP sunucuya sıralı bay
 ::: {.notes}
 İstek yöntemi, istenen işlemin türünü belirler. GET, POST, PUT ve DELETE HTTP'nin tüm yöntemleri değildir ve sunucu her yönteme izin vermek zorunda değildir. Durum kodları ise ailelere ayrılır: kod ailesi ilk sınıflandırmayı, kodun tamamı daha belirli bir durumu anlatır.
 
-Aynı sunucu adresine ulaşmak, her isteğin aynı işi yapacağı anlamına gelmez. Bir ders kayıt sisteminde `GET /dersler` listeyi ister; `POST /kayitlar` ise gövdede gönderilen bilgilerle yeni bir kayıt işlemi talep edebilir. Yol hangi kaynakla, yöntem o kaynak üzerinde hangi işlemle ilgilenildiğini belirtir. İşlemin nasıl uygulanacağını sunucudaki yazılım belirler.
+Aynı sunucu adresine giden her istek aynı işi yapmaz. Bir ders kayıt sisteminde `GET /dersler` listeyi ister; `POST /kayitlar` ise gövdede gönderilen bilgilerle yeni bir kayıt işlemi talep edebilir. Yol hangi kaynakla, yöntem o kaynak üzerinde hangi işlemle ilgilenildiğini belirtir. İşlemin nasıl uygulanacağını sunucudaki yazılım belirler.
 :::
 
 ---
@@ -244,9 +244,9 @@ Kaynak          ✘  istenen kaynak sağlanmadı
 404, iletişimin kurulamadığını söylemez.
 
 ::: {.notes}
-404 yanıtı almak, sunucuyla iletişimin kurulamadığı anlamına gelmez; tam tersine ağ, TCP ve HTTP çalışmış, bir HTTP yanıtı alınmıştır. Yalnız istenen kaynak sağlanmamıştır. Bu ayrım, sorunun hangi katmanda aranacağını belirler: bağlantı kurulamıyorsa ağ ve taşıma katmanlarına, 404 alınıyorsa sunucudaki kaynağa ya da isteğin yoluna bakılır.
+404 yanıtı alındığında ağ, TCP ve HTTP çalışmış, bir HTTP yanıtı alınmıştır. Yalnız istenen kaynak sağlanmamıştır. Bu ayrım, sorunun hangi katmanda aranacağını belirler: bağlantı kurulamıyorsa ağ ve taşıma katmanlarına, 404 alınıyorsa sunucudaki kaynağa ya da isteğin yoluna bakılır.
 
-HTTP'nin **durumsuz** olduğu sık söylenir; yani bir isteğin önceki isteği otomatik olarak hatırlaması beklenmez. Bu, web uygulamalarının kullanıcıyı tanıyamayacağı anlamına gelmez: uygulama bir oturum tanımlayıcısını isteklerle ilişkilendirip durumu kendi tarafında saklayabilir; çerezler bunu sağlayan mekanizmalardan biridir. Ayrıca bir TCP bağlantısının varlığı, kullanıcının oturum açtığı anlamına gelmez.
+HTTP'nin **durumsuz** olduğu sık söylenir; yani bir isteğin önceki isteği otomatik olarak hatırlaması beklenmez. Web uygulamaları yine de kullanıcıyı tanıyabilir: uygulama bir oturum tanımlayıcısını isteklerle ilişkilendirip durumu kendi tarafında saklayabilir; çerezler bunu sağlayan mekanizmalardan biridir. TCP bağlantısının varlığı kullanıcının oturum açtığını göstermez.
 :::
 
 ---
@@ -266,11 +266,11 @@ HTTP verisi → TLS koruması → TCP → IP
 HTTPS = TLS ile korunan HTTP. Yaygın port: **443**.
 
 ::: {.notes}
-Önceki örneklerdeki HTTP mesajları açık metindir. Trafiği gözleyebilen biri istekleri okuyabilir; iletişim yoluna müdahale edebilen biri mesajları değiştirmeye de çalışabilir. TCP'nin sıralı ve güvenilir teslimi bu durumu değiştirmez, çünkü güvenilir teslim gizlilik anlamına gelmez. Bu boşluğu **TLS** (Transport Layer Security) doldurur: HTTP mesajı TCP'ye verilmeden önce TLS ile korunur. **HTTPS**, HTTP'nin TLS ile korunmuş hâlidir ve yaygın portu 443'tür.
+Önceki örneklerdeki HTTP mesajları açık metindir. Trafiği gözleyebilen biri istekleri okuyabilir; iletişim yoluna müdahale edebilen biri mesajları değiştirmeye de çalışabilir. TCP'nin sıralı ve güvenilir teslimi bu durumu değiştirmez: güvenilir teslim gizlilik sağlamaz. Bu boşluğu **TLS** (Transport Layer Security) doldurur: HTTP mesajı TCP'ye verilmeden önce TLS ile korunur. **HTTPS**, HTTP'nin TLS ile korunmuş hâlidir ve yaygın portu 443'tür.
 
 TLS üç iş görür: iletişimin gizliliğini (başkası okuyamaz), bütünlüğünü (değiştirilirse fark edilir) ve sunucu kimliğinin doğrulanmasını (sertifika aracılığıyla, gerçekten `ders.test` ile konuşulduğunu kontrol etmek) sağlar. Doğrulamanın değeri doğru yapılmasına bağlıdır: tarayıcının sertifika uyarısını geçmek mekanizmanın amacını ortadan kaldırır.
 
-TLS, SSL'den gelişen ardıl protokoldür; ikisi aynı protokolün iki adı gibi kullanılmamalıdır. HTTPS içeriğin doğruluğunu da garanti etmez, yalnız iletişimin korunduğunu söyler. Son olarak şema HTTP/1.1'in TCP üzerindeki HTTPS örneğidir; HTTP/3 QUIC kullanır, yani her HTTPS iletişimi aynı TCP yığınına oturmaz. Kriptografik el sıkışmanın matematiği bu notun kapsamı dışındadır.
+TLS, SSL'den gelişen ardıl protokoldür; ikisi aynı protokolün iki adı gibi kullanılmamalıdır. HTTPS içeriğin doğruluğunu garanti etmez; iletişimin korunduğunu söyler. Son olarak şema HTTP/1.1'in TCP üzerindeki HTTPS örneğidir; HTTP/3 QUIC kullanır, yani her HTTPS iletişimi aynı TCP yığınına oturmaz.
 :::
 
 ---
@@ -306,9 +306,9 @@ Veri kanalı:    İstemci ⇄ Sunucu        dosya veya dizin listesi
 Oklar **bağlantı kuruluşunu** gösterir; dosya baytlarının yönünü değil.
 
 ::: {.notes}
-Etkin ve pasif kip arasındaki ayrım, dosyanın indirilmesi ya da yüklenmesi değildir. Ayrım, **veri için TCP bağlantısını kimin başlattığıdır**. Etkin kipte istemci hangi portta beklediğini kontrol kanalından bildirir ve sunucu veri bağlantısını oraya kurar. Pasif kipte sunucu bir veri portu bildirir ve istemci bu porta bağlanır. Örnekteki port numaraları öğretim için seçilmiştir; oklar yalnız bağlantı kuruluşunu gösterir.
+Etkin ve pasif kip arasındaki ayrım, dosyanın indirilmesi ya da yüklenmesi değildir. Ayrım, **veri için TCP bağlantısını kimin başlattığıdır**. Etkin kipte istemci hangi portta beklediğini kontrol kanalından bildirir ve sunucu veri bağlantısını oraya kurar. Pasif kipte sunucu bir veri portu bildirir ve istemci bu porta bağlanır. Örnekteki port numaraları örnek değerlerdir; oklar bağlantı kuruluşunu gösterir.
 
-Bağlantı kurulduktan sonra dosya baytlarının yönü ayrıca belirlenir: indirmede dosya baytları sunucudan istemciye, yüklemede istemciden sunucuya gider. Bu yüzden bağlantıyı başlatan ok ile verinin yönü iki ayrı şeydir ve "20 numaralı port dosya indirme portudur" gibi bir kural çıkarılamaz. [RFC 959, veri bağlantıları](https://www.rfc-editor.org/rfc/rfc959.html#section-3.2).
+Bağlantı kurulduktan sonra dosya baytlarının yönü ayrıca belirlenir: indirmede dosya baytları sunucudan istemciye, yüklemede istemciden sunucuya gider. Bağlantıyı başlatan ok ile verinin yönü farklı bilgilerdir; "20 numaralı port dosya indirme portudur" gibi bir kural çıkarılamaz. [RFC 959, veri bağlantıları](https://www.rfc-editor.org/rfc/rfc959.html#section-3.2).
 
 FTP'de dosyanın nasıl temsil edildiği de önemlidir. Yaygın ASCII aktarımı metin gösterimine, binary/image aktarımı baytların korunmasına yöneliktir. PDF ya da resim aktarırken baytların metin satır sonu dönüşümlerinden etkilenmemesi gerekir. Bu seçim, etkin/pasif bağlantı seçiminden ayrı bir ayardır.
 :::
@@ -326,9 +326,9 @@ FTP'de dosyanın nasıl temsil edildiği de önemlidir. Yaygın ASCII aktarımı
 ::: {.notes}
 Klasik FTP'de parola ve dosya içeriği açık taşınır. Koruma eklemek için kullanılan iki çözümün adı benzer, yapıları farklıdır.
 
-**FTPS**, FTP'ye TLS ekler; kontrol ve veri bağlantısı ayrımı sürer. Kontrol kanalını korumak ile veri kanalını korumak ayrı ele alınır; dosya içeriğinin gizliliği için veri bağlantısının da korunması gerekir. **SFTP** ise SSH kanalı üzerinde dosya açma, okuma ve yazma gibi istekler gönderen ayrı bir protokoldür; FTP komut ve iki bağlantı düzenini kullanmaz. Yaygın kullanımda SSH'nin 22 numaralı TCP portundan kurulan bağlantıyı kullanır.
+**FTPS**, FTP'ye TLS ekler; kontrol ve veri bağlantısı ayrımı sürer. Kontrol kanalının ve veri kanalının korunması ayrı kararlardır; dosya içeriğinin gizliliği için veri bağlantısının da korunması gerekir. **SFTP** ise SSH kanalı üzerinde dosya açma, okuma ve yazma gibi istekler gönderen ayrı bir protokoldür; FTP komut ve iki bağlantı düzenini kullanmaz. Yaygın kullanımda SSH'nin 22 numaralı TCP portundan kurulan bağlantıyı kullanır.
 
-İki protokol aynı dosyayı taşıyabilir, ama istemci ile sunucunun konuşacağı kurallar farklıdır. Bu nedenle FTPS ile SFTP aynı yapının iki adı değildir. [RFC 4217, kontrol ve veri bağlantılarının korunması](https://www.rfc-editor.org/rfc/rfc4217.html#section-3). İstemci kurulumu ve ayrıntılı komut kataloğu bu notun kapsamı dışındadır.
+İki protokol aynı dosyayı taşıyabilir, ama istemci ile sunucunun konuşacağı kurallar farklıdır. FTPS ile SFTP farklı yapılardır. [RFC 4217, kontrol ve veri bağlantılarının korunması](https://www.rfc-editor.org/rfc/rfc4217.html#section-3).
 :::
 
 ---
@@ -368,7 +368,7 @@ E-posta gönderirken alıcının bilgisayarının açık olmasını beklemeyiz. 
 SMTP onayı = sunucunun sorumluluğu aldığı; alıcının okuduğu **değil**.
 
 ::: {.notes}
-SMTP'de gönderici taraf kendisini tanıtır, gönderici ve alıcı adreslerini bildirir, ardından mesaj içeriğini iletir. Karşıdaki sunucu her aşamaya yanıt verir. Sunucunun mesajı kabul etmesi, alıcının onu okuduğu anlamına gelmez; bir sonraki teslim işinin sorumluluğunun alınması anlamına gelir.
+SMTP'de gönderici taraf kendisini tanıtır, gönderici ve alıcı adreslerini bildirir, ardından mesaj içeriğini iletir. Karşıdaki sunucu her aşamaya yanıt verir. Sunucunun mesajı kabul etmesi, bir sonraki teslim işinin sorumluluğunu aldığını gösterir; alıcının mesajı okuduğunu göstermez.
 
 Gönderenin posta sunucusu, alıcının alan adı için DNS'ten MX kaydını sorgulayarak ilgili posta sunucusunu bulabilir. Karşı sunucuya o anda ulaşılamıyorsa, geçici teslim sorunlarında ileti kuyrukta tutulup yeniden denenebilir. Kullanıcının bilgisayarı kapalıyken de sunucular arasındaki aktarım sürebilir. E-postanın iki kullanıcının bilgisayarı arasında kurulmuş tek bir bağlantıya ihtiyaç duymaması böyle sağlanır.
 
@@ -390,7 +390,7 @@ POP3 istemcisi kutuya bağlanır, yetkisini doğrular, mesajları listeler ve se
 
 Bu tercih günlük hayatta hissedilir. Aynı hesap telefonda ve bilgisayarda kullanılıyorsa, bir iletiyi okunmuş işaretlemenin diğer cihazda da okunmuş görünmesini IMAP sağlar, çünkü durum sunucuda tutulur. POP3'ün klasik kullanımında posta bilgisayara indirilir ve diğer cihaz bu değişikliği bilmeyebilir. Çok cihazlı kullanımın nasıl eşzamanlandığı sorulduğunda, IMAP'in sunucuda tutulan durum modeline bakılır.
 
-Tarayıcıdan e-posta okumak bu ayrımı bozmaz. Tarayıcı web posta uygulamasıyla HTTP/HTTPS üzerinden konuşur; posta sunucuları arasındaki aktarım yine SMTP ile yapılabilir. Ekranda "e-posta" görülmesi, o ekrana ulaşan her bağlantının SMTP olduğu anlamına gelmez.
+Tarayıcıdan e-posta okumak bu ayrımı bozmaz. Tarayıcı web posta uygulamasıyla HTTP/HTTPS üzerinden konuşur; posta sunucuları arasındaki aktarım yine SMTP ile yapılabilir. Ekranda "e-posta" görülmesi, o ekrana ulaşan bağlantıların SMTP olduğunu göstermez.
 
 Pratik bir sonuç: bir iletiyi gönderemeyen ama eski iletileri okuyabilen kullanıcıda, gönderim hizmeti ile kutuya erişim hizmeti ayrı sınanabilir. Sorun tek bir "e-posta protokolü" başlığı altında kaybolmaz.
 :::
@@ -404,14 +404,14 @@ Pratik bir sonuç: bir iletiyi gönderemeyen ama eski iletileri okuyabilen kulla
 | Port | TCP 23 | TCP 22 |
 | Oturum verisi | Parola dahil **şifresiz** | Korunan kanal |
 
-SSH yalnız "şifreli Telnet" değildir: SFTP gibi başka kanallar da taşıyabilir.
+SSH, SFTP gibi başka kanalları da taşıyabilir.
 
 ::: {.notes}
 Sunucu başka bir odada, başka bir binada ya da başka bir şehirde olabilir. Yapılandırmasını görmek için her seferinde yanına gitmek yerine uzak bir oturum açılır: klavyeden yazılan komut uzak cihazda çalışır, sonucu yerel terminale döner.
 
 Klasik **Telnet** bu terminal iletişimini sağlar ve tipik olarak TCP 23'ü kullanır. Temel kullanımında komutlar ve parola dahil oturum verileri şifrelenmez. **SSH** (Secure Shell) ise uzak erişim için korunan bir kanal kurar; yaygın hedef portu TCP 22'dir.
 
-SSH'yi yalnız "Telnet'in şifreli hâli" diye tanımlamak ilk ihtiyacı anlatır, ama sunduğu genel kanal hizmetini eksik bırakır. SSH'nin içindeki kanallar yalnız terminale ayrılmaz; SFTP de bu korunan bağlantı üzerinde çalışabilir.
+SSH, "Telnet'in şifreli hâli" olarak başlayan ihtiyaca cevap verir ve bunun ötesinde genel bir kanal hizmeti sunar: kanallar terminalle sınırlı değildir, SFTP de bu korunan bağlantı üzerinde çalışabilir.
 :::
 
 ---
@@ -451,7 +451,7 @@ Cihazdaki **ajan**, yönetilebilir değerleri erişilebilir kılar; **yönetici*
 
 Yaygın UDP kullanımında sorgu ajanın 161 numaralı portuna gider; yanıt yöneticinin sorguyu gönderdiği porta döner. Trap bildirimi yöneticinin 162 numaralı portuna gönderilir. UDP üzerindeki bu alışveriş için TCP'deki gibi bir bağlantı kuruluşu yoktur.
 
-Yöneticinin "sıcaklık" ya da "gelen bayt sayısı" dediğinde hangi veriyi kastettiğini cihazın da anlaması gerekir. **MIB**, yönetilen nesnelerin tanımlarını ve türlerini düzenler; **OID** ise nesneyi bu yapıda tanımlayan kimliktir. Böylece farklı cihazlardan alınan değerler adlandırılmış ve yorumlanabilir bilgiler olur. MIB/OID ağacının ayrıntısı bu notun kapsamı dışındadır.
+Yöneticinin "sıcaklık" ya da "gelen bayt sayısı" dediğinde hangi veriyi kastettiğini cihazın da anlaması gerekir. **MIB**, yönetilen nesnelerin tanımlarını ve türlerini düzenler; **OID** ise nesneyi bu yapıda tanımlayan kimliktir. Farklı cihazlardan alınan değerler adlandırılmış ve yorumlanabilir bilgiler olur.
 :::
 
 ---

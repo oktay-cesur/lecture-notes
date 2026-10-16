@@ -44,7 +44,7 @@ Bu iç içe yapıda yedi katmanın hepsi ayrı bir kutu olarak yer almaz. Verini
 ::: {.notes}
 OSI, uygulama tarafındaki sorumlulukları üç ayrı katmanda tanımlar. Uygulama katmanı hangi mesajlarla konuşulacağını, sunum katmanı verinin hangi biçimde temsil edileceğini, oturum katmanı ise süren etkileşimin nasıl düzenleneceğini belirler. TCP/IP bu üçlü ayrımı zorunlu tutmaz ve hepsini tek bir **uygulama** (application) katmanında toplar.
 
-Katman sayısının yediden dörde inmesi, TCP/IP'nin daha az iş yaptığı anlamına gelmez. İşler aynıdır; değişen, hangi işlerin ayrı bir katman olarak tanımlandığıdır. Taşıma, ağ ve alt katmanların eşleşmesi de benzer bir gruplama mantığına dayanır ve sonraki slaytta tamamlanır.
+Katman sayısı yediden dörde iner, ama işler aynı kalır; değişen, hangi işlerin ayrı bir katman olarak tanımlandığıdır. Taşıma, ağ ve alt katmanların eşleşmesi de benzer bir gruplama mantığına dayanır ve sonraki slaytta tamamlanır.
 :::
 
 ---
@@ -58,7 +58,7 @@ Birleşen katmanlarda iş ortadan kalkmaz; aynı katman içinde yürür.
 ::: {.notes}
 TCP/IP modeli OSI'deki görevleri daha az katmanda toplar. Uygulama, sunum ve oturum görevleri tek bir **uygulama** katmanında yer alır: verinin temsili ve konuşmanın yürütülmesi uygulamanın kendi kurallarında ve programın içinde kalır. **Taşıma** katmanı aynı adı taşır ve uygulamalar arasındaki uçtan uca iletişimi üstlenir. OSI'deki ağ katmanı **internet** katmanına karşılık gelir; paketin kaynaktan hedefe iletilmesi burada yapılır. Veri bağlantısı ve fiziksel katmanlar ise birlikte **ağ erişimi** katmanını oluşturur.
 
-Birleşmenin anlamı, görevlerin ortadan kalkması değildir. Sunum ve oturum işleri yine yapılır; yalnız ayrı katman olarak adlandırılmaz.
+Birleşmenin anlamı, görevlerin ortadan kalkması değildir. Sunum ve oturum işleri yine yapılır; ama ayrı katman olarak adlandırılmaz.
 
 Bu eşleme bire bir değildir. Bir protokolün hangi katmana ait olduğu bazen tartışmalıdır; eşleme görevlerin yaklaşık karşılığını verir. İki modelin tarihsel olarak birinin ötekinden sadeleştirilmesiyle doğduğu da söylenemez. Burada yapılan, iki modeli görevler üzerinden karşılaştırmaktır.
 :::
@@ -93,7 +93,7 @@ Beş katman, dört katmanın yeni bir sürümü değildir; aynı görevlerin ka�
 | Oturum | Süren etkileşim nasıl düzenleniyor? | Uygulama protokolü veya uygulama yazılımı |
 
 ::: {.notes}
-TCP/IP sunum ve oturum görevlerini ortadan kaldırmaz; yalnız bunları ayrı ve zorunlu katmanlar olarak tanımlamaz. Görevlerin nasıl yerine getirileceği kullanılan uygulama protokolüne ve uygulama yazılımına bırakılır. Örneğin bir web yanıtındaki metnin karakter kodlaması (UTF-8 gibi) HTTP mesajında belirtilir ve tarayıcı tarafından yorumlanır. Kullanıcının bir web sitesinde oturumunun açık kalması ise çoğu zaman uygulamanın çerez (cookie) gibi kendi mekanizmalarıyla sağlanır.
+TCP/IP sunum ve oturum görevlerini ortadan kaldırmaz; bunları ayrı ve zorunlu katmanlar olarak tanımlamaz. Görevlerin nasıl yerine getirileceği kullanılan uygulama protokolüne ve uygulama yazılımına bırakılır. Örneğin bir web yanıtındaki metnin karakter kodlaması (UTF-8 gibi) HTTP mesajında belirtilir ve tarayıcı tarafından yorumlanır. Kullanıcının bir web sitesinde oturumunun açık kalması ise uygulamanın çerez (cookie) gibi kendi mekanizmalarıyla sağlanır.
 
 Bundan "uygulama katmanında ağla ilgili hiçbir şey yoktur" sonucu çıkmaz. HTTP, DNS ve SMTP, ağ üzerinden konuşan iki tarafın mesaj biçimlerini ve alışveriş kurallarını tanımlayan uygulama katmanı protokolleridir. Uygulama katmanında bulunan, ağ iletişiminin uygulamanın amacına göre düzenlenen kısmıdır.
 :::
@@ -111,21 +111,21 @@ Bundan "uygulama katmanında ağla ilgili hiçbir şey yoktur" sonucu çıkmaz. 
 "TCP/IP" adı hem aileyi hem dört katmanlı yapıyı anlatır.
 
 ::: {.notes}
-"TCP/IP" adı iki anlamda kullanılır. Birincisi birlikte çalışan protokollerin ailesidir: IP, TCP, UDP, ICMP, DNS, HTTP ve diğerleri. İkincisi bu aileyi anlatmak için kullanılan dört katmanlı yapıdır. TCP ve IP ailenin yalnız iki üyesidir. "TCP/IP kullanılıyor" demek her uygulamanın TCP kullandığı anlamına gelmez; UDP üzerinde çalışan uygulamalar da ailenin içindedir.
+"TCP/IP" adı iki anlamda kullanılır. Birincisi birlikte çalışan protokollerin ailesidir: IP, TCP, UDP, ICMP, DNS, HTTP ve diğerleri. İkincisi bu aileyi anlatmak için kullanılan dört katmanlı yapıdır. TCP ve IP ailenin yalnız iki üyesidir. UDP üzerinde çalışan uygulamalar da bu ailenin içindedir.
 
 Buradan üç kavram ayrılır. **Model**, iletişim görevlerini ve aralarındaki ilişkiyi anlatır. **Protokol**, belirli bir iletişimin mesaj biçimlerini ve davranış kurallarını tanımlar. **Protokol kümesi**, birlikte çalışan protokoller ailesidir.
 
-OSI bir modeldir; gerçek ağlarda yaygın olan ise TCP/IP protokol ailesidir. Bu, TCP/IP'nin kuralsız olduğu anlamına gelmez: protokollerin hepsi standartlarla tanımlıdır ve katmanlı bir yapıyı da anlatabilir. Pratikte OSI'nin katman adları görevleri anlatmak için, TCP/IP protokolleri ise gerçek ağda olanı anlatmak için kullanılır.
+OSI bir modeldir; gerçek ağlarda yaygın olan ise TCP/IP protokol ailesidir. TCP/IP'nin protokollerinin hepsi standartlarla tanımlıdır ve katmanlı bir yapıyı da anlatabilir. Pratikte OSI'nin katman adları görevleri anlatmak için, TCP/IP protokolleri ise gerçek ağda olanı anlatmak için kullanılır.
 :::
 
 ---
 
-## TCP/IP: tek protokol değil, protokol ailesi
+## TCP/IP: bir protokol ailesi
 
 ![](../../../images/bilgisayar-aglari/hafta-05/02-tcpip-protokol-kumesi.svg){width="100%" fig-align="center" fig-alt="TCP/IP'nin dört katmanında birlikte çalışan protokoller: Uygulama katmanında HTTP, DNS ve SMTP; Taşıma katmanında TCP ve UDP; İnternet katmanında IP; Ağ erişimi katmanında Ethernet ve Wi-Fi"}
 
 ::: {.notes}
-TCP/IP adı, yalnız TCP ve IP'nin kullanıldığı izlenimini verebilir. Oysa TCP/IP, farklı katmanlarda birlikte çalışan çok sayıda protokolü kapsayan bir protokol ailesidir. Web sayfası istemek için HTTP, alan adlarını adreslere çevirmek için DNS, e-posta göndermek için SMTP kullanılır. Taşıma katmanında TCP'nin yanında UDP de bulunur.
+TCP/IP adı, yalnız iki protokolün kullanıldığı izlenimini verebilir. Oysa TCP/IP, farklı katmanlarda birlikte çalışan çok sayıda protokolü kapsayan bir protokol ailesidir. Web sayfası istemek için HTTP, alan adlarını adreslere çevirmek için DNS, e-posta göndermek için SMTP kullanılır. Taşıma katmanında TCP'nin yanında UDP de bulunur.
 
 Bu protokoller birbirinin yerine geçmez; farklı işleri birlikte tamamlar. Bir web isteğinde HTTP isteğin anlamını, TCP verinin hangi uygulama iletişimine ait olduğunu ve nasıl teslim edileceğini, IP ise paketin hangi uç sisteme gideceğini belirler.
 
@@ -142,9 +142,9 @@ Ağ erişimi katmanındaki Ethernet ve Wi-Fi, IEEE standartlarıyla tanımlanan 
 - TCP/IP, Web'den **önce** vardı.
 
 ::: {.notes}
-TCP/IP adı, ailenin merkezinde yer alan iki protokolden, TCP ve IP'den gelir. Gündelik dilde "Aygaz" adının tüp gaz, "Sana" adının margarin yerine kullanılması gibi, iki protokolün adı da bütün ailenin adı olarak kullanılır. Benzetmenin işlevi yalnız bu adlandırmayı açıklamaktır; TCP/IP'nin nasıl geliştiğini anlatmaz.
+TCP/IP adı, ailenin merkezinde yer alan iki protokolden, TCP ve IP'den gelir. Gündelik dilde "Aygaz" adının tüp gaz, "Sana" adının margarin yerine kullanılması gibi, iki protokolün adı da bütün ailenin adı olarak kullanılır.
 
-TCP/IP ile Web sık karıştırılır. ARPANET 1983'te TCP/IP'ye geçti. World Wide Web ise 1989'da önerildi ve 1990'larda mevcut TCP/IP tabanlı İnternet altyapısı üzerinde yaygınlaştı. Web, İnternet'in kendisi değil, İnternet üzerinde HTTP ile çalışan bir uygulamadır.
+TCP/IP ile Web sık karıştırılır. ARPANET 1983'te TCP/IP'ye geçti. World Wide Web ise 1989'da önerildi ve 1990'larda mevcut TCP/IP tabanlı İnternet altyapısı üzerinde yaygınlaştı. Web, İnternet üzerinde HTTP ile çalışan bir uygulamadır.
 :::
 
 ---
@@ -162,9 +162,9 @@ TCP/IP ile Web sık karıştırılır. ARPANET 1983'te TCP/IP'ye geçti. World W
 | Ağ erişimi | Ethernet, ARP | Yerel çerçeve iletimi, IP→MAC | Ethernet önceki konu; ARP N2 |
 
 ::: {.notes}
-Web sayfası açmak, dosya aktarmak ve uzak bir cihazı yönetmek farklı işlerdir; ama bu uygulamaların hepsi alttaki taşıma ve ağ hizmetlerini paylaşır. Protokol haritası, her protokolün iletişimin hangi kısmını üstlendiğini gösterir. Haritanın kullanım amacı, sonraki konularda bir protokolle karşılaşıldığında onu hangi katmana ve hangi işe yerleştireceğini bilmektir; bütün protokollerin ayrıntısı bu notta işlenmez.
+Web sayfası açmak, dosya aktarmak ve uzak bir cihazı yönetmek farklı işlerdir; ama bu uygulamaların hepsi alttaki taşıma ve ağ hizmetlerini paylaşır. Protokol haritası, her protokolün iletişimin hangi kısmını üstlendiğini gösterir. Harita, sonraki konularda karşılaşılan bir protokolü hangi katmana ve hangi işe yerleştireceğini bilmek içindir; ayrıntılar tabloda belirtilen notlarda anlatılır.
 
-ARP'nin yeri tartışmalıdır. IP adresi ile MAC adresi arasında köprü kurduğu için bazı kaynaklar onu internet katmanına, bazıları ağ erişimine yerleştirir. Bu derste ARP, yerel Ethernet teslimine yardım eden bir protokol olarak ele alınır ve hiçbir yerde IP paketinin içinde taşınıyormuş gibi gösterilmez. Ayrıntısı N2'dedir.
+ARP'nin yeri tartışmalıdır. IP adresi ile MAC adresi arasında köprü kurduğu için bazı kaynaklar onu internet katmanına, bazıları ağ erişimine yerleştirir. ARP, yerel Ethernet teslimine yardım eden bir protokoldür ve doğrudan Ethernet çerçevesinde taşınır; IP paketinin içine konmaz. Ayrıntısı N2'dedir.
 :::
 
 ---
@@ -195,7 +195,7 @@ Kum saatinin ortası ortak bir hizmet düzeyi demektir. Bundan "her yerde tek ve
 ::: {.notes}
 Aynı veri, gönderici tarafta TCP/IP katmanlarından aşağı doğru geçerken her katmanda o katmanın sorumluluğu için gereken bilgiyle birlikte taşınır. Uygulama verisi taşıma katmanında segmente, segment internet katmanında pakete, paket ağ erişimi katmanında çerçeveye yerleştirilir. Çerçevenin bitleri de fiziksel ortamda sinyallerle aktarılır.
 
-Her katman üstten gelen birimin tamamını yük olarak alır ve kendi başlığını ekler. Bu nedenle Ethernet çerçevesinin yükünde yalnız kullanıcı verisi değil, IP başlığı, TCP başlığı ve HTTP verisi birlikte bulunur. Birim adları ezberlenecek etiketler değildir; hangi protokolün sorumluluğuna bakıldığını belirtir. Taşıma katmanında TCP yerine UDP kullanıldığında birim datagram olarak adlandırılır. Alıcı tarafta işlem ters yönde yürür: her katman kendi başlığını yorumlar ve yükü bir üst katmana iletir.
+Her katman üstten gelen birimin tamamını yük olarak alır ve kendi başlığını ekler. Ethernet çerçevesinin yükünde IP başlığı, TCP başlığı ve HTTP verisi birlikte bulunur. Birim adları, hangi protokolün sorumluluğuna bakıldığını gösterir. Taşıma katmanında TCP yerine UDP kullanıldığında birim datagram olarak adlandırılır. Alıcı tarafta işlem ters yönde yürür: her katman kendi başlığını yorumlar ve yükü bir üst katmana iletir.
 :::
 
 ---
@@ -251,7 +251,7 @@ Yönlendirmede (adres çevirisi yoksa):
 ::: {.notes}
 Bu iki adres sık karıştırılır. **MAC adresi** yerel bağlantıdaki bir arayüzü adresler ve Ethernet çerçevesinin yerel teslimi için kullanılır. **IP adresi** ise paketin uçtan uca hedefini ve kaynağını belirtir.
 
-Adres çevirisi yapılmayan bir yönlendirme örneğinde kaynak ve hedef IP adresleri yolculuk boyunca aynı kalır; paket her bağlantıya uygun yeni bir Ethernet çerçevesiyle taşınır. Aynı yerel ağda ise switch çerçeveyi iletirken IP adreslerine bakmaz ve değiştirmez. Kullanıcı ve uygulamalar hedefi IP adresiyle belirtir; MAC adresini işletim sistemi çerçeve oluştururken kullanır ve kullanıcı onu çoğunlukla görmez. Ayrımın işe yaradığı yer N2'dir: yerel teslimde iki adres birlikte kullanılır. Yönlendirmenin ayrıntısı bu iki haftanın dışındadır.
+Adres çevirisi yapılmayan bir yönlendirme örneğinde kaynak ve hedef IP adresleri yolculuk boyunca aynı kalır; paket her bağlantıya uygun yeni bir Ethernet çerçevesiyle taşınır. Aynı yerel ağda ise switch çerçeveyi iletirken IP adreslerine bakmaz ve değiştirmez. Kullanıcı ve uygulamalar hedefi IP adresiyle belirtir; MAC adresini işletim sistemi çerçeve oluştururken kullanır ve kullanıcıya görünmez. Ayrımın işe yaradığı yer N2'dir: yerel teslimde iki adres birlikte kullanılır. Yönlendirmenin ayrıntısı bu iki haftanın dışındadır.
 :::
 
 ---
@@ -285,7 +285,7 @@ Gönderen başlıkları iç içe ekler. Alıcıda bu işlemin tersini yapabilmek
 
 Ethernet çerçevesindeki **tür** bilgisi, taşınan içeriğin örneğin bir IPv4 paketi mi yoksa bir ARP mesajı mı olduğunu belirtir. IPv4 başlığındaki **Protocol** alanı, içerideki verinin hangi protokole verileceğini söyler. TCP ise kendi başlığındaki portları ve bağlantı bilgisini kullanarak verinin hangi uygulama ucuna ait olduğunu bulur. Alıcı paketin tamamını tek seferde anlamaya çalışmaz; katman katman işler.
 
-Bu üç alan aynı şey değildir. IP başlığındaki Protocol numarası "içeride hangi taşıma ya da kontrol protokolü var" sorusunu, port numarası ise "bu veri hangi uygulama ucuna gidiyor" sorusunu cevaplar. Böylece kapsülleme yalnız başlık ekleme işlemi olmaktan çıkar: başlıklar alıcıda hangi işlemin yapılacağını da belirler.
+Bu üç alan aynı şey değildir. IP başlığındaki Protocol numarası "içeride hangi taşıma ya da kontrol protokolü var" sorusunu, port numarası ise "bu veri hangi uygulama ucuna gidiyor" sorusunu cevaplar. Kapsülleme sırasında eklenen başlıklar, alıcıda hangi işlemin yapılacağını da belirler.
 :::
 
 ---
@@ -301,7 +301,7 @@ Bu üç alan aynı şey değildir. IP başlığındaki Protocol numarası "içer
 ICMP örneğinde IP, içeriği doğrudan ICMP'ye verir; arada TCP veya UDP bulunmaz.
 
 ::: {.notes}
-Gelen Ethernet çerçevesi IPv4 taşıyorsa IP işlemesi yapılır. IP başlığındaki Protocol değeri 6 ise içerik TCP'ye, 17 ise UDP'ye verilir. Değer 1 ise içerik ICMP'dir; ICMP mesajı IP paketinin içinde doğrudan taşınır ve port kullanmaz. Bu sayısal değerleri ezberlemek gerekmez. Bilinmesi gereken, böyle bir alanın var olduğu ve alıcıdaki yönlendirmeyi yaptığıdır.
+Gelen Ethernet çerçevesi IPv4 taşıyorsa IP işlemesi yapılır. IP başlığındaki Protocol değeri 6 ise içerik TCP'ye, 17 ise UDP'ye verilir. Değer 1 ise içerik ICMP'dir; ICMP mesajı IP paketinin içinde doğrudan taşınır ve port kullanmaz. Bilinmesi gereken, böyle bir alanın var olduğu ve alıcıdaki yönlendirmeyi yaptığıdır.
 :::
 
 ---
@@ -317,7 +317,7 @@ Gelen Ethernet çerçevesi IPv4 taşıyorsa IP işlemesi yapılır. IP başlığ
 ::: {.notes}
 Bir video dosyasının yüzlerce IP paketine bölünerek gönderildiğini düşünelim. IP ilk paketi göndermeden önce karşı uca "sana paket göndereceğim" demez, bir el sıkışma yapmaz, iki uç arasında IP düzeyinde bir bağlantı durumu tutmaz. Paketi hazırlar ve gönderir. Bu özelliğe **bağlantısızlık** denir.
 
-Terim yanıltıcı olabilir. Bağlantısız olmak, kablonun gereksiz olduğu ya da bilgisayarların fiziksel olarak bağlı olmadığı anlamına gelmez; yalnız IP'nin, taşımadan önce uçtan uca bir konuşma durumu kurmadığını söyler. Taşıma katmanındaki TCP bir bağlantı kurabilir ve o bağlantının mesajları da IP paketlerinde taşınır. Aynı iletişimde IP'nin bağlantısız, TCP'nin bağlantı yönelimli olması bu yüzden çelişmez: ikisi farklı katmanların kararlarıdır.
+Terim yanıltıcı olabilir. Bağlantısızlık, IP'nin taşımadan önce uçtan uca bir konuşma durumu kurmaması demektir; fiziksel bağlantıyla ilgisi yoktur. Taşıma katmanındaki TCP bir bağlantı kurabilir ve o bağlantının mesajları da IP paketlerinde taşınır. Aynı iletişimde IP'nin bağlantısız, TCP'nin bağlantı yönelimli olması bu yüzden çelişmez: ikisi farklı katmanların kararlarıdır.
 :::
 
 ---
@@ -334,7 +334,7 @@ IP tek başına şunları garanti etmez:
 ::: {.notes}
 IP'nin sunduğu hizmete **en iyi çaba** (best effort) denir: ağ, paketi mevcut koşullarda hedefe iletmeye çalışır, ama teslim için söz vermez. Garanti verilmemesinin somut nedenleri vardır. Yoğun bir ağ cihazının tamponu dolabilir ve gelen paketi atmak zorunda kalabilir. İki paket farklı yollardan giderse ikincisi önce varabilir. Bir bağlantı yol ortasında arızalanabilir.
 
-IP'yi bu olasılıkların hepsini çözecek biçimde tasarlamak, her yönlendiriciye ve her bağlantıya ağır bir yük bindirirdi. Tasarımcılar bunun yerine ağı basit tuttular ve ihtiyacı olan uygulamanın eksikliği uçlarda tamamlamasını seçtiler. En iyi çaba, ağın bilerek kötü iletim yaptığı anlamına gelmez; yalnız sözleşmenin bu kadar olduğunu söyler.
+IP'yi bu olasılıkların hepsini çözecek biçimde tasarlamak, her yönlendiriciye ve her bağlantıya ağır bir yük bindirirdi. Tasarımcılar bunun yerine ağı basit tuttular ve ihtiyacı olan uygulamanın eksikliği uçlarda tamamlamasını seçtiler. Bu terim ağın kötü iletim yaptığını söylemez, sözleşmenin kapsamını belirtir: ağ elinden geleni yapar, teslim sözü vermez.
 :::
 
 ---
@@ -351,7 +351,7 @@ Hangi garantinin isteneceği, IP adresinden değil uygulamanın gereksiniminden 
 ::: {.notes}
 İki uygulamanın ihtiyacı birbirine zıttır, ama ikisi de aynı IP'nin üzerinde çalışır. Dosya aktaran bir uygulamada tek baytın kaybı bile dosyayı bozar; bu uygulamanın kaybı fark edip tamamlayacak bir mekanizmaya ihtiyacı vardır. Canlı bir görüntülü görüşmede ise yarım saniye önce gitmiş, geç gelmiş bir ses parçası artık işe yaramaz; çünkü o an geçmiş ve konuşma ilerlemiştir. Bu uygulama kaybı beklemektense devam etmeyi tercih edebilir.
 
-Ağ hangi uygulamanın konuştuğunu bilmediği için bu iki durum için ayrı ayrı davranamaz. Hangi garantinin isteneceği IP adresinden değil, uygulamanın gereksiniminden gelir ve bu seçimi taşıma katmanı sunar. Böylece IP'nin açtığı soru netleşir: paketlerin eksiksiz ve sıralı tamamlanması gerekiyorsa bunu kim sağlayacak ve hangi uygulama bunu isteyecek? Cevap N3'te taşıma katmanıdır.
+Ağ hangi uygulamanın konuştuğunu bilmediği için bu iki durum için ayrı ayrı davranamaz. Hangi garantinin isteneceğini uygulamanın gereksinimi belirler; bu seçimi taşıma katmanı sunar. IP'nin açtığı soru şudur: paketlerin eksiksiz ve sıralı tamamlanması gerekiyorsa bunu kim sağlayacak ve hangi uygulama bunu isteyecek? Cevap N3'te taşıma katmanıdır.
 :::
 
 ---

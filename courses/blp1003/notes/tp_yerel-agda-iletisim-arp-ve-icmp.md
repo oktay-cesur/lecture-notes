@@ -24,9 +24,9 @@ Ortak varsayım: IPv4, aynı yerel Ethernet ağı, hazır yapılandırma; başla
 Yerel ağdaki cihazlara **IP adresiyle** ulaşıyoruz.
 
 ::: {.notes}
-Ev ya da iş yerindeki bir yerel ağa bağlanan cihaz, ağdaki modem/router'dan otomatik olarak bir IP adresi alır; adresin bu şekilde nasıl atandığı N4'te DHCP ile ele alınır. Kullanıcı yerel ağdaki diğer cihazlarla çalışırken çoğunlukla bu adresleri kullanır: yazıcı kurulurken yazıcının IP adresi girilir, bir cihazın yanıt verip vermediği `ping` ile denenir, akıllı TV'ye ya da ağ depolama cihazına IP adresi üzerinden bağlanılır.
+Ev ya da iş yerindeki bir yerel ağa bağlanan cihaz, ağdaki modem/router'dan otomatik olarak bir IP adresi alır; adresin nasıl atandığı N4'te DHCP ile anlatılır. Kullanıcı yerel ağdaki diğer cihazlarla çalışırken bu adresleri kullanır: yazıcı kurulurken yazıcının IP adresi girilir, bir cihazın yanıt verip vermediği `ping` ile denenir, akıllı TV'ye ya da ağ depolama cihazına IP adresi üzerinden bağlanılır.
 
-Bu işlemlerin hiçbirinde kullanıcı bir MAC adresi yazmaz. Ev ağındaki modem/router kutusu çoğunlukla kablosuz erişim noktası ile switch işlevini birlikte taşır; kablolu ve kablosuz cihazlar aynı yerel ağın parçasıdır. Bu notun devamında bu üç cihaz A (dizüstü), B (yazıcı) ve C (akıllı TV) olarak ele alınır.
+Bu işlemlerin hiçbirinde kullanıcı bir MAC adresi yazmaz. Ev ağındaki modem/router kutusu kablosuz erişim noktası ile switch işlevini birlikte taşıyabilir; kablolu ve kablosuz cihazlar aynı yerel ağın parçasıdır. Devamında bu üç cihaz A (dizüstü), B (yazıcı) ve C (akıllı TV) adlarıyla anılır.
 :::
 
 ---
@@ -42,7 +42,7 @@ Bu işlemlerin hiçbirinde kullanıcı bir MAC adresi yazmaz. Ev ağındaki mode
 ::: {.notes}
 Çelişki gibi görünen durum, iki adresin farklı katmanlarda ve farklı amaçlarla kullanılmasından kaynaklanır. Kullanıcı ve uygulama hedefi IP adresiyle belirtir; IP adresi paketin içinde taşınır ve paketin hangi uç sisteme gittiğini söyler. Ancak paket yerel bağlantıda tek başına iletilmez. Bir çerçeveye yerleştirilir ve switch bu çerçeveyi MAC adresine göre iletir.
 
-Bu nedenle doğru soru "hangisi?" değil, "ikisi birlikte nasıl kullanılıyor?" sorusudur. Yerel ağdaki bir gönderim hem IP adresini hem MAC adresini gerektirir. Açık kalan nokta şudur: kullanıcı yalnız IP adresini bildiğine göre, çerçeve için gereken MAC adresi nereden bulunur? Çelişkinin çözümü ARP'dir: kullanıcı yazıcıyı kurarken yalnız IP adresini girer; IP adresinden MAC adresine geçişi işletim sistemi ARP ile kendiliğinden yapar.
+Doğru soru "ikisi birlikte nasıl kullanılıyor?" sorusudur. Yerel ağdaki bir gönderim hem IP adresini hem MAC adresini gerektirir. Açık kalan nokta şudur: kullanıcı yalnız IP adresini bildiğine göre, çerçeve için gereken MAC adresi nereden bulunur? Çelişkinin çözümü ARP'dir: kullanıcı yazıcıyı kurarken yalnız IP adresini girer; IP adresinden MAC adresine geçişi işletim sistemi ARP ile kendiliğinden yapar.
 
 Kablosuz bağlantı da bu soruyu ortadan kaldırmaz. Wi-Fi'de kullanılan çerçeveler de alıcıyı MAC adresiyle belirtir; aynı problem kablosuz ağda da vardır.
 :::
@@ -64,7 +64,7 @@ A cihazı B'ye bir IP paketi göndermek istiyor. Pakette hedef IP olarak 192.168
 
 Burada bir bakış açısı ayrımı önemlidir. Adres tablosuna dışarıdan bakan biri B'nin MAC adresini görür; ama A bu tabloyu görmez. A'nın elindeki tek bilgi hedefin IP adresidir. Bu soru N1'in sonunda açık kalan sorudur ve cevabını **ARP** (Address Resolution Protocol, Adres Çözümleme Protokolü) verir.
 
-Bu notun bütün örnekleri aynı üç cihaz, aynı switch portları ve aynı yerel Ethernet ağı üzerinde geçer; IP ayarları hazırdır. Hedef başka bir ağda olsaydı paketin nereye gideceği yönlendirme konusuna ait olurdu, burada ele alınmaz.
+Bütün örnekler aynı üç cihaz, aynı switch portları ve aynı yerel Ethernet ağı üzerinde geçer; IP ayarları hazırdır. Hedef başka bir ağdaysa paketin nereye gideceği yönlendirme konusuna aittir.
 :::
 
 ---
@@ -90,7 +90,7 @@ Senaryoda başlangıçta tablolar boştur ve başka trafik yoktur. A'nın B içi
 İki hedef var: **çerçevenin hedefi** herkes, **sorunun hedefi** 192.168.10.20.
 
 ::: {.notes}
-ARP isteği şu soruyu sorar: "192.168.10.20 adresi kimde?" A bu soruyu tek bir alıcıya gönderemez, çünkü B'nin MAC adresini bilmez. Bu yüzden Ethernet çerçevesinin hedef MAC alanına **broadcast adresini** (FF:FF:FF:FF:FF:FF) yazar. Yerel ağdaki herkes soruyu alır, ama sorulan IP adresi yalnız birindedir.
+ARP isteği şu soruyu sorar: "192.168.10.20 adresi kimde?" A bu soruyu tek bir alıcıya gönderemez, çünkü B'nin MAC adresini bilmez. Bunun için Ethernet çerçevesinin hedef MAC alanına **broadcast adresini** (FF:FF:FF:FF:FF:FF) yazar. Yerel ağdaki herkes soruyu alır, ama sorulan IP adresi yalnız birindedir.
 
 Bu istekte iki farklı "hedef" vardır ve karıştırılmamalıdır. Çerçevenin hedefi herkestir, çünkü MAC adresi bilinmemektedir. Sorunun hedefi ise 192.168.10.20'dir, çünkü IP adresi bilinmektedir.
 
@@ -120,7 +120,7 @@ Bu aşamada C isteği almış olsa da switch C'yi öğrenmiş değildir. Switch 
 Switch yanıtı yalnız A'nın portuna iletir ve `02:..:0B → port 2` kaydını öğrenir.
 
 ::: {.notes}
-B isteği alınca A'nın IP ve MAC bilgisini de istekten öğrenmiş olur ve yanıtını doğrudan A'ya, yani **unicast** olarak gönderir. A bu bilgiyi ARP tablosuna yazar. Böylece bekleyen IP paketi, hedef MAC alanı tamamlanmış bir Ethernet çerçevesine konabilir.
+B isteği alınca A'nın IP ve MAC bilgisini de istekten öğrenmiş olur ve yanıtını doğrudan A'ya, yani **unicast** olarak gönderir. A bu bilgiyi ARP tablosuna yazar. Bekleyen IP paketi, hedef MAC alanı tamamlanmış bir Ethernet çerçevesine konabilir.
 
 Switch bu yanıtın kaynak MAC adresinden B'nin 2. porta bağlı olduğunu öğrenir. A'nın portunu istekte zaten öğrenmiş olduğundan yanıtı yalnız A'nın portuna iletir.
 
@@ -153,7 +153,7 @@ A hedef MAC'i seçer; switch o MAC'e göre iletir. Switch IP başlığına bakma
 ::: {.notes}
 Aynı alışverişte iki tablo dolar ve ikisi birbirine benzediği için karıştırılır; oysa cevapladıkları sorular farklıdır. **ARP tablosu** uç bilgisayarda tutulur ve "bu IP adresinin MAC adresi nedir?" sorusunu cevaplar; kullanım yeri, gönderilecek çerçevenin hedef MAC alanını doldurmaktır. **MAC tablosu** switch'te tutulur ve "bu MAC adresi hangi portun arkasındadır?" sorusunu cevaplar; kullanım yeri, gelen çerçeveyi uygun porttan iletmektir.
 
-Switch, A adına B'nin IP adresini çözmez. IP başlığına bakmaz; yalnız çerçevenin MAC adreslerine göre çalışır. Bu nedenle birini diğerinin yerine kullanmak, örneğin switch tablosunda IP adresi aramak, yanlıştır: bir tabloda IP vardır, öbüründe yoktur.
+Switch, A adına B'nin IP adresini çözmez. IP başlığına bakmaz; yalnız çerçevenin MAC adreslerine göre çalışır. Birini diğerinin yerine kullanmak, örneğin switch tablosunda IP adresi aramak, yanlıştır: bir tabloda IP vardır, öbüründe yoktur.
 :::
 
 ---
@@ -168,7 +168,7 @@ Switch, A adına B'nin IP adresini çözmez. IP başlığına bakmaz; yalnız ç
 | Yanıt A'ya ulaşır | `192.168.10.20 → 02:..:0B` | Önceki iki kayıt korunur |
 | A, B'ye veri çerçevesi gönderir | Var olan eşleşme kullanılır | Hedef MAC, port 2'yi seçtirir |
 
-C'nin isteği duyması, switch'in C'yi öğrendiği anlamına gelmez.
+Switch, C'yi ancak C'den bir çerçeve gelirse öğrenir.
 
 ::: {.notes}
 Olayların sırası, iki kaydın farklı anlarda ve farklı cihazlarda oluştuğunu gösterir. İstek switch'e girdiği anda switch A'yı öğrenir; ama A'nın ARP önbelleğinde B için henüz bir kayıt yoktur. Yanıt switch'e girdiğinde switch B'yi öğrenir; yanıt yoldayken A'nın önbelleği hâlâ boştur. Yanıt A'ya ulaşınca ARP önbelleği dolar. Switch tablosunda ise C hiç yer almaz, çünkü C bu alışverişte çerçeve göndermemiştir.
@@ -201,7 +201,7 @@ Burada "herkese gitme" iki ayrı nedenle olabilir. Yayın adresli çerçeve, gö
 Tabloda bir kaydın bulunması "az önce broadcast ile öğrendik" demek değildir.
 
 ::: {.notes}
-İşletim sistemi dinamik ARP kayıtlarını bir süre sonra siler ya da yeniden doğrular; bu sürenin değeri sisteme göre değişir. Elle girilmiş kalıcı kayıtlar da olabilir. Bu yüzden bir kaydın tabloda görünmesi, kaydın yeni öğrenildiği anlamına gelmez.
+İşletim sistemi dinamik ARP kayıtlarını bir süre sonra siler ya da yeniden doğrular; bu sürenin değeri sisteme göre değişir. Elle girilmiş kalıcı kayıtlar da olabilir. Tabloda görünen bir kayıt, daha önceki bir alışverişten kalmış olabilir.
 
 Bunun pratik sonucu, tablo çıktılarını yorumlarken ortaya çıkar. `arp -a` çıktısında B'nin görünmesi, son ping'in B'yi o anda broadcast ile öğrendiğini göstermeyebilir; kayıt daha önceki bir alışverişten kalmış olabilir.
 :::
@@ -241,9 +241,9 @@ ARP ile arasındaki taşınma farkı da önemlidir: ARP mesajı doğrudan Ethern
 | Echo Reply | `192.168.10.20 → 192.168.10.10` | `02:..:0B → 02:..:0A` |
 
 ::: {.notes}
-`ping` komutu hedefe bir Echo Request gönderir ve Echo Reply bekler. İstek ile yanıt, aynı paketin dönüp gelmesi değildir. B, aldığı isteğe karşılık yeni bir ICMP yanıtı ve onu taşıyacak yeni bir IP paketi oluşturur. Bu nedenle hem IP hem Ethernet düzeyinde kaynak ile hedef yer değiştirir. A'da yanıtın görülmesi, gidiş kadar dönüşün de çalıştığına ilişkin bir gözlemdir.
+`ping` komutu hedefe bir Echo Request gönderir ve Echo Reply bekler. İstek ile yanıt, aynı paketin dönüp gelmesi değildir. B, aldığı isteğe karşılık yeni bir ICMP yanıtı ve onu taşıyacak yeni bir IP paketi oluşturur. Hem IP hem Ethernet düzeyinde kaynak ile hedef yer değiştirir. A'da yanıtın görülmesi, gidiş kadar dönüşün de çalıştığına ilişkin bir gözlemdir.
 
-Ping'in verdiği süre, isteğin gidip yanıtın geri gelmesinin toplamıdır. Bu süre yalnız kablodaki yayılma süresinden oluşmaz; uçların paketi işlemesi, bekleme süreleri ve yolun koşulları da içindedir. Gidiş ve dönüş sürelerinin eşit olduğu bilinmeden bu değeri ikiye bölüp "tek yön gecikmesi" demek yanlış olur. Örnekteki 5, 5 ve 6 ms değerleri öğretim amaçlıdır; gerçek bir ölçüm çıktısı değildir.
+Ping'in verdiği süre, isteğin gidip yanıtın geri gelmesinin toplamıdır. Bu süre yalnız kablodaki yayılma süresinden oluşmaz; uçların paketi işlemesi, bekleme süreleri ve yolun koşulları da içindedir. Gidiş ve dönüş sürelerinin eşit olduğu bilinmeden bu değeri ikiye bölüp "tek yön gecikmesi" demek yanlış olur. Örnekteki 5, 5 ve 6 ms değerleri örnek değerlerdir.
 :::
 
 ---
@@ -273,7 +273,7 @@ Bu çerçevede N2'nin bütün parçaları aynı anda bulunur: ICMP mesajı IP pa
 - Güvenli bir bağlantının başarılı olacağını
 
 ::: {.notes}
-Ping yanıtı gelmesi, web sayfasının açılacağı anlamına gelmez. Echo alışverişi ile web hizmeti farklı protokollerin farklı işleridir. HTTP/1.1 web hizmetinde ilgili portta bağlantının kabul edilmesi ve HTTP isteğinin işlenmesi de gerekir; bunlar N3 ve N4'te ele alınır.
+Ping yanıtı, web sayfasının açılacağını göstermez. Echo alışverişi ile web hizmeti farklı protokollerin farklı işleridir. HTTP/1.1 web hizmetinde ilgili portta bağlantının kabul edilmesi ve HTTP isteğinin işlenmesi de gerekir; bunlar N3 ve N4'te anlatılır.
 
 Ping sonucunu okurken sorulacak soru şudur: "B'de web sunucusunun çalıştığını, doğru sayfanın bulunduğunu ya da güvenli bağlantının başarılı olacağını bu sonuç kanıtlıyor mu?" Cevap hayırdır. Sonuç yalnız o yoklama sırasında IP düzeyindeki gidiş-dönüş erişimini gösterir.
 :::
@@ -290,7 +290,7 @@ Biliyoruz: **belirlenen sürede Echo Reply alınamadı.** Neden bilinmiyor.
 - Adresleme veya erişim koşullarında sorun olabilir
 
 ::: {.notes}
-Zaman aşımı, belirlenen süre içinde Echo Reply alınamadığını bildirir; nedenini söylemez. Bu yüzden yanıt gelmemesinden "B kapalı" sonucu çıkarılamaz. Tek bir gözlem tek bir nedeni kesinleştirmez.
+Zaman aşımı, belirlenen süre içinde Echo Reply alınamadığını bildirir; nedenini söylemez. Yanıt gelmemesinden "B kapalı" sonucu çıkarılamaz. Tek bir gözlem tek bir nedeni kesinleştirmez.
 
 Aynı yerel ağdaki ilk yoklamada adres çözümlemesi henüz tamamlanmamışsa ilk deneme gecikebilir ya da yanıtsız kalabilir. Ancak "ilk ping her zaman başarısız olur" biçiminde bir kural yoktur. Böyle bir durumda ARP tablosuna bakmak, sorunun adres çözümlemesiyle ilgili olup olmadığını araştırmaya yardım eder.
 
@@ -312,8 +312,6 @@ Her adımda **hangi olayın hangi tabloyu değiştirdiğini** kendi cümlelerini
 Bu akış, hazır adresli iki bilgisayar ve bir switch üzerinde uygulanabilir. Başlangıçta ARP önbelleklerinin boş olması gerekir. Packet Tracer'da olayları izlemek için simülasyon görünümünde ARP ve ICMP mesajları seçilir. Gerçek bir ağda mesajların sırasını görmek için paket kaydı gerekir; yalnız ping çıktısı ARP alışverişini göstermez. Linux'ta komşuluk tablosu için `ip neigh` gibi komutlar da kullanılabilir; çıktının alanları sisteme göre değişir.
 
 Her adımda hangi olayın hangi tabloyu değiştirdiği kendi cümlelerle açıklanmalıdır. Dördüncü adım ayrıca düşündürücüdür: bağlantıyı kesen kişi hangi değişikliği yaptığını bilir. Yalnız ping çıktısını gören başka biri aynı nedeni kesin olarak söyleyebilir mi? Bu soru, neden yanıt alınamadığını belirlemek için ek hangi gözlemlere ihtiyaç duyulduğunu tartışmayı gerektirir.
-
-Bu senaryo bir uygulama önerisidir; hazır ve denenmiş bir Packet Tracer dosyası henüz yoktur.
 :::
 
 ---
@@ -327,11 +325,9 @@ Bu senaryo bir uygulama önerisidir; hazır ve denenmiş bir Packet Tracer dosya
 5. Event List'te sırayı izleyin: **ARP Request → ARP Reply → ICMP Echo Request → ICMP Echo Reply**.
 
 ::: {.notes}
-Bu uygulamada yeni bir protokol yoktur; adım adım izlenen akış Packet Tracer'ın Simulation Mode'unda görünür hâle gelir. IP adresi girildiğinde Packet Tracer'ın otomatik doldurduğu maske değeri değiştirilmemelidir; maskenin anlamı sonraki adresleme konusunda ele alınır.
+Bu uygulamada yeni bir protokol yoktur; adım adım izlenen akış Packet Tracer'ın Simulation Mode'unda görünür hâle gelir. IP adresi girildiğinde Packet Tracer'ın otomatik doldurduğu maske değeri değiştirilmemelidir; maskenin anlamı sonraki adresleme konusunda anlatılır.
 
 Event List'teki her olaya tıklandığında açılan pencerede çerçevenin ve paketin ayrıntıları görülebilir. Bu pencerede ARP isteğinin hedef MAC adresinin broadcast olduğu ve ICMP mesajının IP paketi içinde taşındığı doğrulanabilir. Aynı ping ikinci kez gönderildiğinde ARP olayları görülmez; A eşlemeyi ARP tablosunda tuttuğu için soruyu yeniden sormaz. Bu kayıt komut satırında `arp -a` ile kontrol edilebilir.
-
-Bu senaryo bir uygulama önerisidir; hazır ve denenmiş bir Packet Tracer dosyası henüz yoktur.
 :::
 
 ---
