@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Hedef IP arayüzü seçer, uygulamayı seçmez</title>
+  <desc id="desc">192.168.10.20 adresi B bilgisayarının ağ arayüzüne gider; arayüzün arkasındaki tarayıcı, dosya aktarımı ve müzik uygulamasından hangisine ait olduğu belli değildir.</desc>
+  <defs><marker id="mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker><marker id="mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker><marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/></marker><marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker></defs>
+  <rect width="1600" height="600" rx="28" fill="#f8fafc"/>
+  <g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+    <text x="800.0" y="62" font-size="44" font-weight="800" fill="#0f172a" text-anchor="middle">Hedef IP kimi seçer?</text>
+    <rect x="70" y="225" width="380" height="140" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    <text x="260" y="310" font-size="38" font-weight="800" fill="#0f172a" text-anchor="middle">192.168.10.20</text>
+    <line x1="460" y1="295" x2="640" y2="295" stroke="#ea580c" stroke-width="6" stroke-linecap="round" marker-end="url(#mo)"/>
+    <rect x="650" y="150" width="340" height="290" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="4"/>
+    <text x="820" y="270" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">B bilgisayarının</text>
+    <text x="820" y="312" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">ağ arayüzü</text>
+    <line x1="1000" y1="295" x2="1115" y2="180" stroke="#475569" stroke-width="4" stroke-linecap="round" marker-end="url(#ms)" stroke-dasharray="10 8"/>
+    <rect x="1130" y="138" width="400" height="84" rx="16" fill="#f1f5f9" stroke="#475569" stroke-width="3"/>
+    <text x="1300" y="191" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">Tarayıcı</text>
+    <text x="1555" y="196" font-size="44" font-weight="800" fill="#ea580c" text-anchor="end">?</text>
+    <line x1="1000" y1="295" x2="1115" y2="295" stroke="#475569" stroke-width="4" stroke-linecap="round" marker-end="url(#ms)" stroke-dasharray="10 8"/>
+    <rect x="1130" y="253" width="400" height="84" rx="16" fill="#f1f5f9" stroke="#475569" stroke-width="3"/>
+    <text x="1300" y="306" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">Dosya aktarımı</text>
+    <text x="1555" y="311" font-size="44" font-weight="800" fill="#ea580c" text-anchor="end">?</text>
+    <line x1="1000" y1="295" x2="1115" y2="410" stroke="#475569" stroke-width="4" stroke-linecap="round" marker-end="url(#ms)" stroke-dasharray="10 8"/>
+    <rect x="1130" y="368" width="400" height="84" rx="16" fill="#f1f5f9" stroke="#475569" stroke-width="3"/>
+    <text x="1300" y="421" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">Müzik uygulaması</text>
+    <text x="1555" y="426" font-size="44" font-weight="800" fill="#ea580c" text-anchor="end">?</text>
+  </g>
+</svg>

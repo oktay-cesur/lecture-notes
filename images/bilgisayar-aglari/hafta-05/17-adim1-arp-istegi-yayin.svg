@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="610" viewBox="0 0 1600 610" role="img" aria-labelledby="title desc">
+<title id="title">Adım 1: ARP isteği yayın çerçevesinde</title>
+<desc id="desc">Ethernet çerçevesinde kaynak MAC 02:00:00:00:00:0A, hedef MAC FF:FF:FF:FF:FF:FF (herkes), tür ARP. ARP mesajı '192.168.10.20 kimde?' sorusunu taşır; soran 192.168.10.10. Çerçevenin hedefi herkes, sorunun hedefi tek bir IP'dir. ARP IP paketinin içinde değildir.</desc>
+<defs><marker id="m-bl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker><marker id="m-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ea580c"/></marker><marker id="m-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7c3aed"/></marker><marker id="m-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#16a34a"/></marker><marker id="m-sl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker></defs>
+<rect width="1600" height="610" rx="28" fill="#f8fafc"/>
+<g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+<rect x="40" y="30" width="1520" height="330" rx="22" fill="#ffffff" stroke="#475569" stroke-width="3"/>
+<text x="70" y="80" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Ethernet çerçevesi</text>
+<rect x="70" y="105" width="320" height="200" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="230.0" y="137" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">Ethernet kaynak MAC</text>
+<text x="230.0" y="219.4" font-size="24" font-weight="800" fill="#0f172a" text-anchor="middle">02:00:00:00:00:0A</text>
+<rect x="410" y="105" width="380" height="200" rx="14" fill="#ffedd5" stroke="#ea580c" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="600.0" y="137" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">Ethernet hedef MAC</text>
+<text x="600.0" y="220.1" font-size="26" font-weight="800" fill="#0f172a" text-anchor="middle">FF:FF:FF:FF:FF:FF</text>
+<text x="600" y="272" font-size="22" font-weight="800" fill="#ea580c" text-anchor="middle">herkes (yayın)</text>
+<rect x="810" y="105" width="170" height="200" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="895.0" y="137" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">Tür</text>
+<text x="895.0" y="222.2" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">ARP</text>
+<rect x="1000" y="105" width="530" height="200" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+<text x="1265" y="137" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">ARP mesajı (IP paketi yok)</text>
+<text x="1265" y="180" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">192.168.10.20 kimde?</text>
+<text x="1265" y="226" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">soran: 192.168.10.10</text>
+<text x="1265" y="262" font-size="22" font-weight="600" fill="#475569" text-anchor="middle">soranın MAC'i: ..:0A</text>
+<path d="M410 330 L410 346 L790 346 L790 330" fill="none" stroke="#ea580c" stroke-width="5" stroke-dasharray="12 8" stroke-linecap="round"/>
+<text x="600" y="392" font-size="25" font-weight="800" fill="#ea580c" text-anchor="middle">Çerçevenin hedefi: herkes</text>
+<text x="600" y="424" font-size="21" font-weight="600" fill="#475569" text-anchor="middle">(yayın adresi, MAC bilinmiyor)</text>
+<path d="M1000 330 L1000 346 L1530 346 L1530 330" fill="none" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/>
+<text x="1265" y="392" font-size="25" font-weight="800" fill="#16a34a" text-anchor="middle">Sorunun hedefi: yalnız bir IP</text>
+<text x="1265" y="424" font-size="21" font-weight="600" fill="#475569" text-anchor="middle">192.168.10.20 (IP biliniyor)</text>
+<text x="800" y="520" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">ARP mesajı IP paketinin içinde değil, doğrudan Ethernet çerçevesinde taşınır.</text>
+<text x="800" y="566" font-size="24" font-weight="700" fill="#475569" text-anchor="middle">Adım 1 · ARP isteği: yayın (broadcast)</text>
+</g>
+</svg>

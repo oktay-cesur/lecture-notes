@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">Kum saati: ortada tek IP hizmeti</title>
+  <desc id="desc">Üstte HTTP, FTP, SMTP, DNS, SSH gibi çok sayıda uygulama protokolü; altlarında TCP ve UDP; ortada IP; altta Ethernet, Wi-Fi, seri hat gibi bağlantı teknolojileri bulunur.</desc>
+  <defs><marker id="mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker><marker id="mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker><marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/></marker><marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker></defs>
+  <rect width="1600" height="760" rx="28" fill="#f8fafc"/>
+  <g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+    <text x="800.0" y="62" font-size="44" font-weight="800" fill="#0f172a" text-anchor="middle">Kum saati: ortada tek IP hizmeti</text>
+    <line x1="175" y1="175" x2="600" y2="265" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+    <line x1="345" y1="175" x2="600" y2="265" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+    <line x1="515" y1="175" x2="600" y2="265" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+    <line x1="685" y1="175" x2="600" y2="265" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+    <line x1="855" y1="175" x2="600" y2="265" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+    <line x1="1025" y1="175" x2="600" y2="265" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+    <rect x="100" y="100" width="150" height="75" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="175" y="150" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">HTTP</text>
+    <rect x="270" y="100" width="150" height="75" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="345" y="150" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">FTP</text>
+    <rect x="440" y="100" width="150" height="75" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="515" y="150" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">SMTP</text>
+    <rect x="610" y="100" width="150" height="75" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="685" y="150" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">DNS</text>
+    <rect x="780" y="100" width="150" height="75" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="855" y="150" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">SSH</text>
+    <rect x="950" y="100" width="150" height="75" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3" stroke-dasharray="10 7"/>
+    <text x="1025" y="150" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">...</text>
+    <text x="1150" y="150" font-size="26" font-weight="700" fill="#475569" text-anchor="start">çok uygulama</text>
+    <text x="1150" y="184" font-size="21" font-weight="600" fill="#475569" text-anchor="start">(çok sayıda uygulama protokolü)</text>
+    <line x1="500" y1="345" x2="600" y2="425" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+    <line x1="700" y1="345" x2="600" y2="425" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+    <rect x="400" y="265" width="190" height="80" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <text x="495" y="318" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">TCP</text>
+    <rect x="610" y="265" width="190" height="80" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <text x="705" y="318" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">UDP</text>
+    <text x="1150" y="318" font-size="26" font-weight="700" fill="#475569" text-anchor="start">taşıma</text>
+    <line x1="600" y1="510" x2="290" y2="605" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+    <line x1="600" y1="510" x2="500" y2="605" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+    <line x1="600" y1="510" x2="710" y2="605" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+    <line x1="600" y1="510" x2="920" y2="605" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+    <rect x="450" y="425" width="300" height="90" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="5"/>
+    <text x="600" y="485" font-size="44" font-weight="800" fill="#0f172a" text-anchor="middle">IP</text>
+    <text x="1150" y="478" font-size="26" font-weight="700" fill="#475569" text-anchor="start">ortak hizmet</text>
+    <rect x="195" y="605" width="190" height="80" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    <text x="290" y="657" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">Ethernet</text>
+    <rect x="405" y="605" width="190" height="80" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    <text x="500" y="657" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">Wi-Fi</text>
+    <rect x="615" y="605" width="190" height="80" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    <text x="710" y="657" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">Seri hat</text>
+    <rect x="825" y="605" width="190" height="80" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3" stroke-dasharray="10 7"/>
+    <text x="920" y="657" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">...</text>
+    <text x="1150" y="634" font-size="26" font-weight="700" fill="#475569" text-anchor="start">çok bağlantı teknolojisi</text>
+  </g>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">OSI'den TCP/IP'ye geçiş</title>
+  <desc id="desc">Solda OSI'nin yedi katmanı, sağda TCP/IP'nin dört katmanı. OSI'deki Uygulama, Sunum ve Oturum katmanları TCP/IP'de tek Uygulama katmanında toplanır; diğer eşleşmeler henüz soluk gösterilir.</desc>
+  <rect width="1600" height="900" rx="28" fill="#f8fafc"/>
+  <g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+    <text x="800.0" y="72" font-size="44" font-weight="800" fill="#0f172a" text-anchor="middle">Aynı sorumluluklar, farklı gruplama</text>
+    <text x="360.0" y="128" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">OSI · 7 katman</text>
+    <rect x="120" y="150" width="480" height="82" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <circle cx="164" cy="191.0" r="25" fill="#2563eb"/>
+    <text x="164" y="201.0" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">7</text>
+    <text x="212" y="193.0" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Uygulama</text>
+    <text x="212" y="219.0" font-size="19" font-weight="600" fill="#475569" text-anchor="start">Application</text>
+    <rect x="120" y="244" width="480" height="82" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <circle cx="164" cy="285.0" r="25" fill="#2563eb"/>
+    <text x="164" y="295.0" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">6</text>
+    <text x="212" y="287.0" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Sunum</text>
+    <text x="212" y="313.0" font-size="19" font-weight="600" fill="#475569" text-anchor="start">Presentation</text>
+    <rect x="120" y="338" width="480" height="82" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <circle cx="164" cy="379.0" r="25" fill="#2563eb"/>
+    <text x="164" y="389.0" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="212" y="381.0" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Oturum</text>
+    <text x="212" y="407.0" font-size="19" font-weight="600" fill="#475569" text-anchor="start">Session</text>
+    <rect x="120" y="432" width="480" height="82" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <circle cx="164" cy="473.0" r="25" fill="#16a34a"/>
+    <text x="164" y="483.0" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="212" y="475.0" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Taşıma</text>
+    <text x="212" y="501.0" font-size="19" font-weight="600" fill="#475569" text-anchor="start">Transport</text>
+    <rect x="120" y="526" width="480" height="82" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <circle cx="164" cy="567.0" r="25" fill="#7c3aed"/>
+    <text x="164" y="577.0" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="212" y="569.0" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Ağ</text>
+    <text x="212" y="595.0" font-size="19" font-weight="600" fill="#475569" text-anchor="start">Network</text>
+    <rect x="120" y="620" width="480" height="82" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    <circle cx="164" cy="661.0" r="25" fill="#ea580c"/>
+    <text x="164" y="671.0" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="212" y="663.0" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Veri bağlantısı</text>
+    <text x="212" y="689.0" font-size="19" font-weight="600" fill="#475569" text-anchor="start">Data Link</text>
+    <rect x="120" y="714" width="480" height="82" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    <circle cx="164" cy="755.0" r="25" fill="#ea580c"/>
+    <text x="164" y="765.0" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="212" y="757.0" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Fiziksel</text>
+    <text x="212" y="783.0" font-size="19" font-weight="600" fill="#475569" text-anchor="start">Physical</text>
+    <text x="1240.0" y="128" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">TCP/IP · 4 katman</text>
+    <g opacity="1.0">
+      <rect x="1000" y="150" width="480" height="270" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    </g>
+    <text x="1240.0" y="289.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">Uygulama</text>
+    <text x="1240.0" y="317.0" font-size="19" font-weight="600" fill="#475569" text-anchor="middle">Application</text>
+    <g opacity="0.32">
+      <rect x="1000" y="432" width="480" height="82" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    </g>
+    <text x="1240.0" y="477.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle" opacity="0.32">Taşıma</text>
+    <text x="1240.0" y="505.0" font-size="19" font-weight="600" fill="#475569" text-anchor="middle" opacity="0.32">Transport</text>
+    <g opacity="0.32">
+      <rect x="1000" y="526" width="480" height="82" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    </g>
+    <text x="1240.0" y="571.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle" opacity="0.32">İnternet</text>
+    <text x="1240.0" y="599.0" font-size="19" font-weight="600" fill="#475569" text-anchor="middle" opacity="0.32">Internet</text>
+    <g opacity="0.32">
+      <rect x="1000" y="620" width="480" height="176" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    </g>
+    <text x="1240.0" y="712.0" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle" opacity="0.32">Ağ erişimi</text>
+    <text x="1240.0" y="740.0" font-size="19" font-weight="600" fill="#475569" text-anchor="middle" opacity="0.32">Network Access</text>
+    <path d="M 612 156 Q 634 156 634 180 L 634 267.0 Q 634 285.0 652 285.0 Q 634 285.0 634 303.0 L 634 390 Q 634 414 612 414" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="664" y1="285.0" x2="974" y2="285.0" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 990 285.0 L 966 269.0 L 966 301.0 Z" fill="#2563eb"/>
+    <text x="823.0" y="263.0" font-size="24" font-weight="800" fill="#2563eb" text-anchor="middle">üç katman → tek katman</text>
+    <text x="823.0" y="329.0" font-size="21" font-weight="600" fill="#475569" text-anchor="middle">ayrım zorunlu tutulmaz</text>
+    <text x="800.0" y="862" font-size="26" font-weight="700" fill="#475569" text-anchor="middle">Sunum ve oturum görevleri ortadan kalkmaz; uygulama tarafında ele alınır.</text>
+  </g>
+</svg>

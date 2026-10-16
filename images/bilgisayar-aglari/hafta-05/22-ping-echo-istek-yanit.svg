@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="730" viewBox="0 0 1600 730" role="img" aria-labelledby="title desc">
+<title id="title">Ping: iki ayrı IP paketi</title>
+<desc id="desc">A, B'ye Echo Request gönderir (IP 192.168.10.10'dan 192.168.10.20'ye, Ethernet 02:..:0A'dan 02:..:0B'ye); B yeni bir Echo Reply paketiyle yanıtlar (kaynak ve hedef yer değiştirir). Örnek üç ölçüm 5 ms, 5 ms, 6 ms örnek değerlerdir, gerçek ölçüm değildir.</desc>
+<defs><marker id="m-bl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker><marker id="m-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ea580c"/></marker><marker id="m-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7c3aed"/></marker><marker id="m-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#16a34a"/></marker><marker id="m-sl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker></defs>
+<rect width="1600" height="730" rx="28" fill="#f8fafc"/>
+<g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+<rect x="60" y="30" width="400" height="100" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="260" y="76" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">A · dizüstü</text>
+<text x="260" y="110" font-size="24" font-weight="700" fill="#475569" text-anchor="middle">192.168.10.10</text>
+<rect x="1140" y="30" width="400" height="100" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="1340" y="76" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">B · yazıcı</text>
+<text x="1340" y="110" font-size="24" font-weight="700" fill="#475569" text-anchor="middle">192.168.10.20</text>
+<line x1="260" y1="134" x2="260" y2="540" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round"/>
+<line x1="1340" y1="134" x2="1340" y2="540" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round"/>
+<text x="800" y="190" font-size="30" font-weight="800" fill="#2563eb" text-anchor="middle">Echo Request</text>
+<line x1="264" y1="210" x2="1336" y2="210" stroke="#2563eb" stroke-width="7" stroke-linecap="round" marker-end="url(#m-bl)"/>
+<rect x="440" y="232" width="720" height="104" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+<text x="470" y="276" font-size="26" font-weight="800" fill="#0f172a" text-anchor="start">IP:  192.168.10.10 → 192.168.10.20</text>
+<text x="470" y="314" font-size="26" font-weight="800" fill="#475569" text-anchor="start">Ethernet:  02:..:0A → 02:..:0B</text>
+<text x="800" y="400" font-size="30" font-weight="800" fill="#16a34a" text-anchor="middle">Echo Reply</text>
+<line x1="1336" y1="420" x2="264" y2="420" stroke="#16a34a" stroke-width="7" stroke-linecap="round" marker-end="url(#m-gr)"/>
+<rect x="440" y="442" width="720" height="104" rx="14" fill="#ffffff" stroke="#16a34a" stroke-width="3"/>
+<text x="470" y="486" font-size="26" font-weight="800" fill="#0f172a" text-anchor="start">IP:  192.168.10.20 → 192.168.10.10</text>
+<text x="470" y="524" font-size="26" font-weight="800" fill="#475569" text-anchor="start">Ethernet:  02:..:0B → 02:..:0A</text>
+<text x="800" y="590" font-size="25" font-weight="700" fill="#475569" text-anchor="middle">İki ayrı IP paketi: yanıt, isteğin geri dönmesi değil; B yeni paket üretir.</text>
+<rect x="280" y="620" width="1040" height="80" rx="14" fill="#ffedd5" stroke="#ea580c" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="800" y="656" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">Örnek üç ölçüm: 5 ms, 5 ms, 6 ms</text>
+<text x="800" y="686" font-size="21" font-weight="700" fill="#ea580c" text-anchor="middle">(örnek değerler; gerçek ölçüm değil)</text>
+</g>
+</svg>

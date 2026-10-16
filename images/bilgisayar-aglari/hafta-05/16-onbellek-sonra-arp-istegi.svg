@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="540" viewBox="0 0 1600 540" role="img" aria-labelledby="title desc">
+<title id="title">Önce ARP önbelleği, sonra ARP isteği</title>
+<desc id="desc">Hedef IPv4 192.168.10.20 için A'nın ARP tablosuna bakılır. Geçerli eşleşme varsa o MAC adresi kullanılır; yoksa ARP isteği gönderilir.</desc>
+<defs><marker id="m-bl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker><marker id="m-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ea580c"/></marker><marker id="m-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7c3aed"/></marker><marker id="m-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#16a34a"/></marker><marker id="m-sl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker></defs>
+<rect width="1600" height="540" rx="28" fill="#f8fafc"/>
+<g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+<rect x="560" y="30" width="480" height="80" rx="16" fill="#ffffff" stroke="#475569" stroke-width="3"/>
+<text x="800" y="82" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">Hedef IPv4: 192.168.10.20</text>
+<line x1="800" y1="112" x2="800" y2="176" stroke="#475569" stroke-width="6" stroke-linecap="round" marker-end="url(#m-sl)"/>
+<polygon points="800,180 1130,310 800,440 470,310" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="800" y="300" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">A'nın ARP tablosunda</text>
+<text x="800" y="338" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">geçerli eşleşme var mı?</text>
+<line x1="470" y1="310" x2="400" y2="310" stroke="#16a34a" stroke-width="6" stroke-linecap="round" marker-end="url(#m-gr)"/>
+<text x="435" y="284" font-size="26" font-weight="800" fill="#16a34a" text-anchor="middle">Var</text>
+<rect x="40" y="255" width="350" height="110" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+<text x="215" y="303" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">O MAC adresini</text>
+<text x="215" y="341" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">kullan</text>
+<line x1="1130" y1="310" x2="1200" y2="310" stroke="#ea580c" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 10" marker-end="url(#m-or)"/>
+<text x="1165" y="284" font-size="26" font-weight="800" fill="#ea580c" text-anchor="middle">Yok</text>
+<rect x="1210" y="255" width="350" height="110" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="1385" y="303" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">ARP isteği</text>
+<text x="1385" y="341" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">gönder</text>
+<text x="800" y="500" font-size="25" font-weight="700" fill="#475569" text-anchor="middle">ARP (Address Resolution Protocol): yerel ağda IPv4 adresinden MAC adresini bulur.</text>
+</g>
+</svg>

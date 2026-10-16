@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700" role="img" aria-labelledby="title desc">
+<title id="title">Yerel ağdaki cihazlara IP adresiyle ulaşım</title>
+<desc id="desc">Wi-Fi'ye bağlanan dizüstü bilgisayar 192.168.10.10 adresini alır; ping 192.168.10.20 ile yazıcının yanıtı denenir, yazıcı 192.168.10.20 ile eklenir, akıllı TV 192.168.10.30 ile bağlanılır. Hepsinde hedef IP adresiyle belirtilir.</desc>
+<defs><marker id="m-bl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker><marker id="m-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ea580c"/></marker><marker id="m-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7c3aed"/></marker><marker id="m-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#16a34a"/></marker><marker id="m-sl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker></defs>
+<rect width="1600" height="700" rx="28" fill="#f8fafc"/>
+<g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+<text x="380" y="54" font-size="28" font-weight="800" fill="#475569" text-anchor="middle">Kullanıcı ne yapıyor?</text>
+<text x="1220" y="54" font-size="28" font-weight="800" fill="#475569" text-anchor="middle">Sonuç</text>
+<rect x="60" y="80" width="640" height="110" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="90" y="148" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Wi-Fi'ye bağlan</text>
+<line x1="720" y1="135" x2="880" y2="135" stroke="#2563eb" stroke-width="6" stroke-linecap="round" marker-end="url(#m-bl)"/>
+<rect x="900" y="80" width="640" height="110" rx="16" fill="#ffffff" stroke="#475569" stroke-width="3"/>
+<text x="930" y="126" font-size="27" font-weight="700" fill="#0f172a" text-anchor="start">dizüstü bilgisayar bir IP alır</text>
+<text x="930" y="166" font-size="30" font-weight="800" fill="#2563eb" text-anchor="start">→ 192.168.10.10</text>
+<rect x="60" y="230" width="640" height="110" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="90" y="298" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">ping 192.168.10.20</text>
+<line x1="720" y1="285" x2="880" y2="285" stroke="#2563eb" stroke-width="6" stroke-linecap="round" marker-end="url(#m-bl)"/>
+<rect x="900" y="230" width="640" height="110" rx="16" fill="#ffffff" stroke="#475569" stroke-width="3"/>
+<text x="930" y="298" font-size="30" font-weight="700" fill="#0f172a" text-anchor="start">yazıcı yanıt veriyor mu?</text>
+<rect x="60" y="380" width="640" height="110" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="90" y="448" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Yazıcı ekle: 192.168.10.20</text>
+<line x1="720" y1="435" x2="880" y2="435" stroke="#2563eb" stroke-width="6" stroke-linecap="round" marker-end="url(#m-bl)"/>
+<rect x="900" y="380" width="640" height="110" rx="16" fill="#ffffff" stroke="#475569" stroke-width="3"/>
+<text x="930" y="448" font-size="30" font-weight="700" fill="#0f172a" text-anchor="start">belgeyi yazıcıya gönder</text>
+<rect x="60" y="530" width="640" height="110" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="90" y="598" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">TV'ye bağlan: 192.168.10.30</text>
+<line x1="720" y1="585" x2="880" y2="585" stroke="#2563eb" stroke-width="6" stroke-linecap="round" marker-end="url(#m-bl)"/>
+<rect x="900" y="530" width="640" height="110" rx="16" fill="#ffffff" stroke="#475569" stroke-width="3"/>
+<text x="930" y="598" font-size="30" font-weight="700" fill="#0f172a" text-anchor="start">bilgisayardan akıllı TV'ye yayın</text>
+</g>
+</svg>

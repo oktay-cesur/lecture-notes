@@ -154,8 +154,10 @@ website:
             - courses/blp1003/notes/tp_ag-topolojileri-fiziksel-ve-mantiksal-yapi.md
             - courses/blp1003/notes/tp_ag-cihazlari-ethernet-ve-mac.md
             - courses/blp1003/notes/tp_katmanli-mimari-ve-osi-modeli.md
-            - courses/blp1003/notes/tp_tcpip-kumesi-ve-temel-protokoller.md
-            - courses/blp1003/notes/tp_tasima-ve-uygulama-protokolleri.md
+            - courses/blp1003/notes/tp_osidan-tcpipye-mimari-ve-ip.md
+            - courses/blp1003/notes/tp_yerel-agda-iletisim-arp-ve-icmp.md
+            - courses/blp1003/notes/tp_uygulamaya-ulasmak-portlar-tcp-ve-udp.md
+            - courses/blp1003/notes/tp_ag-hizmetleri-ve-uygulama-protokolleri.md
         - section: "Ara Sınav"
           contents:
             - courses/blp1003/notes/tp_ara-sinav-hazirlik-ve-tekrar.md

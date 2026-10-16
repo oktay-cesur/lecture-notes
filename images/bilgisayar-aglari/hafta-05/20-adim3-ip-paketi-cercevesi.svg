@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="730" viewBox="0 0 1600 730" role="img" aria-labelledby="title desc">
+<title id="title">Adım 3: IP paketini taşıyan çerçeve</title>
+<desc id="desc">Ethernet çerçevesinde kaynak 02:00:00:00:00:0A, hedef 02:00:00:00:00:0B, tür IPv4; içindeki IP paketi 192.168.10.10'dan 192.168.10.20'ye gider. Switch hedef MAC'e bakar ve çerçeveyi yalnız port 2'den iletir; C'ye iletmez.</desc>
+<defs><marker id="m-bl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker><marker id="m-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ea580c"/></marker><marker id="m-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7c3aed"/></marker><marker id="m-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#16a34a"/></marker><marker id="m-sl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker></defs>
+<rect width="1600" height="730" rx="28" fill="#f8fafc"/>
+<g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+<rect x="40" y="30" width="1520" height="330" rx="22" fill="#ffffff" stroke="#475569" stroke-width="3"/>
+<text x="70" y="80" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Ethernet çerçevesi</text>
+<rect x="70" y="105" width="320" height="215" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="230.0" y="137" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">Kaynak MAC</text>
+<text x="230.0" y="226.9" font-size="24" font-weight="800" fill="#0f172a" text-anchor="middle">02:00:00:00:00:0A</text>
+<rect x="410" y="105" width="320" height="215" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+<text x="570.0" y="137" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">Hedef MAC</text>
+<text x="570.0" y="226.9" font-size="24" font-weight="800" fill="#0f172a" text-anchor="middle">02:00:00:00:00:0B</text>
+<text x="570" y="285" font-size="22" font-weight="800" fill="#16a34a" text-anchor="middle">artık tamam</text>
+<rect x="750" y="105" width="180" height="215" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="840.0" y="137" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">Tür</text>
+<text x="840.0" y="228.3" font-size="28" font-weight="800" fill="#0f172a" text-anchor="middle">IPv4</text>
+<rect x="950" y="105" width="580" height="215" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="1240" y="140" font-size="22" font-weight="800" fill="#475569" text-anchor="middle">IP paketi</text>
+<text x="1240" y="205" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">192.168.10.10</text>
+<text x="1240" y="240" font-size="28" font-weight="800" fill="#2563eb" text-anchor="middle">↓</text>
+<text x="1240" y="290" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">192.168.10.20</text>
+<rect x="620" y="400" width="360" height="300" rx="18" fill="#e2e8f0" stroke="#475569" stroke-width="3"/>
+<text x="800" y="460" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">switch</text>
+<text x="800" y="510" font-size="21" font-weight="700" fill="#475569" text-anchor="middle">hedef ..:0B</text>
+<text x="800" y="544" font-size="21" font-weight="700" fill="#475569" text-anchor="middle">→ port 2</text>
+<line x1="360" y1="550" x2="575.0" y2="550" stroke="#2563eb" stroke-width="6" stroke-linecap="round" marker-end="url(#m-bl)"/>
+<text x="467.5" y="534" font-size="21" font-weight="800" fill="#2563eb" text-anchor="middle">çerçeve</text>
+<line x1="1025.0" y1="470" x2="1240" y2="470" stroke="#2563eb" stroke-width="6" stroke-linecap="round" marker-end="url(#m-bl)"/>
+<text x="1132.5" y="428" font-size="21" font-weight="800" fill="#2563eb" text-anchor="middle">yalnız port 2</text>
+<text x="1132.5" y="454" font-size="21" font-weight="800" fill="#2563eb" text-anchor="middle">üzerinden</text>
+<line x1="1240" y1="630" x2="1025.0" y2="630" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+<text x="1132.5" y="614" font-size="21" font-weight="800" fill="#475569" text-anchor="middle">iletilmez</text>
+<rect x="60" y="480" width="300" height="140" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="82" y="514" font-size="27" font-weight="800" fill="#0f172a" text-anchor="start">A · dizüstü</text>
+<text x="82" y="544" font-size="22" font-weight="700" fill="#475569" text-anchor="start">192.168.10.10</text>
+<text x="82" y="570" font-size="19" font-weight="600" fill="#475569" text-anchor="start">02:00:00:00:00:0A</text>
+<text x="82" y="602" font-size="20" font-weight="800" fill="#0f172a" text-anchor="start">çerçeveyi gönderir</text>
+<rect x="575.0" y="531" width="90" height="38" rx="19" fill="#475569" stroke="#475569" stroke-width="2"/>
+<text x="620" y="557" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">port 1</text>
+<rect x="1240" y="400" width="300" height="140" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="1262" y="434" font-size="27" font-weight="800" fill="#0f172a" text-anchor="start">B · yazıcı</text>
+<text x="1262" y="464" font-size="22" font-weight="700" fill="#475569" text-anchor="start">192.168.10.20</text>
+<text x="1262" y="490" font-size="19" font-weight="600" fill="#475569" text-anchor="start">02:00:00:00:00:0B</text>
+<text x="1262" y="522" font-size="20" font-weight="800" fill="#0f172a" text-anchor="start">çerçeveyi alır</text>
+<rect x="935.0" y="451" width="90" height="38" rx="19" fill="#475569" stroke="#475569" stroke-width="2"/>
+<text x="980" y="477" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">port 2</text>
+<rect x="1240" y="560" width="300" height="140" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="1262" y="594" font-size="27" font-weight="800" fill="#0f172a" text-anchor="start">C · akıllı TV</text>
+<text x="1262" y="624" font-size="22" font-weight="700" fill="#475569" text-anchor="start">192.168.10.30</text>
+<text x="1262" y="650" font-size="19" font-weight="600" fill="#475569" text-anchor="start">02:00:00:00:00:0C</text>
+<text x="1262" y="682" font-size="20" font-weight="800" fill="#0f172a" text-anchor="start">çerçeve gelmez</text>
+<rect x="935.0" y="611" width="90" height="38" rx="19" fill="#475569" stroke="#475569" stroke-width="2"/>
+<text x="980" y="637" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">port 3</text>
+</g>
+</svg>
