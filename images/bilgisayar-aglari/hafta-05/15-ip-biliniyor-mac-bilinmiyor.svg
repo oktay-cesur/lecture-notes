@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640" role="img" aria-labelledby="title desc">
+<title id="title">IP biliniyor, hedef MAC bilinmiyor</title>
+<desc id="desc">Ethernet çerçevesinde kaynak MAC 02:00:00:00:00:0A, hedef MAC bilinmiyor (???). Çerçevenin içindeki IP paketinde kaynak 192.168.10.10, hedef 192.168.10.20.</desc>
+<defs><marker id="m-bl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker><marker id="m-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ea580c"/></marker><marker id="m-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7c3aed"/></marker><marker id="m-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#16a34a"/></marker><marker id="m-sl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker></defs>
+<rect width="1600" height="640" rx="28" fill="#f8fafc"/>
+<g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+<rect x="60" y="40" width="1480" height="430" rx="22" fill="#ffffff" stroke="#475569" stroke-width="3"/>
+<text x="100" y="92" font-size="32" font-weight="800" fill="#0f172a" text-anchor="start">Ethernet çerçevesi</text>
+<rect x="100" y="120" width="540" height="130" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="370.0" y="152" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">Kaynak MAC</text>
+<text x="370.0" y="201.5" font-size="30" font-weight="800" fill="#0f172a" text-anchor="middle">02:00:00:00:00:0A</text>
+<rect x="670" y="120" width="540" height="130" rx="14" fill="#ffedd5" stroke="#ea580c" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="940.0" y="152" font-size="20" font-weight="600" fill="#475569" text-anchor="middle">Hedef MAC</text>
+<text x="940.0" y="206.4" font-size="44" font-weight="800" fill="#ea580c" text-anchor="middle">???</text>
+<text x="1240" y="170" font-size="26" font-weight="800" fill="#ea580c" text-anchor="start">A bilmiyor</text>
+<text x="1240" y="204" font-size="21" font-weight="700" fill="#475569" text-anchor="start">(B'nin MAC'i henüz yok)</text>
+<rect x="100" y="280" width="1340" height="160" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="130" y="326" font-size="26" font-weight="800" fill="#0f172a" text-anchor="start">IP paketi (Ethernet çerçevesinin içinde)</text>
+<text x="130" y="396" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Kaynak IP: 192.168.10.10</text>
+<text x="700" y="396" font-size="30" font-weight="800" fill="#2563eb" text-anchor="start">→</text>
+<text x="750" y="396" font-size="30" font-weight="800" fill="#0f172a" text-anchor="start">Hedef IP: 192.168.10.20</text>
+<text x="800" y="530" font-size="28" font-weight="700" fill="#475569" text-anchor="middle">IP paketinde hedef biliniyor; çerçevenin hedef MAC alanı boş kalıyor.</text>
+<text x="800" y="580" font-size="22" font-weight="600" fill="#475569" text-anchor="middle">Cihaz bilgileri: A 192.168.10.10 · B 192.168.10.20 · C 192.168.10.30</text>
+</g>
+</svg>

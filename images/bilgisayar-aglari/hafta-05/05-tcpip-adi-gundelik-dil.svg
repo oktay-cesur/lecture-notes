@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Gündelik dilde marka adı ve TCP/IP</title>
+  <desc id="desc">Aygaz gündelik dilde tüp gaz, Sana margarin anlamında kullanılır; TCP/IP adı da bütün protokol ailesi için kullanılır.</desc>
+  <defs><marker id="mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker><marker id="mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker><marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/></marker><marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker></defs>
+  <rect width="1600" height="600" rx="28" fill="#f8fafc"/>
+  <g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+    <text x="800.0" y="62" font-size="44" font-weight="800" fill="#0f172a" text-anchor="middle">Bir ad, geniş bir şeyi anlatır</text>
+    <rect x="100" y="125" width="400" height="105" rx="16" fill="#f1f5f9" stroke="#475569" stroke-width="3"/>
+    <text x="300" y="193" font-size="40" font-weight="800" fill="#0f172a" text-anchor="middle">"Aygaz"</text>
+    <line x1="520" y1="177" x2="880" y2="177" stroke="#475569" stroke-width="6" stroke-linecap="round" marker-end="url(#ms)"/>
+    <text x="700" y="161" font-size="21" font-weight="600" fill="#475569" text-anchor="middle">anlamında</text>
+    <rect x="900" y="125" width="600" height="105" rx="16" fill="#f1f5f9" stroke="#475569" stroke-width="3"/>
+    <text x="1200" y="191" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">gündelik dilde tüp gaz</text>
+    <rect x="100" y="270" width="400" height="105" rx="16" fill="#f1f5f9" stroke="#475569" stroke-width="3"/>
+    <text x="300" y="338" font-size="40" font-weight="800" fill="#0f172a" text-anchor="middle">"Sana"</text>
+    <line x1="520" y1="322" x2="880" y2="322" stroke="#475569" stroke-width="6" stroke-linecap="round" marker-end="url(#ms)"/>
+    <text x="700" y="306" font-size="21" font-weight="600" fill="#475569" text-anchor="middle">anlamında</text>
+    <rect x="900" y="270" width="600" height="105" rx="16" fill="#f1f5f9" stroke="#475569" stroke-width="3"/>
+    <text x="1200" y="336" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">gündelik dilde margarin</text>
+    <rect x="100" y="415" width="400" height="105" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="300" y="483" font-size="40" font-weight="800" fill="#0f172a" text-anchor="middle">"TCP/IP"</text>
+    <line x1="520" y1="467" x2="880" y2="467" stroke="#2563eb" stroke-width="6" stroke-linecap="round" marker-end="url(#mb)"/>
+    <text x="700" y="451" font-size="21" font-weight="600" fill="#475569" text-anchor="middle">anlamında</text>
+    <rect x="900" y="415" width="600" height="105" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="1200" y="481" font-size="32" font-weight="800" fill="#0f172a" text-anchor="middle">bütün protokol ailesi</text>
+  </g>
+</svg>

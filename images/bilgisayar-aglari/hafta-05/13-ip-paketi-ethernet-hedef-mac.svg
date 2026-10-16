@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-labelledby="title desc">
+  <title id="title">IP paketi ve Ethernet çerçevesi: eksik hedef MAC</title>
+  <desc id="desc">IP paketinde kaynak 192.168.10.10 ve hedef 192.168.10.20 bellidir; Ethernet çerçevesinde kaynak 02:..:0A bellidir, hedef MAC adresi ise bilinmiyor.</desc>
+  <defs><marker id="mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker><marker id="mo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker><marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/></marker><marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker></defs>
+  <rect width="1600" height="560" rx="28" fill="#f8fafc"/>
+  <g font-family="'Nunito', 'Segoe UI', 'DejaVu Sans', Arial, sans-serif">
+    <text x="800.0" y="62" font-size="44" font-weight="800" fill="#0f172a" text-anchor="middle">Çerçevenin hedef adresi henüz bilinmiyor</text>
+    <text x="60" y="210" font-size="32" font-weight="800" fill="#0f172a" text-anchor="start">IP paketi:</text>
+    <rect x="440" y="120" width="420" height="140" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <text x="650" y="170" font-size="26" font-weight="700" fill="#475569" text-anchor="middle">Kaynak</text>
+    <text x="650" y="225" font-size="40" font-weight="800" fill="#0f172a" text-anchor="middle">192.168.10.10</text>
+    <line x1="875" y1="190" x2="1055" y2="190" stroke="#475569" stroke-width="6" stroke-linecap="round" marker-end="url(#ms)"/>
+    <rect x="1070" y="120" width="440" height="140" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <text x="1290" y="170" font-size="26" font-weight="700" fill="#475569" text-anchor="middle">Hedef</text>
+    <text x="1290" y="225" font-size="40" font-weight="800" fill="#0f172a" text-anchor="middle">192.168.10.20</text>
+    <text x="60" y="410" font-size="32" font-weight="800" fill="#0f172a" text-anchor="start">Ethernet çerçevesi:</text>
+    <rect x="440" y="320" width="420" height="140" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+    <text x="650" y="370" font-size="26" font-weight="700" fill="#475569" text-anchor="middle">Kaynak</text>
+    <text x="650" y="425" font-size="40" font-weight="800" fill="#0f172a" text-anchor="middle">02:..:0A</text>
+    <line x1="875" y1="390" x2="1055" y2="390" stroke="#475569" stroke-width="6" stroke-linecap="round" marker-end="url(#ms)" stroke-dasharray="10 8"/>
+    <rect x="1070" y="320" width="440" height="140" rx="16" fill="#ffffff" stroke="#475569" stroke-width="4" stroke-dasharray="10 7"/>
+    <text x="1290" y="370" font-size="26" font-weight="700" fill="#475569" text-anchor="middle">Hedef</text>
+    <text x="1290" y="425" font-size="44" font-weight="800" fill="#ea580c" text-anchor="middle">???</text>
+  </g>
+</svg>
