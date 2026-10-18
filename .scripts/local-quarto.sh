@@ -220,7 +220,7 @@ is_fallback_qmd_file() {
 
 is_render_all_excluded_file() {
   local rel_file="$1"
-  [[ "$rel_file" == "README.md" || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == .content/* || "$rel_file" == */.content/* || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
+  [[ "$rel_file" == "README.md" || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == .content/* || "$rel_file" == */.content/* || "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "${rel_file##*/}" == content-profile.md || "${rel_file##*/}" == 00-content-profile.md || "${rel_file##*/}" == 03-fikirler.md || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
 }
 
 is_presentation_file() {
@@ -246,7 +246,29 @@ is_presentation_file() {
 render_html_file() {
   local rel_file="$1"
 
-  quarto render "$rel_file" --profile publish,local --to html
+  if [[ "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "$rel_file" == .content/* || "$rel_file" == */.content/* ]]; then
+    # Explicit author preview: excluded files render outside Quarto's project context.
+    LECTURE_NOTES_INPUT_FILE="$rel_file" quarto render "$rel_file" --to html --metadata lang:tr \
+      --lua-filter "$ROOT_DIR/.filters/content-workspace.lua" \
+      --lua-filter "$ROOT_DIR/.filters/obsidian-wikilink.lua" \
+      --lua-filter "$ROOT_DIR/.filters/notes-to-text.lua" \
+      --lua-filter "$ROOT_DIR/.filters/animation-assets.lua"
+    local preview_dir="$OUTPUT_DIR_REL/$(dirname "$rel_file")"
+    mkdir -p "$preview_dir"
+    cp -f "${rel_file%.*}.html" "$preview_dir/"
+    if [[ -d "${rel_file%.*}_files" ]]; then
+      cp -a "${rel_file%.*}_files" "$preview_dir/"
+    fi
+    local resource_dir
+    for resource_dir in .assets images data; do
+      if [[ -d "$ROOT_DIR/$resource_dir" ]]; then
+        mkdir -p "$OUTPUT_DIR_REL/$resource_dir"
+        cp -a "$ROOT_DIR/$resource_dir/." "$OUTPUT_DIR_REL/$resource_dir/"
+      fi
+    done
+  else
+    quarto render "$rel_file" --profile publish,local --to html
+  fi
 }
 
 render_slide_file() {
@@ -267,10 +289,15 @@ render_slide_file() {
 
   if ! (
     cd "$temp_dir"
+    local slide_args=()
+    if [[ "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "$rel_file" == .content/* || "$rel_file" == */.content/* ]]; then
+      slide_args=(--metadata lang:tr --lua-filter "$temp_dir/.filters/content-workspace.lua" --lua-filter "$temp_dir/.filters/obsidian-wikilink.lua" --lua-filter "$temp_dir/.filters/animation-assets.lua")
+    fi
+    LECTURE_NOTES_INPUT_FILE="$rel_file" \
     QUARTO_DENO_DIR="$temp_dir/.quarto-deno-cache" \
     DENO_DIR="$temp_dir/.quarto-deno-cache" \
     XDG_CACHE_HOME="$temp_dir/.quarto-xdg-cache" \
-      quarto render "$rel_file" --profile slides,publish,local --to revealjs
+      quarto render "$rel_file" --profile slides,publish,local --to revealjs "${slide_args[@]}"
   ); then
     rm -rf "$temp_dir" 2>/dev/null || true
     return 1
@@ -290,6 +317,11 @@ render_slide_file() {
 
   source_html="$source_dir/$html_name"
   source_files="$source_dir/${base_name}_files"
+  if [[ ! -f "$source_html" && -f "$temp_dir/$rel_dir/$html_name" ]]; then
+    source_dir="$temp_dir/$rel_dir"
+    source_html="$source_dir/$html_name"
+    source_files="$source_dir/${base_name}_files"
+  fi
   if [[ ! -f "$source_html" && -f "$temp_dir/$html_name" ]]; then
     source_dir="$temp_dir"
     source_html="$source_dir/$html_name"
@@ -312,6 +344,9 @@ render_slide_file() {
   for resource_dir in .assets images data; do
     source_resource_dir="$temp_dir/_site/slides/$resource_dir"
     target_resource_dir="$SLIDES_OUTPUT_DIR_REL/$resource_dir"
+    if [[ ! -d "$source_resource_dir" ]]; then
+      source_resource_dir="$temp_dir/$resource_dir"
+    fi
     if [[ -d "$source_resource_dir" ]]; then
       mkdir -p "$target_resource_dir"
       cp -a "$source_resource_dir/." "$target_resource_dir/"
@@ -320,7 +355,7 @@ render_slide_file() {
 
   while IFS= read -r root_css; do
     cp -f "$root_css" "$SLIDES_OUTPUT_DIR_REL/$(basename "$root_css")"
-  done < <(find "$temp_dir/_site/slides" -maxdepth 1 -type f -name '*.css' | sort)
+  done < <(if [[ -d "$temp_dir/_site/slides" ]]; then find "$temp_dir/_site/slides" -maxdepth 1 -type f -name '*.css' | sort; fi)
 
   rm -rf "$temp_dir" 2>/dev/null || true
 }

@@ -42,7 +42,7 @@ local function rel_from_doc(abs_or_rel)
 end
 
 local function rel_to_project(path_from_project)
-  local input = rel_from_doc(quarto.doc.input_file or "")
+  local input = os.getenv("LECTURE_NOTES_INPUT_FILE") or rel_from_doc(quarto.doc.input_file or "")
   local dir = pandoc.path.directory(input)
   if dir == nil or dir == "" or dir == "." then
     return path_from_project
@@ -69,6 +69,13 @@ local function collect_anim_topics(doc)
       local anim = el.attributes["data-anim"]
       if anim and anim ~= "" then
         topics[anim] = true
+      end
+    end,
+    RawBlock = function(el)
+      if el.format == "html" then
+        for anim in el.text:gmatch('data%-anim%s*=%s*["\']([^"\']+)["\']') do
+          topics[anim] = true
+        end
       end
     end
   })

@@ -1,0 +1,119 @@
+.orn-sec {
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--anim-text);
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.orn-sec__baslik {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.orn-sec__kontroller {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.orn-sec__yontem {
+  display: flex;
+  gap: 4px;
+}
+
+.orn-sec__btn {
+  font: inherit;
+  font-size: 1rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--anim-border-strong);
+  background: var(--anim-surface);
+  color: var(--anim-text);
+  cursor: pointer;
+}
+
+.orn-sec__btn[aria-pressed="true"] {
+  background: var(--anim-blue-strong);
+  border-color: var(--anim-blue-strong);
+  color: var(--anim-on-accent);
+}
+
+.orn-sec__btn--ana {
+  border-color: var(--anim-blue);
+  font-weight: 600;
+}
+
+.orn-sec__btn:hover {
+  background: var(--anim-blue-bg-hover);
+}
+
+.orn-sec__btn[aria-pressed="true"]:hover {
+  background: var(--anim-blue-strong);
+}
+
+.orn-sec__btn:focus-visible {
+  outline: 2px solid var(--anim-amber);
+  outline-offset: 2px;
+}
+
+.orn-sec__etiket {
+  font-size: 1rem;
+  color: var(--anim-text-2);
+}
+
+.orn-sec__secim {
+  font: inherit;
+  font-size: 1rem;
+  padding: 2px 4px;
+  border-radius: 6px;
+  border: 1px solid var(--anim-border-strong);
+  background: var(--anim-surface);
+  color: var(--anim-text);
+}
+
+.orn-sec__secim:focus-visible {
+  outline: 2px solid var(--anim-amber);
+  outline-offset: 2px;
+}
+
+.orn-sec__govde {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.orn-sec__izgara {
+  width: 100%;
+  max-width: 560px;
+  flex: 1 1 300px;
+}
+
+.orn-sec__dogru {
+  width: 100%;
+  max-width: 780px;
+  flex: 1 1 340px;
+}
+
+.orn-sec__durum {
+  margin: 6px 0 0;
+  font-size: 1rem;
+  color: var(--anim-text-2);
+  min-height: 1.4em;
+}
+
+.orn-sec__uyari {
+  color: var(--anim-red);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orn-sec * {
+    transition: none !important;
+  }
+}

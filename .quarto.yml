@@ -5,6 +5,10 @@ project:
     - .assets/**
     - images/**
     - data/**
+    - "!**/.content/**"
+    - "!**/_content/**"
+    - "!**/__*"
+    - "!**/__*/**"
   render:
     - "**/*.md"
     - "**/*.qmd"
@@ -16,10 +20,19 @@ project:
     - "!courses/qturkey/qbronze/crs-qbronze/**"
     - "!.assets/**"
     - "!README.md"
+    - "!**/.content/**"
+    - "!**/_content/**"
+    - "!**/__*"
+    - "!**/__*/**"
+    - "!**/content-profile.md"
+    - "!**/00-content-profile.md"
+    - "!**/03-fikirler.md"
     - "!courses/psi303/.content/**"
     - "!courses/psi303/content-profile.md"
     - "!courses/bgt201/.content/**"
     - "!courses/bgt201/content-profile.md"
+
+lang: tr
 
 profile:
   default: publish
@@ -78,11 +91,12 @@ format:
     toc-depth: 4
     lang: tr
     code-fold: true
-    code-tools: true
+    code-tools: false
     code-copy: true
     code-overflow: wrap
     css: styles.css
     filters:
+      - .filters/content-workspace.lua
       - .filters/obsidian-wikilink.lua
       - .filters/notes-to-text.lua
       - .filters/slide-link.lua

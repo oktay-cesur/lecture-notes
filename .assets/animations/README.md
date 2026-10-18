@@ -190,6 +190,7 @@ export function mount(div, dataset) {
 | `custom` + `nqueens-hc.js` | `data-scene` `data-queens` `data-label` `data-editable` |
 | `custom` + `qde-encoding.js` | `data-scene`: `basis` `angle` `phase` `amplitude` `decision` |
 | `custom` + `tik-frqi.js` | `data-scene` (bkz. `SCENES` nesnesi) |
+| `custom` + `orneklem-secimi.js` | `data-n` (5–80) `data-seed` `data-label` |
 
 ## 7. Boyut, sunum ve erişilebilirlik
 

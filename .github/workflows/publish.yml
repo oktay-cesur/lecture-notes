@@ -31,7 +31,7 @@ jobs:
         run: |
           while IFS= read -r f; do
             case "$f" in
-              *-qmd-fallback.qmd|courses/bim444/notes/search-algorithms.md|courses/bim444/notes/search-algorithms-qmd-fallback.qmd|*/_draft/*|*/_private/*|*/_backup/*|*/_arsiv/*|_arsiv/*|*/index.md|*/index.qmd)
+              .content/*|*/.content/*|_content/*|*/_content/*|__*|*/__*|content-profile.md|*/content-profile.md|00-content-profile.md|*/00-content-profile.md|03-fikirler.md|*/03-fikirler.md|*-qmd-fallback.qmd|courses/bim444/notes/search-algorithms.md|courses/bim444/notes/search-algorithms-qmd-fallback.qmd|*/_draft/*|*/_private/*|*/_backup/*|*/_arsiv/*|_arsiv/*|*/index.md|*/index.qmd)
                 continue
                 ;;
             esac
@@ -56,6 +56,15 @@ jobs:
               test -f "_site/slides/${f%.*}.html"
             fi
           done < <(find . -type f \( -name '*.md' -o -name '*.qmd' \) | sort | sed 's|^\./||')
+
+      - name: Verify private workspace is not in the output
+        run: |
+          found="$(find _site \( -name '.content' -o -name '_content' -o -name '__*' \) -print)"
+          if [ -n "$found" ]; then
+            echo "Private or local paths found in _site:"
+            echo "$found"
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
