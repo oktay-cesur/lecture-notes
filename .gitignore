@@ -30,7 +30,6 @@ draft/
 **/.content/
 courses/**/_content/
 _notes/
-/_content/
 
 # Yerel ve geçici: adı "__" ile başlayan her dosya ve klasör git ve yayın dışıdır
 __*
