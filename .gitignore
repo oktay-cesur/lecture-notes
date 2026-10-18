@@ -19,6 +19,7 @@ AGENTS.md
 courses/_ortak/tez/
 .obsidian/
 
+
 # Yayın deposuna girmeyen çalışma alanları
 **/_arsiv/
 **/_draft/
@@ -27,6 +28,11 @@ courses/_ortak/tez/
 **/draft/
 draft/
 **/.content/
+courses/**/_content/
+_notes/
+
+# Yerel ve geçici: adı "__" ile başlayan her dosya ve klasör git ve yayın dışıdır
+__*
 
 # İşletim sistemi ve geçici dosyalar
 .DS_Store

@@ -18,6 +18,16 @@ topics/               ← Ders akışından bağımsız konu yazıları
 - **topics/**: Ders akışından bağımsız `art-*` konu yazılarına ayrılmıştır.
 - **_draft, _private, _backup, _arsiv**: Yerel çalışma alanlarıdır; GitHub'a ve yayın çıktısına girmez.
 
+## Betik yerleşimi
+
+Bu depoda çalışan kişiler ve ajanlar aşağıdaki yerleşim kurallarına uymalıdır:
+
+- Kök `.scripts/` dizini yalnızca proje genelinde kullanılan betikler içindir. `check-animations.py` ve `local-quarto.sh` gibi ortak denetim ve derleme araçları burada tutulabilir.
+- Tek bir derse, konuya veya içerik üretim görevine özel kontrol, analiz ve yardımcı betikler `.scripts/` dizinine eklenmez. Bu betikler ilgili içeriğin `.gitignore` kapsamındaki çalışma alanında tutulur; örneğin `__content/psi303/scripts/`. Depo genelindeki geçici görevler için `__content/genel/scripts/` kullanılabilir.
+- Yerel ya da geçici bir dosya veya klasör `.gitignore` düzenlenmeden git ve yayın dışı bırakılmak istenirse adı `__` ile başlatılır (ör. `__deneme/`, `__not.md`). `__` ile başlayan hiçbir ad git'e girmez, Quarto ile render edilmez ve yayın derlemesinde denetlenir. Tek alt çizgiyle başlayan adlar (`_ortak`, `_quarto*.yml`) bu kurala girmez; bunlar yayın deposunun parçasıdır.
+- Betik oluşturulmadan önce hedef konumun Git tarafından yok sayıldığı doğrulanır. Önceden izlenen bir dosya, yalnızca bu konuma taşınarak veya `.gitignore` kuralı eklenerek izleme dışına çıkmaz.
+- `.gitignore` kapsamındaki çalışma alanlarına erişemeyen veya bunları kullanamayan bir web ajanı ile çalışılıyorsa, içeriğe özel betik ilgili dersin veya konunun kendi klasörü içinde, örneğin `courses/psi303/scripts/` altında tutulur. Bu istisna kök `.scripts/` dizininin kullanılmasına gerekçe oluşturmaz.
+
 ## Kullanım
 
 Gereksinimler: Quarto (`1.8.27` ile doğrulandı), `make` ve `rsync`.

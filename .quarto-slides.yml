@@ -14,6 +14,7 @@ format:
     height: 960
     chalkboard: true
     filters:
+      - .filters/content-workspace.lua
       - .filters/obsidian-wikilink.lua
       - .filters/animation-assets.lua
 
