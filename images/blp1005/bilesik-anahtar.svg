@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" style="background-color: #ffffff; font-family: Arial, sans-serif;">
+  <title>Aynı üye ve kitabın farklı günlerdeki iki ödünç olayı</title>
+  <desc>101 numaralı üye K-101 kitabını 1 Ekim ve 20 Ekim günlerinde ödünç alıyor. Üye ve kitap değerleri aynı, alış tarihleri farklıdır.</desc>
+
+
+  <rect width="1280" height="360" fill="#ffffff" /><g id="tablo" transform="translate(-320,-12)">
+
+    <rect x="360" y="32" width="720" height="156" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="2" />
+
+
+    <path d="M 360,40 Q 360,32 368,32 L 1072,32 Q 1080,32 1080,40 L 1080,92 L 360,92 Z" fill="#f8fafc" />
+
+
+    <rect x="361" y="93" width="458" height="46" fill="#f0fdfa" />
+    <rect x="361" y="93" width="458" height="46" fill="none" stroke="#087f8c" stroke-width="2.5" stroke-dasharray="6,3" />
+    <rect x="821" y="93" width="258" height="46" fill="#eff6ff" />
+    <rect x="821" y="93" width="258" height="46" fill="none" stroke="#1d4ed8" stroke-width="2.5" />
+
+
+    <rect x="361" y="141" width="458" height="46" fill="#f0fdfa" />
+    <rect x="361" y="141" width="458" height="46" fill="none" stroke="#087f8c" stroke-width="2.5" stroke-dasharray="6,3" />
+    <rect x="821" y="141" width="258" height="46" fill="#eff6ff" />
+    <rect x="821" y="141" width="258" height="46" fill="none" stroke="#1d4ed8" stroke-width="2.5" />
+
+
+    <line x1="360" y1="92" x2="1080" y2="92" stroke="#64748b" stroke-width="2" />
+    <line x1="360" y1="140" x2="1080" y2="140" stroke="#cbd5e1" stroke-width="1.5" />
+    <line x1="560" y1="32" x2="560" y2="188" stroke="#cbd5e1" stroke-width="1.5" />
+    <line x1="820" y1="32" x2="820" y2="188" stroke="#cbd5e1" stroke-width="1.5" />
+
+
+    <text x="460" y="70" font-size="32" font-weight="bold" fill="#172b3a" text-anchor="middle">Üye no</text>
+    <text x="690" y="70" font-size="32" font-weight="bold" fill="#172b3a" text-anchor="middle">Demirbaş no</text>
+    <text x="950" y="70" font-size="32" font-weight="bold" fill="#172b3a" text-anchor="middle">Alış tarihi</text>
+    <text x="460" y="126" font-size="32" font-weight="bold" fill="#087f8c" text-anchor="middle">101</text>
+    <text x="690" y="126" font-size="32" font-weight="bold" fill="#087f8c" text-anchor="middle">K-101</text>
+    <text x="950" y="126" font-size="32" font-weight="bold" fill="#1d4ed8" text-anchor="middle">2026-10-01</text>
+
+
+    <text x="460" y="174" font-size="32" font-weight="bold" fill="#087f8c" text-anchor="middle">101</text>
+    <text x="690" y="174" font-size="32" font-weight="bold" fill="#087f8c" text-anchor="middle">K-101</text>
+    <text x="950" y="174" font-size="32" font-weight="bold" fill="#1d4ed8" text-anchor="middle">2026-10-20</text>
+  </g>
+
+
+  <text x="810" y="65" fill="#087f8c" font-size="32" font-family="Arial, sans-serif" font-weight="bold">Üye + kitap aynı</text><text x="810" y="112" fill="#087f8c" font-size="34" font-family="Arial, sans-serif" font-weight="bold">101 + K-101</text><text x="810" y="158" fill="#1d4ed8" font-size="32" font-family="Arial, sans-serif" font-weight="bold">Alış günleri farklı</text><rect x="40" y="204" width="1200" height="56" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2" /><text x="60" y="242" fill="#172b3a" font-size="32" font-family="Arial, sans-serif" font-weight="bold">Üye + kitap ikilisi bu iki olayı ayıramaz.</text><text x="40" y="304" fill="#172b3a" font-size="30" font-family="Arial, sans-serif">Üçlü: aynı üye–kitap çifti için günde en fazla bir ödünç varsa yeterli.</text></svg>

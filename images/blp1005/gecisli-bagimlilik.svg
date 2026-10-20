@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 330" width="100%" height="100%" role="img" style="background-color:#f8fafc; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <title>Geçişli Bağımlılık Zinciri</title>
+  <desc>ders_kodu, ogretim_uyesi_no ve ogretim_uyesi_adi/bolumu arasındaki geçişli bağımlılık zinciri ve 3NF anomalileri.</desc>
+  <defs>
+    <marker id="arr-chain-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <rect width="1500" height="650" fill="#f8fafc" />
+  <text x="750" y="46" font-size="30" font-weight="bold" fill="#0f172a" text-anchor="middle">Geçişli bağımlılık zinciri</text>
+
+
+  <g id="zincir">
+
+    <rect x="70" y="140" width="330" height="140" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5" />
+    <rect x="90" y="155" width="130" height="34" rx="6" fill="#0284c7" />
+    <text x="155" y="179" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">A: Anahtar</text>
+    <text x="235" y="235" font-size="28" font-weight="bold" fill="#0369a1" text-anchor="middle">ders_kodu</text>
+    <text x="235" y="265" font-size="22" fill="#0284c7" text-anchor="middle">(Birincil Anahtar)</text>
+
+
+    <line x1="400" y1="210" x2="560" y2="210" stroke="#0284c7" stroke-width="4" marker-end="url(#arr-chain-blue)" />
+    <text x="480" y="195" font-size="24" font-weight="bold" fill="#0284c7" text-anchor="middle">A → B</text>
+    <text x="480" y="240" font-size="22" fill="#475569" text-anchor="middle">belirler</text>
+
+
+    <rect x="570" y="140" width="360" height="140" rx="12" fill="#f1f5f9" stroke="#64748b" stroke-width="2.5" />
+    <rect x="590" y="155" width="230" height="34" rx="6" fill="#64748b" />
+    <text x="705" y="179" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">B: Anahtar Dışı Sütun</text>
+    <text x="750" y="235" font-size="28" font-weight="bold" fill="#1e293b" text-anchor="middle">ogretim_uyesi_no</text>
+    <text x="750" y="265" font-size="22" fill="#475569" text-anchor="middle">(Ara Belirleyici)</text>
+
+
+    <line x1="930" y1="210" x2="1060" y2="210" stroke="#0284c7" stroke-width="4" marker-end="url(#arr-chain-blue)" />
+    <text x="995" y="195" font-size="24" font-weight="bold" fill="#0284c7" text-anchor="middle">B → C</text>
+    <text x="995" y="240" font-size="22" fill="#475569" text-anchor="middle">belirler</text>
+
+
+    <rect x="1070" y="130" width="360" height="160" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5" />
+    <rect x="1090" y="145" width="240" height="34" rx="6" fill="#ea580c" />
+    <text x="1210" y="169" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">C: Anahtar Dışı Grup</text>
+    <text x="1250" y="220" font-size="26" font-weight="bold" fill="#9a3412" text-anchor="middle">ogretim_uyesi_adi</text>
+    <text x="1250" y="256" font-size="26" font-weight="bold" fill="#9a3412" text-anchor="middle">ogretim_uyesi_bolumu</text>
+    <text x="1250" y="282" font-size="22" fill="#c2410c" text-anchor="middle">(B üzerinden bağlı)</text>
+
+
+    <path d="M 235 140 C 235 55, 1250 55, 1250 120" stroke="#0284c7" stroke-width="3.5" stroke-dasharray="8 6" fill="none" marker-end="url(#arr-chain-blue)" />
+    <rect x="540" y="58" width="420" height="44" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" />
+    <text x="750" y="88" font-size="24" font-weight="bold" fill="#0369a1" text-anchor="middle">Dolayısıyla A → C (Geçişli Bağımlılık)</text>
+  </g>
+
+
+  </svg>

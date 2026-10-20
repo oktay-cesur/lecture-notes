@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" role="img" aria-labelledby="title-07 desc-07">
+  <title id="title-07">İlişki Uçlarını Okuma Yönü</title>
+  <desc id="desc-07">Üye ve kütüphane kartı varlıkları arasındaki yönsüz ilişkide her iki uçtaki Crow's Foot sembolünün karşı varlıktan başlanarak nasıl okunduğunu gösteren şema.</desc>
+  <defs>
+    <marker id="arrow-teal-07" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 2 L 10 6 L 1 10 z" fill="#0d9488" />
+    </marker>
+    <marker id="arrow-blue-07" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 2 L 10 6 L 1 10 z" fill="#0284c7" />
+    </marker>
+    <filter id="card-shadow-07" x="-4%" y="-4%" width="108%" height="112%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+  <rect width="1500" height="650" fill="#f8fafc" />
+  <text x="750" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="bold" fill="#0f172a">İlişki Uçlarını Okuma: Karşı Uca Bakma Kuralı</text>
+  <g id="entities" filter="url(#card-shadow-07)">
+    <rect x="80" y="225" width="320" height="200" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <rect x="80" y="225" width="320" height="56" rx="14" fill="#0284c7" />
+    <text x="240" y="263" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">uye</text>
+    <text x="105" y="322" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="bold" fill="#0284c7">PK: uye_numarasi</text>
+    <text x="105" y="362" font-family="system-ui, -apple-system, sans-serif" font-size="23" fill="#334155">ad_soyad</text>
+    <text x="105" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="23" fill="#334155">telefon</text>
+    <rect x="1100" y="225" width="320" height="200" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <rect x="1100" y="225" width="320" height="56" rx="14" fill="#0284c7" />
+    <text x="1260" y="263" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">kutuphane_karti</text>
+    <text x="1125" y="325" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="bold" fill="#0284c7">PK: kart_numarasi</text>
+    <text x="1125" y="375" font-family="system-ui, -apple-system, sans-serif" font-size="23" fill="#334155">duzenleme_tarihi</text>
+  </g>
+  <line x1="400" y1="325" x2="1100" y2="325" stroke="#334155" stroke-width="4" />
+  <g filter="url(#card-shadow-07)">
+    <rect x="635" y="302" width="230" height="46" rx="23" fill="#ffffff" stroke="#94a3b8" stroke-width="2" />
+    <text x="750" y="333" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#475569">Yönsüz İlişki</text>
+  </g>
+  <g id="crow-foot-symbols">
+    <line x1="425" y1="298" x2="425" y2="352" stroke="#0284c7" stroke-width="4" stroke-linecap="round" />
+    <line x1="445" y1="298" x2="445" y2="352" stroke="#0284c7" stroke-width="4" stroke-linecap="round" />
+    <text x="435" y="410" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0369a1">tam bir (1..1)</text>
+    <circle cx="1045" cy="325" r="12" fill="#ffffff" stroke="#0d9488" stroke-width="4" />
+    <line x1="1075" y1="298" x2="1075" y2="352" stroke="#0d9488" stroke-width="4" stroke-linecap="round" />
+    <text x="1020" y="430" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0f766e">sıfır ya da bir (0..1)</text>
+  </g>
+  <path d="M 240 215 C 360 95, 870 95, 1045 292" fill="none" stroke="#0d9488" stroke-width="3.5" stroke-dasharray="9,6" marker-end="url(#arrow-teal-07)" />
+  <g filter="url(#card-shadow-07)">
+    <rect x="440" y="108" width="620" height="94" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+    <rect x="460" y="118" width="180" height="32" rx="6" fill="#ccfbf1" />
+    <text x="660" y="141" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0f766e">Üyeden kart ucuna bak</text>
+    <text x="460" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#134e4a">Bir üyenin 0 ya da 1 kartı olabilir.</text>
+  </g>
+  <path d="M 1260 435 C 1140 555, 630 555, 435 365" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-dasharray="9,6" marker-end="url(#arrow-blue-07)" />
+  <g filter="url(#card-shadow-07)">
+    <rect x="440" y="448" width="620" height="94" rx="12" fill="#f0f9ff" stroke="#0284c7" stroke-width="2" />
+    <rect x="460" y="458" width="180" height="32" rx="6" fill="#e0f2fe" />
+    <text x="660" y="481" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0369a1">Karttan üye ucuna bak</text>
+    <text x="460" y="522" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0c4a6e">Her kart tam 1 üyeye aittir.</text>
+  </g>
+  </svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" role="img" aria-labelledby="title-05 desc-05">
+  <title id="title-05">Oda ve Raf Bileşik Anahtar Izgarası</title>
+  <desc id="desc-05">Oda numarası ve raf numarasının tek başlarına birden çok hücreyi kapsadığını, yalnızca (oda_no, raf_no) çiftinin tek bir hücreyi belirlediğini gösteren 2x2 ızgara şeması.</desc>
+  <defs>
+    <filter id="card-shadow-05" x="-4%" y="-4%" width="108%" height="112%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+  <rect width="1500" height="650" fill="#f8fafc" />
+  <text x="750" y="52" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="bold" fill="#0f172a">Bileşik Anahtar: (oda_no, raf_no)</text>
+  <g id="grid-area" filter="url(#card-shadow-05)">
+    <rect x="260" y="125" width="230" height="52" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+    <text x="375" y="159" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0369a1">oda_no = 101</text>
+    <rect x="515" y="125" width="230" height="52" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+    <text x="630" y="159" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0369a1">oda_no = 102</text>
+    <rect x="80" y="195" width="160" height="175" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2" />
+    <text x="160" y="290" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0f766e">raf_no = 1</text>
+    <rect x="80" y="390" width="160" height="175" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2" />
+    <text x="160" y="485" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0f766e">raf_no = 2</text>
+    <rect x="260" y="195" width="230" height="175" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="3.5" />
+    <rect x="280" y="210" width="190" height="38" rx="8" fill="#f1f5f9" />
+    <text x="375" y="237" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#334155">(101, 1)</text>
+    <text x="375" y="310" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="bold" fill="#0284c7">Tarih</text>
+    <rect x="515" y="195" width="230" height="175" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <rect x="535" y="210" width="190" height="38" rx="8" fill="#f1f5f9" />
+    <text x="630" y="237" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#334155">(102, 1)</text>
+    <text x="630" y="310" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="bold" fill="#0f172a">Bilim</text>
+    <rect x="260" y="390" width="230" height="175" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <rect x="280" y="405" width="190" height="38" rx="8" fill="#f1f5f9" />
+    <text x="375" y="432" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#334155">(101, 2)</text>
+    <text x="375" y="505" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="bold" fill="#0f172a">Edebiyat</text>
+    <rect x="515" y="390" width="230" height="175" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <rect x="535" y="405" width="190" height="38" rx="8" fill="#f1f5f9" />
+    <text x="630" y="432" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#334155">(102, 2)</text>
+    <text x="630" y="505" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="bold" fill="#0f172a">Tarih</text>
+  </g>
+  <g id="explanations" filter="url(#card-shadow-05)">
+    <rect x="780" y="125" width="640" height="130" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="2" />
+    <rect x="800" y="140" width="240" height="36" rx="6" fill="#ffedd5" />
+    <text x="920" y="165" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#c2410c">oda_no Tek Başına</text>
+    <rect x="1220" y="140" width="180" height="36" rx="6" fill="#fed7aa" />
+    <text x="1310" y="165" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#9a3412">2 Hücre (Belirsiz)</text>
+    <text x="800" y="222" font-family="system-ui, -apple-system, sans-serif" font-size="23" fill="#431407">101 numaralı odada 2 raf var.</text>
+    <rect x="780" y="275" width="640" height="130" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="2" />
+    <rect x="800" y="290" width="240" height="36" rx="6" fill="#ffedd5" />
+    <text x="920" y="315" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#c2410c">raf_no Tek Başına</text>
+    <rect x="1220" y="290" width="180" height="36" rx="6" fill="#fed7aa" />
+    <text x="1310" y="315" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#9a3412">2 Hücre (Belirsiz)</text>
+    <text x="800" y="372" font-family="system-ui, -apple-system, sans-serif" font-size="23" fill="#431407">1 numaralı raf 2 odada var.</text>
+    <rect x="780" y="425" width="640" height="165" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.5" />
+    <rect x="800" y="440" width="260" height="38" rx="6" fill="#dcfce7" />
+    <text x="930" y="466" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#15803d">(oda_no, raf_no) Çifti</text>
+    <rect x="1200" y="440" width="200" height="38" rx="6" fill="#bbf7d0" />
+    <text x="1300" y="466" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#166534">Tam 1 Hücre (Tekil)</text>
+    <text x="800" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="23" fill="#14532d">(101, 1) yalnız Tarih rafını belirler.</text>
+    <text x="800" y="560" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="bold" fill="#0f766e">İkisi birlikte tek anahtar.</text>
+  </g>
+</svg>

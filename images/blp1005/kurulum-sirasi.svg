@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 560" width="1440" height="560" role="img" aria-labelledby="svg-title svg-desc">
+  <title id="svg-title">Veritabanı Tablo Referans Bağı ve Kurulum Sırası</title>
+  <desc id="svg-desc">Sol panelde odunc tablosunun uye ve kitap tablolarına REFERENCES bağlantısı; sağ panelde ise FK denetimi açıkken uye ve kitap tablolarının odunc tablosundan önce oluşturulması gereken zaman sırası gösterilmektedir.</desc>
+
+  <defs>
+    <marker id="arrow-ref" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#087f8c" />
+    </marker>
+    <marker id="arrow-time" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#087f8c" />
+    </marker>
+  </defs>
+
+
+  <rect width="1440" height="560" fill="#ffffff" />
+
+
+  <rect x="36" y="24" width="664" height="436" rx="16" fill="#fcfdfd" stroke="#cbd5e1" stroke-width="2" />
+
+
+  <text x="68" y="68" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#172b3a">Referans Bağı</text>
+  <text x="68" y="98" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#087f8c">Mantıksal İlişki (FK Bağımlılığı)</text>
+
+
+  <rect x="238" y="120" width="260" height="84" rx="10" fill="#e6f4f6" stroke="#087f8c" stroke-width="3" />
+  <text x="368" y="156" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#172b3a" text-anchor="middle">odunc</text>
+  <text x="368" y="188" font-family="Arial, sans-serif" font-size="22" fill="#172b3a" text-anchor="middle">İki yabancı anahtar</text>
+
+
+  <rect x="64" y="324" width="264" height="84" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3" />
+  <text x="196" y="360" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#172b3a" text-anchor="middle">uye</text>
+  <text x="196" y="392" font-family="Arial, sans-serif" font-size="22" fill="#172b3a" text-anchor="middle">[Ana Tablo / PK]</text>
+
+
+  <rect x="408" y="324" width="264" height="84" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3" />
+  <text x="540" y="360" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#172b3a" text-anchor="middle">kitap</text>
+  <text x="540" y="392" font-family="Arial, sans-serif" font-size="22" fill="#172b3a" text-anchor="middle">[Ana Tablo / PK]</text>
+
+
+  <path d="M 308 204 L 208 316" fill="none" stroke="#087f8c" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrow-ref)" />
+  <rect x="162" y="238" width="144" height="32" rx="6" fill="#ffffff" stroke="#087f8c" stroke-width="1.5" />
+  <text x="234" y="261" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#087f8c" text-anchor="middle">REFERENCES</text>
+
+
+  <path d="M 428 204 L 528 316" fill="none" stroke="#087f8c" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrow-ref)" />
+  <rect x="430" y="238" width="144" height="32" rx="6" fill="#ffffff" stroke="#087f8c" stroke-width="1.5" />
+  <text x="502" y="261" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#087f8c" text-anchor="middle">REFERENCES</text>
+
+
+  <text x="368" y="438" font-family="Arial, sans-serif" font-size="22" fill="#475569" text-anchor="middle">uye ile kitap arasında referans bağı yoktur</text>
+
+
+  <rect x="740" y="24" width="664" height="436" rx="16" fill="#fcfdfd" stroke="#cbd5e1" stroke-width="2" />
+
+
+  <text x="772" y="68" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#172b3a">Kurulum Sırası</text>
+  <text x="772" y="98" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#087f8c">Zaman Sırası (CREATE TABLE)</text>
+
+
+  <rect x="764" y="116" width="616" height="140" rx="12" fill="#f1f5f9" stroke="#087f8c" stroke-width="2" stroke-dasharray="6,4" />
+  <text x="784" y="144" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#087f8c">Aşama 1: uye ve kitap</text>
+  <rect x="784" y="158" width="276" height="82" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3" />
+  <text x="922" y="194" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#172b3a" text-anchor="middle">uye</text>
+  <text x="922" y="224" font-family="Arial, sans-serif" font-size="22" fill="#475569" text-anchor="middle">Önce kurulur</text>
+
+  <rect x="1084" y="158" width="276" height="82" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3" />
+  <text x="1222" y="194" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#172b3a" text-anchor="middle">kitap</text>
+  <text x="1222" y="224" font-family="Arial, sans-serif" font-size="22" fill="#475569" text-anchor="middle">Önce kurulur</text>
+
+
+  <line x1="1072" y1="256" x2="1072" y2="318" stroke="#087f8c" stroke-width="4" marker-end="url(#arrow-time)" />
+  <rect x="1094" y="268" width="120" height="36" rx="6" fill="#087f8c" />
+  <text x="1154" y="294" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">Sonra</text>
+
+
+  <rect x="864" y="324" width="416" height="84" rx="10" fill="#e6f4f6" stroke="#087f8c" stroke-width="3" />
+  <text x="1072" y="358" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#172b3a" text-anchor="middle">Aşama 2: odunc</text>
+  <text x="1072" y="392" font-family="Arial, sans-serif" font-size="22" fill="#172b3a" text-anchor="middle">İkisi de hazır olduktan sonra</text>
+
+
+  <rect x="36" y="474" width="1368" height="66" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" />
+  <text x="720" y="504" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#172b3a" text-anchor="middle">uye ve kitap, odunc kurulmadan önce hazır olmalı.</text>
+  <text x="720" y="528" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#087f8c" text-anchor="middle">Bu CREATE TABLE denemesinde FK denetimi açık.</text>
+</svg>

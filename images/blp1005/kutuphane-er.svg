@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" role="img" aria-labelledby="title-09 desc-09">
+  <title id="title-09">Kütüphane Varlık-İlişki Modeli</title>
+  <desc id="desc-09">Kütüphane bilgi sistemi için 5 varlık ve aralarındaki 4 ilişkiyi Crow's Foot notasyonuyla gösteren tam kavramsal Varlık-İlişki diyagramı.</desc>
+  <defs>
+    <filter id="card-shadow-09" x="-4%" y="-4%" width="108%" height="112%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+  <rect width="1500" height="650" fill="#f8fafc" />
+  <g id="legend-card" filter="url(#card-shadow-09)">
+    <rect x="410" y="35" width="680" height="280" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <rect x="410" y="35" width="680" height="48" rx="14" fill="#f1f5f9" />
+    <text x="750" y="68" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#334155">Crow's Foot (Karga Ayağı) Notasyon Kılavuzu</text>
+    <g id="leg-exact-one">
+      <line x1="435" y1="108" x2="475" y2="108" stroke="#334155" stroke-width="3" />
+      <line x1="485" y1="94" x2="485" y2="122" stroke="#0284c7" stroke-width="3" stroke-linecap="round" />
+      <line x1="497" y1="94" x2="497" y2="122" stroke="#0284c7" stroke-width="3" stroke-linecap="round" />
+      <text x="520" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#0f172a">Tam bir (1..1)</text>
+    </g>
+    <g id="leg-opt-one">
+      <line x1="435" y1="155" x2="460" y2="155" stroke="#334155" stroke-width="3" />
+      <circle cx="475" cy="155" r="8" fill="#ffffff" stroke="#0d9488" stroke-width="3" />
+      <line x1="497" y1="141" x2="497" y2="169" stroke="#0d9488" stroke-width="3" stroke-linecap="round" />
+      <text x="520" y="163" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#0f172a">Sıfır ya da bir (0..1)</text>
+    </g>
+    <g id="leg-opt-many">
+      <line x1="435" y1="202" x2="460" y2="202" stroke="#334155" stroke-width="3" />
+      <circle cx="475" cy="202" r="8" fill="#ffffff" stroke="#ea580c" stroke-width="3" />
+      <line x1="485" y1="202" x2="505" y2="188" stroke="#ea580c" stroke-width="3" stroke-linecap="round" />
+      <line x1="485" y1="202" x2="505" y2="216" stroke="#ea580c" stroke-width="3" stroke-linecap="round" />
+      <line x1="485" y1="202" x2="505" y2="202" stroke="#ea580c" stroke-width="3" />
+      <text x="520" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#0f172a">Sıfır ya da çok (0..N)</text>
+    </g>
+    <line x1="430" y1="240" x2="1070" y2="240" stroke="#e2e8f0" stroke-width="2" />
+    <text x="750" y="265" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0284c7">PK: Birincil anahtar</text>
+  </g>
+  <g id="entity-raf" filter="url(#card-shadow-09)">
+    <rect x="50" y="70" width="320" height="205" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <rect x="50" y="70" width="320" height="54" rx="14" fill="#0284c7" />
+    <text x="210" y="106" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">raf</text>
+    <text x="75" y="162" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0284c7">PK: (oda_no, raf_no)</text>
+    <text x="75" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#0369a1">    (Bileşik Anahtar)</text>
+    <text x="75" y="238" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#334155">konu</text>
+  </g>
+  <g id="entity-kitap" filter="url(#card-shadow-09)">
+    <rect x="50" y="385" width="320" height="225" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <rect x="50" y="385" width="320" height="54" rx="14" fill="#0284c7" />
+    <text x="210" y="421" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">kitap</text>
+    <text x="75" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0284c7">PK: demirbas_numarasi</text>
+    <text x="75" y="528" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#334155">baslik</text>
+    <text x="75" y="572" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#334155">yazar</text>
+  </g>
+  <g id="entity-odunc" filter="url(#card-shadow-09)">
+    <rect x="580" y="385" width="340" height="225" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <rect x="580" y="385" width="340" height="54" rx="14" fill="#0284c7" />
+    <text x="750" y="421" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">odunc</text>
+    <text x="605" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0284c7">PK: odunc_id</text>
+    <text x="605" y="528" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#334155">alis_tarihi</text>
+    <text x="605" y="572" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#334155">iade_tarihi</text>
+  </g>
+  <g id="entity-uye" filter="url(#card-shadow-09)">
+    <rect x="1130" y="385" width="320" height="225" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <rect x="1130" y="385" width="320" height="54" rx="14" fill="#0284c7" />
+    <text x="1290" y="421" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">uye</text>
+    <text x="1155" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0284c7">PK: uye_numarasi</text>
+    <text x="1155" y="528" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#334155">ad_soyad</text>
+    <text x="1155" y="572" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#334155">telefon</text>
+  </g>
+  <g id="entity-kart" filter="url(#card-shadow-09)">
+    <rect x="1130" y="70" width="320" height="205" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <rect x="1130" y="70" width="320" height="54" rx="14" fill="#0284c7" />
+    <text x="1290" y="106" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">kutuphane_karti</text>
+    <text x="1155" y="162" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0284c7">PK: kart_numarasi</text>
+    <text x="1155" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#334155">duzenleme_tarihi</text>
+  </g>
+  <g id="link-raf-kitap">
+    <line x1="210" y1="275" x2="210" y2="385" stroke="#334155" stroke-width="3.5" />
+    <line x1="195" y1="292" x2="225" y2="292" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="210" cy="312" r="8" fill="#ffffff" stroke="#0d9488" stroke-width="3" />
+    <circle cx="210" cy="346" r="8" fill="#ffffff" stroke="#ea580c" stroke-width="3" />
+    <line x1="210" y1="360" x2="195" y2="385" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="210" y1="360" x2="225" y2="385" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+  <g id="link-kitap-odunc">
+    <line x1="370" y1="495" x2="580" y2="495" stroke="#334155" stroke-width="3.5" />
+    <line x1="390" y1="480" x2="390" y2="510" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="404" y1="480" x2="404" y2="510" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="538" cy="495" r="8" fill="#ffffff" stroke="#ea580c" stroke-width="3" />
+    <line x1="552" y1="495" x2="580" y2="480" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="552" y1="495" x2="580" y2="510" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+  <g id="link-odunc-uye">
+    <line x1="920" y1="495" x2="1130" y2="495" stroke="#334155" stroke-width="3.5" />
+    <line x1="948" y1="495" x2="920" y2="480" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="948" y1="495" x2="920" y2="510" stroke="#ea580c" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="962" cy="495" r="8" fill="#ffffff" stroke="#ea580c" stroke-width="3" />
+    <line x1="1096" y1="480" x2="1096" y2="510" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="1110" y1="480" x2="1110" y2="510" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+  <g id="link-uye-kart">
+    <line x1="1290" y1="275" x2="1290" y2="385" stroke="#334155" stroke-width="3.5" />
+    <line x1="1275" y1="292" x2="1305" y2="292" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="1290" cy="312" r="8" fill="#ffffff" stroke="#0d9488" stroke-width="3" />
+    <line x1="1275" y1="352" x2="1305" y2="352" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="1275" y1="368" x2="1305" y2="368" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+</svg>

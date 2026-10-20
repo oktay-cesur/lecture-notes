@@ -1,0 +1,33 @@
+/* Draft course diagrams: shared by the article and Reveal.js views. */
+.blp-diagram {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+figure:has(.blp-diagram) {
+  margin: 0.6rem auto;
+  max-width: 100%;
+}
+.reveal .blp-diagram {
+  max-height: 460px;
+  margin: 0 auto;
+}
+.reveal .blp-diagram-compact {
+  max-height: 280px;
+}
+figure:has(.blp-diagram) figcaption {
+  display: none;
+}
+
+/* Give diagrams the article width; Reveal.js keeps its two-column layout. */
+body:not(:has(.reveal)) .columns:has(.blp-diagram) {
+  display: block;
+}
+body:not(:has(.reveal)) .columns:has(.blp-diagram) > .column {
+  width: 100% !important;
+  max-width: 100%;
+  min-width: 0;
+  flex: none;
+}

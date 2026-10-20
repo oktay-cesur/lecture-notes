@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 720" width="100%" height="100%" role="img" style="background-color:#f8fafc; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <title>Dört Tablo ve Referans Bütünlüğü Şeması</title>
+  <desc>ogrenci, kayit, ders ve ogretim_uyesi tabloları arasındaki yabancı anahtar (FK) ilişkileri ve referans bütünlüğü bağlantı haritası.</desc>
+  <defs>
+    <marker id="fk-arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284c7" />
+    </marker>
+    <marker id="fk-arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ea580c" />
+    </marker>
+  </defs>
+
+  <rect width="1500" height="720" fill="#f8fafc" />
+  <text x="750" y="38" font-size="28" font-weight="bold" fill="#0f172a" text-anchor="middle">Dört tablo ve üç yabancı anahtar</text>
+
+
+  <g id="legend">
+    <text x="100" y="78" font-size="26" font-family="sans-serif" fill="#334155" text-anchor="start">PK: Birincil anahtar</text><text x="460" y="78" font-size="26" font-family="sans-serif" fill="#334155" text-anchor="start">FK: Yabancı anahtar</text><text x="900" y="78" font-size="26" font-family="sans-serif" fill="#334155" text-anchor="start">Ok: FK → hedef PK</text></g>
+
+
+  <g id="tablo-ogrenci">
+    <rect x="100" y="110" width="440" height="240" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2" />
+    <rect x="100" y="110" width="440" height="50" rx="10 10 0 0" fill="#0284c7" />
+    <text x="320" y="144" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">ogrenci</text>
+
+    <rect x="100" y="160" width="440" height="48" fill="#f0f9ff" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="115" y="171" width="48" height="26" rx="4" fill="#0284c7" />
+    <text x="139" y="192" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">PK</text>
+    <text x="175" y="193" font-size="24" font-weight="bold" fill="#0369a1">ogrenci_numarasi</text>
+
+    <rect x="100" y="208" width="440" height="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="175" y="239" font-size="24" fill="#334155">ad_soyad</text>
+
+    <rect x="100" y="252" width="440" height="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="175" y="283" font-size="24" fill="#334155">telefon</text>
+
+    </g>
+
+
+  <g id="tablo-kayit">
+    <rect x="100" y="410" width="440" height="270" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2" />
+    <rect x="100" y="410" width="440" height="50" rx="10 10 0 0" fill="#0d9488" />
+    <text x="320" y="444" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">kayit</text>
+
+
+    <rect x="100" y="460" width="440" height="48" fill="#f0fdfa" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="112" y="471" width="44" height="26" rx="4" fill="#0284c7" />
+    <text x="134" y="492" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">PK</text>
+    <rect x="160" y="471" width="44" height="26" rx="4" fill="#f97316" />
+    <text x="182" y="492" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">FK</text>
+    <text x="212" y="493" font-size="24" font-weight="bold" fill="#0f766e">ogrenci_numarasi</text>
+
+
+    <rect x="100" y="508" width="440" height="48" fill="#f0fdfa" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="112" y="519" width="44" height="26" rx="4" fill="#0284c7" />
+    <text x="134" y="540" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">PK</text>
+    <rect x="160" y="519" width="44" height="26" rx="4" fill="#f97316" />
+    <text x="182" y="540" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">FK</text>
+    <text x="212" y="541" font-size="24" font-weight="bold" fill="#0f766e">ders_kodu</text>
+
+
+    <rect x="100" y="556" width="440" height="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="212" y="587" font-size="24" fill="#334155">basari_notu</text>
+
+
+    <path d="M 465 470 L 480 470 L 480 508 L 492 508 L 480 508 L 480 546 L 465 546" fill="none" stroke="#0d9488" stroke-width="2.5" />
+    <text x="320" y="635" font-size="26" font-weight="bold" fill="#0f766e" text-anchor="middle">Tek bileşik PK</text>
+    <text x="320" y="665" font-size="26" fill="#64748b" text-anchor="middle">İki sütun birlikte</text>
+  </g>
+
+
+  <g id="tablo-ders">
+    <rect x="960" y="410" width="440" height="270" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2" />
+    <rect x="960" y="410" width="440" height="50" rx="10 10 0 0" fill="#0284c7" />
+    <text x="1180" y="444" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">ders</text>
+
+
+    <rect x="960" y="460" width="440" height="48" fill="#f0f9ff" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="975" y="471" width="48" height="26" rx="4" fill="#0284c7" />
+    <text x="999" y="492" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">PK</text>
+    <text x="1035" y="493" font-size="24" font-weight="bold" fill="#0369a1">ders_kodu</text>
+
+
+    <rect x="960" y="508" width="440" height="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="1035" y="539" font-size="24" fill="#334155">ders_adi</text>
+
+
+    <rect x="960" y="552" width="440" height="48" fill="#fff7ed" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="975" y="563" width="48" height="26" rx="4" fill="#f97316" />
+    <text x="999" y="584" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">FK</text>
+    <text x="1035" y="585" font-size="24" font-weight="bold" fill="#c2410c">ogretim_uyesi_no</text>
+
+    </g>
+
+
+  <g id="tablo-ogretim-uyesi">
+    <rect x="960" y="110" width="440" height="240" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="2" />
+    <rect x="960" y="110" width="440" height="50" rx="10 10 0 0" fill="#0284c7" />
+    <text x="1180" y="144" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">ogretim_uyesi</text>
+
+    <rect x="960" y="160" width="440" height="48" fill="#f0f9ff" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="975" y="171" width="48" height="26" rx="4" fill="#0284c7" />
+    <text x="999" y="192" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">PK</text>
+    <text x="1035" y="193" font-size="24" font-weight="bold" fill="#0369a1">ogretim_uyesi_no</text>
+
+    <rect x="960" y="208" width="440" height="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="1035" y="239" font-size="24" fill="#334155">ogretim_uyesi_adi</text>
+
+    <rect x="960" y="252" width="440" height="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="1035" y="283" font-size="24" fill="#334155">ogretim_uyesi_bolumu</text>
+
+    </g>
+
+
+  <g id="rel-kayit-ogrenci">
+
+    <path d="M 100 484 L 45 484 L 45 184 L 92 184" stroke="#ea580c" stroke-width="3.5" fill="none" marker-end="url(#fk-arrow-orange)" />
+
+    <text x="35" y="335" font-size="22" font-weight="bold" fill="#c2410c" transform="rotate(-90 35,335)" text-anchor="middle">FK → PK</text>
+  </g>
+
+
+  <g id="rel-kayit-ders">
+
+    <path d="M 540 532 L 740 532 L 740 484 L 950 484" stroke="#0284c7" stroke-width="3.5" fill="none" marker-end="url(#fk-arrow-blue)" />
+
+    </g>
+
+
+  <g id="rel-ders-ogretim-uyesi">
+
+    <path d="M 1400 576 L 1460 576 L 1460 184 L 1408 184" stroke="#ea580c" stroke-width="3.5" fill="none" marker-end="url(#fk-arrow-orange)" />
+
+    <text x="1475" y="370" font-size="22" font-weight="bold" fill="#c2410c" transform="rotate(90 1475,370)" text-anchor="middle">FK → PK</text>
+  </g>
+
+
+  </svg>

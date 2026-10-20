@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" role="img" aria-labelledby="title-odunc desc-odunc">
+  <title id="title-odunc">Ödünç Tablosunun Üye ve Kitap Bağları</title>
+  <desc id="desc-odunc">Üç tabloluk SQL betiğinin uye, odunc ve kitap sütunları. Ödünç tablosunun iki yabancı anahtarı, üye ve kitap tablolarının birincil anahtarlarına gider.</desc>
+  <defs>
+    <marker id="fk-arrow-blue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 Z" fill="#0284c7" />
+    </marker>
+    <marker id="fk-arrow-teal" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 Z" fill="#0d9488" />
+    </marker>
+    <filter id="card-drop-shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <rect width="1500" height="650" fill="#f8fafc" />
+  <text x="60" y="46" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">Ödünç tablosu: iki yabancı anahtar</text>
+  <text x="960" y="46" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" fill="#475569">Yabancı anahtarlar çok tarafındadır.</text>
+  <g id="table-uye" transform="translate(60, 80)" filter="url(#card-drop-shadow)">
+    <rect width="370" height="430" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <path d="M 0 12 Q 0 0 12 0 L 358 0 Q 370 0 370 12 L 370 65 L 0 65 Z" fill="#1e293b" />
+    <text x="24" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">uye</text>
+    <text x="85" y="43" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#94a3b8">(1 Tarafı)</text>
+    <rect x="1" y="65" width="368" height="80" fill="#f0f9ff" />
+    <line x1="0" y1="145" x2="370" y2="145" stroke="#bae6fd" stroke-width="2" />
+    <rect x="20" y="87" width="55" height="36" rx="6" fill="#0284c7" />
+    <text x="32" y="113" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">PK</text>
+    <text x="90" y="114" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0369a1">uye_numarasi</text>
+    <line x1="0" y1="230" x2="370" y2="230" stroke="#e2e8f0" stroke-width="1.5" />
+    <text x="24" y="194" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#334155">ad_soyad</text>
+    <text x="24" y="282" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#334155">eposta</text>
+    <line x1="0" y1="320" x2="370" y2="320" stroke="#e2e8f0" stroke-width="1.5" />
+    <text x="24" y="374" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#334155">kayit_tarihi</text>
+  </g>
+  <g id="table-odunc" transform="translate(525, 75)" filter="url(#card-drop-shadow)">
+    <rect width="450" height="435" rx="12" fill="#ffffff" stroke="#0284c7" stroke-width="2.5" />
+    <path d="M 0 12 Q 0 0 12 0 L 438 0 Q 450 0 450 12 L 450 65 L 0 65 Z" fill="#0284c7" />
+    <text x="24" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">odunc</text>
+    <text x="115" y="43" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#e0f2fe">(Çok / N Tarafı)</text>
+    <rect x="1" y="65" width="448" height="72" fill="#f8fafc" />
+    <line x1="0" y1="137" x2="450" y2="137" stroke="#e2e8f0" stroke-width="1.5" />
+    <rect x="20" y="83" width="55" height="36" rx="6" fill="#0f172a" />
+    <text x="32" y="109" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">PK</text>
+    <text x="90" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f172a">odunc_id</text>
+    <rect x="1" y="137" width="448" height="74" fill="#f0f9ff" />
+    <line x1="0" y1="211" x2="450" y2="211" stroke="#bae6fd" stroke-width="2" />
+    <rect x="20" y="156" width="55" height="36" rx="6" fill="#0284c7" />
+    <text x="33" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">FK</text>
+    <text x="90" y="183" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0369a1">uye_numarasi</text>
+    <rect x="1" y="211" width="448" height="74" fill="#f0fdfa" />
+    <line x1="0" y1="285" x2="450" y2="285" stroke="#ccfbf1" stroke-width="2" />
+    <rect x="20" y="230" width="55" height="36" rx="6" fill="#0d9488" />
+    <text x="33" y="256" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">FK</text>
+    <text x="90" y="257" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0f766e">demirbas_numarasi</text>
+    <line x1="0" y1="358" x2="450" y2="358" stroke="#e2e8f0" stroke-width="1.5" />
+    <text x="24" y="329" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#334155">alis_tarihi</text>
+    <text x="24" y="404" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#334155">iade_tarihi</text>
+  </g>
+  <g id="table-kitap" transform="translate(1070, 75)" filter="url(#card-drop-shadow)">
+    <rect width="370" height="287" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <path d="M 0 12 Q 0 0 12 0 L 358 0 Q 370 0 370 12 L 370 65 L 0 65 Z" fill="#1e293b" />
+    <text x="24" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">kitap</text>
+    <text x="95" y="43" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#94a3b8">(1 Tarafı)</text>
+    <rect x="1" y="65" width="368" height="74" fill="#f0fdfa" />
+    <line x1="0" y1="139" x2="370" y2="139" stroke="#ccfbf1" stroke-width="2" />
+    <rect x="20" y="84" width="55" height="36" rx="6" fill="#0d9488" />
+    <text x="32" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">PK</text>
+    <text x="90" y="111" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0f766e">demirbas_numarasi</text>
+    <line x1="0" y1="213" x2="370" y2="213" stroke="#e2e8f0" stroke-width="1.5" />
+    <text x="24" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#334155">baslik</text>
+    <line x1="0" y1="287" x2="370" y2="287" stroke="#e2e8f0" stroke-width="1.5" />
+    <text x="24" y="256" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#334155">yazar</text>
+  </g>
+  <g id="fk-rel-uye">
+    <path d="M 525 249 L 430 186" fill="none" stroke="#0284c7" stroke-width="3.5" marker-end="url(#fk-arrow-blue)" />
+    </g>
+  <g id="fk-rel-kitap">
+    <path d="M 975 323 L 1070 186" fill="none" stroke="#0d9488" stroke-width="3.5" marker-end="url(#fk-arrow-teal)" />
+    </g>
+  <g id="legend" transform="translate(60, 535)" filter="url(#card-drop-shadow)">
+    <rect width="1380" height="90" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="24" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0f172a">Lejant:</text>
+    <rect x="120" y="18" width="48" height="32" rx="6" fill="#0f172a" />
+    <text x="131" y="41" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">PK</text>
+    <text x="178" y="41" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#334155">Birincil Anahtar</text>
+    <rect x="350" y="18" width="48" height="32" rx="6" fill="#0284c7" />
+    <text x="361" y="41" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">FK</text>
+    <text x="408" y="41" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#334155">Yabancı anahtar; ok hedef PK’ye gider.</text>
+    </g>
+</svg>

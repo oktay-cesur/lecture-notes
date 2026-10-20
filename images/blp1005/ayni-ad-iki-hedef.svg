@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" role="img" aria-labelledby="title-04 desc-04">
+  <title id="title-04">Aynı Ad İki Farklı Hedef</title>
+  <desc id="desc-04">Can Demir adına gelen güncelleme isteğinin aynı adı taşıyan iki farklı satırla eşleşmesini ve ortaya çıkan hedef belirsizliğini gösteren şema.</desc>
+  <defs>
+    <marker id="arrow-orange" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 2 L 10 6 L 1 10 z" fill="#ea580c" />
+    </marker>
+    <filter id="card-shadow" x="-4%" y="-4%" width="108%" height="112%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+  <rect width="1500" height="650" fill="#f8fafc" />
+  <text x="750" y="58" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="bold" fill="#0f172a">Aynı Ad İki Farklı Satıra Uyabilir</text>
+  <g filter="url(#card-shadow)">
+    <rect x="80" y="180" width="430" height="320" rx="16" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <rect x="80" y="180" width="430" height="64" rx="16" fill="#e0f2fe" />
+    <text x="295" y="222" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0369a1">Gelen Güncelleme İsteği</text>
+    <text x="110" y="285" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f172a">“Can Demir’in telefonunu</text>
+    <text x="110" y="322" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f172a">değiştir”</text>
+    <line x1="110" y1="355" x2="480" y2="355" stroke="#e2e8f0" stroke-width="2" />
+    <text x="110" y="395" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#64748b">Arama Ölçütü:</text>
+    <rect x="110" y="415" width="370" height="55" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="295" y="451" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0284c7">Adı: Can Demir</text>
+  </g>
+  <path d="M 510 320 C 580 320, 610 260, 690 260" fill="none" stroke="#ea580c" stroke-width="4" stroke-dasharray="8,6" marker-end="url(#arrow-orange)" />
+  <path d="M 510 360 C 580 360, 610 420, 690 420" fill="none" stroke="#ea580c" stroke-width="4" stroke-dasharray="8,6" marker-end="url(#arrow-orange)" />
+  <g filter="url(#card-shadow)">
+    <rect x="545" y="316" width="130" height="48" rx="24" fill="#ffedd5" stroke="#ea580c" stroke-width="2.5" />
+    <text x="610" y="348" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#c2410c">2 Eşleşme</text>
+  </g>
+  <g filter="url(#card-shadow)">
+    <rect x="700" y="145" width="720" height="375" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <rect x="700" y="145" width="720" height="60" rx="16" fill="#f1f5f9" />
+    <text x="825" y="183" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#334155">ad_soyad</text>
+    <text x="1045" y="183" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#334155">telefon</text>
+    <text x="1275" y="183" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#334155">kayit_tarihi</text>
+    <rect x="715" y="215" width="690" height="130" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2" />
+    <rect x="730" y="228" width="135" height="34" rx="6" fill="#fed7aa" />
+    <text x="797" y="252" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#9a3412">1. Satır (10 Eyl)</text>
+    <text x="825" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#c2410c">Can Demir</text>
+    <text x="1045" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#0f172a">05551112233</text>
+    <text x="1275" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#0f172a">2026-09-10</text>
+    <rect x="715" y="365" width="690" height="130" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2" />
+    <rect x="730" y="378" width="135" height="34" rx="6" fill="#fed7aa" />
+    <text x="797" y="402" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#9a3412">2. Satır (13 Eyl)</text>
+    <text x="825" y="455" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#c2410c">Can Demir</text>
+    <text x="1045" y="455" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#0f172a">05559998877</text>
+    <text x="1275" y="455" font-family="system-ui, -apple-system, sans-serif" font-size="25" fill="#0f172a">2026-09-13</text>
+  </g>
+  </svg>

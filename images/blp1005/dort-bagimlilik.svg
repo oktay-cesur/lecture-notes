@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" role="img" aria-labelledby="title-bagimlilik desc-bagimlilik">
+  <title id="title-bagimlilik">Dört İş Kuralı ve Fonksiyonel Bağımlılıklar</title>
+  <desc id="desc-bagimlilik">Kurum iş kurallarından çıkarılan dört fonksiyonel bağımlılığı; belirleyen ve belirlenen nitelikleri yatay düzende gösteren diyagram.</desc>
+  <defs>
+    <marker id="dep-arrow-blue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 Z" fill="#0284c7" />
+    </marker>
+    <filter id="dep-shadow" x="-3%" y="-5%" width="106%" height="112%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+  <rect width="1500" height="650" fill="#f8fafc" />
+  <text x="60" y="42" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">Dört İş Kuralı, Dört Bağımlılık</text>
+  <text x="160" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="bold" fill="#0369a1">Belirleyen Nitelik(ler)</text>
+  <text x="750" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="bold" fill="#0f766e">Belirlenen Nitelik(ler)</text>
+  <g id="row-1" transform="translate(60, 90)" filter="url(#dep-shadow)">
+    <rect width="1380" height="112" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="18" y="18" width="50" height="76" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+    <text x="43" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="bold" fill="#0369a1" text-anchor="middle">1</text>
+    <rect x="90" y="20" width="440" height="72" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="2" />
+    <text x="310" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0369a1" text-anchor="middle">ogrenci_numarasi</text>
+    <line x1="550" y1="56" x2="665" y2="56" stroke="#0284c7" stroke-width="4" marker-end="url(#dep-arrow-blue)" />
+    <text x="605" y="46" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0284c7" text-anchor="middle">belirler</text>
+    <rect x="690" y="20" width="320" height="72" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+    <text x="850" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f766e" text-anchor="middle">ad_soyad</text>
+    <rect x="1035" y="20" width="320" height="72" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+    <text x="1195" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f766e" text-anchor="middle">telefon</text>
+  </g>
+  <g id="row-2" transform="translate(60, 222)" filter="url(#dep-shadow)">
+    <rect width="1380" height="112" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="18" y="18" width="50" height="76" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+    <text x="43" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="bold" fill="#0369a1" text-anchor="middle">2</text>
+    <rect x="90" y="20" width="440" height="72" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="2" />
+    <text x="310" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0369a1" text-anchor="middle">ders_kodu</text>
+    <line x1="550" y1="56" x2="665" y2="56" stroke="#0284c7" stroke-width="4" marker-end="url(#dep-arrow-blue)" />
+    <text x="605" y="46" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0284c7" text-anchor="middle">belirler</text>
+    <rect x="690" y="20" width="320" height="72" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+    <text x="850" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f766e" text-anchor="middle">ders_adi</text>
+    <rect x="1035" y="20" width="320" height="72" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+    <text x="1195" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f766e" text-anchor="middle">ogretim_uyesi_no</text>
+  </g>
+  <g id="row-3" transform="translate(60, 354)" filter="url(#dep-shadow)">
+    <rect width="1380" height="112" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="18" y="18" width="50" height="76" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+    <text x="43" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="bold" fill="#0369a1" text-anchor="middle">3</text>
+    <rect x="90" y="20" width="440" height="72" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="2" />
+    <text x="310" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0369a1" text-anchor="middle">ogretim_uyesi_no</text>
+    <line x1="550" y1="56" x2="665" y2="56" stroke="#0284c7" stroke-width="4" marker-end="url(#dep-arrow-blue)" />
+    <text x="605" y="46" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0284c7" text-anchor="middle">belirler</text>
+    <rect x="690" y="20" width="320" height="72" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+    <text x="850" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="bold" fill="#0f766e" text-anchor="middle">ogretim_uyesi_adi</text>
+    <rect x="1035" y="20" width="320" height="72" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+    <text x="1195" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#0f766e" text-anchor="middle">ogretim_uyesi_bolumu</text>
+  </g>
+  <g id="row-4" transform="translate(60, 486)" filter="url(#dep-shadow)">
+    <rect width="1380" height="135" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="18" y="28" width="50" height="80" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+    <text x="43" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="bold" fill="#0369a1" text-anchor="middle">4</text>
+    <g id="grouped-determinant">
+      <rect x="90" y="16" width="440" height="103" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2.5" />
+      <text x="310" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0369a1" text-anchor="middle">(Birlikte Belirleyen Grup)</text>
+      <rect x="105" y="52" width="235" height="54" rx="6" fill="#ffffff" stroke="#0284c7" stroke-width="1.5" />
+      <text x="222" y="87" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0369a1" text-anchor="middle">ogrenci_numarasi</text>
+      <text x="352" y="88" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0284c7" text-anchor="middle">,</text>
+      <rect x="365" y="52" width="150" height="54" rx="6" fill="#ffffff" stroke="#0284c7" stroke-width="1.5" />
+      <text x="440" y="87" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0369a1" text-anchor="middle">ders_kodu</text>
+    </g>
+    <line x1="550" y1="68" x2="665" y2="68" stroke="#0284c7" stroke-width="4" marker-end="url(#dep-arrow-blue)" />
+    <text x="605" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0284c7" text-anchor="middle">belirler</text>
+    <rect x="690" y="32" width="320" height="72" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+    <text x="850" y="77" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f766e" text-anchor="middle">basari_notu</text>
+    <text x="1035" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#475569">Yalnız öğrenci veya ders yetmez.</text>
+    <text x="1035" y="92" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#475569">bilinemez; ikisi birlikte belirler.</text>
+  </g>
+</svg>

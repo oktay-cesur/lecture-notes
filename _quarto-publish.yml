@@ -10,6 +10,20 @@ project:
     - konu-yazilari.md
     - "courses/bim444/**/*.md"
     - "courses/bim444/**/*.qmd"
+    - "courses/blp1005/crs-blp1005.md"
+    - "courses/blp1005/notes/tp_veritabani-ihtiyaci.md"
+    - "courses/blp1005/notes/tp_birincil-anahtar-giris.md"
+    - "courses/blp1005/notes/tp_varlik-nitelik-ve-anahtar.md"
+    - "courses/blp1005/notes/tp_iliskiler-ve-er-diyagrami.md"
+    - "courses/blp1005/notes/tp_er-modelinden-tablolara.md"
+    - "courses/blp1005/notes/tp_anomaliler-ve-fonksiyonel-bagimlilik.md"
+    - "courses/blp1005/notes/tp_birinci-ve-ikinci-normal-form.md"
+    - "courses/blp1005/notes/tp_ucuncu-normal-form-ve-kayipsizlik.md"
+    - "courses/blp1005/notes/tp_mysql-baglanti-ve-calisma-ortami.md"
+    - "courses/blp1005/notes/tp_betik-calistirma-ve-hata-inceleme.md"
+    - "courses/blp1005/notes/tp_tasarimdan-ilk-tabloya.md"
+    - "courses/blp1005/notes/tp_sutun-ve-anahtar-kisitlari.md"
+    - "courses/blp1005/notes/tp_iliskili-semayi-kurma-ve-dogrulama.md"
     - "courses/blp1003/**/*.md"
     - "courses/blp1003/**/*.qmd"
     - "courses/bgt201/**/*.md"
@@ -183,6 +197,34 @@ website:
             - courses/blp1003/notes/tp_yonlendirme-ve-varsayilan-ag-gecidi.md
             - courses/blp1003/notes/tp_kablosuz-aglar-ve-guvenlik.md
             - courses/blp1003/notes/tp_temel-guvenlik-nat-ve-butunlesik-ag.md
+    - id: blp1005
+      title: "BLP 1005 Veritabanı Yönetim Sistemleri"
+      style: docked
+      contents:
+        - courses/blp1005/crs-blp1005.md
+        - section: "Temel Kavramlar ve Anahtar"
+          contents:
+            - courses/blp1005/notes/tp_veritabani-ihtiyaci.md
+            - courses/blp1005/notes/tp_birincil-anahtar-giris.md
+        - section: "Varlıklar ve İlişkiler"
+          contents:
+            - courses/blp1005/notes/tp_varlik-nitelik-ve-anahtar.md
+            - courses/blp1005/notes/tp_iliskiler-ve-er-diyagrami.md
+            - courses/blp1005/notes/tp_er-modelinden-tablolara.md
+        - section: "Normalizasyon"
+          contents:
+            - courses/blp1005/notes/tp_anomaliler-ve-fonksiyonel-bagimlilik.md
+            - courses/blp1005/notes/tp_birinci-ve-ikinci-normal-form.md
+            - courses/blp1005/notes/tp_ucuncu-normal-form-ve-kayipsizlik.md
+        - section: "MySQL Çalışma Ortamı"
+          contents:
+            - courses/blp1005/notes/tp_mysql-baglanti-ve-calisma-ortami.md
+            - courses/blp1005/notes/tp_betik-calistirma-ve-hata-inceleme.md
+        - section: "Tablo ve İlişkili Şema Kurma"
+          contents:
+            - courses/blp1005/notes/tp_tasarimdan-ilk-tabloya.md
+            - courses/blp1005/notes/tp_sutun-ve-anahtar-kisitlari.md
+            - courses/blp1005/notes/tp_iliskili-semayi-kurma-ve-dogrulama.md
     - id: bgt201
       title: "BGT 201 Bilgi Güvenliği Yönetimi I"
       style: docked

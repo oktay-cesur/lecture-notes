@@ -1,0 +1,55 @@
+/* Kayıt defteri: sayfada kaydırılır, sunumda bütün sütunlarıyla gösterilir. */
+.blp-record-table {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  margin: 0.75em 0;
+}
+
+.blp-record-table table {
+  width: 100%;
+  min-width: 64rem;
+  table-layout: fixed;
+  margin: 0;
+}
+
+.blp-record-table th,
+.blp-record-table td {
+  white-space: normal;
+  overflow-wrap: break-word;
+  vertical-align: top;
+}
+
+.blp-record-table :is(col, th):nth-child(1) { width: 7% !important; }
+.blp-record-table :is(col, th):nth-child(2) { width: 11% !important; }
+.blp-record-table :is(col, th):nth-child(3) { width: 12% !important; }
+.blp-record-table :is(col, th):nth-child(4) { width: 9% !important; }
+.blp-record-table :is(col, th):nth-child(5) { width: 15% !important; }
+.blp-record-table :is(col, th):nth-child(6) { width: 8% !important; }
+.blp-record-table :is(col, th):nth-child(7) { width: 14% !important; }
+.blp-record-table :is(col, th):nth-child(8) { width: 19% !important; }
+.blp-record-table :is(col, th):nth-child(9) { width: 5% !important; }
+
+.blp-record-table td:nth-child(1),
+.blp-record-table td:nth-child(3),
+.blp-record-table td:nth-child(4),
+.blp-record-table td:nth-child(6),
+.blp-record-table td:nth-child(9) {
+  white-space: nowrap;
+}
+
+.reveal .blp-record-table {
+  overflow-x: visible;
+}
+
+.reveal .blp-record-table table {
+  min-width: 0;
+  font-size: 0.65em;
+  line-height: 1.25;
+}
+
+.reveal .blp-record-table th,
+.reveal .blp-record-table td {
+  padding: 0.3em;
+}

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" role="img" aria-labelledby="title-yetim desc-yetim">
+  <title id="title-yetim">Yetim Kayıt ve Referans Bütünlüğü İhlali</title>
+  <desc id="desc-yetim">odunc tablosuna eklenmek istenen aday satırdaki 999 numaralı yabancı anahtarın uye tablosunda bulunmaması nedeniyle oluşan yetim kayıt durumu ve işlemin reddedilmesi.</desc>
+  <defs>
+    <marker id="arrow-orange-down" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 Z" fill="#ea580c" />
+    </marker>
+    <filter id="card-shadow-yetim" x="-4%" y="-5%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.07" />
+    </filter>
+  </defs>
+  <rect width="1500" height="650" fill="#f8fafc" />
+  <text x="60" y="46" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">Yabancı Anahtar Yanlış Değer Taşırsa: Yetim Kayıt</text>
+  <rect x="920" y="16" width="520" height="46" rx="8" fill="#fee2e2" stroke="#ea580c" stroke-width="2" />
+  <text x="940" y="47" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="bold" fill="#c2410c">Aday satır: FK kısıtı varsa reddedilir</text>
+  <g id="candidate-card" transform="translate(60, 80)" filter="url(#card-shadow-yetim)">
+    <rect width="1380" height="155" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <path d="M 0 12 Q 0 0 12 0 L 1368 0 Q 1380 0 1380 12 L 1380 50 L 0 50 Z" fill="#0284c7" />
+    <text x="24" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">odunc Tablosu — Eklenmek İstenen Aday Satır</text>
+    <g transform="translate(24, 60)">
+      <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#64748b">odunc_id (PK)</text>
+      <rect x="0" y="34" width="210" height="50" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="105" y="69" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f172a" text-anchor="middle">4</text>
+    </g>
+    <g transform="translate(254, 60)">
+      <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#ea580c">uye_numarasi (FK)</text>
+      <rect x="0" y="34" width="250" height="50" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5" />
+      <text x="125" y="69" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#c2410c" text-anchor="middle">999</text>
+    </g>
+    <g transform="translate(524, 60)">
+      <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#64748b">demirbas_numarasi (FK)</text>
+      <rect x="0" y="34" width="270" height="50" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="135" y="69" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#0f172a" text-anchor="middle">K-101</text>
+    </g>
+    <g transform="translate(814, 60)">
+      <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#64748b">alis_tarihi</text>
+      <rect x="0" y="34" width="260" height="50" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="130" y="69" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#0f172a" text-anchor="middle">2026-10-20</text>
+    </g>
+    <g transform="translate(1094, 60)">
+      <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#64748b">iade_tarihi</text>
+      <rect x="0" y="34" width="260" height="50" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="130" y="69" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#94a3b8" font-style="italic" text-anchor="middle">boş</text>
+    </g>
+  </g>
+  <path d="M 439 225 L 439 495" fill="none" stroke="#ea580c" stroke-width="3.5" stroke-dasharray="8 6" marker-end="url(#arrow-orange-down)" />
+  <g id="table-target-uye" transform="translate(60, 280)" filter="url(#card-shadow-yetim)">
+    <rect width="740" height="330" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+    <path d="M 0 12 Q 0 0 12 0 L 728 0 Q 740 0 740 12 L 740 50 L 0 50 Z" fill="#1e293b" />
+    <text x="24" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="bold" fill="#ffffff">Hedef Tablo: uye</text>
+    <text x="260" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#94a3b8">(Sistemde kayıtlı üyeler)</text>
+    <g transform="translate(24, 68)">
+      <rect width="170" height="55" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" />
+      <text x="85" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#166534" text-anchor="middle">201</text>
+      <text x="205" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#334155">Mevcut Üye Kaydı ✓</text>
+    </g>
+    <line x1="24" y1="140" x2="716" y2="140" stroke="#f1f5f9" stroke-width="2" />
+    <g transform="translate(24, 150)">
+      <rect width="170" height="55" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" />
+      <text x="85" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#166534" text-anchor="middle">202</text>
+      <text x="205" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#334155">Mevcut Üye Kaydı ✓</text>
+    </g>
+    <g transform="translate(24, 222)">
+      <rect width="692" height="85" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="6 4" />
+      <rect x="15" y="16" width="140" height="52" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2" />
+      <text x="85" y="51" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#dc2626" text-anchor="middle">999</text>
+      <rect x="180" y="16" width="180" height="52" rx="8" fill="#ea580c" />
+      <text x="270" y="51" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">Hedef yok</text>
+      <text x="385" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#c2410c">Üye tablosunda 999 yok!</text>
+    </g>
+  </g>
+  <g id="definition-card" transform="translate(830, 280)" filter="url(#card-shadow-yetim)">
+    <text x="80" y="120" font-size="36" font-family="sans-serif" fill="#c2410c" text-anchor="start">999 → Hedef yok</text><text x="80" y="180" font-size="28" font-family="sans-serif" fill="#334155" text-anchor="start">Kayıtlı üyeler: 201 ve 202</text><text x="80" y="240" font-size="28" font-family="sans-serif" fill="#334155" text-anchor="start">Bu aday satır kime ait?</text></g>
+</svg>
