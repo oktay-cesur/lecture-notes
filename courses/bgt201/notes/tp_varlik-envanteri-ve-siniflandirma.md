@@ -3,703 +3,580 @@ title: "Varlık Envanteri ve Sınıflandırma"
 subtitle: "BGT 201 — Bilgi Güvenliği Yönetimi I"
 type: presentation
 author: "Öğr. Gör. Oktay Cesur"
-date: today
+date: 2026-10-21
 execute:
   echo: false
 ---
 
-## Varlık envanteri ve sınıflandırma
+## Koridordaki yazıcı bozuldu: kim bakacak?
 
-Tanpınar'ın evrakı bir arşivde duruyordu. **Vardı; fakat bulunması ve incelenmesi ayrı bir sorundu.**
+Sekreterlik servis çağıracak. Koridorda iki yazıcı var.
 
-> Bir belgeyi bulabilmek için belgenin dışında hangi bilgilere ihtiyaç var?
+- Bozulan hangisi, hangi birimin?
+- Bakımından kim sorumlu?
+- Neler basılıyor, çıktıları kimler alıyor?
+- Çalışmazsa hangi iş aksıyor?
 
 ::: {.notes}
-Kaynak sunuda evrakın başka belgelerle karışması veya arşivden hiç çıkmaması olasılıkları anlatılır; arşivde hangi kayıtların tutulduğuna dair bilgi verilmez. Buradaki soru bu olasılıklardan çıkarımdır: belgenin kimliği, konumu, onu kullanma kararı verecek kişi ve iş açısından önemi bilinirse bulunabilirlik artar. “Evrak kayıtsızdı” gibi bir tarihsel iddia çıkarılamaz. (BGT 201 ders sunumu 1, s. 8–10.)
+Bu kurgusal olayda soruların cevabını bilen çalışan izindedir; bilgiler bir yerde yazılı değildir. Servis çağırmak için bile önce cihazı ayırt etmek ve sorumlusunu bulmak gerekir. Basılan evrakları bilmek ise arızanın hangi işi aksattığını ve çıktılarda hangi bilginin bulunduğunu anlamayı sağlar. Aynı sorun bir bilgisayar, arşiv dolabı veya sözleşme dosyasında da çıkabilir. Korunacak şeyi tanımak, yerini ve sorumlusunu bilmek güvenlikle ilgili kararların başlangıcıdır. Örnekler ders içi çalışmalardan uyarlanmıştır; kurum, konum ve rol ayrıntıları eğitim amacıyla kurgulanmıştır.
 :::
 
 ---
 
-## Hangi kayıt eksik?
+## Varlık nedir?
 
-| Soru | Kayıtta aranacak bilgi |
-|---|---|
-| Ne? | Kimlik ve iş amacı |
-| Nerede? | Asıl, kopya ve konum |
-| Kim? | Karar sahibi, uygulayıcı, kullanıcı |
-| Neden korunur? | Zararın üç ayrı etkisi |
+**Varlık**, bilgi güvenliği açısından korunacak bilgi veya kurumun yürüttüğü işlerle ve sunduğu hizmetlerle ilişkili değer taşıyan unsurdur.
 
-**Varlık envanteri:** Bu soruları iş için kullanılan bilgi ve unsurlar hakkında birlikte yanıtlayan kayıt.
+- Yazıcı bozulursa çıktı alınamaz.
+- Yoklama listesi kaybolursa devam durumu belirlenemez.
+- Satın alma bedeli ile güvenlik önemi ayrı ölçülerdir.
 
 ::: {.notes}
-Yalnız “arşiv dolabı var” yazmak, 17 numaralı dosyanın hangi rafta olduğu veya dolabı açmaya kimin karar vereceği sorusunu çözmez. Envanter satırı, nesnenin adından karara kadar izlenebilir bir yol kurar. Kayda girmeyen bir unsurun etkisi de gözden kaçabilir. Envanterin kaydetme, sınıflandırma, etiketleme ve izleme işlevi ders sunumunda yer alır. (BGT 201 ders sunumu 2, s. 23.)
+Birkaç sayfalık yoklama listesinin satın alma bedeli olmayabilir. Buna rağmen kaybolması öğrencilerin devam durumuyla ilgili kararları etkiler. Bir cihazın pahalı olması da hangi bilgiyi veya işi desteklediğini açıklamaz. Varlık belirlerken kurumun ne yaptığını ve bunun için ne kullandığını sorarız. Bu yaklaşım cihazların yanında bilgiyi, yazılımı ve hizmeti de görmemizi sağlar. Koruma ihtiyacının gerekçesi, ilgili varlığın zarar görmesinin iş üzerindeki sonucudur.
 :::
 
 ---
 
-## Başvuru Kayıt Birimi
+## Bilgisayarın yanında neler varlık sayılır?
 
-Eylülde **48 başvuru**: alma → değerlendirme → sonuç yazısını adaya gönderme.
+**Tür**, varlığın ne çeşit bir unsur olduğunu gösteren kategoridir.
 
-| Kod | Görev |
-|---|---|
-| A | Birim yöneticisi; sonucu ve bilgi kullanımını onaylar |
-| B, C | Dosyayı değerlendirir, yazıyı hazırlar ve gönderir |
-| D | Kâğıdı tarar ve dosyalar; arşivin tek anahtarı ondadır |
-| Bİ | Uygulama, kurum e-postası ve web sayfasını işletir |
-| Dış BT | Ortak dosya alanını, izinleri ve yedeği işletir |
-
-::: {.notes}
-Vaka ve sayılar kurgusaldır. Aynı kişiler farklı varlıklarda farklı görev üstlenir: A iş kararını verirken Bİ uygulamayı çalıştırır; D'nin tek anahtara sahip olması fiziksel erişimi kişiye bağımlı kılar. Rol kodları, sonraki satırlardaki “kim?” sorusunu kısa ve tutarlı yanıtlamak içindir.
-:::
-
----
-
-## Dört aday varlık: bilgi ve uygulama
-
-| Kimlik | Aday | Olgular |
+| Anlaşılır örnek | Tür | İşle ilişkisi |
 |---|---|---|
-| V-01 | Aday başvuru dosyaları | 48 dosya: kimlik, iletişim, başvuru türü, ekler, değerlendirme notu, sonuç yazısı kopyası. Asıllar dolapta; taramalar “Başvurular” klasöründe; B'nin masaüstünde 3 ek kopya. B/C değerlendirir, D tarar, A onaylar. |
-| V-02 | Başvuru Takip Uygulaması | Kurum içi web uygulaması: no, ad, tür, atanan görevli, durum, sonuç gönderim tarihi. Kimlik no, iletişim ve değerlendirme notu yok. Bİ işletir; hesabı A onaylar. Sonuç haftasında dosyanın kimde olduğu yalnız burada izlenir. |
+| Yazıcı, eğitmen bilgisayarı | Donanım | Çıktı ve ders hazırlığı |
+| Kâğıt iş sözleşmesi, yoklama listesi, log | Bilgi | Koşulları, devamı ve olayları kaydetme |
+| İşletim sistemi, dosya sunucusu yazılımı | Yazılım ve sistem | Bilgiyi işleme ve paylaşma |
+| Öğrenci belge taleplerini yanıtlama | Hizmet | Öğrenciye belge ulaştırma |
+| UPS ve jeneratör | Altyapı ve destek | Elektrik kesintisinde çalışma |
+| Arşivin düzenini bilen çalışan | İnsan ve iş bilgisi | Aranan belgeye ulaşma |
 
 ::: {.notes}
-Bu olgular sınıf ve etki kararı değildir; kararları olgulardan çıkaracağız. V-01'in birden fazla taşıyıcısı var. V-02'nin alanlarını sınırlandırmak gizlilik etkisini değerlendirirken gereklidir; uygulama bütün başvuru dosyasını tutmaz. Her iki adayın işteki rolü ve dayandığı düzen farklıdır.
+Log, sistemde gerçekleşen olayları kaydeden günlük bilgisidir; bir olayın ardından ne olduğunu anlamaya yardım eder. Kâğıt sözleşme de bilgi taşır ve yetkisiz kişilere görünmesi sorun yaratabilir. Varlığı yalnız ekranı veya satın alma faturası olan şeylerle sınırlarsak bu kayıtlar gözden kaçar. Yazıcı bakımını yapan dış firma da hizmet sağlayıcı olarak işle ilişkilidir. Türler burada kullanılan çalışma ayrımıdır; kurumlar başka kategoriler seçebilir. Ders kaynaklarında insan kaynakları, hizmetler ve süreçler de varlık türleri arasında yer alır.
 :::
 
 ---
 
-## Dört aday varlık: hizmet ve destek
+## Bilgi ile onu taşıyan ve işleyen unsurları ayırın
 
-| Kimlik | Aday | Olgular |
-|---|---|---|
-| V-03 | Sonuç bildirimi hizmeti | A onaylar; B/C yazıyı kurum e-postasından gönderir, tarihi V-02'ye işler. İlan edilen gün önemlidir. Yanlış kişiye gönderim yaşanmıştır. |
-| V-04 | Kâğıt arşiv düzeni | Kilitli dolap ve numara sıralı raflar. Anahtar yalnız D'de. D izindeyken asıllara erişilemez. 20 talebin 5'inde belge yanlış rafta olduğu için bulunamamıştır. |
+**Bilgi varlığı**, korunan içeriğin kendisidir: sözleşme, yoklama listesi, log.
+
+**İlişkili unsurlar**, bilgiyi taşıyan, işleyen veya ulaştıran şeylerdir: bilgisayar, yazıcı, yazılım, dolap ve hizmet.
+
+Hizmet sunarken kullanılan kayıtlar bilgi varlığıdır; hizmetin yürütülmesi ise bilgiyle ilişkili unsurlar arasındadır. Çalışanın iş bilgisi korunan içerik, bu bilgiyi kullanan çalışan ise ilişkili insan unsurudur.
+
+Yoklama bilgisi → bilgisayarda hazırlanır → yazıcıdan çıkar → arşivde saklanır.
 
 ::: {.notes}
-V-03 bir yazılım adı değil, adaya ulaşan işin tamamıdır. V-04'ün dosya içeriğiyle karıştırılmaması gerekir; dolap, raf ve anahtar dosyaların fiziksel kullanımını sağlar. Beş bulunamayan belge, belgenin mutlaka yok olduğunu söylemez; kaydın ve düzenin işlevini gösterir. Sonuç gününü kaçırmanın etkisi ile raf hatasının etkisi ayrıca değerlendirilecektir.
+Bilginin korunması onu destekleyen unsurların çalışmasına da bağlıdır. Arşiv dolabı açılamıyorsa içerik sağlam olsa bile kâğıda ulaşılamaz; bilgisayar çalışmıyorsa liste hazırlanamayabilir. Bu nedenle içeriği ve ilişkili unsurları birlikte tanırız. İnsan ve iş bilgisi ayrı satırda veya ilgili işin ihtiyaçları arasında gösterilebilir. İtibar kimi kaynaklarda soyut varlık sayılır; bir olayın etkisini açıklarken de kullanılabilir. Bu unsurların kayıtta nasıl gösterildiği kurumun tutarlı seçimine bağlıdır; hepsine aynı cihaz sütunlarını doldurtmak gerekmez.
 :::
 
 ---
 
-## 17 numaralı dosya nerede?
+## Envanter nedir, ne işimize yarar?
 
-D izinli. B, arayan adayın 17 numaralı dosyasına bakacak.
+**Varlık envanteri**, kurumun varlıklarını tek yerde, tutarlı biçimde kaydeden ve güncel tutulan listedir.
 
-| Bilinen | Bilinmeyen |
+- Arıza veya kayıpta neyin, nerede ve kimde olduğunu gösterir.
+- Toplu güncellemede ilgili cihaz ve yazılımları buldurur.
+- Sorumluluğun ve koruma ihtiyacının görünmesini sağlar.
+
+Tablo, elektronik çizelge veya veri tabanı kullanılabilir.
+
+::: {.notes}
+Bir yazılımın yüz bilgisayarda kurulu olduğunu bilmek yalnız sayıyı verir. Hangi cihazlarda kurulu olduğunu, kayda bağlı cihaz listesinden bulabiliriz. Yazıcının konumu ve bakım sorumlusu belliyse arızada başvurulacak kişi de bellidir. Koruma için de benzer bir ihtiyaç vardır: her varlığa aynı sıkılıkta önlem uygulamak maliyeti artırabilir ve işi yavaşlatabilir. Envanter, hangi varlığın neden önemli olduğunu görünür kılar. Liste kurumdaki değişikliklerle birlikte yenilenmelidir. “Tek yerde” ifadesi ortak bir kayıt düzenini anlatır; bağlantılı bilgi ve donanım listelerinin tek bir fiziksel dosyada bulunması zorunlu değildir.
+:::
+
+---
+
+## Küçük tabloyu ne var sorusuyla kurun
+
+Kurgusal bir birimde iki yazıcı, bir bilgisayar ve iki bilgi grubu var.
+
+| Varlık | Tür |
 |---|---|
-| Birimde asıl ve taranmış dosyalar var | Asıl hangi rafta? Taranmış kopya hangi klasörde? D yokken erişime kim karar verir? |
+| Koridor yazıcıları, 2 adet | Donanım |
+| Eğitmen bilgisayarı | Donanım |
+| Yoklama listeleri | Bilgi |
+| İş sözleşmeleri | Bilgi |
 
 ::: {.notes}
-“Dosya var” yanıtı işin sürmesi için yeterli değildir. Kâğıt asıl kilitli dolapta olsa bile anahtar tek kişideyse fiilî erişim yoktur. Taranmış kopyanın yerini bilmek alternatif bir yol sağlar; fakat o klasöre kimin erişeceğine ilişkin iş kararı da gerekir. Varlık tanımındaki ölçüt satın alma bedeli değil, zarar görmesi hâlinde işin etkilenmesidir. (BGT 201 ders sunumu 2, s. 22.)
+İlk iki alan farklı soruları yanıtlar. Varlık adı neyi izlediğimizi, tür ise bunun hangi çeşit unsur olduğunu söyler. “Bilgi” yazmak yoklama listelerinin yerine geçmez; hangi bilginin izlendiği de belirtilmelidir. İki yazıcı henüz topluca yazılmıştır. Bu başlangıç listesi saymayı kolaylaştırır fakat bir yazıcı arızalandığında hangisini kastettiğimizi göstermez. Kayıtları ayırt etme ihtiyacı doğduğunda tablo da buna göre düzenlenir. Sütunları işin sorularından çıkararak kurmak, alanların neden bulunduğunu anlamayı sağlar.
 :::
 
 ---
 
-## İlk listeyi ayrıştırın
+## Nerede arayacağım, kime soracağım?
 
-1. Kâğıt formlar · 2. taranmış PDF'ler · 3. B'nin 3 masaüstü kopyası · 4. takip uygulaması
-5. sonuç gönderimi · 6. Başvuru Rehberi · 7. dolap ve anahtar · 8. dış BT firması
-9. kurum e-postası · 10. yazıcı · 11. D · 12. kurum itibarı
-
-**Soru:** Hangisi ayrı varlık, hangisi taşıyıcı, bağımlılık veya etki?
-
-::: {.notes}
-Önce her madde için “korunan içerik mi, onu çalıştıran unsur mu, kopya mı, yoksa zarar sonucu mu?” sorusu uygulanır. On iki ayrı satır açılırsa aynı dosyaya farklı sahip veya farklı sınıf yazılabilir. E-postayı bağımlılık olarak tutmak bu vakanın tutarlı tercihidir; daha ayrıntılı bir envanterde ayrı uygulama satırı da açılabilir. Birim yazıcısı yalnız ilgili işe bağlıysa anlamlıdır. Kaynak sunudaki korunan bilgi örnekleri keşif için başlangıçtır; birimin gerçek işi listeyi belirler. (BGT 201 ders sunumu 1, s. 14–15.)
-:::
-
----
-
-## Bir içerik, birden çok taşıyıcı
-
-**V-01 aday dosyası** → kâğıt asıl + taranmış PDF + B'nin masaüstündeki kural dışı kopya
-
-Aynı içerik, amaç ve karar sahibi → **tek bilgi varlığı**.
-
-::: {.notes}
-Kâğıt ve PDF ayrı bilgi sayılırsa birinin yokluğunda diğerinin işi sürdürebileceği ilişkisi kaybolur. B'nin masaüstü kopyaları yeni varlık değil, aynı satırda düzeltilmesi gereken bir bulgudur. İçerik, amaç veya sahip gerçekten ayrışırsa yeni satır gerekebilir: yalnız toplam başvuru sayısını yayımlayan bir özet artık farklı bir bilgi varlığıdır. Kopyanın konumu ve ona özgü kural yine V-01'de açıkça kaydedilir.
-:::
-
----
-
-## İlk listenin çözümü
-
-| Unsur | Kayıt kararı |
-|---|---|
-| 1–3 | V-01: iki taşıyıcı; masaüstü kopyası bulgu |
-| 4, 5, 7 | V-02 uygulama; V-03 hizmet; V-04 destek |
-| 6 | Başvuru Rehberi: ayrı bilgi varlığı |
-| 8, 9, 11 | Dış BT, e-posta, D: ilgili satırda bağımlılık |
-| 10 | Yazıcı: ilişkilendirilebiliyorsa bağımlılık |
-| 12 | Kurum itibarı: olası zararın etkisi |
-
-::: {.notes}
-V-01 bilgi, V-02 uygulama, V-03 hizmet, V-04 destek türüdür. Bu dört tür çalışma düzenidir; kaynak sunu fiziksel varlık, bilgi, insan kaynağı, servis, sistem ve süreç biçiminde altı grup verir. Tür adından çok aynı gerçekliği tutarlı kaydetmek önemlidir. Kişiyi ayrı satır yapan tutarlı bir düzen mümkün olsa da bu vakada D, V-04'ün “dayanır” alanında görünür. İtibarın zarar görmesi ise ayrı korunacak içerik değil, örneğin sızıntının sonucudur. (BGT 201 ders sunumu 2, s. 22.)
-:::
-
----
-
-## Klasör iznini kim kaldırır?
-
-Stajyer E ayrıldı; ortak klasörü hâlâ görebiliyor olabilir.
-
-**A: erişim kararını verir → Dış BT: klasör iznini değiştirir**
-
-::: {.notes}
-Dış BT klasör izinlerini teknik olarak tanımlar, fakat E'nin artık dosyalara bakmasını gerektiren bir işi olup olmadığını bilemez. A iş amacı ve kullanıcı kararından sorumludur. “Sahip” mülkiyet anlamına gelmez; iş kararının kime ait olduğunu gösterir. A bir varlığın hem sahibi hem onay için kullanıcısı olabilir; alanlar yine ayrıdır. Kaynak sunudaki sahip, kullanan ve yöneten ayrımı burada sahip, kullanıcı ve teknik sorumlu alanlarına dönüşür. (BGT 201 ders sunumu 1, s. 16.)
-:::
-
----
-
-## Başvuru Rehberi'nde iki rol
-
-Rehberin **son başvuru tarihi** değişecek. A içeriği onaylar; Bİ web sayfasını yayımlar.
-
-| Soru | Rol |
-|---|---|
-| İçeriğe kim karar verir? | ? |
-| Değişikliği kim uygular? | ? |
-
-::: {.notes}
-Rehber, başvuru koşullarını, belge listesini, son tarihi ve e-posta adresini içerir. Bu nedenle yanlış tarih iş kararını etkiler. Bİ'nin sayfayı çalıştırabilmesi, son tarihi belirleme yetkisi vermez. “Teknik sorumlu” ile “varlık sahibi” arasındaki fark bu tek değişiklikle kontrol edilebilir.
-:::
-
----
-
-## Rehberin rol kararı
-
-| Varlık | Sahip | Teknik sorumlu |
-|---|---|---|
-| Başvuru Rehberi | A | Bİ |
-
-**Kural:** A onaylamadan tarih değişmez; Bİ onaylanan içeriği yayımlar.
-
-::: {.notes}
-A, neyin yayımlanacağını ve hangi amaçla kullanılacağını bilir. Bİ, sayfanın işletimini ve yayımını gerçekleştirir. “Bİ sahibidir” cevabı iş kararını teknik işletimle karıştırır. Kullanıcı alanı ayrıca tutulur: rehberin okuyucuları başvuru yapacak adaylardır. Böylece geniş okuma ile sınırlı değiştirme aynı kayıtta çelişmeden yazılabilir.
-:::
-
----
-
-## Sonuç hangi halkalara dayanır?
-
-| V-03 sonuç bildirimi dayanır → | İşlev |
-|---|---|
-| V-01 | Değerlendirme ve sonuç yazısı |
-| V-02 | Dosyanın durumu ve ataması |
-| Kurum e-postası (Bİ) | Gönderim kanalı |
-| B/C | Yazıyı hazırlama ve gönderme |
-
-::: {.notes}
-E-posta çalışsa bile V-02'de 17 numaranın adı yanlış eşleşirse sonuç yanlış kişiye hazırlanabilir. V-02 doğru ama sonuç günü açılamıyorsa hazır dosya izlenemediği için gönderim gecikir. İlk durum bütünlük, ikincisi erişilebilirlik etkisidir. Bir hizmetin etkisi yalnız kendi görünen ekranından anlaşılmaz; bağlı olduğu halkalar incelenir. Kaynak sunudaki altyapı alanları, kullanıcıdan uygulamaya ulaşan yolu kontrol etmeye yardımcı olur. (BGT 201 ders sunumu 1, s. 37–40; *Fundamentals of Information Systems Security*, Böl. 1, s. 19–38.)
-:::
-
----
-
-## Dolaptan kişiye uzanan bağımlılık
-
-```text
-V-03 sonuç bildirimi → V-01 aday dosyaları → V-04 kâğıt arşiv → D (tek anahtar)
-```
-
-Okun yönü: **soldaki, sağdakine dayanır**.
-
-::: {.notes}
-Bu yol yalnız kâğıt asıl gerektiğinde anlamlıdır. Taranmış kopya kullanılabiliyorsa V-01'in işi kısmen sürebilir; fakat V-04'teki tek anahtar sorunu devam eder. D izindeyken asla erişilememesi cihaz listesinde görünmeyen bir insan bağımlılığıdır. V-03 ayrıca V-02, e-posta ve B/C'ye dayanır; tek düz çizgi bütün dalları temsil etmez. Bu yüzden ilişki her satırda ayrıca kaydedilir.
-:::
-
----
-
-## Bağımlılığı iki yönden yazın
-
-| Satır | Dayanır | Destekler |
-|---|---|---|
-| V-03 | V-01, V-02, e-posta, B/C | Adayın kayıt adımı |
-| V-01 | V-04, dosya alanı, D | V-03 |
-| V-02 | Bİ sunucusu ve ağ, hesaplar | **?** |
-
-::: {.notes}
-V-03 “V-02'ye dayanır” diyorsa V-02'nin “destekler” alanında V-03 bulunmalıdır. Kimlikler iki yönden uyuşmazsa kayıt eksiktir. V-02 ayrıca başvuru numarası ile dosyanın kimde olduğu bağını kurduğu için V-01'in bulunabilirliğini destekler. Bu karşılıklı kontrol, uzun bir cihaz zincirinden daha güvenilir bir envanter ilişkisi verir.
-:::
-
----
-
-## V-02'nin ters kaydı
-
-**V-02 destekler → V-03 sonuç bildirimi; V-01 dosyalarının bulunabilirliği.**
-
-| Eksik ters kayıt | Sonuç |
-|---|---|
-| V-03, V-02'ye dayanır; V-02 kimseyi desteklemez | Uygulama kesintisinin etkilenen işi görünmez |
-
-::: {.notes}
-Yalnız “V-03” yazan cevap da temel ilişkiyi kurar. V-01 eklemesi, başvuru no ile dosya konumunun eşleştirilmesini görünür yapar. Envanter kaydı bağımlılığı kimlikle yazdığında satırlar arasında tutarlılık denetlenebilir; serbest “uygulama” sözcüğü bunu sağlamaz.
-:::
-
----
-
-## Bir envanter satırının karar zinciri
-
-**Kimlik ve tür → taşıyıcı/konum → sahip, teknik sorumlu, kullanıcı → dayanır/destekler → G/B/E etkileri → sınıf → işleme kuralı → etiket → gözden geçirme ve revizyon**
-
-::: {.notes}
-Kimlik bağımlılığı işaret etmeyi, konum bulunabilirliği, rol alanları kararın uygulanmasını sağlar. Üç etki ayrı yazılmadan hangi okuma, değiştirme ve süreklilik kuralının gerektiği görülemez. Sınıf bilginin kurumdaki erişim grubunu özetler; etiket bu kararın taşıyıcı üzerindeki kısa işaretidir. Gözden geçirme tetikleyicisi ve revizyon notu eskiyen kararların izini tutar. Bu alanlar dersin çalışma düzenidir; kaynak sunudaki envanter işlevini somutlaştırır. (BGT 201 ders sunumu 2, s. 23; *Fundamentals of Information Systems Security*, Böl. 6, s. 196–198.)
-:::
-
----
-
-## V-01: neyi ve nerede kaydediyoruz?
-
-| Alan | Doldurulmuş değer |
-|---|---|
-| Kimlik / tür | V-01 / bilgi |
-| İçerik | 48 aday başvuru dosyası |
-| Taşıyıcı | Kâğıt asıl: V-04; tarama: ortak alanda “Başvurular” |
-| Bulgu | B'nin masaüstünde 3 kural dışı kopya |
-
-::: {.notes}
-Dosyaların içeriği ve amacı aynı olduğu için 48 ayrı satır veya iki taşıyıcı için iki satır açılmıyor. Buna karşılık üç masaüstü kopyası görünmez bırakılmıyor: ayrı varlık saymadan konum ve kural ihlali olarak yazılıyor. Bu seçim, taranmış kopya yokken kâğıtla çalışma olasılığını tek varlık düzeyinde değerlendirmeyi sağlar.
-:::
-
----
-
-## V-01: karar ve bağımlılık
-
-| Alan | Doldurulmuş değer |
-|---|---|
-| Sahip | A |
-| Teknik sorumlu | D: kâğıt; dış BT: dosya alanı ve yedek |
-| Kullanıcı / amaç | B/C: değerlendirme; D: tarama; A: onay |
-| Dayanır | V-04; ortak dosya alanı (dış BT); D |
-| Destekler | V-03 |
-
-::: {.notes}
-A, dosyayı kimin hangi iş için kullanacağına karar verir. D fiziksel düzeni, dış BT dijital klasörü işletir; ikisi de A'nın erişim kararını kendiliğinden vermez. V-01'in V-04'e bağımlılığı yalnız kâğıt aslı, dosya alanına bağımlılığı taranmış kopyayı ilgilendirir. Bu ayrım, iki taşıyıcının aynı anda erişilememesi ile tek taşıyıcının yokluğunu ayırmayı sağlar.
-:::
-
----
-
-## V-01: üç etki, üç gerekçe
-
-| İlke | Düzey | Vaka gerekçesi |
-|---|---|---|
-| Gizlilik | Yüksek | Kimlik, iletişim ve değerlendirme bilgisi yetkisize ulaşabilir |
-| Bütünlük | Yüksek | Yanlış eşleme veya değişen not yanlış sonuç kararı doğurabilir |
-| Erişilebilirlik | Orta | Bir taşıyıcı yoksa diğeriyle iş yavaşlayarak sürer |
-
-::: {.notes}
-Gizlilik, yetkisiz görüntülemenin sonucunu; bütünlük, yanlış veya yetkisiz değişikliğin karar üzerindeki sonucunu; erişilebilirlik, gerektiğinde kullanamamayı sorar. “İkisi birden yoksa sonuç günü kaçar” senaryosu açıkça gerekçelendirilirse erişilebilirliğe Yüksek de verilebilir. Tek taşıyıcının kesintisini bütün varlığın tamamen kaybı saymak ise iki taşıyıcının varlığını görmezden gelir. İtibar zararı doğarsa bu gizlilik olayının etkisine eklenir, ayrı varlık açılmaz. (*Fundamentals of Information Systems Security*, Böl. 1, s. 14–18.)
-:::
-
----
-
-## V-01: sınıftan uygulanan kurala
-
-**Sınıf: Sınırlı erişim** — aday bilgisi yalnız görevli kullanıcılar içindir.
-
-| Etki | İşleme kararı |
-|---|---|
-| Gizlilik | B/C/D/A okur; dosya e-postalanmaz; kişisel kopya kaldırılır |
-| Bütünlük | Notu atanan görevli yazar; A sonucu onaylar |
-| Erişilebilirlik | Taranmış kopya yedeklenir |
-
-::: {.notes}
-Sınıfı gizlilik ölçütü belirler; bütünlük Yüksek ve erişilebilirlik Orta olması ayrı işlem kuralları üretir. Dış BT'nin teknik klasör erişimi A'nın yazılı talebine bağlanır. Kâğıt dosya kapağı, dolap rafı ve dijital klasör “Sınırlı erişim” etiketi taşır. Etiket kararın yerine geçmez; hangi kuralın uygulanacağını hatırlatır. Sınıflandırma ile erişim ve işleme bağı ana kaynakta kurulmuştur. (*Fundamentals of Information Systems Security*, Böl. 6, s. 196–198.)
-:::
-
----
-
-## V-01: envanterde kimlik ve ilişki
-
-| Alan | V-01 aday başvuru dosyaları |
-|---|---|
-| Tür; taşıyıcı/konum | Bilgi; V-04'te kâğıt asıl, “Başvurular”da tarama; B'nin masaüstünde 3 kural dışı kopya |
-| Sahip; teknik sorumlu | A; D (kâğıt), dış BT (dijital) |
-| Kullanıcı/amaç | B/C değerlendirme; D tarama; A onay |
-| Dayanır; destekler | V-04, dosya alanı, D; V-03 |
-
-::: {.notes}
-B'nin masaüstündeki üç kopya bulgu olarak satırda görünür. V-03 “V-01'e dayanır” dediğinden V-01'in “destekler” alanı da V-03'ü gösterir. Sahip, teknik sorumlu ve kullanıcı ayrı karar alanlarıdır.
-:::
-
----
-
-## V-01: envanterde etki ve işleme
-
-| Alan | V-01 aday başvuru dosyaları |
-|---|---|
-| G/B/E | Yüksek: aday bilgisi / Yüksek: yanlış sonuç / Orta: diğer taşıyıcıyla devam |
-| Sınıf | Sınırlı erişim: aday bilgisi |
-| İşleme kuralı | B/C/D/A okur; atanan görevli not yazar, A onaylar; dış BT'ye A'nın yazılı izni; dosya e-postalanmaz, kişisel kopya yok, tarama yedekli |
-| Etiket | “Sınırlı erişim”: klasör, raf, dosya kapağı |
-| Gözden geçirme | Sahip/kullanıcı/amaç/konum değişimi; yeni başvuru dönemi |
-| Revizyon | İlk kayıt |
-
-::: {.notes}
-Satırdaki kısa etki sözleri önceki üç gerekçenin özetidir; gerçek kayıtta gerekçe kaybolmamalıdır. Bir kullanıcı veya konum değiştiğinde yalnız başlığı değil etki gerekçesini ve kuralı da yeniden kontrol etmek gerekir.
-:::
-
----
-
-## Kurumun gizlilik sınıfları
-
-| Sınıf | Kurumun ölçütü |
-|---|---|
-| Kamuya açık | Yayımlanması A tarafından onaylı bilgi |
-| Kurum içi | Kişi bilgisi içermeyen birim işleyiş bilgisi |
-| Sınırlı erişim | Belirli görevlilerin iş için kullandığı aday veya personel bilgisi |
-
-::: {.notes}
-Bu adlar Başvuru Kayıt Birimi'nin kararlarıdır. Başka bir kurum farklı ad ve sayıda sınıf kullanabilir. Bu nedenle tanımı olmayan “Gizli” gibi bir etiketi kendiliğinden eklemek tutarsızlık yaratır. Sınıf, “kim görebilir?” sorusunu yanıtlar; varlığın bütün önemini tek sayıya indirmez. Ana kitap sınıflandırmanın erişim ve işleme usulüne bağlanmasını açıklar; kitaptaki ülkeye özgü sınıf şeması bu kuruma aktarılmaz. (*Fundamentals of Information Systems Security*, Böl. 1, s. 40–43; Böl. 6, s. 196–198.)
-:::
-
----
-
-## Etki düzeyi hangi sonuca dayanır?
-
-| Düzey | Gizlilik: yetkisiz görme | Bütünlük: yanlış değiştirme | Erişilebilirlik: kullanamama |
+| Varlık | Konum / ortam | Sorumlu | Kullanan |
 |---|---|---|---|
-| Düşük | Yayımı onaylı; kişi bilgisi yok | Aynı gün düzeltme; dış etki yok | Aynı gün alternatif yol |
-| Orta | Sınırlı bilgi kurum içi yetkisize görünür | Bir iş gününe kadar düzeltme/gecikme | Bir iş gününe kadar gecikme |
-| Yüksek | Kimlik/iletişim/değerlendirme yetkisize veya aday bilgisi kurum dışına görünür | Yanlış karar, alıcı veya çok sayıda yönlendirme | Sonuç ya da son başvuru günü kaçar |
+| Koridor yazıcıları | MYO koridoru | BT sorumlusu | Genel kullanım |
+| Eğitmen bilgisayarı | Eğitmenin odası | BT personeli | Eğitmen |
+| Yoklama listeleri | Arşiv; kâğıt | Arşiv personeli | Eğitmen |
+| İş sözleşmeleri | İK ofisi; kâğıt | İK personeli | İK |
+
+**Konum:** nerede? **Sorumlu:** kime sorarım? **Kullanan:** kim iş yapar?
 
 ::: {.notes}
-Her hücre birimin kurgusal karar ölçütüdür; mevzuat veya standart eşiği değildir. “Yüksek” etiketini yazmadan önce olayın hangi hücreye uyduğunu cümleyle göstermek gerekir. Aynı varlığın üç etkisi farklı olabilir. Örneğin rehberin yayımlanması amaçtır, fakat yanlış son tarih çok sayıda adayı yönlendirir. Düzeyler tek bir toplam puana çevrilirse hangi kuralın neden gerektiği kaybolur.
+Konum, ihtiyaç anında varlığı bulmayı sağlar. Bilgide kâğıt veya dijital ortamın da belirtilmesi gerekir; aynı isimli belge farklı ortamlarda bulunabilir. Sorumlu alanı ilk başvurulacak kişiyi gösterirken kullanan alanı günlük işi yapanları gösterir. Bilgisayarı eğitmenin kullanması, bakımını da eğitmenin yaptığı anlamına gelmez. Bu küçük tablodaki sorumlu alanı genel bir başlangıçtır. İşle ilgili karar verme ve teknik uygulama görevlerini ayrıca ayırmak gerektiğinde iki ayrı rol alanı kullanılır. Böylece “sorumlu” sözcüğünün hangi görevi karşıladığı açık olur.
 :::
 
 ---
 
-## Herkese açık rehber neden korunur?
+## Bu varlık olmazsa ne olur?
 
-Başvuru Rehberi: koşullar, istenen belgeler, son tarih, başvuru e-posta adresi.
-
-| İlke | Olası sonuç |
+| Varlık | Neden önemli? |
 |---|---|
-| Gizlilik | Herkesin okuması amaçtır |
-| Bütünlük | Yanlış tarih veya e-posta adresi başvuruyu bozar |
-| Erişilebilirlik | Son gün sayfa açılmazsa başvuru kaçabilir |
+| Koridor yazıcıları | Çıktı alınamaz; evrak yanlış kişiye gidebilir. |
+| Eğitmen bilgisayarı | Ders ve yoklama hazırlığı aksar. |
+| Yoklama listeleri | Devam durumu bunlara bakılarak belirlenir. |
+| İş sözleşmeleri | Çalışma koşullarını gösterir; yetkisizlere görünmemelidir. |
 
 ::: {.notes}
-Rehberin yayımlanması A tarafından onaylandığından gizlilik etkisi Düşük ve sınıf Kamuya açıktır. Son tarih veya belge listesi yanlışsa 48 aday etkilenebilir; bu nedenle bütünlük Yüksek'tir. E-posta adresinin yetkisiz değiştirilmesi adayların belgeleri yanlış adrese göndermesine yol açabilir; bu varsayımsal örnekte bütünlük bozulması başka bilginin gizliliğini de etkiler. Sayfanın kısa kesintisi Orta, son gün kesintisi Yüksek erişilebilirlik etkisi yaratabilir. Okuma herkese açıkken değişiklik A onayıyla Bİ tarafından yapılır; son güncelleme tarihi gösterilir.
+“Neden önemli” alanı varlığı yaptığı işe bağlar. “Çok önemli” veya gerekçesiz bir sayı yazmak yerine somut sonucu belirtiriz. Yazıcı için hem çıktı alınamaması hem basılan bilginin yanlış kişinin eline geçmesi düşünülür. Yoklama listesinin önemi ise devam kararının dayanağı olmasından gelir. Bu bilgiler hangi önlemin gerekli olduğunu açıklamaya yardım eder. Bir bilgisayarın satın alma bedeli mali bilgi verir; devam kaydındaki yanlışlığın öğrenciyi nasıl etkileyeceğini anlatmaz. Bu yüzden fiyat ile güvenlik önemini birbirine çevirmeyiz.
 :::
 
 ---
 
-## Aynı bütünlük, farklı sınıf
+## İki yazıcıyı nasıl ayıracağız?
 
-| | V-01 aday dosyaları | Başvuru Rehberi |
+“Koridordaki yazıcı bozuk” ifadesi hangisini gösteriyor?
+
+. . .
+
+**Kimlik**, aynı türdeki varlıkları ayıran kayıt numarasıdır.
+
+| No | Varlık | İzleme kararı |
 |---|---|---|
-| Gizlilik | Yüksek | Düşük |
-| Bütünlük | Yüksek | Yüksek |
-| Erişilebilirlik | Orta | Orta; son günlerde Yüksek |
-| Sınıf | Sınırlı erişim | Kamuya açık |
-| Okuma | B/C/D/A | Herkes |
-| Değiştirme | Atanan görevli ve A onayı | A onayı, Bİ yayımı |
+| 1 | Koridorun 1. yazıcısı | Ayrı satır |
+| 2 | Koridorun 2. yazıcısı | Ayrı satır |
+| 3 | Eğitmen bilgisayarı | Ayrı satır |
+| 4 | Aynı gruptaki yoklama listeleri, 13 adet | Birlikte izlenen tek satır |
+
+Bu örnekte ayrı cihazı tespit etmek için yazıcıları ayırırız; ortak iş ve kararla birlikte izlenen kayıtları adetle gruplarız.
 
 ::: {.notes}
-Aynı bütünlük düzeyi aynı erişim sınıfını gerektirmez. Dosyada yanlış değerlendirme sonucu, rehberde yanlış tarih çok sayıda başvuruyu etkiler; iki farklı mekanizma da değiştirme kontrolünü gerekli kılar. Ancak rehberin okunması hizmetin amacı, dosyanın okunması ise görevle sınırlıdır. Sınıf gizlilik grubunu, diğer iki etki kendi kurallarını verir. (*Fundamentals of Information Systems Security*, Böl. 1, s. 14–18; Böl. 6, s. 196–198.)
+Bu örnekte arızalanan veya taşınan yazıcının hangisi olduğunu ayrı izlemek istiyoruz. Bu tercih izleme ihtiyacına dayanır; her fiziksel şeyin ayrı arızalanabilmesi evrensel bir ayrı satır kuralı değildir. Ortak “2 adet” kaydı, hangisinin durumunun değiştiğini saklar; ayrı kimlikler bu sorunu giderir. Aynı gruptaki yoklama dosyaları ise bu örnekte birlikte izlenir ve adet belirtilir. No 4, küçük tablonun yoklama satırıdır; No 3 eğitmen bilgisayarına ayrılmıştır. Satır açma kararı neyi ayrı izlemek gerektiğine dayanır. Kimlik, cihazın seri numarasıyla aynı şey olmak zorunda değildir. Dosya grubu için de kayıt kimliği kullanılabilir; bilgisayara özgü seri numarası alanını her varlığa uygulamayız.
 :::
 
 ---
 
-## Uygulama ve dolap hangi sınıfı kullanır?
+## Yoklama listelerinin ilk kaydını okuyun
 
-**Uygulama, hizmet ve destek varlığı → işlediği veya taşıdığı bilginin en yüksek sınıfının işleme kuralını devralır.**
-
-| Varlık | Bağlandığı bilgi | Kural |
+| Alan | Çözümlü kayıt | Yanıtladığı soru |
 |---|---|---|
-| V-02 | Aday adı ve durum | Sınırlı erişim |
-| V-03 | V-01 sonuç bilgisi | Sınırlı erişim |
-| V-04 | V-01 kâğıt asılları | Sınırlı erişim |
+| Kimlik ve ad | 4 — Yoklama listeleri | Hangi varlık? |
+| Tür | Bilgi | Ne çeşit? |
+| Konum / ortam | Arşiv; kâğıt; 13 adet | Nerede, hangi ortamda? |
+| Sorumlu | Arşiv personeli | Sorun çıkınca kime sorarım? |
+| Kullanan | Eğitmen | İş için kim kullanır? |
+| Neden önemli | Devam durumu belirlenir. | Kaybolursa hangi iş etkilenir? |
 
 ::: {.notes}
-V-02'nin gizlilik etkisi Orta olabilir; çünkü kurum içi uygulama kimlik numarası veya değerlendirme notu tutmaz. Buna rağmen aday bilgisi işlediğinden sınıfın işleme kuralı Sınırlı erişimdir. Bu bir çelişki değildir: etki düzeyi bir olayın sonucunu, sınıf ise bilginin erişim grubunu anlatır. Dolabın anahtar sorunu ve hizmetin sonuç günü sorunu kendi erişilebilirlik etkileri olarak ayrıca yazılır. Kaynak kitap sınıflandırmayı işleme kurallarına bağlar; bu vakadaki devralma kuralı kurumun ilan ettiği yerel kuraldır. (*Fundamentals of Information Systems Security*, Böl. 6, s. 196–198.)
+Bu tablo, geniş bir yatay satırın alanlarını okumayı kolaylaştırmak için dikey gösterir. Kaydı başka bir kişi okuduğunda varlığı bulabilmeli ve neden izlendiğini anlayabilmelidir. Seri numarası yoktur; kâğıt listeleri bulmak için arşiv konumu ve ait olduğu grup daha işe yarar. Donanımda marka, model ve seri numarası; yazılımda sürüm ve kurulu cihaz sayısı; hizmette sunan birim ve kritik saatler eklenebilir. Alanlar varlığın türüne ve izleme ihtiyacına göre seçilir. Buradaki 13 adet ve rol atamaları eğitim örneğinin verileridir; kurumlar için zorunlu alan veya eşik değildir.
 :::
 
 ---
 
-## Görev dağılım çizelgesini değerlendirin
+## Varlıkları bulmak için işin adımlarına bakın
 
-Paylaşılan çizelgede yalnız **B ve C'nin hangi gün hangi başvuru türüne baktığı** var. Aday adı ve kişisel durum bilgisi yok.
+Yoklama al → listeyi sakla → arşive kaldır → devam kararında kullan.
 
-| Gizlilik | Bütünlük | Erişilebilirlik | Sınıf |
+| Sorulacak | Bulunan aday |
+|---|---|
+| Hangi bilgi kullanılıyor? | Yoklama listeleri |
+| Hangi araç gerekiyor? | Bilgisayar, yazıcı |
+| Nerede saklanıyor? | Arşiv dolabı ve odası |
+| Hangi bilgi veya kişi gerekiyor? | Arşiv düzenini bilen personel |
+
+::: {.notes}
+Yalnız odada görünen cihazları saymak sözleşme, log ve yoklama gibi bilgileri atlayabilir. İşin adımlarını izlemek bu eksikliği azaltır. Her aday için bu işte gerçekten kullanılıp kullanılmadığını ve zarar görmesinin işi etkileyip etkilemediğini sorarız. Kurgusal bir kayıt düzeninde birim sorumlusu aday listeyi çıkarır, yerinde kontrol yapılır ve ilgili iş kararını veren kişi satırı doğrular. Kaydı yazan kişi ile doğruluğunu onaylayan kişi farklı olabilir. Bu ayrım, envanteri tutma görevini bütün varlıklarla ilgili karar yetkisi gibi görmeyi önler.
+:::
+
+---
+
+## Kâğıt ile tarama aynı bilgi olabilir
+
+**Taşıyıcı**, bilginin üzerinde durduğu ortamdır.
+
+**Kopya**, aynı bilginin başka taşıyıcıdaki nüshasıdır; **asıl**, kurumun referans aldığı nüshadır.
+
+Aynı yoklama listesi: kâğıt asıl + ortak klasörde tarama.
+
+. . .
+
+İçerik, amaç ve sahip aynıysa **tek bilgi satırı, iki konum / ortam** yazılır.
+
+::: {.notes}
+Kâğıt ve taramayı iki bağımsız bilgi gibi kaydetmek, aynı içeriğin nerelerde bulunduğunu izlemeyi zorlaştırabilir. Tek bilgi satırında iki ortamı belirtmek kopyaları birlikte görmeyi sağlar. Yalnız toplam devamsızlık oranını yayımlayan özetin içeriği ve amacı ise farklıdır; başka bir bilgi kaydı olabilir. Eğitmenin kendi telefonuna çektiği izinsiz fotoğraf da aynı bilginin bir kopyasıdır. Bu kurgusal durumda kopya, ilgili satırda bulgu olarak kaydedilir ve kaldırılmasını takip edecek sorumlu belirlenir. Bir kopyanın bulunması ona kullanım izni verildiği anlamına gelmez.
+:::
+
+---
+
+## Karar veren, işleten ve kullanan kim?
+
+**Sahip**, varlığın amacına, kullanıcılarına ve sınıfına karar veren, gözden geçirmeyi başlatan roldür.
+
+**Teknik sorumlu**, sahibin kararını uygulayan ve ortamı işletendir.
+
+**Kullanıcı**, varlığı kendi işi ve izni kapsamında kullanır.
+
+Yoklama listeleri: bölüm başkanlığı → arşiv personeli → eğitmen.
+
+::: {.notes}
+Sahiplik burada mülkiyeti değil, işle ilgili karar yetkisini gösterir. Yoklama örneğinde bölüm başkanlığının sahipliği eğitim amacıyla atanmıştır; başlangıç tablosunda yalnız arşiv personeli ve eğitmen bulunuyordu. Bölüm başkanlığı kimlerin hangi amaçla kullanabileceğine karar verir, arşiv personeli saklama düzenini uygular, eğitmen listeyi kullanır. Aynı kişi birden çok rolü üstlenebilir; yine de karar ve uygulama görevleri ayrı yazılır. Bir işi başka kişiye vermek sahipliği kendiliğinden devretmez. Yeni kişi bakım veya kullanım görevini üstlenirken iş kararını veren rol aynı kalabilir.
+:::
+
+---
+
+## Görev 1: laboratuvarın üç kaydını kurun
+
+- Ölçüm cihazı 2. kattaki laboratuvarda; laboratuvar sorumlusu tahsis eder, teknisyen bakımını yapar.
+- Deney föyleri dolapta basılı ve öğretim elemanının bilgisayarında PDF; içeriği öğretim elemanı belirler.
+- Aynı ölçüm yazılımı laboratuvardaki 12 bilgisayarda kurulu.
+
+**Her biri için:** tür, konum / ortam, sahip, teknik sorumlu, kullanıcı ve neden önemli alanlarını yazın.
+
+**Ölçüt:** Satır ve kopya kararını gerekçelendirin; verilmeyen rolü atama önerisi olarak belirtin.
+
+::: {.notes}
+Önce bilgi ile cihazı ayırın, sonra her satırda hangi işi izlediğinizi açıklayın. Basılı ve PDF föyleri aynı içeriktir; iki ortamın varlığı otomatik olarak iki bilgi oluşturmaz. Cihazı tahsis eden ile bakımını yapanın yetkileri verilmiştir. Yazılımın sahibi ve bazı uygulama görevleri ise doğrudan belirtilmemiştir. Böyle alanlarda olgu ile önerilen atamayı ayırmak gerekir. Kaydın yeterliliği bütün hücreleri tahminle doldurmaktan değil, verilenleri doğru yazmaktan ve tamamlanması gereken kararı açık tutmaktan gelir.
+:::
+
+---
+
+## Görev 1 çözümü: satırları ve ortamları ayırın
+
+| Varlık | Tür | Konum / ortam | Neden önemli? |
 |---|---|---|---|
-| ? + gerekçe | ? + gerekçe | ? + gerekçe | ? + gerekçe |
+| Ölçüm cihazı | Donanım | Laboratuvar, 2. kat | Arıza veya yanlış ayar deneyi ve ölçümü etkiler. |
+| Deney föyleri | Bilgi | Dolapta basılı; bilgisayarda PDF | Yanlış içerik yanlış deney yaptırır. |
+| Ölçüm yazılımı | Yazılım | Laboratuvarın 12 bilgisayarı | Yazılım olmadan ölçüm yapılamaz. |
 
-Ayrıca değerlendirin: (a) Kamuya açık rehber envantere girmez. (b) Sınırlı erişim, üç etkinin de Yüksek olduğu anlamına gelir. (c) Kâğıt asıl ile taranmış kopya farklı sınıfta olabilir.
+Föyler tek bilgi, iki taşıyıcıdır. Aynı yazılım bu örnekte adetle izlenir.
 
 ::: {.notes}
-Her etki için ayrı bir olay düşünülür: çizelge yetkisize görünürse ne açığa çıkar; yanlışsa iş nasıl aksar; açılamazsa iş başka yolla yürür mü? Sınıfı belgenin adından değil içeriğinden seçmek gerekir. Önermelerde yalnız doğru/yanlış işareti yeterli değildir; en az bir vaka olgusu yazılmalıdır.
+Ölçüm cihazı ayrı izlenen tek cihazdır ve kendi kaydını alır. Föyler aynı amaç ve içerikle kullanıldığından basılı nüsha ile PDF tek bilgi satırında yer alır; her iki konum da bulunabilmelidir. Yazılım bu küçük örnekte aynı kurulumun 12 bilgisayardaki kullanımı olarak birlikte izlenir. Cihazların kendileri için ayrı donanım kayıtları bulunmasıyla bu karar çelişmez. Hangi kaydı tuttuğumuzu belirtmek önemlidir: yazılım kaydı ile bilgisayar kaydı farklı soruları yanıtlar.
 :::
 
 ---
 
-## Çizelge ve önermeler: gerekçeli cevap
+## Görev 1 çözümü: rolleri ayrı yazın
 
-| Çizelge | Karar |
-|---|---|
-| Gizlilik | Düşük: aday bilgisi yok |
-| Bütünlük | Orta: yanlış dağılım dosyayı bekletir |
-| Erişilebilirlik | Düşük: aynı gün sözlü dağılım yapılabilir |
-| Sınıf | Kurum içi: kişi bilgisi içermeyen iş düzeni |
-
-**(a), (b), (c): Yanlış.**
-
-::: {.notes}
-(a) Rehber envantere girer; açık okunması bütünlük ve son gün erişilebilirliği ihtiyacını kaldırmaz. (b) V-01 Sınırlı erişimdir ama tek taşıyıcının kaybında erişilebilirliği Orta'dır; sınıf CIA toplamı değildir. (c) Kâğıt ve PDF aynı bilginin taşıyıcılarıdır; sınıf aynı kalır, dolap anahtarı ile klasör izni gibi uygulama kuralları farklıdır. Çizelgede görevlilerin sağlık/izin nedenleri olsaydı personel bilgisi nedeniyle sınıf Sınırlı erişim olurdu. Gizlilik için Orta veya erişilebilirlik için Orta, somut koşul yazılırsa savunulabilir.
-:::
-
----
-
-## Üç varlık: kimlik ve bağımlılık
-
-| Alan | V-02 uygulama | V-03 hizmet | V-04 arşiv |
+| Varlık | Sahip | Teknik sorumlu | Kullanıcı |
 |---|---|---|---|
-| Tür; taşıyıcı/konum | ? | ? | ? |
-| Sahip / teknik sorumlu | ? / ? | ? / ? | ? / ? |
-| Kullanıcı ve amaç | ? | ? | ? |
-| Dayanır ↔ destekler | ? ↔ ? | ? ↔ ? | ? ↔ ? |
+| Ölçüm cihazı | Laboratuvar sorumlusu | Teknisyen | Öğrenciler ve öğretim elemanları |
+| Deney föyleri | Öğretim elemanı | Dijital: öğretim elemanı; dolap: laboratuvar sorumlusu | Öğrenciler ve öğretim elemanları |
+| Ölçüm yazılımı | Laboratuvar sorumlusu | Teknisyen | Öğrenciler ve öğretim elemanları |
+
+Görevde verilmeyen roller burada **eğitim amacıyla önerilen atamalardır**.
 
 ::: {.notes}
-V-01'in ilk yarısı biçim örneğidir. V-02'nin alanlarında iletişim ve değerlendirme notu bulunmaz; sonuç haftasında dosyanın kimde olduğu başka yerde izlenmez. V-03'te yanlış kişiye gönderim olmuştur. V-04'te anahtar tek kişidedir ve 20 talebin 5'i yanlış raftan dolayı karşılanamamıştır. Bağımlılıklarda varlık kimliği kullanılır; her “dayanır” ilişkisinin karşı satırında “destekler” aranır.
+Cihazın derslere tahsisini laboratuvar sorumlusu yapar; bu, sahip alanına dayanak sağlar. Teknisyenin bakım yapması ona ders tahsisi yetkisi vermez. Föylerin içeriğini öğretim elemanı belirlediğinden bilgiyle ilgili karar rolü ondadır. Yazılımın sahipliği, föylerin iki ortamdaki uygulama görevleri ve kullanıcı atamaları çözümün eğitim amaçlı tamamlamalarıdır. Kullanıcı önerisi deney işine, föylerin teknik görevleri bulundukları ortamı yönetenlere, yazılım rolleri cihazın tahsis ve bakım düzenine dayanır. Gerçek bir envanterde önerilen atamaların ilgili kişilerle doğrulanması gerekir. Bu tablo, görevin verilerinin bütün bu rolleri zaten kesinleştirdiği anlamına gelmez.
 :::
 
 ---
 
-## Üç varlık: etki ve işleme
+## Bir varlık neye dayanır, neyi destekler?
 
-| Alan | V-02 uygulama | V-03 hizmet | V-04 arşiv |
-|---|---|---|---|
-| Gizlilik / bütünlük / erişilebilirlik | ? / ? / ? | ? / ? / ? | ? / ? / ? |
-| Sınıf, kural, etiket | ? | ? | ? |
-| Gözden geçirme; revizyon | ? | ? | ? |
+**Dayanır**, varlığın çalışmak için ihtiyaç duyduğu varlık, kişi veya dış tarafı gösterir.
 
-Her etki düzeyinin yanına **vaka olgusuna dayalı bir gerekçe** yazın.
+**Destekler**, bu varlığa ihtiyaç duyan işi veya varlığı gösterir.
 
-::: {.notes}
-V-01'in ikinci yarısı biçim örneğidir. İşleme kuralı ve gözden geçirme tetikleyicisi her satırda bulunur. Etki düzeyi bir sayı olarak bırakılmaz; varlığın kaybı, yanlışlığı veya görülmesinin kurumda neye yol açacağı yazılır.
-:::
-
----
-
-## V-02: uygulama satırının cevabı
-
-| Alan | Başvuru Takip Uygulaması |
-|---|---|
-| Sahip / teknik | A / Bİ |
-| Kullanıcı | A/B/C/D: izleme ve durum güncelleme |
-| Dayanır / destekler | Bİ sunucusu ve ağ, hesaplar / V-03; V-01'in bulunabilirliği |
-| G / B / E | Orta / Yüksek / Yüksek (sonuç haftası) |
-| Sınıf | Aday bilgisi nedeniyle Sınırlı erişim kuralı |
-| Kural / tetikleyici | Hesabı A onaylar; durumu atanan görevli değiştirir / yeni kullanıcı, yeni alan, yeni dönem |
-
-::: {.notes}
-Gizlilik Orta'dır: aday adı, başvuru türü ve durum kurum içi yetkisiz bir çalışana görünebilir; kimlik ve değerlendirme bilgisi yoktur. Bir adayın başvurmuş olduğunun bilinmesi özel zarar doğuruyorsa Yüksek gerekçelendirilebilir. Bütünlük Yüksek'tir: başvuru no ile ad yanlış eşleşirse sonuç yanlış kişiye hazırlanabilir. Yalnız geciken atama senaryosu kuran Orta yanıtı da gerekçeyle kabul edilir. Erişilebilirlik sonuç haftasında Yüksek'tir; dosyanın kimde olduğu başka yerden izlenemediğinden ilan günü kaçabilir. Gizlilik etkisi Orta olsa bile aday bilgisi sınıf kuralını belirler. “Orta, sonuç haftasında Yüksek” ayrımı da savunulabilir.
-:::
-
----
-
-## V-03: hizmet satırının cevabı
-
-| Alan | Sonuç bildirimi hizmeti |
-|---|---|
-| Sahip / uygulayan | A / B-C; e-posta için Bİ |
-| Kullanıcı | B/C hazırlar ve gönderir; A onaylar |
-| Dayanır / destekler | V-01, V-02, e-posta, B/C / adayın kayıt adımı |
-| G / B / E | Yüksek / Yüksek / Yüksek |
-| Sınıf | V-01'i işlediği için Sınırlı erişim kuralı |
-| Kural / tetikleyici | Alıcı–başvuru no kontrolü; toplu gönderim yok / gönderici veya kanal değişimi, yanlış gönderim |
-
-::: {.notes}
-Yanlış alıcıya giden yazı aday bilgisini kurum dışındaki yetkisize açabilir: gizlilik Yüksek. Alıcı ve sonuç eşlemesi yanlışsa aday yanlış sonuca göre davranır: bütünlük Yüksek. İlan edilen gün kaçarsa sonraki kayıt adımı da etkilenir: erişilebilirlik Yüksek. V-01 ve V-02'nin destekler alanlarında V-03 bulunmalıdır. Hizmetin teknik uygulayıcısı B/C, kanalın işletmeni Bİ'dir; A sürecin ve sonucun karar sahibidir.
-:::
-
----
-
-## V-04: destek satırının cevabı
-
-| Alan | Kâğıt arşiv düzeni |
-|---|---|
-| Konum; sahip / teknik | Birim odası, kilitli dolap / A / D |
-| Kullanıcı | D; B/C asla D aracılığıyla erişir |
-| Dayanır / destekler | D (tek anahtar), birim odası / V-01 |
-| G / B / E | Yüksek / Orta / Orta |
-| Sınıf | V-01 asıllarını taşıdığı için Sınırlı erişim kuralı |
-| Kural / tetikleyici | Yedek anahtar sorumlusu ve raf kontrolü / anahtar, oda veya bulunamayan belge olayı |
-
-::: {.notes}
-Dolap açık kalırsa kimlik ve değerlendirme bilgileri görülebilir: gizlilik Yüksek. Yanlış raf, belge içeriğini değiştirmez fakat düzeni bozup ek düzeltme doğurur: bütünlük Orta; kapakta yanlış başvuru no da bütünlük sorunu olabilir. D izindeyken asıllara ulaşılamaz ve 20 talebin 5'i yanlış raf nedeniyle bulunamamıştır; taranmış kopyalar işi kısmen sürdürebildiği için erişilebilirlik Orta seçilir. V-04'ün etkisi V-01'den bağımsız gerekçelendirilir; aynı düzey aynı neden demek değildir.
-:::
-
----
-
-## Değişiklik kartı R1: gönderim devri
-
-Sonuç yazısını **B/C hazırlar**; yeni Aday İletişim Masası'ndaki **G gönderir** ve tarihi V-02'ye işler. G yalnız sonuç yazısı ile iletişim bilgisini görür; değerlendirme notunu görmez. A içerik onayını sürdürür.
-
-**Hangi satır ve alanlar değişir? Etkiler ve sınıf ne olur?**
-
-::: {.notes}
-Gönderim işinin karar sahibi ile sonucun içeriğini onaylayan kişi ayrılmıştır. G'nin V-01'de hangi içeriği hangi amaçla görebileceği açık yazılmalıdır; “dosyaya tam erişim” olgulardan çıkmaz. V-02'de G'nin kullanımı yalnız gönderim tarihi alanıyla sınırlıdır. Hazırlayan ve gönderen farklı kişiler olduğundan alıcı–başvuru eşlemesi devir sırasında kontrol edilir.
-:::
-
----
-
-## R1: değişen satırlar
-
-| Satır | Revizyon |
-|---|---|
-| V-03 | Sahip G; gönderen G, B/C hazırlayıcı; dayanır alanında G |
-| V-01 | G kullanıcı: yalnız sonuç yazısı ve iletişim; değerlendirme notuna erişim yok |
-| V-02 | G kullanıcı: yalnız gönderim tarihi; hesabı A onaylar |
-
-**Sınıf aynı:** bilgi hâlâ aday bilgisi.
-
-::: {.notes}
-A'nın sonuç içeriği onayı sürer; G gönderim sürecinin sahibidir ve küçük bir masada aynı zamanda uygulayıcı olabilir. V-01 işleme kuralı G'nin okuma sınırını açıklar, V-03'ün birim dışına bağımlılığı kayda eklenir. Yanlış alıcıya gönderimin Yüksek etkisi değişmez; fakat hazırlayan ve gönderen arasındaki eşleme yeni gerekçeye eklenir. Revizyon notu tarih ve “gönderim Aday İletişim Masası'na devredildi” nedenini taşır. Sahip değişikliği bilginin içeriğini değiştirmediğinden sınıfı kendiliğinden değiştirmez.
-:::
-
----
-
-## Değişiklik kartı R2: aday sorgu ekranı
-
-V-02'deki **durum** alanı kurum web sayfasından açılır. Her adayın **yalnız kendi kaydını** görmesi amaçlanır.
-
-| Değerlendirilecek | Yeni soru |
-|---|---|
-| Kullanıcı / amaç | Kim, hangi kaydı görür? |
-| Üç etki | Hangi olayın sonucu değişir? |
-| Sınıf / kural | Bilgi herkese mi açıldı? |
-
-::: {.notes}
-Bir adayın kendi kaydını görmesiyle başka adayın kaydını görmesi ayrılır. Gizlilik olayını ikinci olasılıkla değerlendiririz. Yeni kullanım için web sayfası Bİ bağımlılığına eklenir; hata veya kesintinin aday üzerindeki doğrudan etkisi mevcut gerekçeleri genişletir. “Web'den erişiliyor” ifadesi tek başına kamuya açık sınıf demek değildir.
-:::
-
----
-
-## R2: etki değişir, sınıf kalır
-
-| V-02 alanı | Revizyon |
-|---|---|
-| Kullanıcı | Aday: yalnız kendi durumunu görür |
-| Gizlilik | Orta → Yüksek: başka aday görürse bilgi kurum dışı yetkisize çıkar |
-| Bütünlük / erişilebilirlik | Yüksek kalır; yanlış durum doğrudan görünür, kesinti telefon yükü doğurur |
-| Dayanır / kural | Bİ web sayfası; “aday yalnız kendi kaydını görür” |
-| Sınıf | Sınırlı erişim kalır |
-
-::: {.notes}
-Sınıfın kalma gerekçesi bilginin hâlâ aday bilgisi olması ve yalnız ilgili adaya açılmasının yayım onayı anlamına gelmemesidir. Bütünlük Yüksek kalırken gerekçe değişir: yanlış durum artık adaya doğrudan görünür. Erişilebilirlik Yüksek kalırken sorgu ekranı kesintisinin telefon yükü sonuç haftasının işini yavaşlatabilir. Revizyon notuna tarih ve “durum alanı aday sorgu ekranına açıldı” yazılır. İşleme kuralı Bİ'nin uygulayacağı erişim gereksinimini kaydeder.
-:::
-
----
-
-## Değişiklik kartı R3: konum değişimi
-
-V-01'in taranmış kopyaları **yeni dosya alanına** taşınıyor. İşleten yine dış BT; klasör adı değişiyor.
-
-**Hangi alan güncellenir? Sınıf veya sahip değişir mi?**
-
-::: {.notes}
-Yalnız konum değişse bile bulunabilirlik kaydı güncel tutulmazsa bir görevli dosyayı eski yerde arar. Yeni bir bilgi veya yeni iş amacı oluşmadığı için ayrı varlık açılmaz. Dış BT'nin rolü aynı kaldığından karar ve uygulama rolleri yeniden atanmaz.
-:::
-
----
-
-## R3: konumu düzeltin
-
-**V-01 taşıyıcı/konum ve dijital etiket** → yeni dosya alanı ve klasör adı.
-
-**Sahip A; sınıf Sınırlı erişim; üç etki gerekçesi aynı.** Revizyon notu tarih, eski/yeni konum ve taşıma nedenini içerir.
-
-::: {.notes}
-Etiket burada dijital klasörün sınıfı görünür kılan işaretidir; klasör adı değişince işaretin yeni konumda da bulunması kontrol edilir. İşleten dış BT aynı olduğu için teknik sorumlu değişmez. Bu örnek, envanter revizyonunun mutlaka yeni sınıf üretmediğini gösterir. Değişiklikten önce olası etkisini değerlendirme ve sonra kayda geçirme ilkesi ana kaynakta işlenir. (*Fundamentals of Information Systems Security*, Böl. 6, s. 199–203.)
-:::
-
----
-
-## Hatalı envanter: satırları inceleyin
-
-| Kimlik | Kayıt özeti |
-|---|---|
-| V-01a / V-01b | Kâğıt ve PDF ayrı bilgi; PDF sahibi dış BT |
-| V-02 / V-03 | V-03, V-02'ye dayanır; V-02'nin destekler alanı boş |
-| V-04 | D, dayanır alanında yok; erişilebilirlik boş |
-| V-05 | Rehber: “Kamuya açık – koruma gerekmez”; bütünlük boş |
-| V-06 | Kurum itibarı ayrı varlık |
-| V-07 / V-08 | Bağsız bilgisayar/yazıcı; bilgisayar sınıfı “Gizli” |
-
-**Her satır için: hata → neden → düzeltme.**
-
-::: {.notes}
-Kayıtlar aynı vakanın kusurlu bir taslağıdır. V-01a'da sahibi A, V-01b'de dış BT yazılıdır; içerik aynıdır. V-03'ün yalnız V-02'ye dayandığı da eksiktir; V-01, e-posta ve B/C ayrıca gerekir. V-04'ün “destekler” alanı eski V-01a kimliğine işaret eder. Rehberin kamuya açıklığı, yanlış son tarihin başvuruya etkisini kaldırmaz. Altı ana hata kümesini ve ek tutarsızlıkları ayrı ayrı gerekçelendirmek gerekir.
-:::
-
----
-
-## Hatalı envanter: düzeltme anahtarı
-
-| Hata | Düzeltme |
-|---|---|
-| V-01a/b: kopya ve sahip | Tek V-01; iki taşıyıcı; sahip A, teknik D/dış BT |
-| V-02/03: tek yönlü bağ | V-02 destekler: V-03; V-03 dayanır: V-01, V-02, e-posta, B/C |
-| V-04: anahtar görünmez | Dayanır: D; erişilebilirlik Orta, asıllara erişim kesilir |
-| V-05: açık bilgi değersiz sayılmış | Bütünlük Yüksek; erişilebilirlik son gün Yüksek |
-| V-06: itibar satırı | İlgili olayın etki gerekçesine taşı |
-| V-07/08: bağsız cihaz ve “Gizli” | Destekledikleri işi bağla veya bağımlılıkta tut; tanımlı sınıf kullan |
-
-::: {.notes}
-V-01b'nin sahibi dış BT olamaz; firma izinleri uygular fakat aday dosyalarının iş amaçlı kullanımına karar vermez. V-04'ün “destekler: V-01a” ifadesi satırlar birleşince V-01 olarak düzeltilir. Rehber için erişilebilirlik kısa kesintide Orta, son günde Yüksek olabilir. Cihazlar ayrı satır açılacaksa hangi bilgi veya hizmeti destekledikleri gösterilir ve sınıf kuralı bundan türetilir. B'nin masaüstü kopyalarının birleşik V-01 satırında bulgu olarak görünmemesi de ek hatadır.
-:::
-
----
-
-## Başka bir satırı altı soruyla denetleyin
-
-1. Kopya ayrı bilgi sayılmış mı?
-2. Her G/B/E düzeyinin ayrı vaka gerekçesi var mı?
-3. Sahip karar veriyor, teknik sorumlu uyguluyor mu?
-4. Dayanır ↔ destekler kimlikle tutarlı mı?
-5. Sınıf kurum ölçütüne veya devralma kuralına uyuyor mu?
-6. Gözden geçirme tetikleyicisi yazılı mı?
-
-::: {.notes}
-V-02, V-03 ve V-04 satırlarını karşılıklı incelemede her “hayır” yanıtı bir alan adı ve düzeltme önerisiyle kaydedilir. Gerekçeli komşu etki düzeyi kabul edilebilir; gerekçesiz etiket kabul edilmez. Kişiyi ayrı satır yapan tutarlı bir düzen de mümkündür. Denetimin amacı herkesin aynı sözcükleri yazması değil, kararın vaka olgularından izlenebilir çıkmasıdır.
-:::
-
----
-
-## İki envanter farklı soruları yanıtlar
-
-| | Varlık envanteri | Kişisel veri işleme envanteri |
+| Varlık | Dayanır | Destekler |
 |---|---|---|
-| Ana soru | Neyi koruyoruz; sahibi, bağımlılığı, G/B/E etkisi ve sınıfı ne? | Hangi kişisel veri, hangi amaçla, kime aktarılarak, ne kadar süre işleniyor? |
-| Kapsam | Bilgi, uygulama, hizmet ve destek | Kişisel veri içeren işlemeler |
-| V-01 | Yer alır | Yer alabilir |
-| Başvuru Rehberi | Yer alır | Kişisel veri işleme kaydı değildir |
+| Yoklama listeleri | Koridor yazıcısı, arşiv personeli | Devam durumunun belirlenmesi |
+| Koridor yazıcısı | Elektrik, BT, bakım firması | Yoklama listelerinin çıktıları |
 
 ::: {.notes}
-V-01 iki kayıtta ortak kimlikle bağlanabilir; biri diğerinin alanlarını kendiliğinden doldurmaz. Örneğin “Sınırlı erişim” kararı saklama süresini söylemez. KVKK örnek XLSM dosyasındaki ENVANTER, KATEGORİ, KİŞİSEL VERİ LİSTESİ, İŞLEME AMAÇLARI ve TEKNİK VE İDARİ TEDBİRLER sayfa adları bu farklı soru düzenini gösterir. Dosya, burada yalnız yapı karşılaştırması için kullanılmıştır.
+Tablo, ilişkinin okunmasını kolaylaştırmak için yalnız birkaç bağlantıyı gösterir. Yoklama listelerinin kaydında yazıcıya ihtiyaç olduğu yazıyorsa yazıcının kaydında da yoklama çıktısını desteklediği görünmelidir. Böylece arızalanan cihazın etkilediği iş bulunur. Arşiv anahtarının tek kişide olması da bir ihtiyaç ilişkisidir: kişi izindeyken kâğıt asıla ulaşılamayabilir. Bu tür ilişkileri görmek için bütün kurumu karmaşık bir ağ olarak çizmek gerekmez; somut iş ve karşılıklı iki kayıt yeterli olabilir. Aynı kimlik kullanılarak iki taraftaki bağlantının tutarlılığı kontrol edilir.
 :::
 
 ---
 
-## Kararı kayıtla sınayın
+## Bir olayın etkisini üç ayrı yönden değerlendirin
 
-**17 numaralı başvurunun aslına D izindeyken kim erişebilir?**
+**Etki düzeyi**, bir olayın sonucunun ciddiyetini gizlilik, bütünlük ve erişilebilirlik için ayrı ayrı belirtir.
 
-V-01: konum + sahip + kullanıcı amacı + V-04 bağımlılığı + erişilebilirlik gerekçesi + işleme kuralı.
+| Yön | Sorulacak soru |
+|---|---|
+| Gizlilik | Yetkisiz kişi görürse ne olur? |
+| Bütünlük | Yanlış veya yetkisiz değişirse ne olur? |
+| Erişilebilirlik | Kullanılamazsa ne olur? |
+
+Her yön için Düşük, Orta veya Yüksek ve **ayrı gerekçe** yazılır.
 
 ::: {.notes}
-Soru tek bir “dosya var” cevabıyla çözülemez. V-01 aslı V-04'te gösterir; A erişim kararını verir; D'nin anahtar tekeli nedeniyle yedek sorumlu belirlenmemişse asla fiilen ulaşılamaz. Taranmış kopya yetkili görevlinin işini kısmen sürdürebilir. V-04 için önerilen yedek anahtar sorumlusu kararı uygulanınca satır ve revizyon notu güncellenmelidir. Böylece kayıt, ilk bulunabilirlik sorusunu somut alanlar üzerinden yanıtlar.
+Üç yön farklı olay sonuçlarını anlatır. Yoklama kaydını yetkisiz birinin görmesi ile devamsızlık sayısının yanlış yazılması aynı sorun değildir; dosyaya hiç ulaşılamaması da başka bir sorundur. Bu yüzden tek bir “önemli” etiketiyle üçünü kapatmayız. Düzeyler toplanıp puana çevrilmez. Sorulan, olayın gerçekleşme olasılığı değil, gerçekleşirse neye yol açacağıdır. Kararı vermeden önce kurumun Düşük, Orta ve Yüksek ile neyi kastettiğini açıklayan ölçütler bulunmalıdır. Aşağıdaki ölçütler kurgusal birime aittir.
+:::
+
+---
+
+## Bu birimde etki düzeyleri nasıl seçiliyor?
+
+**Kurgusal ölçütler; standart veya mevzuat eşiği değildir.**
+
+| Düzey | Gizlilik | Bütünlük | Erişilebilirlik |
+|---|---|---|---|
+| Düşük | Bu kurumda görünmesi iş zararı doğurmayan bilgi; görevli adı ve iş ataması dahil | Aynı gün fark edilir ve düzeltilir. | İş aynı gün alternatif yolla sürer. |
+| Orta | Öğrencinin ad, numara ve devam kaydı kurum içinde yetkisize görünür | Düzeltme veya gecikme bir iş gününe kadardır. | Bir iş gününe kadar gecikme; alternatif vardır. |
+| Yüksek | Kimlik, iletişim, sağlık, maaş gibi bilgi yetkisize veya kurum dışına görünür. | Yanlış bilgi bir kararı etkiler ve fark edilmeyebilir. | Kritik tarih kaçar veya iş birden fazla gün durur. |
+
+::: {.notes}
+Ölçütün işlevi gerekçeyi karşılaştırılabilir kılmaktır. Örneğin yanlış kayıt aynı gün fark edilip düzeltilebiliyorsa bütünlük etkisiyle ilgili koşul Düşük satırına uyar. Yanlış kayıt öğrencinin sınav hakkını etkileyen bir karara yol açabiliyor ve fark edilmeyebiliyorsa Yüksek satırına uyar. Kısa kesintide işin başka yolla sürmesiyle kritik tarihin kaçması da ayrı sonuçlardır. Bu sınırlar kurumun örnek kararlarıdır; evrensel süre veya zarar eşikleri gibi kullanılamaz. Düzeyin yanına olay ve sonucunu yazmak, yalnız renk veya sayı kullanmaktan daha açıklayıcıdır.
+:::
+
+---
+
+## Sınıf kimlerin görebileceğini belirler
+
+**Sınıf**, bilginin kimlerce görülebileceğini belirleyen erişim grubudur.
+
+| Bu birimin sınıfı | Ölçüt |
+|---|---|
+| Kamuya açık | Yayımlanması yönetim tarafından onaylı bilgi |
+| Kurum içi | Bu kurumda görünmesi iş zararı doğurmayan görevli adı ve iş ataması gibi iş düzeni bilgileri |
+| Sınırlı erişim | Öğrencinin ad, numara ve devam kayıtları veya sağlık, maaş, izin nedeni gibi özel bilgiler; yalnız görevli kişiler iş için kullanır |
+
+**Sınıf ile üç ayrı etki düzeyi farklı soruları yanıtlar.**
+
+::: {.notes}
+Bu sınıf adları ve ölçütleri kurgusal birime aittir. Kurum içi sınıfında görevli adları ve iş atamaları bulunabilir; bu sınıf, kişiye ilişkin hiçbir sözcük yok anlamına gelmez. Sağlık veya izin nedeni gibi bilgiler eklenirse aynı çizelgenin değerlendirmesi değişebilir. Kamuya açık sınıfını seçmek için bilginin yayımlanmasının onaylanmış olması gerekir. İnternetten ulaşılabilir olmak tek başına yayım onayı göstermez. Sınıf, üç etki düzeyinin toplamından çıkmaz; bilginin hangi gruba açılacağına ilişkin kurala göre seçilir. Kurumlar başka adlar ve ölçütler kullanabilir.
+:::
+
+---
+
+## Sınıfı uygulamak için kural ve etiket gerekir
+
+**İşleme kuralı**, sınıfa bağlı olarak okuma, değiştirme, kopyalama, saklama ve yedekleme koşullarını belirler.
+
+**Etiket**, bu kararı varlığın üzerinde gösteren kısa işarettir.
+
+Yoklama için kurgusal karar:
+
+- Eğitmen ve bölüm sekreteri okur; kişisel cihazda kopya tutulmaz.
+- Tarama bölümün ortak klasöründedir ve yedeklenir.
+- Kapakta ve klasörde “Sınırlı erişim” etiketi bulunur.
+
+::: {.notes}
+Sınıf adını yazmak, bilgiyi nasıl kullanacağımızı bütün ayrıntılarıyla açıklamaz. İşleme kuralı kimlerin kullanacağını ve kopyaların nerede tutulabileceğini somutlaştırır. Bu örnekte kâğıt asıl arşivde kilitli dolaptadır. Düzeltmede eski değerin okunur kalması ve değişikliğin tarihinin yazılması da kurgusal kurala dahildir. Etiket, kapağa veya klasöre bakan kişiye geçerli sınıfı hatırlatır; erişim izninin uygulanmasının yerine geçmez. Bu kararlar örnek kuruma aittir ve bütün envanterlerde aynı klasör, dolap veya sınıf adının bulunması gerektiğini göstermez.
+:::
+
+---
+
+## Yoklama kaydına etki ve sınıfı ekleyin
+
+**Bu değerlendirmede kâğıt asıl ve tarama birlikte bulunuyor.**
+
+| Alan | Karar | Olayın gerekçesi |
+|---|---|---|
+| Gizlilik | Orta | Ad, numara ve devam durumu kurum içinde yetkisize görünür. |
+| Bütünlük | Yüksek | Yanlış devamsızlık sınav hakkını etkileyebilir. |
+| Erişilebilirlik | Orta | Bir taşıyıcı yoksa diğeriyle iş sürer; bir iş günü gecikme olabilir. |
+| Sınıf | Sınırlı erişim | Öğrenciye ait bilgiyi görevliler iş için kullanır. |
+
+::: {.notes}
+Bu tablo ilk kayıttaki “neden önemli” alanını ayrıntılandırır. İlk kayıt yalnız kâğıt ortamı gösteriyordu; şimdi taramanın da eklendiği durumu değerlendiriyoruz. Güncelleme bölümünde bu geçişi kayda işleyeceğiz. Erişilebilirlik gerekçesi bu koşula dayanır. Gizlilik olayının sonucu Orta ölçütüne uyarken sınıf yine Sınırlı erişimdir; biri olayın ciddiyetini, diğeri kullanım grubunu gösterir. Başka bir olay tarif edilirse aynı bilginin etkisi yeniden incelenir. Örneğin burada değerlendirilen kurum içi görünme olayıyla bilginin kurum dışına açılması aynı olay değildir. Seçimin dayanağını yazmak bu farkı görünür kılar.
+:::
+
+---
+
+## Kamuya açık duyuruda ne korunur?
+
+Yönetim onaylı sınav takvimi herkesçe okunabiliyor.
+
+Yanlış sınav tarihi yazılırsa veya sınav haftasında sayfa açılmazsa ne olur?
+
+. . .
+
+- Sınıf **Kamuya açık**, gizlilik etkisi **Düşük**.
+- Yanlış tarih öğrenciyi yanıltır: bütünlük **Yüksek**.
+- Sınav haftasında erişilebilirlik **Yüksek** olabilir.
+- Okuma herkese açıkken değiştirme yetkisi sınırlıdır.
+
+::: {.notes}
+Duyurunun herkese ulaşması amaçlanır; onu okumak gizlilik sorunu doğurmaz. Ancak doğru kişilerin yanlış tarihe göre hareket etmesi ciddi sonuç yaratabilir. Açık bilgi için bütünlüğün korunması bu nedenle gereklidir. Erişilebilirlik değerlendirmesinde zaman da önemlidir: sınav haftasında duyuruya ulaşamamak işin kritik zamanını etkileyebilir. Bu örnek sınıfı koruma öneminin tek ölçüsü saymanın neden yetersiz kaldığını gösterir. Her yön, kendi olayı ve iş sonucu üzerinden değerlendirilir.
+:::
+
+---
+
+## Bilgiyi taşıyan cihazda hangi kural uygulanır?
+
+Kurgusal yerel kural: taşıyan veya işleyen unsur, içerdiği bilginin **en yüksek sınıfının işleme kuralını** devralır.
+
+Yazıcıdan duyuru ve yoklama listesi çıkıyor.
+
+. . .
+
+Yoklama çıktısı tepside bırakılmaz; alan kişi başında bekler.
+
+Cihazın etkileri yine kendi olaylarına göre değerlendirilir.
+
+::: {.notes}
+Aynı yazıcıdan kamuya açık duyuru da Sınırlı erişim yoklama listesi de çıkabilir. Duyurunun açık olması yoklama çıktısının ortada bırakılmasını uygun kılmaz. Bu birimin seçtiği kural, işlenen bilginin korunmasını destekleyen unsura taşır. Bunun bütün kurumlar için standart hükmü olduğu sonucu çıkarılamaz. Kuralın aktarılması etkilerin eşitlenmesi de değildir: yazıcı arızası çıktı işini durdururken dolap anahtarının kaybı asıl belgeye ulaşmayı engeller. İki olayın alternatifleri ve sonuçları farklı olabilir.
+:::
+
+---
+
+## Envanter hangi olaylarda yenilenir?
+
+**Gözden geçirme tetikleyicisi**, satırı yeniden inceleten değişim veya olaydır.
+
+| Değişim | Kayda yansıması |
+|---|---|
+| Yeni varlık | Yeni satır, roller ve ilgili bağlantılar |
+| Taşınma | Konum / ortam; yeni yerde etiket kontrolü |
+| Sorumlu veya kullanıcı değişimi | Rol, izin ve kullanım kuralı |
+| Amaç değişimi veya olay | Etki gerekçeleri, sınıf ve kuralın gözden geçirilmesi |
+| Kullanımdan kalkma | Durum, tarih ve üzerindeki bilginin ne olacağı |
+
+**Revizyon notu:** ne zaman, ne, neden değişti?
+
+::: {.notes}
+Kullanımdan kalkan varlığın satırı silinirse geçmiş konumunu ve hangi işlemle devreden çıkarıldığını izlemek zorlaşır. Bu nedenle durum ve tarih kaydedilir; taşıdığı bilginin ne olacağı da belirtilir. Taşınmada ise genellikle yeni varlık oluşmaz, mevcut satırın konumu değişir. Bakımı yeni bir personelin üstlenmesi iş kararını veren sahibin de değiştiği anlamına gelmez. Her değişiklikte hangi olgunun değiştiğini belirlemek gerekir. Revizyon notu bu olguyu gerekçesi ve tarihiyle saklar; kurumun seçtiği aralıklarla sahiplerin satırları gözden geçirmesi de güncelliği destekler.
+:::
+
+---
+
+## Tarama ortak klasöre eklenince ne değişir?
+
+Yoklama listeleri taranıp bölümün ortak klasörüne konuyor; amaç ve sahip aynı.
+
+. . .
+
+- Yeni bilgi satırı açılmaz; konum / ortama tarama eklenir.
+- Dayandığı unsurlara ortak klasör ve işleten birim eklenir.
+- Klasörde “Sınırlı erişim”; izinler eğitmen ve bölüm sekreterine.
+- Sahip ve sınıf korunur; tarama erişim için alternatif sağlar.
+- Önceki Orta erişilebilirlik kararı bu iki taşıyıcılı duruma aittir.
+
+::: {.notes}
+Tarama, aynı bilginin ikinci taşıyıcısıdır. Bilginin amacı ve karar sahibi değişmediği için yeni bilgi kaydı gerekmez. Kayıtta iki ortamın da yeri bulunmalı, klasörü işleten birim ve ilgili kullanım kuralları görülmelidir. Revizyon notu örneği: “Yoklama listeleri taranarak ortak klasöre eklendi; tarih: işlem tarihi; neden: arşive erişim kısıtını azaltmak.” Bu cümlede işlem tarihi gerçek uygulamada doldurulur. Taşıyıcı eklemek etkileri otomatik olarak aynı bırakmaz. Yalnız kâğıt için yeni bir düzey verilmemiştir. Kurum içinde yetkisize görünme ve yanlış devamsızlığın karara etkisi olayları değişmediğinden gizlilik ve bütünlük gerekçeleri korunur; klasör izinleri ayrıca kontrol edilir. Etki gerekçesi değerlendirilirken hangi taşıyıcıların fiilen kullanılabilir olduğu dikkate alınır; iki taşıyıcılı yoklama örneğinin Orta erişilebilirlik gerekçesi bu koşulu açıkça belirtir.
+:::
+
+---
+
+## ISO 27001 bağlamında bu kayıt neyi destekler?
+
+**Bilgi Güvenliği Yönetim Sistemi (BGYS)** bağlamında:
+
+- **ISO/IEC 27001:2022:** kurma, uygulama, sürdürme ve sürekli iyileştirme gereksinimleri.
+- **ISO/IEC 27002:2022:** kontroller için uygulama rehberi.
+- Rehberde kontrol **5.9:** bilgi ve diğer ilişkili varlıkların envanteri.
+
+Tablonun biçimi ve kullanılan araç, kurumun işine göre seçilir.
+
+::: {.notes}
+Bilgi ve ilişkili varlıkların birlikte ele alınması, envanterin yalnız BT donanımı sayımı olmamasını sağlar. ISO komitesi sitesindeki açıklayıcı uzman makalesi bağlantılı birden fazla envanter ve farklı sorumluluk atamalarını örnekler; bu makale standardın normatif tam metni değildir. Buradaki şirket örneği eğitim amaçlıdır, zorunlu uygulama sırası veya sütun listesi göstermez. ISO 27001'in gereksinim standardı oluşuyla ISO 27002'nin uygulama rehberi oluşunu ayırmak gerekir. Bu açıklamada kullanılan sürümler 2022'dir.
+:::
+
+---
+
+## Destek şirketi önce işi ve varlıklarını belirliyor
+
+**Kurgusal şirketin kapsamı:** müşteri destek taleplerinin alınması ve yanıtlanması.
+
+Talep gelir → kayıt açılır → uzman çözer → müşteriye yanıt gider.
+
+| Bulunan bilgi | İlişkili unsurlar |
+|---|---|
+| Talep kayıtları | Destek yazılımı, destek e-posta kutusu |
+| Destek ekibinin vardiya bilgisi | Destek ekibi ve kullanılan araçlar |
+
+Uzaktan bağlantı aracı da iş akışından bulunan adaylar arasındadır.
+
+::: {.notes}
+Şirket kurumda bulunan bütün cihazları gelişigüzel saymak yerine kapsama aldığı işin nasıl yürüdüğünü inceler. Talep kayıtları hangi isteğin alındığını ve nasıl yanıtlandığını taşır. Destek yazılımı ve e-posta kutusu ise bu bilginin işlenmesini ve müşteriye ulaşmasını sağlar. Vardiya bilgisi, ilgili işi hangi ekibin yürüttüğünü anlamaya yardım eder. Bu tablo bütün varlıkları veya ilişkileri tüketmez; işten başlayarak bilgi ve ilişkili unsurları bulma yöntemini gösterir. Kapsam kararı hangi iş için kayıt tutulduğunu anlaşılır kılar.
+:::
+
+---
+
+## Destek şirketi sorumluyu ve güncellemeyi belirliyor
+
+| Karar | Kurgusal uygulama |
+|---|---|
+| Bilginin sahibi | Destek müdürü, talep kayıtlarını kimlerin kullanacağına karar verir. |
+| Teknik uygulama | BT yöneticisi destek yazılımını işletir. |
+| Kayıt düzeni | Bilgi ve yazılım envanterleri kimlikle bağlanır; sürüm ve tarih tutulur. |
+| Güncelleme | Yeni yazılım, ekip değişimi veya olayda ilgili kayıt yenilenir. |
+| Gözden geçirme | Sahipler belirlenen aralıklarla kayıtlarını inceler. |
+
+::: {.notes}
+Şirketin iki ayrı liste seçmesi ortak bir envanter düzeni kurmasına engel değildir. Bilgi kaydından onu işleyen yazılıma ulaşılabiliyorsa kayıtlar birlikte kullanılabilir. Destek müdürünün iş kararıyla BT yöneticisinin işletim görevi ayrı tutulur. Yeni yazılım geldiğinde yalnız yazılım listesi değil, bu yazılımla ilişkili bilgi kaydı da incelenir. Sürüm ve tarih hangi düzenlemenin geçerli olduğunu izlemeye yardım eder. Bunlar bu şirket için seçilmiş eğitim örneği kararlarıdır; ISO'nun her kurumda aynı tabloyu veya Excel kullanımını zorunlu tuttuğu iddiası değildir.
+:::
+
+---
+
+## Görev 2: çizelgeyi sınıflandırın, yazıcıyı güncelleyin
+
+**A — Nöbet çizelgesi:** eğitmen adı ve nöbet günü var; sağlık veya izin nedeni yok. Bu kurumda görevli adı ve iş atamasının görünmesi iş zararı doğurmuyor; ad yine kişiye ilişkin bilgidir. Yanlışlık bir iş günü aksama yaratıyor. Açılmazsa sekreter aynı gün sözlü dağılım yapabiliyor.
+
+**Gizlilik, bütünlük, erişilebilirlik ve sınıfı ayrı gerekçelendirin.**
+
+**B — 2. yazıcı:** BT odasına taşındı, bakım sorumlusu başka personel oldu.
+
+**Değişen / değişmeyen alanları ve revizyon notunu yazın.**
+
+::: {.notes}
+Çizelge için önce olayın sonucunu etki ölçütleriyle karşılaştırın, sonra içeriği sınıf ölçütüyle karşılaştırın. Eğitmen adının görünmesiyle sağlık veya izin nedeninin görünmesi bu örneğin yerel ölçütlerinde farklı değerlendirilir. Yazıcıda ise verilen değişim konum ve bakım görevidir; bundan kullanım amacı veya sahiplik devri çıkmaz. Revizyon notunda gerçek uygulamada tarih yer alır. Görevde taşınmanın nedeni belirtilmediğinden neden alanı için doğrulanacak bilgiyi açık bırakmak uygundur. Ölçüt, her kararı verilen olguya bağlamak ve eksik bilgiyi tahminle kesinleştirmemektir.
+:::
+
+---
+
+## Görev 2 çözümü: dört kararı ayrı gerekçelendirin
+
+| Alan | Karar | Gerekçe |
+|---|---|---|
+| Gizlilik | Düşük | Görevli adı ve iş ataması, bu ölçütte iş zararı doğurmuyor. |
+| Bütünlük | Orta | Yanlış nöbet bir iş günü aksama yaratıyor. |
+| Erişilebilirlik | Düşük | Aynı gün sözlü dağılımla iş sürdürülebiliyor. |
+| Sınıf | Kurum içi | İş düzeni; görevli adı ve ataması içeriyor. |
+
+::: {.notes}
+Gizlilik etkisinin Düşük olması otomatik olarak Kamuya açık sınıfını seçtirmez. Bu sınıf için yayım onayı gerekir; verilen olgular ise kurum içindeki iş düzenini anlatır. Çizelgede ad bulunması da bu örneğin ölçütlerine göre kendiliğinden Sınırlı erişim sonucu üretmez; görevli adı ve iş ataması Kurum içi ölçütüne dahil edilmiştir. Sağlık veya izin nedeni eklenmiş olsaydı içerik değişirdi ve sınıf yeniden değerlendirilirdi. Çözüm bu birimin tanımlı ölçütlerine dayanır; başka kurumlar için evrensel sınıf kararı vermez.
+:::
+
+---
+
+## Görev 2 çözümü: aynı yazıcının kaydını yenileyin
+
+| Alan | İşlem |
+|---|---|
+| Konum | MYO koridoru → BT odası |
+| Teknik / bakım sorumlusu | Önceki personel → yeni personel |
+| Etiket ve erişim | Yeni yerde bulunduğu ve kullanımın uygunluğu kontrol edilir. |
+| Kimlik, tür, sahip, sınıf | Verilen olgulara göre aynı kalır. |
+
+**Revizyon:** “2. yazıcı BT odasına taşındı, bakım sorumlusu değişti; tarih: işlem tarihi; neden: doğrulanacak.”
+
+::: {.notes}
+Taşınan hâlâ aynı cihazdır; yeni kimlik açmak gerekmez. Bakım sorumlusunun değişmesi de varlığın amacını ve kullanıcılarını belirleyen rolün devredildiğini göstermez. Kullanıcılar ve neden önemli alanı verilen olgularla değişmez; yeni yerde erişimin uygunluğu yine kontrol edilir. Görev taşınma nedeni vermediğinden revizyon notu bu nedeni uydurmaz. “Bakım kolaylığı” ancak kurumdan doğrulanırsa kayda yazılabilir. Tarih ve nedenin doğru olması geçmişte hangi değişikliğin yapıldığını anlamak açısından önemlidir.
+:::
+
+---
+
+## Yazıcı bozulduğunda kayıttan ne öğrenirsiniz?
+
+- **Kimlik:** 1. yazıcı mı, 2. yazıcı mı?
+- **Konum ve sorumlu:** nerede, kimi arayacağım?
+- **Desteklediği iş:** yoklama çıktıları aksar mı?
+- **İşleme kuralı:** yoklama çıktısı tepside bırakılabilir mi?
+- **Güncellik:** son taşınma ve sorumlu değişimi kayda işlendi mi?
+
+::: {.notes}
+Açılıştaki arızada bilinmeyenler, artık kaydın alanlarından yanıtlanabilir. Cihazın kimliği ve konumu onu bulmayı, teknik sorumlu bakım için doğru kişiye ulaşmayı sağlar. Desteklediği iş arızanın sonucunu gösterir. Yoklama listesinin işleme kuralı ise yazıcı çalışırken de çıktıların dikkatle alınmasını gerektirir. Kayıt taşınma veya görev değişiminden sonra yenilenmediyse bu cevapların bir kısmı yanlış olur. Envanterin işe yaraması, varlığı tanıtan alanlarla kararları açıklayan gerekçelerin ve değişikliklerin birlikte güncel tutulmasına bağlıdır.
 :::
 
 ---
 
 ## Kaynaklar
 
-- BGT 201 ders sunumu 1, *Bilgi Güvenliği*: s. 8–10, 14–16, 37–40.
-- BGT 201 ders sunumu 2, *Bilgi Güvenliği Yönetim Sistemleri*: s. 22–23.
-- *Fundamentals of Information Systems Security*, Bölüm 1, s. 14–18, 19–38, 40–43; Bölüm 6, s. 196–203.
-- KVKK örnek veri envanteri çalışma dosyası: yalnız sayfa yapısı karşılaştırması.
+- BGT 201 ders içi envanter örnekleri ve ders sunumları: bilgi güvenliği s. 14–16; yönetim sistemleri s. 22–23.
+- *Fundamentals of Information Systems Security*, Bölüm 6, s. 196–199.
+- *Denetişim*, 2014, s. 9, 12–13.
+- [ISO/IEC 27001:2022 — ISO tanıtımı](https://www.iso.org/standard/27001).
+- [ISO/IEC 27002:2022 — ISO tanıtımı](https://www.iso.org/standard/75652.html).
+- [SC27 Journal, “Inventory of information and other associated assets”, s. 29–33](https://committee.iso.org/files/live/sites/jtc1sc27/files/resources/ISO-IEC%20JTC%201-SC%2027_N22755_SC27%20Journal%20Vol%202%20Issue%202%20%28update%20Dec%202022%29.pdf).
 
 ::: {.notes}
-Sunumdaki vaka ve kurum ölçütleri kurgusaldır. Kaynak sununun 2013 dönemine ait başlığı, bugünkü standart gerekliliği olarak kullanılmaz. Buradaki yerel envanter alanları ve sınıflar herhangi bir standarttan zorunlu şablon olarak çıkarılmamıştır.
+Varlık örnekleri ve öğretim hattı ders notuna dayanır. Yerel envanter alanları, sınıflar, etki ölçütleri ve kurum atamaları eğitim amaçlıdır. ISO bağlantıları 2022 sürümlerinin rolünü ve bilgi ile ilişkili varlıkların birlikte ele alınmasını destekler. SC27 Journal yazısı açıklayıcı uzman makalesidir; normatif standart metni yerine kullanılmaz. Kaynakların eski sürümlerindeki madde veya örnekler güncel zorunluluk diye aktarılmamıştır. Aynı envanter işini başka kurumlar farklı sınıf adları, bağlantılı listeler ve farklı kayıt araçlarıyla yürütebilir.
 :::

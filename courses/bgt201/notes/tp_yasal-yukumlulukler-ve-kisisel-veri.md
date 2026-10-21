@@ -8,23 +8,27 @@ execute:
   echo: false
 ---
 
-## Yasal yükümlülükler ve kişisel veri
+## H6 — Yasal yükümlülükler ve kişisel veri
+
+Bir dosyanın yerini, sahibini ve sınıfını bilmek, hangi kişisel verinin hangi amaçla işlendiğini tek başına açıklamaz.
+
+**Bu işlem için hangi kaynak geçerli, kurum neye karar vermeli ve tedbir nasıl sınanmalı?**
 
 ---
 
 ## Başvuru kaydının yolu
 
-| Adım | İşlem / alan | Yürüten |
-|---|---|---|
-| 1 | Form: ad, kimlik no, telefon, e-posta, okul, not ortalaması | Kayıt görevlisi |
-| 2 | Tarama ve ortak “Başvurular” klasörüne kayıt | Kayıt görevlisi |
-| 3 | Başvuru no, okul, not ortalamasıyla değerlendirme | Belge/arşiv görevlisi |
-| 4 | Klasöre uzaktan bakım erişimi | Dış BT firması |
-| 5 | Webde sonuç duyurusu | Birim sorumlusu |
-| 6 | Kabul edilenlerin ad, kimlik no, telefonunun merkez İK'ya gönderimi | Belge/arşiv görevlisi |
+| Adım | İşlem / alan                                                        | Yürüten               |
+| ---- | ------------------------------------------------------------------- | --------------------- |
+| 1    | Form: ad, kimlik no, telefon, e-posta, okul, not ortalaması         | Kayıt görevlisi       |
+| 2    | Tarama ve ortak “Başvurular” klasörüne kayıt                        | Kayıt görevlisi       |
+| 3    | Başvuru no, okul, not ortalamasıyla değerlendirme                   | Belge/arşiv görevlisi |
+| 4    | Klasöre uzaktan bakım erişimi                                       | Dış BT firması        |
+| 5    | Webde sonuç duyurusu                                                | Birim sorumlusu       |
+| 6    | Kabul edilenlerin ad, kimlik no, telefonunun merkez İK'ya gönderimi | Belge/arşiv görevlisi |
 
 ::: {.notes}
-Kurgusal birim 12 adayın başvurusunu işler. İki kayıt görevlisi, bir belge/arşiv görevlisi ve bir birim sorumlusu vardır. Form kâğıt veya web üzerinden alınır; merkez İK aynı kurum içindedir. Değerlendirme için kullanılan üç alanla ortak klasörde duran tüm alanları ayrı görün. Bu fark, kimlerin neye erişmesi gerektiği sorusunu doğurur.
+Kurgusal birim 12 adayın başvurusunu işler. Bir sorumlu ve üç görevli vardır; görevlilerden biri arşiv işini de yürütür. Bu etkinlikte görevler adlarıyla gösterilir. Form kâğıt veya web üzerinden alınır; merkez İK aynı kurum içindedir. Değerlendirme için kullanılan üç alanla ortak klasörde duran tüm alanları ayrı görün. Bu fark, kimlerin neye erişmesi gerektiği sorusunu doğurur.
 :::
 
 ---
@@ -52,48 +56,50 @@ Kopyalama oturumunun kaydı tutulmadı; durum çalışanın kendi beyanıyla ö�
 | “ISO 27001 belgemiz var.” | Salı oturumunun yetkisi ve kaydı nerede? |
 
 ::: {.notes}
-İmzalı belge klasör iznini değiştirmez. Sertifika da bu oturumda neye erişildiğini göstermez; belgenin bu birimi kapsayıp kapsamadığı dahi bilinmiyor. Erişim açığı için yetki sınırı ve inceleme izi gerekir. Ders sunumu 2, slayt 5'teki rıza cevabı ile slayt 13'teki sertifika/zorunluluk iddiaları bu olayın dayanağı olarak kullanılamaz.
+İmzalı belge klasör iznini değiştirmez. Sertifika da bu oturumda neye erişildiğini göstermez; belgenin bu birimi kapsayıp kapsamadığı dahi bilinmiyor. Erişim açığı için yetki sınırı ve inceleme izi gerekir. Bu iki belgeden hiçbiri firmanın bakım için hangi dosyalara ihtiyaç duyduğunu belirlemez; erişim kararı işin gereğiyle ayrıca sınırlandırılır.
 :::
 
 ---
 
 ## “Uyum” bir tedbir değil, gereksinim sorusudur
 
-**Kaynak gereksinimi → kurum kararı → teknik/idari tedbir → kanıt**
+**Hangi hüküm geçerli? Kurum neye karar verdi? Tedbir gerçekten uygulanıyor mu?**
 
-| İfade | Zincirdeki yeri |
+| İfade | Yanıtladığı soru |
 |---|---|
 | “Yasa ve düzenlemelere uyum” | Kaynağı bulma ve kapsamı sınama |
 | “Bakım alanına sınırlı erişim” | Tedbir |
 | “Aylık oturum inceleme tutanağı” | Kanıt |
 
 ::: {.notes}
-BGYS risk, rol, karar ve kanıt düzeni kurar; hangi dış hükmün bu işleme uygulandığını kendiliğinden saptamaz. Bu nedenle “BGYS uyumu sağlar” ifadesindeki fiil fazla güçlüdür (Ders sunumu 2, slayt 8). “Yasal uyum”u parola veya yedekleme ile eşit bir kontrol maddesi saymak da kaynak ile tedbiri karıştırır (Ders sunumu 1, slayt 34).
+BGYS kurumun sorumluları, kararları ve inceleme düzenini belirlemesine yardımcı olur. Ancak dış kaynağın hangi koşullarda bu işe uygulandığı ayrıca araştırılır. Bakım erişiminin sınırlandırılması kurumun somut kararıdır; klasör yetkisi bu kararı uygular. Aylık inceleme ise gerçek erişimlerin karara uyup uymadığını sorgular. Bir tutanağın bulunması, incelemenin sonucunu söylemez. (Ders sunumu 1, slayt 34; Ders sunumu 2, slayt 8.)
 :::
 
 ---
 
 ## Kişisel veride belirleyici soru
 
-**Bilgi, belirli veya belirlenebilir bir gerçek kişiye ilişkin mi?**
+**Kişisel veri**, belirli veya belirlenebilir bir gerçek kişiye ilişkin bilgidir.
+
+**Bu bilgiyi bir kişiyle ilişkilendirebilir miyiz?**
 
 | Bilgi | Gerekçe |
 |---|---|
-| “Ayşe Kaya, 0 5xx xxx xx 14” | Kişi açıkça belirli |
-| “Başvurular 3–14 Ekim'de alınır” | Kişiye ilişkin değil |
-| “Başvuru no 0007: kabul” | Numara–kişi eşlemesine erişime bağlı |
+| Kütüphane ödünç kaydı: “Ayşe Kaya, kitap 127, iade 14 Ekim” | Kişi ve ödünç aldığı kitap açıkça belirli |
+| Kamu duyurusu: “Kütüphane 09.00–18.00 açık” | Kişiye ilişkin değil |
+| Ödünç kaydı: “Üye 0007, kitap 127” | Numara–kişi eşlemesine erişime bağlı |
 
 Kaynak: KVKK m. 3; GDPR md. 4(1).
 
 ::: {.notes}
-Üçüncü satırı tek kelimelik bir cevapla kapatmayın. Kayıt görevlisi numarayı adla eşleştirebilir; dışarıdan okuyan biri bunu yapamayabilir. Kişisel veri, dosya türü veya gizlilik sınıfı değildir. Kâğıt form ve e-posta da kişisel veri taşıyabilir; kurum içinde genişçe görülen bir telefon listesi de kişiye ilişkin olabilir.
+Üçüncü satırı tek kelimelik bir cevapla kapatmayın. Kütüphane görevlisi üye numarasını adla eşleştirebilir; dışarıdan okuyan biri bunu yapamayabilir. Kişisel veri, dosya türü veya gizlilik sınıfı değildir. Kâğıt form ve e-posta da kişisel veri taşıyabilir; kurum içinde genişçe görülen bir telefon listesi de kişiye ilişkin olabilir.
 :::
 
 ---
 
 ## Kopyalama da işlemedir
 
-**Toplama → kaydetme → saklama → değiştirme → açıklama / aktarma**
+**İşleme**, kişisel veri üzerinde yapılan toplama, kaydetme, saklama, değiştirme, açıklama ve aktarma gibi işlemlerdir.
 
 | Vaka | İşlem |
 |---|---|
@@ -152,6 +158,21 @@ Her satırda veriyle ilgili amacı kimin belirlediğine bakılır. Bir şirket t
 
 ::: {.notes}
 (a) Firmaya ait teknik altyapı, başvuru amacının firmaya geçtiğini göstermez. (d) Aynı firma başvuru klasörü bakımında işleyen, kendi anketinde sorumlu olabilir. Rol kaydı bu yüzden aktör ve işleme faaliyetiyle birlikte tutulur.
+:::
+
+---
+
+## İki envanter farklı soruları yanıtlar
+
+| | Varlık envanteri | Kişisel veri işleme envanteri |
+|---|---|---|
+| Ana soru | Neyi koruyoruz; sahibi, bağımlılığı, G/B/E etkisi ve sınıfı ne? | Hangi kişisel veri, hangi amaçla, kime aktarılarak, ne kadar süre işleniyor? |
+| Kapsam | Bilgi, uygulama, hizmet ve destek | Kişisel veri içeren işlemeler |
+| V-01 | Yer alır | Yer alabilir |
+| Başvuru Rehberi (koşullar, belge listesi ve tarihler) | Yer alır | Bu içerikle kişisel veri işlemesi göstermez |
+
+::: {.notes}
+V-01 iki kayıtta ortak kimlikle bağlanabilir; biri diğerinin alanlarını kendiliğinden doldurmaz. Örneğin “Sınırlı erişim” kararı saklama süresini söylemez. KVKK örnek XLSM dosyasındaki ENVANTER, KATEGORİ, KİŞİSEL VERİ LİSTESİ, İŞLEME AMAÇLARI ve TEKNİK VE İDARİ TEDBİRLER sayfa adları bu farklı soru düzenini gösterir. Dosya, burada yalnız yapı karşılaştırması için kullanılmıştır.
 :::
 
 ---
@@ -237,7 +258,7 @@ Rehber kendi uygulama sürecini mevcut bilgi güvenliği yönetiminin yerine koy
 Her satıra **tür + uygulanabilirlik olgusu** yazın.
 
 ::: {.notes}
-Kategoriler: bağlayıcı hüküm, yol gösterici, kurum aracı, doğrulanmamış iddia ve kaynağa aykırı iddia. 3 için düzenleme, tarih ve kapsam dayanağı verilmediğinden doğrulanmamış yazılır. 6, Rehberin Amaç ve Kapsam bölümündeki sınıra aykırıdır. Özellikle 3, Ders sunumu 2 slayt 13'ün eleştirel okunmasıdır; düzenleme, tarih ve kapsam bilgisi sunulmamıştır.
+Kategoriler: bağlayıcı hüküm, yol gösterici, kurum aracı, doğrulanmamış iddia ve kaynağa aykırı iddia. 3 için düzenleme, tarih ve kapsam dayanağı verilmediğinden doğrulanmamış yazılır. 6, Rehberin Amaç ve Kapsam bölümündeki sınıra aykırıdır. Bir zorunluluk iddiası için düzenleme, tarih ve kapsamın birlikte gösterilmesi gerekir; yalnız sertifika adı yeterli değildir. (Ders sunumu 2, slayt 13.)
 :::
 
 ---
@@ -416,10 +437,10 @@ Her satıra **teknik/idari tür + kaynak konumu** yazın.
 | Dış BT | Yazılı destek sözleşmesi ve kurum talimatı var; güvenlik maddesi yok |
 | Erişim | Tüm klasör açık; oturum kaydı yok; dosyalar kopyalandı |
 
-**Kaynak → kapsam → kurum kararı → tedbir → kanıt**
+**Her öneriyi kaynak konumu ve kapsam olgusuyla gerekçelendirin; karar veren rolü, tedbiri ve sınama ölçütünü ayrı yazın.**
 
 ::: {.notes}
-Çözüm yalnız bu olgulara dayanır. AB bağlantılarının bu senaryoda bulunmaması, GDPR'nin her Türkiye kurumu için uygulanamayacağı anlamına gelmez. Rehber v1.1'in kapsamı ile bu kurumun özel ve kritik altyapı dışı olduğu olgusu birlikte okunur. Zincirin her halkasında kaynak konumu ile vaka olgusunu birlikte göstermek gerekir.
+Çözüm yalnız bu olgulara dayanır. AB bağlantılarının bu senaryoda bulunmaması, GDPR'nin her Türkiye kurumu için uygulanamayacağı anlamına gelmez. Rehber v1.1'in kapsamı ile bu kurumun özel ve kritik altyapı dışı olduğu olgusu birlikte okunur. Bir tedbiri önermeden önce kaynağın bu kuruma neden uygulandığı açıklanmalıdır.
 :::
 
 ---
@@ -477,7 +498,7 @@ Alan bazlı yetki bakım için gerekmeyen belgelere erişim yolunu azaltır. Kay
 |---|---|
 | İmzalı sözleşme eki, tarih/sürüm | Kural kuruldu |
 | Onaylı yetki matrisi | Yetki tanımlandı |
-| Aylık oturum inceleme tutanağı | Yetki işletildi ve gözden geçirildi |
+| Aylık tutanak: incelenen oturumlar ve karşılaştırma bulgusu | Karara uyum, ancak bulgu ve ölçüt birlikte okununca değerlendirilebilir |
 | Silme teyidi + olay değerlendirme sonucu | Kopya olayı izlendi |
 
 ::: {.notes}
@@ -500,9 +521,9 @@ Madde, verilerin kanuni olmayan yollarla başkalarınca elde edilmesi hâlinde b
 
 ---
 
-## Yanlış doldurulmuş zinciri düzeltin
+## Gerekçesi eksik kararları düzeltin
 
-| Halka | Yazılmış olan | Eksik bağ |
+| Soru | Yazılmış olan | Eksik bağ |
 |---|---|---|
 | Kaynak | “KVKK” | Madde/fıkra |
 | Kapsam | “Kişisel veri var” | İşlem, roller, kapsam hükmü |
@@ -511,12 +532,12 @@ Madde, verilerin kanuni olmayan yollarla başkalarınca elde edilmesi hâlinde b
 | Kanıt | “Prosedür var” | Tarih, sürüm ve uygulama izi |
 
 ::: {.notes}
-Her hücre dolu görünse de bir sonraki halkayı gerekçelendirmiyor. Rıza metni kopyalamayı engellemez. Sertifika bu klasörün Salı oturumundaki erişimini açıklamaz. Prosedürün gerçekten işletilip işletilmediği kayıtla görülür. Düzeltme, yalnız daha çok sözcük yazmak değil, halkaları kaynak ve olguyla bağlamaktır.
+Her hücre dolu görünse de kararın neden seçildiği anlaşılmıyor. Rıza metni kopyalamayı engellemez. Sertifika bu klasörün Salı oturumundaki erişimini açıklamaz. Prosedürün gerçekten işletilip işletilmediği kayıtla görülür. Düzeltme, yalnız daha çok sözcük yazmak değil, kararı kaynak ve olguyla gerekçelendirmektir.
 :::
 
 ---
 
-## Yanlış sürümün ayrı zinciri
+## Yanlış sürüme hangi karar gerekir?
 
 **KVKK m. 4 doğruluk + m. 12(1) → onaylı sürüm → sürüm kontrolü → düzeltme kaydı**
 
@@ -532,7 +553,7 @@ Bu olayın açığı dış firmanın kopyasından farklıdır: karar yanlış de
 
 ## Doğrulama kaydının alanları
 
-| Halka | Alanlar |
+| Soru | Alanlar |
 |---|---|
 | İşlem | Adım, veri alanı, amaç, ilgili kişi/sorumlu/işleyen |
 | Kaynak | Yayımlayıcı, sürüm/tarih, madde/bölüm, erişim tarihi |
@@ -550,11 +571,13 @@ Bu olayın açığı dış firmanın kopyasından farklıdır: karar yanlış de
 
 | Veri | Olgu |
 |---|---|
-| Tablo | Ad, kimlik no, telefon, e-posta, okul, not ortalaması |
+| Tablo | Başvuru no, ad, kimlik no, telefon, e-posta, okul, not ortalaması |
 | İş için kullanılan | Başvuru no, okul, not ortalaması |
-| Mevcut yetki | Dört çalışanın dördü de tam erişimli |
+| Başlangıç yetkisi | Dört çalışanın dördü de tam erişimli |
+| Deneme sonrası inceleme | Değerlendirme rolüyle 12 kaydın gerekli üç alanı açıldı; ad, kimlik no, telefon ve e-posta için denenen 48 erişim reddedildi |
+| Ölçüt | Değerlendirici üç gerekli alanı görebilmeli, diğer dört alanı görememeli |
 
-**Kayıt:** kaynak/konum, kapsam, onaylayan, tedbir, kuruldu/işliyor kanıtı.
+**Üretin:** kaynak/konum, kapsam, onaylayan, tedbir ve inceleme sonucu. Sonucu ölçütle karşılaştırın; denemenin sınırını yazın.
 
 ::: {.notes}
 Senaryo A'nın kurum olguları geçerlidir. Değerlendiren kişi kurum çalışanıdır; bu adım için ayrı işleyen yaratılmaz. Gereken üç alanı tüm tablodan ayırın. Kaynağa yalnız “KVKK” yazmak yetmez; m. 12(1)'deki yükümlülük ile Rehberin örnek işlevi ayrı belirtilir. Karar ve uygulama kaydı da ayrı yazılır.
@@ -585,10 +608,10 @@ B seçeneğinde adla sonucun herkese gösterilmesi verinin açıklanmasıdır. B
 | Kaynak/kapsam | KVKK m. 12(1); dosya işlemi m. 2, roller m. 3 |
 | Karar | Yalnız gerekli üç alan; birim sorumlusu önerir, yönetim onaylar |
 | Tedbir | Ayrı görünüm ve rol yetkisi; matris ve görev tanımı |
-| Kanıt | Onaylı matris: kuruldu; erişim inceleme tutanağı: işliyor |
+| Kanıt ve bulgu | Matris: tasarım; denemede gerekli üç alan açıldı, diğer dört alanın 48 erişimi reddedildi: ölçüte uydu |
 
 ::: {.notes}
-Altı alanın tabloda bulunması değerlendiricinin altısını da görmesini gerektirmez. Ayrı görünüm ve rol yetkisi erişim yüzeyini azaltır. Rehber erişim sınırı için örnek olarak gösterilebilir. Görevli gerçekten ek alanlara ihtiyaç duyuyorsa farklı karar mümkündür; gerekçe, yetkili onay ve kanıt olmadan “herkes erişsin” cevabı tamamlanmış sayılmaz.
+Yedi alanın tabloda bulunması değerlendiricinin hepsini görmesini gerektirmez. Ayrı görünüm ve rol yetkisi erişim yüzeyini azaltır. Verilen denemede hem gerekli erişim sağlanmış hem gereksiz erişim reddedilmiştir; bu örneklemde tedbirin ölçüte uyduğu söylenebilir. Tutanak adı tek başına bu sonucu vermez; başka roller ve sonraki dönemler için ayrıca inceleme gerekir. Rehber erişim sınırı için örnek olarak gösterilebilir. Görevli gerçekten ek alanlara ihtiyaç duyuyorsa farklı karar mümkündür; gerekçe, yetkili onay ve kanıt olmadan “herkes erişsin” cevabı tamamlanmış sayılmaz.
 :::
 
 ---
@@ -610,6 +633,8 @@ KVKK m. 3 açıklamayı işleme sayar ama B'nin hukuken serbest veya yasak oldu�
 
 ## Senaryo B: yeni olgular
 
+**Senaryo A’ya ek bilgiler:** AB şubesi olmadığı bilgisi korunuyor; aşağıdaki işaretler diğer kapsam sorularını açıyor.
+
 | Yeni bilgi | Açtığı soru |
 |---|---|
 | İngilizce başvuru sayfası | AB'deki kişilere yönelik hizmet mi? |
@@ -627,7 +652,7 @@ KVKK m. 3 açıklamayı işleme sayar ama B'nin hukuken serbest veya yasak oldu�
 
 | Kaynak/konum | Bilinen | Sorulacak soru | Kimden? |
 |---|---|---|---|
-| GDPR md. 3(1) | Şube bilgisi yok | AB'de yerleşik birim var mı? | Yönetim |
+| GDPR md. 3(1) | AB şubesi yok bilgisi değişmedi | Bu ölçüt için yeni olgu yok | Yönetimin mevcut bilgisi |
 | GDPR md. 3(2)(a) | İngilizce sayfa, iki başvuru | ? | ? |
 | GDPR md. 3(2)(b) | Analitik araç | ? | ? |
 | Rehber kapsamı | Kamuya bağlılık sözü | ? | ? |
@@ -643,7 +668,7 @@ Her boşluğu kapsam hükmünün aradığı olguyla doldurun. Hizmetin yönelimi
 
 | Konum | Eksik olgu ve bilgi sahibi |
 |---|---|
-| GDPR md. 3(1) | AB birimi var mı? — yönetim |
+| GDPR md. 3(1) | AB şubesi yok bilgisi korunur; bu yönde yeni olgu verilmedi |
 | GDPR md. 3(2)(a) | AB'ye yönelik tanıtım/çağrı var mı? — yönetim + hukuk/uyum |
 | GDPR md. 3(2)(b) | Araç AB'deki davranışları izliyor mu? — BT + hukuk/uyum |
 | Rehber v1.1, s. 11 | Kurum devlet teşkilatında mı; kritik altyapı hizmeti veriyor mu? — kuruluş belgesi + yönetim |
@@ -716,7 +741,7 @@ Her etiket için vaka olgusunu veya kaynak konumunu da yazın. “Üç gün” g
 | KVKK m. 12'ye dayanan tedbirler | ? |
 
 ::: {.notes}
-Sürüm ve erişim tarihi bulunursa hangi kararın hangi metne bağlı olduğu anlaşılır. Yeni Rehber, kapsam dışı kararını da etkileyebilir. KVKK m. 12 satırlarının dayanağı ayrı kaynaktır. Ders sunumu 2 slayt 79'daki yasal değişim fikri burada somut kayıt ilişkisine bağlanır.
+Sürüm ve erişim tarihi bulunursa hangi kararın hangi metne bağlı olduğu anlaşılır. Yeni Rehber, kapsam dışı kararını da etkileyebilir. KVKK m. 12 satırlarının dayanağı ayrı kaynaktır. Kurumun eski kapsam kararı da yeni sürümle karşılaştırılır; yalnız tedbir listesine bakmak yeterli değildir. (Ders sunumu 2, slayt 79.)
 :::
 
 ---
@@ -744,7 +769,7 @@ Yeni sürüm çıkması eski kararın otomatik yanlış olduğu anlamına gelmez
 | “Rıza metni var, sorun yok.” | “KVKK m. 12(1)–(2) için erişim sınırlandı; sözleşme ve oturum kayıtları inceleniyor.” |
 
 ::: {.notes}
-İkinci cevap kaynak konumunu, erişim açığına verilen kararı ve uygulama kanıtını bağlar. Bildirim koşulu olay incelemesinde kalır; Senaryo B'deki GDPR bağlantısı ve kurum statüsü ayrıca doğrulanır. Kaynak adı, imza veya prosedür başlığı tek başına denetlenebilir zincir kurmaz.
+İkinci cevap kaynak konumunu, erişim açığına verilen kararı ve uygulama kanıtını bağlar. Bildirim koşulu olay incelemesinde kalır; Senaryo B'deki GDPR bağlantısı ve kurum statüsü ayrıca doğrulanır. Kaynak adı, imza veya prosedür başlığı tek başına kararın gerekçesini ve uygulama sonucunu göstermez.
 :::
 
 ---
@@ -759,5 +784,5 @@ Yeni sürüm çıkması eski kararın otomatik yanlış olduğu anlamına gelmez
 - Ders sunumu 1, slayt 22/34; Ders sunumu 2, slayt 5/8/13/72/79.
 
 ::: {.notes}
-Eski ders sunumları hüküm kaynağı değil, iddiaları eleştirel okumak için kullanılan girdilerdir. Rehberin sürümü ve kapsamı kendi künyesi ile Amaç ve Kapsam bölümünden alınmıştır. Her kurum kararı, kaynak konumu ile işleme olgusuna bağlanır.
+Bir kurum kararının dayanağı aranırken kaynağın sürümü, ilgili hükmün konumu ve olayın bu hükme giren özellikleri birlikte okunur. Ders örneği veya çalışma şablonu, bağlayıcı hükmün yerine geçmez.
 :::
