@@ -90,12 +90,7 @@ Yanıtta uçlar yer değiştirir: sunucu yanıtı istemcinin 52000 numaralı por
 
 ## Aynı sunucu portu, iki istemci
 
-| Bağlantı | İstemci ucu | Sunucu ucu |
-|---|---|---|
-| 1 | `192.168.10.10:52000` | `192.168.10.20:80` |
-| 2 | `192.168.10.30:52000` | `192.168.10.20:80` |
-
-Kaynak portları aynı, **kaynak IP'ler farklı**; bağlantılar ayrılır.
+![](../../../images/bilgisayar-aglari/hafta-06/01-ortak-sunucu-portu.svg){height="740" fig-align="center" fig-alt="İki farklı istemcinin 52000 portundan aynı sunucunun 80 portuna kurduğu ayrı TCP bağlantıları; yanıtta kaynak ve hedef IP–port çiftlerinin yer değiştirmesi"}
 
 ::: {.notes}
 Sunucu bütün web istemcilerini 80 numaralı portta karşılayabilir; her istemci için ayrı bir sunucu portu açılması gerekmez. İki TCP bağlantısında sunucu ucu aynı, istemci uçları farklıdır. İki istemcinin kaynak portu aynı sayı olabilir; kaynak IP'leri farklı olduğu için bağlantılar ayırt edilir.
@@ -132,16 +127,7 @@ UDP için "yok" yazan özellikler eksik gibi görünür, ama bunlar her uygulama
 
 ## Bayt akışı ve mesaj sınırı
 
-Uygulama TCP'ye önce `MER`, sonra `HABA` verir.
-
-```text
-Gönderen:  [MER] [HABA]            (iki gönderim çağrısı)
-
-Alıcı bir okumada:   MERHABA
-Alıcı iki okumada:   MER + HABA    ya da   MERH + ABA
-```
-
-TCP **baytların sırasını** korur; **gönderim çağrısı sınırlarını** korumayı vaat etmez.
+![](../../../images/bilgisayar-aglari/hafta-06/02-bayt-ve-mesaj-sinirlari.svg){height="740" fig-align="center" fig-alt="MER ve HABA gönderimleri TCP alıcısında bir veya farklı sınırlarda birden fazla okumayla alınabilir; UDP teslim edilen datagramların mesaj sınırlarını korur"}
 
 ::: {.notes}
 Bu örnek paket kaybı ya da karakterlerin yer değiştirmesi örneği değildir. Baytlar eksiksiz ve sıralı gelir; değişen, alıcı uygulamanın bunları kaç okumada alacağıdır. Gönderen önce `MER`, sonra `HABA` verdiğinde alıcı bunları tek okumada `MERHABA` olarak, iki okumada ya da daha fazla parçaya bölünmüş hâlde alabilir. TCP baytların sırasını korur; uygulamanın gönderirken kullandığı çağrı sınırlarını korumayı vaat etmez.
@@ -198,15 +184,7 @@ Ack=1100'ü "1100. segment geldi" diye okumak yanlış olur; anlamı, 1099 dahil
 
 ## Bir bölge kaybolunca
 
-```text
-1000–1099: alındı          → Ack=1100
-1100–1199: KAYBOLDU
-1200–1299: alındı          → Ack=1100   (boşluk kapanmadı)
-1100–1199: yeniden geldi   → Ack=1300
-```
-
-- Onay **kesintisiz alınan sınırı** bildirir (kümülatif onay)
-- Uygulama yalnız 1000–1299 sıralı akışını görür
+![](../../../images/bilgisayar-aglari/hafta-06/03-kayip-ve-ack.svg){height="740" fig-align="center" fig-alt="1100–1199 aralığı eksikken 1200–1299 tamponda olsa da ACK 1100 kalır; eksik aralık yeniden alındığında kesintisiz akış tamamlanır ve ACK 1300 olur"}
 
 ::: {.notes}
 IP kayıp verebileceğine göre TCP bu durumu nasıl telafi eder? Alıcı üç ardışık bölge bekliyor olsun ve ikincisi yolda kaybolsun. Üçüncü bölge (1200–1299) gelse bile ACK 1100'de kalır, çünkü onay **kesintisiz alınan sınırı** bildirir; buna kümülatif onay denir. 1100–1199 aralığı hâlâ boştur.
@@ -220,11 +198,7 @@ TCP'nin güvenilirliği, dosyanın her koşulda tamamlanacağını garanti etmez
 
 ## Alıcı yavaşsa, ağ doluysa
 
-| | Bakılan sorun | Hangi bilgiyle? |
-|---|---|---|
-| **Onay** | Hangi baytlar alındı? | Ack |
-| **Akış denetimi** | Alıcı ne kadar ek veri kabul edebilir? | Alıcı penceresi |
-| **Yoğunluk denetimi** | Ağ yolu ne kadar yük taşıyabilir? | Ağ koşulları |
+![](../../../images/bilgisayar-aglari/hafta-06/04-akis-ve-yogunluk.svg){height="740" fig-align="center" fig-alt="Akış denetiminde alıcı tamponu, yoğunluk denetiminde ağ yolundaki kuyruk darboğazdır; gönderim farklı kaynakların kapasitesine göre sınırlanır"}
 
 ::: {.notes}
 Kayıp, kablonun kopmasından başka nedenlerle de oluşur. Sunucudan veri alan program, gelen baytları yeterince hızlı işleyemiyor olabilir; TCP'nin alıcı tamponu sınırlıdır. Alıcı kabul edebileceği veri miktarını göndericiye bildirir ve gönderici henüz onaylanmamış verisini bu sınır içinde tutar. **Akış denetimi**, hızlı göndericinin yavaş alıcıyı taşırmasını önlemeye yöneliktir.
