@@ -84,16 +84,7 @@ Bu, N2'deki ARP isteğiyle aynı fikre dayanır: hedef bilinmediğinde yerel yay
 
 ## DHCP: dört mesaj (DORA)
 
-```text
-İstemci                     DHCP sunucusu
-   ── DISCOVER: sunucu arıyorum ─────>
-   <─ OFFER: yapılandırma teklifi ────
-   ── REQUEST: bu teklifi istiyorum ──>
-   <─ ACK: kiralama onayı ────────────
-```
-
-- OFFER bir **tekliftir**; adres henüz verilmiş sayılmaz.
-- Adres bir **kiralamadır**; süre dolmadan yenilenir.
+![](../../../images/bilgisayar-aglari/hafta-06/05-dhcp-kiralama.svg){height="740" fig-align="center" fig-alt="DHCP Discover, Offer, Request ve ACK mesajları; istemcinin yapılandırmasız durumdan teklife ve onaylanan yapılandırmanın kullanımına geçmesi"}
 
 ::: {.notes}
 Normal başarılı DHCP akışı dört mesajdan oluşur ve baş harflerinden **DORA** diye anılır: Discover, Offer, Request, Acknowledge. İstemci DISCOVER ile sunucu arar; sunucu OFFER ile bir yapılandırma teklif eder; istemci REQUEST ile bu teklifi ister; sunucu ACK ile kiralamayı onaylar.
@@ -207,6 +198,18 @@ Bu örnek, N3'teki bayt akışı ayrımını tamamlar. TCP sunucuya sıralı bay
 
 ---
 
+## HTTP mesajı ve TCP parçaları
+
+![](../../../images/bilgisayar-aglari/hafta-06/06-http-mesaj-sinirlari.svg){height="740" fig-align="center" fig-alt="Aynı sıralı bayt akışında HTTP durum satırı, başlıklar, boş satır ve 13 baytlık gövde; TCP parçalarının sınırları başlıkların ve gövdenin içinde kalabilir"}
+
+::: {.notes}
+HTTP/1.1 yanıtındaki durum satırı, başlıklar ve gövde uygulama protokolünün kurallarıyla ayrılır. Başlıkları bitiren boş satır gövdenin başlangıcını gösterir; bu örnekte Content-Length gövdenin 13 bayt olduğunu bildirir.
+
+TCP aynı veriyi sıralı bayt akışı olarak taşır. Bir TCP parçasının başlıkların ortasında veya gövdenin içinde bitmesi mümkündür. Bu nedenle HTTP mesajının sınırı TCP parçasının sonundan çıkarılmaz; alıcı HTTP kurallarıyla mesajı ayrıştırır.
+:::
+
+---
+
 ## Yöntemler ve durum kodları
 
 | Yöntem | Genel anlamı |
@@ -297,13 +300,7 @@ Veri kanalı:    İstemci ⇄ Sunucu        dosya veya dizin listesi
 
 ## Veri bağlantısını kim başlatıyor?
 
-| Bağlantı | TCP bağlantısını **başlatan** → dinleyen |
-|---|---|
-| Kontrol (her iki kipte) | `İstemci:52010 → Sunucu:21` |
-| Etkin kipte veri | `Sunucu:20 → İstemci:52011` |
-| Pasif kipte veri | `İstemci:52012 → Sunucu:50000` |
-
-Oklar **bağlantı kuruluşunu** gösterir; dosya baytlarının yönünü değil.
+![](../../../images/bilgisayar-aglari/hafta-06/07-ftp-baglanti-ve-veri.svg){height="740" fig-align="center" fig-alt="Etkin FTP veri bağlantısını sunucu, pasif FTP veri bağlantısını istemci başlatır; aynı dosya indirmesinde baytlar iki kipte de sunucudan istemciye gider"}
 
 ::: {.notes}
 Etkin ve pasif kip arasındaki ayrım, dosyanın indirilmesi ya da yüklenmesi değildir. Ayrım, **veri için TCP bağlantısını kimin başlattığıdır**. Etkin kipte istemci hangi portta beklediğini kontrol kanalından bildirir ve sunucu veri bağlantısını oraya kurar. Pasif kipte sunucu bir veri portu bildirir ve istemci bu porta bağlanır. Örnekteki port numaraları örnek değerlerdir; oklar bağlantı kuruluşunu gösterir.
@@ -379,11 +376,7 @@ Sunucular arası SMTP aktarımında tipik hedef TCP portu 25'tir. Kullanıcı is
 
 ## POP3 ve IMAP: posta kutusuna erişmek
 
-| Protokol | Rolü | Posta nerede kalır? |
-|---|---|---|
-| SMTP | Gönderim ve sunucular arası aktarım | Sunucudan sunucuya iletilir |
-| POP3 | Kutudaki postayı istemciye indirme | Genellikle indirilir; sunucuda tutulması ayara bağlıdır |
-| IMAP | Kutuya erişim ve eşzamanlama | Sunucuda kalır; birden fazla cihaz aynı durumu görür |
+![](../../../images/bilgisayar-aglari/hafta-06/08-imap-eszamanlama.svg){height="740" fig-align="center" fig-alt="IMAP ile telefonda okunmuş işaretlenen ileti durumu sunucuda tutulur ve bilgisayarla eşzamanlanır; POP3 indirmesinde okunma durumu yereldir"}
 
 ::: {.notes}
 POP3 istemcisi kutuya bağlanır, yetkisini doğrular, mesajları listeler ve seçilen mesajları indirir. Mesajların sunucuda tutulması ya da silinmesi kullanım ayarına bağlıdır. IMAP'te istemci, sunucudaki posta kutusu, klasörler ve ileti durumları üzerinde çalışır; iletileri önbelleğe alabilir, ama asıl fark kutu durumunun sunucuyla birlikte yönetilmesidir.
@@ -458,16 +451,7 @@ Yöneticinin "sıcaklık" ya da "gelen bayt sayısı" dediğinde hangi veriyi ka
 
 ## Sayaçtan hıza
 
-| Okuma | Gelen bayt sayacı |
-|---|---|
-| t = 0 s | 1 000 000 |
-| t = 10 s | 1 500 000 |
-
-```text
-Fark: 500 000 bayt  →  50 000 bayt/s  =  400 000 bit/s
-```
-
-Tek sayaç değeri trafik hızı değildir.
+![](../../../images/bilgisayar-aglari/hafta-06/09-snmp-sayactan-hiza.svg){height="740" fig-align="center" fig-alt="Sayaç 10 saniyede 1 milyon bayttan 1,5 milyon bayta yükselir; ortalama hız 50 bin bayt/s, yani 400 bin bit/s olur"}
 
 ::: {.notes}
 Bir arayüzün gelen bayt sayacı ilk okumada 1.000.000, 10 saniye sonra 1.500.000 olsun. Sayaç bu arada sıfırlanmamış ya da taşmamışsa arada 500.000 bayt alınmıştır. Ortalama hız `500.000 / 10 = 50.000 bayt/s`, yani `400.000 bit/s` olur (1 bayt = 8 bit).
@@ -483,18 +467,7 @@ SSH ile bir cihazda komut çalıştırmak ve SNMP ile bir sayacı okumak farklı
 
 ## Bir sayfanın açılması: hepsini birleştirelim
 
-- İstemci `.10` adresini alacak
-- DHCP `.2`, DNS `.53`, web `.20`
-- Hepsi aynı Ethernet ağında, önbellekler boş
-
-```text
-DHCP → ağ ayarlarını edin (adres, DNS sunucusu)
-ARP  → DNS sunucusunun yerel MAC adresi
-DNS  → ders.test için web sunucusunun IP'si
-ARP  → web sunucusunun yerel MAC adresi
-TCP  → web sunucusuyla bağlantı (üç yollu el sıkışma)
-HTTP → /index.html isteği ve yanıtı
-```
+![](../../../images/bilgisayar-aglari/hafta-06/10-web-erisimi.svg){height="740" fig-align="center" fig-alt="Aynı Ethernet ağında DHCP ile ayarların edinilmesi, DNS ve web sunucuları için ARP, DNS sorgusu, TCP kuruluşu ve HTTP isteği–yanıtı; her adımın ürettiği bilginin sonraki adımda kullanılması"}
 
 ::: {.notes}
 Bu akış, tek bir web örneğinde protokollerin birbirine nasıl yaslandığını gösterir. Yeni açılmış bir istemci vardır; ağda hazır bir DHCP sunucusu (192.168.10.2), bir DNS sunucusu (192.168.10.53) ve bir web sunucusu (192.168.10.20) bulunur. DHCP istemciye 192.168.10.10 adresini verir. Bütün cihazlar aynı Ethernet ağındadır ve önbellekler boştur. Ayrı hizmetler aynı cihazda da çalışabilir; örnekte gözlenebilirlik için ayrı gösterilmiştir.
