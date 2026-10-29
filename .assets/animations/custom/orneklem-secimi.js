@@ -92,7 +92,7 @@ export function mount(div, dataset = div.dataset) {
   let history = { rastgele: [], bolge: [] };
   let last = null;
 
-  const root = makeEl("section", "orn-sec");
+  const root = makeEl("div", "orn-sec");
   root.setAttribute("aria-label", "Evrenden örneklem çekme animasyonu");
   if (dataset.label) root.append(makeEl("h4", "orn-sec__baslik", dataset.label));
 

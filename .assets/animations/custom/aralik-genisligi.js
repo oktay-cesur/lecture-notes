@@ -151,7 +151,7 @@ export function mount(div, dataset = div.dataset) {
     WIDTH_OPTIONS.map((w) => [w, computeHistogram(STUDY_HOURS, w)])
   );
 
-  const root = makeEl("section", "aralik-genisligi");
+  const root = makeEl("div", "aralik-genisligi");
   const headingText = (
     dataset.label || "Aralık Genişliği Değiştiğinde Histogram Nasıl Görünür?"
   ).trim();

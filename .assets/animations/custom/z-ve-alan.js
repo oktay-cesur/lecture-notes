@@ -122,7 +122,7 @@ export function mount(div, dataset = div.dataset) {
 
   let currentZ = Math.round(initialZ * 10) / 10;
 
-  const root = makeEl("section", "z-ve-alan");
+  const root = makeEl("div", "z-ve-alan");
   root.setAttribute("aria-label", "Standart normal dağılımda z puanı ve eğri altındaki alan animasyonu");
 
   const header = makeEl("header", "z-ve-alan__baslik-kutusu");

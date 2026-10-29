@@ -131,7 +131,7 @@ export function mount(div, dataset = div.dataset) {
 
   let stepIndex = initialScene === "hep5" ? 2 : 0;
 
-  const root = makeEl("section", "ters-puanlama-etkisi");
+  const root = makeEl("div", "ters-puanlama-etkisi");
   const titleText =
     dataset.label || "Ters Puanlama Etkisi: (En Küçük + En Büyük) − Ham Puan";
   root.setAttribute("aria-label", titleText);

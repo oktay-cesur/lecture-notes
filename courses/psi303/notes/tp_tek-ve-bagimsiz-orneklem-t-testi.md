@@ -172,11 +172,17 @@ t'nin işareti farkın yönünü, büyüklüğü ise farkın ortalamanın doğal
 - t dağılımının biçimi **serbestlik derecesine** bağlıdır (sd; jamovi'de df): tek örneklemde sd = n − 1 = 24.
 - n büyüdükçe t dağılımı normal dağılıma yaklaşır.
 
+::: {.notes}
+Standart hatayı hesaplarken örneklemin standart sapmasını kullandık; evrenin gerçek standart sapmasını bilmiyoruz. Küçük bir örneklemde bu tahmin de oynar ve bu ek belirsizlik, normal dağılımdan biraz daha kalın kuyruklu bir dağılımla hesaba katılır. Bu dağılıma t dağılımı denir ve p değeri bu dağılımdan hesaplanır.
+:::
+
+---
+
+## Serbestlik derecesi t dağılımını nasıl değiştirir?
+
 <div data-anim="custom" data-src="t-ve-normal.js" data-css="t-ve-normal.css"></div>
 
 ::: {.notes}
-Standart hatayı hesaplarken örneklemin standart sapmasını kullandık; evrenin gerçek standart sapmasını bilmiyoruz. Küçük bir örneklemde bu tahmin de oynar ve bu ek belirsizlik, normal dağılımdan biraz daha kalın kuyruklu bir dağılımla hesaba katılır. Bu dağılıma t dağılımı denir ve p değeri bu dağılımdan hesaplanır.
-
 t dağılımının ne kadar kalın kuyruklu olduğu serbestlik derecesine bağlıdır. Tek örneklem t-testinde serbestlik derecesi örneklem büyüklüğünün bir eksiğidir. Bu ayrıntıyı elle kullanmayacağız; yazılım hesaplar ve rapora yazarız. Bilmeniz gereken şu: küçük örneklemlerde aynı farkın anlamlı çıkması daha zordur ve örneklem büyüdükçe t dağılımı normal dağılıma yaklaşır.
 :::
 

@@ -20,7 +20,7 @@
   gap: 8px;
 }
 
-.ters-puanlama-etkisi__baslik {
+.ters-puanlama-etkisi .ters-puanlama-etkisi__baslik {
   margin: 0;
   font-size: 1.05rem;
   font-weight: 700;

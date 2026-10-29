@@ -282,16 +282,22 @@ Simetrik ve tek tepeli bir dağılımda üç merkez ölçüsü aynı noktaya dü
 
 > **Çarpıklığın adı kuyruğun bulunduğu taraftan gelir, tepenin bulunduğu taraftan değil.**
 
+::: {.notes}
+Sağa çarpık bir dağılımda değerlerin büyük kısmı düşük taraftadır ve az sayıda yüksek değer sağa doğru uzanan bir kuyruk oluşturur. Gelir bunun klasik örneğidir: insanların çoğu orta ya da düşük gelirlidir, çok azı çok yüksek gelire sahiptir. Tepki süreleri de böyledir: bir tepkinin süresi belirli bir sınırın altına inemez, ama dikkatin dağıldığı denemelerde çok uzayabilir. Kuyruktaki büyük değerler ortalamayı yukarı çeker; 7. notta bunu görmüştük. Bu dersteki tek tepeli tipik örneklerde sağa çarpık bir dağılımda ortalama medyandan büyük çıkar.
+
+Sola çarpık dağılım ayna görüntüsüdür: değerlerin çoğu yüksek taraftadır, az sayıda düşük değer sola doğru bir kuyruk oluşturur. Kolay bir sınavda öğrencilerin çoğu yüksek not alır, birkaç öğrenci çok düşük not alır; bu birkaç not ortalamayı aşağı çeker.
+:::
+
+---
+
+## Çarpıklıkta ortalama ve medyan
+
 | Tepe | Kuyruk | Ad | Ortalama ile medyan | Örnek |
 |---|---|---|---|---|
 | Solda | Sağda | Sağa çarpık (pozitif) | Genellikle ortalama > medyan | Gelir, tepki süresi |
 | Sağda | Solda | Sola çarpık (negatif) | Genellikle ortalama < medyan | Kolay sınav notları, yaşam doyumu |
 
 ::: {.notes}
-Sağa çarpık bir dağılımda değerlerin büyük kısmı düşük taraftadır ve az sayıda yüksek değer sağa doğru uzanan bir kuyruk oluşturur. Gelir bunun klasik örneğidir: insanların çoğu orta ya da düşük gelirlidir, çok azı çok yüksek gelire sahiptir. Tepki süreleri de böyledir: bir tepkinin süresi belirli bir sınırın altına inemez, ama dikkatin dağıldığı denemelerde çok uzayabilir. Kuyruktaki büyük değerler ortalamayı yukarı çeker; 7. notta bunu görmüştük. Bu dersteki tek tepeli tipik örneklerde sağa çarpık bir dağılımda ortalama medyandan büyük çıkar.
-
-Sola çarpık dağılım ayna görüntüsüdür: değerlerin çoğu yüksek taraftadır, az sayıda düşük değer sola doğru bir kuyruk oluşturur. Kolay bir sınavda öğrencilerin çoğu yüksek not alır, birkaç öğrenci çok düşük not alır; bu birkaç not ortalamayı aşağı çeker.
-
 Çarpıklığın yönünde en sık yapılan hata, dağılımın "yığıldığı" tarafa bakmaktır. Gelir dağılımında değerler solda yığılır; ama bu dağılım sağa çarpıktır, çünkü kuyruk sağa uzanır. Kuyruk, dağılımın "çekildiği" yönü gösterir; ortalama da o yöne çekilir. Ortalama ile medyan arasındaki ilişki, grafik elimizde değilken bile kuyruğun yönü için ipucu verir: ortalama medyandan belirgin biçimde büyükse sağ tarafta bir kuyruk, küçükse sol tarafta bir kuyruk olması beklenir. 7. notta tepki süresinin ortalaması 620 ms, medyanı 540 ms çıkmıştı; ortalama büyük olduğu için dağılımın büyük olasılıkla sağa çarpık olduğunu söylemiştik. Ama ortalama medyandan büyükken histogram simetrik görünüyorsa kuyruğa güvenmeyiz; kuyruğu grafikten okuruz.
 :::
 
@@ -732,11 +738,17 @@ Normal dağılımda z = 1,5'in altında kalan oran ≈ **%93**
 
 > Norm grubu yaklaşık normal dağılıyorsa, danışan grubun yaklaşık %93'ünden daha yüksek kaygı puanı almıştır.
 
+::: {.notes}
+Norm grubu, ölçeğin geliştirilirken puanlanan ve yorumda karşılaştırma ölçütü olan referans gruptur. Bir değişken yaklaşık normal dağılıyorsa z puanı, değerin dağılımın neresinde durduğunu yüzde olarak da söyler. Sütun yükseklikleri kişi sayısıysa oran, sütunun toplam içindeki payıdır; toplam alan 1 olacak biçimde ölçeklenince alanın kendisi orandır; normal eğri altındaki alan da aynı biçimde okunur. Eğrinin toplam alanı 1'dir (bütün kişiler) ve bir noktanın solunda kalan alan, o noktadan daha düşük değer alanların oranıdır. z = 1,5 için bu alan yaklaşık 0,93'tür: norm grubundaki kişilerin yaklaşık %93'ü bu danışandan daha düşük puan almıştır.
+:::
+
+---
+
+## z puanı değişince alan nasıl değişir?
+
 <div data-anim="custom" data-src="z-ve-alan.js" data-css="z-ve-alan.css"></div>
 
 ::: {.notes}
-Norm grubu, ölçeğin geliştirilirken puanlanan ve yorumda karşılaştırma ölçütü olan referans gruptur. Bir değişken yaklaşık normal dağılıyorsa z puanı, değerin dağılımın neresinde durduğunu yüzde olarak da söyler. Sütun yükseklikleri kişi sayısıysa oran, sütunun toplam içindeki payıdır; toplam alan 1 olacak biçimde ölçeklenince alanın kendisi orandır; normal eğri altındaki alan da aynı biçimde okunur. Eğrinin toplam alanı 1'dir (bütün kişiler) ve bir noktanın solunda kalan alan, o noktadan daha düşük değer alanların oranıdır. z = 1,5 için bu alan yaklaşık 0,93'tür: norm grubundaki kişilerin yaklaşık %93'ü bu danışandan daha düşük puan almıştır.
-
 Bu notta oranlar hazır verilir (z = 1 için yaklaşık %84, 1,5 için %93, 2 için %98); önemli olan z değerini ve oranı doğru yorumlamaktır. Bir uyarı: bu yorum, norm grubundaki puanların yaklaşık normal dağıldığı varsayımına dayanır.
 :::
 

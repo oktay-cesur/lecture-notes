@@ -79,7 +79,7 @@ export function mount(div, dataset = div.dataset) {
   let observedMean = Math.round(initMean * 2) / 2;
   let isTwoSided = initSided === "two";
 
-  const root = makeEl("section", "tail-area-p");
+  const root = makeEl("div", "tail-area-p");
   root.setAttribute(
     "aria-label",
     dataset.label || "p değeri kuyruk alanı animasyonu"

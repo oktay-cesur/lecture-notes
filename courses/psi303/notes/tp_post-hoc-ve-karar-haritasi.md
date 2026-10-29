@@ -460,6 +460,14 @@ Zincirin herhangi bir halkasındaki bir sorun (yanlı bir örneklem, tanımlanma
   <text x="765" y="504" font-size="10" fill="currentColor" fill-opacity="0.8">→ Regresyon analizi</text>
 </svg>
 
+::: {.notes}
+Doğru analizi üç soru seçtirir. Birincisi amaçtır: veriyi yalnızca betimlemek mi istiyorum, yoksa bir karşılaştırma yapıp evren hakkında karar mı vereceğim? İkincisi karşılaştırılan şeylerin sayısıdır: bir ortalama ve bir referans değer mi, iki grup mu, daha fazlası mı? Üçüncüsü verinin nasıl toplandığıdır: aynı kişiler mi ölçüldü, farklı kişiler mi?
+:::
+
+---
+
+## Araştırma sorusundan analiz seçimine
+
 | Soru | Veri | Analiz |
 |---|---|---|
 | Bir grup sabit bir değerden farklı mı? | 1 grup, nicel | Tek örneklem *t* |
@@ -471,8 +479,6 @@ Zincirin herhangi bir halkasındaki bir sorun (yanlı bir örneklem, tanımlanma
 > Betimleme haritanın ilk dalıdır. Karşılaştırma satırları nicel değişkenin ortalamaları içindir; kategorik sonuç için test gerekiyorsa, normallik açıkça bozuksa veya son satırdaki durumda harita biter.
 
 ::: {.notes}
-Doğru analizi üç soru seçtirir. Birincisi amaçtır: veriyi yalnızca betimlemek mi istiyorum, yoksa bir karşılaştırma yapıp evren hakkında karar mı vereceğim? İkincisi karşılaştırılan şeylerin sayısıdır: bir ortalama ve bir referans değer mi, iki grup mu, daha fazlası mı? Üçüncüsü verinin nasıl toplandığıdır: aynı kişiler mi ölçüldü, farklı kişiler mi?
-
 Bu üç soru vize öncesi öğrendiğimiz analizlerden birine götürür; tablonun son satırındaki durumlar haritanın dışındadır. Her durumda bağımlı değişkenin nicel olduğu ve ortalamanın anlamlı bir özet olduğu varsayılıyor. Değişken kategorikse ya da histogram ve Q–Q grafiğinde normallik açıkça bozuksa (özellikle küçük örneklemde) harita burada bitiyor: o durumlar için başka testler vardır (ki-kare, parametrik olmayan testler) ve bu dönemin kapsamı dışındadır.
 :::
 

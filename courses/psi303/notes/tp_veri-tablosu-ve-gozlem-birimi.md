@@ -20,6 +20,14 @@ Otuz ayrı kâğıt masada duruyor.
 - "Hazır hissedenler daha çok mu çalışmış?"
 - Bu soruyu kâğıtları tek tek çevirerek cevaplamak mümkün mü?
 
+::: {.notes}
+İlk notta anket yanıtlarından söz ettik; şimdi bu yanıtların bir tabloya nasıl girdiğine küçük bir örnekle bakalım. Toplanan veri ilk anda dağınık bir yığındır: kâğıtlar, çevrimiçi form cevapları, ölçüm kayıtları. Bu hâliyle birkaç kişiye bakmak mümkündür ama bütün grup hakkında soru sormak zordur. "Hazır hissedenler daha çok mu çalışmış?" gibi bir soruyu cevaplamak için herkesin aynı sorulara verdiği cevapları yan yana görebilmemiz gerekir.
+:::
+
+---
+
+## Aynı sorular, ortak bir tablo
+
 <svg viewBox="0 0 960 480" role="img" aria-label="Üç anket formundaki cevapların veri tablosundaki satırlara, her sorunun ise bir sütun başlığına dönüşümünü ve satır-gözlem, sütun-değişken, hücre-değer ilişkisini gösteren öğretim görseli" style="width:100%;max-height:480px">
   <defs>
     <marker id="arrow-green" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -149,8 +157,6 @@ Otuz ayrı kâğıt masada duruyor.
 </svg>
 
 ::: {.notes}
-İlk notta anket yanıtlarından söz ettik; şimdi bu yanıtların bir tabloya nasıl girdiğine küçük bir örnekle bakalım. Toplanan veri ilk anda dağınık bir yığındır: kâğıtlar, çevrimiçi form cevapları, ölçüm kayıtları. Bu hâliyle birkaç kişiye bakmak mümkündür ama bütün grup hakkında soru sormak zordur. "Hazır hissedenler daha çok mu çalışmış?" gibi bir soruyu cevaplamak için herkesin aynı sorulara verdiği cevapları yan yana görebilmemiz gerekir.
-
 İstatistik yazılımlarının hepsi veriyi aynı biçimde bekler: bir tablo. Önce tablonun nasıl okunduğuna, sonra sütunlardaki bilginin hangi türlerde olabileceğine bakacağız. Bu düzen basit görünür, ama dönem boyunca yapacağımız her analiz bu düzenin doğru kurulmasına dayanır.
 :::
 

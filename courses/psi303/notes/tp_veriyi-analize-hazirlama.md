@@ -236,13 +236,19 @@ K01'in cevapları: madde_1 = 4 · madde_2 = 2 · madde_3 = 5 · madde_4 = 1
 
 Puan aralığı: 4–20
 
-<div data-anim="custom" data-src="ters-puanlama-etkisi.js" data-css="ters-puanlama-etkisi.css"></div>
-
 ::: {.notes}
 K01 kendini yalnız hissettiğini (4) ve çevresinden kopuk hissettiğini (5) söylüyor; destek olacak insanların varlığına katılmıyor (2) ve istediğinde birine ulaşabildiğine hiç katılmıyor (1). Bütün cevaplar yalnızlığın yüksek olduğunu gösteriyor. Ters maddeleri çevirdiğimizde puanı 4–20 aralığında 18 olur; tutarlı bir tablo.
 
 Çevirmeden toplasaydık 12 bulurduk; bu da onu aralığın ortasına, orta düzeyde yalnız biri gibi yerleştirirdi. Tek bir unutulmuş ters puanlama, o maddede 3'ten başka bir şey işaretleyen herkesin puanını bozar ve sonraki her analiz bu bozuk puanla yapılır.
+:::
 
+---
+
+## Ters puanlama toplamı nasıl değiştirir?
+
+<div data-anim="custom" data-src="ters-puanlama-etkisi.js" data-css="ters-puanlama-etkisi.css"></div>
+
+::: {.notes}
 Hep 5 işaretleyen birini düşünün: çevirmeden toplanırsa 20, yani en yalnız kişi olur; doğru hesaplandığında 5 + 1 + 5 + 1 = 12, aralığın tam ortası.
 :::
 

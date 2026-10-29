@@ -143,7 +143,7 @@ export function mount(div, dataset = div.dataset) {
   let lastSampleBin = -1;
   let drawRng = mulberry32(seed * 313 + 17);
 
-  const root = makeEl("section", "sampling-distribution");
+  const root = makeEl("div", "sampling-distribution");
   root.setAttribute(
     "aria-label",
     dataset.label || "Örnekleme dağılımının oluşması animasyonu"

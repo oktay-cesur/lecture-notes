@@ -166,11 +166,17 @@ Fark: 78 − 75 = 3 puan = **1,5 SH** → yönsüz **p ≈ 0,13**
 
 > Yöntem hiçbir şey değiştirmese bile, 25 kişilik bir sınıfın ortalamasının 75'ten en az 3 puan (iki yönden biriyle) uzaklaşma olasılığı yaklaşık %13.
 
+::: {.notes}
+Yeni yöntem sınıfında öğrencilerin notlarının standart sapması 10, öğrenci sayısı 25; standart hata 2 puandır: yöntem hiçbir şey değiştirmese bile, 25 kişilik bir sınıfın ortalaması 75'in çevresinde tipik olarak 2 puan oynar. Gözlenen 3 puanlık fark bu tipik oynamanın bir buçuk katıdır: 1,5 standart hata. Bu, 9. notun diliyle z = 1,5'tir; orada soldaki alanı 0,93 okumuştuk. Burada aynı alanı iki uçta okuruz: sağ uçta 0,07, sol uçta 0,07 kalır; toplam yaklaşık 0,13.
+:::
+
+---
+
+## Gözlenen ortalama değişince p değeri
+
 <div data-anim="custom" data-src="tail-area-p.js" data-css="tail-area-p.css"></div>
 
 ::: {.notes}
-Yeni yöntem sınıfında öğrencilerin notlarının standart sapması 10, öğrenci sayısı 25; standart hata 2 puandır: yöntem hiçbir şey değiştirmese bile, 25 kişilik bir sınıfın ortalaması 75'in çevresinde tipik olarak 2 puan oynar. Gözlenen 3 puanlık fark bu tipik oynamanın bir buçuk katıdır: 1,5 standart hata. Bu, 9. notun diliyle z = 1,5'tir; orada soldaki alanı 0,93 okumuştuk. Burada aynı alanı iki uçta okuruz: sağ uçta 0,07, sol uçta 0,07 kalır; toplam yaklaşık 0,13.
-
 p değeri, madeni para örneğindeki %2'nin genel adıdır: sıfır hipotezi doğru olsaydı, elimizdeki kadar ya da daha uç bir sonucu ne sıklıkla görürdük? Yeni yöntem örneğinde bu olasılık yaklaşık %13'tür. Başka bir deyişle, yöntem hiçbir etkiye sahip olmasa bile her sekiz sınıftan biri bu kadar büyük bir farkı tesadüfen gösterebilir.
 
 Animasyonda p'nin bir alan olduğunu görebilirsiniz: H0'a göre çizilmiş örnekleme dağılımında, gözlenen değerin ötesinde kalan kuyruk alanı. Gözlenen ortalama merkezden uzaklaştıkça bu alan küçülür. Bu yüzden küçük bir p değeri, "H0 doğru olsaydı bu sonuç çok şaşırtıcı olurdu" demektir. Yönlü H1 (μ > 75) kurulmuş olsaydı yalnız üst uç sayılırdı ve p yaklaşık 0,07 çıkardı.

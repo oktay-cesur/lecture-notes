@@ -93,6 +93,14 @@ Evrenin tamamını ölçmek mümkün, uygun ya da yararlı olmadığında onun b
 
 > **İstatistik:** Örneklemdeki birimler üzerinden hesaplanan değer.
 
+::: {.notes}
+Tanım iki sözcükte duruyor: değerin hangi gruptan hesaplandığı. Evrenin tamamından hesaplanana parametre, örneklemden hesaplanana istatistik diyoruz. Ortalama, yüzde ya da oran gibi her özet sayı, hesaplandığı gruba göre bu iki addan birini alır. Aynı "uykusuz kalanların oranı" bir grupta parametre, öbüründe istatistiktir.
+:::
+
+---
+
+## Parametre ve istatistik: uykusuzluk örneği
+
 Açılıştaki iki cümleyle:
 
 | | Hangi gruptan hesaplanır? | Açılıştaki örnekte | Biliyor muyuz? |
@@ -101,14 +109,10 @@ Açılıştaki iki cümleyle:
 | **İstatistik** | Örneklem | Araştırmaya katılan 120 öğrencide hesaplanan %35 | Evet, veriden hesaplanır |
 
 ::: {.notes}
-Tanım iki sözcükte duruyor: değerin hangi gruptan hesaplandığı. Evrenin tamamından hesaplanana parametre, örneklemden hesaplanana istatistik diyoruz. Ortalama, yüzde ya da oran gibi her özet sayı, hesaplandığı gruba göre bu iki addan birini alır. Aynı "uykusuz kalanların oranı" bir grupta parametre, öbüründe istatistiktir.
-
 Açılıştaki örnekte 120 kişiden çıkan %35 istatistiktir; elimizde, veriden hesaplanır. Aynı oranın bütün Türkiye'deki üniversite öğrencileri için değeri ise parametredir. Bu değer bir yerde sabit duruyor ama bütün öğrencilere sormadan göremiyoruz. Evrenin tamamını ölçebilseydik parametreyi doğrudan hesaplardık.
 
 Çıkarımsal istatistiğin işi, kabaca, istatistiğe bakarak parametre hakkında makul bir şey söylemektir.
 :::
-
-
 
 ---
 

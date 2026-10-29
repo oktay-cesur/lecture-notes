@@ -167,7 +167,7 @@ export function mount(div, dataset = div.dataset) {
   let currentDf = initialDf;
   const pZ = twoTailedNormalP(tAbs);
 
-  const root = makeEl("section", "t-ve-normal");
+  const root = makeEl("div", "t-ve-normal");
   root.setAttribute("aria-label", "t dağılımı ve standart normal dağılım karşılaştırma animasyonu");
 
   const header = makeEl("header", "t-ve-normal__header");

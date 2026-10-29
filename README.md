@@ -53,6 +53,11 @@ Tüm yerel çıktılar depo içindeki `_site/` klasörüne yazılır. Böylece p
 önceden içinde bulunduğu kişisel vault'tan veya depo dışındaki bir çıktı
 klasöründen bağımsız çalışır.
 
+Tek dosya ve değişen dosya derlemeleri, HTML ve slaytları geçici çalışma
+alanlarında üretir; başarılı çıktılar `_site/` içine aktarılır. Derleme,
+önizleme ve temizleme komutları aynı proje için `flock` ile kilitlenir.
+Bir önizleme açıksa başka bir derleme başlatmadan önce `Ctrl+C` ile kapatın.
+
 `render-changed`, her `.md`/`.qmd` dosyasının değiştirilme zamanını karşılık gelen
 HTML çıktısıyla ve sunumsa slayt çıktısıyla karşılaştırır. Çıktısı eksik ya da
 kaynağından eski dosyaları derler; diğerlerini atlar. `_site/` yoksa tüm kaynaklar

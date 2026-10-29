@@ -46,6 +46,14 @@ Kuralın ne kadar bilgi taşıdığına göre dört düzey:
 | **Aralık** | + Ne kadar fark var? |
 | **Oran** | + Kaç katı? |
 
+::: {.notes}
+Ölçmek, bir özelliği bir kurala göre sayıya ya da etikete çevirmektir. Bu kural bazen çok az şey söyler (yalnızca "bu iki kişi farklı gruplarda"), bazen çok şey (yalnızca farklı değil, biri ötekinin iki katı). Ölçme düzeyleri bu kuralın ne kadar bilgi taşıdığını sınıflandırır.
+:::
+
+---
+
+## Ölçme düzeyleri nasıl bilgi ekler?
+
 <svg viewBox="0 0 860 460" role="img" aria-label="Ölçme düzeyleri merdiveni: Nominal düzeyden oran düzeyine bilginin kümülatif olarak arttığını gösteren dört basamaklı merdiven diyagramı. Her basamak alttaki düzeylerin tüm bilgisini devralır ve yeni bir karşılaştırma sorusu ekler: Nominal (aynı mı?), Sıralı (+ hangisi çok?), Aralık (+ ne kadar fark?), Oran (+ kaç katı?)." style="width:100%;max-height:460px">
   <!-- Üst Başlık ve Temel İlke -->
   <g>
@@ -138,8 +146,6 @@ Kuralın ne kadar bilgi taşıdığına göre dört düzey:
 </svg>
 
 ::: {.notes}
-Ölçmek, bir özelliği bir kurala göre sayıya ya da etikete çevirmektir. Bu kural bazen çok az şey söyler (yalnızca "bu iki kişi farklı gruplarda"), bazen çok şey (yalnızca farklı değil, biri ötekinin iki katı). Ölçme düzeyleri bu kuralın ne kadar bilgi taşıdığını sınıflandırır.
-
 Düzeyler bir merdiven gibi düşünülebilir: her basamak bir alttakinin söylediği her şeyi söyler ve buna yeni bir şey ekler. Bu yüzden bir değişkenin düzeyi, onunla yapılabilecek hesapların üst sınırını belirler.
 
 Önceki notta değişkenleri kategorik ve nicel diye ayırmıştık. Nominal ve sıralı kategorik tarafta, aralık ve oran nicel tarafta durur; kesikli–sürekli ayrımı ayrı bir eksendir (kardeş sayısı hem oran hem kesiklidir). Şimdi basamakları tek tek çıkalım.

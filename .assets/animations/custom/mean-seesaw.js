@@ -108,7 +108,7 @@ export function mount(div, dataset = div.dataset) {
   let fulcrum = baseMean;
   let dragging = false;
 
-  const root = makeEl("section", "mean-seesaw");
+  const root = makeEl("div", "mean-seesaw");
   root.setAttribute("aria-label", "Ortalama denge noktası ve tahterevalli animasyonu");
 
   const header = makeEl("header", "mean-seesaw__header");

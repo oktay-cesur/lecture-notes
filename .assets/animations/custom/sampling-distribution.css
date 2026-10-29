@@ -24,7 +24,7 @@
   margin-bottom: 12px;
 }
 
-.sampling-distribution__title {
+.sampling-distribution .sampling-distribution__title {
   margin: 0 0 4px 0;
   font-size: 1.1rem;
   line-height: 1.3;

@@ -30,7 +30,7 @@
   gap: 8px 14px;
 }
 
-.t-ve-normal__title {
+.t-ve-normal .t-ve-normal__title {
   margin: 0;
   font-size: 1rem;
   font-weight: 700;

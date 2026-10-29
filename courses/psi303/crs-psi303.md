@@ -38,6 +38,7 @@ Araştırma sorusunu ve hedef evreni belirle → veriyi/tabloyu incele → betim
 İstatistikte doğru hesaplama kadar, **bu yöntemin bu araştırma sorusu için neden gerektiğini** açıklayabilmek önemlidir.
 :::
 
+
 ::: {.callout-note}
 
 ## Temel Kaynaklar
@@ -47,16 +48,6 @@ Araştırma sorusunu ve hedef evreni belirle → veriyi/tabloyu incele → betim
 - jamovi ve IBM SPSS Statistics resmî dokümantasyonu
 - Ders kapsamında hazırlanan konu anlatımları ve [uygulama veri setleri](#uygulama-veri-setleri)
 :::
-
-## Uygulama Veri Setleri
-
-Uygulamalarda kullanılan kurgusal öğretim veri setleri aşağıdan indirilebilir. Veriler gerçek katılımcılara ait değildir; her dosyada görev ve teslim ölçütlerini içeren bir `Yonerge` sayfası bulunur.
-
-| Hafta | Dosya | İçerik |
-| :---: | --- | --- |
-| 3 | [Uyku ve ders kaygısı (xlsx)](../../data/psi303/PSI303-hafta3-uyku-kaygi.xlsx){download="PSI303-hafta3-uyku-kaygi.xlsx"} | K01–K08; olanaksız kayıt, eksik madde, ters puanlama, toplam puan ve filtre kararı. |
-| 3 | [Tepki süresi kayıtları (xlsx)](../../data/psi303/PSI303-hafta3-tepki-suresi.xlsx){download="PSI303-hafta3-tepki-suresi.xlsx"} | Boş, olanaksız ve alışılmadık ama mümkün kayıtların ayrımı; ham sütunu koruyarak yeni değişken üretme. |
-| 3 | [Aynı ortalama, farklı yayılım (xlsx)](../../data/psi303/PSI303-hafta3-puan-gruplari.xlsx){download="PSI303-hafta3-puan-gruplari.xlsx"} | İki kurgusal grup; merkez ve yayılımın ayrı özellikler olduğunu gösterme. |
 
 ## Açık Veri Setleri
 
@@ -77,26 +68,22 @@ Aşağıdaki veri setleri gerçek katılımcılara ait, Mendeley Data üzerinde 
 
 ## Haftalık Plan
 
-Ara sınav kapsamındaki görselli anlatımlara [haftalık ders notlarından](notes/index.md) ulaşabilirsiniz.
-
-Haftalık plan dersin resmî izlencesindeki 14 haftalık kapsamı (7. hafta ara sınav) temel alır. Konu notları kavramsal bütünlüğe göre hazırlanır; bir konu gerektiğinde birden fazla haftada yeniden kullanılabilir.
-
-| Hafta | Notlar | Açıklama |
+| Hafta | Konu Notu / Sunum | Açıklama |
 | :---: | --- | --- |
-| 1 | [Kimin hakkında konuşuyoruz?](notes/hafta-01/evren-orneklem-ve-cikarim.md)<br>[Veri tablosu](notes/hafta-01/veri-tablosu-ve-gozlem-birimi.md) | Hedef evren ve örneklem, betimleme ve çıkarım, gözlem birimi, değişken ve veri tablosu. |
-| 2 | [Ölçme düzeyleri](notes/hafta-02/olcme-duzeyleri.md)<br>[Veri sözlüğü](notes/hafta-02/veri-sozlugu.md) | Nominal, ordinal, aralık ve oran düzeyleri; değişkeni jamovi/SPSS'te tanımlama. |
-| 3 | [Veriyi analize hazırlamak](notes/hafta-03/veriyi-analize-hazirlama.md)<br>[Merkezî eğilim](notes/hafta-03/merkezi-egilim.md)<br>[Yayılım ölçüleri](notes/hafta-03/yayilim-olculeri.md) | Eksik ve hatalı kayıtlar, ters puanlama, türetilmiş puan, merkez ve yayılım. |
-| 4 | [Grafik okuma](notes/hafta-04/grafik-okuma.md)<br>[Dağılım ve normal dağılım](notes/hafta-04/dagilim-ve-normal-dagilim.md)<br>[Standart hata ve hipotez testi](notes/hafta-04/standart-hata-ve-hipotez-testi.md) | Grafik ve dağılımı okuma, normal dağılım, standart hata, hipotez ve p-değeri. |
-| 5 | [Tek ve bağımsız örneklem t-testi](notes/hafta-05/tek-ve-bagimsiz-orneklem-t-testi.md)<br>[Eşleştirilmiş t-testi](notes/hafta-05/eslestirilmis-t-testi.md) | Desene göre t-testi seçimi, varsayımlar, ortalama farkı, etki ve belirsizlik yorumu. |
-| 6 | [Tek yönlü varyans analizi](notes/hafta-06/tek-yonlu-varyans-analizi.md)<br>[Post-hoc ve karar haritası](notes/hafta-06/post-hoc-ve-karar-haritasi.md) | Çok grup karşılaştırması, F istatistiği, post-hoc testler ve karar haritası. |
-|   7   | **ARA SINAV**                                         | Hafta 1–6 kapsamının ölçülmesi.                                                                                                                                                                                     |
-|   8   | **İki Yönlü Varyans Analizi ve Kovaryans Analizi** | Temel etki/etkileşim, kovaryat kavramı, ayarlanmış karşılaştırma ve ANCOVA koşulları.                                                                                                                           |
-|   9   | **Tekrarlı Ölçümler için Varyans Analizi**       | Çok zamanlı ölçüm, kişi içi değişim, küresellik ve düzeltme yorumu.                                                                                                                                            |
-|  10  | **İki Değişkenli Korelasyon Analizi**              | Saçılım ve Pearson r ile betimleme, ilişkinin testi, belirsizlik ve nedensellik sınırı.                                                                                                                            |
-|  11  | **Doğrusal Regresyon**                               | Eğim/sabit, tahmin ve artık, açıklanan değişkenlik ve çıktı yorumu.                                                                                                                                              |
-|  12  | **Hiyerarşik Regresyon**                             | Birlikte yordama, gerekçeli blok sırası, iç içe model karşılaştırması.                                                                                                                                          |
-|  13  | **Güvenirlik I**                                     | Ölçüm hatası, iç tutarlık/alfa, madde incelemesi, güvenirlik–geçerlik ayrımı.                                                                                                                                  |
-|  14  | **Güvenirlik II ve Bütünleştirme**                | Güvenirlik bulgusunun araştırma raporundaki rolü; veri sözlüğü, puanlama, betimleme ve analiz sonucunun bütünleşik APA raporu.                                                                                 |
+| 1 | [Kimin hakkında konuşuyoruz?](notes/tp_evren-orneklem-ve-cikarim.md)<br>[Veri tablosu](notes/tp_veri-tablosu-ve-gozlem-birimi.md) | Hedef evren ve örneklem, betimleme ve çıkarım, gözlem birimi, değişken ve veri tablosu. |
+| 2 | [Ölçme düzeyleri](notes/tp_olcme-duzeyleri.md)<br>[Veri sözlüğü](notes/tp_veri-sozlugu.md) | Nominal, ordinal, aralık ve oran düzeyleri; değişkeni jamovi/SPSS'te tanımlama. |
+| 3 | [Veriyi analize hazırlamak](notes/tp_veriyi-analize-hazirlama.md)<br>[Merkezî eğilim](notes/tp_merkezi-egilim.md)<br>[Yayılım ölçüleri](notes/tp_yayilim-olculeri.md) | Eksik ve hatalı kayıtlar, ters puanlama, türetilmiş puan, merkez ve yayılım. |
+| 4 | [Grafik okuma](notes/tp_grafik-okuma.md)<br>[Dağılım ve normal dağılım](notes/tp_dagilim-ve-normal-dagilim.md)<br>[Standart hata ve hipotez testi](notes/tp_standart-hata-ve-hipotez-testi.md) | Grafik ve dağılımı okuma, normal dağılım, standart hata, hipotez ve p-değeri. |
+| 5 | [Tek ve bağımsız örneklem t-testi](notes/tp_tek-ve-bagimsiz-orneklem-t-testi.md)<br>[Eşleştirilmiş t-testi](notes/tp_eslestirilmis-t-testi.md) | Desene göre t-testi seçimi, varsayımlar, ortalama farkı, etki ve belirsizlik yorumu. |
+| 6 | [Tek yönlü varyans analizi](notes/tp_tek-yonlu-varyans-analizi.md)<br>[Post-hoc ve karar haritası](notes/tp_post-hoc-ve-karar-haritasi.md) | Çok grup karşılaştırması, F istatistiği, post-hoc testler ve karar haritası. |
+| 7 | **ARA SINAV** | Hafta 1–6 kapsamının ölçülmesi. |
+| 8 | **İki Yönlü Varyans Analizi ve Kovaryans Analizi** | Temel etki/etkileşim, kovaryat kavramı, ayarlanmış karşılaştırma ve ANCOVA koşulları. |
+| 9 | **Tekrarlı Ölçümler için Varyans Analizi** | Çok zamanlı ölçüm, kişi içi değişim, küresellik ve düzeltme yorumu. |
+| 10 | **İki Değişkenli Korelasyon Analizi** | Saçılım ve Pearson r ile betimleme, ilişkinin testi, belirsizlik ve nedensellik sınırı. |
+| 11 | **Doğrusal Regresyon** | Eğim/sabit, tahmin ve artık, açıklanan değişkenlik ve çıktı yorumu. |
+| 12 | **Hiyerarşik Regresyon** | Birlikte yordama, gerekçeli blok sırası, iç içe model karşılaştırması. |
+| 13 | **Güvenirlik I** | Ölçüm hatası, iç tutarlık/alfa, madde incelemesi, güvenirlik–geçerlik ayrımı. |
+| 14 | **Güvenirlik II ve Bütünleştirme** | Güvenirlik bulgusunun araştırma raporundaki rolü; veri sözlüğü, puanlama, betimleme ve analiz sonucunun bütünleşik APA raporu. |
 
 ## Değerlendirme
 

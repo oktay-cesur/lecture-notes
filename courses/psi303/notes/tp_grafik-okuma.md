@@ -92,7 +92,7 @@ SPSS bu ikinci yüzdeye "Valid Percent" (geçerli yüzde) der; jamovi'nin frekan
 
 ---
 
-## Çubuk ve pasta grafik
+## Çubuk grafik
 
 <svg viewBox="0 0 640 370" role="img" aria-label="Dört çalışma yönteminin frekanslarını gösteren çubuk grafik: Özet çıkarma 18, Soru çözme 15, Tekrar okuma 10, Grup çalışması 7 öğrenci. y ekseni sıfırdan başlar, çubuklar arasında ayrık boşluklar bulunur." style="width:100%;max-height:420px">
   <line x1="85" y1="50" x2="600" y2="50" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.15"/>
@@ -134,6 +134,17 @@ SPSS bu ikinci yüzdeye "Valid Percent" (geçerli yüzde) der; jamovi'nin frekan
 - Her çubuk bir **kategori**; yüksekliği **frekans** ya da **yüzde**.
 - Çubuklar arasında **boşluk** var: kategoriler birbirinden ayrık.
 - Nominal veride çubukların sırası değiştirilebilir, sıralı veride doğal sıra korunur.
+
+::: {.notes}
+Çubuk grafikte y eksenini kontrol edin: yükseklik sayı mı, yüzde mi? İki çubuğun yüksekliğini karşılaştırmadan önce hangi paydanın kullanıldığını bilmek gerekir.
+
+Nominal bir değişkende çubukların sırası bir bilgi taşımaz; okura kolaylık olsun diye büyükten küçüğe dizilebilir. Sıralı bir değişkende ise kategorilerin doğal sırası korunmalıdır: "hiç, nadiren, bazen, sık sık, her zaman" çubuklarını büyüklüğe göre dizmek, sıranın taşıdığı bilgiyi kaybettirir.
+:::
+
+---
+
+## Pasta mı, çubuk mu?
+
 - **Pasta grafik** bir bütünün parçalarını gösterir (dilimlerin toplamı %100); az sayıda ve belirgin farklı kategoriyle işe yarar.
 - Benzer büyüklükteki dilimleri karşılaştırmak zordur: göz açıları iyi karşılaştırmaz.
 
@@ -193,10 +204,6 @@ SPSS bu ikinci yüzdeye "Valid Percent" (geçerli yüzde) der; jamovi'nin frekan
 </svg>
 
 ::: {.notes}
-Çubuk grafikte y eksenini kontrol edin: yükseklik sayı mı, yüzde mi? İki çubuğun yüksekliğini karşılaştırmadan önce hangi paydanın kullanıldığını bilmek gerekir.
-
-Nominal bir değişkende çubukların sırası bir bilgi taşımaz; okura kolaylık olsun diye büyükten küçüğe dizilebilir. Sıralı bir değişkende ise kategorilerin doğal sırası korunmalıdır: "hiç, nadiren, bazen, sık sık, her zaman" çubuklarını büyüklüğe göre dizmek, sıranın taşıdığı bilgiyi kaybettirir.
-
 Pasta, "yarısından fazlası", "dörtte biri" gibi büyük farkları anlatmakta iyidir. Ancak insan gözü açıları ve alanları, uzunlukları karşılaştırdığı kadar iyi karşılaştıramaz. Payları birbirine yakın beş kategoriyi pastada sıralamak neredeyse imkânsızdır; aynı veri çubuk grafikte bir bakışta okunur.
 
 Bu yüzden kategorik veride varsayılan tercih çubuk grafiktir. Pasta, az sayıda kategoriyle bütünün bölünüşünü vurgulamak istediğiniz durumlara kalır.

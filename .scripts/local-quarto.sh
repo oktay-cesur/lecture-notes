@@ -243,7 +243,7 @@ is_presentation_file() {
   ' "$rel_file"
 }
 
-render_html_file() {
+render_html_in_workspace() {
   local rel_file="$1"
 
   if [[ "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "$rel_file" == .content/* || "$rel_file" == */.content/* ]]; then
@@ -269,6 +269,41 @@ render_html_file() {
   else
     quarto render "$rel_file" --profile publish,local --to html
   fi
+}
+
+render_html_file() {
+  local rel_file="$1"
+  local temp_dir
+
+  # Keep project-cache and intermediate files private to this render, just as
+  # render_slide_file does. A preview or another cleanup must not remove them.
+  temp_dir="$(mktemp -d /tmp/ders-render.XXXXXX)"
+  TEMP_RENDER_DIR="$temp_dir"
+  rsync -a \
+    --exclude='.git' \
+    --exclude='.claude' \
+    --exclude='.quarto' \
+    --exclude='_site' \
+    --exclude='site_libs' \
+    --exclude='*_files' \
+    --exclude='*.html' \
+    ./ "$temp_dir/"
+
+  (
+    cd "$temp_dir"
+    ROOT_DIR="$temp_dir"
+    export QUARTO_DENO_DIR="$temp_dir/.quarto-deno-cache"
+    export DENO_DIR="$QUARTO_DENO_DIR"
+    export XDG_CACHE_HOME="$temp_dir/.quarto-xdg-cache"
+    render_html_in_workspace "$rel_file"
+  )
+
+  if [[ ! -s "$temp_dir/_site/${rel_file%.*}.html" ]]; then
+    echo "ERROR: html output not created: $rel_file" >&2
+    return 1
+  fi
+  cp -a "$temp_dir/_site/." "$OUTPUT_DIR_REL/"
+  cleanup_temp_render_dir
 }
 
 render_slide_file() {
@@ -568,7 +603,6 @@ render_changed_outputs() {
     fi
 
     echo "INFO: changed or missing output → $rel_file"
-    clean_source_artifacts
     render_file_outputs "$rel_file"
 
     if [[ ! -s "$html_output" ]]; then
@@ -589,10 +623,19 @@ render_changed_outputs() {
   echo "INFO: rendered changed page count: $rendered_count; unchanged page count: $skipped_count"
 }
 
+command="${1:-}"
+
+# All commands share output/configuration paths. Acquire the lock before any
+# mutation, and retain it through EXIT cleanup (also inherited by the watcher).
+lock_key="$(printf '%s' "$ROOT_DIR" | sha256sum | cut -d ' ' -f 1)"
+exec {BUILD_LOCK_FD}>"${TMPDIR:-/tmp}/lecture-notes-build-${UID}-${lock_key}.lock"
+if ! flock -n "$BUILD_LOCK_FD"; then
+  echo "ERROR: another render, preview or clean is running for this project; wait for it to finish (stop preview with Ctrl+C)." >&2
+  exit 1
+fi
+
 ensure_quarto_config_links
 trap on_exit EXIT
-
-command="${1:-}"
 
 case "$command" in
   clean)
@@ -613,7 +656,6 @@ case "$command" in
     render_all_outputs_in_temp_workspace
     ;;
   render-changed)
-    CLEAN_SOURCE_ON_EXIT=1
     render_changed_outputs
     ;;
   render-file)
@@ -623,7 +665,6 @@ case "$command" in
       exit 1
     fi
     prepare_output_dirs
-    CLEAN_SOURCE_ON_EXIT=1
     rel_file="$(resolve_file "$file_arg")"
     render_file_outputs "$rel_file"
     ;;
@@ -649,7 +690,6 @@ case "$command" in
       exit 1
     fi
     prepare_output_dirs
-    CLEAN_SOURCE_ON_EXIT=1
     rel_file="$(resolve_file "$file_arg")"
     if is_index_file "$rel_file"; then
       echo "ERROR: slide not allowed for index.md files: $rel_file" >&2

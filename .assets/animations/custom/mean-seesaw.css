@@ -18,7 +18,7 @@
   gap: 0.2rem;
 }
 
-.mean-seesaw__title {
+.mean-seesaw .mean-seesaw__title {
   margin: 0;
   font-size: 1.05rem;
   font-weight: 700;

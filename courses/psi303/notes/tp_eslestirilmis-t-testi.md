@@ -354,7 +354,7 @@ Eşleşmiş desenlerin kendi riskleri de vardır: ikinci ölçümde katılımcı
 
 ---
 
-## Varsayım ve etki büyüklüğü
+## Fark puanlarının varsayımları
 
 - Normallik varsayımı **fark puanlarına** aittir (ham puanlara değil).
 - Kontrol: fark puanlarının histogramı / Q–Q grafiği; küçük örneklemde dikkat.
@@ -473,6 +473,14 @@ Eşleşmiş desenlerin kendi riskleri de vardır: ikinci ölçümde katılımcı
   <text x="552" y="348" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">Noktalar doğruyu izler; belirgin çarpıklık yoktur</text>
 </svg>
 
+::: {.notes}
+Eşleştirilmiş t-testi, fark puanlarının yaklaşık normal dağıldığını varsayar. "Önce" ve "sonra" puanlarının ayrı ayrı normal olup olmadığı burada asıl soru değildir; testin üzerinde çalıştığı tek sütun fark puanlarıdır. Sekiz kişilik bir örneklemde bu varsayım önemlidir ve fark puanlarının histogramı ve Q–Q grafiğiyle kontrol edilmelidir. Bu sekiz farkta 2, 4 ve 5 ikişer kez görüldüğü için Q–Q grafiğinde noktalar basamak gibi dizilir; bu basamaklar çarpıklıktan değil, değerlerin tekrar etmesinden gelir. Sekiz gözlemle grafik yalnızca büyük sapmaları gösterebilir; burada belirgin bir sapma yok. Bir koşul daha var: fark puanları farklı kişilerden (ya da farklı eşleşmiş çiftlerden) geliyorsa birbirinden bağımsız olmalıdır. Bir kişinin iki ölçümü birbirine bağlıdır ve bu yüzden fark aldık; ama K1'in farkı ile K2'nin farkı birbirini etkilememelidir.
+:::
+
+---
+
+## Eşleştirilmiş testte etki büyüklüğü
+
 Etki büyüklüğü:
 
 $$
@@ -482,8 +490,6 @@ $$
 *d* ≈ 2,2: ortalama düşüş, düşüşlerin yayılımının yaklaşık 2,2 katı. Eşleşmiş *d*, bağımsız gruplardaki *d* ile doğrudan karşılaştırılmaz.
 
 ::: {.notes}
-Eşleştirilmiş t-testi, fark puanlarının yaklaşık normal dağıldığını varsayar. "Önce" ve "sonra" puanlarının ayrı ayrı normal olup olmadığı burada asıl soru değildir; testin üzerinde çalıştığı tek sütun fark puanlarıdır. Sekiz kişilik bir örneklemde bu varsayım önemlidir ve fark puanlarının histogramı ve Q–Q grafiğiyle kontrol edilmelidir. Bu sekiz farkta 2, 4 ve 5 ikişer kez görüldüğü için Q–Q grafiğinde noktalar basamak gibi dizilir; bu basamaklar çarpıklıktan değil, değerlerin tekrar etmesinden gelir. Sekiz gözlemle grafik yalnızca büyük sapmaları gösterebilir; burada belirgin bir sapma yok. Bir koşul daha var: fark puanları farklı kişilerden (ya da farklı eşleşmiş çiftlerden) geliyorsa birbirinden bağımsız olmalıdır. Bir kişinin iki ölçümü birbirine bağlıdır ve bu yüzden fark aldık; ama K1'in farkı ile K2'nin farkı birbirini etkilememelidir.
-
 Etki büyüklüğü de fark puanları üzerinden hesaplanır: ortalama farkın, farkların standart sapmasına oranı. Ortalama düşüş, düşüşlerin kendi yayılımının yaklaşık 2,2 katıdır; kaba ölçütlere göre çok büyük bir etki. Ama fark puanlarının yayılımı küçük olduğu için eşleşmiş desenlerde d genellikle büyük çıkar; 0,2 · 0,5 · 0,8 ölçütleri burada yalnız kaba yön gösterir ve bu d bağımsız gruplardaki d ile doğrudan karşılaştırılmaz.
 :::
 

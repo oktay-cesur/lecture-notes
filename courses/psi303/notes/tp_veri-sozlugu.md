@@ -52,13 +52,26 @@ Bu bilgilerin bir kısmı doğrudan yazılımın içine (değişken tanımların
 
 ---
 
-## Örnek bir sözlük
+## Veri sözlüğü: kimlik ve demografi
 
 | Ad | Açıklama | Değerler | Birim | Düzey (jamovi) | Eksik |
 |---|---|---|---|---|---|
 | kod | Katılımcı kimliği | K01, K02, … | — | ID | — |
 | cinsiyet | Beyan edilen cinsiyet | 1 = Kadın, 2 = Erkek, 3 = Diğer/Belirtmek istemiyor | — | Nominal | 99 |
 | yas | Yaş | 17–60 | yıl | Continuous (oran) | 99 |
+
+
+
+::: {.notes}
+Önceki slayttaki dosya bu sözlükle birlikte açıldığında her şey yerine oturur: s1 cinsiyetmiş, 2 erkek demekmiş; s3 yurt binasıymış ve 3, 1'den fazla bir şey değil, başka bir binaymış; 99 ve 999 ise eksik bilgiymiş. Düzey sütunu jamovi adlarını kullanır: aralık ve oran için Continuous, kimlik sütunu için ID yazılır.
+:::
+
+---
+
+## Veri sözlüğü: yurt, çalışma ve kaygı
+
+| Ad | Açıklama | Değerler | Birim | Düzey (jamovi) | Eksik |
+|---|---|---|---|---|---|
 | yurt | Kalınan yurt binası | 1 = A blok, 2 = B blok, 3 = C blok | — | Nominal | 99 |
 | calisma | Bu hafta ders çalışma | 0–80 | saat | Continuous (oran) | 999 |
 | kaygi | Sınav kaygısı ölçeği toplam puanı | 10–50 | puan | Continuous (aralık) | 999 |
@@ -66,8 +79,6 @@ Bu bilgilerin bir kısmı doğrudan yazılımın içine (değişken tanımların
 > Eksik kodu, olası aralığın dışında ve gerçek değer sanılmayacak kadar uçta seçilir.
 
 ::: {.notes}
-Önceki slayttaki dosya bu sözlükle birlikte açıldığında her şey yerine oturur: s1 cinsiyetmiş, 2 erkek demekmiş; s3 yurt binasıymış ve 3, 1'den fazla bir şey değil, başka bir binaymış; 99 ve 999 ise eksik bilgiymiş. Düzey sütunu jamovi adlarını kullanır: aralık ve oran için Continuous, kimlik sütunu için ID yazılır.
-
 Eksik kodlarına dikkat edin. Ölçüt iki parçalıdır: kod değişkenin olası aralığının dışında olmalı ve gözle bakınca gerçek bir değer sanılmayacak kadar uçta durmalı. Üst sınırı belli olmayan değişkenlerde (tepki süresi, gelir) bu ölçüt işlemez, çünkü 999 ms gerçek bir yanıt olabilir; orada olamayacak bir değer (−99) ya da boş hücre seçilir. Yaşı 99 olan bir öğrenci beklemiyoruz, o yüzden yaş için 99 uygundur. Çalışma saati için 99 aralık dışıdır (0–80) ama dikkatsiz bir göze makul görünebilir; o yüzden orada 999 seçilmiş. Kaygı ölçeği 10–50 aralığında olduğu için 99 da, 999 da açıkça ölçek dışıdır; sözlükte tutarlı olması için 999 yazılmıştır.
 :::
 

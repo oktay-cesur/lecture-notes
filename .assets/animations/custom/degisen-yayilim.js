@@ -152,7 +152,7 @@ export function mount(div, dataset = div.dataset) {
 
   let currentSpread = initialSpread;
 
-  const root = makeEl("section", "degisen-yayilim");
+  const root = makeEl("div", "degisen-yayilim");
   root.setAttribute("aria-label", "Aynı ortalama ve değişen yayılım etkileşimli grafiği");
 
   const header = makeEl("header", "degisen-yayilim__ust");

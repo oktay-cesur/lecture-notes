@@ -252,32 +252,28 @@ website:
       contents:
         - courses/psi303/crs-psi303.md
         - courses/psi303/notes/index.md
-        - section: "1. Hafta — Araştırma Sorusu ve Veri"
+        - section: "Araştırma Sorusu ve Veri Yapısı"
           contents:
-            - courses/psi303/notes/hafta-01/evren-orneklem-ve-cikarim.md
-            - courses/psi303/notes/hafta-01/veri-tablosu-ve-gozlem-birimi.md
-        - section: "2. Hafta — Değişkeni Tanımlamak"
+            - courses/psi303/notes/tp_evren-orneklem-ve-cikarim.md
+            - courses/psi303/notes/tp_veri-tablosu-ve-gozlem-birimi.md
+            - courses/psi303/notes/tp_olcme-duzeyleri.md
+            - courses/psi303/notes/tp_veri-sozlugu.md
+            - courses/psi303/notes/tp_veriyi-analize-hazirlama.md
+        - section: "Betimsel İstatistik ve Dağılımlar"
           contents:
-            - courses/psi303/notes/hafta-02/olcme-duzeyleri.md
-            - courses/psi303/notes/hafta-02/veri-sozlugu.md
-        - section: "3. Hafta — Veriyi Hazırlamak ve Betimlemek"
+            - courses/psi303/notes/tp_merkezi-egilim.md
+            - courses/psi303/notes/tp_yayilim-olculeri.md
+            - courses/psi303/notes/tp_grafik-okuma.md
+            - courses/psi303/notes/tp_dagilim-ve-normal-dagilim.md
+        - section: "İstatistiksel Çıkarım"
           contents:
-            - courses/psi303/notes/hafta-03/veriyi-analize-hazirlama.md
-            - courses/psi303/notes/hafta-03/merkezi-egilim.md
-            - courses/psi303/notes/hafta-03/yayilim-olculeri.md
-        - section: "4. Hafta — Dağılım ve Çıkarım"
+            - courses/psi303/notes/tp_standart-hata-ve-hipotez-testi.md
+        - section: "Ortalamaların Karşılaştırılması"
           contents:
-            - courses/psi303/notes/hafta-04/grafik-okuma.md
-            - courses/psi303/notes/hafta-04/dagilim-ve-normal-dagilim.md
-            - courses/psi303/notes/hafta-04/standart-hata-ve-hipotez-testi.md
-        - section: "5. Hafta — t-Testleri"
-          contents:
-            - courses/psi303/notes/hafta-05/tek-ve-bagimsiz-orneklem-t-testi.md
-            - courses/psi303/notes/hafta-05/eslestirilmis-t-testi.md
-        - section: "6. Hafta — Varyans Analizi"
-          contents:
-            - courses/psi303/notes/hafta-06/tek-yonlu-varyans-analizi.md
-            - courses/psi303/notes/hafta-06/post-hoc-ve-karar-haritasi.md
+            - courses/psi303/notes/tp_tek-ve-bagimsiz-orneklem-t-testi.md
+            - courses/psi303/notes/tp_eslestirilmis-t-testi.md
+            - courses/psi303/notes/tp_tek-yonlu-varyans-analizi.md
+            - courses/psi303/notes/tp_post-hoc-ve-karar-haritasi.md
     - id: ai-llm
       title: "Yapay Zeka ve LLM"
       style: docked

@@ -215,7 +215,7 @@ export function mount(div, dataset = div.dataset) {
     return;
   }
 
-  const root = makeEl("section", "anova-f-degisimi");
+  const root = makeEl("div", "anova-f-degisimi");
   root.setAttribute(
     "aria-label",
     "Tek yönlü varyans analizinde F istatistiğinin değişimi animasyonu"

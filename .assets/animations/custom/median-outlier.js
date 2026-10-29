@@ -78,7 +78,7 @@ export function mount(div, dataset = div.dataset) {
 
   let dragging = false;
 
-  const root = makeEl("section", "median-outlier");
+  const root = makeEl("div", "median-outlier");
   root.setAttribute("aria-label", "Uç değerin ortalama ve medyana etkisi animasyonu");
 
   const header = makeEl("header", "median-outlier__header");

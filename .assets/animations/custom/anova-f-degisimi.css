@@ -30,7 +30,7 @@
   gap: 8px;
 }
 
-.anova-f-degisimi__baslik {
+.anova-f-degisimi .anova-f-degisimi__baslik {
   margin: 0;
   font-size: 1rem;
   line-height: 1.3;
