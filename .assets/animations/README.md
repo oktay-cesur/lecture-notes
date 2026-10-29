@@ -191,6 +191,16 @@ export function mount(div, dataset) {
 | `custom` + `qde-encoding.js` | `data-scene`: `basis` `angle` `phase` `amplitude` `decision` |
 | `custom` + `tik-frqi.js` | `data-scene` (bkz. `SCENES` nesnesi) |
 | `custom` + `orneklem-secimi.js` | `data-n` (5–80) `data-seed` `data-label` |
+| `custom` + `ters-puanlama-etkisi.js` | `data-scene` `data-label` |
+| `custom` + `aralik-genisligi.js` | `data-width` `data-label` |
+| `custom` + `mean-seesaw.js` | `data-values` `data-label` |
+| `custom` + `median-outlier.js` | `data-max-val` `data-label` |
+| `custom` + `degisen-yayilim.js` | `data-spread` `data-label` |
+| `custom` + `z-ve-alan.js` | `data-z` `data-label` |
+| `custom` + `sampling-distribution.js` | `data-n` `data-shape` `data-seed` `data-label` |
+| `custom` + `tail-area-p.js` | `data-mean` `data-sided` `data-label` |
+| `custom` + `t-ve-normal.js` | `data-df` `data-t` `data-label` |
+| `custom` + `anova-f-degisimi.js` | `data-scene` `data-between` `data-within` `data-label` |
 
 ## 7. Boyut, sunum ve erişilebilirlik
 

@@ -1,0 +1,217 @@
+.z-ve-alan {
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  color: var(--anim-text);
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.z-ve-alan__uyari {
+  background: var(--anim-red-bg);
+  border: 1px solid var(--anim-red);
+  color: var(--anim-strong);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.z-ve-alan__baslik-kutusu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.z-ve-alan__baslik {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.z-ve-alan__altbaslik {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--anim-muted);
+  line-height: 1.4;
+}
+
+.z-ve-alan__ozet-satiri {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.z-ve-alan__kart {
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.z-ve-alan__kart--sol {
+  background: var(--anim-blue-bg);
+  border-color: var(--anim-blue);
+}
+
+.z-ve-alan__kart-etiket {
+  font-size: 0.78rem;
+  color: var(--anim-muted);
+  font-weight: 600;
+}
+
+.z-ve-alan__kart-deger {
+  font-size: 1.2rem;
+  color: var(--anim-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.z-ve-alan__kart-deger--vurgu {
+  color: var(--anim-amber);
+}
+
+.z-ve-alan__kart-deger--sol {
+  color: var(--anim-blue-strong);
+}
+
+.z-ve-alan__kart-aciklama {
+  font-size: 0.76rem;
+  color: var(--anim-text-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.z-ve-alan__sahne {
+  background: var(--anim-surface);
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
+  padding: 6px 8px 4px;
+}
+
+.z-ve-alan__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.z-ve-alan__denetimler {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.z-ve-alan__kaydirici-etiket {
+  flex: 1 1 240px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--anim-strong);
+}
+
+.z-ve-alan__kaydirici-metin {
+  white-space: nowrap;
+}
+
+.z-ve-alan__kaydirici {
+  flex: 1 1 140px;
+  accent-color: var(--anim-blue-strong);
+  cursor: pointer;
+}
+
+.z-ve-alan__dugme {
+  background: var(--anim-surface);
+  color: var(--anim-strong);
+  border: 1px solid var(--anim-border-strong);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.z-ve-alan__dugme:hover:not(:disabled) {
+  background: var(--anim-blue-bg-hover);
+  border-color: var(--anim-blue);
+}
+
+.z-ve-alan__dugme:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.z-ve-alan__dugme--ikincil {
+  color: var(--anim-text-2);
+}
+
+.z-ve-alan__hazir-cubuk {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.z-ve-alan__hazir-baslik {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--anim-muted);
+  margin-right: 4px;
+}
+
+.z-ve-alan__hazir-dugme {
+  background: var(--anim-panel);
+  color: var(--anim-text);
+  border: 1px solid var(--anim-border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.z-ve-alan__hazir-dugme:hover {
+  background: var(--anim-blue-bg);
+  border-color: var(--anim-blue);
+}
+
+.z-ve-alan__hazir-dugme--aktif {
+  background: var(--anim-blue-strong);
+  color: var(--anim-on-accent);
+  border-color: var(--anim-blue-strong);
+}
+
+.z-ve-alan__yorum {
+  margin: 0;
+  background: var(--anim-panel);
+  border-left: 3px solid var(--anim-blue-strong);
+  padding: 8px 12px;
+  border-radius: 4px 8px 8px 4px;
+  font-size: 0.86rem;
+  color: var(--anim-text);
+  line-height: 1.45;
+}
+
+@media (max-width: 600px) {
+  .z-ve-alan__ozet-satiri {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .z-ve-alan * {
+    transition: none !important;
+  }
+}

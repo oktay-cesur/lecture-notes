@@ -1,0 +1,259 @@
+.aralik-genisligi {
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  color: var(--anim-text);
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-sizing: border-box;
+}
+
+.aralik-genisligi__ust {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.aralik-genisligi__baslik {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.aralik-genisligi__altbaslik {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--anim-text-2);
+  line-height: 1.4;
+}
+
+.aralik-genisligi__denetim {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+}
+
+.aralik-genisligi__kaydirici-grup {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1 1 240px;
+}
+
+.aralik-genisligi__etiket {
+  font-size: 0.9rem;
+  color: var(--anim-text);
+  white-space: nowrap;
+}
+
+.aralik-genisligi__secili-deger {
+  color: var(--anim-strong);
+}
+
+.aralik-genisligi__kaydirici {
+  flex: 1 1 110px;
+  accent-color: var(--anim-blue-strong);
+  cursor: pointer;
+}
+
+.aralik-genisligi__hizli-secim,
+.aralik-genisligi__adim-dugmeleri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.aralik-genisligi__dugme {
+  background: var(--anim-surface);
+  color: var(--anim-text);
+  border: 1px solid var(--anim-border-strong);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.aralik-genisligi__dugme:hover:not(:disabled) {
+  background: var(--anim-blue-bg-hover);
+  border-color: var(--anim-blue);
+}
+
+.aralik-genisligi__dugme:disabled {
+  color: var(--anim-muted);
+  border-color: var(--anim-border);
+  cursor: not-allowed;
+}
+
+.aralik-genisligi__dugme--aktif {
+  background: var(--anim-blue-strong);
+  color: var(--anim-on-accent);
+  border-color: var(--anim-blue-strong);
+}
+
+.aralik-genisligi__dugme--aktif:hover:not(:disabled) {
+  background: var(--anim-blue-strong);
+  color: var(--anim-on-accent);
+}
+
+.aralik-genisligi__ozet {
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.aralik-genisligi__rozetler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.aralik-genisligi__rozet {
+  background: var(--anim-surface);
+  border: 1px solid var(--anim-border);
+  border-radius: 999px;
+  padding: 0.18rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--anim-text);
+}
+
+.aralik-genisligi__rozet--vurgu {
+  background: var(--anim-blue-bg);
+  border-color: var(--anim-blue);
+  color: var(--anim-strong);
+}
+
+.aralik-genisligi__rozet--uyari {
+  background: var(--anim-rose-bg);
+  border-color: var(--anim-red);
+  color: var(--anim-strong);
+}
+
+.aralik-genisligi__aciklama {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--anim-strong);
+}
+
+.aralik-genisligi__kuyruk-notu {
+  margin: 0;
+  font-size: 0.83rem;
+  line-height: 1.35;
+  color: var(--anim-text-2);
+}
+
+.aralik-genisligi__grafik-kutu {
+  background: var(--anim-surface);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+}
+
+.aralik-genisligi__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.aralik-genisligi__lejant {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  font-size: 0.8rem;
+  color: var(--anim-text-2);
+  padding: 0 0.2rem;
+}
+
+.aralik-genisligi__lejant-oge {
+  color: var(--anim-blue);
+  font-weight: 600;
+}
+
+.aralik-genisligi__lejant-oge--tepe {
+  color: var(--anim-blue-strong);
+}
+
+.aralik-genisligi__lejant-oge--uc {
+  color: var(--anim-amber);
+}
+
+.aralik-genisligi__tablo-bolumu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.aralik-genisligi__tablo-baslik {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--anim-text-2);
+}
+
+.aralik-genisligi__aralik-listesi {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: 0.35rem;
+}
+
+.aralik-genisligi__aralik-kart {
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 6px;
+  padding: 0.28rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+}
+
+.aralik-genisligi__aralik-kart--tepe {
+  background: var(--anim-blue-bg);
+  border-color: var(--anim-blue-strong);
+}
+
+.aralik-genisligi__aralik-kart--uc {
+  border-color: var(--anim-amber);
+}
+
+.aralik-genisligi__aralik-ad {
+  color: var(--anim-text-2);
+}
+
+.aralik-genisligi__aralik-sayi {
+  color: var(--anim-strong);
+}
+
+.aralik-genisligi__uyari {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: var(--anim-red-bg);
+  border: 1px solid var(--anim-red);
+  border-radius: 8px;
+  color: var(--anim-strong);
+  font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aralik-genisligi * {
+    transition: none !important;
+  }
+}

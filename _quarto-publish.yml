@@ -251,14 +251,33 @@ website:
       style: docked
       contents:
         - courses/psi303/crs-psi303.md
-        - section: "Ara Sınav Kapsamı (Hafta 1–6)"
+        - courses/psi303/notes/index.md
+        - section: "1. Hafta — Araştırma Sorusu ve Veri"
           contents:
-            - courses/psi303/notes/tp_arastirma-sorusundan-veriye.md
-            - courses/psi303/notes/tp_degiskeni-tanimlamak-ve-veriyi-yazilimda-kurmak.md
-            - courses/psi303/notes/tp_veriyi-yonetmek-ve-betimlemeye-giris.md
-            - courses/psi303/notes/tp_betimsel-istatistikten-cikarima.md
-            - courses/psi303/notes/tp_t-testleri-desenden-teste.md
-            - courses/psi303/notes/tp_tek-yonlu-varyans-analizi-ve-post-hoc.md
+            - courses/psi303/notes/hafta-01/evren-orneklem-ve-cikarim.md
+            - courses/psi303/notes/hafta-01/veri-tablosu-ve-gozlem-birimi.md
+        - section: "2. Hafta — Değişkeni Tanımlamak"
+          contents:
+            - courses/psi303/notes/hafta-02/olcme-duzeyleri.md
+            - courses/psi303/notes/hafta-02/veri-sozlugu.md
+        - section: "3. Hafta — Veriyi Hazırlamak ve Betimlemek"
+          contents:
+            - courses/psi303/notes/hafta-03/veriyi-analize-hazirlama.md
+            - courses/psi303/notes/hafta-03/merkezi-egilim.md
+            - courses/psi303/notes/hafta-03/yayilim-olculeri.md
+        - section: "4. Hafta — Dağılım ve Çıkarım"
+          contents:
+            - courses/psi303/notes/hafta-04/grafik-okuma.md
+            - courses/psi303/notes/hafta-04/dagilim-ve-normal-dagilim.md
+            - courses/psi303/notes/hafta-04/standart-hata-ve-hipotez-testi.md
+        - section: "5. Hafta — t-Testleri"
+          contents:
+            - courses/psi303/notes/hafta-05/tek-ve-bagimsiz-orneklem-t-testi.md
+            - courses/psi303/notes/hafta-05/eslestirilmis-t-testi.md
+        - section: "6. Hafta — Varyans Analizi"
+          contents:
+            - courses/psi303/notes/hafta-06/tek-yonlu-varyans-analizi.md
+            - courses/psi303/notes/hafta-06/post-hoc-ve-karar-haritasi.md
     - id: ai-llm
       title: "Yapay Zeka ve LLM"
       style: docked

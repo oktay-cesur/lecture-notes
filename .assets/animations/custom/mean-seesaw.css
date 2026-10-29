@@ -1,0 +1,201 @@
+.mean-seesaw {
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: var(--anim-text);
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-sizing: border-box;
+}
+
+.mean-seesaw__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.mean-seesaw__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.mean-seesaw__subtitle {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--anim-text-2);
+}
+
+.mean-seesaw__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.mean-seesaw__card {
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+  padding: 0.45rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mean-seesaw__card--left {
+  border-left: 4px solid var(--anim-blue-strong);
+}
+
+.mean-seesaw__card--center {
+  border-left: 4px solid var(--anim-green);
+}
+
+.mean-seesaw__card--right {
+  border-left: 4px solid var(--anim-purple);
+}
+
+.mean-seesaw__card-label {
+  font-size: 0.76rem;
+  color: var(--anim-muted);
+}
+
+.mean-seesaw__card-value {
+  font-size: 0.92rem;
+  color: var(--anim-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.mean-seesaw__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--anim-surface);
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+}
+
+.mean-seesaw__pivot {
+  cursor: grab;
+}
+
+.mean-seesaw__status {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  border: 1px solid var(--anim-border);
+  background: var(--anim-panel);
+  color: var(--anim-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.mean-seesaw__status--balanced {
+  border-color: var(--anim-green);
+  background: color-mix(in srgb, var(--anim-green) 14%, transparent);
+  color: var(--anim-strong);
+}
+
+.mean-seesaw__status--tilted {
+  border-color: var(--anim-amber);
+  background: color-mix(in srgb, var(--anim-amber) 14%, transparent);
+  color: var(--anim-strong);
+}
+
+.mean-seesaw__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.mean-seesaw__slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 240px;
+  font-size: 0.85rem;
+  color: var(--anim-text-2);
+}
+
+.mean-seesaw__slider {
+  flex: 1;
+  accent-color: var(--anim-blue-strong);
+  cursor: pointer;
+}
+
+.mean-seesaw__slider-readout {
+  min-width: 4.2rem;
+  text-align: right;
+  font-weight: 700;
+  color: var(--anim-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.mean-seesaw__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.mean-seesaw__btn {
+  appearance: none;
+  border: 1px solid var(--anim-border-strong);
+  background: var(--anim-panel);
+  color: var(--anim-strong);
+  border-radius: 7px;
+  padding: 0.38rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mean-seesaw__btn:hover:not(:disabled) {
+  background: var(--anim-blue-bg-hover);
+  border-color: var(--anim-blue);
+}
+
+.mean-seesaw__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.mean-seesaw__btn--primary {
+  background: var(--anim-blue-strong);
+  border-color: var(--anim-blue-strong);
+  color: var(--anim-on-accent);
+}
+
+.mean-seesaw__btn--primary:hover:not(:disabled) {
+  background: var(--anim-blue);
+  border-color: var(--anim-blue);
+}
+
+.mean-seesaw__btn--ghost {
+  background: transparent;
+  color: var(--anim-text-2);
+}
+
+.mean-seesaw__uyari {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--anim-red-bg);
+  border: 1px solid var(--anim-red);
+  color: var(--anim-strong);
+  font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mean-seesaw * {
+    transition: none !important;
+  }
+}

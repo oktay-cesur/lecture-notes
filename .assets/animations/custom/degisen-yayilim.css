@@ -1,0 +1,128 @@
+.degisen-yayilim {
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  max-width: 820px;
+  margin: 0 auto;
+  color: var(--anim-text);
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.degisen-yayilim__ust {
+  margin-bottom: 10px;
+}
+
+.degisen-yayilim__baslik {
+  margin: 0 0 4px 0;
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
+.degisen-yayilim__aciklama {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--anim-text-2);
+  line-height: 1.45;
+}
+
+.degisen-yayilim__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--anim-bg);
+  border-radius: 6px;
+}
+
+.degisen-yayilim__denetim {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+}
+
+.degisen-yayilim__kaydirici-kutu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 240px;
+  font-size: 0.9rem;
+  color: var(--anim-text);
+}
+
+.degisen-yayilim__kaydirici-etiket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.degisen-yayilim__kaydirici-deger {
+  color: var(--anim-teal);
+  font-variant-numeric: tabular-nums;
+}
+
+.degisen-yayilim__kaydirici {
+  width: 100%;
+  accent-color: var(--anim-blue-strong);
+  cursor: pointer;
+}
+
+.degisen-yayilim__dugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.degisen-yayilim__dugme {
+  background: var(--anim-surface);
+  color: var(--anim-text);
+  border: 1px solid var(--anim-border-strong);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.degisen-yayilim__dugme:hover:not(:disabled) {
+  background: var(--anim-blue-bg-hover);
+  border-color: var(--anim-blue);
+}
+
+.degisen-yayilim__dugme:disabled {
+  color: var(--anim-muted-2);
+  border-color: var(--anim-border);
+  cursor: not-allowed;
+}
+
+.degisen-yayilim__durum {
+  margin: 8px 0 0 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--anim-strong);
+}
+
+.degisen-yayilim__uyari {
+  background: var(--anim-red-bg);
+  color: var(--anim-red);
+  border: 1px solid var(--anim-red);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .degisen-yayilim * {
+    transition: none !important;
+  }
+}

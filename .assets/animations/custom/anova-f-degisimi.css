@@ -1,0 +1,151 @@
+.anova-f-degisimi {
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--anim-text);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.anova-f-degisimi__uyari {
+  background: var(--anim-red-bg);
+  border: 1px solid var(--anim-red);
+  color: var(--anim-strong);
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.anova-f-degisimi__ust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.anova-f-degisimi__baslik {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.anova-f-degisimi__hazir-cubuk {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.anova-f-degisimi__btn {
+  background: var(--anim-surface);
+  color: var(--anim-text);
+  border: 1px solid var(--anim-border-strong);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.anova-f-degisimi__btn:hover {
+  background: var(--anim-blue-bg-hover);
+  border-color: var(--anim-blue);
+}
+
+.anova-f-degisimi__btn:focus-visible {
+  outline: 2px solid var(--anim-blue);
+  outline-offset: 2px;
+}
+
+.anova-f-degisimi__kontroller {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.anova-f-degisimi__kontrol {
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.anova-f-degisimi__kontrol-ust {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.anova-f-degisimi__kontrol-ad {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--anim-strong);
+}
+
+.anova-f-degisimi__kontrol-deger {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--anim-blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.anova-f-degisimi__kaydirici {
+  width: 100%;
+  accent-color: var(--anim-blue);
+  cursor: pointer;
+  margin: 2px 0;
+}
+
+.anova-f-degisimi__kontrol-ipucu {
+  font-size: 0.76rem;
+  color: var(--anim-muted);
+  line-height: 1.3;
+}
+
+.anova-f-degisimi__grafik-kutu {
+  width: 100%;
+}
+
+.anova-f-degisimi__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.anova-f-degisimi__durum {
+  background: var(--anim-panel);
+  border: 1px solid var(--anim-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.84rem;
+}
+
+.anova-f-degisimi__oran {
+  color: var(--anim-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.anova-f-degisimi__yorum {
+  color: var(--anim-text-2);
+  line-height: 1.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anova-f-degisimi * {
+    transition: none !important;
+  }
+}

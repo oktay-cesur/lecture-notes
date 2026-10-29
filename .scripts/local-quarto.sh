@@ -220,7 +220,7 @@ is_fallback_qmd_file() {
 
 is_render_all_excluded_file() {
   local rel_file="$1"
-  [[ "$rel_file" == "README.md" || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == .content/* || "$rel_file" == */.content/* || "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "${rel_file##*/}" == content-profile.md || "${rel_file##*/}" == 00-content-profile.md || "${rel_file##*/}" == 03-fikirler.md || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
+  [[ "$rel_file" == "README.md" || "$rel_file" == .assets/* || "$rel_file" == .agents/* || "$rel_file" == .codex/* || "$rel_file" == draft/* || "$rel_file" == */draft/* || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == .content/* || "$rel_file" == */.content/* || "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "${rel_file##*/}" == content-profile.md || "${rel_file##*/}" == 00-content-profile.md || "${rel_file##*/}" == 03-fikirler.md || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
 }
 
 is_presentation_file() {
@@ -547,6 +547,8 @@ render_changed_outputs() {
   prepare_output_dirs
 
   while IFS= read -r rel_file; do
+    [[ -f "$rel_file" ]] || continue
+    case "$rel_file" in *.md|*.qmd) ;; *) continue ;; esac
     if is_fallback_qmd_file "$rel_file" || is_render_all_excluded_file "$rel_file"; then
       continue
     fi
@@ -582,7 +584,7 @@ render_changed_outputs() {
     fi
 
     rendered_count=$((rendered_count + 1))
-  done < <(find . \( -path './_site' -o -path './.claude' \) -prune -o -type f \( -name '*.md' -o -name '*.qmd' \) -print | sort | sed 's|^\./||')
+  done < <({ git diff HEAD --name-only --diff-filter=ACMR; git ls-files --others --exclude-standard; } | sort -u)
 
   echo "INFO: rendered changed page count: $rendered_count; unchanged page count: $skipped_count"
 }
