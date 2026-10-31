@@ -36,6 +36,8 @@ Ders **2 saat teori + 1 saat uygulama** biçimindedir. Uygulamalarda **jamovi** 
 Araştırma sorusunu ve hedef evreni belirle → veriyi/tabloyu incele → betimleme mi çıkarım mı olduğunu ayır → uygun yöntemi seç → yazılımda uygula → çıktıyı APA formatında yorumla → sınırlılığı belirt.
 
 İstatistikte doğru hesaplama kadar, **bu yöntemin bu araştırma sorusu için neden gerektiğini** açıklayabilmek önemlidir.
+
+Sayfanın sonundaki [çalışma notları](#çalışma-notları) konu anlatımlarından sonra tekrar için kullanılır: konu notunu izle → ilgili çalışma notuyla özetle (isterseniz önce sesli özetini dinleyin) → çalışma sorularını cevaplara bakmadan çöz.
 :::
 
 
@@ -84,6 +86,23 @@ Aşağıdaki veri setleri gerçek katılımcılara ait, Mendeley Data üzerinde 
 | 12 | **Hiyerarşik Regresyon** | Birlikte yordama, gerekçeli blok sırası, iç içe model karşılaştırması. |
 | 13 | **Güvenirlik I** | Ölçüm hatası, iç tutarlık/alfa, madde incelemesi, güvenirlik–geçerlik ayrımı. |
 | 14 | **Güvenirlik II ve Bütünleştirme** | Güvenirlik bulgusunun araştırma raporundaki rolü; veri sözlüğü, puanlama, betimleme ve analiz sonucunun bütünleşik APA raporu. |
+
+## Çalışma Notları
+
+Aşağıdaki çalışma notları, haftalık planda işlenen konuların sınav öncesi tekrarı için derlenmiş kısa özetlerdir: tanımlar, karşılaştırma tabloları, küçük örnekler, "sık yapılan hata" kutuları, çözümlü çalışma soruları ve APA rapor örnekleri içerir. Konu notlarının yerine geçmez; ilgili konuyu tamamladıktan sonra tekrar için bağımsız olarak kullanabilirsiniz, listedeki sıra zorunlu bir çalışma sırası değildir.
+
+::: {.callout-tip}
+## Sesli Özetler
+
+Çalışma notlarının konu bazlı sesli özetlerine [bu Drive klasöründen](https://drive.google.com/drive/folders/1HdJgyzj0fEquA3zM7CFzQd9tWKgfDBVG?usp=sharing){target="_blank"} ulaşabilirsiniz; dosyalar tarayıcıda dinlenebilir. Sesli özetler yapay zekâ ile üretilmiştir ve ders notlarının yerine geçmez; yazılı not ile ses arasında fark olduğunda yazılı not esastır. Sesli özetler grafikleri ve hesapları anlatmaz; bunlar için yazılı notları kullanın.
+:::
+
+| Çalışma notu | Kapsadığı konular | Hafta | Sesli özet |
+| --- | --- | :---: | --- |
+| [Genel Özet: Araştırma Sorusu ve Veri Yapısı](notes/ex_veri-yapisi.md) | Evren ve örneklem, veri tablosu, ölçme düzeyleri, veri sözlüğü, veriyi analize hazırlama | 1–3 | Ses 1 · Veri yapısı (≈ 23 dk) |
+| [Genel Özet: Betimsel İstatistik ve Dağılımlar](notes/ex_betimsel-istatistik.md) | Merkezî eğilim, yayılım, dağılımın biçimi, normal dağılım ve z puanı | 3–4 | Ses 2 · Merkez ve yayılım (≈ 22 dk)<br>Ses 3 · Grafik, biçim ve normal dağılım (≈ 12 dk) |
+| [Çalışma Notu: Grafik Okuma](notes/ex_grafik-okuma.md) | Hangi durumda hangi grafik; histogram, kutu grafiği, grup karşılaştırma ve Q–Q grafiklerinin görsel yorumu; yanıltıcı grafikler | 3–6 | Ses 3 (kısmen; görsel yorum sesle verilmez) |
+| [Genel Özet: Ortalamaların Karşılaştırılması](notes/ex_ortalama-karsilastirma.md) | Hipotez testi mantığı, t-testleri, tek yönlü ANOVA, post-hoc, test seçim haritası | 4–6 | Ses 4 · Hipotez testi mantığı (≈ 24 dk)<br>t-testleri, ANOVA ve post-hoc: hazırlanıyor |
 
 ## Değerlendirme
 

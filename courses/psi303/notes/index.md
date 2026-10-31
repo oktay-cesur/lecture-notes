@@ -31,3 +31,12 @@ Ara sınav kapsamındaki 14 not, konu bağlamlarına göre aşağıda sıralanm�
 - [Aynı kişiler, iki ölçüm: Eşleştirilmiş t-Testi](tp_eslestirilmis-t-testi.md)
 - [Üç ve daha fazla grup: Tek yönlü varyans analizi](tp_tek-yonlu-varyans-analizi.md)
 - [Post-hoc ve karar haritası](tp_post-hoc-ve-karar-haritasi.md)
+
+## Çalışma Notları
+
+Sınav öncesi tekrar için derlenmiş özetler; her notun başındaki **Sesli özet** kutusu ilgili sesli özete bağlanır. Ayrıntı için konu notlarına dönün.
+
+- [Genel özet: Araştırma sorusu ve veri yapısı](ex_veri-yapisi.md)
+- [Genel özet: Betimsel istatistik ve dağılımlar](ex_betimsel-istatistik.md)
+- [Çalışma notu: Grafik okuma](ex_grafik-okuma.md)
+- [Genel özet: Ortalamaların karşılaştırılması](ex_ortalama-karsilastirma.md) (hipotez testi mantığının özetini de içerir)
