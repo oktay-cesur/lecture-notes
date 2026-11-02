@@ -7,12 +7,6 @@ tags:
   - output
 sidebar: psi303
 ---
-::: {.callout-warning}
-
-## Taslak Çalışma Notu Seti
-
-Bu ders notları seti, PSİ 303 dersi için resmî izlence ve kaynak kitaplar (Salkind, *Statistics for People Who (Think They) Hate Statistics*) temel alınarak hazırlanmıştır. Hafta 1–6 notları ara sınav kapsamını oluşturur.
-:::
 
 ## Dersin Amacı
 
@@ -36,8 +30,9 @@ Ders **2 saat teori + 1 saat uygulama** biçimindedir. Uygulamalarda **jamovi** 
 Araştırma sorusunu ve hedef evreni belirle → veriyi/tabloyu incele → betimleme mi çıkarım mı olduğunu ayır → uygun yöntemi seç → yazılımda uygula → çıktıyı APA formatında yorumla → sınırlılığı belirt.
 
 İstatistikte doğru hesaplama kadar, **bu yöntemin bu araştırma sorusu için neden gerektiğini** açıklayabilmek önemlidir.
-:::
 
+Sayfanın sonundaki [çalışma notları](#çalışma-notları) konu anlatımlarından sonra tekrar için kullanılır: konu notunu izle → ilgili çalışma notuyla özetle (isterseniz önce sesli özetini dinleyin) → çalışma sorularını cevaplara bakmadan çöz.
+:::
 
 ::: {.callout-note}
 
@@ -47,43 +42,61 @@ Araştırma sorusunu ve hedef evreni belirle → veriyi/tabloyu incele → betim
 - Salkind, N. J. — *Statistics for People Who (Think They) Hate Statistics: Using Microsoft Excel*
 - jamovi ve IBM SPSS Statistics resmî dokümantasyonu
 - Ders kapsamında hazırlanan konu anlatımları ve [uygulama veri setleri](#uygulama-veri-setleri)
-:::
+  :::
 
 ## Açık Veri Setleri
 
 Aşağıdaki veri setleri gerçek katılımcılara ait, Mendeley Data üzerinde yayımlanmış açık veri setleridir. Dosyalar bu siteden dağıtılmaz; her bağlantı veri setinin yayıncı sayfasına gider ve dosyalar oradan indirilir. Hepsi CC BY 4.0 lisanslıdır, kullanırken veri setine atıf yapılmalıdır. Kendi küçük analizlerinizi (frekans, ortalama ve yayılım, grafik, çapraz tablo, grup karşılaştırması) gerçek veriyle denemek için kullanabilirsiniz; ders uygulamaları bu veri setlerine bağlı değildir.
 
-| Veri seti | Katılımcı | İçerik |
-| --- | --- | --- |
-| [COVID-19 pandemisinin Türkiye'deki sosyal ve psikolojik etkileri](https://data.mendeley.com/datasets/sv95c7ydpy/9) | 2.868 | Kaygı, davranış değişimleri ve demografik değişkenler. |
-| [Clance Impostor Phenomenon Scale (Türkçe)](https://data.mendeley.com/datasets/zzt73pzv8d/1) | Türk üniversite öğrencileri | 20 maddelik ölçek maddeleri; ölçek toplamı hesabı için uygun. |
-| [İstanbul'da ebeveynlerin çocuk ağız hijyeni tutum ve uygulamaları](https://data.mendeley.com/datasets/mhhprrnr8f/1) | 203 | Demografi, tutum ve davranış değişkenleri; dosyada ayrıca `sorular` sayfasında değişken açıklamaları bulunur. |
-| [Patient Safety Culture](https://data.mendeley.com/datasets/bzcrpt47zz/1) | 258 | Konya'daki iki üniversite hastanesinde çalışan sağlık personeli; Likert maddeleri ve demografi. |
-| [COVID-19'un Türkiye'deki odyoloji öğrencileri üzerindeki etkileri](https://data.mendeley.com/datasets/j36zbmf4b4/1) | 518 | Lisans ve lisansüstü öğrencilerden kesitsel anket verisi. |
-| [Exercise Dependence Health Correlates](https://data.mendeley.com/datasets/9zb9nrzrbc/1) | 850 | Düzenli egzersiz yapan 18 yaş üstü yetişkinler. |
-| [Menopoz geçişinde istenmeyen gebelik korkusu ve cinsel yaşam kalitesi](https://data.mendeley.com/datasets/ptcx3dwsgy/1) | 124 | 40–50 yaş perimenopozal kadınlar; 23 değişken. |
-| [Tonsil Adenoid Health Status Instrument, Türkçe uyarlama](https://data.mendeley.com/datasets/9nfsc964fs/1) | — | Türkçe ölçek uyarlama ve geçerlik çalışmasına ait veriler. |
-| [Digital Addiction Research Dataset](https://data.mendeley.com/datasets/6hhdxszm56/2) | 497 | Üniversite öğrencileri; mutluluk, Big Five, FoMO, akıllı telefon ve sosyal medya bağımlılığı ölçekleri. |
-| [FSCAM — iş sağlığı ve güvenliği kültürü anketi](https://data.mendeley.com/datasets/xrprwxv4xx/1) | — | Türkiye'de bir metal sektörü üretim şirketinin çalışanlarından anket verisi. |
+| Veri seti                                                                                                                       | Katılımcı                    | İçerik                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| [COVID-19 pandemisinin Türkiye&#39;deki sosyal ve psikolojik etkileri](https://data.mendeley.com/datasets/sv95c7ydpy/9)         | 2.868                           | Kaygı, davranış değişimleri ve demografik değişkenler.                                                              |
+| [Clance Impostor Phenomenon Scale (Türkçe)](https://data.mendeley.com/datasets/zzt73pzv8d/1)                                   | Türk üniversite öğrencileri | 20 maddelik ölçek maddeleri; ölçek toplamı hesabı için uygun.                                                       |
+| [İstanbul&#39;da ebeveynlerin çocuk ağız hijyeni tutum ve uygulamaları](https://data.mendeley.com/datasets/mhhprrnr8f/1)    | 203                             | Demografi, tutum ve davranış değişkenleri; dosyada ayrıca `sorular` sayfasında değişken açıklamaları bulunur. |
+| [Patient Safety Culture](https://data.mendeley.com/datasets/bzcrpt47zz/1)                                                        | 258                             | Konya'daki iki üniversite hastanesinde çalışan sağlık personeli; Likert maddeleri ve demografi.                      |
+| [COVID-19&#39;un Türkiye&#39;deki odyoloji öğrencileri üzerindeki etkileri](https://data.mendeley.com/datasets/j36zbmf4b4/1) | 518                             | Lisans ve lisansüstü öğrencilerden kesitsel anket verisi.                                                              |
+| [Exercise Dependence Health Correlates](https://data.mendeley.com/datasets/9zb9nrzrbc/1)                                         | 850                             | Düzenli egzersiz yapan 18 yaş üstü yetişkinler.                                                                       |
+| [Menopoz geçişinde istenmeyen gebelik korkusu ve cinsel yaşam kalitesi](https://data.mendeley.com/datasets/ptcx3dwsgy/1)      | 124                             | 40–50 yaş perimenopozal kadınlar; 23 değişken.                                                                        |
+| [Tonsil Adenoid Health Status Instrument, Türkçe uyarlama](https://data.mendeley.com/datasets/9nfsc964fs/1)                    | —                              | Türkçe ölçek uyarlama ve geçerlik çalışmasına ait veriler.                                                        |
+| [Digital Addiction Research Dataset](https://data.mendeley.com/datasets/6hhdxszm56/2)                                            | 497                             | Üniversite öğrencileri; mutluluk, Big Five, FoMO, akıllı telefon ve sosyal medya bağımlılığı ölçekleri.       |
+| [FSCAM — iş sağlığı ve güvenliği kültürü anketi](https://data.mendeley.com/datasets/xrprwxv4xx/1)                     | —                              | Türkiye'de bir metal sektörü üretim şirketinin çalışanlarından anket verisi.                                      |
 
 ## Haftalık Plan
 
-| Hafta | Konu Notu / Sunum | Açıklama |
-| :---: | --- | --- |
-| 1 | [Kimin hakkında konuşuyoruz?](notes/tp_evren-orneklem-ve-cikarim.md)<br>[Veri tablosu](notes/tp_veri-tablosu-ve-gozlem-birimi.md) | Hedef evren ve örneklem, betimleme ve çıkarım, gözlem birimi, değişken ve veri tablosu. |
-| 2 | [Ölçme düzeyleri](notes/tp_olcme-duzeyleri.md)<br>[Veri sözlüğü](notes/tp_veri-sozlugu.md) | Nominal, ordinal, aralık ve oran düzeyleri; değişkeni jamovi/SPSS'te tanımlama. |
-| 3 | [Veriyi analize hazırlamak](notes/tp_veriyi-analize-hazirlama.md)<br>[Merkezî eğilim](notes/tp_merkezi-egilim.md)<br>[Yayılım ölçüleri](notes/tp_yayilim-olculeri.md) | Eksik ve hatalı kayıtlar, ters puanlama, türetilmiş puan, merkez ve yayılım. |
-| 4 | [Grafik okuma](notes/tp_grafik-okuma.md)<br>[Dağılım ve normal dağılım](notes/tp_dagilim-ve-normal-dagilim.md)<br>[Standart hata ve hipotez testi](notes/tp_standart-hata-ve-hipotez-testi.md) | Grafik ve dağılımı okuma, normal dağılım, standart hata, hipotez ve p-değeri. |
-| 5 | [Tek ve bağımsız örneklem t-testi](notes/tp_tek-ve-bagimsiz-orneklem-t-testi.md)<br>[Eşleştirilmiş t-testi](notes/tp_eslestirilmis-t-testi.md) | Desene göre t-testi seçimi, varsayımlar, ortalama farkı, etki ve belirsizlik yorumu. |
-| 6 | [Tek yönlü varyans analizi](notes/tp_tek-yonlu-varyans-analizi.md)<br>[Post-hoc ve karar haritası](notes/tp_post-hoc-ve-karar-haritasi.md) | Çok grup karşılaştırması, F istatistiği, post-hoc testler ve karar haritası. |
-| 7 | **ARA SINAV** | Hafta 1–6 kapsamının ölçülmesi. |
-| 8 | **İki Yönlü Varyans Analizi ve Kovaryans Analizi** | Temel etki/etkileşim, kovaryat kavramı, ayarlanmış karşılaştırma ve ANCOVA koşulları. |
-| 9 | **Tekrarlı Ölçümler için Varyans Analizi** | Çok zamanlı ölçüm, kişi içi değişim, küresellik ve düzeltme yorumu. |
-| 10 | **İki Değişkenli Korelasyon Analizi** | Saçılım ve Pearson r ile betimleme, ilişkinin testi, belirsizlik ve nedensellik sınırı. |
-| 11 | **Doğrusal Regresyon** | Eğim/sabit, tahmin ve artık, açıklanan değişkenlik ve çıktı yorumu. |
-| 12 | **Hiyerarşik Regresyon** | Birlikte yordama, gerekçeli blok sırası, iç içe model karşılaştırması. |
-| 13 | **Güvenirlik I** | Ölçüm hatası, iç tutarlık/alfa, madde incelemesi, güvenirlik–geçerlik ayrımı. |
-| 14 | **Güvenirlik II ve Bütünleştirme** | Güvenirlik bulgusunun araştırma raporundaki rolü; veri sözlüğü, puanlama, betimleme ve analiz sonucunun bütünleşik APA raporu. |
+| Hafta | Konu Notu / Sunum                                                                                                                                                                         | Açıklama                                                                                                                                |
+| :---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+|   1   | [Kimin hakkında konuşuyoruz?](notes/tp_evren-orneklem-ve-cikarim.md)[Veri tablosu](notes/tp_veri-tablosu-ve-gozlem-birimi.md)                                                             | Hedef evren ve örneklem, betimleme ve çıkarım, gözlem birimi, değişken ve veri tablosu.                                            |
+|   2   | [Ölçme düzeyleri](notes/tp_olcme-duzeyleri.md)[Veri sözlüğü](notes/tp_veri-sozlugu.md)                                                                                               | Nominal, ordinal, aralık ve oran düzeyleri; değişkeni jamovi/SPSS'te tanımlama.                                                      |
+|   3   | [Veriyi analize hazırlamak](notes/tp_veriyi-analize-hazirlama.md)[Merkezî eğilim](notes/tp_merkezi-egilim.md)[Yayılım ölçüleri](notes/tp_yayilim-olculeri.md)                        | Eksik ve hatalı kayıtlar, ters puanlama, türetilmiş puan, merkez ve yayılım.                                                        |
+|   4   | [Grafik okuma](notes/tp_grafik-okuma.md)[Dağılım ve normal dağılım](notes/tp_dagilim-ve-normal-dagilim.md)[Standart hata ve hipotez testi](notes/tp_standart-hata-ve-hipotez-testi.md) | Grafik ve dağılımı okuma, normal dağılım, standart hata, hipotez ve p-değeri.                                                     |
+|   5   | [Tek ve bağımsız örneklem t-testi](notes/tp_tek-ve-bagimsiz-orneklem-t-testi.md)[Eşleştirilmiş t-testi](notes/tp_eslestirilmis-t-testi.md)                                           | Desene göre t-testi seçimi, varsayımlar, ortalama farkı, etki ve belirsizlik yorumu.                                                  |
+|   6   | [Tek yönlü varyans analizi](notes/tp_tek-yonlu-varyans-analizi.md)[Post-hoc ve karar haritası](notes/tp_post-hoc-ve-karar-haritasi.md)                                                   | Çok grup karşılaştırması, F istatistiği, post-hoc testler ve karar haritası.                                                      |
+|   7   | **ARA SINAV**                                                                                                                                                                       | Vize, aşağıdaki [Çalışma Notları](#çalışma-notları) bölümünde listelenen 4 nottan olacaktır.                                                                                                     |
+|   8   | **İki Yönlü Varyans Analizi ve Kovaryans Analizi**                                                                                                                               | Temel etki/etkileşim, kovaryat kavramı, ayarlanmış karşılaştırma ve ANCOVA koşulları.                                           |
+|   9   | **Tekrarlı Ölçümler için Varyans Analizi**                                                                                                                                     | Çok zamanlı ölçüm, kişi içi değişim, küresellik ve düzeltme yorumu.                                                            |
+|  10  | **İki Değişkenli Korelasyon Analizi**                                                                                                                                            | Saçılım ve Pearson r ile betimleme, ilişkinin testi, belirsizlik ve nedensellik sınırı.                                            |
+|  11  | **Doğrusal Regresyon**                                                                                                                                                             | Eğim/sabit, tahmin ve artık, açıklanan değişkenlik ve çıktı yorumu.                                                              |
+|  12  | **Hiyerarşik Regresyon**                                                                                                                                                           | Birlikte yordama, gerekçeli blok sırası, iç içe model karşılaştırması.                                                          |
+|  13  | **Güvenirlik I**                                                                                                                                                                   | Ölçüm hatası, iç tutarlık/alfa, madde incelemesi, güvenirlik–geçerlik ayrımı.                                                  |
+|  14  | **Güvenirlik II ve Bütünleştirme**                                                                                                                                              | Güvenirlik bulgusunun araştırma raporundaki rolü; veri sözlüğü, puanlama, betimleme ve analiz sonucunun bütünleşik APA raporu. |
+
+## Çalışma Notları
+
+Vize bu notlardan olacaktır. Aşağıdaki çalışma notları tanımlar, karşılaştırma tabloları, küçük örnekler, "sık yapılan hata" kutuları, çözümlü çalışma soruları ve APA rapor örnekleri içerir. Konu notlarının yerine geçmez; ilgili konuyu tamamladıktan sonra tekrar için bağımsız olarak kullanabilirsiniz, listedeki sıra zorunlu bir çalışma sırası değildir.
+
+::: {.callout-tip}
+
+## Sesli Özetler
+
+Yapay zekâ ile oluşturulmuş sesli özetlere [şuradan ulaşabilirsiniz](https://drive.google.com/drive/folders/1gmSeAh0UgVR_F4PgWv4BxrP5JlyL8w8E?usp=sharing).
+:::
+
+| Çalışma notu                                                                            | Kapsadığı konular                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Genel Özet: Araştırma Sorusu ve Veri Yapısı](notes/ex_veri-yapisi.md)                 | Evren ve örneklem, veri tablosu, değişken türleri, ölçme düzeyleri, veri sözlüğü, veriyi analize hazırlama                                                 |
+| [Genel Özet: Betimsel İstatistik ve Dağılımlar](notes/ex_betimsel-istatistik.md)       | Merkezî eğilim, yayılım, dağılımın biçimi, normal dağılım ve göreli konum                                                                                 |
+| [Çalışma Notu: Grafik Seçimi ve Grafik Okuma](notes/ex_grafik-okuma.md)                 | Değişkenin araştırmadaki rolü, frekans tabloları, grafik seçimi, histogram ve kutu grafiği okuma, grupları grafikte karşılaştırma, yanıltıcı grafikler |
+| [Genel Özet: Hipotez Testi Mantığı ve Hata Türleri](notes/ex_hipotez-testi-mantigi.md) | Standart hata, sıfır ve alternatif hipotez, p değeri ve anlamlılık düzeyi, Tip I/II hata ve bağlamsal sonuçları                                               |
 
 ## Değerlendirme
 

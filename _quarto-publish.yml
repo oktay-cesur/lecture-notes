@@ -251,7 +251,7 @@ website:
       style: docked
       contents:
         - courses/psi303/crs-psi303.md
-        - courses/psi303/notes/index.md
+        - courses/psi303/notes/vize-calisma-notlari-ve-kapsam.md
         - section: "Araştırma Sorusu ve Veri Yapısı"
           contents:
             - courses/psi303/notes/tp_evren-orneklem-ve-cikarim.md
@@ -274,6 +274,12 @@ website:
             - courses/psi303/notes/tp_eslestirilmis-t-testi.md
             - courses/psi303/notes/tp_tek-yonlu-varyans-analizi.md
             - courses/psi303/notes/tp_post-hoc-ve-karar-haritasi.md
+        - section: "Çalışma Notları"
+          contents:
+            - courses/psi303/notes/ex_veri-yapisi.md
+            - courses/psi303/notes/ex_betimsel-istatistik.md
+            - courses/psi303/notes/ex_grafik-okuma.md
+            - courses/psi303/notes/ex_hipotez-testi-mantigi.md
     - id: ai-llm
       title: "Yapay Zeka ve LLM"
       style: docked
