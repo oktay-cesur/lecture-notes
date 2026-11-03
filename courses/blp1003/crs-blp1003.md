@@ -8,14 +8,6 @@ tags:
 sidebar: blp1003
 ---
 
-::: {.callout-warning}
-## Taslak Çalışma Notu Seti
-
-Bu ders notları seti, BLP 1003 Bilgisayar Ağları dersi için eski sunumlar ve resmî izlence temel alınarak oluşturulmuş ilk çalışma iskeletidir. İçerik, haftalık pedagojik revizyonlar ve Cisco Packet Tracer uygulamalarıyla geliştirilmeye devam edecektir.
-:::
-
-
-
 ## Dersin Amacı
 
 Bilgisayar ağları; modern bilişim sistemlerinin, dağıtık uygulamaların ve siber güvenliğin omurgasını oluşturur. Bir verinin bir uçtan diğerine iletilmesi, yalnızca fiziksel bir kablodan sinyal geçmesi değil; katmanlı bir mimaride kurallara (protokollere) bağlı çalışan karmaşık bir işbirliği sürecidir.
