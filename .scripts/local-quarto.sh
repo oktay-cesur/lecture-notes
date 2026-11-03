@@ -34,6 +34,25 @@ Usage:
 USAGE
 }
 
+select_python() {
+  local candidate
+  if [[ -n "${PYTHON:-}" ]]; then
+    if "$PYTHON" -c 'import yaml' >/dev/null 2>&1; then
+      return 0
+    fi
+    echo "ERROR: PYTHON=$PYTHON cannot import PyYAML. Install it with: $PYTHON -m pip install PyYAML" >&2
+    return 1
+  fi
+  for candidate in python3 /usr/bin/python3; do
+    if "$candidate" -c 'import yaml' >/dev/null 2>&1; then
+      PYTHON="$(command -v "$candidate")"
+      return 0
+    fi
+  done
+  echo "ERROR: Python 3 with PyYAML is required. Install PyYAML in your Python environment and set PYTHON to that interpreter." >&2
+  return 1
+}
+
 clean_source_artifacts() {
   local path attempt
   for path in .quarto site_libs README_files; do
@@ -220,7 +239,7 @@ is_fallback_qmd_file() {
 
 is_render_all_excluded_file() {
   local rel_file="$1"
-  [[ "$rel_file" == "README.md" || "$rel_file" == .assets/* || "$rel_file" == .agents/* || "$rel_file" == .codex/* || "$rel_file" == draft/* || "$rel_file" == */draft/* || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == .content/* || "$rel_file" == */.content/* || "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "${rel_file##*/}" == content-profile.md || "${rel_file##*/}" == 00-content-profile.md || "${rel_file##*/}" == 03-fikirler.md || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
+  [[ "$rel_file" == "README.md" || "$rel_file" == .assets/* || "$rel_file" == .agents/* || "$rel_file" == .codex/* || "$rel_file" == _onizleme/* || "$rel_file" == draft/* || "$rel_file" == */draft/* || "$rel_file" == _arsiv/* || "$rel_file" == */_arsiv/* || "$rel_file" == */_backup/* || "$rel_file" == */_private/* || "$rel_file" == .content/* || "$rel_file" == */.content/* || "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "${rel_file##*/}" == content-profile.md || "${rel_file##*/}" == 00-content-profile.md || "${rel_file##*/}" == 03-fikirler.md || "$rel_file" == "courses/bim444/notes/search-algorithms.md" || "$rel_file" == "courses/bim444/notes/search-algorithms-qmd-fallback.qmd" ]]
 }
 
 is_presentation_file() {
@@ -243,10 +262,43 @@ is_presentation_file() {
   ' "$rel_file"
 }
 
+stage_mutfak_preview() {
+  local temp_dir="$1" rel_file="$2"
+  [[ "$rel_file" == _onizleme/* ]] || return 0
+  if [[ -L "$temp_dir/_onizleme" ]]; then
+    rm "$temp_dir/_onizleme"
+  fi
+  mkdir -p "$temp_dir/_onizleme"
+  rsync -a --exclude='*.html' --exclude='*_files' \
+    "$ROOT_DIR/_onizleme/" "$temp_dir/_onizleme/"
+  # Only the isolated, explicitly requested preview admits authoring sources.
+  "$PYTHON" - "$temp_dir" "$rel_file" <<'PYCONFIG'
+from pathlib import Path
+import sys
+import yaml
+root = Path(sys.argv[1])
+for name in ("_quarto.yml", "_quarto-publish.yml"):
+    path = root / name
+    config = yaml.safe_load(path.read_text())
+    render = config.setdefault("project", {}).setdefault("render", [])
+    config["project"]["render"] = [p for p in render if p != "!_onizleme/**"]
+    if name == "_quarto.yml":
+        config["project"]["render"].append(sys.argv[2])
+    path.write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False))
+PYCONFIG
+}
+
 render_html_in_workspace() {
   local rel_file="$1"
 
-  if [[ "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "$rel_file" == .content/* || "$rel_file" == */.content/* ]]; then
+  if [[ "$rel_file" == _onizleme/* ]]; then
+    quarto render "$rel_file" --profile publish,local --to html || return 1
+    mkdir -p "$OUTPUT_DIR_REL/_onizleme"
+    rsync -a --prune-empty-dirs --include='*/' \
+      --include='*.png' --include='*.jpg' --include='*.jpeg' --include='*.svg' \
+      --include='*.webp' --include='*.gif' --include='*.css' --include='*.js' \
+      --exclude='*' _onizleme/ "$OUTPUT_DIR_REL/_onizleme/"
+  elif [[ "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "$rel_file" == .content/* || "$rel_file" == */.content/* ]]; then
     # Explicit author preview: excluded files render outside Quarto's project context.
     LECTURE_NOTES_INPUT_FILE="$rel_file" quarto render "$rel_file" --to html --metadata lang:tr \
       --lua-filter "$ROOT_DIR/.filters/content-workspace.lua" \
@@ -288,6 +340,7 @@ render_html_file() {
     --exclude='*_files' \
     --exclude='*.html' \
     ./ "$temp_dir/"
+  stage_mutfak_preview "$temp_dir" "$rel_file"
 
   (
     cd "$temp_dir"
@@ -296,7 +349,7 @@ render_html_file() {
     export DENO_DIR="$QUARTO_DENO_DIR"
     export XDG_CACHE_HOME="$temp_dir/.quarto-xdg-cache"
     render_html_in_workspace "$rel_file"
-  )
+  ) || return 1
 
   if [[ ! -s "$temp_dir/_site/${rel_file%.*}.html" ]]; then
     echo "ERROR: html output not created: $rel_file" >&2
@@ -321,11 +374,12 @@ render_slide_file() {
     --exclude='*_files' \
     --exclude='*.html' \
     ./ "$temp_dir/"
+  stage_mutfak_preview "$temp_dir" "$rel_file"
 
   if ! (
     cd "$temp_dir"
     local slide_args=()
-    if [[ "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "$rel_file" == .content/* || "$rel_file" == */.content/* ]]; then
+    if [[ "$rel_file" == _onizleme/* || "$rel_file" == _content/* || "$rel_file" == */_content/* || "$rel_file" == __* || "$rel_file" == */__* || "$rel_file" == .content/* || "$rel_file" == */.content/* ]]; then
       slide_args=(--metadata lang:tr --lua-filter "$temp_dir/.filters/content-workspace.lua" --lua-filter "$temp_dir/.filters/obsidian-wikilink.lua" --lua-filter "$temp_dir/.filters/animation-assets.lua")
     fi
     LECTURE_NOTES_INPUT_FILE="$rel_file" \
@@ -395,12 +449,24 @@ render_slide_file() {
   rm -rf "$temp_dir" 2>/dev/null || true
 }
 
+render_mutfak_previews() {
+  local rel_file
+  local changed_files
+  changed_files="$("$PYTHON" "$ROOT_DIR/.scripts/mutfak-preview.py" --changed)" || return 1
+  while IFS= read -r rel_file; do
+    [[ -n "$rel_file" ]] || continue
+    echo "PREVIEW: $rel_file"
+    render_file_outputs "$rel_file" || return 1
+  done <<< "$changed_files"
+}
+
 slide_watcher_loop() {
   local stamp_file="$ROOT_DIR/.quarto/.slide-watcher-stamp"
   touch "$stamp_file"
 
   while true; do
     sleep "$SLIDE_POLL_INTERVAL"
+    render_mutfak_previews || echo "PREVIEW: render failed; retrying on next change check" >&2
 
     local changed=0
     local failed=0
@@ -558,7 +624,7 @@ render_all_outputs_in_temp_workspace() {
 
 render_file_outputs() {
   local rel_file="$1"
-  render_html_file "$rel_file"
+  render_html_file "$rel_file" || return 1
 
   if is_index_file "$rel_file"; then
     remove_slide_output "$rel_file"
@@ -634,6 +700,10 @@ if ! flock -n "$BUILD_LOCK_FD"; then
   exit 1
 fi
 
+if [[ "$command" != "clean" ]]; then
+  select_python
+  "$PYTHON" "$ROOT_DIR/.scripts/mutfak-preview.py"
+fi
 ensure_quarto_config_links
 trap on_exit EXIT
 
@@ -646,6 +716,7 @@ case "$command" in
     clean_source_artifacts
     prepare_output_dirs
     ensure_preview_runtime_dirs
+    render_mutfak_previews
     start_slide_watcher
     quarto preview --profile publish,local
     ;;
@@ -654,9 +725,11 @@ case "$command" in
     clean_source_artifacts
     rm -rf "$OUTPUT_DIR_REL"
     render_all_outputs_in_temp_workspace
+    render_mutfak_previews
     ;;
   render-changed)
     render_changed_outputs
+    render_mutfak_previews
     ;;
   render-file)
     file_arg="${2:-}"
@@ -680,6 +753,7 @@ case "$command" in
     rel_file="$(resolve_file "$file_arg")"
     render_file_outputs "$rel_file"
     CLEAN_SOURCE_ON_EXIT=1
+    render_mutfak_previews
     start_slide_watcher
     quarto preview --profile publish,local --render none
     ;;

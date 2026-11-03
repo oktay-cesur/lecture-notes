@@ -5,11 +5,13 @@ project:
     - .assets/**
     - images/**
     - data/**
+    - "!_onizleme/**"
     - "!**/.content/**"
     - "!**/_content/**"
     - "!**/__*"
     - "!**/__*/**"
   render:
+    - "!_onizleme/**"
     - "**/*.md"
     - "**/*.qmd"
     - "!**/*-qmd-fallback.qmd"

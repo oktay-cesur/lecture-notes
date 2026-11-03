@@ -4,6 +4,7 @@
 project:
   output-dir: _site
   render:
+    - "!_onizleme/**"
     - index.md
     - ENGLISH.md
     - izlence-index.md
