@@ -187,6 +187,12 @@ website:
             - courses/blp1003/notes/tp_yerel-agda-iletisim-arp-ve-icmp.md
             - courses/blp1003/notes/tp_uygulamaya-ulasmak-portlar-tcp-ve-udp.md
             - courses/blp1003/notes/tp_ag-hizmetleri-ve-uygulama-protokolleri.md
+        - section: "Çalışma Notları"
+          contents:
+            - courses/blp1003/notes/ex_veri-iletisimi-ve-ag-yapilari.md
+            - courses/blp1003/notes/ex_ag-cihazlari-ve-katmanli-mimari.md
+            - courses/blp1003/notes/ex_tcpip-ve-yerel-agda-iletisim.md
+            - courses/blp1003/notes/ex_tasima-ve-uygulama-protokolleri.md
         - section: "Ara Sınav"
           contents:
             - courses/blp1003/notes/tp_ara-sinav-hazirlik-ve-tekrar.md

@@ -76,3 +76,21 @@ Dersin haftalık akışı resmî izlencedeki 12 haftalık plana dayanır. 7. haf
 | 10 | [[tp_yonlendirme-ve-varsayilan-ag-gecidi\|Yönlendirme Temelleri ve Varsayılan Ağ Geçidi]] | Yerel ve uzak hedef ayrımı, varsayılan ağ geçidinin (default gateway) rolü, router donanımı ve arayüzleri, yönlendirme tablosu, paket yönlendirme mekanizması (MAC değişir, IP sabit kalır) ve statik rota. |
 | 11 | [[tp_kablosuz-aglar-ve-guvenlik\|Kablosuz Ağlar ve Güvenlik]] | Ortak iletim ortamı olarak radyo dalgaları (RF), 2.4 GHz ve 5 GHz frekans bantları, kanal planlama (1-6-11 kanalları), WLAN mimarisi (AP, istemci, SSID, BSSID), CSMA/CA, kablosuz tehditler ve WPA2/WPA3 güvenliği. |
 | 12 | [[tp_temel-guvenlik-nat-ve-butunlesik-ag\|Temel Ağ Güvenliği, NAT ve Bütünleşik Ağ Uygulaması]] | Ağ güvenliğinin temelleri (CIA triad), parola ve şifreleme ayrımı, simetrik/asimetrik anahtar sezgisi, güvenli servisler (HTTPS/SSH), NAT/PAT mantığı ve dönem sonu bütünleşik ağ uygulaması. |
+
+## Çalışma Notları
+
+Aşağıdaki çalışma notları tanımlar, açıklamalar, örnekler, dikkat edilmesi gereken noktalar ve cevaplı kontrol soruları içerir. Konu notlarının yerine geçmez; ilgili haftaların konu notlarını izledikten sonra tekrar için kullanılır: konu notunu izle → çalışma notunu oku → kontrol sorularını cevaplara bakmadan çöz. Listedeki sıra zorunlu bir çalışma sırası değildir.
+
+::: {.callout-tip}
+
+## Sesli Özetler
+
+Yapay zekâ ile oluşturulmuş sesli özetlere [şuradan ulaşabilirsiniz](https://drive.google.com/drive/folders/1kbiFgSjRE6Ae8wbe-kKCS6z0LWiTuCWL?usp=sharing).
+:::
+
+| Çalışma notu | Hafta | Kapsadığı konular |
+| --- | :---: | --- |
+| [Genel Özet: Veri İletişimi ve Ağ Yapıları](notes/ex_veri-iletisimi-ve-ag-yapilari.md) | 1–2 | Protokol ve bilgisayar ağı, veri–bit–sinyal ve iletim ortamı, iletim biçimleri, ağdaki roller ve kapsam, bağlantı biçimi ve mesajın hedefi, topolojiler |
+| [Genel Özet: Ağ Cihazları ve Katmanlı Mimari](notes/ex_ag-cihazlari-ve-katmanli-mimari.md) | 3–4 | Ağ cihazları ve görevleri, Ethernet çerçevesi, switch'in öğrenme ve iletim mantığı, katmanlı mimari, OSI sorumlulukları, kapsülleme ve çözümleme |
+| [Genel Özet: TCP/IP ve Yerel Ağda İletişim](notes/ex_tcpip-ve-yerel-agda-iletisim.md) | 5 | TCP/IP modeli ve protokol ailesi, IP–MAC–port ilişkisi, IP'nin hizmet sınırı, ARP, ARP tablosu ile switch tablosu, ICMP ve ping sonucunun yorumu |
+| [Genel Özet: Taşıma ve Uygulama Protokolleri](notes/ex_tasima-ve-uygulama-protokolleri.md) | 6 | Port ve soket, TCP ve UDP, DHCP, DNS, HTTP ve HTTPS, dosya aktarımı, e-posta, uzak erişim ve ağ yönetimi |
