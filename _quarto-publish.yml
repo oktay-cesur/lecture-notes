@@ -245,6 +245,12 @@ website:
             - courses/bgt201/notes/tp_standartlar-cerceveler-ve-uyum.md
             - courses/bgt201/notes/tp_yasal-yukumlulukler-ve-kisisel-veri.md
             - courses/bgt201/notes/tp_varlik-envanteri-ve-siniflandirma.md
+        - section: "6. Hafta — Strateji ve Belgeleme"
+          contents:
+            - courses/bgt201/notes/tp_h06-1-strateji-hedef-ve-sorumluluk.md
+            - courses/bgt201/notes/tp_h06-2-bgys-belge-mimarisi.md
+            - courses/bgt201/notes/uyg_h06-1-guvenlik-hedefleri.md
+            - courses/bgt201/notes/uyg_h06-2-hedef-belge-kanit.md
         - section: "Ara Sınavdan Sonra"
           contents:
             - courses/bgt201/notes/tp_roller-kimlik-ve-erisim-yonetimi.md
