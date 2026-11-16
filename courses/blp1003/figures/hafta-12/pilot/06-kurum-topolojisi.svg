@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1210 570" fill="#0f172a" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, sans-serif" font-size="12">
+  <title id="baslik">Kurum ağının başlangıç topolojisi</title>
+  <desc id="aciklama">Soldan sağa: 203.0.113.80 adresli dış sunucu, 203.0.113.1 ve 198.51.100.1 adreslerine sahip ISS router'ı, 198.51.100.7 g0/1 adresli kurum router'ı, ana switch ve üç VLAN grubu. Kurum router'ının g0/0 arayüzünde IP yoktur ve 802.1Q alt arayüzleri g0/0.10 (10.20.0.1), g0/0.20 (10.20.1.1) ve g0/0.30 (10.20.2.1) taşır. Switch ile router arasındaki bağlantı trunk'tır. VLAN 10'da muhasebe PC'si ve sunucusu, VLAN 20'de İK PC'si, VLAN 30'da AP ve DHCP ile adres alan misafir istemci bulunur. Başlangıçta kurum router'ında varsayılan rota, NAT ve ACL yoktur; ISS router'ında özel ağlar için rota yoktur. Dış sunucu simülasyon içindeki internet temsilidir.</desc>
+  <rect width="1210" height="570" fill="#f8fafc"/>
+
+  <rect x="20" y="200" width="130" height="100" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="85" y="235" text-anchor="middle" font-weight="bold" fill="#1e293b">Dış sunucu</text>
+  <text x="85" y="255" text-anchor="middle" fill="#475569">203.0.113.80/24</text>
+  <text x="85" y="275" text-anchor="middle" font-size="11" fill="#475569">HTTP: DIS-SUNUCU</text>
+
+  <rect x="250" y="190" width="130" height="120" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="315" y="220" text-anchor="middle" font-weight="bold" fill="#1e293b">ISS router'ı</text>
+  <text x="315" y="248" text-anchor="middle" font-size="11" fill="#475569">203.0.113.1/24</text>
+  <text x="315" y="268" text-anchor="middle" font-size="11" fill="#475569">198.51.100.1/24</text>
+
+  <rect x="480" y="140" width="220" height="180" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+  <text x="590" y="165" text-anchor="middle" font-weight="bold" font-size="14" fill="#1e293b">Kurum router'ı</text>
+  <text x="495" y="192" fill="#475569">g0/1: 198.51.100.7/24</text>
+  <text x="495" y="214" fill="#475569">g0/0: IP yok, 802.1Q</text>
+  <text x="495" y="240" fill="#475569">g0/0.10: 10.20.0.1/24</text>
+  <text x="495" y="262" fill="#475569">g0/0.20: 10.20.1.1/24</text>
+  <text x="495" y="284" fill="#475569">g0/0.30: 10.20.2.1/24</text>
+
+  <rect x="800" y="200" width="120" height="100" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="860" y="245" text-anchor="middle" font-weight="bold" fill="#1e293b">Ana switch</text>
+  <text x="860" y="265" text-anchor="middle" font-size="11" fill="#475569">VLAN 10, 20, 30</text>
+
+  <line x1="150" y1="250" x2="250" y2="250" stroke="#475569" stroke-width="2"/>
+  <text x="200" y="240" text-anchor="middle" font-size="11" fill="#475569">203.0.113.0/24</text>
+  <line x1="380" y1="250" x2="480" y2="250" stroke="#475569" stroke-width="2"/>
+  <text x="430" y="240" text-anchor="middle" font-size="11" fill="#475569">198.51.100.0/24</text>
+  <line x1="700" y1="250" x2="800" y2="250" stroke="#475569" stroke-width="5"/>
+  <text x="750" y="238" text-anchor="middle" font-size="11" fill="#475569">trunk</text>
+  <text x="750" y="272" text-anchor="middle" font-size="11" fill="#475569">802.1Q</text>
+
+  <rect x="1010" y="30" width="190" height="150" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="1105" y="52" text-anchor="middle" font-weight="bold" fill="#1e293b">VLAN 10 — Muhasebe</text>
+  <text x="1105" y="78" text-anchor="middle" fill="#475569">PC 10.20.0.10/24</text>
+  <text x="1105" y="102" text-anchor="middle" fill="#475569">Sunucu 10.20.0.50/24</text>
+  <text x="1105" y="126" text-anchor="middle" font-size="11" fill="#475569">HTTP: MUHASEBE-SUNUCU</text>
+  <text x="1105" y="150" text-anchor="middle" font-size="11" fill="#475569">ağ geçidi 10.20.0.1</text>
+
+  <rect x="1010" y="200" width="190" height="100" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="10 4"/>
+  <text x="1105" y="225" text-anchor="middle" font-weight="bold" fill="#1e293b">VLAN 20 — İK</text>
+  <text x="1105" y="252" text-anchor="middle" fill="#475569">PC 10.20.1.10/24</text>
+  <text x="1105" y="276" text-anchor="middle" font-size="11" fill="#475569">ağ geçidi 10.20.1.1</text>
+
+  <rect x="1010" y="320" width="190" height="170" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="3 4"/>
+  <text x="1105" y="342" text-anchor="middle" font-weight="bold" fill="#1e293b">VLAN 30 — Misafir WLAN</text>
+  <text x="1105" y="368" text-anchor="middle" fill="#475569">AP (erişim portu)</text>
+  <text x="1105" y="392" text-anchor="middle" fill="#475569">Misafir istemci</text>
+  <text x="1105" y="412" text-anchor="middle" font-size="11" fill="#475569">DHCP .100–.149</text>
+  <text x="1105" y="436" text-anchor="middle" font-size="11" fill="#475569">SSID Kurum-Misafir, WPA2</text>
+  <text x="1105" y="460" text-anchor="middle" font-size="11" fill="#475569">ağ geçidi 10.20.2.1</text>
+
+  <line x1="920" y1="235" x2="1010" y2="105" stroke="#475569" stroke-width="2"/>
+  <line x1="920" y1="250" x2="1010" y2="250" stroke="#475569" stroke-width="2"/>
+  <line x1="920" y1="265" x2="1010" y2="400" stroke="#475569" stroke-width="2"/>
+
+  <rect x="230" y="345" width="190" height="60" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="325" y="370" text-anchor="middle" font-size="11" fill="#475569">ISS: 10.20.0.0/16 gibi</text>
+  <text x="325" y="388" text-anchor="middle" font-size="11" fill="#475569">özel ağlar için rota yok</text>
+
+  <rect x="460" y="345" width="290" height="105" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="605" y="368" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Başlangıçta kurum router'ında yok</text>
+  <text x="605" y="390" text-anchor="middle" font-size="11" fill="#475569">varsayılan rota, NAT inside/outside,</text>
+  <text x="605" y="408" text-anchor="middle" font-size="11" fill="#475569">PAT kuralı, IK-GIRIS ve MISAFIR-GIRIS ACL'leri</text>
+  <text x="605" y="432" text-anchor="middle" font-size="11" fill="#475569">(çalışmada eklenecek yapılandırma)</text>
+
+  <text x="20" y="530" font-size="11" fill="#475569">Dış sunucu, simülasyon içindeki internet temsilidir; adresler dokümantasyon bloklarındandır, gerçek internet adresi değildir.</text>
+  <text x="20" y="550" font-size="11" fill="#475569">Kalın çizgi trunk bağlantısıdır; kesikli çerçeve eklenecek veya var sayılan yapılandırmayı belirtir, grup kenarlıkları VLAN'ları ayırt etmek içindir.</text>
+</svg>

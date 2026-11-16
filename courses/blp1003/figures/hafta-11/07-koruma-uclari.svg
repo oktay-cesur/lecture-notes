@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" role="img" aria-labelledby="t7 d7">
+<title id="t7">Bir mesajın yolunda üç koruma ve uçları</title>
+<desc id="d7">Üstte yol soldan sağa şöyle sıralanır: telefon ve gönderici uygulama, AP, router ve internet, hizmetin TLS ucu, alıcı uygulama. Telefon ile AP arası kesikli radyo çizgisi, diğer bağlantılar düz çizgidir. Altta üç yatay çubuk kapsamı gösterir. Noktalı çubuk WPA2/WPA3: yalnız telefon ile AP arası. Kesikli çubuk TLS: telefon ile hizmetin TLS ucu arası. Düz kalın çubuk uçtan uca şifreleme: gönderici ile alıcı uygulama arası; aradaki hizmet de içeriği okuyamayacak biçimde tasarlanır. Alt notlar şifreli yük görmenin tek başına E2EE kanıtı olmadığını belirtir.</desc>
+<style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#0f172a;font-size:13.5px}
+.h{font-size:18px;font-weight:700;fill:#0f172a}.b{font-weight:700;fill:#1e293b}.c{text-anchor:middle}.s{font-size:12px;fill:#475569}.w{fill:#ffffff}
+</style>
+<rect width="1000" height="540" fill="#f8fafc" />
+<text x="20" y="28" class="h" font-size="18" style="font-size:18px">Yol</text>
+<rect x="30" y="45" width="130" height="64" rx="9.0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" /><text x="95" y="72" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">Telefon</text><text x="95" y="90" class="c s" font-size="11.47" style="font-size:11.47px">gönderici uygulama</text>
+<rect x="230" y="45" width="90" height="64" rx="9.0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" /><text x="275" y="82" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">AP</text>
+<rect x="400" y="45" width="130" height="64" rx="9.0" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" /><text x="465" y="72" class="c b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">Router</text><text x="465" y="90" class="c s" font-size="12" style="font-size:12px">internet</text>
+<rect x="600" y="45" width="160" height="64" rx="9.0" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" /><text x="680" y="72" class="c b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">Hizmet</text><text x="680" y="90" class="c s" font-size="12" style="font-size:12px">TLS ucu</text>
+<rect x="840" y="45" width="130" height="64" rx="9.0" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" /><text x="905" y="72" class="c b" font-size="13.5" style="font-size:13.5px;fill:#7c3aed">Alıcı</text><text x="905" y="90" class="c s" font-size="12" style="font-size:12px">uygulama</text>
+<line x1="160" y1="77" x2="230" y2="77" stroke="#475569" stroke-width="3" stroke-dasharray="10 5" />
+<line x1="320" y1="77" x2="400" y2="77" stroke="#475569" stroke-width="4" />
+<line x1="530" y1="77" x2="600" y2="77" stroke="#475569" stroke-width="4" />
+<line x1="760" y1="77" x2="840" y2="77" stroke="#475569" stroke-width="4" />
+<g stroke="#475569" stroke-width="1" stroke-dasharray="2 4"><line x1="95" y1="109" x2="95" y2="380" /><line x1="275" y1="109" x2="275" y2="380" /><line x1="680" y1="109" x2="680" y2="380" /><line x1="905" y1="109" x2="905" y2="380" /></g>
+<text x="100" y="160" class="b" font-size="13.5" style="font-size:13.5px">WPA2 / WPA3: telefon ↔ AP (radyo çerçevesi)</text>
+<line x1="95" y1="170" x2="275" y2="170" stroke="#2563eb" stroke-width="6" stroke-dasharray="2 4" fill="#eff6ff" />
+<g stroke="#2563eb" stroke-width="3" fill="#eff6ff"><line x1="95" y1="160" x2="95" y2="180" /><line x1="275" y1="160" x2="275" y2="180" /></g>
+<text x="300" y="175" class="s" font-size="12" style="font-size:12px">AP çerçeveyi çözer; kablolu tarafta bu koruma yoktur.</text>
+<text x="100" y="240" class="b" font-size="13.5" style="font-size:13.5px">TLS (HTTPS): telefon ↔ hizmetin TLS ucu</text>
+<line x1="95" y1="250" x2="680" y2="250" stroke="#0d9488" stroke-width="6" stroke-dasharray="14 6" fill="#f0fdfa" />
+<g stroke="#0d9488" stroke-width="3" fill="#f0fdfa"><line x1="95" y1="240" x2="95" y2="260" /><line x1="680" y1="240" x2="680" y2="260" /></g>
+<text x="100" y="280" class="s" font-size="12" style="font-size:12px">TLS ucu bazen bir dağıtım/yük dengeleme düzeneğidir.</text>
+<text x="100" y="320" class="b" font-size="13.5" style="font-size:13.5px">Uçtan uca şifreleme (E2EE): gönderici uygulama ↔ alıcı uygulama</text>
+<line x1="95" y1="330" x2="905" y2="330" stroke="#7c3aed" stroke-width="7" fill="#faf5ff" />
+<g stroke="#7c3aed" stroke-width="3" fill="#faf5ff"><line x1="95" y1="320" x2="95" y2="340" /><line x1="905" y1="320" x2="905" y2="340" /></g>
+<text x="100" y="360" class="s" font-size="12" style="font-size:12px">Tasarım doğruysa aradaki hizmet de içeriği okuyamaz; bu, uygulamanın tasarım belgelerinden doğrulanır.</text>
+<text x="20" y="420" class="h" font-size="18" style="font-size:18px">Okuma kuralları</text>
+<text x="20" y="444" font-size="13.5" style="font-size:13.5px">• Wi-Fi'ye parolayla bağlanmak, uygulama iletişiminin güvenli olduğunu göstermez.</text>
+<text x="20" y="464" font-size="13.5" style="font-size:13.5px">• Yakalamada şifreli yük görmek tek başına E2EE kanıtı değildir; TLS de aynı görünümü verir.</text>
+<text x="20" y="484" font-size="13.5" style="font-size:13.5px">• IP adresi, port, boyut ve zamanlama gibi üstveriler üç korumada da kendiliğinden gizlenmez.</text>
+<text x="20" y="504" font-size="13.5" style="font-size:13.5px">• Her koruma yalnız kendi uçları arasında geçerlidir; biri ötekinin yerine geçmez.</text>
+</svg>

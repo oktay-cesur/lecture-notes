@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <!-- Arka Plan -->
+  <rect width="1600" height="1000" fill="#f8fafc"/>
+
+  <!-- Başlık -->
+  <text x="800" y="80" font-size="40" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#0f172a" text-anchor="middle">Sınıflı IPv4 Adres Yapısı</text>
+
+  <!-- Lejant -->
+  <g id="lejant">
+    <rect x="610" y="130" width="32" height="32" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <text x="654" y="155" font-size="24" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#1e293b">Ağ biti</text>
+
+    <rect x="820" y="130" width="32" height="32" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="864" y="155" font-size="24" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#1e293b">Host biti</text>
+  </g>
+
+  <!-- Sütun Başlıkları -->
+  <text x="255" y="225" font-size="24" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#64748b" text-anchor="end">Sınıf</text>
+  <text x="416" y="225" font-size="22" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#64748b" text-anchor="middle">1. Oktet (8 bit)</text>
+  <text x="672" y="225" font-size="22" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#64748b" text-anchor="middle">2. Oktet (8 bit)</text>
+  <text x="928" y="225" font-size="22" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#64748b" text-anchor="middle">3. Oktet (8 bit)</text>
+  <text x="1184" y="225" font-size="22" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#64748b" text-anchor="middle">4. Oktet (8 bit)</text>
+  <text x="1345" y="225" font-size="24" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#64748b" text-anchor="start">Varsayılan Maske</text>
+
+  <!-- Oktet Bölücü Kılavuz Çizgileri -->
+  <line x1="544" y1="245" x2="544" y2="695" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="800" y1="245" x2="800" y2="695" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="1056" y1="245" x2="1056" y2="695" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- A SINIFI -->
+  <g id="sinif-a">
+    <text x="255" y="328" font-size="30" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#0f172a" text-anchor="end">A Sınıfı</text>
+    <rect x="283" y="274" width="1034" height="88" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
+    <!-- İlk 8 hücre: Ağ biti (koyu) -->
+    <rect x="289" y="280" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="321" y="280" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="353" y="280" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="385" y="280" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="417" y="280" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="449" y="280" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="481" y="280" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="513" y="280" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <!-- Kalan 24 hücre: Host biti (açık) -->
+    <rect x="545" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="577" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="609" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="641" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="673" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="705" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="737" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="769" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="801" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="833" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="865" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="897" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="929" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="961" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="993" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1025" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1057" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1089" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1121" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1153" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1185" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1217" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1249" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1281" y="280" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="1345" y="328" font-size="28" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#0f172a" text-anchor="start">255.0.0.0</text>
+  </g>
+
+  <!-- B SINIFI -->
+  <g id="sinif-b">
+    <text x="255" y="478" font-size="30" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#0f172a" text-anchor="end">B Sınıfı</text>
+    <rect x="283" y="424" width="1034" height="88" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
+    <!-- İlk 16 hücre: Ağ biti (koyu) -->
+    <rect x="289" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="321" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="353" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="385" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="417" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="449" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="481" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="513" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="545" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="577" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="609" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="641" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="673" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="705" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="737" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="769" y="430" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <!-- Kalan 16 hücre: Host biti (açık) -->
+    <rect x="801" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="833" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="865" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="897" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="929" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="961" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="993" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1025" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1057" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1089" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1121" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1153" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1185" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1217" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1249" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1281" y="430" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="1345" y="478" font-size="28" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#0f172a" text-anchor="start">255.255.0.0</text>
+  </g>
+
+  <!-- C SINIFI -->
+  <g id="sinif-c">
+    <text x="255" y="628" font-size="30" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#0f172a" text-anchor="end">C Sınıfı</text>
+    <rect x="283" y="574" width="1034" height="88" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
+    <!-- İlk 24 hücre: Ağ biti (koyu) -->
+    <rect x="289" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="321" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="353" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="385" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="417" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="449" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="481" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="513" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="545" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="577" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="609" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="641" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="673" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="705" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="737" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="769" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="801" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="833" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="865" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="897" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="929" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="961" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="993" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <rect x="1025" y="580" width="30" height="76" rx="4" fill="#1e3a8a" stroke="#172554" stroke-width="1.5"/>
+    <!-- Kalan 8 hücre: Host biti (açık) -->
+    <rect x="1057" y="580" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1089" y="580" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1121" y="580" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1153" y="580" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1185" y="580" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1217" y="580" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1249" y="580" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <rect x="1281" y="580" width="30" height="76" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="1345" y="628" font-size="28" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#0f172a" text-anchor="start">255.255.255.0</text>
+  </g>
+
+  <!-- Alt Not Kutusu -->
+  <g id="not-kutusu">
+    <rect x="570" y="770" width="460" height="60" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="800" y="808" font-size="24" font-family="'DejaVu Sans', sans-serif" font-weight="bold" fill="#334155" text-anchor="middle">D: Multicast, E: Deneysel</text>
+  </g>
+</svg>

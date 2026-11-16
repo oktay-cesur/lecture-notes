@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 690" width="1000" height="690" role="img" aria-labelledby="t5 d5">
+<title id="t5">WLAN'a katılım aşamaları ve güvenlik yöntemine göre değişen sıra</title>
+<desc id="d5">Üstte altı aşama soldan sağa dizilir: keşif, AP seçimi, 802.11 kimlik doğrulama ve ilişkilendirme, anahtar ya da kimlik işlemleri, IP yapılandırması, hizmet erişimi. Her aşamanın altında kesikli kutuda hata belirtisi yazılıdır. Ortada dört şeritte 3. ve 4. aşamanın güvenlik yöntemine göre sırası gösterilir. Açık ağda anahtar işlemi yoktur. WPA2-Personal'da parola kanıtı ilişkilendirmeden sonraki dörtlü anahtar kurmada ortaya çıkar. WPA3-Personal'da SAE ile parola kanıtı ilişkilendirmeden önce kurulur. 802.1X'te ilişkilendirmeden sonra EAP ile kimlik doğrulama ve ardından oturum anahtarı kurulur. Tek bir evrensel sıra yoktur.</desc>
+<style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#0f172a;font-size:13.5px}
+.h{font-size:18px;font-weight:700;fill:#0f172a}.b{font-weight:700;fill:#1e293b}.c{text-anchor:middle}.s{font-size:12px;fill:#475569}.w{fill:#ffffff}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb" /></marker></defs>
+<rect width="1000" height="690" fill="#f8fafc" />
+<text x="20" y="30" class="h" font-size="18" style="font-size:18px">Altı işlevsel aşama ve hata belirtisi</text>
+<g fill="#ffffff" stroke="#475569" stroke-width="2">
+<rect x="20" y="45" width="140" height="75" rx="9.0" stroke="#2563eb" fill="#eff6ff" /><rect x="180" y="45" width="140" height="75" rx="9.0" stroke="#2563eb" fill="#eff6ff" /><rect x="340" y="45" width="140" height="75" rx="9.0" stroke="#2563eb" fill="#eff6ff" /><rect x="500" y="45" width="140" height="75" rx="9.0" stroke="#2563eb" fill="#eff6ff" /><rect x="660" y="45" width="140" height="75" rx="9.0" stroke="#2563eb" fill="#eff6ff" /><rect x="820" y="45" width="140" height="75" rx="9.0" stroke="#2563eb" fill="#eff6ff" />
+</g>
+<g class="c">
+<text x="90" y="66" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">1 Keşif</text><text x="90" y="84" class="c s" font-size="12" style="font-size:12px">beacon dinle,</text><text x="90" y="100" class="c s" font-size="12" style="font-size:12px">probe gönder</text>
+<text x="250" y="66" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">2 AP seçimi</text><text x="250" y="84" class="c s" font-size="12" style="font-size:12px">aynı SSID'li AP'ler</text><text x="250" y="100" class="c s" font-size="12" style="font-size:12px">arasından biri</text>
+<text x="410" y="66" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">3 802.11 kimlik</text><text x="410" y="84" class="c s" font-size="12" style="font-size:12px">doğrulama +</text><text x="410" y="100" class="c s" font-size="12" style="font-size:12px">ilişkilendirme</text>
+<text x="570" y="66" class="c b" font-size="12.37" style="font-size:12.37px;fill:#2563eb">4 Anahtar / kimlik</text><text x="570" y="84" class="c s" font-size="12" style="font-size:12px">işlemleri</text><text x="570" y="100" class="c s" font-size="12" style="font-size:12px">(yönteme göre)</text>
+<text x="730" y="66" class="c b" font-size="12.55" style="font-size:12.55px;fill:#2563eb">5 IP yapılandırma</text><text x="730" y="84" class="c s" font-size="12" style="font-size:12px">(çoğunlukla DHCP)</text>
+<text x="890" y="66" class="c b" font-size="13.49" style="font-size:13.49px;fill:#2563eb">6 Hizmet erişimi</text><text x="890" y="84" class="c s" font-size="11.98" style="font-size:11.98px">ağ geçidi, ad çözme,</text><text x="890" y="100" class="c s" font-size="12" style="font-size:12px">uzak hedef</text>
+</g>
+<g stroke="#2563eb" stroke-width="2" marker-end="url(#a)"><line x1="160" y1="82" x2="178" y2="82" /><line x1="320" y1="82" x2="338" y2="82" /><line x1="480" y1="82" x2="498" y2="82" /><line x1="640" y1="82" x2="658" y2="82" /><line x1="800" y1="82" x2="818" y2="82" /></g>
+<g stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3"><line x1="90" y1="120" x2="90" y2="140" /><line x1="250" y1="120" x2="250" y2="140" /><line x1="410" y1="120" x2="410" y2="140" /><line x1="570" y1="120" x2="570" y2="140" /><line x1="730" y1="120" x2="730" y2="140" /><line x1="890" y1="120" x2="890" y2="140" /></g>
+<g fill="#ffffff" stroke="#475569" stroke-width="1.5" stroke-dasharray="6 3">
+<rect x="20" y="140" width="140" height="55" rx="9.0" stroke="#d97706" fill="#fffbeb" /><rect x="180" y="140" width="140" height="55" rx="9.0" stroke="#d97706" fill="#fffbeb" /><rect x="340" y="140" width="140" height="55" rx="9.0" stroke="#d97706" fill="#fffbeb" /><rect x="500" y="140" width="140" height="55" rx="9.0" stroke="#d97706" fill="#fffbeb" /><rect x="660" y="140" width="140" height="55" rx="9.0" stroke="#d97706" fill="#fffbeb" /><rect x="820" y="140" width="140" height="55" rx="9.0" stroke="#d97706" fill="#fffbeb" />
+</g>
+<g class="s">
+<text x="90" y="160" class="c b s" font-size="12" style="font-size:12px;fill:#d97706">Belirti</text><text x="90" y="178" class="c s" font-size="12" style="font-size:12px">SSID listede yok</text>
+<text x="250" y="160" class="c b s" font-size="12" style="font-size:12px;fill:#d97706">Belirti</text><text x="250" y="178" class="c s" font-size="11.73" style="font-size:11.73px">zayıf AP'ye yapışmak</text>
+<text x="410" y="160" class="c b s" font-size="12" style="font-size:12px;fill:#d97706">Belirti</text><text x="410" y="178" class="c s" font-size="12" style="font-size:12px">ilişki kurulamaz</text>
+<text x="570" y="160" class="c b s" font-size="12" style="font-size:12px;fill:#d97706">Belirti</text><text x="570" y="178" class="c s" font-size="10.85" style="font-size:10.85px">anahtar tamamlanmaz</text>
+<text x="730" y="160" class="c b s" font-size="12" style="font-size:12px;fill:#d97706">Belirti</text><text x="730" y="178" class="c s" font-size="11.89" style="font-size:11.89px">0.0.0.0 / 169.254.x.x</text>
+<text x="890" y="160" class="c b s" font-size="12" style="font-size:12px;fill:#d97706">Belirti</text><text x="890" y="178" class="c s" font-size="12" style="font-size:12px">ping var, sayfa yok</text>
+</g>
+<text x="20" y="250" class="h" font-size="18" style="font-size:18px">3. ve 4. aşama güvenlik yöntemine göre değişir</text>
+
+<rect x="20" y="270" width="170" height="60" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" rx="9.0" /><circle cx="38" cy="300" r="7" fill="none" stroke="#475569" stroke-width="2" /><text x="55" y="305" class="b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">Açık ağ</text>
+<rect x="20" y="345" width="170" height="60" fill="#eff6ff" stroke="#2563eb" stroke-width="2" rx="9.0" /><rect x="31" y="332" width="0" height="0" stroke="#0d9488" fill="#f0fdfa" /><rect x="31" y="368" width="14" height="14" fill="none" stroke="#0d9488" stroke-width="2" /><text x="55" y="380" class="b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">WPA2-Personal</text>
+<rect x="20" y="420" width="170" height="60" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" rx="9.0" /><polygon points="38,443 46,452 38,461 30,452" fill="none" stroke="#475569" stroke-width="2" /><text x="55" y="455" class="b" font-size="13.5" style="font-size:13.5px;fill:#7c3aed">WPA3-Personal</text>
+<rect x="20" y="495" width="170" height="60" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" rx="9.0" /><polygon points="38,518 46,534 30,534" fill="none" stroke="#475569" stroke-width="2" /><text x="55" y="530" class="b" font-size="12.17" style="font-size:12.17px;fill:#0d9488">802.1X (kurumsal)</text>
+
+<g fill="#ffffff" stroke="#475569" stroke-width="1.8">
+<rect x="205" y="270" width="165" height="60" rx="9.0" stroke="#0d9488" fill="#f0fdfa" /><rect x="390" y="270" width="165" height="60" rx="9.0" stroke="#0d9488" fill="#f0fdfa" /><rect x="575" y="270" width="165" height="60" rx="9.0" stroke-dasharray="6 3" stroke="#0d9488" fill="#f0fdfa" />
+<rect x="205" y="345" width="165" height="60" rx="9.0" stroke="#2563eb" fill="#eff6ff" /><rect x="390" y="345" width="165" height="60" rx="9.0" stroke="#2563eb" fill="#eff6ff" /><rect x="575" y="345" width="165" height="60" rx="9.0" stroke-width="3" stroke="#2563eb" fill="#eff6ff" />
+<rect x="205" y="420" width="165" height="60" rx="9.0" stroke-width="3" stroke="#7c3aed" fill="#faf5ff" /><rect x="390" y="420" width="165" height="60" rx="9.0" stroke="#7c3aed" fill="#faf5ff" /><rect x="575" y="420" width="165" height="60" rx="9.0" stroke="#7c3aed" fill="#faf5ff" />
+<rect x="205" y="495" width="165" height="60" rx="9.0" stroke="#0d9488" fill="#f0fdfa" /><rect x="390" y="495" width="165" height="60" rx="9.0" stroke="#0d9488" fill="#f0fdfa" /><rect x="575" y="495" width="165" height="60" rx="9.0" stroke-width="3" stroke="#0d9488" fill="#f0fdfa" /><rect x="760" y="495" width="165" height="60" rx="9.0" stroke="#0d9488" fill="#f0fdfa" />
+</g>
+<g class="s">
+<text x="287" y="297" class="c s" font-size="11.92" style="font-size:11.92px">802.11 kimlik doğrulama</text><text x="287" y="313" class="c s" font-size="12" style="font-size:12px">(biçimsel)</text>
+<text x="472" y="305" class="c s" font-size="12" style="font-size:12px">İlişkilendirme</text>
+<text x="657" y="297" class="c s" font-size="12" style="font-size:12px">Anahtar işlemi yok;</text><text x="657" y="313" class="c s" font-size="12" style="font-size:12px">veri korumasız</text>
+<text x="287" y="372" class="c s" font-size="11.92" style="font-size:11.92px">802.11 kimlik doğrulama</text><text x="287" y="388" class="c s" font-size="12" style="font-size:12px">(parola sınanmaz)</text>
+<text x="472" y="380" class="c s" font-size="12" style="font-size:12px">İlişkilendirme</text>
+<text x="657" y="368" class="c s" font-size="12" style="font-size:12px">Anahtar kurma (4'lü):</text><text x="657" y="382" class="c s" font-size="12" style="font-size:12px">parola kanıtı + oturum</text><text x="657" y="396" class="c s" font-size="12" style="font-size:12px">anahtarı</text>
+<text x="287" y="447" class="c s" font-size="12" style="font-size:12px">SAE: parola kanıtı</text><text x="287" y="463" class="c s" font-size="12" style="font-size:12px">(ilişkilendirmeden önce)</text>
+<text x="472" y="455" class="c s" font-size="12" style="font-size:12px">İlişkilendirme</text>
+<text x="657" y="447" class="c s" font-size="12" style="font-size:12px">Oturum anahtarı</text><text x="657" y="463" class="c s" font-size="12" style="font-size:12px">kurma</text>
+<text x="287" y="522" class="c s" font-size="11.92" style="font-size:11.92px">802.11 kimlik doğrulama</text><text x="287" y="538" class="c s" font-size="12" style="font-size:12px">(açık)</text>
+<text x="472" y="530" class="c s" font-size="12" style="font-size:12px">İlişkilendirme</text>
+<text x="657" y="522" class="c s" font-size="12" style="font-size:12px">EAP: kimlik doğrulama</text><text x="657" y="538" class="c s" font-size="12" style="font-size:12px">(RADIUS ile)</text>
+<text x="842" y="522" class="c s" font-size="12" style="font-size:12px">Oturum anahtarı</text><text x="842" y="538" class="c s" font-size="12" style="font-size:12px">kurma</text>
+</g>
+<g stroke="#2563eb" stroke-width="2" marker-end="url(#a)">
+<line x1="370" y1="300" x2="388" y2="300" /><line x1="555" y1="300" x2="573" y2="300" />
+<line x1="370" y1="375" x2="388" y2="375" /><line x1="555" y1="375" x2="573" y2="375" />
+<line x1="370" y1="450" x2="388" y2="450" /><line x1="555" y1="450" x2="573" y2="450" />
+<line x1="370" y1="525" x2="388" y2="525" /><line x1="555" y1="525" x2="573" y2="525" /><line x1="740" y1="525" x2="758" y2="525" />
+</g>
+<text x="748" y="305" class="s" font-size="12" style="font-size:12px">→ 5. aşama</text><text x="748" y="380" class="s" font-size="12" style="font-size:12px">→ 5. aşama</text><text x="748" y="455" class="s" font-size="12" style="font-size:12px">→ 5. aşama</text><text x="935" y="530" class="s" font-size="12" style="font-size:12px">→ 5</text>
+<text x="20" y="595" class="b" font-size="13.22" style="font-size:13.22px">Kalın çerçeveli kutu: parola kanıtının ya da oturum anahtarının ortaya çıktığı adım. Kesikli çerçeve: koruma uygulanmayan adım.</text>
+<text x="20" y="617" font-size="13.0" style="font-size:13.0px">Tek bir evrensel sıra yoktur. "Wi-Fi bağlı" simgesi çoğunlukla 3–4. aşamaların bittiğini gösterir; geçerli IP'yi (5) ve hizmet erişimini (6) garanti etmez.</text>
+<text x="20" y="639" font-size="13.5" style="font-size:13.5px">"Authentication" çerçevesinin bulunması, her yöntemde parolanın orada doğrulandığı anlamına gelmez.</text>
+</svg>

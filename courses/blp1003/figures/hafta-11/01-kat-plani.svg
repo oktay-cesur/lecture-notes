@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580" role="img" aria-labelledby="t1 d1">
+<title id="t1">Erişim zinciri ve iki kalabalık sınıfın kat planı</title>
+<desc id="d1">Üstte telefon, AP, switch ve router, internet zinciri üç halkaya ayrılır: (1) kesikli çizgiyle radyo bağlantısı, (2) düz kalın çizgiyle AP kablosu, (3) çift çizgiyle internet çıkışı. Altta şematik kat planında koridorun sol ucunda mevcut AP-1 bulunur. Sol taraftaki Sınıf A yakın ve güçlü sinyallidir, yaklaşık 100 Mb/s örnek hızıyla. Taralı kalın duvarın ardındaki Sınıf B'de sinyal zayıflar, yaklaşık 10 Mb/s örnek hızıyla. Koridorun ortasındaki kesikli işaret Öneri 1'i, sağ uçtaki kesikli işaret Öneri 2'yi gösterir. Kapsama sınırları kesin değildir; eğriler yaklaşık eğilimi gösterir.</desc>
+<style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#0f172a;font-size:13.5px}
+.h{font-size:18px;font-weight:700;fill:#0f172a}.b{font-weight:700;fill:#1e293b}.c{text-anchor:middle}.s{font-size:12px;fill:#475569}.w{fill:#ffffff}
+</style>
+<defs>
+<pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#ffffff" /><line x1="0" y1="0" x2="0" y2="8" stroke="#94a3b8" stroke-width="3" /></pattern>
+</defs>
+<rect width="900" height="580" fill="#f8fafc" />
+<text x="30" y="26" class="h" font-size="18" style="font-size:18px">Erişim zinciri</text>
+<rect x="30" y="40" width="150" height="56" rx="8.1" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<text x="105" y="64" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">Telefon / dizüstü</text><text x="105" y="82" class="c" font-size="13.5" style="font-size:13.5px">kablosuz istemci</text>
+<line x1="180" y1="68" x2="330" y2="68" stroke="#475569" stroke-width="3" stroke-dasharray="10 5" />
+<text x="255" y="58" class="c" font-size="13.5" style="font-size:13.5px">(1) radyo bağlantısı</text>
+<rect x="330" y="40" width="90" height="56" rx="8.1" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<text x="375" y="73" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">AP</text>
+<line x1="420" y1="68" x2="540" y2="68" stroke="#475569" stroke-width="5" />
+<text x="480" y="58" class="c" font-size="13.5" style="font-size:13.5px">(2) AP kablosu</text>
+<rect x="540" y="40" width="150" height="56" rx="8.1" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+<text x="615" y="64" class="c b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">switch · router</text><text x="615" y="82" class="c" font-size="13.5" style="font-size:13.5px">ağ geçidi</text>
+<line x1="690" y1="63" x2="790" y2="63" stroke="#475569" stroke-width="2" /><line x1="690" y1="73" x2="790" y2="73" stroke="#475569" stroke-width="2" />
+<text x="740" y="55" class="c" font-size="13.5" style="font-size:13.5px">(3) çıkış</text>
+<rect x="790" y="40" width="90" height="56" rx="8.1" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+<text x="835" y="73" class="c b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">İnternet</text>
+<text x="30" y="128" class="h" font-size="18" style="font-size:18px">Kat planı (şematik)</text>
+<rect x="40" y="145" width="380" height="225" fill="#eff6ff" stroke="#2563eb" stroke-width="2" rx="8.1" />
+<text x="55" y="168" class="b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">Sınıf A: yakın, ~40 öğrenci</text>
+<text x="55" y="185" font-size="13.5" style="font-size:13.5px">güçlü sinyal, ör. 100 Mb/s</text>
+<rect x="420" y="145" width="30" height="225" fill="url(#hat)" stroke="#475569" stroke-width="2" rx="3" />
+<text x="435" y="138" class="c b" font-size="13.5" style="font-size:13.5px">kalın duvar</text>
+<rect x="450" y="145" width="410" height="225" fill="#fffbeb" stroke="#d97706" stroke-width="2" rx="8.1" />
+<text x="465" y="168" class="b" font-size="13.5" style="font-size:13.5px;fill:#d97706">Sınıf B: duvarın ardında, ~40 öğrenci</text>
+<text x="465" y="185" font-size="13.5" style="font-size:13.5px">zayıflamış sinyal, ör. 10 Mb/s</text>
+<g fill="#ffffff" stroke="#475569" stroke-width="1.5">
+<circle cx="80" cy="240" r="7" /><circle cx="140" cy="285" r="7" /><circle cx="200" cy="235" r="7" /><circle cx="260" cy="300" r="7" /><circle cx="330" cy="250" r="7" /><circle cx="385" cy="310" r="7" />
+<circle cx="500" cy="240" r="7" /><circle cx="560" cy="290" r="7" /><circle cx="640" cy="235" r="7" /><circle cx="700" cy="305" r="7" /><circle cx="770" cy="255" r="7" /><circle cx="830" cy="310" r="7" />
+</g>
+<path d="M105 410 C170 360 250 330 335 290" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="10 4" />
+<text x="215" y="355" class="b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">güçlü</text>
+<path d="M110 420 C260 440 400 405 470 340 S650 290 790 262" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="2 5" />
+<text x="580" y="345" font-size="13.5" style="font-size:13.5px">duvardan geçince zayıflar</text>
+<rect x="40" y="380" width="820" height="70" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 4" rx="8.1" />
+<text x="700" y="400" font-size="13.5" style="font-size:13.5px">koridor</text>
+<polygon points="90,398 112,415 90,432 68,415" fill="#eff6ff" stroke="#2563eb" stroke-width="2.5" />
+<text x="125" y="412" class="b" font-size="13.5" style="font-size:13.5px">AP-1</text><text x="125" y="428" font-size="13.5" style="font-size:13.5px">mevcut, kanal 1</text>
+<circle cx="435" cy="415" r="16" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="5 3" />
+<text x="435" y="472" class="c b" font-size="13.5" style="font-size:13.5px">Öneri 1</text><text x="435" y="488" class="c" font-size="13.5" style="font-size:13.5px">AP'yi koridorun ortasına taşı</text>
+<circle cx="790" cy="415" r="16" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="5 3" />
+<text x="790" y="472" class="c b" font-size="13.5" style="font-size:13.5px">Öneri 2</text><text x="875" y="488" class="" font-size="12" style="font-size:12px" text-anchor="end">ikinci AP ekle (kanal planı ayrıca)</text>
+<text x="30" y="535" font-size="13.5" style="font-size:13.5px">Eğriler yaklaşık eğilimi gösterir; gerçek kapsama duvara, antene ve cihaz konumuna bağlıdır, sınır garanti değildir.</text>
+<text x="30" y="555" font-size="13.5" style="font-size:13.5px">Yavaşlık üç halkadan birinde aranır: (1) radyo, (2) AP kablosu, (3) internet çıkışı.</text>
+</svg>

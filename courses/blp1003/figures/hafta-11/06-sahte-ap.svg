@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-labelledby="t6 d6">
+<title id="t6">Aynı SSID'yi yayımlayan meşru AP ve sahte AP</title>
+<desc id="d6">Solda bir istemci iki AP'nin aynı ağ adını (SSID Kampus-Lab) duyar. Üstte meşru AP kurum ağına ve geçerli sertifikalı RADIUS sunucusuna kablolu bağlıdır. Altta kesikli çerçeveli sahte AP aynı SSID'yi, farklı bir BSSID ile yayımlar ve saldırganın düzeneğine bağlıdır; kurum sertifikasını sunamaz. Altta üç kutu savunma farkını anlatır: açık ağda sahte AP'yi herkes kurabilir; parolalı ağda parolayı bilmeyen sahte AP anahtar kuramaz ama parolayı bilen kurabilir; 802.1X'te sunucu sertifikasını doğrulayan istemci bağlantıyı tamamlamaz.</desc>
+<style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#0f172a;font-size:13.5px}
+.h{font-size:18px;font-weight:700;fill:#0f172a}.b{font-weight:700;fill:#1e293b}.c{text-anchor:middle}.s{font-size:12px;fill:#475569}.w{fill:#ffffff}
+</style>
+<rect width="960" height="600" fill="#f8fafc" />
+<text x="20" y="28" class="h" font-size="18" style="font-size:18px">Ağ adı kimlik değildir</text>
+<rect x="30" y="210" width="140" height="64" rx="8.6" fill="#eff6ff" stroke="#2563eb" stroke-width="2" /><text x="100" y="236" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">İstemci</text><text x="100" y="254" class="c s" font-size="12" style="font-size:12px">"Kampus-Lab" duyar</text>
+<rect x="330" y="50" width="230" height="100" rx="8.6" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+<text x="445" y="74" class="c b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">Meşru AP</text><text x="445" y="92" class="c" font-size="13.5" style="font-size:13.5px">SSID: Kampus-Lab</text><text x="445" y="109" class="c" font-size="13.5" style="font-size:13.5px">BSSID: AA:BB:CC:00:00:01</text><text x="445" y="130" class="c s" font-size="12" style="font-size:12px">kurum dağıtım ağına bağlı</text>
+<rect x="330" y="330" width="230" height="100" rx="8.6" fill="#fee2e2" stroke="#dc2626" stroke-width="3" stroke-dasharray="9 4" />
+<text x="445" y="354" class="c b" font-size="13.5" style="font-size:13.5px;fill:#dc2626">Sahte AP (evil twin)</text><text x="445" y="372" class="c" font-size="13.5" style="font-size:13.5px">SSID: Kampus-Lab (aynı ad)</text><text x="445" y="389" class="c" font-size="10.86" style="font-size:10.86px">BSSID: farklı (örnek EE:EE:EE:99:99:99)</text><text x="445" y="410" class="c s" font-size="12" style="font-size:12px">saldırganın kurduğu düzenek</text>
+<line x1="170" y1="228" x2="330" y2="110" stroke="#0d9488" stroke-width="3" stroke-dasharray="10 5" fill="#f0fdfa" />
+<line x1="170" y1="258" x2="330" y2="375" stroke="#dc2626" stroke-width="3" stroke-dasharray="2 5" fill="#fee2e2" />
+<text x="215" y="160" class="s" font-size="12" style="font-size:12px">radyo</text><text x="215" y="350" class="s" font-size="12" style="font-size:12px">radyo (aynı ad)</text>
+<line x1="560" y1="100" x2="730" y2="100" stroke="#0d9488" stroke-width="5" fill="#f0fdfa" />
+<rect x="730" y="55" width="200" height="90" rx="8.6" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+<text x="830" y="80" class="c b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">Kurum ağı + RADIUS</text><text x="830" y="98" class="c s" font-size="12" style="font-size:12px">geçerli sunucu sertifikası</text><text x="830" y="114" class="c s" font-size="12" style="font-size:12px">sunabilir</text>
+<line x1="560" y1="380" x2="730" y2="380" stroke="#dc2626" stroke-width="2" stroke-dasharray="9 4" fill="#fee2e2" />
+<rect x="730" y="335" width="200" height="90" rx="8.6" fill="#fee2e2" stroke="#dc2626" stroke-width="2" stroke-dasharray="9 4" />
+<text x="830" y="360" class="c b" font-size="13.5" style="font-size:13.5px;fill:#dc2626">Saldırganın düzeneği</text><text x="830" y="378" class="c s" font-size="12" style="font-size:12px">kurum sertifikasını</text><text x="830" y="394" class="c s" font-size="12" style="font-size:12px">sunamaz</text>
+<text x="20" y="475" class="h" font-size="18" style="font-size:18px">Kim sahte AP kurabilir, kullanıcıyı ne korur?</text>
+<rect x="20" y="490" width="300" height="95" rx="8.6" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="2 4" />
+<text x="35" y="510" class="b" font-size="13.5" style="font-size:13.5px;fill:#d97706">Açık ağ</text><text x="35" y="528" class="s" font-size="12" style="font-size:12px">Sahte AP'yi herkes kurabilir.</text><text x="35" y="544" class="s" font-size="12" style="font-size:12px">Katılımda koruma yok; ad aynıysa</text><text x="35" y="560" class="s" font-size="12" style="font-size:12px">istemci bağlanabilir.</text>
+<rect x="330" y="490" width="300" height="95" rx="8.6" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="9 4" />
+<text x="345" y="510" class="b" font-size="13.5" style="font-size:13.5px;fill:#d97706">WPA2 / WPA3-Personal</text><text x="345" y="528" class="s" font-size="12" style="font-size:12px">Parolayı bilmeyen sahte AP anahtar</text><text x="345" y="544" class="s" font-size="12" style="font-size:12px">kuramaz. Parolayı bilen (ya da parola</text><text x="345" y="560" class="s" font-size="12" style="font-size:12px">yayılmışsa) herkes kurabilir.</text>
+<rect x="640" y="490" width="300" height="95" rx="8.6" fill="#f0fdfa" stroke="#0d9488" stroke-width="3" />
+<text x="655" y="510" class="b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">802.1X</text><text x="655" y="528" class="s" font-size="12" style="font-size:12px">Aynı SSID yayımlanabilir; sunucu</text><text x="655" y="544" class="s" font-size="12" style="font-size:12px">sertifikasını doğrulayan istemci,</text><text x="655" y="560" class="s" font-size="12" style="font-size:12px">güvenilir sertifika yoksa bağlanmaz.</text>
+</svg>

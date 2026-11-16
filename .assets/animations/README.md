@@ -201,6 +201,10 @@ export function mount(div, dataset) {
 | `custom` + `tail-area-p.js` | `data-mean` `data-sided` `data-label` |
 | `custom` + `t-ve-normal.js` | `data-df` `data-t` `data-label` |
 | `custom` + `anova-f-degisimi.js` | `data-scene` `data-between` `data-within` `data-label` |
+| `custom` + `ipv4-prefix-maskesi.js` | `data-ip` `data-prefixes` `data-label` |
+| `custom` + `ipv4-and-asamali.js` | `data-ip` `data-prefix` `data-label` |
+| `custom` + `ipv4-adres-bloku.js` | `data-network` `data-prefix` `data-label` |
+| `custom` + `subnetting-listesi.js` | `data-network` `data-base-prefix` `data-counts` `data-label` |
 
 ## 7. Boyut, sunum ve erişilebilirlik
 

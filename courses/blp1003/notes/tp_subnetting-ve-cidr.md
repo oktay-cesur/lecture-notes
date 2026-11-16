@@ -1,178 +1,383 @@
 ---
-title: "Alt Ağlara Bölme (Subnetting) ve CIDR"
-subtitle: "BLP 1003 — Bilgisayar Ağları"
+title: "Bir ağ bloğu eşit büyüklükte kaç alt ağa bölünür?"
+subtitle: "BLP 1003 — Bilgisayar Ağları · 9. Hafta · Not 9.1"
 type: presentation
 author: "Öğr. Gör. Oktay Cesur"
-date: 2026-09-12
+date: 2026-11-14
 execute:
   echo: false
 ---
 
-::: {.callout-warning}
-## Taslak Çalışma Notu
-Bu doküman BLP 1003 Bilgisayar Ağları dersi için resmî izlence ve mevcut sunum malzemesi temel alınarak hazırlanmış ilk çalışma taslağıdır. Haftalık pedagojik revizyonlarla olgunlaştırılmaya devam edecektir.
-Ana İzlence: [[crs-blp1003|Ders İzlence Merkezi]]
-:::
+## Bir ortak alanda 2000 bilgisayar
 
-
-
-## Bugünün Temel Sorusu
-
-> Bir üniversite kampüsünde veya büyük bir şirkette 2000 bilgisayarın tamamını tek bir devasa yerel ağa (aynı switch bloğuna) bağlarsak ne olur? Neden büyük bir ağı küçük parçalara (alt ağlara) bölmek zorundayız?
-
-- Broadcast fırtınası (broadcast storm) nedir ve ağı nasıl kilitler?
-- Host bitlerinden ağ bitlerine "bit ödünç almak" ne anlama gelir?
-- CIDR prefix (/24, /26, /30) mantığıyla IP adres israfı nasıl önlenir?
+- 2000 bilgisayar aynı Ethernet yayın alanında
+- Bir bilgisayar hedef IP adresinin MAC adresini öğrenmek için **ARP isteği** yayınlar: "Bu IP kimde?"
+- Yayın, alandaki her cihaza ulaşır
+- Alan büyüdükçe yayını işleyen cihaz sayısı artar; bir döngü ya da aşırı yayın arızası da daha geniş bir alana yayılır. Fırtınayı başlatan şey cihaz sayısı değil arızalı kaynaktır, büyük alan ise arızanın bedelini büyütür
 
 ::: {.notes}
-Bu hafta ağ mühendisliğinin en teknik ve pratik becerisini inşa ediyoruz: **Alt Ağlara Bölme (Subnetting) ve CIDR**.
+ARP'yi hatırlayalım: bir bilgisayar hedef IP adresinin MAC adresini bilmiyorsa bunu alandaki herkese sorar. Yalnız adresin sahibi cevap verir, ama soru herkese ulaşır ve her cihaz onu işler. Muhasebedeki bir bilgisayarın aradığı yazıcıyla hiçbir ilgisi olmayan bin dokuz yüz küsur cihaz da o çerçeveyi alır.
 
-Öğrenciler genellikle subnetting'i karmaşık bir matematik problemi gibi görür. Oysa subnetting'in arkasındaki motivasyon son derece basittir: devasa bir ağın gürültüsünü (broadcast) bölmek, departmanlar arası güvenliği sağlamak ve sınırlı IP adreslerini verimli yönetmektir.
+Alan büyüdükçe iki şey olur. Birincisi, her yayını alan cihaz sayısı artar. İkincisi, bir arıza daha geniş bir alana yayılır; sorunun kaynağını 2000 cihaz arasında bulmak da zorlaşır. Bir ağ döngüsü ya da aşırı yayın üreten hatalı bir ağ kartı varsa etki tüm alanda hissedilir. Yayın fırtınasını başlatan şey cihaz sayısının kendisi olmaz; fırtınayı döngü ya da aşırı yayın üreten kaynak başlatır. Alanın büyüklüğü ise fırtınanın kaç cihaza ulaşacağını belirler: büyük alan, aynı arızanın bedelini büyütür.
 :::
 
 ---
 
-## 2000 Host Problemi: Neden Subnetting?
+## Alanı parçalara ayırmak: alt ağlara bölme nedir?
 
-Eski sunumlardan gelen özgün pedagojik senaryo: Bir şirkette **2000 adet bilgisayar** var.
+Muhasebe, satış, üretim ve yönetim ayrı bloklarda olsun.
 
-Senaryo A: Tüm cihazları tek bir C veya B sınıfı ağda (`172.16.0.0/16`) toplamak.
-- **Broadcast Fırtınası:** Bir bilgisayar ARP ya da DHCP broadcast yaptığında, ağdaki 1999 bilgisayarın tamamı bu paketi işlemek için işlemcisini (CPU) yorar. Ağ trafiği kilitlenir.
-- **Güvenlik Zaafı:** Muhasebe, İnsan Kaynakları, Öğrenci ve Misafir bilgisayarları aynı yerel ağda birbirine doğrudan erişebilir; ağ trafiği izole edilemez.
-- **Yönetim Zorluğu:** Tek bir arıza veya virüs tüm ağa anında yayılır.
+**Alt ağlara bölme (subnetting), bir IP adres bloğunun daha uzun önekli, daha küçük adres bloklarına ayrılmasıdır.**
 
-> **Çözüm:** Büyük ağı mantıksal ve fiziksel olarak daha küçük bağımsız parçalara (**Subnet**) bölmek! Her departmana ayrı bir alt ağ tahsis etmek ve aralarına Router koymak!
+Sayıyla: `192.168.1.0/24` bloğu, `/26` önekli dört küçük bloğa ayrılabilir.
 
 ::: {.notes}
-Subnetting yalnız matematiksel bir hesaplama değildir; bir ağ mimarisi tasarımıdır. Alt ağlara böldüğümüzde broadcast sınırlarını küçültürüz, güvenliği artırırız ve ağ trafiğini router'lar üzerinden denetlenebilir hale getiririz.
+Her departmana kendi küçük bloğunu verirsek yönetim kolaylaşır: hangi adres hangi departmana ait, bir sorun hangi parçada çıktı, adrese bakarak okunur. "Daha uzun önekli" ifadesi şu demek: önek, adresin ağ kısmına ayrılan bit sayısıdır; önek uzadıkça ağ kısmı büyür, host kısmı küçülür ve blok küçülür.
+
+Alt ağlara bölme fikri sınıflı adresleme döneminde de vardı; RFC 950 bu fikri tanımlar (https://www.rfc-editor.org/info/rfc950/). Yani bir IP bloğunu parçalara ayırmak ile blok boyutunu sınıflardan bağımsız belirlemek ayrı iki fikirdir. İkincisi, blok boyutunun sınıf sınırlarına bağlı kalmadan seçilebilmesidir.
 :::
 
 ---
 
-## CIDR ve Prefix (/n) Gösterimi
+## IP bloğunu bölmek yayın alanını ayırır mı?
 
-Tarihsel sınıflı (Classful) mimaride A sınıfı (/8), B sınıfı (/16) ve C sınıfı (/24) sabit bloklar vardı. Bu durum devasa IP israfına yol açıyordu (Örn. 300 bilgisayar için 65.534 hostluk B sınıfı verilmek zorundaydı).
+Aynı switch'e bağlı iki cihaza farklı IP blokları yazarsak ARP yayınları ayrılır mı?
 
-1993 yılında **CIDR (Classless Inter-Domain Routing)** standardına geçildi:
-- Maske sınırı oktet sınırına bağlı değildir; herhangi bir bit konumundan bölünebilir!
-- **Prefix Gösterimi (`/n`):** Maskede soldan sağa kaç tane **1** biti olduğunu gösterir.
+. . .
 
-```text
-/24  ──> 11111111.11111111.11111111.00000000 ──> 255.255.255.0   (256 adres)
-/25  ──> 11111111.11111111.11111111.10000000 ──> 255.255.255.128 (128 adres)
-/26  ──> 11111111.11111111.11111111.11000000 ──> 255.255.255.192 (64 adres)
-/27  ──> 11111111.11111111.11111111.11100000 ──> 255.255.255.224 (32 adres)
-/28  ──> 11111111.11111111.11111111.11110000 ──> 255.255.255.240 (16 adres)
-/29  ──> 11111111.11111111.11111111.11111000 ──> 255.255.255.248 (8 adres)
-/30  ──> 11111111.11111111.11111111.11111100 ──> 255.255.255.252 (4 adres - 2 host)
-```
+**Ayrılmaz.** Yayın alanını ayıran şey IP öneki değil, Ethernet bağlantısıdır.
+
+- Aynı switch'te, yayın alanını bölen ayrı bir mantıksal ayrım yoksa: tek yayın alanı
+- Dört ayrı ve birbirine bağlı olmayan switch: dört ayrı yayın alanı
 
 ::: {.notes}
-Prefix gösterimi yazımı son derece kolaylaştırır. `192.168.1.0 255.255.255.192` yazmak yerine doğrudan `192.168.1.0/26` yazılır.
+IP öneki bir hesap ve adresleme düzenidir. Ethernet çerçevesinin yayın olarak nereye gideceğini ise cihazların fiziksel ya da mantıksal olarak hangi bağlantıya bağlı olduğu belirler. Aynı switch'e bağlı iki cihazdan birine `192.168.1.5`, diğerine `192.168.1.70` yazsak da ARP yayını yine aynı switch üzerinden ikisine de ulaşır.
+
+Bu laboratuvarda yayın alanlarını ayırmak için grupları birbirine bağlı olmayan ayrı switch'lere bağlarız; her switch kendi cihazlarıyla bir yayın alanı oluşturur. Farklı alanlardaki cihazların birbirine erişimi ise ayrıca denetlenen bir iştir: ayrı alanlar kendiliğinden bir yol sunmaz.
+
+Hesap, IP bloğunun nasıl bölüneceğini verir; yayın alanını ise bağlantı belirler. Uygulamada her alt ağ ayrı bir switch'e bağlanacağı için adres planı fiziksel ayrımla da örtüşür; böylece hem hesabı hem yayın alanlarını aynı düzende görürüz.
 :::
 
 ---
 
-## Alt Ağlara Bölmenin Mantığı: Bit Ödünç Alma
+## 300 cihaz için hangi blok?
 
-Elimizde standart bir `/24` ağı olsun (`192.168.1.0/24`).
-Son oktette 8 adet host biti vardır: `[00000000]`.
+| Blok | Host biti | Kullanılabilir host |
+| --- | ---: | ---: |
+| `/24` | 8 | 254 |
+| `/16` | 16 | 65.534 |
 
-Ağı 4 eşit alt ağa bölmek istiyoruz:
-- 4 alt ağ üretmek için kaç bit gerekir? $\mathbf{2^n \ge 4 \implies n = 2\text{ bit}}$ ödünç almalıyız!
-- Bu 2 bit artık **Ağ** kısmına geçer; geriye $8 - 2 = \mathbf{6\text{ bit}}$ host için kalır.
+Sınıflı tahsiste kuruluşa verilen tek parça blok `/8`, `/16` ya da `/24` boyutundaydı. 300 cihazlık tek blokta `/24` yetmez.
 
-```text
-Eski Durum (/24):  [Ağ: 24 bit] . [Host: 8 bit]
-Yeni Durum (/26):  [Ağ: 24 bit] . [Alt Ağ: 2 bit][Host: 6 bit]
-```
+. . .
 
-- **Üretilen Alt Ağ Sayısı:** $2^n = 2^2 = \mathbf{4\text{ alt ağ}}$.
-- **Alt Ağ Başına Toplam Adres:** $2^h = 2^6 = \mathbf{64\text{ adres}}$.
-- **Kullanılabilir Host Sayısı:** $2^h - 2 = 64 - 2 = \mathbf{62\text{ host}}$.
-- **Yeni Alt Ağ Maskesi:** `/26` $\rightarrow$ `255.255.255.192` ($128 + 64 = 192$).
+`/16` seçilirse yaklaşık **65.234 adres** boşta kalır.
 
 ::: {.notes}
-Her ödünç alınan bit alt ağ sayısını iki katına çıkarırken, alt ağ başına düşen host sayısını yarıya indirir. Bu bir pastayı eşit dilimlere bölmek gibidir.
+Hafta 8'deki hesapla gidelim. Host biti sayısı `h = 32 − önek` ile bulunur (`/24`'te 8, `/16`'da 16); ağ ve yayın adresi cihaza verilmediği için hostlara verilebilen adres sayısı `2^h − 2` olur. `/24`'te `h = 8` ve `2^8 − 2 = 254`; 300 cihaz sığmaz. `/16`'da `h = 16` ve `2^16 − 2 = 65.534`; 300 cihaz sığar ama `65.534 − 300 = 65.234` adres kullanılmadan kalır.
+
+Sınıflı tahsiste kuruluşa tek parça olarak verilen blokların doğal sınırları `/8`, `/16` ve `/24` idi. Eldeki bir bloğu daha uzun önekli alt ağlara bölmek sınıflı dönemde de yapılabiliyordu; ama kuruluşa verilen parça bu üç boyuttan biriydi. İhtiyaç `/24` ile `/16` arasına düşünce ya yetmeyen ya da gereğinden büyük bir blok verilirdi. Çözüm, tahsis edilen blok boyutunu sınıf sınırlarından bağımsız, ihtiyaca göre belirlemenin bir yolunu bulmaktı.
 :::
 
 ---
 
-## Blok Büyüklüğü (Magic Number) Yöntemi
+## CIDR: blok boyutunu önekle söylemek
 
-Alt ağların sınırlarını tek tek ikiliye çevirmeden zihinden hesaplamanın pratik yolu: **Blok Büyüklüğü (Magic Number)**.
+**CIDR, adres bloklarını sınıf sınırlarına bağlı kalmadan ağ adresi ve önek uzunluğuyla ifade eden sınıfsız adresleme ve yönlendirme yaklaşımıdır.**
 
-$$
-\text{Blok Büyüklüğü} = 256 - \text{Değişen Oktetteki Maske Değeri}
-$$
+`192.168.1.0/24` → ilk **24 bit** ağ kısmı, kalan `32 − 24 = 8` bit host kısmı
 
-Örnek (`/26` için maske: `255.255.255.192`):
-$$
-\text{Blok Büyüklüğü} = 256 - 192 = \mathbf{64}
-$$
-
-Bu şu anlama gelir: **Alt ağlar 64'er 64'er artar!**
-
-- 1. Alt Ağ: `192.168.1.0`
-- 2. Alt Ağ: `192.168.1.64`
-- 3. Alt Ağ: `192.168.1.128`
-- 4. Alt Ağ: `192.168.1.192`
+| Önek | Host biti | Blok büyüklüğü |
+| --- | ---: | ---: |
+| `/25` | 7 | 128 |
+| `/26` | 6 | 64 |
+| `/27` | 5 | 32 |
 
 ::: {.notes}
-Blok büyüklüğü yöntemiyle tahtada ya da sınavda saniyeler içinde alt ağ sınırları yazılabilir. Değişen oktetteki son 1 bitinin pozisyon değeri (ağırlığı) doğrudan blok büyüklüğüne eşittir (/26'da 2. bitin ağırlığı 64'tür).
+Önekin oktet sınırında bitmesi gerekmez. `/26`, ilk üç oktetin tamamının ve dördüncü oktetin ilk iki bitinin ağ kısmı olduğunu söyler. Önek bir bit uzadığında host biti bir azalır ve blok yarıya iner: 128, 64, 32. Blok büyüklüğü `2^(host biti)` ile bulunur; kullanılabilir host sayısı için hafta 8'deki gibi iki adres çıkarılır: `/26` için `64 − 2 = 62`.
+
+CIDR'ın kendisi alt ağlara bölmeden ayrı bir fikirdir: sınıf sınırlarından bağımsız blok tahsisini ve yönlendirmeyi anlatır (RFC 4632: https://www.rfc-editor.org/rfc/rfc4632.html). Burada ikisi aynı hesapta birleşir: önek uzunluğuyla yazılan bir bloğu parçalara ayırırız.
 :::
 
 ---
 
-## Örnek Alt Ağ Tablosu (`192.168.1.0/26`)
+## 300 cihaza en yakın blok kaç adreslik?
 
-4 alt ağın eksiksiz planlama tablosu:
+`2^8 − 2 = 254` yetmedi. Kaç host biti gerekir?
 
-| Alt Ağ # | Ağ Adresi | İlk Kullanılabilir Host | Son Kullanılabilir Host | Yayın (Broadcast) Adresi |
-|:---:|---|---|---|---|
-| **1** | `192.168.1.0` | `192.168.1.1` | `192.168.1.62` | `192.168.1.63` |
-| **2** | `192.168.1.64` | `192.168.1.65` | `192.168.1.126` | `192.168.1.127` |
-| **3** | `192.168.1.128` | `192.168.1.129` | `192.168.1.190` | `192.168.1.191` |
-| **4** | `192.168.1.192` | `192.168.1.193` | `192.168.1.254` | `192.168.1.255` |
+. . .
 
-Kritik Kontrol Kuralı:
-- Bir alt ağın Broadcast Adresi, bir sonraki alt ağın Ağ Adresinin 1 eksiğidir! (Örn: $64 - 1 = 63$).
-- Kullanılabilir aralık, Ağ Adresinin 1 fazlası ile Broadcast Adresinin 1 eksiği arasındadır.
+| Host biti `h` | Toplam adres `2^h` | Kullanılabilir `2^h − 2` |
+| ---: | ---: | ---: |
+| 8 | 256 | 254 |
+| 9 | 512 | **510** |
+
+`254 < 300 ≤ 510` → `h = 9` → önek `32 − 9 =` **`/23`** → maske `255.255.254.0`
 
 ::: {.notes}
-Tablonun mantığı kusursuz bir yapboz gibidir; hiçbir adres boşta kalmaz, hiçbir adres birbiriyle çakışmaz. Birinci alt ağ 63'te biter, ikinci alt ağ tam 64'te başlar.
+Sayı doğrusu şöyle: 300, 254'ten büyük, 510'dan küçük. `h = 8` yetmez, `h = 9` yeter. Önek, 32 bitten host bitlerini çıkararak bulunur: `32 − 9 = 23`.
+
+`/23` üçüncü oktete taşar: üçüncü oktetin son biti host alanına girer. Maskedeki 23 bitlik ağ kısmı `8 + 8 + 7` diye dağılır: ilk iki oktet sekizer bir (`255.255`), üçüncü oktet yedi bir ve bir sıfırdır: `11111110 = 128 + 64 + 32 + 16 + 8 + 4 + 2 = 254`. Dördüncü oktet `0` olur. Örnek blok `172.16.2.0/23`: adresler `172.16.2.0` ile `172.16.3.255` arasındadır. Ağ adresi `172.16.2.0`, yayın adresi `172.16.3.255`; kullanılabilir aralık `172.16.2.1`–`172.16.3.254` ve bu aralıkta `172.16.2.1`–`172.16.2.255` arasındaki 255 adres ile `172.16.3.0`–`172.16.3.254` arasındaki 255 adres bulunur: `255 + 255 = 510`. Aynı sayıya `512 − 2 = 510` diye de ulaşırız. Ayrı iki `/24` bloğu olsaydı her birinde ağ ve yayın adresi ayrılırdı ve `254 + 254 = 508` host kalırdı; tek `/23` blokta `172.16.2.255` ve `172.16.3.0` ağ ya da yayın adresi değildir, hosta verilebilen adreslerdir. Bu, iki ardışık `/24` adres aralığının tek blok olarak kullanılmasıdır.
+
+Sağlama: 510 ≥ 300 ve fazlalık `510 − 300 = 210` adres; `/16`'daki 65.234'ün yanında çok küçük.
 :::
 
 ---
 
-## Noktadan Noktaya Hatlar: `/30` Prefix Standartı
+## Dört parçayı ayırt etmek için kaç etiket gerekir?
 
-İki router arasındaki seri ya da Ethernet WAN bağlantısında yalnızca 2 adet IP adresine ihtiyaç vardır (Router A ucu ve Router B ucu).
+Bir `/24` bloğunu **dört** eşit parçaya ayıracağız. Her parçanın adresleri ortak bir etiket taşısın.
 
-- Eğer buraya standart bir `/24` ağı verirseniz: 254 host adresinden 252 tanesi **çöpe gider**!
-- CIDR Çözümü: **`/30` Prefix** (`255.255.255.252`)
-  - Toplam Adres: $2^2 = 4$
-  - Kullanılabilir Host: $4 - 2 = \mathbf{2\text{ adet}}$ (Router1 ve Router2 için tam yeterli!).
+- 1 bit → 2 değer: `0`, `1`
+- 2 bit → 4 değer: `00`, `01`, `10`, `11`
 
-```text
-[Router A] (10.0.0.1/30) <─────────────────> [Router B] (10.0.0.2/30)
-Ağ Adresi: 10.0.0.0/30 | Broadcast: 10.0.0.3/30 | Sıfır Adres İsrafı!
-```
+. . .
+
+Etiket, host alanının **ilk iki biti** olabilir.
 
 ::: {.notes}
-`/30` alt ağı ağ mühendislerinin en çok kullandığı şablondur. Router'lar arası hatlarda tek bir IP bile israf edilmeden kusursuz iki uçlu bağlantı kurulur.
+Parçaları birbirinden ayıran bit kombinasyonlarına ihtiyacımız var. Bir bit iki farklı değer alır, iki parçaya yeter; iki bit dört değer üretir ve dört parçamız var. Etiketi host alanının başından alırız. Geri kalan bitler, her parçanın içinde host adreslerini ayırt eder.
+
+Bit sayısı tam sayıdır; "bir buçuk bit" diye bir şey yoktur. Bu yüzden parça sayısı hep ikinin kuvveti olarak ilerler: 2, 4, 8, 16.
 :::
 
 ---
 
-## Özet ve Gelecek Hafta
+## Bit ödünç alma
 
-Bu derste öğrendiklerimiz:
-- 2000 host problemi ve broadcast alanlarını bölme zorunluluğu,
-- CIDR ve prefix (`/n`) gösteriminin esnekliği,
-- Host bitlerinden ödünç alma mantığı ($2^n$ alt ağ, $2^h - 2$ host),
-- Blok büyüklüğü ($256 - \text{maske}$) ile hızlı alt ağ sınırları bulma,
-- Adım adım alt ağ tablosu kurma,
-- İki router arası hatlarda `/30` kullanımının önemi.
+**Bit ödünç alma, host alanındaki bitlerin bir bölümünü yeni alt ağın ağ kısmına katmaktır.**
 
-**Gelecek Hafta:** Yönlendirme (Routing) temelleri, varsayılan ağ geçidi (default gateway), router mimarisi ve paketlerin ağlar arası yolculuğu.
+![](../figures/hafta-09/pilot/01-bit-rolleri-24-26.svg){width="100%" fig-align="center" fig-alt="192.168.1.0/24 bloğunda ilk 24 bit ağ kısmı, son 8 bit host alanıdır. /26'da son oktetin soldaki 2 biti alt ağ kimliği olur, sağdaki 6 bit host kalır; ilk 24 bit sabittir."}
+
+::: {.notes}
+Adres yine 32 bit uzunluğunda; hiçbir bit eklenmedi ya da silinmedi. Değişen, bitlerin görev dağılımıdır. Görselin üst şeridinde ilk 24 bit ağ kısmı, son 8 bit host alanıdır. Alt şeritte son oktetin soldaki iki biti artık host değil, hangi alt ağda olduğumuzu söyleyen alt ağ kimliğidir; sağdaki altı bit host olarak kalır. İlk 24 bit hiç değişmez.
+
+Ödünç alınan bitler host alanının en soldaki bitleridir; ağ kısmı 24'ten 26 bite uzar, bu yüzden önek `/24`'ten `/26`'ya geçer. Maskedeki 1'ler soldan başlayıp kesintisiz sürer: son oktet `11000000 = 192` olduğu için `/26` maskesi `255.255.255.192` yazılır.
+:::
+
+---
+
+## Alt ağ kimliği son oktette hangi ağ adresini verir?
+
+Son oktetin bit ağırlıkları soldan sağa `128, 64, 32, 16, 8, 4, 2, 1`'dir. Ağ adresinde host bitleri `0` alınır; 1 olan bitlerin ağırlıkları toplanır.
+
+![](../figures/hafta-09/pilot/02-son-oktet-agirliklari.svg){width="100%" fig-align="center" fig-alt="Son oktetin bit ağırlıkları 128, 64, 32, 16, 8, 4, 2, 1'dir. Alt ağ kimliği 00, 01, 10, 11 iken host bitleri 0 alınınca ağ adresinin son okteti 0, 64, 128, 192 olur."}
+
+::: {.notes}
+Dört alt ağın ağ adresleri, alt ağ kimliğinin dört değerinden gelir: `00000000 = 0`, `01000000 = 64`, `10000000 = 128`, `11000000 = 128 + 64 = 192`. Her satırda sağdaki altı host biti sıfırdır; çünkü ağ adresi, hostun hiçbir bitinin açılmadığı ilk adrestir.
+
+Alt ağ başlangıçlarının 64'er artmasının nedeni budur: `01` etiketi `64` sütununu açar, `10` etiketi `128` sütununu açar, `11` etiketi ikisini birden açar. Ağırlıklar yalnız son oktetle ilgilidir; ilk üç oktet `192.168.1` olarak sabit kalır. Bu yüzden ağ adresleri `192.168.1.0`, `192.168.1.64`, `192.168.1.128` ve `192.168.1.192` olur.
+:::
+
+---
+
+## Dört alt ağ için kaç bit, kaç host?
+
+`n` ödünç alınan bit, `h` kalan host biti. Bu `/24` örneğinde `n + h = 8`, yani `h = 8 − n`. Aynı sonuca `h = 32 − yeni önek` ile de ulaşırız.
+
+Alt ağ sayısı `2^n`. `2^n ≥ 4` koşulunu sağlayan en küçük `n` kaçtır? Yeni önek ve alt ağ başına host sayısı ne olur?
+
+. . .
+
+- `n = 2`
+- Yeni önek: `24 + 2 =` **`/26`**
+- `h = 32 − 26 = 6`
+- Adres: `2^6 = 64`; kullanılabilir host: `64 − 2 =` **62**
+
+Sağlama: `4 × 64 = 256 = 2^8`
+
+::: {.notes}
+`n = 1` iki alt ağ verir, yetmez. `n = 2` dört alt ağ verir ve tam gereken sayıdır. `n = 3` de sayıca yeterdi ama parçaları gereksiz küçültürdü; bu yüzden en küçük `n`'i seçeriz.
+
+Kullandığımız formül hafta 8'dekiyle aynı: host biti `h` ise hosta verilebilen adres sayısı `2^h − 2`. Yalnız burada `h` artık `8` değil `6`. Genel kural `h = 32 − önek` olarak kalır; "`n + h = 8`" yalnızca son oktette ödünç alınan bu örneğe özgüdür.
+
+Sağlama hesabı önemli: dört alt ağın 64'er adresi `256` eder; başlangıçtaki `/24` bloğu da `2^8 = 256` adresti. Blok tam paylaşıldı, ne artan ne eksik adres var. Hesap böyle kapanıyorsa doğru yoldayız.
+:::
+
+---
+
+## Üç alt ağ istenirse?
+
+- Bir bit: 2 alt ağ, iki bit: 4 alt ağ
+- Üç eşit alt ağ için de **2 bit** alınır
+- Üçü kullanılır, dördüncü yedek kalır
+
+::: {.notes}
+Bir biti bölerek üç farklı değer elde edemeyiz. İki bit dört değer verdiğine göre bir parça ihtiyaçtan fazladır. Boşta kalan bu parçayı büyüme olursa kullanırız.
+
+İhtiyaç beş, altı ya da yedi alt ağsa `2^3 = 8` olduğu için üç bit gerekir. Kural aynı: ihtiyacı karşılayan en küçük `n`.
+:::
+
+---
+
+## Alt ağlar neden 64'er artar?
+
+`/26` maskesi: `255.255.255.192`
+
+**Artış miktarı = 256 − 192 = 64**
+
+Burada `192`, sınırın bulunduğu (son) oktetteki maske değeridir; sonuç o oktetteki artış adımını verir.
+
+Alt ağlar son oktette `0, 64, 128, 192` değerlerinden başlar.
+
+::: {.notes}
+İlk üç oktet sabittir, sınır son oktetin içindedir. Bu yüzden çıkarmayı yalnız son oktete uygularız. `256`, bir oktetin alabileceği değer sayısıdır (`0`–`255`); maske değerini ondan çıkarmak, sınırın bulunduğu oktette bir alt ağdan sonrakine kaç adım atıldığını verir. `/26`'da bütün host bitleri son oktette olduğu için bu adım blok büyüklüğüyle de çakışır: `h = 6` host biti `2^6 = 64` değer alır.
+
+Artış, sınırın bulunduğu oktetteki adımdır. `/26`'da bu son oktettir ve adım blok büyüklüğüne eşittir. Host bitleri iki oktete yayılan `/23`'te maske `255.255.254.0`'dır; üçüncü oktetteki adım `256 − 254 = 2`'dir (`172.16.2.0` bloğundan sonraki ağ `172.16.4.0`), blok büyüklüğü ise `h = 9` için `2^9 = 512` adrestir: üçüncü oktetteki 2 adım, her biri 256 adreslik son oktet ile çarpılır. 300 cihaz örneğindeki 510, bu 512'den iki adres çıkarılarak bulunur.
+:::
+
+---
+
+## Dört alt ağın tam tablosu
+
+| Alt ağ | Ağ adresi | İlk kullanılabilir | Son kullanılabilir | Yayın adresi |
+| --- | --- | --- | --- | --- |
+| 1 | `192.168.1.0/26` | `192.168.1.1` | `192.168.1.62` | `192.168.1.63` |
+| 2 | `192.168.1.64/26` | `192.168.1.65` | `192.168.1.126` | `192.168.1.127` |
+| 3 | `192.168.1.128/26` | `192.168.1.129` | `192.168.1.190` | `192.168.1.191` |
+| 4 | `192.168.1.192/26` | `192.168.1.193` | `192.168.1.254` | `192.168.1.255` |
+
+Yayın adresi = bir sonraki alt ağın ağ adresinden bir önceki adres.
+
+::: {.notes}
+Tabloyu sütun sütun dolduralım. Önce artış miktarıyla dört ağ adresini yazarız: `0, 64, 128, 192`. Sonra her satırın yayın adresini "sonraki ağ adresi − 1" ile buluruz: `64 − 1 = 63`, `128 − 1 = 127`, `192 − 1 = 191`. Son alt ağın yayın adresi bloğun son adresidir: `.255`. En son ilk ve son kullanılabilir adresleri yazarız: ağ adresinden bir fazlası ve yayın adresinden bir eksiği.
+
+Her satırda kullanılabilir adres sayısı 62'dir; `.1`'den `.62`'ye saymak bunu doğrular. Bir satırın bitişi ile sonrakinin başlangıcı arasında boşluk ya da çakışma olmamalıdır: `.63`'ten sonra `.64`. Hesapta en hızlı hata kontrolü budur.
+:::
+
+---
+
+## `.63` ve `.64` hangi maskede ne olur?
+
+`192.168.1.63` ve `192.168.1.64` adresleri `/24`'te host muydu? `/26`'da ne olurlar?
+
+. . .
+
+- `/24`: ikisi de host adresi (ağ adresi `.0`, yayın adresi `.255`)
+- `/26`: `.63` **yayın adresi**, `.64` **ağ adresi**
+
+. . .
+
+Kullanılabilir host sayısı: `/24`'te **254** → dört `/26`'da `4 × 62 =` **248**
+
+::: {.notes}
+Hafta 8'deki ağ ve yayın adresi kuralı burada somutlaşıyor: aynı sayının hangi rolü aldığını sayının kendisi değil, kullanılan önek belirler. `/24`'te `192.168.1.63` sıradan bir host adresidir. `/26`'da aynı adres birinci alt ağın son adresidir ve host bitlerinin tamamı 1'dir; yayın adresidir, bir cihaza verilemez. `.64` ise ikinci alt ağın ilk adresidir ve host bitlerinin tamamı 0'dır; ağ adresidir.
+
+Kapasite hesabı da buradan çıkar. Tek `/24` bloğunda iki adres ayrılır (`.0` ve `.255`): `256 − 2 = 254`. Dört `/26` bloğunda her biri iki adres ayırır, toplam sekiz adres: `256 − 8 = 248`. Aradaki fark altı adrestir: `.63, .64, .127, .128, .191, .192`. Bunlar `/24`'te host'tu, `/26`'da yayın ya da ağ adresi oldu. Bölmenin bir bedeli vardır: parça sayısı arttıkça kullanılabilir toplam host sayısı biraz azalır.
+
+Hafta 8'deki "ağ ve yayın adresi cihaza verilmez" kuralı burada somutlaşıyor.
+:::
+
+---
+
+## Bu adres hangi alt ağda?
+
+`192.168.1.100`, dört alt ağdan hangisindedir? Bir hosta verilebilir mi?
+
+. . .
+
+- `64 ≤ 100 < 128` → **2. alt ağ** (`192.168.1.64/26`)
+- Ağ adresi `.64`, yayın adresi `.127`: `.100` ikisi de değil
+- Hosta verilebilir
+
+::: {.notes}
+Önce artış basamaklarıyla karşılaştırırız: `100`, `64` ile `128` arasında. Sonra hosta verilebilirliği ayrıca kontrol ederiz: adres ağ adresine ya da yayın adresine eşitse hosta verilemez. `.100` ikisi de olmadığı için kullanılabilir. `.127` aynı alt ağda olsa da yayın adresidir.
+
+İkili kontrol de aynı sonucu verir: `100 = 64 + 32 + 4 = 01100100`. İlk iki bit `01`, yani ikinci alt ağ; geri kalan `100100` bitleri host kısmıdır ve hepsi sıfır ya da hepsi bir değildir.
+:::
+
+---
+
+## İki router arasında kaç adres gerekir?
+
+İki router arayüzü arasındaki bağlantıda **yalnız iki** adres gerekiyor.
+
+![](../figures/hafta-09/agy/02-p2p-israf-karsilastirma.svg){width="100%" fig-align="center" fig-alt="İki router arası bağlantıya /24 verilmesi ile /30 verilmesinin kullanılan ve kullanılmayan adreslerinin karşılaştırılması"}
+
+- `/24` verilirse 254 adresten **252'si** kullanılmaz
+- `10.0.0.0/30` → `h = 2` → `2^2 − 2 = 2` kullanılabilir adres
+
+| Görev | Adres |
+| --- | --- |
+| Ağ | `10.0.0.0` |
+| Router 1 | `10.0.0.1` |
+| Router 2 | `10.0.0.2` |
+| Yayın | `10.0.0.3` |
+
+Maske `255.255.255.252`, artış `256 − 252 = 4`.
+
+**Bu laboratuvar, iki uçlu bağlantılar için `/30` bloğunu seçiyor.**
+
+::: {.notes}
+İki uçlu bir bağlantıda ihtiyaç iki adrestir. `/30` bloğunun dört adresinden ağ ve yayın adresi çıkınca tam iki adres kalır ve ikisini de iki router arayüzüne veririz. Maske son oktette `11111100 = 252` olur.
+
+`/30`, bu laboratuvarın iki uçlu bağlantı için yaptığı bir seçimdir; her ağın uyması gereken tek kural değildir. Amaç, ihtiyaca yakın büyüklükte blok ayırmaktır: aynı bağlantıya `/24` verseydik 252 adres o bağlantıya bağlı kalırdı.
+:::
+
+---
+
+## Ödünç alınan her bit ne değiştirir?
+
+<div data-anim="custom" data-src="subnetting-listesi.js" data-css="subnetting-listesi.css" data-network="192.168.1.0" data-base-prefix="24" data-counts="2,4,8" data-label="192.168.1.0/24 bloğunu bölelim"></div>
+
+::: {.notes}
+Düğmelerle 2, 4 ya da 8 alt ağ seçilir; her seçimde ödünç alınan bit sayısı, yeni önek, blok büyüklüğü ve alt ağ listesi birlikte güncellenir. 4 alt ağı seçince önceki tablonun sayılarını görürüz; iki gösterimi yan yana okuyalım.
+
+Düğmeler arasında gezerken şuna bakalım: her ek bit alt ağ sayısını iki katına çıkarır, blok büyüklüğünü yarıya indirir (128, 64, 32). Her blokta iki adres ayrıldığı için kullanılabilir host sayıları 126, 62, 30 diye gider; adres sayıları ise tam yarıya iner. Toplam adres sayısı sabit olduğundan alt ağ sayısı ile alt ağ başına host sayısı birlikte artamaz.
+:::
+
+---
+
+## Bölme yöntemi: adım sırası
+
+| Adım | İşlem | Dört alt ağ örneği |
+| --- | --- | --- |
+| 1 | `2^n ≥ alt ağ sayısı` ile `n` | `n = 2` |
+| 2 | Yeni önek = eski önek + `n` | `/26` |
+| 3 | Artış = 256 − (sınırın bulunduğu oktetteki maske) | `256 − 192 = 64` |
+| 4 | Ağ adreslerini artışla sırala; yayın adresi = sonraki ağ adresi − 1 | `0, 64, 128, 192` |
+| 5 | Sağlama: üretilen parça sayısı `2^n` × blok büyüklüğü = ilk blok | `4 × 64 = 256` |
+
+::: {.notes}
+Adımlar sınırın son oktette olduğu durumlar için yazıldı: `/25`, `/26`, `/27` gibi önekler bu durumdur. Beşinci adım hesabın kendi içinde tutarlı olup olmadığını gösterir; bir yerde aritmetik hata yaptıysak toplam büyüklük tutmaz. Çarpılan sayı istenen alt ağ sayısı değil, üretilen `2^n` parçadır: üç alt ağ istendiğinde dört, altı alt ağ istendiğinde sekiz parça üretilir ve çarpım yine ilk bloğu verir.
+
+Bu yöntem eşit büyüklükte parçalar üretir: bütün alt ağlar aynı öneki taşır.
+:::
+
+---
+
+## `192.168.8.0/24` sekiz eşit parçaya nasıl bölünür?
+
+Ödünç alınan bit sayısını, yeni öneki ve ikinci alt ağın host aralığını bulun.
+
+. . .
+
+- `2^3 = 8` → **3 bit**; önek `/27`; maske `255.255.255.224`
+- Artış: `256 − 224 = 32`
+- Başlangıçlar: `0, 32, 64, 96, 128, 160, 192, 224`
+- 2. alt ağ: `192.168.8.32/27`; kullanılabilir `.33–.62`; yayın `.63`
+- Host kapasitesi: `2^5 − 2 =` **30**
+
+Sağlama: `8 × 32 = 256`
+
+::: {.notes}
+Dört alt ağda yaptığımız adımların aynısı. `2^n ≥ 8` ile `n = 3`, `24 + 3 = 27`. Son oktette ağ bitleri `11100000 = 128 + 64 + 32 = 224`; artış `256 − 224 = 32`. Alt ağlar `0, 32, 64, ...` diye gider; ikincisi `.32`'de başlar. Yayın adresi sonraki alt ağın başlangıcı `.64`'ten bir öncesi, yani `.63`'tür.
+
+Host sayısı: `h = 32 − 27 = 5`, adres sayısı `2^5 = 32`, kullanılabilir `32 − 2 = 30`. Aralık sayımı: `62 − 33 + 1 = 30`. Sağlama: `8 × 32 = 256`.
+:::
+
+---
+
+## Kendi başınıza: iki soru
+
+**1.** `192.168.1.0/24` bloğu `/26` ile dörde bölünmüş. Şu adreslerin hangi alt ağda olduğunu ve bir hosta verilip verilemeyeceğini bulun:
+
+`192.168.1.127` · `192.168.1.128` · `192.168.1.190` · `192.168.1.191`
+
+**2.** `192.168.20.0/24` bloğundan **altı** eşit alt ağ gerekiyor. Kaç bit ödünç alınır? Yeni önek, artış ve alt ağ başına kullanılabilir host sayısı nedir? Kaç alt ağ boşta kalır? Altıncı alt ağın ağ adresini, kullanılabilir aralığını ve yayın adresini de yazın.
+
+::: {.notes}
+Birinci soruda önce artış basamaklarını (`0, 64, 128, 192`) yazın, her adresi bir basamağa yerleştirin; sonra adresin o alt ağın ağ adresi ya da yayın adresi olup olmadığına bakın. İkinci soruda `2^n ≥ 6` koşulunu kullanın ve sağlamayı yapın: ödünç aldığınız bitin ürettiği `2^n` parça sayısı × blok büyüklüğü ilk bloğa eşit olmalıdır; istediğiniz alt ağ sayısını değil, üretilen parça sayısını çarpın.
+
+Cevaplarınızı yazarken her adımın gerekçesini de yazın: yalnız sonucu değil, hangi sayıyı neden seçtiğinizi gösterin.
+:::

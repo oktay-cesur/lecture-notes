@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" width="900" height="660" role="img" aria-labelledby="t2 d2">
+<title id="t2">Bantlar, 2,4 GHz kanal örtüşmesi ve üç kanal durumu</title>
+<desc id="d2">Üstte 2,4, 5 ve 6 GHz bantlarının kısa karşılaştırması bulunur; 6 GHz için mevzuat izni ve cihaz desteği koşulu belirtilir. Ortada 2400–2483,5 MHz frekans ekseninde kanal 1 (2402–2422 MHz), kanal 2 (2407–2427 MHz), kanal 6 (2427–2447 MHz) ve kanal 11 (2452–2472 MHz) nominal 20 MHz blokları gösterilir. Kanal 1 ile 2'nin 15 MHz'lik ortak bölgesi çapraz taramalıdır. Kanal 1, 6 ve 11 birbirine değmez. Altta üç durum karşılaştırılır: aynı kanalda birbirini duyan AP'ler sırayla yayın yapar; kısmen örtüşen kanallarda çerçeveler bozulur; örtüşmeyen kanallarda her AP kendi yayın süresini kullanır. Aynı kanalda birbirini duymayan vericilerin çerçeveleri de bozulabilir.</desc>
+<style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#0f172a;font-size:13.5px}
+.h{font-size:18px;font-weight:700;fill:#0f172a}.b{font-weight:700;fill:#1e293b}.c{text-anchor:middle}.s{font-size:12px;fill:#475569}.w{fill:#ffffff}
+</style>
+<defs>
+<pattern id="x" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#ffffff" /><line x1="0" y1="0" x2="0" y2="8" stroke="#94a3b8" stroke-width="2" /><line x1="0" y1="0" x2="8" y2="0" stroke="#94a3b8" stroke-width="2" /></pattern>
+</defs>
+<rect width="900" height="660" fill="#f8fafc" />
+<text x="30" y="24" class="h" font-size="18" style="font-size:18px">Bantlar</text>
+<rect x="30" y="34" width="270" height="100" rx="8.1" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<text x="45" y="55" class="b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">2,4 GHz</text><text x="45" y="74" font-size="13.5" style="font-size:13.5px">Az ayrık kanal; kalabalık</text><text x="45" y="92" font-size="13.5" style="font-size:13.5px">Duvar ve mesafede daha iyi ilerler</text><text x="45" y="110" font-size="13.5" style="font-size:13.5px">20 MHz için örnek plan: 1, 6, 11</text>
+<rect x="315" y="34" width="270" height="100" rx="8.1" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="8 4" />
+<text x="330" y="55" class="b" font-size="13.5" style="font-size:13.5px;fill:#d97706">5 GHz</text><text x="330" y="74" font-size="13.5" style="font-size:13.5px">Çok daha fazla kanal</text><text x="330" y="92" font-size="13.5" style="font-size:13.5px">Aynı güçte daha çabuk zayıflar</text><text x="330" y="110" font-size="13.5" style="font-size:13.5px">Duvar ve mesafe etkisi belirgin</text>
+<rect x="600" y="34" width="270" height="100" rx="8.1" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" stroke-dasharray="2 4" />
+<text x="615" y="55" class="b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">6 GHz</text><text x="615" y="74" font-size="13.5" style="font-size:13.5px">Ek geniş spektrum</text><text x="615" y="92" font-size="13.5" style="font-size:13.5px">Mevzuat izni + AP ve istemci</text><text x="615" y="110" font-size="13.5" style="font-size:13.5px">desteği koşulu; liste ülkeye bağlı</text>
+<text x="30" y="172" class="h" font-size="18" style="font-size:18px">2,4 GHz: nominal 20 MHz kanal blokları (merkezler 5 MHz adımla)</text>
+<path d="M78 252 L86 212 L250 212 L258 252 Z" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<path d="M303 252 L311 212 L475 212 L483 252 Z" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<path d="M528 252 L536 212 L700 212 L708 252 Z" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<path d="M123 307 L131 267 L295 267 L303 307 Z" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="7 4" />
+<rect x="123" y="212" width="135" height="95" fill="url(#x)" opacity="0.45" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3" rx="8.1" />
+<text x="168" y="229" class="c b" font-size="12.5" style="font-size:12.5px">Kanal 1 · merkez 2412</text><text x="168" y="244" class="c s" font-size="12" style="font-size:12px">2402–2422 MHz</text>
+<text x="393" y="229" class="c b" font-size="12.5" style="font-size:12.5px">Kanal 6 · merkez 2437</text><text x="393" y="244" class="c s" font-size="12" style="font-size:12px">2427–2447 MHz</text>
+<text x="618" y="229" class="c b" font-size="12.09" style="font-size:12.09px">Kanal 11 · merkez 2462</text><text x="618" y="244" class="c s" font-size="12" style="font-size:12px">2452–2472 MHz</text>
+<text x="213" y="284" class="c b" font-size="12.5" style="font-size:12.5px">Kanal 2 · merkez 2417</text><text x="213" y="299" class="c s" font-size="12" style="font-size:12px">2407–2427 MHz</text>
+<line x1="60" y1="325" x2="812" y2="325" stroke="#475569" stroke-width="2" />
+<g stroke="#475569" stroke-width="1.5"><line x1="60" y1="320" x2="60" y2="331" /><line x1="168" y1="320" x2="168" y2="331" /><line x1="213" y1="320" x2="213" y2="331" /><line x1="393" y1="320" x2="393" y2="331" /><line x1="618" y1="320" x2="618" y2="331" /><line x1="812" y1="320" x2="812" y2="331" /></g>
+<g class="s"><text x="60" y="345" class="c s" font-size="12" style="font-size:12px">2400</text><text x="168" y="345" class="c s" font-size="12" style="font-size:12px">2412</text><text x="213" y="345" class="c s" font-size="12" style="font-size:12px">2417</text><text x="393" y="345" class="c s" font-size="12" style="font-size:12px">2437</text><text x="618" y="345" class="c s" font-size="12" style="font-size:12px">2462</text><text x="812" y="345" class="c s" font-size="12" style="font-size:12px">2483,5 MHz</text></g>
+<text x="60" y="372" font-size="13.5" style="font-size:13.5px">• Kanal 1 ile 2: merkezler 5 MHz ayrık; 2407–2422 MHz (15 MHz) ortak, çapraz taramalı bölge.</text>
+<text x="60" y="390" font-size="13.5" style="font-size:13.5px">• Kanal 1, 6 ve 11: merkezler 25 MHz ayrık; 20 MHz nominal bloklar birbirine değmez.</text>
+<text x="60" y="408" font-size="13.5" style="font-size:13.5px">• Nominal bloklar öğretici modeldir; gerçek verici kenarı sıfır enerjili dik kesit değildir. Kanal listesi ülkeye göre değişir.</text>
+<text x="30" y="440" class="h" font-size="18" style="font-size:18px">Üç durum</text>
+<rect x="30" y="450" width="270" height="170" rx="8.1" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<text x="45" y="470" class="b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">Aynı kanal, birbirini duyar</text>
+<rect x="45" y="482" width="70" height="22" fill="#eff6ff" stroke="#2563eb" rx="3" /><text x="80" y="497" class="c s" font-size="12" style="font-size:12px">AP-1</text>
+<rect x="115" y="482" width="70" height="22" fill="#ffffff" stroke="#475569" stroke-dasharray="4 3" rx="3" /><text x="150" y="497" class="c s" font-size="12" style="font-size:12px">AP-2</text>
+<rect x="185" y="482" width="70" height="22" fill="#eff6ff" stroke="#2563eb" rx="3" /><text x="220" y="497" class="c s" font-size="12" style="font-size:12px">AP-1</text>
+<text x="45" y="530" font-size="13.28" style="font-size:13.28px">Tek ortak zaman şeridi: sırayla yayın.</text><text x="45" y="548" font-size="13.17" style="font-size:13.17px">Yayın süresi bölüşülür, bekleme artar.</text>
+<rect x="315" y="450" width="270" height="170" rx="8.1" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="8 4" />
+<text x="330" y="470" class="b" font-size="13.5" style="font-size:13.5px;fill:#d97706">Kısmen örtüşen (kanal 1 ve 2)</text>
+<rect x="330" y="482" width="170" height="20" fill="#eff6ff" stroke="#2563eb" rx="3" /><text x="335" y="496" class="s" font-size="12" style="font-size:12px">kanal 1</text>
+<rect x="400" y="507" width="170" height="20" fill="#ffffff" stroke="#475569" stroke-dasharray="4 3" rx="3" /><text x="505" y="521" class="s" font-size="12" style="font-size:12px">kanal 2</text>
+<rect x="400" y="482" width="100" height="45" fill="url(#x)" opacity="0.5" stroke="#cbd5e1" rx="8.1" />
+<text x="330" y="555" font-size="13.2" style="font-size:13.2px">Çerçeve çözülmez, gürültü gibi biner:</text><text x="330" y="573" font-size="13.5" style="font-size:13.5px">bozulma ve yeniden gönderim artar.</text>
+<rect x="600" y="450" width="270" height="170" rx="8.1" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" stroke-dasharray="2 4" />
+<text x="615" y="470" class="b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">Örtüşmeyen (kanal 1 ve 6)</text>
+<rect x="615" y="482" width="240" height="20" fill="#eff6ff" stroke="#2563eb" rx="3" /><text x="620" y="496" class="s" font-size="12" style="font-size:12px">AP-1 · kanal 1</text>
+<rect x="615" y="510" width="240" height="20" fill="#ffffff" stroke="#475569" stroke-dasharray="4 3" rx="3" /><text x="620" y="524" class="s" font-size="12" style="font-size:12px">AP-2 · kanal 6</text>
+<text x="615" y="555" font-size="13.5" style="font-size:13.5px">İki paralel şerit: her AP kendi</text><text x="615" y="573" font-size="13.5" style="font-size:13.5px">yayın süresini bağımsız kullanır.</text>
+<text x="30" y="640" font-size="13.5" style="font-size:13.5px">Aynı kanalda birbirini duymayan vericiler aynı anda gönderirse çerçeve bu durumda da bozulur.</text>
+</svg>

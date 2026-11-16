@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 570" fill="#0f172a" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, sans-serif" font-size="13">
+  <title id="baslik">TLS bağlantısında anahtarların ve sertifikanın rolleri</title>
+  <desc id="aciklama">Solda istemci, sağda sunucu kutusu vardır. Sunucuda gizli anahtar sunucudan çıkmaz; sertifika sunucu adını, açık anahtarı ve sertifika otoritesinin imzasını taşır. Adım 1: sunucu sertifikayı istemciye gönderir. Adım 2: istemci kendi güvendiği otorite listesiyle imzayı ve adı doğrular. Adım 3: iki taraf oturum anahtarını birlikte türetir, anahtar ağdan gönderilmez; sunucu anlaşmayı gizli anahtarıyla imzalar. Adım 4: veri her iki yönde simetrik oturum anahtarıyla korunur. Şekil rolleri ayırır, gerçek TLS mesaj sırasını göstermez.</desc>
+  <defs>
+    <marker id="ok-2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="ok-7c3aed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="570" fill="#f8fafc"/>
+
+  <rect x="20" y="30" width="270" height="470" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="155" y="58" text-anchor="middle" font-weight="bold" font-size="16" fill="#1e293b">İSTEMCİ</text>
+  <rect x="710" y="30" width="270" height="470" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="845" y="58" text-anchor="middle" font-weight="bold" font-size="16" fill="#1e293b">SUNUCU</text>
+
+  <rect x="40" y="80" width="230" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="155" y="115" text-anchor="middle" fill="#0f172a">Güvenilen otorite listesi</text>
+  <rect x="40" y="170" width="230" height="80" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="155" y="195" text-anchor="middle" font-weight="bold" fill="#1e293b">② Doğrulama</text>
+  <text x="155" y="215" text-anchor="middle" fill="#0f172a">otorite imzası ve</text>
+  <text x="155" y="235" text-anchor="middle" fill="#0f172a">sunucu adı kontrol edilir</text>
+  <rect x="40" y="330" width="230" height="80" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5" rx="8"/>
+  <text x="155" y="362" text-anchor="middle" font-weight="bold" fill="#1e293b">Oturum anahtarı</text>
+  <text x="155" y="383" text-anchor="middle" fill="#0f172a">(birlikte türetilir)</text>
+
+  <rect x="730" y="80" width="230" height="60" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" stroke-dasharray="8 4" rx="8"/>
+  <text x="845" y="105" text-anchor="middle" font-weight="bold" fill="#1e293b">Gizli anahtar</text>
+  <text x="845" y="125" text-anchor="middle" fill="#0f172a">sunucudan çıkmaz</text>
+  <rect x="730" y="170" width="230" height="80" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="845" y="195" text-anchor="middle" font-weight="bold" fill="#1e293b">Sertifika</text>
+  <text x="845" y="215" text-anchor="middle" fill="#0f172a">sunucu adı + açık anahtar</text>
+  <text x="845" y="235" text-anchor="middle" fill="#0f172a">+ otorite imzası</text>
+  <rect x="730" y="330" width="230" height="80" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5" rx="8"/>
+  <text x="845" y="362" text-anchor="middle" font-weight="bold" fill="#1e293b">Oturum anahtarı</text>
+  <text x="845" y="383" text-anchor="middle" fill="#0f172a">(birlikte türetilir)</text>
+
+  <line x1="728" y1="210" x2="272" y2="210" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <text x="500" y="196" text-anchor="middle" font-weight="bold" fill="#1e293b">① Sertifika gönderilir</text>
+  <text x="500" y="232" text-anchor="middle" font-size="12" fill="#475569">gizli anahtar sertifikada yoktur</text>
+
+  <line x1="292" y1="290" x2="708" y2="290" stroke="#7c3aed" stroke-width="2" marker-start="url(#ok-7c3aed)" marker-end="url(#ok-7c3aed)"/>
+  <text x="500" y="270" text-anchor="middle" font-weight="bold" fill="#1e293b">③ Anahtar anlaşması</text>
+  <text x="500" y="312" text-anchor="middle" font-size="12" fill="#475569">sunucu anlaşmayı gizli anahtarıyla imzalar;</text>
+  <text x="500" y="328" text-anchor="middle" font-size="12" fill="#475569">oturum anahtarı ağdan gönderilmez</text>
+
+  <line x1="292" y1="440" x2="708" y2="440" stroke="#7c3aed" stroke-width="5" marker-start="url(#ok-7c3aed)" marker-end="url(#ok-7c3aed)"/>
+  <text x="500" y="422" text-anchor="middle" font-weight="bold" fill="#1e293b">④ Veri: oturum anahtarıyla korunur</text>
+  <text x="500" y="466" text-anchor="middle" font-size="12" fill="#475569">simetrik koruma; her iki yönde</text>
+
+  <text x="500" y="535" text-anchor="middle" font-size="12" fill="#475569">Şekil rolleri ayırır: kimlik doğrulama (1–2), anahtar anlaşması (3), veri koruması (4).</text>
+  <text x="500" y="553" text-anchor="middle" font-size="12" fill="#475569">Gerçek TLS 1.3 mesaj sırasını göstermez.</text>
+</svg>

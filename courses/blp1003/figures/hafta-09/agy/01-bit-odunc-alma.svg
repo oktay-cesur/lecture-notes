@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 1 1 L 9 5 L 1 9 z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#f8fafc" />
+
+  <text x="800" y="85" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="40" font-weight="bold" fill="#0f172a">/24 Ağının /26 Alt Ağlarına Dönüşümü</text>
+
+  <!-- ÖNCE (/24) -->
+  <text x="114" y="150" font-family="'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#0f172a">Önce (/24)</text>
+
+  <text x="239" y="190" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#64748b">1. Oktet</text>
+  <text x="497" y="190" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#64748b">2. Oktet</text>
+  <text x="755" y="190" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#64748b">3. Oktet</text>
+  <text x="1013" y="190" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#64748b">4. Oktet</text>
+
+  <rect x="114" y="204" width="250" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="372" y="204" width="250" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="630" y="204" width="250" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="888" y="204" width="250" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <rect x="120" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="150" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="180" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="210" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="240" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="270" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="300" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="330" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+
+  <rect x="378" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="408" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="438" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="468" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="498" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="528" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="558" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="588" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+
+  <rect x="636" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="666" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="696" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="726" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="756" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="786" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="816" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="846" y="210" width="28" height="56" rx="4" fill="#1e3a8a" />
+
+  <rect x="894" y="210" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="924" y="210" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="954" y="210" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="984" y="210" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="1014" y="210" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="1044" y="210" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="1074" y="210" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="1104" y="210" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+
+  <path d="M 114 290 L 114 305 L 880 305 L 880 290" fill="none" stroke="#1e3a8a" stroke-width="2.5" />
+  <text x="497" y="345" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="26" font-weight="bold" fill="#1e3a8a">Ağ Bitleri (24 bit)</text>
+
+  <path d="M 888 290 L 888 305 L 1138 305 L 1138 290" fill="none" stroke="#64748b" stroke-width="2.5" />
+  <text x="1013" y="345" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="26" font-weight="bold" fill="#475569">Host Bitleri (8 bit)</text>
+
+  <!-- GEÇİŞ OKU -->
+  <path d="M 894 362 L 894 374 L 952 374 L 952 362" fill="none" stroke="#0284c7" stroke-width="2.5" />
+  <line x1="923" y1="374" x2="923" y2="540" stroke="#0284c7" stroke-width="4" marker-end="url(#arrow)" />
+  <path d="M 894 562 L 894 550 L 952 550 L 952 562" fill="none" stroke="#0284c7" stroke-width="2.5" />
+  <text x="890" y="462" text-anchor="end" font-family="'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#0284c7">2 bit ödünç alındı</text>
+
+  <!-- SAĞ ÖZET -->
+  <rect x="1190" y="370" width="340" height="220" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+  <text x="1360" y="450" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="30" font-weight="bold" fill="#0f172a">4 alt ağ,</text>
+  <line x1="1240" y1="480" x2="1480" y2="480" stroke="#e2e8f0" stroke-width="2" />
+  <text x="1360" y="530" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="26" font-weight="bold" fill="#334155">alt ağ başına 62 host</text>
+
+  <!-- SONRA (/26) -->
+  <text x="114" y="560" font-family="'DejaVu Sans', sans-serif" font-size="28" font-weight="bold" fill="#0f172a">Sonra (/26)</text>
+
+  <text x="239" y="600" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#64748b">1. Oktet</text>
+  <text x="497" y="600" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#64748b">2. Oktet</text>
+  <text x="755" y="600" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#64748b">3. Oktet</text>
+  <text x="1013" y="600" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#64748b">4. Oktet</text>
+
+  <rect x="114" y="614" width="250" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="372" y="614" width="250" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="630" y="614" width="250" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="888" y="614" width="250" height="68" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <rect x="120" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="150" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="180" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="210" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="240" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="270" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="300" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="330" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+
+  <rect x="378" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="408" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="438" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="468" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="498" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="528" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="558" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="588" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+
+  <rect x="636" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="666" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="696" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="726" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="756" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="786" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="816" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+  <rect x="846" y="620" width="28" height="56" rx="4" fill="#1e3a8a" />
+
+  <rect x="894" y="620" width="28" height="56" rx="4" fill="#0284c7" stroke="#0369a1" stroke-width="2" />
+  <rect x="924" y="620" width="28" height="56" rx="4" fill="#0284c7" stroke="#0369a1" stroke-width="2" />
+  <rect x="954" y="620" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="984" y="620" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="1014" y="620" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="1044" y="620" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="1074" y="620" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="1104" y="620" width="28" height="56" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+
+  <path d="M 114 700 L 114 715 L 880 715 L 880 700" fill="none" stroke="#1e3a8a" stroke-width="2.5" />
+  <text x="497" y="755" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="26" font-weight="bold" fill="#1e3a8a">Ağ Bitleri (24 bit)</text>
+
+  <path d="M 888 700 L 888 715 L 952 715 L 952 700" fill="none" stroke="#0284c7" stroke-width="2.5" />
+  <text x="920" y="795" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="22" font-weight="bold" fill="#0284c7">Ödünç (2 bit)</text>
+
+  <path d="M 954 700 L 954 715 L 1138 715 L 1138 700" fill="none" stroke="#64748b" stroke-width="2.5" />
+  <text x="1046" y="755" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="26" font-weight="bold" fill="#475569">Host Bitleri (6 bit)</text>
+</svg>

@@ -197,13 +197,31 @@ website:
         - section: "Ara Sınav"
           contents:
             - courses/blp1003/notes/tp_ara-sinav-hazirlik-ve-tekrar.md
-        - section: "Dönemin İkinci Yarısı"
+        - section: "8. Hafta"
           contents:
-            - courses/blp1003/notes/tp_ipv4-adresleme-temelleri.md
+            - courses/blp1003/notes/tp_ipv4-adres-yapisi-ve-ag-uyeligi.md
+            - courses/blp1003/notes/tp_ipv4-adres-bloklari-ve-turleri.md
+        - section: "9. Hafta"
+          contents:
             - courses/blp1003/notes/tp_subnetting-ve-cidr.md
-            - courses/blp1003/notes/tp_yonlendirme-ve-varsayilan-ag-gecidi.md
-            - courses/blp1003/notes/tp_kablosuz-aglar-ve-guvenlik.md
-            - courses/blp1003/notes/tp_temel-guvenlik-nat-ve-butunlesik-ag.md
+            - courses/blp1003/notes/uyg_alt-ag-yapilandirma.md
+        - section: "10. Hafta"
+          contents:
+            - courses/blp1003/notes/tp_aglar-arasi-paket-iletimi.md
+            - courses/blp1003/notes/tp_yonlendirme-tablosu-ve-rota-secimi.md
+            - courses/blp1003/notes/tp_rota-ogrenimi-ve-internet.md
+            - courses/blp1003/notes/uyg_statik-ve-varsayilan-rota.md
+        - section: "11. Hafta"
+          contents:
+            - courses/blp1003/notes/tp_kablosuz-ortam-paylasimi.md
+            - courses/blp1003/notes/tp_wlan-baglantisi-ve-guvenlik.md
+            - courses/blp1003/notes/uyg_wlan-kurulumu-ve-teshis.md
+            - courses/blp1003/notes/uyg_wireshark-gorunurluk-ve-sifreleme.md
+        - section: "12. Hafta"
+          contents:
+            - courses/blp1003/notes/tp_nat-pat-ve-donus-eslemesi.md
+            - courses/blp1003/notes/tp_ag-guvenligi-ve-erisim-politikasi.md
+            - courses/blp1003/notes/uyg_butunlesik-kurum-agi.md
     - id: blp1005
       title: "BLP 1005 Veritabanı Yönetim Sistemleri"
       style: docked

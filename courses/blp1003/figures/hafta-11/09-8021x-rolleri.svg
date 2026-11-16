@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-labelledby="t9 d9">
+<title id="t9">802.1X üç rol ve EAPOL ile RADIUS yolları</title>
+<desc id="d9">Soldan sağa üç rol: istemci (supplicant), AP veya switch portu (authenticator) ve kimlik doğrulama sunucusu (çoğunlukla RADIUS). İstemci ile AP arasında kesikli çift yönlü yol EAP iletilerini EAPOL çerçevelerinde taşır. AP ile sunucu arasında düz çift yönlü yol EAP iletilerini RADIUS içinde taşır. AP üzerindeki taralı kapı, doğrulama bitene kadar kullanıcı verisini geçirmez; yalnız doğrulama iletileri geçer. Altta dört numaralı adım: kimlik sunma, sunucunun doğrulaması, istemcinin sunucu sertifikasını denetlemesi, kabul edilirse kapının açılması ve oturum anahtarının bu doğrulamadan türetilmesi.</desc>
+<style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#0f172a;font-size:13.5px}
+.h{font-size:18px;font-weight:700;fill:#0f172a}.b{font-weight:700;fill:#1e293b}.c{text-anchor:middle}.s{font-size:12px;fill:#475569}.w{fill:#ffffff}
+</style>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb" /></marker>
+<pattern id="hat" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#ffffff" /><line x1="0" y1="0" x2="0" y2="8" stroke="#94a3b8" stroke-width="3" /></pattern>
+</defs>
+<rect width="960" height="520" fill="#f8fafc" />
+<text x="20" y="28" class="h" font-size="18" style="font-size:18px">Üç rol</text>
+<rect x="30" y="75" width="200" height="100" rx="8.6" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<text x="130" y="102" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">İstemci</text><text x="130" y="120" class="c s" font-size="12" style="font-size:12px">supplicant</text><text x="130" y="140" class="c s" font-size="12" style="font-size:12px">hesap ya da sertifika sunar</text>
+<rect x="380" y="75" width="200" height="100" rx="8.6" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" />
+<text x="480" y="102" class="c b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">AP / switch portu</text><text x="480" y="120" class="c s" font-size="12" style="font-size:12px">authenticator</text><text x="480" y="140" class="c s" font-size="12" style="font-size:12px">kararı vermez, kapıyı tutar</text>
+<rect x="730" y="75" width="200" height="100" rx="8.6" fill="#faf5ff" stroke="#7c3aed" stroke-width="3" />
+<text x="830" y="98" class="c b" font-size="13.5" style="font-size:13.5px;fill:#7c3aed">Kimlik doğrulama</text><text x="830" y="114" class="c b" font-size="13.5" style="font-size:13.5px;fill:#7c3aed">sunucusu</text><text x="830" y="132" class="c s" font-size="12" style="font-size:12px">(çoğunlukla RADIUS)</text><text x="830" y="148" class="c s" font-size="12" style="font-size:12px">kararı verir</text>
+<line x1="232" y1="115" x2="378" y2="115" stroke="#2563eb" stroke-width="3" stroke-dasharray="10 5" marker-start="url(#a)" marker-end="url(#a)" />
+<text x="305" y="104" class="c s" font-size="12" style="font-size:12px">EAPOL</text><text x="305" y="136" class="c s" font-size="12" style="font-size:12px">(EAP, radyo/port)</text>
+<line x1="582" y1="115" x2="728" y2="115" stroke="#2563eb" stroke-width="3" marker-start="url(#a)" marker-end="url(#a)" />
+<text x="655" y="104" class="c s" font-size="12" style="font-size:12px">RADIUS</text><text x="655" y="136" class="c s" font-size="12" style="font-size:12px">(EAP kablolu ağda)</text>
+<rect x="572" y="85" width="10" height="80" fill="url(#hat)" stroke="#475569" stroke-width="2" />
+<text x="480" y="205" class="c b" font-size="13.5" style="font-size:13.5px">Kapı: doğrulama bitene kadar kapalı</text>
+<text x="480" y="223" class="c s" font-size="12" style="font-size:12px">Yalnız doğrulama iletileri geçer; kullanıcı verisi geçmez.</text>
+<text x="20" y="270" class="h" font-size="18" style="font-size:18px">Adımlar</text>
+<g fill="#ffffff" stroke="#475569" stroke-width="2"><rect x="20" y="285" width="215" height="130" rx="8.6" stroke="#2563eb" fill="#eff6ff" /><rect x="250" y="285" width="215" height="130" rx="8.6" stroke="#7c3aed" fill="#faf5ff" /><rect x="480" y="285" width="215" height="130" rx="8.6" stroke-dasharray="8 4" stroke="#d97706" fill="#fffbeb" /><rect x="710" y="285" width="225" height="130" rx="8.6" stroke-width="3" stroke="#0d9488" fill="#f0fdfa" /></g>
+<g fill="#ffffff" stroke="#475569" stroke-width="2"><circle cx="40" cy="305" r="12" stroke="#2563eb" fill="#eff6ff" /><circle cx="270" cy="305" r="12" stroke="#2563eb" fill="#eff6ff" /><circle cx="500" cy="305" r="12" stroke="#2563eb" fill="#eff6ff" /><circle cx="730" cy="305" r="12" stroke="#2563eb" fill="#eff6ff" /></g>
+<text x="40" y="309" class="c b" font-size="13.5" style="font-size:13.5px;fill:#2563eb">1</text><text x="270" y="309" class="c b" font-size="13.5" style="font-size:13.5px;fill:#7c3aed">2</text><text x="500" y="309" class="c b" font-size="13.5" style="font-size:13.5px;fill:#d97706">3</text><text x="730" y="309" class="c b" font-size="13.5" style="font-size:13.5px;fill:#0d9488">4</text>
+<text x="60" y="335" class="s" font-size="12" style="font-size:12px">İstemci kimliğini EAP</text><text x="60" y="351" class="s" font-size="12" style="font-size:12px">ile sunar; iletiler</text><text x="60" y="367" class="s" font-size="12" style="font-size:12px">AP'ye EAPOL çerçevesinde</text><text x="60" y="383" class="s" font-size="12" style="font-size:12px">gider.</text>
+<text x="290" y="335" class="s" font-size="12" style="font-size:12px">AP iletiyi RADIUS içine</text><text x="290" y="351" class="s" font-size="12" style="font-size:12px">koyup sunucuya taşır;</text><text x="290" y="367" class="s" font-size="12" style="font-size:12px">sunucu hesabı ya da</text><text x="290" y="383" class="s" font-size="12" style="font-size:12px">sertifikayı doğrular.</text>
+<text x="520" y="335" class="s" font-size="12" style="font-size:12px">İstemci sunucunun</text><text x="520" y="351" class="s" font-size="12" style="font-size:12px">sertifikasını da denetler;</text><text x="520" y="367" class="s" font-size="12" style="font-size:12px">sahte düzenek geçerli</text><text x="520" y="383" class="s" font-size="12" style="font-size:12px">sertifika sunamaz.</text>
+<text x="750" y="335" class="s" font-size="12" style="font-size:12px">Kabulde AP kapıyı açar.</text><text x="750" y="351" class="s" font-size="12" style="font-size:12px">Oturum anahtarı ortak</text><text x="750" y="367" class="s" font-size="12" style="font-size:12px">paroladan değil, bu</text><text x="750" y="383" class="s" font-size="12" style="font-size:12px">doğrulamadan türetilir.</text>
+<g stroke="#2563eb" stroke-width="2" marker-end="url(#a)"><line x1="237" y1="350" x2="248" y2="350" /><line x1="467" y1="350" x2="478" y2="350" /><line x1="697" y1="350" x2="708" y2="350" /></g>
+<text x="20" y="455" font-size="13.5" style="font-size:13.5px">Ret durumunda kapı kapalı kalır. İstemci sertifika uyarısını geçerse 3. adımdaki koruma kalkar.</text>
+<text x="20" y="475" font-size="13.5" style="font-size:13.5px">Kesikli yol: radyo/port üzerindeki EAPOL. Düz yol: AP ile sunucu arasındaki RADIUS. Taralı blok: kapalı kapı.</text>
+</svg>

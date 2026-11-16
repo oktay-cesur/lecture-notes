@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 960 430" width="960" height="430" fill="#0f172a" role="img" aria-labelledby="t1 d1" font-family="DejaVu Sans, sans-serif" font-size="14">
+  <title id="t1">Hedef yerel mi, uzak mı: /23 maskesinin üçüncü oktette bit karşılaştırması</title>
+  <desc id="d1">255.255.254.0 maskesinin üçüncü oktetinde yedi ağ biti ve bir host biti vardır; A (10.20.0.10) ile 10.20.1.50 AND sonucunda 10.20.0.0 ağında kalır, B (10.20.2.20) 10.20.2.0 ağına düşer.</desc>
+  <defs>
+    
+    <g id="satir">
+      <rect x="0" y="0" width="34" height="30" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="3"/>
+      <rect x="34" y="0" width="34" height="30" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="3"/>
+      <rect x="68" y="0" width="34" height="30" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="3"/>
+      <rect x="102" y="0" width="34" height="30" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="3"/>
+      <rect x="136" y="0" width="34" height="30" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="3"/>
+      <rect x="170" y="0" width="34" height="30" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="3"/>
+      <rect x="204" y="0" width="34" height="30" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="3"/>
+      <rect x="238" y="0" width="34" height="30" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" rx="3"/>
+    </g>
+  </defs>
+  <rect x="0" y="0" width="960" height="430" fill="#f8fafc"/>
+
+  <text x="480" y="28" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">Hedef yerel mi, uzak mı? (üçüncü oktet, /23 maskesi)</text>
+
+  <text x="449" y="46" text-anchor="middle" font-size="12" fill="#475569">7 ağ biti</text>
+  <text x="585" y="46" text-anchor="middle" font-size="12" fill="#475569">host biti</text>
+  <text x="347" y="70" text-anchor="middle" font-size="11" fill="#475569">128</text>
+  <text x="381" y="70" text-anchor="middle" font-size="11" fill="#475569">64</text>
+  <text x="415" y="70" text-anchor="middle" font-size="11" fill="#475569">32</text>
+  <text x="449" y="70" text-anchor="middle" font-size="11" fill="#475569">16</text>
+  <text x="483" y="70" text-anchor="middle" font-size="11" fill="#475569">8</text>
+  <text x="517" y="70" text-anchor="middle" font-size="11" fill="#475569">4</text>
+  <text x="551" y="70" text-anchor="middle" font-size="11" fill="#475569">2</text>
+  <text x="585" y="70" text-anchor="middle" font-size="11" fill="#475569">1</text>
+  <line x1="568" y1="50" x2="568" y2="415" stroke="#475569" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <text x="20" y="101" font-size="13" fill="#0f172a">Maske 255.255.254.0 → 3. oktet 254</text>
+  <use xlink:href="#satir" x="330" y="80"/>
+  <text x="347" y="101" text-anchor="middle" font-size="15" fill="#0f172a"><tspan x="347">1</tspan><tspan x="381">1</tspan><tspan x="415">1</tspan><tspan x="449">1</tspan><tspan x="483">1</tspan><tspan x="517">1</tspan><tspan x="551">1</tspan><tspan x="585">0</tspan></text>
+
+  <text x="20" y="151" font-size="13" fill="#0f172a">A 10.20.0.10 → 3. oktet 0</text>
+  <use xlink:href="#satir" x="330" y="130"/>
+  <text x="347" y="151" text-anchor="middle" font-size="15" fill="#0f172a"><tspan x="347">0</tspan><tspan x="381">0</tspan><tspan x="415">0</tspan><tspan x="449">0</tspan><tspan x="483">0</tspan><tspan x="517">0</tspan><tspan x="551">0</tspan><tspan x="585">0</tspan></text>
+
+  <text x="20" y="191" font-size="13" font-weight="bold" fill="#1e293b">A AND maske (sonuç)</text>
+  <use xlink:href="#satir" x="330" y="170"/>
+  <rect x="330" y="170" width="272" height="30" fill="none" stroke="#059669" stroke-width="2.5" rx="3"/>
+  <text x="347" y="191" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b"><tspan x="347">0</tspan><tspan x="381">0</tspan><tspan x="415">0</tspan><tspan x="449">0</tspan><tspan x="483">0</tspan><tspan x="517">0</tspan><tspan x="551">0</tspan><tspan x="585">0</tspan></text>
+  <text x="620" y="191" font-size="13" fill="#0f172a">ağ adresi 10.20.0.0</text>
+
+  <text x="20" y="251" font-size="13" fill="#0f172a">10.20.1.50 → 3. oktet 1</text>
+  <use xlink:href="#satir" x="330" y="230"/>
+  <text x="347" y="251" text-anchor="middle" font-size="15" fill="#0f172a"><tspan x="347">0</tspan><tspan x="381">0</tspan><tspan x="415">0</tspan><tspan x="449">0</tspan><tspan x="483">0</tspan><tspan x="517">0</tspan><tspan x="551">0</tspan><tspan x="585">1</tspan></text>
+
+  <text x="20" y="291" font-size="13" font-weight="bold" fill="#1e293b">10.20.1.50 AND maske</text>
+  <use xlink:href="#satir" x="330" y="270"/>
+  <rect x="330" y="270" width="272" height="30" fill="none" stroke="#059669" stroke-width="2.5" rx="3"/>
+  <text x="347" y="291" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b"><tspan x="347">0</tspan><tspan x="381">0</tspan><tspan x="415">0</tspan><tspan x="449">0</tspan><tspan x="483">0</tspan><tspan x="517">0</tspan><tspan x="551">0</tspan><tspan x="585">0</tspan></text>
+  <text x="620" y="291" font-size="13" fill="#0f172a">10.20.0.0 → A ile aynı → YEREL</text>
+
+  <text x="20" y="351" font-size="13" fill="#0f172a">B 10.20.2.20 → 3. oktet 2</text>
+  <use xlink:href="#satir" x="330" y="330"/>
+  <text x="347" y="351" text-anchor="middle" font-size="15" fill="#0f172a"><tspan x="347">0</tspan><tspan x="381">0</tspan><tspan x="415">0</tspan><tspan x="449">0</tspan><tspan x="483">0</tspan><tspan x="517">0</tspan><tspan x="551">1</tspan><tspan x="585">0</tspan></text>
+
+  <text x="20" y="391" font-size="13" font-weight="bold" fill="#1e293b">B AND maske (sonuç)</text>
+  <use xlink:href="#satir" x="330" y="370"/>
+  <rect x="330" y="370" width="272" height="30" fill="none" stroke="#d97706" stroke-width="2.5" rx="3"/>
+  <text x="347" y="391" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b"><tspan x="347">0</tspan><tspan x="381">0</tspan><tspan x="415">0</tspan><tspan x="449">0</tspan><tspan x="483">0</tspan><tspan x="517">0</tspan><tspan x="551">1</tspan><tspan x="585">0</tspan></text>
+  <text x="620" y="391" font-size="13" fill="#0f172a">10.20.2.0 → farklı → UZAK</text>
+
+  <text x="20" y="418" font-size="12" fill="#475569">Gri hücre ve kesikli çizgi: ağ/host sınırı. Kalın çerçeveli satırlar: AND sonucu.</text>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</svg>
+

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550" fill="#0f172a" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, sans-serif" font-size="13">
+  <title id="baslik">Farklı koruma mekanizmalarının korunan hatları</title>
+  <desc id="aciklama">Üç senaryo gösterilir. Senaryo 1: misafir telefonu, erişim noktası, kablolu ağ ve web sunucusu; kalın düz çizgi WPA2 veya WPA3'ün yalnız telefon ile erişim noktası arasını, kesikli çizgi TLS veya HTTPS'in telefon ile web sunucusu arasını korumasını gösterir. Senaryo 2: yönetici ile uzak sistem arasında SSH, noktalı çizgiyle gösterilir. Senaryo 3: mesajı yazan ile okuyan arasında uygulama düzeyinde uçtan uca şifreleme; aradaki hizmet sağlayıcı sunucusu içeriği çözemez.</desc>
+  <rect width="1000" height="550" fill="#f8fafc"/>
+
+  <text x="20" y="22" font-weight="bold" fill="#1e293b">Senaryo 1 — Misafir telefonu, Wi-Fi ve web sunucusu</text>
+  <rect x="40" y="32" width="160" height="70" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="120" y="72" text-anchor="middle" fill="#0f172a">Telefon (istemci)</text>
+  <rect x="280" y="32" width="120" height="70" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="340" y="72" text-anchor="middle" fill="#0f172a">Erişim noktası</text>
+  <rect x="500" y="32" width="160" height="70" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="580" y="62" text-anchor="middle" fill="#0f172a">Kablolu ağ</text>
+  <text x="580" y="82" text-anchor="middle" font-size="12" fill="#475569">(switch, router)</text>
+  <rect x="760" y="32" width="160" height="70" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="840" y="72" text-anchor="middle" fill="#0f172a">Web sunucusu</text>
+  <line x1="200" y1="67" x2="280" y2="67" stroke="#475569" stroke-width="2" stroke-dasharray="3 4"/>
+  <text x="240" y="58" text-anchor="middle" font-size="11" fill="#475569">radyo</text>
+  <line x1="400" y1="67" x2="500" y2="67" stroke="#475569" stroke-width="2"/>
+  <line x1="660" y1="67" x2="760" y2="67" stroke="#475569" stroke-width="2"/>
+  <text x="450" y="118" text-anchor="middle" font-size="11" fill="#475569">AP'den sonra: kablo</text>
+
+  <line x1="120" y1="135" x2="340" y2="135" stroke="#2563eb" stroke-width="5"/>
+  <line x1="120" y1="125" x2="120" y2="145" stroke="#2563eb" stroke-width="3"/>
+  <line x1="340" y1="125" x2="340" y2="145" stroke="#2563eb" stroke-width="3"/>
+  <text x="230" y="163" text-anchor="middle" fill="#0f172a">WPA2/WPA3: telefon ↔ erişim noktası</text>
+  <line x1="120" y1="188" x2="840" y2="188" stroke="#2563eb" stroke-width="5" stroke-dasharray="16 7"/>
+  <line x1="120" y1="178" x2="120" y2="198" stroke="#2563eb" stroke-width="3"/>
+  <line x1="840" y1="178" x2="840" y2="198" stroke="#2563eb" stroke-width="3"/>
+  <text x="480" y="216" text-anchor="middle" fill="#0f172a">TLS/HTTPS: telefon ↔ web sunucusu (AP'den sonrası da korunur)</text>
+
+  <line x1="20" y1="232" x2="980" y2="232" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="20" y="252" font-weight="bold" fill="#1e293b">Senaryo 2 — Yönetici ve uzak sistem</text>
+  <rect x="40" y="262" width="160" height="70" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="120" y="302" text-anchor="middle" fill="#0f172a">Yönetici</text>
+  <rect x="400" y="262" width="160" height="70" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="480" y="302" text-anchor="middle" fill="#0f172a">Ağ (ara cihazlar)</text>
+  <rect x="760" y="262" width="160" height="70" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="840" y="292" text-anchor="middle" fill="#0f172a">Uzak sistem</text>
+  <text x="840" y="312" text-anchor="middle" font-size="12" fill="#475569">(router veya sunucu)</text>
+  <line x1="200" y1="297" x2="400" y2="297" stroke="#475569" stroke-width="2"/>
+  <line x1="560" y1="297" x2="760" y2="297" stroke="#475569" stroke-width="2"/>
+  <line x1="120" y1="360" x2="840" y2="360" stroke="#7c3aed" stroke-width="5" stroke-dasharray="2 8" stroke-linecap="round"/>
+  <line x1="120" y1="350" x2="120" y2="370" stroke="#7c3aed" stroke-width="3"/>
+  <line x1="840" y1="350" x2="840" y2="370" stroke="#7c3aed" stroke-width="3"/>
+  <text x="480" y="390" text-anchor="middle" fill="#0f172a">SSH: yönetici ↔ uzak sistem</text>
+
+  <line x1="20" y1="405" x2="980" y2="405" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="20" y="425" font-weight="bold" fill="#1e293b">Senaryo 3 — Mesajlaşma uygulaması</text>
+  <rect x="40" y="435" width="160" height="60" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="120" y="470" text-anchor="middle" fill="#0f172a">Mesajı yazan</text>
+  <rect x="400" y="435" width="160" height="60" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="480" y="460" text-anchor="middle" fill="#0f172a">Hizmet sağlayıcı</text>
+  <text x="480" y="480" text-anchor="middle" font-size="12" fill="#475569">içeriği çözemez</text>
+  <rect x="760" y="435" width="160" height="60" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="840" y="470" text-anchor="middle" fill="#0f172a">Mesajı okuyan</text>
+  <line x1="200" y1="465" x2="400" y2="465" stroke="#475569" stroke-width="2"/>
+  <line x1="560" y1="465" x2="760" y2="465" stroke="#475569" stroke-width="2"/>
+  <line x1="120" y1="512" x2="840" y2="512" stroke="#0d9488" stroke-width="5" stroke-dasharray="14 5 3 5"/>
+  <line x1="120" y1="502" x2="120" y2="522" stroke="#0d9488" stroke-width="3"/>
+  <line x1="840" y1="502" x2="840" y2="522" stroke="#0d9488" stroke-width="3"/>
+  <text x="480" y="540" text-anchor="middle" fill="#0f172a">Uçtan uca şifreleme: yazan ↔ okuyan (uygulama düzeyinde)</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" fill="#0f172a" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, sans-serif" font-size="13">
+  <title id="baslik">PAT: iki iç bilgisayarın tek dış adresten gidişi ve dönüşü</title>
+  <desc id="aciklama">Solda A (192.168.10.11, kaynak port 51000) ve B (192.168.10.12, kaynak port 51000) bilgisayarları, ortada PAT yapan kurum router'ı, sağda 203.0.113.80 adresli dış sunucu (TCP 443) bulunur. Düz oklar gidişi gösterir: router kaynağı A için 198.51.100.7:40001, B için 198.51.100.7:40002 olarak yeniden yazar, hedef değişmez. Kesikli oklar dönüşü gösterir: sunucu yanıtı 198.51.100.7 adresinin ilgili portuna gönderir, router tablodaki kayda bakarak hedefi A'nın veya B'nin iç adresine ve portuna geri çevirir. Adresler dokümantasyon amaçlı örneklerdir.</desc>
+  <defs>
+    <marker id="ok-2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="ok-0d9488" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0d9488"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="500" fill="#f8fafc"/>
+
+  <rect x="20" y="70" width="180" height="110" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="110" y="100" text-anchor="middle" font-weight="bold" fill="#1e293b">Bilgisayar A</text>
+  <text x="110" y="125" text-anchor="middle" fill="#0f172a">192.168.10.11</text>
+  <text x="110" y="148" text-anchor="middle" fill="#0f172a">kaynak port 51000</text>
+
+  <rect x="20" y="295" width="180" height="115" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="110" y="325" text-anchor="middle" font-weight="bold" fill="#1e293b">Bilgisayar B</text>
+  <text x="110" y="350" text-anchor="middle" fill="#0f172a">192.168.10.12</text>
+  <text x="110" y="373" text-anchor="middle" fill="#0f172a">kaynak port 51000</text>
+
+  <rect x="420" y="50" width="260" height="400" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+  <text x="550" y="82" text-anchor="middle" font-weight="bold" font-size="15" fill="#1e293b">Kurum router'ı (PAT)</text>
+  <text x="550" y="104" text-anchor="middle" fill="#0f172a">dış adres 198.51.100.7</text>
+  <rect x="440" y="190" width="220" height="125" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="550" y="214" text-anchor="middle" font-weight="bold" fill="#1e293b">PAT tablosu (2 kayıt)</text>
+  <text x="550" y="248" text-anchor="middle" fill="#0f172a">A ↔ 198.51.100.7:40001</text>
+  <text x="550" y="278" text-anchor="middle" fill="#0f172a">B ↔ 198.51.100.7:40002</text>
+  <text x="550" y="305" text-anchor="middle" font-size="11" fill="#475569">hedef: 203.0.113.80:443</text>
+
+  <rect x="900" y="70" width="180" height="365" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="990" y="235" text-anchor="middle" font-weight="bold" fill="#1e293b">Dış sunucu</text>
+  <text x="990" y="260" text-anchor="middle" fill="#0f172a">203.0.113.80</text>
+  <text x="990" y="283" text-anchor="middle" fill="#0f172a">TCP 443</text>
+
+  <line x1="200" y1="105" x2="418" y2="105" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <text x="310" y="97" text-anchor="middle" font-size="12" fill="#475569">kaynak 192.168.10.11:51000</text>
+  <line x1="682" y1="105" x2="898" y2="105" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <text x="790" y="97" text-anchor="middle" font-size="12" fill="#475569">kaynak 198.51.100.7:40001</text>
+  <line x1="898" y1="150" x2="682" y2="150" stroke="#0d9488" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#ok-0d9488)"/>
+  <text x="790" y="168" text-anchor="middle" font-size="12" fill="#475569">hedef 198.51.100.7:40001</text>
+  <line x1="418" y1="150" x2="202" y2="150" stroke="#0d9488" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#ok-0d9488)"/>
+  <text x="310" y="168" text-anchor="middle" font-size="12" fill="#475569">hedef 192.168.10.11:51000</text>
+
+  <line x1="200" y1="330" x2="418" y2="330" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <text x="310" y="322" text-anchor="middle" font-size="12" fill="#475569">kaynak 192.168.10.12:51000</text>
+  <line x1="682" y1="330" x2="898" y2="330" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <text x="790" y="322" text-anchor="middle" font-size="12" fill="#475569">kaynak 198.51.100.7:40002</text>
+  <line x1="898" y1="375" x2="682" y2="375" stroke="#0d9488" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#ok-0d9488)"/>
+  <text x="790" y="393" text-anchor="middle" font-size="12" fill="#475569">hedef 198.51.100.7:40002</text>
+  <line x1="418" y1="375" x2="202" y2="375" stroke="#0d9488" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#ok-0d9488)"/>
+  <text x="310" y="393" text-anchor="middle" font-size="12" fill="#475569">hedef 192.168.10.12:51000</text>
+
+  <line x1="40" y1="462" x2="110" y2="462" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <text x="120" y="466" font-size="12" fill="#475569">Gidiş: kaynak adres ve port yeniden yazılır, hedef aynı kalır</text>
+  <line x1="560" y1="462" x2="630" y2="462" stroke="#0d9488" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#ok-0d9488)"/>
+  <text x="640" y="466" font-size="12" fill="#475569">Dönüş: tablodaki kayıtla hedef iç adrese çevrilir</text>
+  <text x="40" y="488" font-size="11" fill="#475569">Adresler ve dış portlar dokümantasyon amaçlı örnek değerlerdir.</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" role="img" aria-labelledby="t3 d3">
+<title id="t3">CSMA/CA zaman şeması: dinleme, geri sayım, donma, onay ve yeniden deneme</title>
+<desc id="d3">Zaman soldan sağa akar. Kanal satırında önce C'nin yayını, ardından kısa bekleme ve beş boş dilim görülür. A'nın sayacı 5'ten 0'a iner ve A çerçevesini gönderir. B'nin sayacı 9'dan 4'e iner ve kanal meşgulken 4'te donar. Alıcı AP, normal beklemeden daha kısa bir aradan sonra tek adresli onay (ACK) gönderir. Kanal boşalınca B 4'ten 0'a sayar ve çerçevesini gönderir. Alt panel onay gelmezse yeniden deneme ve sayaç aralığının büyümesini, onay yokluğunun olası nedenlerini ve yayın ile multicast çerçevelerinin bu modele girmediğini belirtir. Sayılar öğretici basit değerlerdir.</desc>
+<style>
+text{font-family:"DejaVu Sans",sans-serif;fill:#0f172a;font-size:13.5px}
+.h{font-size:18px;font-weight:700;fill:#0f172a}.b{font-weight:700;fill:#1e293b}.c{text-anchor:middle}.s{font-size:12px;fill:#475569}.w{fill:#ffffff}
+</style>
+<defs>
+<pattern id="hk" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#ffffff" /><line x1="0" y1="0" x2="0" y2="6" stroke="#94a3b8" stroke-width="2" /></pattern>
+</defs>
+<rect width="960" height="620" fill="#f8fafc" />
+<text x="20" y="24" class="h" font-size="18" style="font-size:18px">Zaman →</text>
+<g>
+<circle cx="190" cy="55" r="11" fill="#eff6ff" stroke="#2563eb" stroke-width="2" /><text x="190" y="59" class="c b" font-size="13.5" style="font-size:13.5px">1</text><text x="190" y="88" class="c s" font-size="11" style="font-size:11px">Dinle: ortam meşgul</text>
+<circle cx="365" cy="55" r="11" fill="#eff6ff" stroke="#2563eb" stroke-width="2" /><text x="365" y="59" class="c b" font-size="13.5" style="font-size:13.5px">2</text><text x="365" y="88" class="c s" font-size="11" style="font-size:11px">Boşta rastgele geri sayım</text>
+<circle cx="515" cy="55" r="11" fill="#eff6ff" stroke="#2563eb" stroke-width="2" /><text x="515" y="59" class="c b" font-size="13.5" style="font-size:13.5px">3</text><text x="515" y="88" class="c s" font-size="11" style="font-size:11px">A gönderir, B donar</text>
+<circle cx="630" cy="55" r="11" fill="#eff6ff" stroke="#2563eb" stroke-width="2" /><text x="630" y="59" class="c b" font-size="13.5" style="font-size:13.5px">4</text><text x="630" y="88" class="c s" font-size="11" style="font-size:11px">Kısa aralık + ACK</text>
+<circle cx="835" cy="55" r="11" fill="#eff6ff" stroke="#2563eb" stroke-width="2" /><text x="835" y="59" class="c b" font-size="13.5" style="font-size:13.5px">5</text><text x="835" y="88" class="c s" font-size="11" style="font-size:11px">B kaldığı yerden sürer, gönderir</text>
+</g>
+<text x="20" y="135" class="b" font-size="13.5" style="font-size:13.5px">Kanal</text><text x="20" y="195" class="b" font-size="13.5" style="font-size:13.5px">İstemci A</text><text x="20" y="255" class="b" font-size="13.5" style="font-size:13.5px">İstemci B</text><text x="20" y="315" class="b" font-size="13.5" style="font-size:13.5px">AP (alıcı)</text>
+
+<rect x="130" y="110" width="120" height="40" fill="#cbd5e1" stroke="#475569" stroke-width="2" rx="3" /><text x="190" y="135" class="c b" font-size="13.5" style="font-size:13.5px">C yayında</text>
+<rect x="250" y="110" width="40" height="40" fill="#ffffff" stroke="#475569" stroke-dasharray="3 3" rx="3" /><text x="270" y="134" class="c s" font-size="9.5" style="font-size:9.5px">bekleme</text>
+<g fill="#ffffff" stroke="#475569" stroke-dasharray="3 3">
+<rect x="290" y="110" width="30" height="40" /><rect x="320" y="110" width="30" height="40" /><rect x="350" y="110" width="30" height="40" /><rect x="380" y="110" width="30" height="40" /><rect x="410" y="110" width="30" height="40" />
+<rect x="730" y="110" width="30" height="40" /><rect x="760" y="110" width="30" height="40" /><rect x="790" y="110" width="30" height="40" /><rect x="820" y="110" width="30" height="40" />
+</g>
+<text x="305" y="134" class="c s" font-size="12" style="font-size:12px">boş</text><text x="335" y="134" class="c s" font-size="12" style="font-size:12px">boş</text><text x="365" y="134" class="c s" font-size="12" style="font-size:12px">boş</text><text x="395" y="134" class="c s" font-size="12" style="font-size:12px">boş</text><text x="425" y="134" class="c s" font-size="12" style="font-size:12px">boş</text>
+<text x="745" y="134" class="c s" font-size="12" style="font-size:12px">boş</text><text x="775" y="134" class="c s" font-size="12" style="font-size:12px">boş</text><text x="805" y="134" class="c s" font-size="12" style="font-size:12px">boş</text><text x="835" y="134" class="c s" font-size="12" style="font-size:12px">boş</text>
+<rect x="440" y="110" width="150" height="40" fill="#2563eb" stroke="#2563eb" stroke-width="2" rx="3" /><text x="515" y="135" class="c b w" font-size="13.5" style="font-size:13.5px">A çerçevesi</text>
+<rect x="590" y="110" width="30" height="40" fill="#ffffff" stroke="#475569" stroke-dasharray="3 3" rx="3" /><text x="605" y="134" class="c s" font-size="12" style="font-size:12px">kısa</text>
+<rect x="620" y="110" width="50" height="40" fill="url(#hk)" stroke="#d97706" stroke-width="2" rx="3" /><text x="645" y="135" class="c b" font-size="13.5" style="font-size:13.5px;fill:#d97706">ACK</text>
+<rect x="670" y="110" width="60" height="40" fill="#ffffff" stroke="#475569" stroke-dasharray="3 3" rx="3" /><text x="700" y="127" class="c s" font-size="12" style="font-size:12px">normal</text><text x="700" y="140" class="c s" font-size="10.2" style="font-size:10.2px">bekleme</text>
+<rect x="850" y="110" width="90" height="40" fill="#2563eb" stroke="#2563eb" stroke-width="2" rx="3" /><text x="895" y="135" class="c b w" font-size="11.54" style="font-size:11.54px">B çerçevesi</text>
+
+<rect x="130" y="170" width="160" height="40" fill="#ffffff" stroke="#475569" stroke-dasharray="6 3" rx="3" /><text x="210" y="195" class="c s" font-size="12" style="font-size:12px">dinler: meşgul → bekler</text>
+<g fill="#ffffff" stroke="#475569"><rect x="290" y="170" width="30" height="40" /><rect x="320" y="170" width="30" height="40" /><rect x="350" y="170" width="30" height="40" /><rect x="380" y="170" width="30" height="40" /><rect x="410" y="170" width="30" height="40" /></g>
+<text x="305" y="195" class="c b" font-size="13.5" style="font-size:13.5px">4</text><text x="335" y="195" class="c b" font-size="13.5" style="font-size:13.5px">3</text><text x="365" y="195" class="c b" font-size="13.5" style="font-size:13.5px">2</text><text x="395" y="195" class="c b" font-size="13.5" style="font-size:13.5px">1</text><text x="425" y="195" class="c b" font-size="13.5" style="font-size:13.5px">0</text>
+<text x="290" y="222" class="s" font-size="12" style="font-size:12px">A sayacı: 5 → 0</text>
+<rect x="440" y="170" width="150" height="40" fill="#2563eb" stroke="#2563eb" stroke-width="2" rx="3" /><text x="515" y="195" class="c b w" font-size="13.5" style="font-size:13.5px">gönderiyor</text>
+<rect x="590" y="170" width="80" height="40" fill="#ffffff" stroke="#475569" stroke-dasharray="6 3" rx="3" /><text x="630" y="195" class="c s" font-size="11.7" style="font-size:11.7px">ACK bekler</text>
+
+<rect x="130" y="230" width="160" height="40" fill="#ffffff" stroke="#475569" stroke-dasharray="6 3" rx="3" /><text x="210" y="255" class="c s" font-size="12" style="font-size:12px">dinler: meşgul → bekler</text>
+<g fill="#ffffff" stroke="#475569"><rect x="290" y="230" width="30" height="40" /><rect x="320" y="230" width="30" height="40" /><rect x="350" y="230" width="30" height="40" /><rect x="380" y="230" width="30" height="40" /><rect x="410" y="230" width="30" height="40" /></g>
+<text x="305" y="255" class="c b" font-size="13.5" style="font-size:13.5px">8</text><text x="335" y="255" class="c b" font-size="13.5" style="font-size:13.5px">7</text><text x="365" y="255" class="c b" font-size="13.5" style="font-size:13.5px">6</text><text x="395" y="255" class="c b" font-size="13.5" style="font-size:13.5px">5</text><text x="425" y="255" class="c b" font-size="13.5" style="font-size:13.5px">4</text>
+<text x="290" y="282" class="s" font-size="12" style="font-size:12px">B sayacı: 9 → 4</text>
+<rect x="440" y="230" width="290" height="40" fill="url(#hk)" stroke="#d97706" stroke-width="3" rx="3" /><text x="585" y="255" class="c b" font-size="11.78" style="font-size:11.78px;fill:#d97706">DONDU: sayaç 4'te bekler (kanal meşgul)</text>
+<g fill="#ffffff" stroke="#475569"><rect x="730" y="230" width="30" height="40" /><rect x="760" y="230" width="30" height="40" /><rect x="790" y="230" width="30" height="40" /><rect x="820" y="230" width="30" height="40" /></g>
+<text x="745" y="255" class="c b" font-size="13.5" style="font-size:13.5px">3</text><text x="775" y="255" class="c b" font-size="13.5" style="font-size:13.5px">2</text><text x="805" y="255" class="c b" font-size="13.5" style="font-size:13.5px">1</text><text x="835" y="255" class="c b" font-size="13.5" style="font-size:13.5px">0</text>
+<text x="730" y="282" class="s" font-size="12" style="font-size:12px">4'ten devam: 4 → 0</text>
+<rect x="850" y="230" width="90" height="40" fill="#2563eb" stroke="#2563eb" stroke-width="2" rx="3" /><text x="895" y="255" class="c b w" font-size="11.98" style="font-size:11.98px">gönderiyor</text>
+
+<rect x="440" y="290" width="150" height="40" fill="#ffffff" stroke="#475569" stroke-dasharray="6 3" rx="3" /><text x="515" y="315" class="c s" font-size="12" style="font-size:12px">A'nın çerçevesini alır</text>
+<rect x="590" y="290" width="80" height="40" fill="url(#hk)" stroke="#d97706" stroke-width="2" rx="3" /><text x="630" y="315" class="c b s" font-size="9.5" style="font-size:9.5px;fill:#d97706">ACK gönderir</text>
+<text x="590" y="347" class="s" font-size="12" style="font-size:12px">kısa aralık: bekleyenler araya giremez</text>
+
+<text x="20" y="380" class="b" font-size="13.5" style="font-size:13.5px">Gösterim:</text>
+<rect x="100" y="368" width="30" height="16" fill="#cbd5e1" stroke="#475569" rx="3" /><text x="136" y="380" class="s" font-size="10.92" style="font-size:10.92px">başka cihazın yayını</text>
+<rect x="250" y="368" width="30" height="16" fill="#2563eb" stroke="#2563eb" rx="3" /><text x="286" y="380" class="s" font-size="11" style="font-size:11px">veri çerçevesi</text>
+<rect x="370" y="368" width="30" height="16" fill="url(#hk)" stroke="#d97706" rx="3" /><text x="406" y="380" class="s" font-size="11" style="font-size:11px">ACK / donmuş sayaç</text>
+<rect x="540" y="368" width="30" height="16" fill="#ffffff" stroke="#475569" stroke-dasharray="3 3" rx="3" /><text x="576" y="380" class="s" font-size="11" style="font-size:11px">boş dilim / bekleme</text>
+<rect x="710" y="368" width="30" height="16" fill="#ffffff" stroke="#475569" stroke-dasharray="6 3" rx="3" /><text x="746" y="380" class="s" font-size="11" style="font-size:11px">dinler / bekler</text>
+<rect x="20" y="405" width="920" height="195" rx="8.6" fill="#fffbeb" stroke="#d97706" stroke-width="2" stroke-dasharray="8 4" />
+<text x="35" y="428" class="h" font-size="18" style="font-size:18px">ACK gelmezse (gönderici onayı alamaz)</text>
+<text x="35" y="452" font-size="12.22" style="font-size:12.22px">Olası nedenler: A ve B aynı sayıyı çekip çakıştı · zayıf sinyal ya da parazit veri çerçevesini bozdu · ACK çerçevesi bozuldu · örtüşen kanalın girişimi.</text>
+<text x="35" y="474" font-size="13.36" style="font-size:13.36px">Tepki: çerçeve ulaşmadı sayılır → yeniden dene; sayaç aralığı büyür (örnek 0–15 → 0–31). Böylece çekilen sayılar birbirinden uzaklaşır.</text>
+<text x="35" y="500" class="b" font-size="13.5" style="font-size:13.5px;fill:#d97706">Sınır 1: ACK yokluğu tek başına çakışmanın kesin kanıtı değildir.</text>
+<text x="35" y="522" class="b" font-size="12.05" style="font-size:12.05px;fill:#d97706">Sınır 2: Bu onay düzeni tek adresli (unicast) veri çerçeveleri içindir; yayın ve multicast çerçeveleri tek adresli ACK modeline girmez.</text>
+<text x="35" y="548" font-size="13.47" style="font-size:13.47px">Wi-Fi radyosu yayın yaparken kanalı dinleyemediğinden çakışmayı yayın sırasında yakalamaz (CSMA/CD gibi değil); önlemeye çalışır,</text>
+<text x="35" y="566" font-size="13.5" style="font-size:13.5px">olduysa onayın gelmemesinden sonuç çıkarır. Sayılar ve süreler anlatım için basitleştirilmiştir.</text>
+</svg>

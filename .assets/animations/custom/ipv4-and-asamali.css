@@ -1,0 +1,78 @@
+.iaa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 8px 14px;
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
+}
+
+.iaa__baslik {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--anim-strong);
+}
+
+.iaa__ipmaske {
+  margin: 0;
+  font-family: monospace;
+  font-size: 14px;
+  color: var(--anim-text-2);
+}
+
+.iaa__kontroller {
+  display: flex;
+  gap: 8px;
+}
+
+.iaa__btn {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--anim-border-strong);
+  background: var(--anim-surface);
+  color: var(--anim-text);
+  cursor: pointer;
+}
+
+.iaa__btn:hover:not(:disabled) {
+  border-color: var(--anim-blue);
+}
+
+.iaa__btn:focus-visible {
+  outline: 2px solid var(--anim-blue);
+  outline-offset: 2px;
+}
+
+.iaa__btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.iaa__btn--vurgu {
+  background: var(--anim-blue);
+  border-color: var(--anim-blue-strong);
+  color: var(--anim-on-accent);
+}
+
+.iaa__btn--rastgele {
+  background: var(--anim-purple-bg);
+  border-color: var(--anim-purple);
+  color: var(--anim-strong);
+}
+
+.iaa__uyari {
+  color: var(--anim-red);
+  font-size: 14px;
+  padding: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iaa * {
+    transition: none !important;
+  }
+}

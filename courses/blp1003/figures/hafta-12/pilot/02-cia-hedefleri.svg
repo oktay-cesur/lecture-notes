@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" fill="#0f172a" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, sans-serif" font-size="13">
+  <title id="baslik">Güvenlik hedefleri: gizlilik, bütünlük, erişilebilirlik</title>
+  <desc id="aciklama">Üç sütun, üç güvenlik hedefini gösterir. Her sütunda yukarıdan aşağıya ok ile bağlanan soru, örnek olay ve örnek önlem kutuları vardır. Gizlilik: kim okuyabilir, misafir maaş dosyasını okur, yetkilendirme ve erişim kontrolü. Bütünlük: kayıt izinsiz değişti mi, maaş tutarı izinsiz değiştirilir, değişiklik yetkisini sınırlama, doğrulama ve kayıt tutma. Erişilebilirlik: yetkili kullanıcı hizmete ulaşabilir mi, sunucu ay sonunda yanıt vermez, yedeklilik, arıza izleme ve trafik sınırlama. Altta iki not vardır: tek bir olay birden fazla hedefi etkileyebilir; tek bir önlem de birden fazla hedefe hizmet eder, örneğin erişim kontrolü hem okumayı hem değiştirmeyi sınırlar.</desc>
+  <defs>
+    <marker id="ok-2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="440" fill="#f8fafc"/>
+
+  <rect x="20" y="20" width="300" height="50" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="170" y="52" text-anchor="middle" font-weight="bold" font-size="17" fill="#1e293b">1 · Gizlilik</text>
+  <rect x="350" y="20" width="300" height="50" rx="8" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="10 5"/>
+  <text x="500" y="52" text-anchor="middle" font-weight="bold" font-size="17" fill="#1e293b">2 · Bütünlük</text>
+  <rect x="680" y="20" width="300" height="50" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="2 5"/>
+  <text x="830" y="52" text-anchor="middle" font-weight="bold" font-size="17" fill="#1e293b">3 · Erişilebilirlik</text>
+
+  <rect x="20" y="95" width="300" height="55" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="32" y="115" font-size="11" font-weight="bold" fill="#1e293b">SORU</text>
+  <text x="32" y="138" fill="#0f172a">Kim okuyabilir?</text>
+  <line x1="170" y1="150" x2="170" y2="173" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <rect x="20" y="175" width="300" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="32" y="195" font-size="11" font-weight="bold" fill="#1e293b">ÖRNEK OLAY</text>
+  <text x="32" y="219" fill="#0f172a">Misafir maaş dosyasını okur</text>
+  <line x1="170" y1="235" x2="170" y2="258" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <rect x="20" y="260" width="300" height="80" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="32" y="280" font-size="11" font-weight="bold" fill="#1e293b">ÖRNEK ÖNLEM</text>
+  <text x="32" y="304" fill="#0f172a">Yetkilendirme,</text>
+  <text x="32" y="324" fill="#0f172a">erişim kontrolü</text>
+
+  <rect x="350" y="95" width="300" height="55" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="362" y="115" font-size="11" font-weight="bold" fill="#1e293b">SORU</text>
+  <text x="362" y="138" fill="#0f172a">Kayıt izinsiz değişti mi?</text>
+  <line x1="500" y1="150" x2="500" y2="173" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <rect x="350" y="175" width="300" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="362" y="195" font-size="11" font-weight="bold" fill="#1e293b">ÖRNEK OLAY</text>
+  <text x="362" y="219" fill="#0f172a">Maaş tutarı izinsiz değiştirilir</text>
+  <line x1="500" y1="235" x2="500" y2="258" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <rect x="350" y="260" width="300" height="80" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="362" y="280" font-size="11" font-weight="bold" fill="#1e293b">ÖRNEK ÖNLEM</text>
+  <text x="362" y="304" fill="#0f172a">Değişiklik yetkisini sınırlama,</text>
+  <text x="362" y="324" fill="#0f172a">doğrulama, kayıt tutma</text>
+
+  <rect x="680" y="95" width="300" height="55" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="692" y="115" font-size="11" font-weight="bold" fill="#1e293b">SORU</text>
+  <text x="692" y="138" fill="#0f172a">Yetkili kullanıcı hizmete ulaşabilir mi?</text>
+  <line x1="830" y1="150" x2="830" y2="173" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <rect x="680" y="175" width="300" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="692" y="195" font-size="11" font-weight="bold" fill="#1e293b">ÖRNEK OLAY</text>
+  <text x="692" y="219" fill="#0f172a">Sunucu ay sonunda yanıt vermez</text>
+  <line x1="830" y1="235" x2="830" y2="258" stroke="#2563eb" stroke-width="2" marker-end="url(#ok-2563eb)"/>
+  <rect x="680" y="260" width="300" height="80" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="692" y="280" font-size="11" font-weight="bold" fill="#1e293b">ÖRNEK ÖNLEM</text>
+  <text x="692" y="304" fill="#0f172a">Yedeklilik, arıza izleme,</text>
+  <text x="692" y="324" fill="#0f172a">trafik sınırlama</text>
+
+  <rect x="20" y="360" width="960" height="70" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="500" y="384" text-anchor="middle" fill="#0f172a">Tek bir olay birden fazla hedefi etkileyebilir: zararlı yazılım dosyayı okuyabilir, değiştirebilir ve sunucuyu çalışmaz kılabilir.</text>
+  <text x="500" y="410" text-anchor="middle" fill="#0f172a">Tek bir önlem de birden fazla hedefe hizmet eder: erişim kontrolü hem okumayı (gizlilik) hem değiştirmeyi (bütünlük) sınırlar.</text>
+</svg>

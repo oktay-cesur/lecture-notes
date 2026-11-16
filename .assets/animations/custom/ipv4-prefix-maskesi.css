@@ -1,0 +1,85 @@
+.ipm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px 14px;
+  background: var(--anim-bg);
+  border: 1px solid var(--anim-border);
+  border-radius: 10px;
+}
+
+.ipm__baslik {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--anim-strong);
+}
+
+.ipm__ip {
+  margin: 0;
+  font-family: monospace;
+  font-size: 14px;
+  color: var(--anim-text-2);
+}
+
+.ipm__dugmeler {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ipm__btn {
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--anim-border-strong);
+  background: var(--anim-surface);
+  color: var(--anim-text);
+  cursor: pointer;
+}
+
+.ipm__btn:hover {
+  border-color: var(--anim-blue);
+}
+
+.ipm__btn:focus-visible {
+  outline: 2px solid var(--anim-blue);
+  outline-offset: 2px;
+}
+
+.ipm__btn[aria-pressed="true"] {
+  background: var(--anim-blue);
+  border-color: var(--anim-blue-strong);
+  color: var(--anim-on-accent);
+}
+
+.ipm__bilgi {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.ipm__maske,
+.ipm__ag {
+  margin: 0;
+  font-family: monospace;
+  font-size: 15px;
+  color: var(--anim-strong);
+}
+
+.ipm__uyari {
+  color: var(--anim-red);
+  font-size: 14px;
+  padding: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ipm * {
+    transition: none !important;
+  }
+}

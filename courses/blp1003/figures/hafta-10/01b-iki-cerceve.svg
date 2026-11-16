@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" fill="#0f172a" role="img" aria-labelledby="t1b d1b" font-family="DejaVu Sans, sans-serif" font-size="14">
+  <title id="t1b">İki ağ, bir router: iki bağlantıdaki çerçeve</title>
+  <desc id="d1b">A (10.20.0.10, LAN-1) ile B (10.20.2.20, LAN-2) bir router ile bağlanır. A'nın ağ geçidi 10.20.0.1, B'nin ağ geçidi 10.20.2.1'dir. A'dan router'a giden çerçevede Ethernet kaynak A-MAC, hedef RA-MAC; IP kaynak 10.20.0.10, hedef 10.20.2.20; TTL 64; başlık sağlama toplamı S1. Router'dan B'ye giden çerçevede Ethernet kaynak RB-MAC, hedef B-MAC; IP adresleri aynı; TTL 63; başlık sağlama toplamı S2 olarak yeniden hesaplanır.</desc>
+  <defs>
+    <marker id="ok-2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="470" fill="#f8fafc"/>
+
+  <text x="480" y="28" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">İki ağ, bir router; iki bağlantıdaki çerçeve</text>
+
+  <rect x="30" y="60" width="160" height="80" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="110" y="85" text-anchor="middle" font-weight="bold" fill="#1e293b">A</text>
+  <text x="110" y="105" text-anchor="middle" font-size="13" fill="#0f172a">10.20.0.10/23</text>
+  <text x="110" y="123" text-anchor="middle" font-size="12" fill="#475569">MAC: A-MAC</text>
+  <text x="110" y="160" text-anchor="middle" font-size="12" fill="#475569">ağ geçidi: 10.20.0.1</text>
+
+  <rect x="370" y="45" width="220" height="110" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" rx="8"/>
+  <text x="480" y="95" text-anchor="middle" font-weight="bold" fill="#1e293b">ROUTER</text>
+  <text x="480" y="115" text-anchor="middle" font-size="12" fill="#475569">iki ayrı yayın alanı</text>
+
+  <rect x="770" y="60" width="160" height="80" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="850" y="85" text-anchor="middle" font-weight="bold" fill="#1e293b">B</text>
+  <text x="850" y="105" text-anchor="middle" font-size="13" fill="#0f172a">10.20.2.20/23</text>
+  <text x="850" y="123" text-anchor="middle" font-size="12" fill="#475569">MAC: B-MAC</text>
+  <text x="850" y="160" text-anchor="middle" font-size="12" fill="#475569">ağ geçidi: 10.20.2.1</text>
+
+  <line x1="190" y1="100" x2="370" y2="100" stroke="#475569" stroke-width="3"/>
+  <text x="280" y="86" text-anchor="middle" font-size="12" fill="#475569">LAN-1 10.20.0.0/23</text>
+  <text x="280" y="122" text-anchor="middle" font-size="12" fill="#475569">arayüz-1: 10.20.0.1/23</text>
+  <text x="280" y="138" text-anchor="middle" font-size="12" fill="#475569">MAC: RA-MAC</text>
+
+  <line x1="590" y1="100" x2="770" y2="100" stroke="#475569" stroke-width="3"/>
+  <text x="680" y="86" text-anchor="middle" font-size="12" fill="#475569">LAN-2 10.20.2.0/23</text>
+  <text x="680" y="122" text-anchor="middle" font-size="12" fill="#475569">arayüz-2: 10.20.2.1/23</text>
+  <text x="680" y="138" text-anchor="middle" font-size="12" fill="#475569">MAC: RB-MAC</text>
+
+  <text x="30" y="210" font-weight="bold" fill="#1e293b">Bağlantı 1 çerçevesi (A → router)</text>
+  <rect x="30" y="220" width="400" height="50" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="40" y="242" font-size="13" fill="#0f172a">Ethernet: kaynak A-MAC → hedef RA-MAC</text>
+  <rect x="30" y="270" width="400" height="90" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5" rx="8"/>
+  <text x="40" y="292" font-size="13" fill="#0f172a">IP: kaynak 10.20.0.10 → hedef 10.20.2.20</text>
+  <text x="40" y="314" font-size="13" fill="#0f172a">TTL = 64</text>
+  <text x="40" y="336" font-size="13" fill="#0f172a">başlık sağlama toplamı = S1</text>
+
+  <line x1="432" y1="320" x2="528" y2="320" stroke="#2563eb" stroke-width="3" marker-end="url(#ok-2563eb)"/>
+  <text x="480" y="289" text-anchor="middle" font-size="12" fill="#475569"><tspan x="480">router'dan </tspan><tspan x="480" dy="16">geçer</tspan></text>
+
+  <text x="530" y="210" font-weight="bold" fill="#1e293b">Bağlantı 2 çerçevesi (router → B)</text>
+  <rect x="530" y="220" width="400" height="50" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="540" y="242" font-size="13" fill="#0f172a">Ethernet: kaynak RB-MAC → hedef B-MAC</text>
+  <text x="540" y="260" font-size="12" font-weight="bold" fill="#1e293b">(MAC çifti değişti)</text>
+  <rect x="530" y="270" width="400" height="90" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5" rx="8"/>
+  <text x="540" y="292" font-size="13" fill="#0f172a">IP: kaynak 10.20.0.10 → hedef 10.20.2.20 (aynı)</text>
+  <text x="540" y="314" font-size="13" fill="#0f172a">TTL = 63 (değişti)</text>
+  <text x="540" y="336" font-size="13" fill="#0f172a">başlık sağlama toplamı = S2 (yeniden hesaplandı)</text>
+
+  <text x="30" y="395" font-size="13" fill="#0f172a">Router: gelen çerçevenin Ethernet başlığını çıkarır → TTL'yi 1 azaltıp başlık sağlama toplamını yeniden hesaplar →</text>
+  <text x="30" y="415" font-size="13" fill="#0f172a">çıkış bağlantısı için yeni bir Ethernet başlığı ekler.</text>
+  <text x="30" y="450" font-size="13" font-weight="bold" fill="#1e293b">Aynı kalan: kaynak ve hedef IP (NAT yok). Değişen: MAC çifti, TTL, başlık sağlama toplamı.</text>
+</svg>

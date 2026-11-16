@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" fill="#0f172a" role="img" aria-labelledby="t2b d2b" font-family="DejaVu Sans, sans-serif" font-size="14">
+  <title id="t2b">A, Router 1 ve Router 2'nin üç komşusu</title>
+  <desc id="d2b">A (10.20.0.10/23) Router 1'e bağlıdır. Router 1'in tablosunda yalnız 0.0.0.0/0 → 10.0.0.2 kaydı vardır ve 10.0.0.0/30 bağlantısıyla Router 2'nin arayüz 1'ine (10.0.0.2/30) gider. Router 2'nin üç arayüzü komşulara çıkar: arayüz 2 (10.0.1.1/30) komşu 10.0.1.2, kayıt 203.0.113.64/26; arayüz 3 (10.0.2.1/30) komşu 10.0.2.2, kayıt 203.0.113.0/24; arayüz 4 (10.0.3.1/30) komşu 10.0.3.2, kayıt 0.0.0.0/0. Paket 10.20.0.10'dan 203.0.113.78'e gider.</desc>
+  <defs>
+    <marker id="ok-059669" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#059669"/>
+    </marker>
+    <marker id="ok-2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="470" fill="#f8fafc"/>
+
+  <text x="480" y="28" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">Router 2'nin üç komşusu ve tablosundaki kayıtlar</text>
+
+  <rect x="20" y="210" width="120" height="60" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="80" y="236" text-anchor="middle" font-weight="bold" fill="#1e293b">A</text>
+  <text x="80" y="255" text-anchor="middle" font-size="12" fill="#475569">10.20.0.10/23</text>
+  <line x1="140" y1="240" x2="200" y2="240" stroke="#475569" stroke-width="2"/>
+
+  <rect x="200" y="195" width="130" height="90" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="265" y="222" text-anchor="middle" font-weight="bold" fill="#1e293b">Router 1</text>
+  <text x="265" y="242" text-anchor="middle" font-size="12" fill="#475569">10.20.0.1/23</text>
+  <text x="265" y="260" text-anchor="middle" font-size="12" fill="#475569">10.0.0.1/30</text>
+  <text x="265" y="310" text-anchor="middle" font-size="12" fill="#475569">tablosunda yalnız</text>
+  <text x="265" y="326" text-anchor="middle" font-size="12" fill="#475569">0.0.0.0/0 → 10.0.0.2</text>
+
+  <line x1="330" y1="240" x2="420" y2="240" stroke="#475569" stroke-width="2"/>
+  <text x="375" y="228" text-anchor="middle" font-size="11" fill="#475569">10.0.0.0/30</text>
+  <text x="375" y="258" text-anchor="middle" font-size="11" fill="#475569">.1 ↔ .2</text>
+
+  <rect x="420" y="60" width="150" height="360" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="495" y="225" text-anchor="middle" font-weight="bold" fill="#1e293b">Router 2</text>
+  <text x="495" y="245" text-anchor="middle" font-size="11" fill="#475569">Arayüz 1: 10.0.0.2/30</text>
+
+  <line x1="570" y1="100" x2="760" y2="100" stroke="#059669" stroke-width="3" marker-end="url(#ok-059669)"/>
+  <text x="665" y="86" text-anchor="middle" font-size="12" fill="#475569">Arayüz 2 · 10.0.1.1/30</text>
+  <rect x="760" y="70" width="190" height="60" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" rx="8"/>
+  <text x="855" y="95" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">komşu 10.0.1.2</text>
+  <text x="855" y="115" text-anchor="middle" font-size="12" fill="#475569">kayıt: 203.0.113.64/26</text>
+
+  <line x1="570" y1="240" x2="760" y2="240" stroke="#2563eb" stroke-width="3" marker-end="url(#ok-2563eb)"/>
+  <text x="665" y="226" text-anchor="middle" font-size="12" fill="#475569">Arayüz 3 · 10.0.2.1/30</text>
+  <rect x="760" y="210" width="190" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="855" y="235" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">komşu 10.0.2.2</text>
+  <text x="855" y="255" text-anchor="middle" font-size="12" fill="#475569">kayıt: 203.0.113.0/24</text>
+
+  <line x1="570" y1="380" x2="760" y2="380" stroke="#2563eb" stroke-width="3" marker-end="url(#ok-2563eb)"/>
+  <text x="665" y="366" text-anchor="middle" font-size="12" fill="#475569">Arayüz 4 · 10.0.3.1/30</text>
+  <rect x="760" y="350" width="190" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="855" y="375" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">komşu 10.0.3.2</text>
+  <text x="855" y="395" text-anchor="middle" font-size="12" fill="#475569">kayıt: 0.0.0.0/0</text>
+
+  <text x="20" y="360" font-size="12" fill="#475569">Paket: 10.20.0.10 → 203.0.113.78</text>
+  <text x="20" y="450" font-size="12" fill="#475569">Her komşunun kutusunda Router 2'nin tablosundaki ilgili kayıt yazılıdır.</text>
+</svg>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" fill="#0f172a" role="img" aria-labelledby="t3 d3" font-family="DejaVu Sans, sans-serif" font-size="14">
+  <title id="t3">Dört router'lı elmas topoloji: iki yol ve bağlantı maliyetleri</title>
+  <desc id="d3">RA, RB, RC ve RD router'ları bir elmas oluşturur. RA–RB–RC yolunun bağlantı maliyetleri 1 ve 1 (toplam 2), RA–RD–RC yolununki 2 ve 2 (toplam 4). Hedef ağ 203.0.113.0/24 RC'nin arkasındadır. RA'nın iki adayı vardır: RB üzerinden 10.30.1.2 (toplam maliyet 2) ve RD üzerinden 10.30.3.2 (toplam maliyet 4); küçük maliyetli RB yolu tabloya yazılır.</desc>
+  <defs>
+    
+  </defs>
+  <rect x="0" y="0" width="960" height="540" fill="#f8fafc"/>
+
+  <text x="480" y="28" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">RA, RB, RC, RD: dört ayrı router ve iki yol</text>
+
+  <rect x="60" y="200" width="110" height="70" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="115" y="240" text-anchor="middle" font-weight="bold" fill="#1e293b">RA</text>
+  <rect x="330" y="60" width="110" height="70" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="385" y="100" text-anchor="middle" font-weight="bold" fill="#1e293b">RB</text>
+  <rect x="330" y="340" width="110" height="70" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="385" y="380" text-anchor="middle" font-weight="bold" fill="#1e293b">RD</text>
+  <rect x="600" y="200" width="110" height="70" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" rx="8"/>
+  <text x="655" y="240" text-anchor="middle" font-weight="bold" fill="#1e293b">RC</text>
+  <rect x="800" y="205" width="140" height="60" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" rx="8"/>
+  <text x="870" y="232" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">203.0.113.0/24</text>
+  <text x="870" y="250" text-anchor="middle" font-size="11" fill="#475569">hedef ağ</text>
+  <line x1="710" y1="235" x2="800" y2="235" stroke="#475569" stroke-width="2"/>
+
+  <line x1="170" y1="225" x2="330" y2="95" stroke="#2563eb" stroke-width="3"/>
+  <text x="70" y="140" font-size="12" fill="#475569">RA–RB 10.30.1.0/30</text>
+  <text x="70" y="156" font-size="12" fill="#475569">(.1 RA | .2 RB) maliyet 1</text>
+
+  <line x1="440" y1="95" x2="600" y2="225" stroke="#2563eb" stroke-width="3"/>
+  <text x="540" y="110" font-size="12" fill="#475569">RB–RC 10.30.2.0/30 maliyet 1</text>
+  
+
+  <line x1="170" y1="245" x2="330" y2="375" stroke="#475569" stroke-width="3"/>
+  <text x="70" y="330" font-size="12" fill="#475569">RA–RD 10.30.3.0/30</text>
+  <text x="70" y="346" font-size="12" fill="#475569">(.1 RA | .2 RD) maliyet 2</text>
+
+  <line x1="440" y1="375" x2="600" y2="245" stroke="#475569" stroke-width="3"/>
+  <text x="520" y="400" font-size="12" fill="#475569">RD–RC 10.30.4.0/30 maliyet 2</text>
+
+  <rect x="20" y="440" width="920" height="90" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <text x="35" y="466" font-size="13" fill="#0f172a">Arıza öncesi: RA → RB → RC, toplam maliyet 1 + 1 = 2. Alternatif: RA → RD → RC, 2 + 2 = 4.</text>
+  <text x="35" y="488" font-size="13" fill="#0f172a">RA'nın 203.0.113.0/24 kaydı: → 10.30.1.2 (RB), maliyet 2.</text>
+  <text x="35" y="510" font-size="13" fill="#0f172a">RD yolu da RA'nın bilgisindedir; küçük toplam maliyetli yol (RB üzerinden) tabloya yazılır.</text>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</svg>
+
