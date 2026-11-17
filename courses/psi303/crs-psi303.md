@@ -101,6 +101,6 @@ Yapay zekâ ile oluşturulmuş sesli özetlere [şuradan ulaşabilirsiniz](https
 ## Değerlendirme
 
 - Ara sınav: **%40**
-- Yarıyıl sonu proje: **%60**
+- Yarıyıl sonu proje: **%60** — [Bireysel Final Projesi Yönergesi](final-projesi.md)
 
 Değerlendirmelerde yalnız doğru test seçimi değil; veriyi ve ölçüm düzeyini doğru tanıyabilme, yazılım çıktısını yorumlama, sonucu APA formatında raporlama ve yapılan yöntem tercihini gerekçelendirme becerisi de önemlidir.
