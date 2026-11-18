@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#0f172a">
+  <title id="baslik">Rol Tabanlı Erişim Kontrolü (RBAC) ve Kural Anatomisi</title>
+  <desc id="aciklama">Kullanıcının doğrudan izinlere değil rollere atandığını, rollerin de eylem ve koşullarla tanımlanmış izinler üzerinden bilgi varlıklarına eriştiğini gösteren RBAC mimarisi şeması.</desc>
+  <defs>
+    <marker id="ok-rbac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#4338ca"/>
+    </marker>
+    <marker id="ok-yesil" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#15803d"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="420" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Başlık -->
+  <text x="480" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">RBAC MİMARİSİ VE BİR ERİŞİM KURALININ ANATOMİSİ</text>
+
+  <!-- 1. Katman: Kullanıcılar (Sol) -->
+  <rect x="30" y="65" width="180" height="250" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="30" y="65" width="180" height="38" rx="8" fill="#f1f5f9"/>
+  <text x="120" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">KULLANICILAR</text>
+  
+  <rect x="45" y="115" width="150" height="42" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="120" y="141" text-anchor="middle" font-size="12" fill="#0f172a">Dr. Selin (Öğr. El.)</text>
+
+  <rect x="45" y="170" width="150" height="42" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="120" y="196" text-anchor="middle" font-size="12" fill="#0f172a">Deniz (Öğr. İşleri)</text>
+
+  <rect x="45" y="225" width="150" height="42" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="120" y="251" text-anchor="middle" font-size="12" fill="#0f172a">Prof. Fatma (Böl. Bşk.)</text>
+
+  <text x="120" y="295" text-anchor="middle" font-size="11" fill="#64748b">Kullanıcı değişir,</text>
+  <text x="120" y="308" text-anchor="middle" font-size="11" fill="#64748b">kurallar sabit kalır.</text>
+
+  <!-- Oklar: Kullanıcı -> Rol -->
+  <line x1="210" y1="136" x2="260" y2="136" stroke="#4338ca" stroke-width="2" marker-end="url(#ok-rbac)"/>
+  <line x1="210" y1="191" x2="260" y2="191" stroke="#4338ca" stroke-width="2" marker-end="url(#ok-rbac)"/>
+  <line x1="210" y1="246" x2="260" y2="246" stroke="#4338ca" stroke-width="2" marker-end="url(#ok-rbac)"/>
+
+  <!-- 2. Katman: Roller (Orta-Sol) -->
+  <rect x="270" y="65" width="190" height="250" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <rect x="270" y="65" width="190" height="38" rx="8" fill="#e0e7ff"/>
+  <text x="365" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#3730a3">ROLLER (ROLES)</text>
+
+  <rect x="285" y="115" width="160" height="42" rx="6" fill="#eef2ff" stroke="#a5b4fc"/>
+  <text x="365" y="141" text-anchor="middle" font-size="12" font-weight="bold" fill="#312e81">ogretim-elemani</text>
+
+  <rect x="285" y="170" width="160" height="42" rx="6" fill="#eef2ff" stroke="#a5b4fc"/>
+  <text x="365" y="196" text-anchor="middle" font-size="12" font-weight="bold" fill="#312e81">ogrenci-isleri</text>
+
+  <rect x="285" y="225" width="160" height="42" rx="6" fill="#eef2ff" stroke="#a5b4fc"/>
+  <text x="365" y="251" text-anchor="middle" font-size="12" font-weight="bold" fill="#312e81">bolum-baskani</text>
+
+  <text x="365" y="295" text-anchor="middle" font-size="11" font-weight="bold" fill="#4338ca">En Az Ayrıcalık</text>
+  <text x="365" y="308" text-anchor="middle" font-size="11" fill="#64748b">ve Görevler Ayrılığı</text>
+
+  <!-- Oklar: Rol -> İzin/Kural -->
+  <line x1="460" y1="190" x2="510" y2="190" stroke="#4338ca" stroke-width="2.5" marker-end="url(#ok-rbac)"/>
+
+  <!-- 3. Katman: İzin ve Kural Anatomisi (Orta-Sağ) -->
+  <rect x="520" y="65" width="230" height="250" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="520" y="65" width="230" height="38" rx="8" fill="#f8fafc"/>
+  <text x="635" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">İZİN ANATOMİSİ</text>
+
+  <rect x="535" y="115" width="200" height="45" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="545" y="134" font-size="11" font-weight="bold" fill="#1d4ed8">EYLEM (ACTION):</text>
+  <text x="545" y="150" font-size="12" fill="#1e293b">Okuma, Not Girişi, Onay</text>
+
+  <rect x="535" y="170" width="200" height="60" rx="6" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="545" y="189" font-size="11" font-weight="bold" fill="#92400e">KOŞUL (CONDITION):</text>
+  <text x="545" y="206" font-size="12" fill="#78350f">• Sadece kendi dersi</text>
+  <text x="545" y="222" font-size="12" fill="#78350f">• Not giriş takvimi açıkken</text>
+
+  <text x="635" y="260" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">Koşulsuz Yetki Tehlikelidir!</text>
+  <text x="635" y="280" text-anchor="middle" font-size="11" fill="#475569">Yetki = Eylem + Koşul</text>
+
+  <!-- Ok: İzin -> Varlık -->
+  <line x1="750" y1="190" x2="790" y2="190" stroke="#15803d" stroke-width="2.5" marker-end="url(#ok-yesil)"/>
+
+  <!-- 4. Katman: Bilgi Varlıkları (Sağ) -->
+  <rect x="800" y="65" width="135" height="250" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <rect x="800" y="65" width="135" height="38" rx="8" fill="#f0fdf4"/>
+  <text x="867" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#166534">VARLIKLAR</text>
+
+  <rect x="810" y="115" width="115" height="42" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="867" y="141" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">not-cizelgesi</text>
+
+  <rect x="810" y="170" width="115" height="42" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="867" y="196" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">ogrenci-kaydi</text>
+
+  <rect x="810" y="225" width="115" height="42" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="867" y="251" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">mufredat</text>
+
+  <!-- Alt Özet Açıklaması -->
+  <rect x="30" y="335" width="905" height="65" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="50" y="356" font-size="12" font-weight="bold" fill="#0f172a">Örnek Erişim Kuralı:</text>
+  <text x="50" y="375" font-size="12" fill="#334155">«[ogretim-elemani], [not-cizelgesi] varlığı üzerinde [Not Girişi] eylemini yalnızca</text>
+  <text x="50" y="393" font-size="12" fill="#334155">[Kendi Sorumlu Olduğu Ders] ve [Not Giriş Takvimi Açık] koşuluyla yapabilir.»</text>
+</svg>

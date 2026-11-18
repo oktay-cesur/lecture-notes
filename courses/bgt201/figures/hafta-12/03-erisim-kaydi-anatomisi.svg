@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#0f172a">
+  <title id="baslik">Bir Erişim Kaydının (Denetim İzi) Altı Temel Bileşeni</title>
+  <desc id="aciklama">ÖBS ham erişim log satırının; zaman damgası, kullanıcı/rol, kaynak IP/konum, hedef varlık, eylem türü ve sonuç/durum olmak üzere 6 kurumsal bileşene ayrıştırılmasını gösteren şema.</desc>
+
+  <rect width="960" height="420" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Başlık -->
+  <text x="480" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">BİR ERİŞİM KAYDININ (DENETİM İZİ) ANATOMİSİ VE ALTI BİLEŞENİ</text>
+
+  <!-- Örnek Ham Log Satırı Şeridi -->
+  <rect x="30" y="55" width="900" height="55" rx="6" fill="#1e293b"/>
+  <text x="45" y="73" font-size="11" font-family="monospace" fill="#94a3b8">HAM LOG [L-01] (rehber örnek):</text>
+  <text x="45" y="89" font-size="10.5" font-family="monospace" fill="#38bdf8">2026-11-17 10:15:22 | USER: canan.ik (ik-uzmani) | IP: 10.20.12.44 (Kampus Ici)</text>
+  <text x="45" y="103" font-size="10.5" font-family="monospace" fill="#38bdf8">| VARLIK: personel-dosyasi/sicil_4821 | EYLEM: DOSYA_GORUNTULE | DURUM: BASARILI</text>
+
+  <!-- 6 Bileşen Kutusu -->
+  <!-- 1. Ne Zaman? -->
+  <rect x="30" y="125" width="140" height="185" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <rect x="30" y="125" width="140" height="34" rx="8" fill="#eff6ff"/>
+  <text x="100" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#1d4ed8">1 · NE ZAMAN?</text>
+  <text x="100" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Zaman Damgası</text>
+  <rect x="40" y="195" width="120" height="30" rx="4" fill="#f1f5f9"/>
+  <text x="100" y="215" text-anchor="middle" font-size="10" font-family="monospace" fill="#334155">10:15:22 (Mesai içi)</text>
+  <text x="40" y="250" font-size="11" fill="#475569">• NTP senkronlu</text>
+  <text x="40" y="270" font-size="11" fill="#dc2626">• Mesai içi ✓</text>
+  <text x="40" y="295" font-size="10" font-weight="bold" fill="#15803d">Kural 1 uyumlu ✓</text>
+
+  <!-- 2. Kim? -->
+  <rect x="180" y="125" width="140" height="185" rx="8" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <rect x="180" y="125" width="140" height="34" rx="8" fill="#faf5ff"/>
+  <text x="250" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#6d28d9">2 · KİM?</text>
+  <text x="250" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Kullanıcı &amp; Rol</text>
+  <rect x="190" y="195" width="120" height="30" rx="4" fill="#f1f5f9"/>
+  <text x="250" y="215" text-anchor="middle" font-size="10" font-family="monospace" fill="#334155">canan.ik</text>
+  <text x="190" y="250" font-size="11" fill="#475569">• Gerçek kişi ID</text>
+  <text x="190" y="270" font-size="11" fill="#475569">• Rol: ik-uzmani</text>
+  <text x="190" y="295" font-size="10" font-weight="bold" fill="#5b21b6">Fail Belli ✓</text>
+
+  <!-- 3. Nereden? -->
+  <rect x="330" y="125" width="140" height="185" rx="8" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+  <rect x="330" y="125" width="140" height="34" rx="8" fill="#fffbeb"/>
+  <text x="400" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#b45309">3 · NEREDEN?</text>
+  <text x="400" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Kaynak IP / Uç</text>
+  <rect x="340" y="195" width="120" height="30" rx="4" fill="#f1f5f9"/>
+  <text x="400" y="215" text-anchor="middle" font-size="10" font-family="monospace" fill="#334155">10.20.12.44</text>
+  <text x="340" y="250" font-size="11" fill="#475569">• Kampüs içi ağ ✓</text>
+  <text x="340" y="270" font-size="11" fill="#dc2626">• Yerel IP aralığı</text>
+  <text x="340" y="295" font-size="10" font-weight="bold" fill="#15803d">Kural 1 uyumlu ✓</text>
+
+  <!-- 4. Hangi Varlık? -->
+  <rect x="480" y="125" width="145" height="185" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <rect x="480" y="125" width="145" height="34" rx="8" fill="#f0fdf4"/>
+  <text x="552" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">4 · HANGİ VARLIK?</text>
+  <text x="552" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Hedef Kaynak</text>
+  <rect x="490" y="195" width="125" height="30" rx="4" fill="#f1f5f9"/>
+  <text x="552" y="215" text-anchor="middle" font-size="10" font-family="monospace" fill="#334155">sicil_4821</text>
+  <text x="490" y="250" font-size="11" fill="#475569">• Hassas veri (K-4)</text>
+  <text x="490" y="270" font-size="11" fill="#dc2626">• Tekil dosya</text>
+  <text x="490" y="295" font-size="10" font-weight="bold" fill="#15803d">Rol alanı içinde ✓</text>
+
+  <!-- 5. Hangi Eylem? -->
+  <rect x="635" y="125" width="145" height="185" rx="8" fill="#ffffff" stroke="#fca5a5" stroke-width="1.5"/>
+  <rect x="635" y="125" width="145" height="34" rx="8" fill="#fef2f2"/>
+  <text x="707" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#b91c1c">5 · HANGİ EYLEM?</text>
+  <text x="707" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">İşlem Türü</text>
+  <rect x="645" y="195" width="125" height="30" rx="4" fill="#fef2f2"/>
+  <text x="707" y="215" text-anchor="middle" font-size="9" font-family="monospace" font-weight="bold" fill="#991b1b">DOSYA GÖRÜNTÜLE</text>
+  <text x="645" y="250" font-size="11" fill="#475569">• Tekil okuma</text>
+  <text x="645" y="270" font-size="11" fill="#dc2626">• Toplu export değil</text>
+  <text x="645" y="295" font-size="10" font-weight="bold" fill="#15803d">Rutin eylem ✓</text>
+
+  <!-- 6. Sonuç ve Durum? -->
+  <rect x="790" y="125" width="140" height="185" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="790" y="125" width="140" height="34" rx="8" fill="#f1f5f9"/>
+  <text x="860" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">6 · SONUÇ?</text>
+  <text x="860" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">İşlem Durumu</text>
+  <rect x="800" y="195" width="120" height="30" rx="4" fill="#f0fdf4"/>
+  <text x="860" y="215" text-anchor="middle" font-size="10" font-weight="bold" fill="#15803d">BAŞARILI</text>
+  <text x="800" y="250" font-size="11" fill="#475569">• 1 kayıt görüntülendi</text>
+  <text x="800" y="270" font-size="11" fill="#dc2626">• Eylem tamamlandı!</text>
+  <text x="800" y="295" font-size="10" font-weight="bold" fill="#15803d">Rutin, bulgu yok ✓</text>
+
+  <!-- Alt Ayrıştırma Özeti -->
+  <rect x="30" y="325" width="900" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="50" y="345" font-size="12" font-weight="bold" fill="#0f172a">Denetim İzi Çıkarımı:</text>
+  <text x="50" y="364" font-size="11.5" fill="#334155">«Tek başına 'Canan sisteme girdi' cümlesi bir şey ifade etmez. 6 bileşen bir araya geldiğinde analist şunu görür:</text>
+  <text x="50" y="380" font-size="11.5" fill="#334155">Bir İK uzmanı, mesai saatinde kampüs ağından tek bir personel dosyasını görüntülemiştir.</text>
+  <text x="50" y="396" font-size="11.5" fill="#334155">Hiçbir kural ihlal edilmemiştir; kayıt rutin işlem sayılır.»</text>
+</svg>

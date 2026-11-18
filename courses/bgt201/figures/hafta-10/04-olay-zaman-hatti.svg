@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#0f172a">
+  <title id="baslik">Gerçekleşen Yetki Olayı Zaman Çizelgesi ve Müdahale Akışı</title>
+  <desc id="aciklama">16 Kasım saat 09.02'de gerçekleşen ayrılan personel yetki olayında tespit, sınırlandırma, ilk bildirim, süreklilik ve kurtarma adımlarının süre sınırları ve delil koruma sorumluluklarıyla yürütülüşünü gösteren zaman şeması.</desc>
+  <defs>
+    <marker id="ok-zaman" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="420" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Başlık -->
+  <text x="480" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">16 KASIM YETKİ OLAYI: KRİTİK ZAMAN HATTI VE MÜDAHALE ADIMLARI</text>
+
+  <!-- Yatay Zaman Çizgisi -->
+  <line x1="60" y1="90" x2="900" y2="90" stroke="#cbd5e1" stroke-width="4"/>
+
+  <!-- Zaman Noktaları (Milestones) -->
+  <!-- Nokta 1: 09.02 -->
+  <circle cx="110" cy="90" r="12" fill="#ef4444" stroke="#ffffff" stroke-width="2"/>
+  <text x="110" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#b91c1c">09:05</text>
+
+  <!-- Nokta 2: 09.15 -->
+  <circle cx="300" cy="90" r="12" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/>
+  <text x="300" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#b45309">09:20 (&lt; 15 dk)</text>
+
+  <!-- Nokta 3: 09.30 -->
+  <circle cx="500" cy="90" r="12" fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
+  <text x="500" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#1d4ed8">09:35 (&lt; 30 dk)</text>
+
+  <!-- Nokta 4: 10.30 -->
+  <circle cx="700" cy="90" r="12" fill="#8b5cf6" stroke="#ffffff" stroke-width="2"/>
+  <text x="700" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#6d28d9">Gün içi</text>
+
+  <!-- Nokta 5: 14.00 -->
+  <circle cx="850" cy="90" r="12" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+  <text x="850" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#15803d">Sonrası</text>
+
+  <!-- Kartlar -->
+  <!-- Kart 1: Tespit -->
+  <rect x="40" y="115" width="160" height="205" rx="6" fill="#ffffff" stroke="#fca5a5" stroke-width="1.5"/>
+  <rect x="40" y="115" width="160" height="30" rx="6" fill="#fef2f2"/>
+  <text x="120" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">1 · TESPİT</text>
+  <text x="50" y="165" font-size="11" fill="#0f172a">• Ayrılan personelin</text>
+  <text x="50" y="180" font-size="11" fill="#0f172a">  VPN ile girişi</text>
+  <text x="50" y="200" font-size="11" fill="#334155">• İzleme alarmı (09.05)</text>
+  <text x="50" y="220" font-size="11" fill="#334155">• Nöbetçi operatör</text>
+  <text x="50" y="235" font-size="11" fill="#334155">  doğrulaması</text>
+  <text x="50" y="265" font-size="10" font-weight="bold" fill="#b91c1c">Olay kaydı açıldı</text>
+  <text x="50" y="280" font-size="10" fill="#7f1d1d">Öncelik: Kritik</text>
+
+  <!-- Kart 2: Sınırlandırma -->
+  <rect x="220" y="115" width="170" height="205" rx="6" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+  <rect x="220" y="115" width="170" height="30" rx="6" fill="#fffbeb"/>
+  <text x="305" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">2 · SINIRLAMA</text>
+  <text x="230" y="165" font-size="11" fill="#0f172a">• Amaç: yayılımı kes,</text>
+  <text x="230" y="180" font-size="11" fill="#0f172a">  hasarı sınırlamak</text>
+  <text x="230" y="200" font-size="11" fill="#334155">• Süre: alarmdan 15 dk</text>
+  <text x="230" y="220" font-size="11" fill="#334155">• Kanıt korunur</text>
+  <text x="230" y="245" font-size="11" font-weight="bold" fill="#15803d">Çalışma tablosu:</text>
+  <text x="230" y="265" font-size="10" fill="#166534">Aşama 2 satırını</text>
+  <text x="230" y="280" font-size="10" fill="#166534">siz dolduracaksınız.</text>
+
+  <!-- Kart 3: İlk Bildirim -->
+  <rect x="410" y="115" width="180" height="205" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <rect x="410" y="115" width="180" height="30" rx="6" fill="#eff6ff"/>
+  <text x="500" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">3 · İLK BİLDİRİM</text>
+  <text x="420" y="165" font-size="11" fill="#0f172a">• Amaç: yetkiliyi</text>
+  <text x="420" y="180" font-size="11" fill="#0f172a">  bilgilendirmek</text>
+  <text x="420" y="200" font-size="11" fill="#334155">• Süre: alarmdan 30 dk</text>
+  <text x="420" y="215" font-size="11" fill="#334155">  yazılı ilk bildirim</text>
+  <text x="420" y="235" font-size="11" fill="#334155">• İçerik: doğrulanmış</text>
+  <text x="420" y="250" font-size="11" fill="#334155">  olgular</text>
+  <text x="420" y="280" font-size="10" font-weight="bold" fill="#1e40af">Çalışma tablosu: Aşama 3</text>
+
+  <!-- Kart 4: Süreklilik ve Kurtarma -->
+  <rect x="610" y="115" width="170" height="205" rx="6" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <rect x="610" y="115" width="170" height="30" rx="6" fill="#faf5ff"/>
+  <text x="695" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#6d28d9">4 · SÜREKLİLİK</text>
+  <text x="620" y="165" font-size="11" fill="#0f172a">• Amaç: işin aksamaması</text>
+  <text x="620" y="180" font-size="11" fill="#0f172a">  hizmetin sürmesi</text>
+  <text x="620" y="205" font-size="11" fill="#334155">• Kayıt operasyonu</text>
+  <text x="620" y="220" font-size="11" fill="#334155">  durmamalı</text>
+  <text x="620" y="235" font-size="11" fill="#334155"></text>
+  <text x="620" y="265" font-size="10" font-weight="bold" fill="#5b21b6">Çalışma tablosu:</text>
+  <text x="620" y="280" font-size="10" fill="#5b21b6">Aşama 4</text>
+
+  <!-- Kart 5: Kapanış & RCA -->
+  <rect x="795" y="115" width="140" height="205" rx="6" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <rect x="795" y="115" width="140" height="30" rx="6" fill="#f0fdf4"/>
+  <text x="865" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">5 · KAPANIŞ</text>
+  <text x="805" y="165" font-size="11" fill="#0f172a">• Güvenli dönüş</text>
+  <text x="805" y="180" font-size="10" fill="#334155">  ve açık kalanlar</text>
+  <text x="805" y="195" font-size="10" fill="#334155"></text>
+  <text x="805" y="220" font-size="11" font-weight="bold" fill="#15803d">Kalıcı neden</text>
+  <text x="805" y="240" font-size="10" fill="#166534">risk planına</text>
+  <text x="805" y="255" font-size="10" fill="#166534">devredilir</text>
+  <text x="805" y="280" font-size="10" font-weight="bold" fill="#166534">Aşama 5 tablosu</text>
+
+  <!-- Alt Süre Özeti -->
+  <rect x="40" y="335" width="895" height="65" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="60" y="356" font-size="12" font-weight="bold" fill="#0f172a">Ölçüm ve Kural Özeti:</text>
+  <text x="60" y="375" font-size="12" fill="#334155">«Süreler alarm anına (09.05) göre sayılır: sınırlandırma en geç 09.20, ilk bildirim en geç 09.35.</text>
+  <text x="60" y="393" font-size="12" fill="#334155">5 dosya 09.02–09.04'te zaten indirilmişti; müdahale yayılmayı durdurur, olayı geri almaz.»</text>
+</svg>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#0f172a">
+  <title id="baslik">Erişim Talebi Değerlendirme ve Onay Akışı</title>
+  <desc id="aciklama">Kullanıcının talep açmasından birim amiri onayı, bilgi varlığı sahibi kontrolü, BT tanımlaması ve geçici süre sonunda yetkinin geri alınmasına kadar uzanan erişim yaşam döngüsü şeması.</desc>
+  <defs>
+    <marker id="ok-talep" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#0369a1"/>
+    </marker>
+    <marker id="ok-ret" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="420" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Başlık -->
+  <text x="480" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">ERİŞİM TALEBİ DEĞERLENDİRME VE ONAY MEKANİZMASI</text>
+
+  <!-- 5 Aşama Kartı -->
+  <!-- 1. Talep Açma -->
+  <rect x="25" y="65" width="165" height="235" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="25" y="65" width="165" height="34" rx="8" fill="#f1f5f9"/>
+  <text x="107" y="88" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">1 · TALEP AÇMA</text>
+  <text x="35" y="120" font-size="11" fill="#0f172a">• Talep Eden Kişi</text>
+  <text x="35" y="140" font-size="11" fill="#0f172a">• İstenen Rol / İzin</text>
+  <text x="35" y="160" font-size="11" fill="#0f172a">• İş Gerekçesi</text>
+  <text x="35" y="180" font-size="11" fill="#0f172a">• Süre (Sürekli / Geçici)</text>
+  <rect x="35" y="210" width="145" height="42" rx="4" fill="#eff6ff"/>
+  <text x="107" y="234" text-anchor="middle" font-size="10" font-weight="bold" fill="#1d4ed8">Resmi Form ile Kayıt</text>
+
+  <!-- Ok 1 -> 2 -->
+  <line x1="190" y1="180" x2="215" y2="180" stroke="#0369a1" stroke-width="2" marker-end="url(#ok-talep)"/>
+
+  <!-- 2. Birim Yöneticisi -->
+  <rect x="220" y="65" width="165" height="235" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <rect x="220" y="65" width="165" height="34" rx="8" fill="#eff6ff"/>
+  <text x="302" y="88" text-anchor="middle" font-size="12" font-weight="bold" fill="#1d4ed8">2 · BİRİM AMİRİ</text>
+  <text x="230" y="120" font-size="11" fill="#0f172a">• Görev ihtiyacı var mı?</text>
+  <text x="230" y="140" font-size="11" fill="#0f172a">• Kadro/unvan uygun mu?</text>
+  <text x="230" y="160" font-size="11" fill="#0f172a">• İlk onay verilir</text>
+  <text x="230" y="195" font-size="10" fill="#dc2626">Uygunsuzsa:</text>
+  <text x="230" y="210" font-size="10" font-weight="bold" fill="#dc2626">Gerekçeli Ret</text>
+  <rect x="230" y="240" width="145" height="42" rx="4" fill="#f0fdf4"/>
+  <text x="302" y="264" text-anchor="middle" font-size="10" font-weight="bold" fill="#15803d">1. Kademe Onay</text>
+
+  <!-- Ok 2 -> 3 -->
+  <line x1="385" y1="180" x2="410" y2="180" stroke="#0369a1" stroke-width="2" marker-end="url(#ok-talep)"/>
+
+  <!-- 3. Bilgi Varlığı Sahibi -->
+  <rect x="415" y="65" width="175" height="235" rx="8" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+  <rect x="415" y="65" width="175" height="34" rx="8" fill="#fffbeb"/>
+  <text x="502" y="88" text-anchor="middle" font-size="12" font-weight="bold" fill="#b45309">3 · VARLIK SAHİBİ</text>
+  <text x="425" y="120" font-size="11" fill="#0f172a">• En az ayrıcalık kontrolü</text>
+  <text x="425" y="140" font-size="11" fill="#0f172a">• Yetki çakışması (SoD)?</text>
+  <text x="425" y="160" font-size="11" fill="#0f172a">• Koşul ekleme (Bölüm/Ders)</text>
+  <text x="425" y="185" font-size="10" fill="#dc2626">Aşırı yetkide:</text>
+  <text x="425" y="200" font-size="10" font-weight="bold" fill="#dc2626">Kapsam Daraltma / Ret</text>
+  <rect x="425" y="240" width="155" height="42" rx="4" fill="#fffbeb"/>
+  <text x="502" y="264" text-anchor="middle" font-size="10" font-weight="bold" fill="#b45309">Güvenlik Onayı</text>
+
+  <!-- Ok 3 -> 4 -->
+  <line x1="590" y1="180" x2="615" y2="180" stroke="#0369a1" stroke-width="2" marker-end="url(#ok-talep)"/>
+
+  <!-- 4. BT Uygulama -->
+  <rect x="620" y="65" width="150" height="235" rx="8" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <rect x="620" y="65" width="150" height="34" rx="8" fill="#faf5ff"/>
+  <text x="695" y="88" text-anchor="middle" font-size="12" font-weight="bold" fill="#6d28d9">4 · BT YETKİ</text>
+  <text x="630" y="120" font-size="11" fill="#0f172a">• Sistemde rol tanımı</text>
+  <text x="630" y="140" font-size="11" fill="#0f172a">• Onaysız talep asla</text>
+  <text x="630" y="155" font-size="11" fill="#0f172a">  açılmaz!</text>
+  <text x="630" y="180" font-size="11" fill="#0f172a">• Başlangıç/bitiş tarihi</text>
+  <text x="630" y="195" font-size="11" fill="#0f172a">  sisteme işlenir</text>
+  <rect x="630" y="240" width="130" height="42" rx="4" fill="#faf5ff"/>
+  <text x="695" y="264" text-anchor="middle" font-size="10" font-weight="bold" fill="#6d28d9">Teknik Tanım</text>
+
+  <!-- Ok 4 -> 5 -->
+  <line x1="770" y1="180" x2="795" y2="180" stroke="#0369a1" stroke-width="2" marker-end="url(#ok-talep)"/>
+
+  <!-- 5. Sonlandırma / Geri Alma -->
+  <rect x="800" y="65" width="135" height="235" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <rect x="800" y="65" width="135" height="34" rx="8" fill="#f0fdf4"/>
+  <text x="867" y="88" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">5 · GERİ ALMA</text>
+  <text x="810" y="120" font-size="11" fill="#0f172a">• Süre bitimi</text>
+  <text x="810" y="140" font-size="11" fill="#0f172a">• Görev değişikliği</text>
+  <text x="810" y="160" font-size="11" fill="#0f172a">• Kurumdan ayrılış</text>
+  <text x="810" y="185" font-size="11" font-weight="bold" fill="#15803d">Yetki Budama</text>
+  <text x="810" y="200" font-size="10" fill="#166534">Birikim önlenir</text>
+  <rect x="810" y="240" width="115" height="42" rx="4" fill="#f0fdf4"/>
+  <text x="867" y="264" text-anchor="middle" font-size="10" font-weight="bold" fill="#15803d">Döngü Tamam</text>
+
+  <!-- Alt Özet -->
+  <rect x="25" y="325" width="910" height="75" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="45" y="348" font-size="12" font-weight="bold" fill="#0f172a">Yetki Birikimi (Privilege Creep) Önleme İlkesi:</text>
+  <text x="45" y="368" font-size="12" fill="#334155">«Erişim talebi tek taraflı bir rica değildir; iki kademeli yönetsel onaydan geçen resmi bir güvenlik sözleşmesidir.</text>
+  <text x="45" y="388" font-size="12" fill="#334155">Görevi biten veya süresi dolan yetkinin otomatik geri alınması, yetki obezitesini ve artık hesap riskini engeller.»</text>
+</svg>

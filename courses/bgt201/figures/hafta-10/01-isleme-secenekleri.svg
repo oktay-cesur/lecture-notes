@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#0f172a">
+  <title id="baslik">Risk İşleme Seçenekleri ve Karar Zinciri</title>
+  <desc id="aciklama">Değerlendirilmiş bir riskin teşhisten sonra dört stratejiden (Kaçınma, Azaltma, Paylaşma, Kabul) biriyle işlenip onaylı aksiyon planına ve artık risk kontrolüne aktarılmasını gösteren karar akışı şeması.</desc>
+  <defs>
+    <marker id="ok-mavi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#2563eb"/>
+    </marker>
+    <marker id="ok-koyu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Tuval Arka Planı -->
+  <rect width="960" height="420" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Üst Başlık Şeridi -->
+  <text x="480" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">RİSK DEĞERLENDİRMEDEN AKSİYON PLANINA KARAR DÖNGÜSÜ</text>
+
+  <!-- 1. Aşama: Teşhis / Değerlendirme (Sol) -->
+  <rect x="25" y="60" width="180" height="330" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="25" y="60" width="180" height="42" rx="8" fill="#f1f5f9"/>
+  <text x="115" y="86" text-anchor="middle" font-weight="bold" font-size="14" fill="#334155">1 · TEŞHİS</text>
+  <text x="115" y="125" text-anchor="middle" font-weight="bold" font-size="13" fill="#1e293b">Değerlendirilmiş Risk</text>
+  
+  <rect x="40" y="145" width="150" height="65" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+  <text x="50" y="168" font-size="12" font-weight="bold" fill="#991b1b">Yüksek Risk</text>
+  <text x="50" y="188" font-size="11" fill="#7f1d1d">Hemen müdahale ve</text>
+  <text x="50" y="202" font-size="11" fill="#7f1d1d">öncelikli aksiyon şart</text>
+
+  <rect x="40" y="225" width="150" height="65" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+  <text x="50" y="248" font-size="12" font-weight="bold" fill="#92400e">Orta Risk</text>
+  <text x="50" y="268" font-size="11" fill="#78350f">Gerekçeli yönetim kararı</text>
+  <text x="50" y="282" font-size="11" fill="#78350f">ve gözden geçirme tarihi</text>
+
+  <rect x="40" y="305" width="150" height="65" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+  <text x="50" y="328" font-size="12" font-weight="bold" fill="#166534">Düşük Risk</text>
+  <text x="50" y="348" font-size="11" fill="#14532d">Mevcut kontrollerle</text>
+  <text x="50" y="362" font-size="11" fill="#14532d">izleme ve kabul</text>
+
+  <!-- Ok: Teşhisten Stratejilere -->
+  <line x1="205" y1="225" x2="255" y2="225" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ok-mavi)"/>
+
+  <!-- 2. Aşama: Tercih / Dört İşleme Seçeneği (Orta) -->
+  <rect x="265" y="60" width="415" height="330" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="265" y="60" width="415" height="42" rx="8" fill="#eff6ff"/>
+  <text x="472" y="86" text-anchor="middle" font-weight="bold" font-size="14" fill="#1d4ed8">2 · TERCİH: DÖRT İŞLEME SEÇENEĞİ</text>
+
+  <!-- Seçenek 1: Kaçınma -->
+  <rect x="280" y="115" width="185" height="120" rx="6" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.5"/>
+  <text x="292" y="138" font-size="13" font-weight="bold" fill="#be123c">Kaçınma (Avoidance)</text>
+  <text x="292" y="160" font-size="11" fill="#334155">• Faaliyeti durdurma</text>
+  <text x="292" y="178" font-size="11" fill="#334155">• Riski doğuran ortamı</text>
+  <text x="292" y="194" font-size="11" fill="#334155">  tamamen terk etme</text>
+  <text x="292" y="218" font-size="11" font-weight="bold" fill="#9f1239">Örn: Güvensiz servisi kapat</text>
+
+  <!-- Seçenek 2: Azaltma -->
+  <rect x="480" y="115" width="185" height="120" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="492" y="138" font-size="13" font-weight="bold" fill="#1d4ed8">Azaltma (Mitigation)</text>
+  <text x="492" y="160" font-size="11" fill="#334155">• Güvenlik kontrolü kurma</text>
+  <text x="492" y="178" font-size="11" fill="#334155">• Olasılık veya etkiyi</text>
+  <text x="492" y="194" font-size="11" fill="#334155">  aşağı çekme</text>
+  <text x="492" y="218" font-size="11" font-weight="bold" fill="#1e40af">Örn: MFA, parola politikası</text>
+
+  <!-- Seçenek 3: Paylaşma -->
+  <rect x="280" y="250" width="185" height="125" rx="6" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1.5"/>
+  <text x="292" y="273" font-size="13" font-weight="bold" fill="#6d28d9">Paylaşma / Devir</text>
+  <text x="292" y="295" font-size="11" fill="#334155">• Siber sigorta yaptırma</text>
+  <text x="292" y="313" font-size="11" fill="#334155">• SLA ile uzman desteği</text>
+  <text x="292" y="329" font-size="11" fill="#334155">  ve sözleşmeli devir</text>
+  <text x="292" y="353" font-size="11" font-weight="bold" fill="#5b21b6">Örn: Bulut yedekleme SLA</text>
+
+  <!-- Seçenek 4: Kabul Etme -->
+  <rect x="480" y="250" width="185" height="125" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+  <text x="492" y="273" font-size="13" font-weight="bold" fill="#15803d">Kabul (Acceptance)</text>
+  <text x="492" y="295" font-size="11" fill="#334155">• Yönetimin bilinçli onayı</text>
+  <text x="492" y="313" font-size="11" fill="#334155">• Kontrol maliyeti riski</text>
+  <text x="492" y="329" font-size="11" fill="#334155">  aşıyorsa gerekçeli takip</text>
+  <text x="492" y="353" font-size="11" font-weight="bold" fill="#166534">Örn: İkincil test sunucusu</text>
+
+  <!-- Ok: Tercihten Uygulamaya -->
+  <line x1="680" y1="225" x2="725" y2="225" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ok-mavi)"/>
+
+  <!-- 3. Aşama: Uygulama ve Artık Risk (Sağ) -->
+  <rect x="735" y="60" width="200" height="330" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="735" y="60" width="200" height="42" rx="8" fill="#f8fafc"/>
+  <text x="835" y="86" text-anchor="middle" font-weight="bold" font-size="14" fill="#334155">3 · UYGULAMA</text>
+  
+  <rect x="748" y="115" width="174" height="110" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="758" y="138" font-size="12" font-weight="bold" fill="#0f172a">Aksiyon Planı</text>
+  <text x="758" y="160" font-size="11" fill="#475569">✓ Somut görev tanımı</text>
+  <text x="758" y="178" font-size="11" fill="#475569">✓ Belirlenmiş sorumlu</text>
+  <text x="758" y="196" font-size="11" fill="#475569">✓ Bitiş tarihi ve kaynak</text>
+  <text x="758" y="214" font-size="11" fill="#475569">✓ Doğrulama kanıtı</text>
+
+  <line x1="835" y1="225" x2="835" y2="250" stroke="#475569" stroke-width="1.5" marker-end="url(#ok-koyu)"/>
+
+  <rect x="748" y="255" width="174" height="120" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="758" y="278" font-size="12" font-weight="bold" fill="#166534">Artık Risk (Residual)</text>
+  <text x="758" y="300" font-size="11" fill="#334155">• Kontroller sonrası kalan</text>
+  <text x="758" y="316" font-size="11" fill="#334155">  kaçınılmaz risk payı</text>
+  <text x="758" y="336" font-size="11" fill="#334155">• Kabul edilebilir eşiğin</text>
+  <text x="758" y="352" font-size="11" fill="#334155">  altında kalmalıdır</text>
+  <text x="758" y="368" font-size="10" font-weight="bold" fill="#15803d">Yetkili onayı ve gerekçeyle</text>
+</svg>

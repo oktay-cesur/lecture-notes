@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#0f172a">
+  <title id="baslik">Bir Erişim Kararının Dört Temel Adımı</title>
+  <desc id="aciklama">Kimlik Saptama (İddia), Kimlik Doğrulama (Kanıtlama), Yetkilendirme (Hak Tanımı) ve Hesap Verebilirlik (Denetim İzi) adımlarının oluşturduğu kopmaz erişim kontrol zincirini gösteren şema.</desc>
+  <defs>
+    <marker id="ok-zincir" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="420" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Başlık -->
+  <text x="480" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">ERİŞİM KARARININ DÖRT KOPMAZ HALKASI</text>
+
+  <!-- 4 Sütun Kartı -->
+  <!-- 1. Kimlik Saptama -->
+  <rect x="25" y="70" width="205" height="280" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <rect x="25" y="70" width="205" height="45" rx="8" fill="#eff6ff"/>
+  <text x="127" y="98" text-anchor="middle" font-size="13" font-weight="bold" fill="#1d4ed8">1 · KİMLİK SAPTAMA</text>
+  <text x="127" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#0284c7">(Identification)</text>
+  
+  <rect x="38" y="150" width="179" height="55" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="46" y="172" font-size="11" font-weight="bold" fill="#475569">SORU:</text>
+  <text x="46" y="192" font-size="12" fill="#0f172a">Kim olduğunu iddia ediyor?</text>
+
+  <text x="38" y="235" font-size="12" fill="#334155">• Kullanıcı adı / Sicil no</text>
+  <text x="38" y="255" font-size="12" fill="#334155">• E-posta adresi</text>
+  <text x="38" y="275" font-size="12" fill="#334155">• T.C. Kimlik / Kart ID</text>
+  
+  <rect x="38" y="295" width="179" height="42" rx="6" fill="#eff6ff"/>
+  <text x="127" y="321" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">İddia: "Ben Selin'im"</text>
+
+  <!-- Ok 1 -> 2 -->
+  <line x1="230" y1="210" x2="255" y2="210" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ok-zincir)"/>
+
+  <!-- 2. Kimlik Doğrulama -->
+  <rect x="260" y="70" width="205" height="280" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <rect x="260" y="70" width="205" height="45" rx="8" fill="#f0fdf4"/>
+  <text x="362" y="98" text-anchor="middle" font-size="13" font-weight="bold" fill="#15803d">2 · DOĞRULAMA</text>
+  <text x="362" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">(Authentication)</text>
+
+  <rect x="273" y="150" width="179" height="55" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="281" y="172" font-size="11" font-weight="bold" fill="#475569">SORU:</text>
+  <text x="281" y="192" font-size="12" fill="#0f172a">İddiasını kanıtlayabiliyor mu?</text>
+
+  <text x="273" y="235" font-size="12" fill="#334155">• Bildiği: Parola / PIN</text>
+  <text x="273" y="255" font-size="12" fill="#334155">• Sahip olduğu: SMS / OTP</text>
+  <text x="273" y="275" font-size="12" fill="#334155">• Olduğu: Parmak izi / Biyo</text>
+
+  <rect x="273" y="295" width="179" height="42" rx="6" fill="#f0fdf4"/>
+  <text x="362" y="321" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">Kanıt: "Parolam ve Kodum"</text>
+
+  <!-- Ok 2 -> 3 -->
+  <line x1="465" y1="210" x2="490" y2="210" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ok-zincir)"/>
+
+  <!-- 3. Yetkilendirme -->
+  <rect x="495" y="70" width="205" height="280" rx="8" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <rect x="495" y="70" width="205" height="45" rx="8" fill="#faf5ff"/>
+  <text x="597" y="98" text-anchor="middle" font-size="13" font-weight="bold" fill="#6d28d9">3 · YETKİLENDİRME</text>
+  <text x="597" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#7c3aed">(Authorization)</text>
+
+  <rect x="508" y="150" width="179" height="55" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="516" y="172" font-size="11" font-weight="bold" fill="#475569">SORU:</text>
+  <text x="516" y="192" font-size="12" fill="#0f172a">Hangi varlıkta hangi eylem?</text>
+
+  <text x="508" y="235" font-size="12" fill="#334155">• Rol kuralları (RBAC)</text>
+  <text x="508" y="255" font-size="12" fill="#334155">• Okuma / Yazma / Onay</text>
+  <text x="508" y="275" font-size="12" fill="#334155">• Koşul: Kendi dersi/bölümü</text>
+
+  <rect x="508" y="295" width="179" height="42" rx="6" fill="#faf5ff"/>
+  <text x="597" y="321" text-anchor="middle" font-size="11" font-weight="bold" fill="#5b21b6">Kural: "Sadece Kendi Sınıfı"</text>
+
+  <!-- Ok 3 -> 4 -->
+  <line x1="700" y1="210" x2="725" y2="210" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ok-zincir)"/>
+
+  <!-- 4. Hesap Verebilirlik -->
+  <rect x="730" y="70" width="205" height="280" rx="8" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+  <rect x="730" y="70" width="205" height="45" rx="8" fill="#fffbeb"/>
+  <text x="832" y="98" text-anchor="middle" font-size="13" font-weight="bold" fill="#b45309">4 · HESAP VEREBİLİRLİK</text>
+  <text x="832" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#d97706">(Accounting / Audit)</text>
+
+  <rect x="743" y="150" width="179" height="55" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="751" y="172" font-size="11" font-weight="bold" fill="#475569">SORU:</text>
+  <text x="751" y="192" font-size="12" fill="#0f172a">Eylem kime ve ne zamana ait?</text>
+
+  <text x="743" y="235" font-size="12" fill="#334155">• Zaman damgalı log</text>
+  <text x="743" y="255" font-size="12" fill="#334155">• Bütünlüğü korunan iz</text>
+  <text x="743" y="275" font-size="12" fill="#334155">• İnkar edilemezlik (non-rep)</text>
+
+  <rect x="743" y="295" width="179" height="42" rx="6" fill="#fffbeb"/>
+  <text x="832" y="321" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">İz: "Selin 14:02'de girdi"</text>
+
+  <!-- Alt Özet Vurgusu -->
+  <rect x="180" y="365" width="600" height="38" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="480" y="389" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">UYARI: Ortak hesap veya kayıtsız erişim, 4. adımı kopararak ilk 3 adımı işlevsizleştirir.</text>
+</svg>

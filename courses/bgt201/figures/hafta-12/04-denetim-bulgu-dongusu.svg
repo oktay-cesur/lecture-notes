@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="baslik aciklama" font-family="DejaVu Sans, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#0f172a">
+  <title id="baslik">Erişim Gözden Geçirme ve Denetim Bulgusu Üretim Döngüsü</title>
+  <desc id="aciklama">Ham erişim loglarının kurumsal kurallarla taranıp resmi denetim bulgularına ve yönetim tutanağına (denetim kanıtı) dönüştürülmesini gösteren süreç şeması.</desc>
+  <defs>
+    <marker id="ok-denetim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#0284c7"/>
+    </marker>
+    <marker id="ok-eylem" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z" fill="#15803d"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="420" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Başlık -->
+  <text x="480" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">HAM LOGDAN DENETİM KANITINA: GÖZDEN GEÇİRME DÖNGÜSÜ</text>
+
+  <!-- 4 Aşamalı Yatay Süreç -->
+  <!-- Aşama 1: Ham Log Havuzu -->
+  <rect x="25" y="65" width="205" height="250" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="25" y="65" width="205" height="38" rx="8" fill="#f1f5f9"/>
+  <text x="127" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">1 · HAM LOGLAR</text>
+
+  <rect x="38" y="115" width="179" height="50" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="48" y="136" font-size="11" font-weight="bold" fill="#0f172a">Erişim Kayıtları:</text>
+  <text x="48" y="152" font-size="11" fill="#475569">L-01'den L-06'ya Log Havuzu</text>
+
+  <text x="38" y="190" font-size="11" fill="#334155">• Başarılı girişler</text>
+  <text x="38" y="210" font-size="11" fill="#334155">• Başarısız denemeler</text>
+  <text x="38" y="230" font-size="11" fill="#334155">• İndirme ve değişiklikler</text>
+  <text x="38" y="260" font-size="11" font-weight="bold" fill="#64748b">Milyonlarca satır veri</text>
+  <text x="38" y="275" font-size="10" fill="#64748b">(Tek başına kanıt değildir)</text>
+
+  <!-- Ok 1 -> 2 -->
+  <line x1="230" y1="190" x2="260" y2="190" stroke="#0284c7" stroke-width="2.5" marker-end="url(#ok-denetim)"/>
+
+  <!-- Aşama 2: 5 Güvenlik Kuralı Filtresi -->
+  <rect x="270" y="65" width="210" height="250" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <rect x="270" y="65" width="210" height="38" rx="8" fill="#eff6ff"/>
+  <text x="375" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#1d4ed8">2 · KURAL FİLTRESİ</text>
+
+  <rect x="282" y="115" width="186" height="185" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="292" y="135" font-size="11" font-weight="bold" fill="#1e40af">5 Kurumsal Kural:</text>
+  <text x="292" y="155" font-size="10" fill="#1e3a8a">1. Mesai ve kampüs ağı</text>
+  <text x="292" y="175" font-size="10" fill="#1e3a8a">2. Toplu indirme yasağı (5+)</text>
+  <text x="292" y="195" font-size="10" fill="#1e3a8a">3. 3 hatalı denemede kilit</text>
+  <text x="292" y="215" font-size="10" fill="#1e3a8a">4. Ayrılan personelin erişimi</text>
+  <text x="292" y="235" font-size="10" fill="#1e3a8a">5. BT içerik göremez</text>
+  <text x="292" y="265" font-size="10" font-weight="bold" fill="#0369a1">İhlal Taraması Yapılır</text>
+
+  <!-- Ok 2 -> 3 -->
+  <line x1="480" y1="190" x2="510" y2="190" stroke="#0284c7" stroke-width="2.5" marker-end="url(#ok-denetim)"/>
+
+  <!-- Aşama 3: Resmi Denetim Bulgusu -->
+  <rect x="520" y="65" width="210" height="250" rx="8" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+  <rect x="520" y="65" width="210" height="38" rx="8" fill="#fffbeb"/>
+  <text x="625" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#b45309">3 · RESMİ BULGU</text>
+
+  <rect x="532" y="115" width="186" height="185" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+  <text x="542" y="135" font-size="11" font-weight="bold" fill="#92400e">Bulgu Kartları (B-01..):</text>
+  <text x="542" y="155" font-size="10" fill="#78350f">• İhlal Edilen Kural</text>
+  <text x="542" y="175" font-size="10" fill="#78350f">• Dayanak Log Satırları</text>
+  <text x="542" y="195" font-size="10" fill="#78350f">• Doğrulanan Risk Derecesi</text>
+  <text x="542" y="215" font-size="10" fill="#78350f">• Etkilenen Bilgi Varlığı</text>
+  <text x="542" y="245" font-size="10" font-weight="bold" fill="#b45309">Karar Ayrımı:</text>
+  <text x="542" y="260" font-size="9" fill="#78350f">Her kayıt bulgu olmaz,</text>
+  <text x="542" y="272" font-size="9" fill="#78350f">kural ihlali içerenler yazılır.</text>
+
+  <!-- Ok 3 -> 4 -->
+  <line x1="730" y1="190" x2="760" y2="190" stroke="#15803d" stroke-width="2.5" marker-end="url(#ok-eylem)"/>
+
+  <!-- Aşama 4: Denetim Tutanağı ve Düzeltici Eylem -->
+  <rect x="770" y="65" width="165" height="250" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <rect x="770" y="65" width="165" height="38" rx="8" fill="#f0fdf4"/>
+  <text x="852" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#166534">4 · TUTANAK</text>
+
+  <rect x="780" y="115" width="145" height="185" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="790" y="135" font-size="11" font-weight="bold" fill="#166534">Denetim Kanıtı:</text>
+  <text x="790" y="155" font-size="10" fill="#14532d">Aylık Gözden Geçirme</text>
+  <text x="790" y="170" font-size="10" fill="#14532d">Tutanağı (İmzalı)</text>
+
+  <text x="790" y="200" font-size="10" font-weight="bold" fill="#15803d">Düzeltici Eylem:</text>
+  <text x="790" y="215" font-size="9" fill="#14532d">• Yetki iptali</text>
+  <text x="790" y="228" font-size="9" fill="#14532d">• İdari soruşturma</text>
+  <text x="790" y="241" font-size="9" fill="#14532d">• Politika revizyonu</text>
+
+  <text x="790" y="265" font-size="10" font-weight="bold" fill="#166534">ISO 27001 Kanıtı ✓</text>
+
+  <!-- Alt Özet -->
+  <rect x="25" y="325" width="910" height="75" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="45" y="348" font-size="12" font-weight="bold" fill="#0f172a">Gözden Geçirmenin Önemi:</text>
+  <text x="45" y="368" font-size="12" fill="#334155">«Denetçi geldiğinde 'loglarımız sunucuda duruyor' demek yeterli değildir. Standart; bu logların düzenli periyotlarla</text>
+  <text x="45" y="388" font-size="12" fill="#334155">incelendiğini, tespit edilen ihlallerin resmi tutanağa bağlandığını ve düzeltici eylemlerin kapatıldığını görmek ister.»</text>
+</svg>
