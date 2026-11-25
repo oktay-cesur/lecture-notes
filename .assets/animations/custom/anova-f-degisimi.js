@@ -476,7 +476,7 @@ export function mount(div, dataset = div.dataset) {
     const cardX = 484;
     const cardY = 26;
     const cardW = 184;
-    const cardH = 260;
+    const cardH = 148;
 
     svg.append(
       makeSvg("rect", {
@@ -556,52 +556,8 @@ export function mount(div, dataset = div.dataset) {
       : "p ≥ 0,05 · Şansla açıklanabilir";
     svg.append(decisionText);
 
-    // Ayırıcı çizgi
-    svg.append(
-      makeSvg("line", {
-        x1: cardX + 14,
-        y1: cardY + 134,
-        x2: cardX + cardW - 14,
-        y2: cardY + 134,
-        stroke: "var(--anim-border)",
-        "stroke-width": 1,
-      })
-    );
-
-    // Kareler ortalaması ve etki büyüklüğü satırları
-    const detailRows = [
-      { label: "Gruplar arası KO:", val: fmt(state.msBetween, 1) },
-      { label: "Grup içi KO:", val: fmt(state.msWithin, 1) },
-      { label: "Gruplar arası KT:", val: fmt(state.ssBetween, 1) },
-      { label: "Grup içi KT:", val: fmt(state.ssWithin, 1) },
-      { label: "Etki büyüklüğü (η²):", val: fmt(state.etaSq, 2) },
-    ];
-
-    detailRows.forEach((row, i) => {
-      const ry = cardY + 156 + i * 22;
-      const rLabel = makeSvg("text", {
-        x: cardX + 14,
-        y: ry,
-        "font-size": 11,
-        fill: "var(--anim-text-2)",
-      });
-      rLabel.textContent = row.label;
-      svg.append(rLabel);
-
-      const rVal = makeSvg("text", {
-        x: cardX + cardW - 14,
-        y: ry,
-        "text-anchor": "end",
-        "font-size": 11,
-        "font-weight": "700",
-        fill: "var(--anim-strong)",
-      });
-      rVal.textContent = row.val;
-      svg.append(rVal);
-    });
-
-    // Alt durum yorumu
-    const ratioExplain = `F = Gruplar arası KO (${fmt(state.msBetween, 1)}) / Grup içi KO (${fmt(state.msWithin, 1)}) = ${fmt(state.fValue, 2)}`;
+    // Alt durum yorumu. KO, KT ve η² bu slaytta henüz tanımlı değil.
+    const ratioExplain = `F = gruplar arası / grup içi = ${fmt(state.fValue, 2)}`;
     const comment = state.significant
       ? "Grup ortalamaları arasındaki mesafe, grup içi doğal yayılıma göre belirgin biçimde büyük; H₀ reddedilir (en az bir yöntem farklı)."
       : "Grup ortalamaları arasındaki fark, grup içi doğal yayılımın içinde kalıyor; farklar şansla açıklanabilir (H₀ reddedilemez).";
